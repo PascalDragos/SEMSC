@@ -45,6 +45,8 @@
 #include "optiga_example.h"
 #include "optiga/pal/pal_logger.h"
 
+#include "SEMS_Headers/Main.h"
+
 extern void optiga_shell_wait_for_user(void);
 extern void optiga_shell_begin(void);
 
@@ -86,8 +88,8 @@ int main(void)
 
         pal_os_timer_delay_in_milliseconds(100);
 
-        optiga_shell_wait_for_user();
-        optiga_shell_begin();
+//        optiga_shell_wait_for_user();
+        my_optiga_shell_begin();
 
     }while (FALSE);
 
