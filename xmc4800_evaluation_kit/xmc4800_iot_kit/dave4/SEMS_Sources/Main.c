@@ -34,7 +34,7 @@ void my_optiga_shell_begin(void)
     char command[8];
 
     // Se foloseste doar o data, nu la fiecare rulare
-    optiga_util_write_shared_key(0xF1E0, key, sizeof(key));
+    // optiga_util_write_shared_key(0xF1E0, key, sizeof(key));
 
 //    uint8_t enc_random_buf[1024];
 //    uint16_t enc_random_buf_len;
@@ -42,25 +42,20 @@ void my_optiga_shell_begin(void)
     //lint --e{716} Suppress the infinite loop
     while(TRUE)
     {
-    	secure_unlock();
+
         if (0 == pal_logger_read(&logger_console, (uint8_t *)command, 3))
         {
         	// Secure Unlock
-        	if(!strcmp(command, "GEN"))
+        	if(!strcmp(command, "aaa"))
         	{
-
-
+        		// Request received
+        		secure_unlock();
         	}
         	else
         	{
-        		optiga_lib_print_string_with_newline("IDK command");
+        		optiga_lib_print_string_with_newline("IDK");
+           		optiga_lib_print_string_with_newline("IDK");
         	}
-        	if(0)
-        	{
-
-        	}
-
-
 
         }
     }

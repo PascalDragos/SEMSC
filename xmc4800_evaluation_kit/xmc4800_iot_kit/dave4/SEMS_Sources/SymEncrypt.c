@@ -1,5 +1,6 @@
 #include "optiga/optiga_util.h"
 #include "optiga_example.h"
+#include <DAVE.h>
 
 #include "../SEMS_Headers/SymEncrypt.h"
 
@@ -15,7 +16,25 @@ void stream_enc(uint8_t r1[], uint8_t r2[], uint8_t len)
 {
     unsigned int i;
     for (i = 0; i < len; ++i)
+    {
         r1[i] = r1[i] ^ r2[i];
+
+    }
+}
+
+uint8_t compare_bytes(uint8_t a[], uint8_t b[], uint8_t len)
+{
+	uint8_t is_equal = true;
+	uint8_t i;
+	for (i = 0; i < len; ++i)
+	{
+		if(a[i] != b[i])
+		{
+			is_equal = false; // MISRA single exit
+			break;
+		}
+	}
+	return is_equal;
 }
 
 
@@ -80,7 +99,7 @@ void optiga_util_write_shared_key(uint16_t optiga_oid, const uint8_t key[], uint
         return_status = OPTIGA_LIB_SUCCESS;
 
     } while (FALSE);
-    OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+
 
 #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
     /**
@@ -98,7 +117,7 @@ void optiga_util_write_shared_key(uint16_t optiga_oid, const uint8_t key[], uint
         if(OPTIGA_LIB_SUCCESS != return_status)
         {
             //lint --e{774} suppress This is a generic macro
-            OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+
         }
     }
 
@@ -128,7 +147,6 @@ void optiga_util_read_shared_key(uint16_t optiga_oid, uint8_t read_data_buffer[]
         example_optiga_init();
 #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
 
-        OPTIGA_EXAMPLE_LOG_MESSAGE(__FUNCTION__);
 
         /**
          * 1. Create OPTIGA Util Instance
@@ -163,7 +181,7 @@ void optiga_util_read_shared_key(uint16_t optiga_oid, uint8_t read_data_buffer[]
 
         return_status = OPTIGA_LIB_SUCCESS;
     } while (FALSE);
-    OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+
 
 #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
     /**

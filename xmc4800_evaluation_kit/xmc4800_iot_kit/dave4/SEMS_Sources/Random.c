@@ -68,11 +68,6 @@ void optiga_crypt_random_wrapper(uint8_t random_buff[], uint8_t size)
 	{
 		//Destroy the instance after the completion of usecase if not required.
 		return_status = optiga_crypt_destroy(me);
-		if(OPTIGA_LIB_SUCCESS != return_status)
-		{
-			//lint --e{774} suppress This is a generic macro
-			OPTIGA_EXAMPLE_LOG_STATUS(return_status);
-		}
 	}
 
 

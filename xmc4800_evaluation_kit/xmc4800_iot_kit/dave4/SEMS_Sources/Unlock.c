@@ -12,12 +12,15 @@
 #include "../SEMS_Headers/RSA.h"
 #include "../SEMS_Headers/Random.h"
 
+extern pal_logger_t logger_console;
 
 uint8_t secure_unlock(void)
 {
-    uint8_t random_buf[32];
+    uint8_t random_buf[32] = {0x00};
+    uint8_t ciphertext[32] = {0x00};
     uint8_t key[32] = {0x00};
-
+    uint8_t response[9] = {0x00, 0x01, 0x02, 0x03 , 0x04, 0x05, 0x06, 0x07, 0x08};
+    uint8_t success = false;
 
 	// Generate random number using Optiga
 	optiga_crypt_random_wrapper(random_buf, 32);
@@ -36,8 +39,23 @@ uint8_t secure_unlock(void)
 
 
 	// Receive enc' from App
+	if (0 == pal_logger_read(&logger_console, (uint8_t *)ciphertext, 32))
+	{
+		// Compare enc and enc'
+		success = compare_bytes(random_buf, ciphertext, 32);
 
+		// Assing response
+		response[0] = success;
+		if(success)
+		{
+			// Generate random number using Optiga
+			optiga_crypt_random_wrapper(response + 1, 8);
 
-	// Compare enc and enc'
+			// Adauga intr-o structura
+		}
+		// Send response
+		optiga_lib_print_bytes(response, 9);
+	}
+
 	return 0;
 }
