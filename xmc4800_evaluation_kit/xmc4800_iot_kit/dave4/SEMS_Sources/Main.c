@@ -13,6 +13,9 @@
 #include "../SEMS_Headers/RSA.h"
 #include "../SEMS_Headers/SymEncrypt.h"
 #include "../SEMS_Headers/Unlock.h"
+#include "../SEMS_Headers/Com.h"
+
+extern void example_optiga_crypt_rsa_encrypt_message(void);
 
 extern pal_logger_t logger_console;
 
@@ -31,7 +34,7 @@ const uint8_t key[] = {
 
 void my_optiga_shell_begin(void)
 {
-    char command[8];
+	uint8_t command;
 
     // Se foloseste doar o data, nu la fiecare rulare
     // optiga_util_write_shared_key(0xF1E0, key, sizeof(key));
@@ -42,19 +45,23 @@ void my_optiga_shell_begin(void)
     //lint --e{716} Suppress the infinite loop
     while(TRUE)
     {
-
-        if (0 == pal_logger_read(&logger_console, (uint8_t *)command, 3))
+        if (0 == pal_logger_read(&logger_console, &command, 1))
         {
-        	// Secure Unlock
-        	if(!strcmp(command, "aaa"))
+        	switch(command)
         	{
-        		// Request received
+        	case 'U':
         		secure_unlock();
-        	}
-        	else
-        	{
+        		break;
+        	case 'C':
+        		// optiga_lib_print_string_with_newline("COM");
+        		secure_communication();
+        		break;
+        	case 'D':
+				// optiga_lib_print_string_with_newline("COM");
+        		example_optiga_crypt_rsa_encrypt_message();
+        		break;
+        	default:
         		optiga_lib_print_string_with_newline("IDK");
-           		optiga_lib_print_string_with_newline("IDK");
         	}
 
         }
