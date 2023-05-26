@@ -61,5 +61,5 @@ uint8_t secure_communication(void)
 //	uint8_t key[32] = {0x01, 0x01, 0x01, 0x01};
 //	optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));
 //	ciphertext_len = ciphertext_len; // BR
-	return 0;
+	return true;
 }

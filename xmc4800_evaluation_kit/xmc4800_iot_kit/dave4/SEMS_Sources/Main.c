@@ -44,7 +44,7 @@ void my_optiga_shell_begin(void)
 	uint8_t command[32];
 
     // Se foloseste doar o data in productie, nu la fiecare rulare
-    // optiga_util_write_shared_key(0xF1E0, key, sizeof(key));
+//    optiga_util_write_shared_key(0xF1E0, key, sizeof(key));
 
 
 	// Prima data asteapta Unlock
@@ -72,8 +72,10 @@ void my_optiga_shell_begin(void)
 			// Activate secure communication
 			if(command[0] == 'C')
 			{
-				sec_comm = secure_communication();
-
+				if(0 == sec_comm)
+				{
+					sec_comm = secure_communication();
+				}
 				continue;
 			}
 			if(command[0] == 'L')
@@ -84,7 +86,7 @@ void my_optiga_shell_begin(void)
 			if(command[0] == 'A')
 			{
 				uint8_t buff[32] = {"AABBCCDEFG"};
-				optiga_lib_print_bytes(buff, sizeof(buff));
+				write_request(buff, true);
 				continue;
 			}
 		}
