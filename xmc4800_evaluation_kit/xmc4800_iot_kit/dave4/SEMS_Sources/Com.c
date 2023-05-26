@@ -11,25 +11,39 @@
 #include "../SEMS_Headers/SymEncrypt.h"
 #include "../SEMS_Headers/RSA.h"
 #include "../SEMS_Headers/Random.h"
+#include "../SEMS_Headers/Patcher.h"
 
 extern pal_logger_t logger_console;
 
+extern void example_optiga_util_update_count(void);
 
 uint8_t secure_communication(void)
 {
     uint8_t random_buf[32] = {0x01, 0x01, 0x01, 0x01};
     uint8_t ciphertext[129] = {0x00};
     uint16_t ciphertext_len = 128;
+    uint8_t nonce[4] = {0x01, 0x01, 0x01, 0x01};
+
 
 	// Generate random number using Optiga for session key
 	optiga_crypt_random_wrapper(random_buf, 32);
 
+	// Get Nonce
+	uint16_t optiga_counter_oid = 0xE120;
+//	optiga_util_reset_count(optiga_counter_oid);
+	optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
+
+
 	// Encrypt the session key with RSA
-	optiga_crypt_rsa_encrypt_message_wrapper(random_buf, sizeof(random_buf), ciphertext, &ciphertext_len);
+	uint8_t plaintext[32 + 4] = {0};
+	memcpy(plaintext, random_buf, 32);
+	memcpy(plaintext + 32, nonce, 4);
+	optiga_crypt_rsa_encrypt_message_wrapper(plaintext, sizeof(plaintext), ciphertext, &ciphertext_len);
 
 	// Send session key to the App
 	if(ciphertext_len == 128)
 	{
+		// Pana la 127 merge ok
 		optiga_lib_print_bytes(ciphertext, 129); // TODO: TREBUIE SA TRIMIT CU UNUL IN PLUS ALTFEL RAMAN BLOCAT
 	}
 	else
@@ -38,7 +52,14 @@ uint8_t secure_communication(void)
 		optiga_lib_print_bytes(ciphertext, 129);
 	}
 
-	ciphertext_len = 128; // for breakpoint
+	// Store session key
+	uint16_t optiga_key_oid = 0xF1E0;
+	optiga_util_write_shared_key(optiga_key_oid, random_buf, sizeof(random_buf));
 
+
+	// Reaqd session key, Testing
+//	uint8_t key[32] = {0x01, 0x01, 0x01, 0x01};
+//	optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));
+//	ciphertext_len = ciphertext_len; // BR
 	return 0;
 }

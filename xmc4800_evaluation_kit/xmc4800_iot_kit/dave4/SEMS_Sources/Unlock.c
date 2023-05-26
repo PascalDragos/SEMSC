@@ -13,8 +13,55 @@
 #include "../SEMS_Headers/Random.h"
 
 extern pal_logger_t logger_console;
+uint32_t user_token = 0;
+//uint16_t user_nonce = 2;
+
 
 uint8_t secure_unlock(void)
+{
+    uint8_t random_buf[32] = {0x00};
+    uint8_t signature[128] = {0x00};
+    // 1 + 4 + 2
+    uint8_t response[1 + 4 + 2] = {0x00, 0x01, 0x02, 0x03 , 0x04, 0x05, 0x06};
+    uint8_t success = false;
+
+	// Generate random number using Optiga
+	optiga_crypt_random_wrapper(random_buf, 32);
+
+	// Send seed to App
+	optiga_lib_print_bytes(random_buf, 32);
+
+
+	// Receive signature
+	if (0 == pal_logger_read(&logger_console, (uint8_t *)signature, 128))
+	{
+		// Compare enc and enc'
+		success = optiga_crypt_rsa_verify_wrapper(random_buf, sizeof(random_buf), signature, sizeof(signature));
+		if(success)
+		{
+
+			// Assing response
+			response[0] = success;
+			// Generate random number using Optiga
+			optiga_crypt_random_wrapper(response + 1, 8);  // nu pot genera doar 6
+
+			// Adauga intr-o structura
+			user_token = (response[1] << 24)+
+						 (response[2] << 16)+
+						 (response[3] <<  8)+
+						 (response[4] <<  0);
+
+//			user_nonce = (response[5] <<  8)+
+//						 (response[6] <<  0);
+		}
+		// Send response
+		optiga_lib_print_bytes(response, 5);
+	}
+
+	return success;
+}
+
+uint8_t secure_unlock_old(void)
 {
     uint8_t random_buf[32] = {0x00};
     uint8_t ciphertext[32] = {0x00};
@@ -57,5 +104,8 @@ uint8_t secure_unlock(void)
 		optiga_lib_print_bytes(response, 9);
 	}
 
-	return 0;
+	return success;
 }
+
+
+
