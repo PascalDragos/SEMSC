@@ -1,0 +1,509 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "pal_gpio.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.pal_gpio_init,"ax",%progbits
+  20              	 .align 2
+  21              	 .global pal_gpio_init
+  22              	 .thumb
+  23              	 .thumb_func
+  25              	pal_gpio_init:
+  26              	.LFB448:
+  27              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800/pal_gpio.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * \copyright
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * MIT License
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * Copyright (c) 2020 Infineon Technologies AG
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** *
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * Permission is hereby granted, free of charge, to any person obtaining a copy
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * of this software and associated documentation files (the "Software"), to deal
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * in the Software without restriction, including without limitation the rights
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * copies of the Software, and to permit persons to whom the Software is
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * furnished to do so, subject to the following conditions:
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** *
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * The above copyright notice and this permission notice shall be included in all
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * copies or substantial portions of the Software.
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** *
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * SOFTWARE
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** *
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * \endcopyright
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** *
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * \author Infineon Technologies AG
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** *
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * \file pal_gpio.c
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** *
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * \brief   This file implements the platform abstraction layer APIs for GPIO.
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** *
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * \ingroup  grPAL
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** *
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * @{
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** */
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** 
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** #include <DAVE.h>
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** #include "optiga/pal/pal_gpio.h"
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** 
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** //lint --e{714,715} suppress "This is implemented for overall completion of API"
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** pal_status_t pal_gpio_init(const pal_gpio_t * p_gpio_context)
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** {
+  28              	 .loc 1 43 0
+  29              	 .cfi_startproc
+  30              	 
+  31              	 
+  32              	 
+  33              	.LVL0:
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c ****     return PAL_STATUS_SUCCESS;
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** }
+  34              	 .loc 1 45 0
+  35 0000 0020     	 movs r0,#0
+  36              	.LVL1:
+  37 0002 7047     	 bx lr
+  38              	 .cfi_endproc
+  39              	.LFE448:
+  41              	 .section .text.pal_gpio_deinit,"ax",%progbits
+  42              	 .align 2
+  43              	 .global pal_gpio_deinit
+  44              	 .thumb
+  45              	 .thumb_func
+  47              	pal_gpio_deinit:
+  48              	.LFB449:
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** 
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** //lint --e{714,715} suppress "This is implemented for overall completion of API"
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** pal_status_t pal_gpio_deinit(const pal_gpio_t * p_gpio_context)
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** {
+  49              	 .loc 1 49 0
+  50              	 .cfi_startproc
+  51              	 
+  52              	 
+  53              	 
+  54              	.LVL2:
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c ****     return PAL_STATUS_SUCCESS;
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** }
+  55              	 .loc 1 51 0
+  56 0000 0020     	 movs r0,#0
+  57              	.LVL3:
+  58 0002 7047     	 bx lr
+  59              	 .cfi_endproc
+  60              	.LFE449:
+  62              	 .section .text.pal_gpio_set_high,"ax",%progbits
+  63              	 .align 2
+  64              	 .global pal_gpio_set_high
+  65              	 .thumb
+  66              	 .thumb_func
+  68              	pal_gpio_set_high:
+  69              	.LFB450:
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** 
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** void pal_gpio_set_high(const pal_gpio_t * p_gpio_context)
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** {
+  70              	 .loc 1 54 0
+  71              	 .cfi_startproc
+  72              	 
+  73              	 
+  74              	 
+  75              	.LVL4:
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c ****     if ((p_gpio_context != NULL) && (p_gpio_context->p_gpio_hw != NULL))
+  76              	 .loc 1 55 0
+  77 0000 30B1     	 cbz r0,.L3
+  78              	 .loc 1 55 0 is_stmt 0 discriminator 1
+  79 0002 0368     	 ldr r3,[r0]
+  80 0004 23B1     	 cbz r3,.L3
+  81              	.LBB18:
+  82              	.LBB19:
+  83              	.LBB20:
+  84              	 .file 2 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_gpio.h"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @file xmc_gpio.h
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @date 2015-06-20
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @cond
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  **************************************************************************************************
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * XMClib v2.1.20 - XMC Peripheral Driver Library 
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Copyright (c) 2015-2018, Infineon Technologies AG
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * All rights reserved.                        
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *                                             
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Redistribution and use in source and binary forms, with or without modification,are permitted pr
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * following conditions are met:   
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *                                                                              
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Redistributions of source code must retain the above copyright notice, this list of conditions a
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * disclaimer.                        
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * 
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Redistributions in binary form must reproduce the above copyright notice, this list of condition
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * disclaimer in the documentation and/or other materials provided with the distribution.          
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * 
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Neither the name of the copyright holders nor the names of its contributors may be used to endor
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * products derived from this software without specific prior written permission.                  
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *                                                                              
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR I
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTI
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, IN
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBS
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THE
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                            
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *                                                                              
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * To improve the quality of the software, users are encouraged to share modifications, enhancement
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Infineon Technologies AG dave@infineon.com).                                                    
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  **************************************************************************************************
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Change History
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * --------------
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * 2015-02-20:
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *     - Initial draft<br>
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *     - Documentation improved <br>
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *      
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * 2015-06-20:
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *     - Removed version macros and declaration of GetDriverVersion API
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @endcond
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** #ifndef XMC_GPIO_H
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** #define XMC_GPIO_H
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** /**************************************************************************************************
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * HEADER FILES
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  **************************************************************************************************
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** #include "xmc_common.h"
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @addtogroup XMClib XMC Peripheral Library
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @{
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @addtogroup GPIO
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @brief General Purpose Input Output (GPIO) driver for the XMC microcontroller family.
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * GPIO driver provide a generic and very flexible software interface for all standard digital I/O 
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Each port slice has individual interfaces for the operation as General Purpose I/O and it furthe
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * connectivity to the on-chip periphery and the control for the pad characteristics. 
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * The driver is divided into Input and Output mode.
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Input mode features:
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * -# Configuration structure XMC_GPIO_CONFIG_t and initialization function XMC_GPIO_Init()
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * -# Allows the selection of weak pull-up or pull-down device. Configuration structure XMC_GPIO_MO
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * \if XMC1
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * -# Allows the selection of input hysteresis. XMC_GPIO_SetInputHysteresis()
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * \endif
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * 
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Output mode features:
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * -# Allows the selection of push pull/open drain and Alternate output. Configuration structure XM
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * \if XMC4
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * -# Allows the selection of pad driver strength. Configuration structure XMC_GPIO_OUTPUT_STRENGTH
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * \endif
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * -# Allows the selection of initial output level. Configuration structure XMC_GPIO_OUTPUT_LEVEL_t
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *@{
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  
+  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** /**************************************************************************************************
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * MACROS
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  **************************************************************************************************
+  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** #define PORT_IOCR_PC_Pos PORT0_IOCR0_PC0_Pos
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** #define PORT_IOCR_PC_Msk PORT0_IOCR0_PC0_Msk
+  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 100:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** #define PORT_IOCR_PC_Size 				(8U)
+ 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 											
+ 102:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** #define XMC_GPIO_CHECK_OUTPUT_LEVEL(level) ((level == XMC_GPIO_OUTPUT_LEVEL_LOW) || \
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****                                             (level == XMC_GPIO_OUTPUT_LEVEL_HIGH))
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****                                             
+ 106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** #define XMC_GPIO_CHECK_HWCTRL(hwctrl) ((hwctrl == XMC_GPIO_HWCTRL_DISABLED) || \
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****                                        (hwctrl == XMC_GPIO_HWCTRL_PERIPHERAL1) || \
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****                                        (hwctrl == XMC_GPIO_HWCTRL_PERIPHERAL2))                    
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****                                             
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** /**************************************************************************************************
+ 111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * ENUMS
+ 112:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  **************************************************************************************************
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 115:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Defines output level of a pin. Use type \a XMC_GPIO_OUTPUT_LEVEL_t for this enum.
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** typedef enum XMC_GPIO_OUTPUT_LEVEL
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** {
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_GPIO_OUTPUT_LEVEL_LOW  = 0x10000U, /**<  Reset bit */
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_GPIO_OUTPUT_LEVEL_HIGH = 0x1U, 	/**< Set bit  */
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** } XMC_GPIO_OUTPUT_LEVEL_t;
+ 123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Defines direct hardware control characteristics of the pin . Use type \a XMC_GPIO_HWCTRL_t for t
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** typedef enum XMC_GPIO_HWCTRL
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** {
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_GPIO_HWCTRL_DISABLED     = 0x0U, /**<  Software control only */
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_GPIO_HWCTRL_PERIPHERAL1  = 0x1U, /**<  HWI0/HWO0 control path can override the software confi
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_GPIO_HWCTRL_PERIPHERAL2  = 0x2U  /**<  HWI1/HWO1 control path can override the software confi
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** } XMC_GPIO_HWCTRL_t;
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 134:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** /**************************************************************************************************
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * DEVICE FAMILY EXTENSIONS
+ 136:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  **************************************************************************************************
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 138:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  #if UC_FAMILY == XMC1
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** #include "xmc1_gpio.h"
+ 140:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** #elif UC_FAMILY == XMC4
+ 141:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** #include "xmc4_gpio.h"
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** #else
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** #error "xmc_gpio.h: family device not supported"
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** #endif
+ 145:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** /**************************************************************************************************
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * API PROTOTYPES
+ 148:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  **************************************************************************************************
+ 149:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** #ifdef __cplusplus
+ 151:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** extern "C" {
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** #endif
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  port	  Constant pointer pointing to GPIO port, to access port registers like Pn_OUT,Pn_O
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  pin	  Port pin number.
+ 158:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  config GPIO configuration data structure. Refer data structure @ref XMC_GPIO_CONFIG_t fo
+ 159:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 160:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @return None
+ 161:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Description:</b><br>
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * \if XMC1
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Initializes input / output mode settings like, pull up / pull down devices,hysteresis, push pull
+ 165:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Also configures alternate function outputs and clears hardware port control for a selected \a po
+ 166:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * \a config provides selected I/O settings. It configures hardware registers Pn_IOCR,Pn_OUT, Pn_OM
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * \endif
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * \if XMC4
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Initializes input / output mode settings like, pull up / pull down devices,push pull /open drain
+ 170:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Also configures alternate function outputs and clears hardware port control for selected \a port
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * It configures hardware registers Pn_IOCR,Pn_OUT,Pn_OMR,Pn_PDISC and Pn_PDR.\n
+ 172:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * \endif
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 174:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Related APIs:</b><BR>
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *  None
+ 176:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Note:</b><br>
+ 178:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * This API is called in definition of DAVE_init by code generation and therefore should not be exp
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * for the normal operation. Use other APIs only after DAVE_init is called successfully (returns DA
+ 180:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 182:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  
+ 185:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** void XMC_GPIO_Init(XMC_GPIO_PORT_t *const port, const uint8_t pin, const XMC_GPIO_CONFIG_t *const c
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  
+ 187:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 188:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 189:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  port	Constant pointer pointing to GPIO port, to access hardware register Pn_IOCR.
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  pin	Port pin number.
+ 191:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  mode input / output functionality selection. Refer @ref XMC_GPIO_MODE_t for valid values
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 193:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @return None
+ 194:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 195:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Description:</b><br>
+ 196:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Sets digital input and output driver functionality and characteristics of a GPIO port pin. It co
+ 197:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * registers Pn_IOCR. \a mode is initially configured during initialization in XMC_GPIO_Init(). Cal
+ 198:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * the port direction functionality as needed later in the program.
+ 199:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Related APIs:</b><BR>
+ 201:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *  None
+ 202:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 203:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 204:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 205:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** void XMC_GPIO_SetMode(XMC_GPIO_PORT_t *const port, const uint8_t pin, const XMC_GPIO_MODE_t mode);
+ 206:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 207:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 208:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 209:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 210:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  port	 Constant pointer pointing to GPIO port, to access hardware register Pn_OMR.
+ 211:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  pin	 Port pin number.
+ 212:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  level output level selection. Refer @ref XMC_GPIO_OUTPUT_LEVEL_t for valid values.
+ 213:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @return None
+ 215:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Description:</b><br>
+ 217:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Set port pin output level to high or low.It configures hardware registers Pn_OMR.\a level is ini
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * configured during initialization in XMC_GPIO_Init(). Call this API to alter output level as need
+ 219:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 220:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Related APIs:</b><BR>
+ 221:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *  XMC_GPIO_SetOutputHigh(), XMC_GPIO_SetOutputLow().
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 223:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Note:</b><br>
+ 224:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Prior to this api, user has to configure port pin to output mode using XMC_GPIO_SetMode().
+ 225:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 226:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 227:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 228:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 229:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** __STATIC_INLINE void XMC_GPIO_SetOutputLevel(XMC_GPIO_PORT_t *const port, const uint8_t pin, const 
+ 230:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** {
+ 231:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_ASSERT("XMC_GPIO_SetOutputLevel: Invalid port", XMC_GPIO_CHECK_OUTPUT_PORT(port));
+ 232:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_ASSERT("XMC_GPIO_SetOutputLevel: Invalid output level", XMC_GPIO_CHECK_OUTPUT_LEVEL(level));
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****   
+ 234:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****   port->OMR = (uint32_t)level << pin;
+ 235:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** }
+ 236:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 237:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 238:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 239:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  port constant pointer pointing to GPIO port, to access hardware register Pn_OMR.
+ 240:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  pin	Port pin number.
+ 241:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 242:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @return None
+ 243:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 244:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Description:</b><br>
+ 245:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *  Sets port pin output to high. It configures hardware registers Pn_OMR.
+ 246:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 247:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *  \par<b>Related APIs:</b><BR>
+ 248:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *  XMC_GPIO_SetOutputLow()
+ 249:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 250:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Note:</b><br>
+ 251:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Prior to this api, user has to configure port pin to output mode using XMC_GPIO_SetMode().\n
+ 252:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Register Pn_OMR is virtual and does not contain any flip-flop. A read action delivers the value 
+ 253:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 254:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 255:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 256:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** __STATIC_INLINE void XMC_GPIO_SetOutputHigh(XMC_GPIO_PORT_t *const port, const uint8_t pin)
+ 257:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** {
+ 258:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_ASSERT("XMC_GPIO_SetOutputHigh: Invalid port", XMC_GPIO_CHECK_OUTPUT_PORT(port));
+ 259:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 260:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****   port->OMR = (uint32_t)0x1U << pin;
+  85              	 .loc 2 260 0 is_stmt 1
+  86 0006 197C     	 ldrb r1,[r3,#16]
+  87 0008 1A68     	 ldr r2,[r3]
+  88              	.LVL5:
+  89 000a 0123     	 movs r3,#1
+  90              	.LVL6:
+  91 000c 8B40     	 lsls r3,r3,r1
+  92 000e 5360     	 str r3,[r2,#4]
+  93              	.LVL7:
+  94              	.L3:
+  95 0010 7047     	 bx lr
+  96              	.LBE20:
+  97              	.LBE19:
+  98              	.LBE18:
+  99              	 .cfi_endproc
+ 100              	.LFE450:
+ 102 0012 00BF     	 .section .text.pal_gpio_set_low,"ax",%progbits
+ 103              	 .align 2
+ 104              	 .global pal_gpio_set_low
+ 105              	 .thumb
+ 106              	 .thumb_func
+ 108              	pal_gpio_set_low:
+ 109              	.LFB451:
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c ****     {
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c ****         DIGITAL_IO_SetOutputHigh(p_gpio_context->p_gpio_hw);
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c ****     }
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** }
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** 
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** void pal_gpio_set_low(const pal_gpio_t * p_gpio_context)
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** {
+ 110              	 .loc 1 62 0
+ 111              	 .cfi_startproc
+ 112              	 
+ 113              	 
+ 114              	 
+ 115              	.LVL8:
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c ****     if ((p_gpio_context != NULL) && (p_gpio_context->p_gpio_hw != NULL))
+ 116              	 .loc 1 63 0
+ 117 0000 38B1     	 cbz r0,.L12
+ 118              	 .loc 1 63 0 is_stmt 0 discriminator 1
+ 119 0002 0368     	 ldr r3,[r0]
+ 120 0004 2BB1     	 cbz r3,.L12
+ 121              	.LBB21:
+ 122              	.LBB22:
+ 123              	.LBB23:
+ 261:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** }
+ 262:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 263:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 264:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 265:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  port	constant pointer pointing to GPIO port, to access hardware register Pn_OMR.
+ 266:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  pin	port pin number.
+ 267:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 268:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * @return  None
+ 269:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 270:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *\par<b>Description:</b><br>
+ 271:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Sets port pin output to low. It configures hardware registers Pn_OMR.\n
+ 272:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 273:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Related APIs:</b><BR>>
+ 274:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * XMC_GPIO_SetOutputHigh()
+ 275:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 276:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *\par<b>Note:</b><br>
+ 277:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Prior to this api, user has to configure port pin to output mode using XMC_GPIO_SetMode().
+ 278:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  * Register Pn_OMR is virtual and does not contain any flip-flop. A read action delivers the value 
+ 279:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 280:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 281:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 282:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** __STATIC_INLINE void XMC_GPIO_SetOutputLow(XMC_GPIO_PORT_t *const port, const uint8_t pin)
+ 283:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** {
+ 284:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_ASSERT("XMC_GPIO_SetOutputLow: Invalid port", XMC_GPIO_CHECK_OUTPUT_PORT(port));
+ 285:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 286:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc\xmc_gpio.h ****   port->OMR = 0x10000U << pin;
+ 124              	 .loc 2 286 0 is_stmt 1
+ 125 0006 197C     	 ldrb r1,[r3,#16]
+ 126 0008 1A68     	 ldr r2,[r3]
+ 127              	.LVL9:
+ 128 000a 4FF48033 	 mov r3,#65536
+ 129              	.LVL10:
+ 130 000e 8B40     	 lsls r3,r3,r1
+ 131 0010 5360     	 str r3,[r2,#4]
+ 132              	.LVL11:
+ 133              	.L12:
+ 134 0012 7047     	 bx lr
+ 135              	.LBE23:
+ 136              	.LBE22:
+ 137              	.LBE21:
+ 138              	 .cfi_endproc
+ 139              	.LFE451:
+ 141              	 .text
+ 142              	.Letext0:
+ 143              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 144              	 .file 4 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 145              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 146              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc4_gpio.h"
+ 147              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/DIGITAL_IO/digital_io.h"
+ 148              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+ 149              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+ 150              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+ 151              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal.h"
+ 152              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal_gpio.h"
+ 153              	 .file 13 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+ 154              	 .file 14 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+ 155              	 .file 15 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 pal_gpio.c
+    {standard input}:20     .text.pal_gpio_init:00000000 $t
+    {standard input}:25     .text.pal_gpio_init:00000000 pal_gpio_init
+    {standard input}:42     .text.pal_gpio_deinit:00000000 $t
+    {standard input}:47     .text.pal_gpio_deinit:00000000 pal_gpio_deinit
+    {standard input}:63     .text.pal_gpio_set_high:00000000 $t
+    {standard input}:68     .text.pal_gpio_set_high:00000000 pal_gpio_set_high
+    {standard input}:103    .text.pal_gpio_set_low:00000000 $t
+    {standard input}:108    .text.pal_gpio_set_low:00000000 pal_gpio_set_low
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

@@ -1,0 +1,2911 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "xmc4_flash.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.XMC_FLASH_lEnterPageModeCommand,"ax",%progbits
+  20              	 .align 2
+  21              	 .global XMC_FLASH_lEnterPageModeCommand
+  22              	 .thumb
+  23              	 .thumb_func
+  25              	XMC_FLASH_lEnterPageModeCommand:
+  26              	.LFB149:
+  27              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src/xmc4_flash.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * @file xmc4_flash.c
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * @date 2016-01-08
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * @cond
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  **************************************************************************************************
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * XMClib v2.1.20 - XMC Peripheral Driver Library 
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * Copyright (c) 2015-2018, Infineon Technologies AG
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * All rights reserved.                        
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *                                             
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * Redistribution and use in source and binary forms, with or without modification,are permitted pr
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * following conditions are met:   
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *                                                                              
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * Redistributions of source code must retain the above copyright notice, this list of conditions a
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * disclaimer.                        
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * 
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * Redistributions in binary form must reproduce the above copyright notice, this list of condition
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * disclaimer in the documentation and/or other materials provided with the distribution.          
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * 
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * Neither the name of the copyright holders nor the names of its contributors may be used to endor
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * products derived from this software without specific prior written permission.                  
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *                                                                              
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR I
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTI
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, IN
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBS
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THE
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                            
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *                                                                              
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * To improve the quality of the software, users are encouraged to share modifications, enhancement
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * Infineon Technologies AG dave@infineon.com).                                                    
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  **************************************************************************************************
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * Change History
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * --------------
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * 2015-02-10:
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *     - Initial <br>
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * 2015-06-20: 
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *     - Removed definition of GetDriverVersion API 
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * 2015-08-17: 
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *     - Added the below API's to the public interface.
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *       1. XMC_FLASH_Reset
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *       2. XMC_FLASH_ErasePhysicalSector
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *       3. XMC_FLASH_EraseUCB
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *       4. XMC_FLASH_ResumeProtection
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *       5. XMC_FLASH_RepairPhysicalSector
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * 2016-01-08: 
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *     - Wait until operation is finished for the next functions:
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *       1. XMC_FLASH_InstallProtection
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *       2. XMC_FLASH_ConfirmProtection
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *       3. XMC_FLASH_ProgramPage
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *       4. XMC_FLASH_EraseSector
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *       5. XMC_FLASH_ErasePhysicalSector
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *       6. XMC_FLASH_EraseUCB
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *     - Fix XMC_FLASH_VerifyReadProtection and XMC_FLASH_VerifyWriteProtection
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * 2018-02-08
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *     - Added implementation of XMC_FLASH_InstallBMI()
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * @endcond 
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  *
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** #include "xmc_flash.h"
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** #if UC_FAMILY == XMC4
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /**************************************************************************************************
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * MACROS
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  **************************************************************************************************
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** #define XMC_FLASH_PROTECTION_CONFIGURATION_WORDS (8UL) /* Used to upadte the assembly buffer during
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****                                                           configuration */
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** #define XMC_FLASH_BMI_STRING_WORDS (10UL) /* Used to upadte the assembly buffer during BMI String
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****                                                           configuration */
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** #define XMC_FLASH_PROT_CONFIRM_OFFSET (512UL) /* Offset address for UCB page */
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** #define XMC_FLASH_PROT_CONFIRM_WORDS  (4UL)
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** #define XMC_FLASH_PROT_CONFIRM_CODE   (0x8AFE15C3UL)
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /**************************************************************************************************
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * LOCAL FUNCTIONS
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  **************************************************************************************************
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_lEnterPageModeCommand(void);
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_lLoadPageCommand(uint32_t low_word, uint32_t high_word);
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_lWritePageCommand(uint32_t *page_start_address);
+  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_lWriteUCBPageCommand(uint32_t *page_start_address);
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_lEraseSectorCommand(uint32_t *sector_start_address);
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_lDisableSectorWriteProtectionCommand(uint32_t user, uint32_t password_0, uint32_t pa
+  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_lDisableReadProtectionCommand(uint32_t password_0, uint32_t password_1);
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_lRepairPhysicalSectorCommand(void);
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_lErasePhysicalSectorCommand(uint32_t *sector_start_address);
+  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_lClearStatusCommand(void);
+ 100:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 102:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * Command to program the PFLASH in to page mode, so that assembly buffer is used 
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_lEnterPageModeCommand(void)
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+  28              	 .loc 1 105 0
+  29              	 .cfi_startproc
+  30              	 
+  31              	 
+  32              	 
+  33              	.LVL0:
+ 106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   volatile uint32_t *address;
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = (uint32_t)0x50U;
+  34              	 .loc 1 109 0
+  35 0000 014B     	 ldr r3,.L2
+  36 0002 5022     	 movs r2,#80
+  37 0004 1A60     	 str r2,[r3]
+  38 0006 7047     	 bx lr
+  39              	.L3:
+  40              	 .align 2
+  41              	.L2:
+  42 0008 5455000C 	 .word 201348436
+  43              	 .cfi_endproc
+  44              	.LFE149:
+  46              	 .section .text.XMC_FLASH_lLoadPageCommand,"ax",%progbits
+  47              	 .align 2
+  48              	 .global XMC_FLASH_lLoadPageCommand
+  49              	 .thumb
+  50              	 .thumb_func
+  52              	XMC_FLASH_lLoadPageCommand:
+  53              	.LFB150:
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 112:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * Command to load the data into the page assembly buffer 
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 115:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_lLoadPageCommand(uint32_t low_word, uint32_t high_word)
+ 116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+  54              	 .loc 1 116 0
+  55              	 .cfi_startproc
+  56              	 
+  57              	 
+  58              	 
+  59              	.LVL1:
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   volatile uint32_t *address;
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f0U);
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = low_word;
+  60              	 .loc 1 120 0
+  61 0000 024A     	 ldr r2,.L5
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = high_word;
+  62              	 .loc 1 122 0
+  63 0002 034B     	 ldr r3,.L5+4
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+  64              	 .loc 1 120 0
+  65 0004 1060     	 str r0,[r2]
+  66              	.LVL2:
+  67              	 .loc 1 122 0
+  68 0006 1960     	 str r1,[r3]
+  69 0008 7047     	 bx lr
+  70              	.L6:
+  71 000a 00BF     	 .align 2
+  72              	.L5:
+  73 000c F055000C 	 .word 201348592
+  74 0010 F455000C 	 .word 201348596
+  75              	 .cfi_endproc
+  76              	.LFE150:
+  78              	 .section .text.XMC_FLASH_lWritePageCommand,"ax",%progbits
+  79              	 .align 2
+  80              	 .global XMC_FLASH_lWritePageCommand
+  81              	 .thumb
+  82              	 .thumb_func
+  84              	XMC_FLASH_lWritePageCommand:
+  85              	.LFB151:
+ 123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * Command to start the programming of one page with data from the assembly buffer
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_lWritePageCommand(uint32_t *page_start_address)
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+  86              	 .loc 1 129 0
+  87              	 .cfi_startproc
+  88              	 
+  89              	 
+  90              	 
+  91              	.LVL3:
+  92 0000 30B4     	 push {r4,r5}
+  93              	.LCFI0:
+  94              	 .cfi_def_cfa_offset 8
+  95              	 .cfi_offset 4,-8
+  96              	 .cfi_offset 5,-4
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   volatile uint32_t *address;
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0xaaU;
+  97              	 .loc 1 133 0
+  98 0002 054A     	 ldr r2,.L9
+ 134:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x55U;
+  99              	 .loc 1 135 0
+ 100 0004 054C     	 ldr r4,.L9+4
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 101              	 .loc 1 133 0
+ 102 0006 AA23     	 movs r3,#170
+ 103              	 .loc 1 135 0
+ 104 0008 5525     	 movs r5,#85
+ 136:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0xa0U;
+ 105              	 .loc 1 137 0
+ 106 000a A021     	 movs r1,#160
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 107              	 .loc 1 133 0
+ 108 000c 1360     	 str r3,[r2]
+ 109              	.LVL4:
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 110              	 .loc 1 135 0
+ 111 000e 2560     	 str r5,[r4]
+ 112              	.LVL5:
+ 113              	 .loc 1 137 0
+ 114 0010 1160     	 str r1,[r2]
+ 115              	.LVL6:
+ 138:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = page_start_address;
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0xaaU;
+ 140:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 116              	 .loc 1 140 0
+ 117 0012 30BC     	 pop {r4,r5}
+ 118              	.LCFI1:
+ 119              	 .cfi_restore 5
+ 120              	 .cfi_restore 4
+ 121              	 .cfi_def_cfa_offset 0
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 122              	 .loc 1 139 0
+ 123 0014 0360     	 str r3,[r0]
+ 124              	 .loc 1 140 0
+ 125 0016 7047     	 bx lr
+ 126              	.L10:
+ 127              	 .align 2
+ 128              	.L9:
+ 129 0018 5455000C 	 .word 201348436
+ 130 001c A8AA000C 	 .word 201370280
+ 131              	 .cfi_endproc
+ 132              	.LFE151:
+ 134              	 .section .text.XMC_FLASH_lWriteUCBPageCommand,"ax",%progbits
+ 135              	 .align 2
+ 136              	 .global XMC_FLASH_lWriteUCBPageCommand
+ 137              	 .thumb
+ 138              	 .thumb_func
+ 140              	XMC_FLASH_lWriteUCBPageCommand:
+ 141              	.LFB152:
+ 141:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * Command to start the programming of UCB page with data from the assembly buffer
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 145:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_lWriteUCBPageCommand(uint32_t *page_start_address)
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 142              	 .loc 1 146 0
+ 143              	 .cfi_startproc
+ 144              	 
+ 145              	 
+ 146              	 
+ 147              	.LVL7:
+ 148 0000 30B4     	 push {r4,r5}
+ 149              	.LCFI2:
+ 150              	 .cfi_def_cfa_offset 8
+ 151              	 .cfi_offset 4,-8
+ 152              	 .cfi_offset 5,-4
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   volatile uint32_t *address;
+ 148:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 149:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0xaaU;
+ 153              	 .loc 1 150 0
+ 154 0002 054A     	 ldr r2,.L13
+ 151:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x55U;
+ 155              	 .loc 1 152 0
+ 156 0004 054C     	 ldr r4,.L13+4
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 157              	 .loc 1 150 0
+ 158 0006 AA23     	 movs r3,#170
+ 159              	 .loc 1 152 0
+ 160 0008 5525     	 movs r5,#85
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0xc0U;
+ 161              	 .loc 1 154 0
+ 162 000a C021     	 movs r1,#192
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 163              	 .loc 1 150 0
+ 164 000c 1360     	 str r3,[r2]
+ 165              	.LVL8:
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 166              	 .loc 1 152 0
+ 167 000e 2560     	 str r5,[r4]
+ 168              	.LVL9:
+ 169              	 .loc 1 154 0
+ 170 0010 1160     	 str r1,[r2]
+ 171              	.LVL10:
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = page_start_address;
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0xaaU;
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 172              	 .loc 1 157 0
+ 173 0012 30BC     	 pop {r4,r5}
+ 174              	.LCFI3:
+ 175              	 .cfi_restore 5
+ 176              	 .cfi_restore 4
+ 177              	 .cfi_def_cfa_offset 0
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 178              	 .loc 1 156 0
+ 179 0014 0360     	 str r3,[r0]
+ 180              	 .loc 1 157 0
+ 181 0016 7047     	 bx lr
+ 182              	.L14:
+ 183              	 .align 2
+ 184              	.L13:
+ 185 0018 5455000C 	 .word 201348436
+ 186 001c A8AA000C 	 .word 201370280
+ 187              	 .cfi_endproc
+ 188              	.LFE152:
+ 190              	 .section .text.XMC_FLASH_lEraseSectorCommand,"ax",%progbits
+ 191              	 .align 2
+ 192              	 .global XMC_FLASH_lEraseSectorCommand
+ 193              	 .thumb
+ 194              	 .thumb_func
+ 196              	XMC_FLASH_lEraseSectorCommand:
+ 197              	.LFB153:
+ 158:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 159:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 160:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * Command to erase sector which is starting with the specified address
+ 161:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_lEraseSectorCommand(uint32_t *sector_start_address)
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 198              	 .loc 1 163 0
+ 199              	 .cfi_startproc
+ 200              	 
+ 201              	 
+ 202              	 
+ 203              	.LVL11:
+ 204 0000 70B4     	 push {r4,r5,r6}
+ 205              	.LCFI4:
+ 206              	 .cfi_def_cfa_offset 12
+ 207              	 .cfi_offset 4,-12
+ 208              	 .cfi_offset 5,-8
+ 209              	 .cfi_offset 6,-4
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   volatile uint32_t *address;
+ 165:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 166:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0xaaU;
+ 210              	 .loc 1 167 0
+ 211 0002 074B     	 ldr r3,.L17
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x55U;
+ 212              	 .loc 1 169 0
+ 213 0004 074A     	 ldr r2,.L17+4
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 214              	 .loc 1 167 0
+ 215 0006 AA24     	 movs r4,#170
+ 216              	 .loc 1 169 0
+ 217 0008 5521     	 movs r1,#85
+ 170:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x80U;
+ 218              	 .loc 1 171 0
+ 219 000a 8026     	 movs r6,#128
+ 172:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0xaaU;
+ 174:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x55U;
+ 176:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = sector_start_address;
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x30U;
+ 220              	 .loc 1 177 0
+ 221 000c 3025     	 movs r5,#48
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 222              	 .loc 1 167 0
+ 223 000e 1C60     	 str r4,[r3]
+ 224              	.LVL12:
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 225              	 .loc 1 169 0
+ 226 0010 1160     	 str r1,[r2]
+ 227              	.LVL13:
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 228              	 .loc 1 171 0
+ 229 0012 1E60     	 str r6,[r3]
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 230              	 .loc 1 173 0
+ 231 0014 1C60     	 str r4,[r3]
+ 232              	.LVL14:
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = sector_start_address;
+ 233              	 .loc 1 175 0
+ 234 0016 1160     	 str r1,[r2]
+ 235              	.LVL15:
+ 236              	 .loc 1 177 0
+ 237 0018 0560     	 str r5,[r0]
+ 178:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 238              	 .loc 1 178 0
+ 239 001a 70BC     	 pop {r4,r5,r6}
+ 240              	.LCFI5:
+ 241              	 .cfi_restore 6
+ 242              	 .cfi_restore 5
+ 243              	 .cfi_restore 4
+ 244              	 .cfi_def_cfa_offset 0
+ 245 001c 7047     	 bx lr
+ 246              	.L18:
+ 247 001e 00BF     	 .align 2
+ 248              	.L17:
+ 249 0020 5455000C 	 .word 201348436
+ 250 0024 A8AA000C 	 .word 201370280
+ 251              	 .cfi_endproc
+ 252              	.LFE153:
+ 254              	 .section .text.XMC_FLASH_lDisableSectorWriteProtectionCommand,"ax",%progbits
+ 255              	 .align 2
+ 256              	 .global XMC_FLASH_lDisableSectorWriteProtectionCommand
+ 257              	 .thumb
+ 258              	 .thumb_func
+ 260              	XMC_FLASH_lDisableSectorWriteProtectionCommand:
+ 261              	.LFB154:
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 180:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 182:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * Command to temporarily disables the write protection belonging to the the USER specified, when p
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * configured values
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 185:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_lDisableSectorWriteProtectionCommand(uint32_t user, uint32_t password_0, uint32_t pa
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 262              	 .loc 1 186 0
+ 263              	 .cfi_startproc
+ 264              	 
+ 265              	 
+ 266              	.LVL16:
+ 267 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+ 268              	.LCFI6:
+ 269              	 .cfi_def_cfa_offset 20
+ 270              	 .cfi_offset 4,-20
+ 271              	 .cfi_offset 5,-16
+ 272              	 .cfi_offset 6,-12
+ 273              	 .cfi_offset 7,-8
+ 274              	 .cfi_offset 14,-4
+ 187:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   volatile uint32_t *address;
+ 188:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 189:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0xaaU;
+ 191:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x55U;
+ 275              	 .loc 1 192 0
+ 276 0002 084B     	 ldr r3,.L21
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 277              	 .loc 1 190 0
+ 278 0004 DFF828E0 	 ldr lr,.L21+12
+ 193:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x553cU);
+ 194:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = user;
+ 279              	 .loc 1 194 0
+ 280 0008 074E     	 ldr r6,.L21+4
+ 195:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 196:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = password_0;
+ 197:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 198:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = password_1;
+ 199:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5558U);
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x05U;
+ 281              	 .loc 1 200 0
+ 282 000a 084C     	 ldr r4,.L21+8
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 283              	 .loc 1 190 0
+ 284 000c 4FF0AA0C 	 mov ip,#170
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x553cU);
+ 285              	 .loc 1 192 0
+ 286 0010 5527     	 movs r7,#85
+ 287              	 .loc 1 200 0
+ 288 0012 0525     	 movs r5,#5
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 289              	 .loc 1 190 0
+ 290 0014 CEF800C0 	 str ip,[lr]
+ 291              	.LVL17:
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x553cU);
+ 292              	 .loc 1 192 0
+ 293 0018 1F60     	 str r7,[r3]
+ 294              	.LVL18:
+ 194:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 295              	 .loc 1 194 0
+ 296 001a 3060     	 str r0,[r6]
+ 297              	.LVL19:
+ 196:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 298              	 .loc 1 196 0
+ 299 001c 1960     	 str r1,[r3]
+ 198:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5558U);
+ 300              	 .loc 1 198 0
+ 301 001e 1A60     	 str r2,[r3]
+ 302              	.LVL20:
+ 303              	 .loc 1 200 0
+ 304 0020 2560     	 str r5,[r4]
+ 305 0022 F0BD     	 pop {r4,r5,r6,r7,pc}
+ 306              	.L22:
+ 307              	 .align 2
+ 308              	.L21:
+ 309 0024 A8AA000C 	 .word 201370280
+ 310 0028 3C55000C 	 .word 201348412
+ 311 002c 5855000C 	 .word 201348440
+ 312 0030 5455000C 	 .word 201348436
+ 313              	 .cfi_endproc
+ 314              	.LFE154:
+ 316              	 .section .text.XMC_FLASH_lDisableReadProtectionCommand,"ax",%progbits
+ 317              	 .align 2
+ 318              	 .global XMC_FLASH_lDisableReadProtectionCommand
+ 319              	 .thumb
+ 320              	 .thumb_func
+ 322              	XMC_FLASH_lDisableReadProtectionCommand:
+ 323              	.LFB155:
+ 201:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 202:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 203:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 204:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * Command to temporarily disables the read protection along with write protection, when passwords 
+ 205:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * configured values
+ 206:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 207:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_lDisableReadProtectionCommand(uint32_t password_0, uint32_t password_1)
+ 208:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 324              	 .loc 1 208 0
+ 325              	 .cfi_startproc
+ 326              	 
+ 327              	 
+ 328              	.LVL21:
+ 329 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+ 330              	.LCFI7:
+ 331              	 .cfi_def_cfa_offset 20
+ 332              	 .cfi_offset 4,-20
+ 333              	 .cfi_offset 5,-16
+ 334              	 .cfi_offset 6,-12
+ 335              	 .cfi_offset 7,-8
+ 336              	 .cfi_offset 14,-4
+ 209:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   volatile uint32_t *address;
+ 210:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 211:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 212:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0xaaU;
+ 213:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x55U;
+ 337              	 .loc 1 214 0
+ 338 0002 094B     	 ldr r3,.L25
+ 212:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 339              	 .loc 1 212 0
+ 340 0004 DFF82CE0 	 ldr lr,.L25+12
+ 215:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x553cU);
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x00U;
+ 341              	 .loc 1 216 0
+ 342 0008 084D     	 ldr r5,.L25+4
+ 217:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = password_0;
+ 219:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 220:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = password_1;
+ 221:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5558U);
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x08U;
+ 343              	 .loc 1 222 0
+ 344 000a 094A     	 ldr r2,.L25+8
+ 212:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 345              	 .loc 1 212 0
+ 346 000c 4FF0AA0C 	 mov ip,#170
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x553cU);
+ 347              	 .loc 1 214 0
+ 348 0010 5527     	 movs r7,#85
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 349              	 .loc 1 216 0
+ 350 0012 0026     	 movs r6,#0
+ 351              	 .loc 1 222 0
+ 352 0014 0824     	 movs r4,#8
+ 212:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 353              	 .loc 1 212 0
+ 354 0016 CEF800C0 	 str ip,[lr]
+ 355              	.LVL22:
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x553cU);
+ 356              	 .loc 1 214 0
+ 357 001a 1F60     	 str r7,[r3]
+ 358              	.LVL23:
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 359              	 .loc 1 216 0
+ 360 001c 2E60     	 str r6,[r5]
+ 361              	.LVL24:
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 362              	 .loc 1 218 0
+ 363 001e 1860     	 str r0,[r3]
+ 220:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5558U);
+ 364              	 .loc 1 220 0
+ 365 0020 1960     	 str r1,[r3]
+ 366              	.LVL25:
+ 367              	 .loc 1 222 0
+ 368 0022 1460     	 str r4,[r2]
+ 369 0024 F0BD     	 pop {r4,r5,r6,r7,pc}
+ 370              	.L26:
+ 371 0026 00BF     	 .align 2
+ 372              	.L25:
+ 373 0028 A8AA000C 	 .word 201370280
+ 374 002c 3C55000C 	 .word 201348412
+ 375 0030 5855000C 	 .word 201348440
+ 376 0034 5455000C 	 .word 201348436
+ 377              	 .cfi_endproc
+ 378              	.LFE155:
+ 380              	 .section .text.XMC_FLASH_lClearStatusCommand,"ax",%progbits
+ 381              	 .align 2
+ 382              	 .global XMC_FLASH_lClearStatusCommand
+ 383              	 .thumb
+ 384              	 .thumb_func
+ 386              	XMC_FLASH_lClearStatusCommand:
+ 387              	.LFB156:
+ 223:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 224:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 225:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 226:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * Command to clear FSR.PROG and FSR.ERASE and the error flags in FSR such as PFOPER, SQER, PROER, 
+ 227:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 228:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_lClearStatusCommand(void)
+ 229:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 388              	 .loc 1 229 0
+ 389              	 .cfi_startproc
+ 390              	 
+ 391              	 
+ 392              	 
+ 393              	.LVL26:
+ 230:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   volatile uint32_t *address;
+ 231:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 232:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0xf5U;
+ 394              	 .loc 1 233 0
+ 395 0000 014B     	 ldr r3,.L28
+ 396 0002 F522     	 movs r2,#245
+ 397 0004 1A60     	 str r2,[r3]
+ 398 0006 7047     	 bx lr
+ 399              	.L29:
+ 400              	 .align 2
+ 401              	.L28:
+ 402 0008 5455000C 	 .word 201348436
+ 403              	 .cfi_endproc
+ 404              	.LFE156:
+ 406              	 .section .text.XMC_FLASH_ClearStatus,"ax",%progbits
+ 407              	 .align 2
+ 408              	 .global XMC_FLASH_ClearStatus
+ 409              	 .thumb
+ 410              	 .thumb_func
+ 412              	XMC_FLASH_ClearStatus:
+ 413              	.LFB157:
+ 234:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 235:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 236:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /**************************************************************************************************
+ 237:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * API IMPLEMENTATION
+ 238:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  **************************************************************************************************
+ 239:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 240:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  /*
+ 241:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * This API shall clear Program, erase and error flags(PFOPER, SQER, PROER, PFDBER, ORIER, VER) of 
+ 242:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 243:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_ClearStatus(void)
+ 244:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 414              	 .loc 1 244 0
+ 415              	 .cfi_startproc
+ 416              	 
+ 417              	 
+ 418              	 
+ 419              	.LVL27:
+ 420              	.LBB82:
+ 421              	.LBB83:
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 422              	 .loc 1 233 0
+ 423 0000 014B     	 ldr r3,.L31
+ 424 0002 F522     	 movs r2,#245
+ 425 0004 1A60     	 str r2,[r3]
+ 426 0006 7047     	 bx lr
+ 427              	.L32:
+ 428              	 .align 2
+ 429              	.L31:
+ 430 0008 5455000C 	 .word 201348436
+ 431              	.LBE83:
+ 432              	.LBE82:
+ 433              	 .cfi_endproc
+ 434              	.LFE157:
+ 436              	 .section .text.XMC_FLASH_GetStatus,"ax",%progbits
+ 437              	 .align 2
+ 438              	 .global XMC_FLASH_GetStatus
+ 439              	 .thumb
+ 440              	 .thumb_func
+ 442              	XMC_FLASH_GetStatus:
+ 443              	.LFB158:
+ 245:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lClearStatusCommand();
+ 246:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 247:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 248:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 249:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * This API returns the FSR register value
+ 250:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 251:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** uint32_t XMC_FLASH_GetStatus(void)
+ 252:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 444              	 .loc 1 252 0
+ 445              	 .cfi_startproc
+ 446              	 
+ 447              	 
+ 448              	 
+ 253:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   return FLASH0->FSR;
+ 449              	 .loc 1 253 0
+ 450 0000 024A     	 ldr r2,.L34
+ 451 0002 41F21003 	 movw r3,#4112
+ 452 0006 D058     	 ldr r0,[r2,r3]
+ 254:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 453              	 .loc 1 254 0
+ 454 0008 7047     	 bx lr
+ 455              	.L35:
+ 456 000a 00BF     	 .align 2
+ 457              	.L34:
+ 458 000c 00100058 	 .word 1476399104
+ 459              	 .cfi_endproc
+ 460              	.LFE158:
+ 462              	 .section .text.XMC_FLASH_EnableEvent,"ax",%progbits
+ 463              	 .align 2
+ 464              	 .global XMC_FLASH_EnableEvent
+ 465              	 .thumb
+ 466              	 .thumb_func
+ 468              	XMC_FLASH_EnableEvent:
+ 469              	.LFB159:
+ 255:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 256:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 257:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * This API enables the events which required to trigger the ISR 
+ 258:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 259:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_EnableEvent(const uint32_t event_msk)
+ 260:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 470              	 .loc 1 260 0
+ 471              	 .cfi_startproc
+ 472              	 
+ 473              	 
+ 474              	 
+ 475              	.LVL28:
+ 261:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   FLASH0->FCON |= event_msk;
+ 476              	 .loc 1 261 0
+ 477 0000 0349     	 ldr r1,.L37
+ 478 0002 41F21402 	 movw r2,#4116
+ 479 0006 8B58     	 ldr r3,[r1,r2]
+ 480 0008 1843     	 orrs r0,r0,r3
+ 481              	.LVL29:
+ 482 000a 8850     	 str r0,[r1,r2]
+ 483 000c 7047     	 bx lr
+ 484              	.L38:
+ 485 000e 00BF     	 .align 2
+ 486              	.L37:
+ 487 0010 00100058 	 .word 1476399104
+ 488              	 .cfi_endproc
+ 489              	.LFE159:
+ 491              	 .section .text.XMC_FLASH_DisableEvent,"ax",%progbits
+ 492              	 .align 2
+ 493              	 .global XMC_FLASH_DisableEvent
+ 494              	 .thumb
+ 495              	 .thumb_func
+ 497              	XMC_FLASH_DisableEvent:
+ 498              	.LFB160:
+ 262:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 263:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 264:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 265:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * This API disables the event generation 
+ 266:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 267:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_DisableEvent(const uint32_t event_msk)
+ 268:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 499              	 .loc 1 268 0
+ 500              	 .cfi_startproc
+ 501              	 
+ 502              	 
+ 503              	 
+ 504              	.LVL30:
+ 269:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   FLASH0->FCON &= ~event_msk;
+ 505              	 .loc 1 269 0
+ 506 0000 0349     	 ldr r1,.L40
+ 507 0002 41F21402 	 movw r2,#4116
+ 508 0006 8B58     	 ldr r3,[r1,r2]
+ 509 0008 23EA0000 	 bic r0,r3,r0
+ 510              	.LVL31:
+ 511 000c 8850     	 str r0,[r1,r2]
+ 512 000e 7047     	 bx lr
+ 513              	.L41:
+ 514              	 .align 2
+ 515              	.L40:
+ 516 0010 00100058 	 .word 1476399104
+ 517              	 .cfi_endproc
+ 518              	.LFE160:
+ 520              	 .section .text.XMC_FLASH_ProgramPage,"ax",%progbits
+ 521              	 .align 2
+ 522              	 .global XMC_FLASH_ProgramPage
+ 523              	 .thumb
+ 524              	 .thumb_func
+ 526              	XMC_FLASH_ProgramPage:
+ 527              	.LFB161:
+ 270:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 271:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 272:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 273:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * This API write the PFLASH page
+ 274:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 275:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_ProgramPage(uint32_t *address, const uint32_t *data)
+ 276:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 528              	 .loc 1 276 0
+ 529              	 .cfi_startproc
+ 530              	 
+ 531              	 
+ 532              	 
+ 533              	.LVL32:
+ 534              	.LBB84:
+ 535              	.LBB85:
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 536              	 .loc 1 233 0
+ 537 0000 0F4B     	 ldr r3,.L49
+ 538              	.LBE85:
+ 539              	.LBE84:
+ 540              	 .loc 1 276 0
+ 541 0002 70B4     	 push {r4,r5,r6}
+ 542              	.LCFI8:
+ 543              	 .cfi_def_cfa_offset 12
+ 544              	 .cfi_offset 4,-12
+ 545              	 .cfi_offset 5,-8
+ 546              	 .cfi_offset 6,-4
+ 547              	.LBB88:
+ 548              	.LBB89:
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 549              	 .loc 1 109 0
+ 550 0004 5022     	 movs r2,#80
+ 551              	.LBE89:
+ 552              	.LBE88:
+ 553              	.LBB91:
+ 554              	.LBB86:
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 555              	 .loc 1 233 0
+ 556 0006 F524     	 movs r4,#245
+ 557              	.LBE86:
+ 558              	.LBE91:
+ 559              	.LBB92:
+ 560              	.LBB93:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+ 561              	 .loc 1 120 0
+ 562 0008 0E4E     	 ldr r6,.L49+4
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 563              	 .loc 1 122 0
+ 564 000a 0F4D     	 ldr r5,.L49+8
+ 565              	.LBE93:
+ 566              	.LBE92:
+ 567              	.LBB95:
+ 568              	.LBB87:
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 569              	 .loc 1 233 0
+ 570 000c 1C60     	 str r4,[r3]
+ 571              	.LVL33:
+ 572 000e 01F58074 	 add r4,r1,#256
+ 573              	.LBE87:
+ 574              	.LBE95:
+ 575              	.LBB96:
+ 576              	.LBB90:
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 577              	 .loc 1 109 0
+ 578 0012 1A60     	 str r2,[r3]
+ 579              	.LVL34:
+ 580              	.L43:
+ 581              	.LBE90:
+ 582              	.LBE96:
+ 277:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   uint32_t idx;
+ 278:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 279:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lClearStatusCommand();  
+ 280:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lEnterPageModeCommand();
+ 281:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 282:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   for (idx = 0U; idx < XMC_FLASH_WORDS_PER_PAGE; idx += 2U)
+ 283:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   {
+ 284:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****     XMC_FLASH_lLoadPageCommand(data[idx], data[idx + 1U]);
+ 583              	 .loc 1 284 0 discriminator 3
+ 584 0014 91E80C00 	 ldmia r1,{r2,r3}
+ 585              	.LVL35:
+ 586 0018 0831     	 adds r1,r1,#8
+ 282:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   {
+ 587              	 .loc 1 282 0 discriminator 3
+ 588 001a A142     	 cmp r1,r4
+ 589              	.LBB97:
+ 590              	.LBB94:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+ 591              	 .loc 1 120 0 discriminator 3
+ 592 001c 3260     	 str r2,[r6]
+ 593              	.LVL36:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 594              	 .loc 1 122 0 discriminator 3
+ 595 001e 2B60     	 str r3,[r5]
+ 596              	.LBE94:
+ 597              	.LBE97:
+ 282:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   {
+ 598              	 .loc 1 282 0 discriminator 3
+ 599 0020 F8D1     	 bne .L43
+ 600              	.LVL37:
+ 601              	.LBB98:
+ 602              	.LBB99:
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 603              	 .loc 1 133 0
+ 604 0022 0749     	 ldr r1,.L49
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 605              	 .loc 1 135 0
+ 606 0024 094D     	 ldr r5,.L49+12
+ 607              	.LBE99:
+ 608              	.LBE98:
+ 285:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   }
+ 286:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 287:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lWritePageCommand(address);    
+ 288:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 289:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   /* wait until the operation is completed */
+ 290:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   while ((FLASH0->FSR & (uint32_t)FLASH_FSR_PBUSY_Msk) != 0U){}
+ 609              	 .loc 1 290 0
+ 610 0026 0A4A     	 ldr r2,.L49+16
+ 611              	.LVL38:
+ 612              	.LBB101:
+ 613              	.LBB100:
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 614              	 .loc 1 133 0
+ 615 0028 AA23     	 movs r3,#170
+ 616              	.LVL39:
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 617              	 .loc 1 135 0
+ 618 002a 5526     	 movs r6,#85
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = page_start_address;
+ 619              	 .loc 1 137 0
+ 620 002c A024     	 movs r4,#160
+ 621              	.LVL40:
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 622              	 .loc 1 133 0
+ 623 002e 0B60     	 str r3,[r1]
+ 624              	.LVL41:
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 625              	 .loc 1 135 0
+ 626 0030 2E60     	 str r6,[r5]
+ 627              	.LVL42:
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = page_start_address;
+ 628              	 .loc 1 137 0
+ 629 0032 0C60     	 str r4,[r1]
+ 630              	.LVL43:
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 631              	 .loc 1 139 0
+ 632 0034 0360     	 str r3,[r0]
+ 633              	.L44:
+ 634              	.LBE100:
+ 635              	.LBE101:
+ 636              	 .loc 1 290 0 discriminator 1
+ 637 0036 1368     	 ldr r3,[r2]
+ 638 0038 DB07     	 lsls r3,r3,#31
+ 639 003a FCD4     	 bmi .L44
+ 291:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 640              	 .loc 1 291 0
+ 641 003c 70BC     	 pop {r4,r5,r6}
+ 642              	.LCFI9:
+ 643              	 .cfi_restore 6
+ 644              	 .cfi_restore 5
+ 645              	 .cfi_restore 4
+ 646              	 .cfi_def_cfa_offset 0
+ 647 003e 7047     	 bx lr
+ 648              	.L50:
+ 649              	 .align 2
+ 650              	.L49:
+ 651 0040 5455000C 	 .word 201348436
+ 652 0044 F055000C 	 .word 201348592
+ 653 0048 F455000C 	 .word 201348596
+ 654 004c A8AA000C 	 .word 201370280
+ 655 0050 10200058 	 .word 1476403216
+ 656              	 .cfi_endproc
+ 657              	.LFE161:
+ 659              	 .section .text.XMC_FLASH_EraseSector,"ax",%progbits
+ 660              	 .align 2
+ 661              	 .global XMC_FLASH_EraseSector
+ 662              	 .thumb
+ 663              	 .thumb_func
+ 665              	XMC_FLASH_EraseSector:
+ 666              	.LFB162:
+ 292:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 293:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 294:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * This API erase the logical sector
+ 295:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 296:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_EraseSector(uint32_t *address)
+ 297:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 667              	 .loc 1 297 0
+ 668              	 .cfi_startproc
+ 669              	 
+ 670              	 
+ 671              	.LVL44:
+ 672              	.LBB102:
+ 673              	.LBB103:
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 674              	 .loc 1 233 0
+ 675 0000 0A4B     	 ldr r3,.L55
+ 676              	.LBE103:
+ 677              	.LBE102:
+ 678              	.LBB106:
+ 679              	.LBB107:
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 680              	 .loc 1 169 0
+ 681 0002 0B49     	 ldr r1,.L55+4
+ 682              	.LBE107:
+ 683              	.LBE106:
+ 298:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lClearStatusCommand();
+ 299:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lEraseSectorCommand(address);
+ 300:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 301:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   /* wait until the operation is completed */
+ 302:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   while ((FLASH0->FSR & (uint32_t)FLASH_FSR_PBUSY_Msk) != 0U){}
+ 684              	 .loc 1 302 0
+ 685 0004 0B4A     	 ldr r2,.L55+8
+ 297:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lClearStatusCommand();
+ 686              	 .loc 1 297 0
+ 687 0006 F0B5     	 push {r4,r5,r6,r7,lr}
+ 688              	.LCFI10:
+ 689              	 .cfi_def_cfa_offset 20
+ 690              	 .cfi_offset 4,-20
+ 691              	 .cfi_offset 5,-16
+ 692              	 .cfi_offset 6,-12
+ 693              	 .cfi_offset 7,-8
+ 694              	 .cfi_offset 14,-4
+ 695              	.LBB111:
+ 696              	.LBB108:
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 697              	 .loc 1 167 0
+ 698 0008 AA25     	 movs r5,#170
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 699              	 .loc 1 169 0
+ 700 000a 5524     	 movs r4,#85
+ 701              	.LBE108:
+ 702              	.LBE111:
+ 703              	.LBB112:
+ 704              	.LBB104:
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 705              	 .loc 1 233 0
+ 706 000c 4FF0F50E 	 mov lr,#245
+ 707              	.LBE104:
+ 708              	.LBE112:
+ 709              	.LBB113:
+ 710              	.LBB109:
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 711              	 .loc 1 171 0
+ 712 0010 8027     	 movs r7,#128
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 713              	 .loc 1 177 0
+ 714 0012 3026     	 movs r6,#48
+ 715              	.LBE109:
+ 716              	.LBE113:
+ 717              	.LBB114:
+ 718              	.LBB105:
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 719              	 .loc 1 233 0
+ 720 0014 C3F800E0 	 str lr,[r3]
+ 721              	.LVL45:
+ 722              	.LBE105:
+ 723              	.LBE114:
+ 724              	.LBB115:
+ 725              	.LBB110:
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 726              	 .loc 1 167 0
+ 727 0018 1D60     	 str r5,[r3]
+ 728              	.LVL46:
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 729              	 .loc 1 169 0
+ 730 001a 0C60     	 str r4,[r1]
+ 731              	.LVL47:
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 732              	 .loc 1 171 0
+ 733 001c 1F60     	 str r7,[r3]
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 734              	 .loc 1 173 0
+ 735 001e 1D60     	 str r5,[r3]
+ 736              	.LVL48:
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = sector_start_address;
+ 737              	 .loc 1 175 0
+ 738 0020 0C60     	 str r4,[r1]
+ 739              	.LVL49:
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 740              	 .loc 1 177 0
+ 741 0022 0660     	 str r6,[r0]
+ 742              	.L52:
+ 743              	.LBE110:
+ 744              	.LBE115:
+ 745              	 .loc 1 302 0 discriminator 1
+ 746 0024 1368     	 ldr r3,[r2]
+ 747 0026 DB07     	 lsls r3,r3,#31
+ 748 0028 FCD4     	 bmi .L52
+ 303:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 749              	 .loc 1 303 0
+ 750 002a F0BD     	 pop {r4,r5,r6,r7,pc}
+ 751              	.L56:
+ 752              	 .align 2
+ 753              	.L55:
+ 754 002c 5455000C 	 .word 201348436
+ 755 0030 A8AA000C 	 .word 201370280
+ 756 0034 10200058 	 .word 1476403216
+ 757              	 .cfi_endproc
+ 758              	.LFE162:
+ 760              	 .section .text.XMC_FLASH_lErasePhysicalSectorCommand,"ax",%progbits
+ 761              	 .align 2
+ 762              	 .global XMC_FLASH_lErasePhysicalSectorCommand
+ 763              	 .thumb
+ 764              	 .thumb_func
+ 766              	XMC_FLASH_lErasePhysicalSectorCommand:
+ 767              	.LFB163:
+ 304:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 305:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 306:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * Command to erase physical sector which is starting with the specified address
+ 307:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 308:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_lErasePhysicalSectorCommand(uint32_t *sector_start_address)
+ 309:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 768              	 .loc 1 309 0
+ 769              	 .cfi_startproc
+ 770              	 
+ 771              	 
+ 772              	 
+ 773              	.LVL50:
+ 774 0000 70B4     	 push {r4,r5,r6}
+ 775              	.LCFI11:
+ 776              	 .cfi_def_cfa_offset 12
+ 777              	 .cfi_offset 4,-12
+ 778              	 .cfi_offset 5,-8
+ 779              	 .cfi_offset 6,-4
+ 310:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   volatile uint32_t *address;
+ 311:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 312:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 313:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0xaaU;
+ 780              	 .loc 1 313 0
+ 781 0002 074B     	 ldr r3,.L59
+ 314:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 315:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x55U;
+ 782              	 .loc 1 315 0
+ 783 0004 074A     	 ldr r2,.L59+4
+ 313:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 784              	 .loc 1 313 0
+ 785 0006 AA24     	 movs r4,#170
+ 786              	 .loc 1 315 0
+ 787 0008 5521     	 movs r1,#85
+ 316:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 317:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x80U;
+ 788              	 .loc 1 317 0
+ 789 000a 8026     	 movs r6,#128
+ 318:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 319:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0xaaU;
+ 320:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 321:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x55U;
+ 322:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = sector_start_address;
+ 323:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x40U;
+ 790              	 .loc 1 323 0
+ 791 000c 4025     	 movs r5,#64
+ 313:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 792              	 .loc 1 313 0
+ 793 000e 1C60     	 str r4,[r3]
+ 794              	.LVL51:
+ 315:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 795              	 .loc 1 315 0
+ 796 0010 1160     	 str r1,[r2]
+ 797              	.LVL52:
+ 317:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 798              	 .loc 1 317 0
+ 799 0012 1E60     	 str r6,[r3]
+ 319:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 800              	 .loc 1 319 0
+ 801 0014 1C60     	 str r4,[r3]
+ 802              	.LVL53:
+ 321:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = sector_start_address;
+ 803              	 .loc 1 321 0
+ 804 0016 1160     	 str r1,[r2]
+ 805              	.LVL54:
+ 806              	 .loc 1 323 0
+ 807 0018 0560     	 str r5,[r0]
+ 324:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 808              	 .loc 1 324 0
+ 809 001a 70BC     	 pop {r4,r5,r6}
+ 810              	.LCFI12:
+ 811              	 .cfi_restore 6
+ 812              	 .cfi_restore 5
+ 813              	 .cfi_restore 4
+ 814              	 .cfi_def_cfa_offset 0
+ 815 001c 7047     	 bx lr
+ 816              	.L60:
+ 817 001e 00BF     	 .align 2
+ 818              	.L59:
+ 819 0020 5455000C 	 .word 201348436
+ 820 0024 A8AA000C 	 .word 201370280
+ 821              	 .cfi_endproc
+ 822              	.LFE163:
+ 824              	 .section .text.XMC_FLASH_lRepairPhysicalSectorCommand,"ax",%progbits
+ 825              	 .align 2
+ 826              	 .global XMC_FLASH_lRepairPhysicalSectorCommand
+ 827              	 .thumb
+ 828              	 .thumb_func
+ 830              	XMC_FLASH_lRepairPhysicalSectorCommand:
+ 831              	.LFB164:
+ 325:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 326:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 327:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * Command to erase physical sector-4 which is starting with the specified address
+ 328:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * This command is only available if PROCON1.PRS = 1.
+ 329:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 330:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_lRepairPhysicalSectorCommand(void)
+ 331:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 832              	 .loc 1 331 0
+ 833              	 .cfi_startproc
+ 834              	 
+ 835              	 
+ 836              	 
+ 837              	.LVL55:
+ 838 0000 70B4     	 push {r4,r5,r6}
+ 839              	.LCFI13:
+ 840              	 .cfi_def_cfa_offset 12
+ 841              	 .cfi_offset 4,-12
+ 842              	 .cfi_offset 5,-8
+ 843              	 .cfi_offset 6,-4
+ 332:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   volatile uint32_t *address;
+ 333:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 334:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 335:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0xaaU;
+ 844              	 .loc 1 335 0
+ 845 0002 074B     	 ldr r3,.L63
+ 336:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 337:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x55U;
+ 846              	 .loc 1 337 0
+ 847 0004 074A     	 ldr r2,.L63+4
+ 338:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 339:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x80U;
+ 340:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 341:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0xaaU;
+ 342:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 343:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x55U;
+ 344:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = XMC_FLASH_PHY_SECTOR_4;
+ 345:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x40U;
+ 848              	 .loc 1 345 0
+ 849 0006 084C     	 ldr r4,.L63+8
+ 335:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 850              	 .loc 1 335 0
+ 851 0008 AA20     	 movs r0,#170
+ 337:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 852              	 .loc 1 337 0
+ 853 000a 5521     	 movs r1,#85
+ 339:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 854              	 .loc 1 339 0
+ 855 000c 8026     	 movs r6,#128
+ 856              	 .loc 1 345 0
+ 857 000e 4025     	 movs r5,#64
+ 335:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 858              	 .loc 1 335 0
+ 859 0010 1860     	 str r0,[r3]
+ 860              	.LVL56:
+ 337:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 861              	 .loc 1 337 0
+ 862 0012 1160     	 str r1,[r2]
+ 863              	.LVL57:
+ 339:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 864              	 .loc 1 339 0
+ 865 0014 1E60     	 str r6,[r3]
+ 341:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 866              	 .loc 1 341 0
+ 867 0016 1860     	 str r0,[r3]
+ 868              	.LVL58:
+ 343:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = XMC_FLASH_PHY_SECTOR_4;
+ 869              	 .loc 1 343 0
+ 870 0018 1160     	 str r1,[r2]
+ 871              	.LVL59:
+ 872              	 .loc 1 345 0
+ 873 001a 2560     	 str r5,[r4]
+ 346:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 874              	 .loc 1 346 0
+ 875 001c 70BC     	 pop {r4,r5,r6}
+ 876              	.LCFI14:
+ 877              	 .cfi_restore 6
+ 878              	 .cfi_restore 5
+ 879              	 .cfi_restore 4
+ 880              	 .cfi_def_cfa_offset 0
+ 881 001e 7047     	 bx lr
+ 882              	.L64:
+ 883              	 .align 2
+ 884              	.L63:
+ 885 0020 5455000C 	 .word 201348436
+ 886 0024 A8AA000C 	 .word 201370280
+ 887 0028 0000010C 	 .word 201392128
+ 888              	 .cfi_endproc
+ 889              	.LFE164:
+ 891              	 .section .text.XMC_FLASH_ErasePhysicalSector,"ax",%progbits
+ 892              	 .align 2
+ 893              	 .global XMC_FLASH_ErasePhysicalSector
+ 894              	 .thumb
+ 895              	 .thumb_func
+ 897              	XMC_FLASH_ErasePhysicalSector:
+ 898              	.LFB165:
+ 347:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 348:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  /* 
+ 349:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   * This API erase the physical sector
+ 350:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   */
+ 351:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_ErasePhysicalSector(uint32_t *address)
+ 352:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 899              	 .loc 1 352 0
+ 900              	 .cfi_startproc
+ 901              	 
+ 902              	 
+ 903              	.LVL60:
+ 904              	.LBB116:
+ 905              	.LBB117:
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 906              	 .loc 1 233 0
+ 907 0000 0A4B     	 ldr r3,.L69
+ 908              	.LBE117:
+ 909              	.LBE116:
+ 910              	.LBB120:
+ 911              	.LBB121:
+ 315:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 912              	 .loc 1 315 0
+ 913 0002 0B49     	 ldr r1,.L69+4
+ 914              	.LBE121:
+ 915              	.LBE120:
+ 353:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lClearStatusCommand();
+ 354:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lErasePhysicalSectorCommand(address);
+ 355:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 356:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   /* wait until the operation is completed */
+ 357:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   while ((FLASH0->FSR & (uint32_t)FLASH_FSR_PBUSY_Msk) != 0U){}
+ 916              	 .loc 1 357 0
+ 917 0004 0B4A     	 ldr r2,.L69+8
+ 352:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lClearStatusCommand();
+ 918              	 .loc 1 352 0
+ 919 0006 F0B5     	 push {r4,r5,r6,r7,lr}
+ 920              	.LCFI15:
+ 921              	 .cfi_def_cfa_offset 20
+ 922              	 .cfi_offset 4,-20
+ 923              	 .cfi_offset 5,-16
+ 924              	 .cfi_offset 6,-12
+ 925              	 .cfi_offset 7,-8
+ 926              	 .cfi_offset 14,-4
+ 927              	.LBB125:
+ 928              	.LBB122:
+ 313:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 929              	 .loc 1 313 0
+ 930 0008 AA25     	 movs r5,#170
+ 315:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 931              	 .loc 1 315 0
+ 932 000a 5524     	 movs r4,#85
+ 933              	.LBE122:
+ 934              	.LBE125:
+ 935              	.LBB126:
+ 936              	.LBB118:
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 937              	 .loc 1 233 0
+ 938 000c 4FF0F50E 	 mov lr,#245
+ 939              	.LBE118:
+ 940              	.LBE126:
+ 941              	.LBB127:
+ 942              	.LBB123:
+ 317:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 943              	 .loc 1 317 0
+ 944 0010 8027     	 movs r7,#128
+ 323:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 945              	 .loc 1 323 0
+ 946 0012 4026     	 movs r6,#64
+ 947              	.LBE123:
+ 948              	.LBE127:
+ 949              	.LBB128:
+ 950              	.LBB119:
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 951              	 .loc 1 233 0
+ 952 0014 C3F800E0 	 str lr,[r3]
+ 953              	.LVL61:
+ 954              	.LBE119:
+ 955              	.LBE128:
+ 956              	.LBB129:
+ 957              	.LBB124:
+ 313:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 958              	 .loc 1 313 0
+ 959 0018 1D60     	 str r5,[r3]
+ 960              	.LVL62:
+ 315:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 961              	 .loc 1 315 0
+ 962 001a 0C60     	 str r4,[r1]
+ 963              	.LVL63:
+ 317:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 964              	 .loc 1 317 0
+ 965 001c 1F60     	 str r7,[r3]
+ 319:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 966              	 .loc 1 319 0
+ 967 001e 1D60     	 str r5,[r3]
+ 968              	.LVL64:
+ 321:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = sector_start_address;
+ 969              	 .loc 1 321 0
+ 970 0020 0C60     	 str r4,[r1]
+ 971              	.LVL65:
+ 323:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 972              	 .loc 1 323 0
+ 973 0022 0660     	 str r6,[r0]
+ 974              	.L66:
+ 975              	.LBE124:
+ 976              	.LBE129:
+ 977              	 .loc 1 357 0 discriminator 1
+ 978 0024 1368     	 ldr r3,[r2]
+ 979 0026 DB07     	 lsls r3,r3,#31
+ 980 0028 FCD4     	 bmi .L66
+ 358:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 981              	 .loc 1 358 0
+ 982 002a F0BD     	 pop {r4,r5,r6,r7,pc}
+ 983              	.L70:
+ 984              	 .align 2
+ 985              	.L69:
+ 986 002c 5455000C 	 .word 201348436
+ 987 0030 A8AA000C 	 .word 201370280
+ 988 0034 10200058 	 .word 1476403216
+ 989              	 .cfi_endproc
+ 990              	.LFE165:
+ 992              	 .section .text.XMC_FLASH_RepairPhysicalSector,"ax",%progbits
+ 993              	 .align 2
+ 994              	 .global XMC_FLASH_RepairPhysicalSector
+ 995              	 .thumb
+ 996              	 .thumb_func
+ 998              	XMC_FLASH_RepairPhysicalSector:
+ 999              	.LFB166:
+ 359:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 360:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 361:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * This API repair the physical sector
+ 362:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 363:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_RepairPhysicalSector(void)
+ 364:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 1000              	 .loc 1 364 0
+ 1001              	 .cfi_startproc
+ 1002              	 
+ 1003              	 
+ 1004              	 
+ 1005              	.LVL66:
+ 1006 0000 F0B4     	 push {r4,r5,r6,r7}
+ 1007              	.LCFI16:
+ 1008              	 .cfi_def_cfa_offset 16
+ 1009              	 .cfi_offset 4,-16
+ 1010              	 .cfi_offset 5,-12
+ 1011              	 .cfi_offset 6,-8
+ 1012              	 .cfi_offset 7,-4
+ 1013              	.LBB130:
+ 1014              	.LBB131:
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1015              	 .loc 1 233 0
+ 1016 0002 084B     	 ldr r3,.L73
+ 1017              	.LBE131:
+ 1018              	.LBE130:
+ 1019              	.LBB134:
+ 1020              	.LBB135:
+ 337:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 1021              	 .loc 1 337 0
+ 1022 0004 084A     	 ldr r2,.L73+4
+ 345:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1023              	 .loc 1 345 0
+ 1024 0006 094C     	 ldr r4,.L73+8
+ 1025              	.LBE135:
+ 1026              	.LBE134:
+ 1027              	.LBB138:
+ 1028              	.LBB132:
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1029              	 .loc 1 233 0
+ 1030 0008 F527     	 movs r7,#245
+ 1031              	.LBE132:
+ 1032              	.LBE138:
+ 1033              	.LBB139:
+ 1034              	.LBB136:
+ 335:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1035              	 .loc 1 335 0
+ 1036 000a AA20     	 movs r0,#170
+ 337:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 1037              	 .loc 1 337 0
+ 1038 000c 5521     	 movs r1,#85
+ 339:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 1039              	 .loc 1 339 0
+ 1040 000e 8026     	 movs r6,#128
+ 345:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1041              	 .loc 1 345 0
+ 1042 0010 4025     	 movs r5,#64
+ 1043              	.LBE136:
+ 1044              	.LBE139:
+ 1045              	.LBB140:
+ 1046              	.LBB133:
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1047              	 .loc 1 233 0
+ 1048 0012 1F60     	 str r7,[r3]
+ 1049              	.LVL67:
+ 1050              	.LBE133:
+ 1051              	.LBE140:
+ 1052              	.LBB141:
+ 1053              	.LBB137:
+ 335:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1054              	 .loc 1 335 0
+ 1055 0014 1860     	 str r0,[r3]
+ 1056              	.LVL68:
+ 337:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 1057              	 .loc 1 337 0
+ 1058 0016 1160     	 str r1,[r2]
+ 1059              	.LVL69:
+ 339:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 1060              	 .loc 1 339 0
+ 1061 0018 1E60     	 str r6,[r3]
+ 341:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1062              	 .loc 1 341 0
+ 1063 001a 1860     	 str r0,[r3]
+ 1064              	.LVL70:
+ 343:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = XMC_FLASH_PHY_SECTOR_4;
+ 1065              	 .loc 1 343 0
+ 1066 001c 1160     	 str r1,[r2]
+ 1067              	.LVL71:
+ 345:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1068              	 .loc 1 345 0
+ 1069 001e 2560     	 str r5,[r4]
+ 1070              	.LBE137:
+ 1071              	.LBE141:
+ 365:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lClearStatusCommand();
+ 366:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lRepairPhysicalSectorCommand();
+ 367:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1072              	 .loc 1 367 0
+ 1073 0020 F0BC     	 pop {r4,r5,r6,r7}
+ 1074              	.LCFI17:
+ 1075              	 .cfi_restore 7
+ 1076              	 .cfi_restore 6
+ 1077              	 .cfi_restore 5
+ 1078              	 .cfi_restore 4
+ 1079              	 .cfi_def_cfa_offset 0
+ 1080 0022 7047     	 bx lr
+ 1081              	.L74:
+ 1082              	 .align 2
+ 1083              	.L73:
+ 1084 0024 5455000C 	 .word 201348436
+ 1085 0028 A8AA000C 	 .word 201370280
+ 1086 002c 0000010C 	 .word 201392128
+ 1087              	 .cfi_endproc
+ 1088              	.LFE166:
+ 1090              	 .section .text.XMC_FLASH_EraseUCB,"ax",%progbits
+ 1091              	 .align 2
+ 1092              	 .global XMC_FLASH_EraseUCB
+ 1093              	 .thumb
+ 1094              	 .thumb_func
+ 1096              	XMC_FLASH_EraseUCB:
+ 1097              	.LFB167:
+ 368:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 369:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 370:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * Command to erase UCB sector which is starting with the specified address
+ 371:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 372:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_EraseUCB(uint32_t *ucb_sector_start_address)
+ 373:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 1098              	 .loc 1 373 0
+ 1099              	 .cfi_startproc
+ 1100              	 
+ 1101              	 
+ 1102              	 
+ 1103              	.LVL72:
+ 374:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   volatile uint32_t *address;
+ 375:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 376:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 377:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0xaaU;
+ 1104              	 .loc 1 377 0
+ 1105 0000 094B     	 ldr r3,.L79
+ 378:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 379:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x55U;
+ 1106              	 .loc 1 379 0
+ 1107 0002 0A49     	 ldr r1,.L79+4
+ 380:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 381:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x80U;
+ 382:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 383:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0xaaU;
+ 384:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 385:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x55U;
+ 386:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = ucb_sector_start_address;
+ 387:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0xc0U;
+ 388:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 389:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   /* wait until the operation is completed */
+ 390:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   while ((FLASH0->FSR & (uint32_t)FLASH_FSR_PBUSY_Msk) != 0U){}
+ 1108              	 .loc 1 390 0
+ 1109 0004 0A4A     	 ldr r2,.L79+8
+ 373:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   volatile uint32_t *address;
+ 1110              	 .loc 1 373 0
+ 1111 0006 F0B4     	 push {r4,r5,r6,r7}
+ 1112              	.LCFI18:
+ 1113              	 .cfi_def_cfa_offset 16
+ 1114              	 .cfi_offset 4,-16
+ 1115              	 .cfi_offset 5,-12
+ 1116              	 .cfi_offset 6,-8
+ 1117              	 .cfi_offset 7,-4
+ 377:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1118              	 .loc 1 377 0
+ 1119 0008 AA25     	 movs r5,#170
+ 379:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 1120              	 .loc 1 379 0
+ 1121 000a 5524     	 movs r4,#85
+ 381:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 1122              	 .loc 1 381 0
+ 1123 000c 8027     	 movs r7,#128
+ 387:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 1124              	 .loc 1 387 0
+ 1125 000e C026     	 movs r6,#192
+ 377:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1126              	 .loc 1 377 0
+ 1127 0010 1D60     	 str r5,[r3]
+ 1128              	.LVL73:
+ 379:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 1129              	 .loc 1 379 0
+ 1130 0012 0C60     	 str r4,[r1]
+ 1131              	.LVL74:
+ 381:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 1132              	 .loc 1 381 0
+ 1133 0014 1F60     	 str r7,[r3]
+ 383:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1134              	 .loc 1 383 0
+ 1135 0016 1D60     	 str r5,[r3]
+ 1136              	.LVL75:
+ 385:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = ucb_sector_start_address;
+ 1137              	 .loc 1 385 0
+ 1138 0018 0C60     	 str r4,[r1]
+ 1139              	.LVL76:
+ 387:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 1140              	 .loc 1 387 0
+ 1141 001a 0660     	 str r6,[r0]
+ 1142              	.L76:
+ 1143              	 .loc 1 390 0 discriminator 1
+ 1144 001c 1368     	 ldr r3,[r2]
+ 1145 001e DB07     	 lsls r3,r3,#31
+ 1146 0020 FCD4     	 bmi .L76
+ 391:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1147              	 .loc 1 391 0
+ 1148 0022 F0BC     	 pop {r4,r5,r6,r7}
+ 1149              	.LCFI19:
+ 1150              	 .cfi_restore 7
+ 1151              	 .cfi_restore 6
+ 1152              	 .cfi_restore 5
+ 1153              	 .cfi_restore 4
+ 1154              	 .cfi_def_cfa_offset 0
+ 1155 0024 7047     	 bx lr
+ 1156              	.L80:
+ 1157 0026 00BF     	 .align 2
+ 1158              	.L79:
+ 1159 0028 5455000C 	 .word 201348436
+ 1160 002c A8AA000C 	 .word 201370280
+ 1161 0030 10200058 	 .word 1476403216
+ 1162              	 .cfi_endproc
+ 1163              	.LFE167:
+ 1165              	 .section .text.XMC_FLASH_Reset,"ax",%progbits
+ 1166              	 .align 2
+ 1167              	 .global XMC_FLASH_Reset
+ 1168              	 .thumb
+ 1169              	 .thumb_func
+ 1171              	XMC_FLASH_Reset:
+ 1172              	.LFB168:
+ 392:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 393:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 394:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * Command to reset the status of the PFLASH
+ 395:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 396:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_Reset(void)
+ 397:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 1173              	 .loc 1 397 0
+ 1174              	 .cfi_startproc
+ 1175              	 
+ 1176              	 
+ 1177              	 
+ 1178              	.LVL77:
+ 398:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   volatile uint32_t *address;
+ 399:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 400:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 401:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0xf0U;
+ 1179              	 .loc 1 401 0
+ 1180 0000 014B     	 ldr r3,.L82
+ 1181 0002 F022     	 movs r2,#240
+ 1182 0004 1A60     	 str r2,[r3]
+ 1183 0006 7047     	 bx lr
+ 1184              	.L83:
+ 1185              	 .align 2
+ 1186              	.L82:
+ 1187 0008 5455000C 	 .word 201348436
+ 1188              	 .cfi_endproc
+ 1189              	.LFE168:
+ 1191              	 .section .text.XMC_FLASH_InstallBMI,"ax",%progbits
+ 1192              	 .align 2
+ 1193              	 .global XMC_FLASH_InstallBMI
+ 1194              	 .thumb
+ 1195              	 .thumb_func
+ 1197              	XMC_FLASH_InstallBMI:
+ 1198              	.LFB169:
+ 402:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 403:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 404:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** #define BMI_STRING_BYTE_CNT 30
+ 405:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 406:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_InstallBMI(XMC_FLASH_BMI_STRING_t *const bmi_string)
+ 407:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 1199              	 .loc 1 407 0
+ 1200              	 .cfi_startproc
+ 1201              	 
+ 1202              	 
+ 1203              	 
+ 1204              	.LVL78:
+ 1205 0000 70B4     	 push {r4,r5,r6}
+ 1206              	.LCFI20:
+ 1207              	 .cfi_def_cfa_offset 12
+ 1208              	 .cfi_offset 4,-12
+ 1209              	 .cfi_offset 5,-8
+ 1210              	 .cfi_offset 6,-4
+ 1211 0002 431E     	 subs r3,r0,#1
+ 1212 0004 00F11D04 	 add r4,r0,#29
+ 408:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   uint32_t checksum = 0;
+ 1213              	 .loc 1 408 0
+ 1214 0008 0022     	 movs r2,#0
+ 1215              	.LVL79:
+ 1216              	.L85:
+ 1217              	.LBB142:
+ 409:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   for (int i = 0; i < BMI_STRING_BYTE_CNT; ++i)
+ 410:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   {
+ 411:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 	checksum ^= ((const uint8_t *)bmi_string)[i];
+ 1218              	 .loc 1 411 0 discriminator 3
+ 1219 000a 13F8011F 	 ldrb r1,[r3,#1]!
+ 409:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   for (int i = 0; i < BMI_STRING_BYTE_CNT; ++i)
+ 1220              	 .loc 1 409 0 discriminator 3
+ 1221 000e A342     	 cmp r3,r4
+ 1222              	 .loc 1 411 0 discriminator 3
+ 1223 0010 82EA0102 	 eor r2,r2,r1
+ 1224              	.LVL80:
+ 409:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   for (int i = 0; i < BMI_STRING_BYTE_CNT; ++i)
+ 1225              	 .loc 1 409 0 discriminator 3
+ 1226 0014 F9D1     	 bne .L85
+ 1227              	.LBE142:
+ 1228              	.LBB143:
+ 1229              	.LBB144:
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1230              	 .loc 1 109 0
+ 1231 0016 1A4B     	 ldr r3,.L92
+ 1232              	.LBE144:
+ 1233              	.LBE143:
+ 412:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   }
+ 413:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 414:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   bmi_string->reserved = checksum;
+ 1234              	 .loc 1 414 0
+ 1235 0018 0262     	 str r2,[r0,#32]
+ 1236              	.LVL81:
+ 1237              	.LBB146:
+ 1238              	.LBB145:
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1239              	 .loc 1 109 0
+ 1240 001a 5022     	 movs r2,#80
+ 1241              	.LVL82:
+ 1242 001c 1A60     	 str r2,[r3]
+ 1243              	.LVL83:
+ 1244              	.LBE145:
+ 1245              	.LBE146:
+ 1246              	.LBB147:
+ 1247              	.LBB148:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1248              	 .loc 1 122 0
+ 1249 001e 1949     	 ldr r1,.L92+4
+ 1250              	.LBE148:
+ 1251              	.LBE147:
+ 415:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 416:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lEnterPageModeCommand();
+ 417:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 418:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lLoadPageCommand(((const uint32_t *)bmi_string)[0], ((const uint32_t *)bmi_string)[1]);
+ 1252              	 .loc 1 418 0
+ 1253 0020 0468     	 ldr r4,[r0]
+ 1254 0022 4268     	 ldr r2,[r0,#4]
+ 1255              	.LVL84:
+ 1256              	.LBB151:
+ 1257              	.LBB149:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+ 1258              	 .loc 1 120 0
+ 1259 0024 C3F89C40 	 str r4,[r3,#156]
+ 1260              	.LVL85:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1261              	 .loc 1 122 0
+ 1262 0028 0A60     	 str r2,[r1]
+ 1263              	.LBE149:
+ 1264              	.LBE151:
+ 419:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lLoadPageCommand(((const uint32_t *)bmi_string)[2], ((const uint32_t *)bmi_string)[3]);
+ 1265              	 .loc 1 419 0
+ 1266 002a 8468     	 ldr r4,[r0,#8]
+ 1267              	.LVL86:
+ 1268 002c C268     	 ldr r2,[r0,#12]
+ 1269              	.LVL87:
+ 1270              	.LBB152:
+ 1271              	.LBB153:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+ 1272              	 .loc 1 120 0
+ 1273 002e C3F89C40 	 str r4,[r3,#156]
+ 1274              	.LVL88:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1275              	 .loc 1 122 0
+ 1276 0032 0A60     	 str r2,[r1]
+ 1277              	.LBE153:
+ 1278              	.LBE152:
+ 420:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lLoadPageCommand(((const uint32_t *)bmi_string)[4], ((const uint32_t *)bmi_string)[5]);
+ 1279              	 .loc 1 420 0
+ 1280 0034 0469     	 ldr r4,[r0,#16]
+ 1281              	.LVL89:
+ 1282 0036 4269     	 ldr r2,[r0,#20]
+ 1283              	.LVL90:
+ 1284              	.LBB154:
+ 1285              	.LBB155:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+ 1286              	 .loc 1 120 0
+ 1287 0038 C3F89C40 	 str r4,[r3,#156]
+ 1288              	.LVL91:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1289              	 .loc 1 122 0
+ 1290 003c 0A60     	 str r2,[r1]
+ 1291              	.LBE155:
+ 1292              	.LBE154:
+ 421:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lLoadPageCommand(((const uint32_t *)bmi_string)[6], ((const uint32_t *)bmi_string)[7]);
+ 1293              	 .loc 1 421 0
+ 1294 003e C269     	 ldr r2,[r0,#28]
+ 1295              	.LVL92:
+ 1296 0040 8469     	 ldr r4,[r0,#24]
+ 1297              	.LVL93:
+ 1298              	.LBB156:
+ 1299              	.LBB157:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+ 1300              	 .loc 1 120 0
+ 1301 0042 C3F89C40 	 str r4,[r3,#156]
+ 1302              	.LVL94:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1303              	 .loc 1 122 0
+ 1304 0046 0A60     	 str r2,[r1]
+ 1305              	.LBE157:
+ 1306              	.LBE156:
+ 422:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lLoadPageCommand(((const uint32_t *)bmi_string)[8], 0);
+ 1307              	 .loc 1 422 0
+ 1308 0048 026A     	 ldr r2,[r0,#32]
+ 1309              	.LVL95:
+ 1310              	.LBB158:
+ 1311              	.LBB159:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+ 1312              	 .loc 1 120 0
+ 1313 004a C3F89C20 	 str r2,[r3,#156]
+ 1314              	.LVL96:
+ 1315              	.LBE159:
+ 1316              	.LBE158:
+ 1317              	.LBB162:
+ 1318              	.LBB150:
+ 1319 004e 9C33     	 adds r3,r3,#156
+ 1320              	.LVL97:
+ 1321              	.LBE150:
+ 1322              	.LBE162:
+ 1323              	.LBB163:
+ 1324              	.LBB160:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1325              	 .loc 1 122 0
+ 1326 0050 0022     	 movs r2,#0
+ 1327              	.LVL98:
+ 1328              	.LBE160:
+ 1329              	.LBE163:
+ 1330              	.LBB164:
+ 1331              	.LBB165:
+ 1332              	.LBB166:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+ 1333              	 .loc 1 120 0
+ 1334 0052 1846     	 mov r0,r3
+ 1335              	.LVL99:
+ 1336              	.LBE166:
+ 1337              	.LBE165:
+ 1338              	.LBE164:
+ 1339              	.LBB169:
+ 1340              	.LBB161:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1341              	 .loc 1 122 0
+ 1342 0054 0A60     	 str r2,[r1]
+ 1343              	.LVL100:
+ 1344 0056 1B23     	 movs r3,#27
+ 1345              	.LVL101:
+ 1346              	.L86:
+ 1347              	.LBE161:
+ 1348              	.LBE169:
+ 1349              	.LBB170:
+ 423:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 424:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   for (uint32_t idx = 0U; idx < (XMC_FLASH_WORDS_PER_PAGE - XMC_FLASH_BMI_STRING_WORDS); idx += 2U)
+ 1350              	 .loc 1 424 0
+ 1351 0058 013B     	 subs r3,r3,#1
+ 1352              	.LBB168:
+ 1353              	.LBB167:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+ 1354              	 .loc 1 120 0
+ 1355 005a 0260     	 str r2,[r0]
+ 1356              	.LVL102:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1357              	 .loc 1 122 0
+ 1358 005c 0A60     	 str r2,[r1]
+ 1359              	.LBE167:
+ 1360              	.LBE168:
+ 1361              	 .loc 1 424 0
+ 1362 005e FBD1     	 bne .L86
+ 1363              	.LVL103:
+ 1364              	.LBE170:
+ 1365              	.LBB171:
+ 1366              	.LBB172:
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1367              	 .loc 1 150 0
+ 1368 0060 0749     	 ldr r1,.L92
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 1369              	 .loc 1 152 0
+ 1370 0062 094D     	 ldr r5,.L92+8
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1371              	 .loc 1 156 0
+ 1372 0064 0948     	 ldr r0,.L92+12
+ 1373              	.LBE172:
+ 1374              	.LBE171:
+ 425:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   {
+ 426:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****     XMC_FLASH_lLoadPageCommand(0UL, 0UL);
+ 427:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   }
+ 428:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 429:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lWriteUCBPageCommand((uint32_t *)((uint32_t)XMC_FLASH_UCB2 + XMC_FLASH_BYTES_PER_PAGE))
+ 430:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 431:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   /* wait until the operation is completed */
+ 432:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   while ((FLASH0->FSR & (uint32_t)FLASH_FSR_PBUSY_Msk) != 0U){}
+ 1375              	 .loc 1 432 0
+ 1376 0066 0A4A     	 ldr r2,.L92+16
+ 1377              	.LBB174:
+ 1378              	.LBB173:
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1379              	 .loc 1 150 0
+ 1380 0068 AA23     	 movs r3,#170
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 1381              	 .loc 1 152 0
+ 1382 006a 5526     	 movs r6,#85
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = page_start_address;
+ 1383              	 .loc 1 154 0
+ 1384 006c C024     	 movs r4,#192
+ 1385              	.LVL104:
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1386              	 .loc 1 150 0
+ 1387 006e 0B60     	 str r3,[r1]
+ 1388              	.LVL105:
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 1389              	 .loc 1 152 0
+ 1390 0070 2E60     	 str r6,[r5]
+ 1391              	.LVL106:
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = page_start_address;
+ 1392              	 .loc 1 154 0
+ 1393 0072 0C60     	 str r4,[r1]
+ 1394              	.LVL107:
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1395              	 .loc 1 156 0
+ 1396 0074 0360     	 str r3,[r0]
+ 1397              	.L87:
+ 1398              	.LBE173:
+ 1399              	.LBE174:
+ 1400              	 .loc 1 432 0 discriminator 1
+ 1401 0076 1368     	 ldr r3,[r2]
+ 1402 0078 DB07     	 lsls r3,r3,#31
+ 1403 007a FCD4     	 bmi .L87
+ 433:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1404              	 .loc 1 433 0
+ 1405 007c 70BC     	 pop {r4,r5,r6}
+ 1406              	.LCFI21:
+ 1407              	 .cfi_restore 6
+ 1408              	 .cfi_restore 5
+ 1409              	 .cfi_restore 4
+ 1410              	 .cfi_def_cfa_offset 0
+ 1411 007e 7047     	 bx lr
+ 1412              	.L93:
+ 1413              	 .align 2
+ 1414              	.L92:
+ 1415 0080 5455000C 	 .word 201348436
+ 1416 0084 F455000C 	 .word 201348596
+ 1417 0088 A8AA000C 	 .word 201370280
+ 1418 008c 0009000C 	 .word 201328896
+ 1419 0090 10200058 	 .word 1476403216
+ 1420              	 .cfi_endproc
+ 1421              	.LFE169:
+ 1423              	 .section .text.XMC_FLASH_InstallProtection,"ax",%progbits
+ 1424              	 .align 2
+ 1425              	 .global XMC_FLASH_InstallProtection
+ 1426              	 .thumb
+ 1427              	 .thumb_func
+ 1429              	XMC_FLASH_InstallProtection:
+ 1430              	.LFB170:
+ 434:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 435:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 436:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * This API install the global read and sector write protection for the specified user
+ 437:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 438:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_InstallProtection(uint8_t user,
+ 439:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****                                  uint32_t protection_mask,
+ 440:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 	                             uint32_t password_0,
+ 441:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****                                  uint32_t password_1)
+ 442:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 1431              	 .loc 1 442 0
+ 1432              	 .cfi_startproc
+ 1433              	 
+ 1434              	 
+ 1435              	.LVL108:
+ 1436 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+ 1437              	.LCFI22:
+ 1438              	 .cfi_def_cfa_offset 20
+ 1439              	 .cfi_offset 4,-20
+ 1440              	 .cfi_offset 5,-16
+ 1441              	 .cfi_offset 6,-12
+ 1442              	 .cfi_offset 7,-8
+ 1443              	 .cfi_offset 14,-4
+ 1444              	.LBB175:
+ 1445              	.LBB176:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+ 1446              	 .loc 1 120 0
+ 1447 0002 DFF86CE0 	 ldr lr,.L100+16
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1448              	 .loc 1 122 0
+ 1449 0006 164F     	 ldr r7,.L100
+ 1450              	.LBE176:
+ 1451              	.LBE175:
+ 1452              	.LBB180:
+ 1453              	.LBB181:
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1454              	 .loc 1 109 0
+ 1455 0008 164C     	 ldr r4,.L100+4
+ 1456              	.LBE181:
+ 1457              	.LBE180:
+ 1458              	 .loc 1 442 0
+ 1459 000a 9446     	 mov ip,r2
+ 1460              	.LBB184:
+ 1461              	.LBB182:
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1462              	 .loc 1 109 0
+ 1463 000c 5025     	 movs r5,#80
+ 1464              	.LBE182:
+ 1465              	.LBE184:
+ 1466              	 .loc 1 442 0
+ 1467 000e 1A46     	 mov r2,r3
+ 1468              	.LVL109:
+ 1469              	.LBB185:
+ 1470              	.LBB177:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1471              	 .loc 1 122 0
+ 1472 0010 0023     	 movs r3,#0
+ 1473              	.LVL110:
+ 1474              	.LBE177:
+ 1475              	.LBE185:
+ 1476              	.LBB186:
+ 1477              	.LBB183:
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1478              	 .loc 1 109 0
+ 1479 0012 2560     	 str r5,[r4]
+ 1480              	.LVL111:
+ 1481              	.LBE183:
+ 1482              	.LBE186:
+ 1483              	.LBB187:
+ 1484              	.LBB188:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+ 1485              	 .loc 1 120 0
+ 1486 0014 7646     	 mov r6,lr
+ 1487              	.LBE188:
+ 1488              	.LBE187:
+ 1489              	.LBB192:
+ 1490              	.LBB178:
+ 1491 0016 CEF80010 	 str r1,[lr]
+ 1492              	.LVL112:
+ 1493              	.LBE178:
+ 1494              	.LBE192:
+ 1495              	.LBB193:
+ 1496              	.LBB189:
+ 1497 001a 1C46     	 mov r4,r3
+ 1498              	.LBE189:
+ 1499              	.LBE193:
+ 1500              	.LBB194:
+ 1501              	.LBB179:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1502              	 .loc 1 122 0
+ 1503 001c 3B60     	 str r3,[r7]
+ 1504              	.LVL113:
+ 1505              	.LBE179:
+ 1506              	.LBE194:
+ 1507              	.LBB195:
+ 1508              	.LBB190:
+ 1509 001e 3D46     	 mov r5,r7
+ 1510              	.LBE190:
+ 1511              	.LBE195:
+ 1512              	.LBB196:
+ 1513              	.LBB197:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+ 1514              	 .loc 1 120 0
+ 1515 0020 CEF80010 	 str r1,[lr]
+ 1516              	.LVL114:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1517              	 .loc 1 122 0
+ 1518 0024 3B60     	 str r3,[r7]
+ 1519              	.LVL115:
+ 1520              	.LBE197:
+ 1521              	.LBE196:
+ 1522              	.LBB198:
+ 1523              	.LBB199:
+ 1524 0026 1C21     	 movs r1,#28
+ 1525              	.LVL116:
+ 1526              	.LBE199:
+ 1527              	.LBE198:
+ 1528              	.LBB201:
+ 1529              	.LBB202:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+ 1530              	 .loc 1 120 0
+ 1531 0028 CEF800C0 	 str ip,[lr]
+ 1532              	.LVL117:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1533              	 .loc 1 122 0
+ 1534 002c 3A60     	 str r2,[r7]
+ 1535              	.LVL118:
+ 1536              	.LBE202:
+ 1537              	.LBE201:
+ 1538              	.LBB203:
+ 1539              	.LBB200:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+ 1540              	 .loc 1 120 0
+ 1541 002e CEF800C0 	 str ip,[lr]
+ 1542              	.LVL119:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1543              	 .loc 1 122 0
+ 1544 0032 3A60     	 str r2,[r7]
+ 1545              	.LVL120:
+ 1546              	.L95:
+ 1547              	.LBE200:
+ 1548              	.LBE203:
+ 443:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   uint32_t idx;
+ 444:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   
+ 445:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_ASSERT(" XMC_FLASH_ConfigureProtection: User level out of range", (user < 3U))
+ 446:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 447:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lEnterPageModeCommand();
+ 448:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 449:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lLoadPageCommand(protection_mask, 0UL);
+ 450:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lLoadPageCommand(protection_mask, 0UL);
+ 451:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lLoadPageCommand(password_0, password_1);
+ 452:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lLoadPageCommand(password_0, password_1);
+ 453:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   
+ 454:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   for (idx = 0U; idx < (XMC_FLASH_WORDS_PER_PAGE - XMC_FLASH_PROTECTION_CONFIGURATION_WORDS); idx +
+ 1549              	 .loc 1 454 0
+ 1550 0034 0139     	 subs r1,r1,#1
+ 1551              	.LBB204:
+ 1552              	.LBB191:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+ 1553              	 .loc 1 120 0
+ 1554 0036 3460     	 str r4,[r6]
+ 1555              	.LVL121:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1556              	 .loc 1 122 0
+ 1557 0038 2C60     	 str r4,[r5]
+ 1558              	.LBE191:
+ 1559              	.LBE204:
+ 1560              	 .loc 1 454 0
+ 1561 003a FBD1     	 bne .L95
+ 455:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   {
+ 456:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****     XMC_FLASH_lLoadPageCommand(0UL, 0UL);
+ 457:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   }
+ 458:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 459:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lWriteUCBPageCommand((uint32_t *)((uint32_t)XMC_FLASH_UCB0 + (user * XMC_FLASH_BYTES_PE
+ 1562              	 .loc 1 459 0
+ 1563 003c 00F54033 	 add r3,r0,#196608
+ 1564 0040 9B02     	 lsls r3,r3,#10
+ 1565              	.LVL122:
+ 1566              	.LBB205:
+ 1567              	.LBB206:
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1568              	 .loc 1 150 0
+ 1569 0042 0848     	 ldr r0,.L100+4
+ 1570              	.LVL123:
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 1571              	 .loc 1 152 0
+ 1572 0044 084D     	 ldr r5,.L100+8
+ 1573              	.LBE206:
+ 1574              	.LBE205:
+ 460:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 461:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   /* wait until the operation is completed */
+ 462:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   while ((FLASH0->FSR & (uint32_t)FLASH_FSR_PBUSY_Msk) != 0U){}
+ 1575              	 .loc 1 462 0
+ 1576 0046 094A     	 ldr r2,.L100+12
+ 1577              	.LVL124:
+ 1578              	.LBB208:
+ 1579              	.LBB207:
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1580              	 .loc 1 150 0
+ 1581 0048 AA21     	 movs r1,#170
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 1582              	 .loc 1 152 0
+ 1583 004a 5526     	 movs r6,#85
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = page_start_address;
+ 1584              	 .loc 1 154 0
+ 1585 004c C024     	 movs r4,#192
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1586              	 .loc 1 150 0
+ 1587 004e 0160     	 str r1,[r0]
+ 1588              	.LVL125:
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 1589              	 .loc 1 152 0
+ 1590 0050 2E60     	 str r6,[r5]
+ 1591              	.LVL126:
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = page_start_address;
+ 1592              	 .loc 1 154 0
+ 1593 0052 0460     	 str r4,[r0]
+ 1594              	.LVL127:
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1595              	 .loc 1 156 0
+ 1596 0054 1960     	 str r1,[r3]
+ 1597              	.LVL128:
+ 1598              	.L96:
+ 1599              	.LBE207:
+ 1600              	.LBE208:
+ 1601              	 .loc 1 462 0 discriminator 1
+ 1602 0056 1368     	 ldr r3,[r2]
+ 1603 0058 DB07     	 lsls r3,r3,#31
+ 1604 005a FCD4     	 bmi .L96
+ 463:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1605              	 .loc 1 463 0
+ 1606 005c F0BD     	 pop {r4,r5,r6,r7,pc}
+ 1607              	.L101:
+ 1608 005e 00BF     	 .align 2
+ 1609              	.L100:
+ 1610 0060 F455000C 	 .word 201348596
+ 1611 0064 5455000C 	 .word 201348436
+ 1612 0068 A8AA000C 	 .word 201370280
+ 1613 006c 10200058 	 .word 1476403216
+ 1614 0070 F055000C 	 .word 201348592
+ 1615              	 .cfi_endproc
+ 1616              	.LFE170:
+ 1618              	 .section .text.XMC_FLASH_ConfirmProtection,"ax",%progbits
+ 1619              	 .align 2
+ 1620              	 .global XMC_FLASH_ConfirmProtection
+ 1621              	 .thumb
+ 1622              	 .thumb_func
+ 1624              	XMC_FLASH_ConfirmProtection:
+ 1625              	.LFB171:
+ 464:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 465:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 466:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * This API confirm the protection. So that This sectors are locked with the specified protection.
+ 467:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 468:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_ConfirmProtection(uint8_t user)
+ 469:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 1626              	 .loc 1 469 0
+ 1627              	 .cfi_startproc
+ 1628              	 
+ 1629              	 
+ 1630              	 
+ 1631              	.LVL129:
+ 1632 0000 F0B4     	 push {r4,r5,r6,r7}
+ 1633              	.LCFI23:
+ 1634              	 .cfi_def_cfa_offset 16
+ 1635              	 .cfi_offset 4,-16
+ 1636              	 .cfi_offset 5,-12
+ 1637              	 .cfi_offset 6,-8
+ 1638              	 .cfi_offset 7,-4
+ 1639              	.LBB209:
+ 1640              	.LBB210:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+ 1641              	 .loc 1 120 0
+ 1642 0002 134B     	 ldr r3,.L108
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1643              	 .loc 1 122 0
+ 1644 0004 134D     	 ldr r5,.L108+4
+ 1645              	.LBE210:
+ 1646              	.LBE209:
+ 1647              	.LBB214:
+ 1648              	.LBB215:
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1649              	 .loc 1 109 0
+ 1650 0006 144A     	 ldr r2,.L108+8
+ 1651              	.LBE215:
+ 1652              	.LBE214:
+ 1653              	.LBB217:
+ 1654              	.LBB211:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+ 1655              	 .loc 1 120 0
+ 1656 0008 144F     	 ldr r7,.L108+12
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1657              	 .loc 1 122 0
+ 1658 000a 0026     	 movs r6,#0
+ 1659              	.LBE211:
+ 1660              	.LBE217:
+ 1661              	.LBB218:
+ 1662              	.LBB216:
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1663              	 .loc 1 109 0
+ 1664 000c 5021     	 movs r1,#80
+ 1665 000e 1160     	 str r1,[r2]
+ 1666              	.LVL130:
+ 1667              	.LBE216:
+ 1668              	.LBE218:
+ 1669              	.LBB219:
+ 1670              	.LBB220:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+ 1671              	 .loc 1 120 0
+ 1672 0010 1C46     	 mov r4,r3
+ 1673              	.LBE220:
+ 1674              	.LBE219:
+ 1675              	.LBB224:
+ 1676              	.LBB212:
+ 1677 0012 1F60     	 str r7,[r3]
+ 1678              	.LVL131:
+ 1679              	.LBE212:
+ 1680              	.LBE224:
+ 1681              	.LBB225:
+ 1682              	.LBB221:
+ 1683 0014 3246     	 mov r2,r6
+ 1684              	.LBE221:
+ 1685              	.LBE225:
+ 1686              	.LBB226:
+ 1687              	.LBB213:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1688              	 .loc 1 122 0
+ 1689 0016 2E60     	 str r6,[r5]
+ 1690              	.LVL132:
+ 1691              	.LBE213:
+ 1692              	.LBE226:
+ 1693              	.LBB227:
+ 1694              	.LBB222:
+ 1695 0018 2946     	 mov r1,r5
+ 1696              	.LBE222:
+ 1697              	.LBE227:
+ 1698              	.LBB228:
+ 1699              	.LBB229:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+ 1700              	 .loc 1 120 0
+ 1701 001a 1F60     	 str r7,[r3]
+ 1702              	.LVL133:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1703              	 .loc 1 122 0
+ 1704 001c 1E23     	 movs r3,#30
+ 1705 001e 2E60     	 str r6,[r5]
+ 1706              	.LVL134:
+ 1707              	.L103:
+ 1708              	.LBE229:
+ 1709              	.LBE228:
+ 470:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   uint32_t idx;
+ 471:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 472:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_ASSERT(" XMC_FLASH_ConfirmProtection: User level out of range", (user < 3U))
+ 473:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 474:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lEnterPageModeCommand();
+ 475:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 476:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lLoadPageCommand(XMC_FLASH_PROT_CONFIRM_CODE, 0U);
+ 477:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lLoadPageCommand(XMC_FLASH_PROT_CONFIRM_CODE, 0U);
+ 478:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 479:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   /* Fill the rest of page buffer with zeros*/
+ 480:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   for (idx = 0UL; idx < (XMC_FLASH_WORDS_PER_PAGE - XMC_FLASH_PROT_CONFIRM_WORDS); idx += 2U)
+ 1710              	 .loc 1 480 0
+ 1711 0020 013B     	 subs r3,r3,#1
+ 1712              	.LBB230:
+ 1713              	.LBB223:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x55f4U);
+ 1714              	 .loc 1 120 0
+ 1715 0022 2260     	 str r2,[r4]
+ 1716              	.LVL135:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1717              	 .loc 1 122 0
+ 1718 0024 0A60     	 str r2,[r1]
+ 1719              	.LBE223:
+ 1720              	.LBE230:
+ 1721              	 .loc 1 480 0
+ 1722 0026 FBD1     	 bne .L103
+ 481:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   {
+ 482:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****     XMC_FLASH_lLoadPageCommand(0UL, 0UL);
+ 483:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   }
+ 484:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 485:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_FLASH_lWriteUCBPageCommand((uint32_t *)((uint32_t)XMC_FLASH_UCB0 + 
+ 1723              	 .loc 1 485 0
+ 1724 0028 00F54033 	 add r3,r0,#196608
+ 1725 002c 9B02     	 lsls r3,r3,#10
+ 1726              	.LVL136:
+ 1727              	.LBB231:
+ 1728              	.LBB232:
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1729              	 .loc 1 150 0
+ 1730 002e 0A48     	 ldr r0,.L108+8
+ 1731              	.LVL137:
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 1732              	 .loc 1 152 0
+ 1733 0030 0B4D     	 ldr r5,.L108+16
+ 1734              	.LBE232:
+ 1735              	.LBE231:
+ 486:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****                                  (user * XMC_FLASH_BYTES_PER_UCB) + XMC_FLASH_PROT_CONFIRM_OFFSET))
+ 487:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 488:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   /* wait until the operation is completed */
+ 489:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   while ((FLASH0->FSR & (uint32_t)FLASH_FSR_PBUSY_Msk) != 0U){}
+ 1736              	 .loc 1 489 0
+ 1737 0032 0C4A     	 ldr r2,.L108+20
+ 1738              	.LBB234:
+ 1739              	.LBB233:
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1740              	 .loc 1 150 0
+ 1741 0034 AA21     	 movs r1,#170
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 1742              	 .loc 1 152 0
+ 1743 0036 5526     	 movs r6,#85
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = page_start_address;
+ 1744              	 .loc 1 154 0
+ 1745 0038 C024     	 movs r4,#192
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1746              	 .loc 1 150 0
+ 1747 003a 0160     	 str r1,[r0]
+ 1748              	.LVL138:
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 1749              	 .loc 1 152 0
+ 1750 003c 2E60     	 str r6,[r5]
+ 1751              	.LVL139:
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = page_start_address;
+ 1752              	 .loc 1 154 0
+ 1753 003e 0460     	 str r4,[r0]
+ 1754              	.LVL140:
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1755              	 .loc 1 156 0
+ 1756 0040 C3F80012 	 str r1,[r3,#512]
+ 1757              	.LVL141:
+ 1758              	.L104:
+ 1759              	.LBE233:
+ 1760              	.LBE234:
+ 1761              	 .loc 1 489 0 discriminator 1
+ 1762 0044 1368     	 ldr r3,[r2]
+ 1763 0046 DB07     	 lsls r3,r3,#31
+ 1764 0048 FCD4     	 bmi .L104
+ 490:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1765              	 .loc 1 490 0
+ 1766 004a F0BC     	 pop {r4,r5,r6,r7}
+ 1767              	.LCFI24:
+ 1768              	 .cfi_restore 7
+ 1769              	 .cfi_restore 6
+ 1770              	 .cfi_restore 5
+ 1771              	 .cfi_restore 4
+ 1772              	 .cfi_def_cfa_offset 0
+ 1773 004c 7047     	 bx lr
+ 1774              	.L109:
+ 1775 004e 00BF     	 .align 2
+ 1776              	.L108:
+ 1777 0050 F055000C 	 .word 201348592
+ 1778 0054 F455000C 	 .word 201348596
+ 1779 0058 5455000C 	 .word 201348436
+ 1780 005c C315FE8A 	 .word -1963059773
+ 1781 0060 A8AA000C 	 .word 201370280
+ 1782 0064 10200058 	 .word 1476403216
+ 1783              	 .cfi_endproc
+ 1784              	.LFE171:
+ 1786              	 .section .text.XMC_FLASH_VerifyReadProtection,"ax",%progbits
+ 1787              	 .align 2
+ 1788              	 .global XMC_FLASH_VerifyReadProtection
+ 1789              	 .thumb
+ 1790              	 .thumb_func
+ 1792              	XMC_FLASH_VerifyReadProtection:
+ 1793              	.LFB172:
+ 491:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 492:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 493:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * This API verify read protection configuration. And returns true if passwords are matching.
+ 494:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 495:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** bool XMC_FLASH_VerifyReadProtection(uint32_t password_0, uint32_t password_1)
+ 496:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 1794              	 .loc 1 496 0
+ 1795              	 .cfi_startproc
+ 1796              	 
+ 1797              	 
+ 1798              	.LVL142:
+ 1799 0000 2DE9F047 	 push {r4,r5,r6,r7,r8,r9,r10,lr}
+ 1800              	.LCFI25:
+ 1801              	 .cfi_def_cfa_offset 32
+ 1802              	 .cfi_offset 4,-32
+ 1803              	 .cfi_offset 5,-28
+ 1804              	 .cfi_offset 6,-24
+ 1805              	 .cfi_offset 7,-20
+ 1806              	 .cfi_offset 8,-16
+ 1807              	 .cfi_offset 9,-12
+ 1808              	 .cfi_offset 10,-8
+ 1809              	 .cfi_offset 14,-4
+ 1810              	.LBB235:
+ 1811              	.LBB236:
+ 253:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1812              	 .loc 1 253 0
+ 1813 0004 41F21002 	 movw r2,#4112
+ 1814 0008 124C     	 ldr r4,.L114
+ 1815 000a A358     	 ldr r3,[r4,r2]
+ 1816              	.LBE236:
+ 1817              	.LBE235:
+ 497:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   bool status = false;
+ 498:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   
+ 499:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   /* Check if read protection is installed */
+ 500:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   if ((XMC_FLASH_GetStatus() & (uint32_t)XMC_FLASH_STATUS_READ_PROTECTION_INSTALLED) != 0U)
+ 1818              	 .loc 1 500 0
+ 1819 000c 13F48023 	 ands r3,r3,#262144
+ 1820 0010 1DD0     	 beq .L112
+ 1821              	.LVL143:
+ 1822              	.LBB237:
+ 1823              	.LBB238:
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x553cU);
+ 1824              	 .loc 1 214 0
+ 1825 0012 114B     	 ldr r3,.L114+4
+ 1826              	.LBE238:
+ 1827              	.LBE237:
+ 1828              	.LBB242:
+ 1829              	.LBB243:
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1830              	 .loc 1 233 0
+ 1831 0014 114D     	 ldr r5,.L114+8
+ 1832              	.LBE243:
+ 1833              	.LBE242:
+ 1834              	.LBB246:
+ 1835              	.LBB239:
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1836              	 .loc 1 216 0
+ 1837 0016 DFF84CE0 	 ldr lr,.L114+16
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1838              	 .loc 1 222 0
+ 1839 001a 114E     	 ldr r6,.L114+12
+ 1840              	.LBE239:
+ 1841              	.LBE246:
+ 1842              	.LBB247:
+ 1843              	.LBB244:
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1844              	 .loc 1 233 0
+ 1845 001c 4FF0F50A 	 mov r10,#245
+ 1846              	.LBE244:
+ 1847              	.LBE247:
+ 1848              	.LBB248:
+ 1849              	.LBB240:
+ 212:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1850              	 .loc 1 212 0
+ 1851 0020 4FF0AA09 	 mov r9,#170
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x553cU);
+ 1852              	 .loc 1 214 0
+ 1853 0024 4FF05508 	 mov r8,#85
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1854              	 .loc 1 216 0
+ 1855 0028 4FF0000C 	 mov ip,#0
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1856              	 .loc 1 222 0
+ 1857 002c 0827     	 movs r7,#8
+ 1858              	.LBE240:
+ 1859              	.LBE248:
+ 1860              	.LBB249:
+ 1861              	.LBB245:
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1862              	 .loc 1 233 0
+ 1863 002e C5F800A0 	 str r10,[r5]
+ 1864              	.LVL144:
+ 1865              	.LBE245:
+ 1866              	.LBE249:
+ 1867              	.LBB250:
+ 1868              	.LBB241:
+ 212:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1869              	 .loc 1 212 0
+ 1870 0032 C5F80090 	 str r9,[r5]
+ 1871              	.LVL145:
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x553cU);
+ 1872              	 .loc 1 214 0
+ 1873 0036 C3F80080 	 str r8,[r3]
+ 1874              	.LVL146:
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1875              	 .loc 1 216 0
+ 1876 003a CEF800C0 	 str ip,[lr]
+ 1877              	.LVL147:
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1878              	 .loc 1 218 0
+ 1879 003e 1860     	 str r0,[r3]
+ 220:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5558U);
+ 1880              	 .loc 1 220 0
+ 1881 0040 1960     	 str r1,[r3]
+ 1882              	.LVL148:
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1883              	 .loc 1 222 0
+ 1884 0042 3760     	 str r7,[r6]
+ 1885              	.LBE241:
+ 1886              	.LBE250:
+ 1887              	.LBB251:
+ 1888              	.LBB252:
+ 253:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1889              	 .loc 1 253 0
+ 1890 0044 A058     	 ldr r0,[r4,r2]
+ 1891              	.LVL149:
+ 1892              	.LBE252:
+ 1893              	.LBE251:
+ 501:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   {  
+ 502:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****     XMC_FLASH_lClearStatusCommand();
+ 503:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****     XMC_FLASH_lDisableReadProtectionCommand(password_0, password_1);
+ 504:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 505:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****     status = (bool)(XMC_FLASH_GetStatus() & (uint32_t)XMC_FLASH_STATUS_READ_PROTECTION_DISABLED_STA
+ 1894              	 .loc 1 505 0
+ 1895 0046 C0F3C040 	 ubfx r0,r0,#19,#1
+ 1896              	.LVL150:
+ 1897 004a BDE8F087 	 pop {r4,r5,r6,r7,r8,r9,r10,pc}
+ 1898              	.LVL151:
+ 1899              	.L112:
+ 497:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   
+ 1900              	 .loc 1 497 0
+ 1901 004e 1846     	 mov r0,r3
+ 1902              	.LVL152:
+ 506:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   }
+ 507:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 508:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   return status;
+ 509:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1903              	 .loc 1 509 0
+ 1904 0050 BDE8F087 	 pop {r4,r5,r6,r7,r8,r9,r10,pc}
+ 1905              	.L115:
+ 1906              	 .align 2
+ 1907              	.L114:
+ 1908 0054 00100058 	 .word 1476399104
+ 1909 0058 A8AA000C 	 .word 201370280
+ 1910 005c 5455000C 	 .word 201348436
+ 1911 0060 5855000C 	 .word 201348440
+ 1912 0064 3C55000C 	 .word 201348412
+ 1913              	 .cfi_endproc
+ 1914              	.LFE172:
+ 1916              	 .section .text.XMC_FLASH_VerifyWriteProtection,"ax",%progbits
+ 1917              	 .align 2
+ 1918              	 .global XMC_FLASH_VerifyWriteProtection
+ 1919              	 .thumb
+ 1920              	 .thumb_func
+ 1922              	XMC_FLASH_VerifyWriteProtection:
+ 1923              	.LFB173:
+ 510:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 511:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 512:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * This API verify sector write protection configuration. And returns true if passwords are matchin
+ 513:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * specified user.
+ 514:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 515:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** bool XMC_FLASH_VerifyWriteProtection(uint32_t user,
+ 516:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****                                      uint32_t protection_mask, 
+ 517:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****                                      uint32_t password_0, 
+ 518:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****                                      uint32_t password_1)
+ 519:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 1924              	 .loc 1 519 0
+ 1925              	 .cfi_startproc
+ 1926              	 
+ 1927              	 
+ 1928              	.LVL153:
+ 1929 0000 2DE9F04F 	 push {r4,r5,r6,r7,r8,r9,r10,fp,lr}
+ 1930              	.LCFI26:
+ 1931              	 .cfi_def_cfa_offset 36
+ 1932              	 .cfi_offset 4,-36
+ 1933              	 .cfi_offset 5,-32
+ 1934              	 .cfi_offset 6,-28
+ 1935              	 .cfi_offset 7,-24
+ 1936              	 .cfi_offset 8,-20
+ 1937              	 .cfi_offset 9,-16
+ 1938              	 .cfi_offset 10,-12
+ 1939              	 .cfi_offset 11,-8
+ 1940              	 .cfi_offset 14,-4
+ 1941              	.LBB253:
+ 1942              	.LBB254:
+ 253:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1943              	 .loc 1 253 0
+ 1944 0004 1C4E     	 ldr r6,.L122
+ 1945 0006 41F21005 	 movw r5,#4112
+ 1946              	.LVL154:
+ 1947              	.LBE254:
+ 1948              	.LBE253:
+ 520:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   bool status = false;
+ 521:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   uint32_t *flash_procon_ptr = (uint32_t *)(void*)(&(FLASH0->PROCON0) + user);
+ 522:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 523:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   XMC_ASSERT(" XMC_FLASH_VerifyWriteProtection: User level out of range", (user < 2U))
+ 524:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 525:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   /* Check if write protection for selected user is installed */
+ 526:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   if ((XMC_FLASH_GetStatus() & (uint32_t)((uint32_t)1U << (uint32_t)((uint32_t)FLASH_FSR_WPROIN0_Po
+ 1949              	 .loc 1 526 0
+ 1950 000a 00F11507 	 add r7,r0,#21
+ 1951              	.LBB256:
+ 1952              	.LBB255:
+ 253:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1953              	 .loc 1 253 0
+ 1954 000e 7459     	 ldr r4,[r6,r5]
+ 1955              	.LBE255:
+ 1956              	.LBE256:
+ 1957              	 .loc 1 526 0
+ 1958 0010 FC40     	 lsrs r4,r4,r7
+ 1959 0012 14F00104 	 ands r4,r4,#1
+ 1960 0016 2BD0     	 beq .L119
+ 1961              	.LVL155:
+ 1962              	.LBB257:
+ 1963              	.LBB258:
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1964              	 .loc 1 233 0
+ 1965 0018 184C     	 ldr r4,.L122+4
+ 1966              	.LBE258:
+ 1967              	.LBE257:
+ 1968              	.LBB261:
+ 1969              	.LBB262:
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x553cU);
+ 1970              	 .loc 1 192 0
+ 1971 001a 194F     	 ldr r7,.L122+8
+ 194:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1972              	 .loc 1 194 0
+ 1973 001c DFF86880 	 ldr r8,.L122+16
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1974              	 .loc 1 200 0
+ 1975 0020 DFF868E0 	 ldr lr,.L122+20
+ 1976              	.LBE262:
+ 1977              	.LBE261:
+ 1978              	.LBB265:
+ 1979              	.LBB259:
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1980              	 .loc 1 233 0
+ 1981 0024 4FF0F50B 	 mov fp,#245
+ 1982              	.LBE259:
+ 1983              	.LBE265:
+ 1984              	.LBB266:
+ 1985              	.LBB263:
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 1986              	 .loc 1 190 0
+ 1987 0028 4FF0AA0A 	 mov r10,#170
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x553cU);
+ 1988              	 .loc 1 192 0
+ 1989 002c 4FF05509 	 mov r9,#85
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1990              	 .loc 1 200 0
+ 1991 0030 4FF0050C 	 mov ip,#5
+ 1992              	.LBE263:
+ 1993              	.LBE266:
+ 1994              	.LBB267:
+ 1995              	.LBB260:
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 1996              	 .loc 1 233 0
+ 1997 0034 C4F800B0 	 str fp,[r4]
+ 1998              	.LVL156:
+ 1999              	.LBE260:
+ 2000              	.LBE267:
+ 2001              	.LBB268:
+ 2002              	.LBB264:
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 2003              	 .loc 1 190 0
+ 2004 0038 C4F800A0 	 str r10,[r4]
+ 2005              	.LVL157:
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x553cU);
+ 2006              	 .loc 1 192 0
+ 2007 003c C7F80090 	 str r9,[r7]
+ 2008              	.LVL158:
+ 194:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 2009              	 .loc 1 194 0
+ 2010 0040 C8F80000 	 str r0,[r8]
+ 2011              	.LVL159:
+ 196:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0xaaa8U);
+ 2012              	 .loc 1 196 0
+ 2013 0044 3A60     	 str r2,[r7]
+ 198:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5558U);
+ 2014              	 .loc 1 198 0
+ 2015 0046 3B60     	 str r3,[r7]
+ 2016              	.LVL160:
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 2017              	 .loc 1 200 0
+ 2018 0048 CEF800C0 	 str ip,[lr]
+ 2019              	.LBE264:
+ 2020              	.LBE268:
+ 2021              	.LBB269:
+ 2022              	.LBB270:
+ 253:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 2023              	 .loc 1 253 0
+ 2024 004c 7459     	 ldr r4,[r6,r5]
+ 2025              	.LBE270:
+ 2026              	.LBE269:
+ 527:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   {  
+ 528:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****     XMC_FLASH_lClearStatusCommand();
+ 529:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****     XMC_FLASH_lDisableSectorWriteProtectionCommand(user, password_0, password_1);
+ 530:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****     
+ 531:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****     status = (bool)((XMC_FLASH_GetStatus() & (uint32_t)((uint32_t)1U << (uint32_t)((uint32_t)FLASH_
+ 2027              	 .loc 1 531 0
+ 2028 004e 00F11903 	 add r3,r0,#25
+ 2029              	.LVL161:
+ 2030 0052 DC40     	 lsrs r4,r4,r3
+ 2031 0054 14F00104 	 ands r4,r4,#1
+ 2032 0058 0AD0     	 beq .L119
+ 532:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****              (*flash_procon_ptr == (protection_mask & (uint32_t)(~(uint32_t)XMC_FLASH_PROTECTION_RE
+ 2033              	 .loc 1 532 0 discriminator 1
+ 2034 005a 0A4B     	 ldr r3,.L122+12
+ 531:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****              (*flash_procon_ptr == (protection_mask & (uint32_t)(~(uint32_t)XMC_FLASH_PROTECTION_RE
+ 2035              	 .loc 1 531 0 discriminator 1
+ 2036 005c 53F82030 	 ldr r3,[r3,r0,lsl#2]
+ 2037              	 .loc 1 532 0 discriminator 1
+ 2038 0060 21F40040 	 bic r0,r1,#32768
+ 2039              	.LVL162:
+ 531:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****              (*flash_procon_ptr == (protection_mask & (uint32_t)(~(uint32_t)XMC_FLASH_PROTECTION_RE
+ 2040              	 .loc 1 531 0 discriminator 1
+ 2041 0064 181A     	 subs r0,r3,r0
+ 2042 0066 B0FA80F0 	 clz r0,r0
+ 2043 006a 4009     	 lsrs r0,r0,#5
+ 2044 006c BDE8F08F 	 pop {r4,r5,r6,r7,r8,r9,r10,fp,pc}
+ 2045              	.LVL163:
+ 2046              	.L119:
+ 520:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   uint32_t *flash_procon_ptr = (uint32_t *)(void*)(&(FLASH0->PROCON0) + user);
+ 2047              	 .loc 1 520 0
+ 2048 0070 2046     	 mov r0,r4
+ 2049              	.LVL164:
+ 533:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   }
+ 534:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 535:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   return status;
+ 536:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** }
+ 2050              	 .loc 1 536 0
+ 2051 0072 BDE8F08F 	 pop {r4,r5,r6,r7,r8,r9,r10,fp,pc}
+ 2052              	.L123:
+ 2053 0076 00BF     	 .align 2
+ 2054              	.L122:
+ 2055 0078 00100058 	 .word 1476399104
+ 2056 007c 5455000C 	 .word 201348436
+ 2057 0080 A8AA000C 	 .word 201370280
+ 2058 0084 20200058 	 .word 1476403232
+ 2059 0088 3C55000C 	 .word 201348412
+ 2060 008c 5855000C 	 .word 201348440
+ 2061              	 .cfi_endproc
+ 2062              	.LFE173:
+ 2064              	 .section .text.XMC_FLASH_ResumeProtection,"ax",%progbits
+ 2065              	 .align 2
+ 2066              	 .global XMC_FLASH_ResumeProtection
+ 2067              	 .thumb
+ 2068              	 .thumb_func
+ 2070              	XMC_FLASH_ResumeProtection:
+ 2071              	.LFB174:
+ 537:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 538:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** /*
+ 539:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  * Command to enables the protection as it was configured
+ 540:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****  */
+ 541:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** void XMC_FLASH_ResumeProtection(void)
+ 542:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** {
+ 2072              	 .loc 1 542 0
+ 2073              	 .cfi_startproc
+ 2074              	 
+ 2075              	 
+ 2076              	 
+ 2077              	.LVL165:
+ 543:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   volatile uint32_t *address;
+ 544:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c **** 
+ 545:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   address = (uint32_t *)(XMC_FLASH_UNCACHED_BASE + 0x5554U);
+ 546:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc4_flash.c ****   *address = 0x5eU;
+ 2078              	 .loc 1 546 0
+ 2079 0000 014B     	 ldr r3,.L125
+ 2080 0002 5E22     	 movs r2,#94
+ 2081 0004 1A60     	 str r2,[r3]
+ 2082 0006 7047     	 bx lr
+ 2083              	.L126:
+ 2084              	 .align 2
+ 2085              	.L125:
+ 2086 0008 5455000C 	 .word 201348436
+ 2087              	 .cfi_endproc
+ 2088              	.LFE174:
+ 2090              	 .text
+ 2091              	.Letext0:
+ 2092              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 2093              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 2094              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 2095              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc4_flash.h"
+ 2096              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 xmc4_flash.c
+    {standard input}:20     .text.XMC_FLASH_lEnterPageModeCommand:00000000 $t
+    {standard input}:25     .text.XMC_FLASH_lEnterPageModeCommand:00000000 XMC_FLASH_lEnterPageModeCommand
+    {standard input}:42     .text.XMC_FLASH_lEnterPageModeCommand:00000008 $d
+    {standard input}:47     .text.XMC_FLASH_lLoadPageCommand:00000000 $t
+    {standard input}:52     .text.XMC_FLASH_lLoadPageCommand:00000000 XMC_FLASH_lLoadPageCommand
+    {standard input}:73     .text.XMC_FLASH_lLoadPageCommand:0000000c $d
+    {standard input}:79     .text.XMC_FLASH_lWritePageCommand:00000000 $t
+    {standard input}:84     .text.XMC_FLASH_lWritePageCommand:00000000 XMC_FLASH_lWritePageCommand
+    {standard input}:129    .text.XMC_FLASH_lWritePageCommand:00000018 $d
+    {standard input}:135    .text.XMC_FLASH_lWriteUCBPageCommand:00000000 $t
+    {standard input}:140    .text.XMC_FLASH_lWriteUCBPageCommand:00000000 XMC_FLASH_lWriteUCBPageCommand
+    {standard input}:185    .text.XMC_FLASH_lWriteUCBPageCommand:00000018 $d
+    {standard input}:191    .text.XMC_FLASH_lEraseSectorCommand:00000000 $t
+    {standard input}:196    .text.XMC_FLASH_lEraseSectorCommand:00000000 XMC_FLASH_lEraseSectorCommand
+    {standard input}:249    .text.XMC_FLASH_lEraseSectorCommand:00000020 $d
+    {standard input}:255    .text.XMC_FLASH_lDisableSectorWriteProtectionCommand:00000000 $t
+    {standard input}:260    .text.XMC_FLASH_lDisableSectorWriteProtectionCommand:00000000 XMC_FLASH_lDisableSectorWriteProtectionCommand
+    {standard input}:309    .text.XMC_FLASH_lDisableSectorWriteProtectionCommand:00000024 $d
+    {standard input}:317    .text.XMC_FLASH_lDisableReadProtectionCommand:00000000 $t
+    {standard input}:322    .text.XMC_FLASH_lDisableReadProtectionCommand:00000000 XMC_FLASH_lDisableReadProtectionCommand
+    {standard input}:373    .text.XMC_FLASH_lDisableReadProtectionCommand:00000028 $d
+    {standard input}:381    .text.XMC_FLASH_lClearStatusCommand:00000000 $t
+    {standard input}:386    .text.XMC_FLASH_lClearStatusCommand:00000000 XMC_FLASH_lClearStatusCommand
+    {standard input}:402    .text.XMC_FLASH_lClearStatusCommand:00000008 $d
+    {standard input}:407    .text.XMC_FLASH_ClearStatus:00000000 $t
+    {standard input}:412    .text.XMC_FLASH_ClearStatus:00000000 XMC_FLASH_ClearStatus
+    {standard input}:430    .text.XMC_FLASH_ClearStatus:00000008 $d
+    {standard input}:437    .text.XMC_FLASH_GetStatus:00000000 $t
+    {standard input}:442    .text.XMC_FLASH_GetStatus:00000000 XMC_FLASH_GetStatus
+    {standard input}:458    .text.XMC_FLASH_GetStatus:0000000c $d
+    {standard input}:463    .text.XMC_FLASH_EnableEvent:00000000 $t
+    {standard input}:468    .text.XMC_FLASH_EnableEvent:00000000 XMC_FLASH_EnableEvent
+    {standard input}:487    .text.XMC_FLASH_EnableEvent:00000010 $d
+    {standard input}:492    .text.XMC_FLASH_DisableEvent:00000000 $t
+    {standard input}:497    .text.XMC_FLASH_DisableEvent:00000000 XMC_FLASH_DisableEvent
+    {standard input}:516    .text.XMC_FLASH_DisableEvent:00000010 $d
+    {standard input}:521    .text.XMC_FLASH_ProgramPage:00000000 $t
+    {standard input}:526    .text.XMC_FLASH_ProgramPage:00000000 XMC_FLASH_ProgramPage
+    {standard input}:651    .text.XMC_FLASH_ProgramPage:00000040 $d
+    {standard input}:660    .text.XMC_FLASH_EraseSector:00000000 $t
+    {standard input}:665    .text.XMC_FLASH_EraseSector:00000000 XMC_FLASH_EraseSector
+    {standard input}:754    .text.XMC_FLASH_EraseSector:0000002c $d
+    {standard input}:761    .text.XMC_FLASH_lErasePhysicalSectorCommand:00000000 $t
+    {standard input}:766    .text.XMC_FLASH_lErasePhysicalSectorCommand:00000000 XMC_FLASH_lErasePhysicalSectorCommand
+    {standard input}:819    .text.XMC_FLASH_lErasePhysicalSectorCommand:00000020 $d
+    {standard input}:825    .text.XMC_FLASH_lRepairPhysicalSectorCommand:00000000 $t
+    {standard input}:830    .text.XMC_FLASH_lRepairPhysicalSectorCommand:00000000 XMC_FLASH_lRepairPhysicalSectorCommand
+    {standard input}:885    .text.XMC_FLASH_lRepairPhysicalSectorCommand:00000020 $d
+    {standard input}:892    .text.XMC_FLASH_ErasePhysicalSector:00000000 $t
+    {standard input}:897    .text.XMC_FLASH_ErasePhysicalSector:00000000 XMC_FLASH_ErasePhysicalSector
+    {standard input}:986    .text.XMC_FLASH_ErasePhysicalSector:0000002c $d
+    {standard input}:993    .text.XMC_FLASH_RepairPhysicalSector:00000000 $t
+    {standard input}:998    .text.XMC_FLASH_RepairPhysicalSector:00000000 XMC_FLASH_RepairPhysicalSector
+    {standard input}:1084   .text.XMC_FLASH_RepairPhysicalSector:00000024 $d
+    {standard input}:1091   .text.XMC_FLASH_EraseUCB:00000000 $t
+    {standard input}:1096   .text.XMC_FLASH_EraseUCB:00000000 XMC_FLASH_EraseUCB
+    {standard input}:1159   .text.XMC_FLASH_EraseUCB:00000028 $d
+    {standard input}:1166   .text.XMC_FLASH_Reset:00000000 $t
+    {standard input}:1171   .text.XMC_FLASH_Reset:00000000 XMC_FLASH_Reset
+    {standard input}:1187   .text.XMC_FLASH_Reset:00000008 $d
+    {standard input}:1192   .text.XMC_FLASH_InstallBMI:00000000 $t
+    {standard input}:1197   .text.XMC_FLASH_InstallBMI:00000000 XMC_FLASH_InstallBMI
+    {standard input}:1415   .text.XMC_FLASH_InstallBMI:00000080 $d
+    {standard input}:1424   .text.XMC_FLASH_InstallProtection:00000000 $t
+    {standard input}:1429   .text.XMC_FLASH_InstallProtection:00000000 XMC_FLASH_InstallProtection
+    {standard input}:1610   .text.XMC_FLASH_InstallProtection:00000060 $d
+    {standard input}:1619   .text.XMC_FLASH_ConfirmProtection:00000000 $t
+    {standard input}:1624   .text.XMC_FLASH_ConfirmProtection:00000000 XMC_FLASH_ConfirmProtection
+    {standard input}:1777   .text.XMC_FLASH_ConfirmProtection:00000050 $d
+    {standard input}:1787   .text.XMC_FLASH_VerifyReadProtection:00000000 $t
+    {standard input}:1792   .text.XMC_FLASH_VerifyReadProtection:00000000 XMC_FLASH_VerifyReadProtection
+    {standard input}:1908   .text.XMC_FLASH_VerifyReadProtection:00000054 $d
+    {standard input}:1917   .text.XMC_FLASH_VerifyWriteProtection:00000000 $t
+    {standard input}:1922   .text.XMC_FLASH_VerifyWriteProtection:00000000 XMC_FLASH_VerifyWriteProtection
+    {standard input}:2055   .text.XMC_FLASH_VerifyWriteProtection:00000078 $d
+    {standard input}:2065   .text.XMC_FLASH_ResumeProtection:00000000 $t
+    {standard input}:2070   .text.XMC_FLASH_ResumeProtection:00000000 XMC_FLASH_ResumeProtection
+    {standard input}:2086   .text.XMC_FLASH_ResumeProtection:00000008 $d
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

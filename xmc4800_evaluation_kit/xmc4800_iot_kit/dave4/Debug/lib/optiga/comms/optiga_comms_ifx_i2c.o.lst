@@ -1,0 +1,889 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "optiga_comms_ifx_i2c.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.ifx_i2c_event_handler,"ax",%progbits
+  20              	 .align 2
+  21              	 .thumb
+  22              	 .thumb_func
+  24              	ifx_i2c_event_handler:
+  25              	.LFB9:
+  26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms/optiga_comms_ifx_i2c.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * \copyright
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * MIT License
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * Copyright (c) 2020 Infineon Technologies AG
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** *
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * Permission is hereby granted, free of charge, to any person obtaining a copy
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * of this software and associated documentation files (the "Software"), to deal
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * in the Software without restriction, including without limitation the rights
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * copies of the Software, and to permit persons to whom the Software is
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * furnished to do so, subject to the following conditions:
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** *
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * The above copyright notice and this permission notice shall be included in all
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * copies or substantial portions of the Software.
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** *
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * SOFTWARE
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** *
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * \endcopyright
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** *
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * \author Infineon Technologies AG
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** *
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * \file optiga_comms_ifx_i2c.c
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** *
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * \brief   This file implements optiga comms abstraction layer for IFX I2C Protocol.
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** *
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * \ingroup  grOptigaComms
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** *
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** * @{
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** */
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #include "optiga/comms/optiga_comms.h"
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #include "optiga/common/optiga_lib_logger.h"
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #include "optiga/ifx_i2c/ifx_i2c.h"
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #include "optiga/pal/pal_os_event.h"
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** /// @cond hidden
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****  /// Optiga comms is in use
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****  #define OPTIGA_COMMS_INUSE     (0x01)
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****  /// Optiga comms is free
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****  #define OPTIGA_COMMS_FREE      (0x00)
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** optiga_comms_t optiga_comms = {
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****                                (void *)&ifx_i2c_context_0,
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****                                NULL,
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****                                NULL,
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****                                0,
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****                                0,
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #ifdef OPTIGA_COMMS_SHIELDED_CONNECTION
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****                                0,
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****                                0,
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****                                0,
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #endif
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****                                NULL};
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** _STATIC_H optiga_lib_status_t check_optiga_comms_state(optiga_comms_t *p_ctx);
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** _STATIC_H void ifx_i2c_event_handler(void* p_ctx, optiga_lib_status_t event);
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** optiga_comms_t * optiga_comms_create(callback_handler_t callback, void * context)
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** {
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     optiga_comms_t * p_optiga_comms = NULL;
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     do
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     {
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         p_optiga_comms = &optiga_comms;
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         if (FALSE == p_optiga_comms->instance_init_state)
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         {
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #ifdef OPTIGA_PAL_INIT_ENABLED
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****             if (PAL_STATUS_SUCCESS != pal_init())
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****             {
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****                 p_optiga_comms = NULL;
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****                 break;
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****             }
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #endif
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****             p_optiga_comms->upper_layer_handler = callback;
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****             p_optiga_comms->p_upper_layer_ctx = context;
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****             p_optiga_comms->instance_init_state = TRUE;
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         }
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     } while (FALSE);
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     return (p_optiga_comms);
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** }
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** //lint --e{715} suppress "p_optiga_cmd is not used here as it is placeholder for future."
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** //lint --e{818} suppress "Not declared as pointer as nothing needs to be updated in the pointer."
+  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** void optiga_comms_destroy(optiga_comms_t * p_optiga_cmd)
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** {
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** }
+  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** optiga_lib_status_t optiga_comms_set_callback_handler(optiga_comms_t * p_optiga_comms, callback_han
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** {
+  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     p_optiga_comms->upper_layer_handler = handler;
+ 100:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     return (0);
+ 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** }
+ 102:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** optiga_lib_status_t optiga_comms_set_callback_context(optiga_comms_t * p_optiga_comms, void * conte
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** {
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     p_optiga_comms->p_upper_layer_ctx = context;
+ 106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     return (0);
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** }
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** /// @endcond
+ 111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 112:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** optiga_lib_status_t optiga_comms_open(optiga_comms_t * p_ctx)
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** {
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     optiga_lib_status_t status = OPTIGA_COMMS_ERROR;
+ 115:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     if (OPTIGA_COMMS_SUCCESS == check_optiga_comms_state(p_ctx))
+ 116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     {
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->p_upper_layer_ctx = (void * )p_ctx;
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->upper_layer_event_handler = ifx_i2c_event_han
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #ifdef OPTIGA_COMMS_SHIELDED_CONNECTION
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->manage_context_operation = p_ctx->manage_cont
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #endif
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->pal_os_event_ctx = p_ctx->p_pal_os_event_ctx;
+ 123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         status = ifx_i2c_open((ifx_i2c_context_t * )(p_ctx->p_comms_ctx));
+ 125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         if (IFX_I2C_STACK_SUCCESS != status)
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         {
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****             p_ctx->state = OPTIGA_COMMS_FREE;
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         }
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     }
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     return (status);
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** }
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** optiga_lib_status_t optiga_comms_reset(optiga_comms_t * p_ctx, uint8_t reset_type)
+ 134:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** {
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     optiga_lib_status_t status = OPTIGA_COMMS_ERROR;
+ 136:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     if (OPTIGA_COMMS_SUCCESS == check_optiga_comms_state(p_ctx))
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     {
+ 138:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->p_upper_layer_ctx = (void * )p_ctx;
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->upper_layer_event_handler = ifx_i2c_event_han
+ 140:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         status = ifx_i2c_reset((ifx_i2c_context_t * )(p_ctx->p_comms_ctx), (ifx_i2c_reset_type_t)re
+ 141:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         if (IFX_I2C_STACK_SUCCESS != status)
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         {
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****             p_ctx->state = OPTIGA_COMMS_FREE;
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         }
+ 145:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     }
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     return (status);
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** }
+ 148:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 149:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** optiga_lib_status_t optiga_comms_transceive(optiga_comms_t * p_ctx,
+ 151:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****                                             const uint8_t * p_tx_data,
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****                                             uint16_t tx_data_length,
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****                                             uint8_t * p_rx_data,
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****                                             uint16_t * p_rx_data_len)
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** {
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     optiga_lib_status_t status = OPTIGA_COMMS_ERROR;
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     if (OPTIGA_COMMS_SUCCESS == check_optiga_comms_state(p_ctx))
+ 158:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     {
+ 159:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->p_upper_layer_ctx = (void * )p_ctx;
+ 160:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->upper_layer_event_handler = ifx_i2c_event_han
+ 161:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #ifdef OPTIGA_COMMS_SHIELDED_CONNECTION
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->protection_level = p_ctx->protection_level;
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->protocol_version = p_ctx->protocol_version;
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->manage_context_operation = p_ctx->manage_cont
+ 165:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #endif
+ 166:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         status = (ifx_i2c_transceive((ifx_i2c_context_t * )(p_ctx->p_comms_ctx),
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****                                      p_tx_data,
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****                                      tx_data_length,
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****                                      p_rx_data,
+ 170:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****                                      p_rx_data_len));
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         if (IFX_I2C_STACK_SUCCESS != status)
+ 172:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         {
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****             p_ctx->state = OPTIGA_COMMS_FREE;
+ 174:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         }
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     }
+ 176:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     return (status);
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** }
+ 178:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 180:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** optiga_lib_status_t optiga_comms_close(optiga_comms_t * p_ctx)
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** {
+ 182:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     optiga_lib_status_t status = OPTIGA_COMMS_ERROR;
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     if (OPTIGA_COMMS_SUCCESS == check_optiga_comms_state(p_ctx))
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     {
+ 185:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->p_upper_layer_ctx = (void * )p_ctx;
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->upper_layer_event_handler = ifx_i2c_event_han
+ 187:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #ifdef OPTIGA_COMMS_SHIELDED_CONNECTION
+ 188:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->manage_context_operation = p_ctx->manage_cont
+ 189:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #endif
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         status = ifx_i2c_close((ifx_i2c_context_t * )(p_ctx->p_comms_ctx));
+ 191:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         if (IFX_I2C_STACK_SUCCESS != status)
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         {
+ 193:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****             p_ctx->state = OPTIGA_COMMS_FREE;
+ 194:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         }
+ 195:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     }
+ 196:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     return (status);
+ 197:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** }
+ 198:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 199:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** /// @cond hidden
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** _STATIC_H optiga_lib_status_t check_optiga_comms_state(optiga_comms_t * p_ctx)
+ 201:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** {
+ 202:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     optiga_lib_status_t status = OPTIGA_COMMS_ERROR;
+ 203:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     if ((NULL != p_ctx) && (OPTIGA_COMMS_INUSE != p_ctx->state))
+ 204:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     {
+ 205:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         p_ctx->state = OPTIGA_COMMS_INUSE;
+ 206:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         status = OPTIGA_COMMS_SUCCESS;
+ 207:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     }
+ 208:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     return (status);
+ 209:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** }
+ 210:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 211:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** //lint --e{818} suppress "This is ignored as upper layer handler function prototype requires this a
+ 212:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** _STATIC_H void ifx_i2c_event_handler(void * p_upper_layer_ctx, optiga_lib_status_t event)
+ 213:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** {
+  27              	 .loc 1 213 0
+  28              	 .cfi_startproc
+  29              	 
+  30              	 
+  31              	.LVL0:
+  32 0000 10B5     	 push {r4,lr}
+  33              	.LCFI0:
+  34              	 .cfi_def_cfa_offset 8
+  35              	 .cfi_offset 4,-8
+  36              	 .cfi_offset 14,-4
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     void * ctx = ((optiga_comms_t * )p_upper_layer_ctx)->p_upper_layer_ctx;
+ 215:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     ((optiga_comms_t * )p_upper_layer_ctx)->upper_layer_handler(ctx, event);
+  37              	 .loc 1 215 0
+  38 0002 8368     	 ldr r3,[r0,#8]
+ 213:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     void * ctx = ((optiga_comms_t * )p_upper_layer_ctx)->p_upper_layer_ctx;
+  39              	 .loc 1 213 0
+  40 0004 0446     	 mov r4,r0
+  41              	.LVL1:
+  42              	 .loc 1 215 0
+  43 0006 4068     	 ldr r0,[r0,#4]
+  44              	.LVL2:
+  45 0008 9847     	 blx r3
+  46              	.LVL3:
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     ((optiga_comms_t * )p_upper_layer_ctx)->state = OPTIGA_COMMS_FREE;
+  47              	 .loc 1 216 0
+  48 000a 0023     	 movs r3,#0
+  49 000c 6373     	 strb r3,[r4,#13]
+  50 000e 10BD     	 pop {r4,pc}
+  51              	 .cfi_endproc
+  52              	.LFE9:
+  54              	 .section .text.optiga_comms_create,"ax",%progbits
+  55              	 .align 2
+  56              	 .global optiga_comms_create
+  57              	 .thumb
+  58              	 .thumb_func
+  60              	optiga_comms_create:
+  61              	.LFB0:
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     optiga_comms_t * p_optiga_comms = NULL;
+  62              	 .loc 1 67 0
+  63              	 .cfi_startproc
+  64              	 
+  65              	 
+  66              	.LVL4:
+  67 0000 F8B5     	 push {r3,r4,r5,r6,r7,lr}
+  68              	.LCFI1:
+  69              	 .cfi_def_cfa_offset 24
+  70              	 .cfi_offset 3,-24
+  71              	 .cfi_offset 4,-20
+  72              	 .cfi_offset 5,-16
+  73              	 .cfi_offset 6,-12
+  74              	 .cfi_offset 7,-8
+  75              	 .cfi_offset 14,-4
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         {
+  76              	 .loc 1 74 0
+  77 0002 094C     	 ldr r4,.L10
+  78 0004 277B     	 ldrb r7,[r4,#12]
+  79 0006 0FB1     	 cbz r7,.L9
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+  80              	 .loc 1 72 0
+  81 0008 2046     	 mov r0,r4
+  82              	.LVL5:
+  83 000a F8BD     	 pop {r3,r4,r5,r6,r7,pc}
+  84              	.LVL6:
+  85              	.L9:
+  86 000c 0D46     	 mov r5,r1
+  87 000e 0646     	 mov r6,r0
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****             {
+  88              	 .loc 1 77 0
+  89 0010 FFF7FEFF 	 bl pal_init
+  90              	.LVL7:
+  91 0014 28B9     	 cbnz r0,.L6
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         }
+  92              	 .loc 1 85 0
+  93 0016 0123     	 movs r3,#1
+  94 0018 2373     	 strb r3,[r4,#12]
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****             p_optiga_comms->p_upper_layer_ctx = context;
+  95              	 .loc 1 83 0
+  96 001a A660     	 str r6,[r4,#8]
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****             p_optiga_comms->instance_init_state = TRUE;
+  97              	 .loc 1 84 0
+  98 001c 6560     	 str r5,[r4,#4]
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+  99              	 .loc 1 72 0
+ 100 001e 2046     	 mov r0,r4
+ 101 0020 F8BD     	 pop {r3,r4,r5,r6,r7,pc}
+ 102              	.LVL8:
+ 103              	.L6:
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****                 break;
+ 104              	 .loc 1 79 0
+ 105 0022 3846     	 mov r0,r7
+ 106              	.LVL9:
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 107              	 .loc 1 89 0
+ 108 0024 F8BD     	 pop {r3,r4,r5,r6,r7,pc}
+ 109              	.LVL10:
+ 110              	.L11:
+ 111 0026 00BF     	 .align 2
+ 112              	.L10:
+ 113 0028 00000000 	 .word .LANCHOR0
+ 114              	 .cfi_endproc
+ 115              	.LFE0:
+ 117              	 .section .text.optiga_comms_destroy,"ax",%progbits
+ 118              	 .align 2
+ 119              	 .global optiga_comms_destroy
+ 120              	 .thumb
+ 121              	 .thumb_func
+ 123              	optiga_comms_destroy:
+ 124              	.LFB1:
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** }
+ 125              	 .loc 1 94 0
+ 126              	 .cfi_startproc
+ 127              	 
+ 128              	 
+ 129              	 
+ 130              	.LVL11:
+ 131 0000 7047     	 bx lr
+ 132              	 .cfi_endproc
+ 133              	.LFE1:
+ 135 0002 00BF     	 .section .text.optiga_comms_set_callback_handler,"ax",%progbits
+ 136              	 .align 2
+ 137              	 .global optiga_comms_set_callback_handler
+ 138              	 .thumb
+ 139              	 .thumb_func
+ 141              	optiga_comms_set_callback_handler:
+ 142              	.LFB2:
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     p_optiga_comms->upper_layer_handler = handler;
+ 143              	 .loc 1 98 0
+ 144              	 .cfi_startproc
+ 145              	 
+ 146              	 
+ 147              	 
+ 148              	.LVL12:
+  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     return (0);
+ 149              	 .loc 1 99 0
+ 150 0000 8160     	 str r1,[r0,#8]
+ 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 151              	 .loc 1 101 0
+ 152 0002 0020     	 movs r0,#0
+ 153              	.LVL13:
+ 154 0004 7047     	 bx lr
+ 155              	 .cfi_endproc
+ 156              	.LFE2:
+ 158 0006 00BF     	 .section .text.optiga_comms_set_callback_context,"ax",%progbits
+ 159              	 .align 2
+ 160              	 .global optiga_comms_set_callback_context
+ 161              	 .thumb
+ 162              	 .thumb_func
+ 164              	optiga_comms_set_callback_context:
+ 165              	.LFB3:
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     p_optiga_comms->p_upper_layer_ctx = context;
+ 166              	 .loc 1 104 0
+ 167              	 .cfi_startproc
+ 168              	 
+ 169              	 
+ 170              	 
+ 171              	.LVL14:
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     return (0);
+ 172              	 .loc 1 105 0
+ 173 0000 4160     	 str r1,[r0,#4]
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 174              	 .loc 1 107 0
+ 175 0002 0020     	 movs r0,#0
+ 176              	.LVL15:
+ 177 0004 7047     	 bx lr
+ 178              	 .cfi_endproc
+ 179              	.LFE3:
+ 181 0006 00BF     	 .section .text.optiga_comms_open,"ax",%progbits
+ 182              	 .align 2
+ 183              	 .global optiga_comms_open
+ 184              	 .thumb
+ 185              	 .thumb_func
+ 187              	optiga_comms_open:
+ 188              	.LFB4:
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     optiga_lib_status_t status = OPTIGA_COMMS_ERROR;
+ 189              	 .loc 1 113 0
+ 190              	 .cfi_startproc
+ 191              	 
+ 192              	 
+ 193              	.LVL16:
+ 194              	.LBB10:
+ 195              	.LBB11:
+ 203:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     {
+ 196              	 .loc 1 203 0
+ 197 0000 C0B1     	 cbz r0,.L18
+ 198 0002 437B     	 ldrb r3,[r0,#13]
+ 199 0004 012B     	 cmp r3,#1
+ 200 0006 15D0     	 beq .L18
+ 201              	.LBE11:
+ 202              	.LBE10:
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     optiga_lib_status_t status = OPTIGA_COMMS_ERROR;
+ 203              	 .loc 1 113 0
+ 204 0008 10B5     	 push {r4,lr}
+ 205              	.LCFI2:
+ 206              	 .cfi_def_cfa_offset 8
+ 207              	 .cfi_offset 4,-8
+ 208              	 .cfi_offset 14,-4
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->upper_layer_event_handler = ifx_i2c_event_han
+ 209              	 .loc 1 117 0
+ 210 000a 0368     	 ldr r3,[r0]
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #ifdef OPTIGA_COMMS_SHIELDED_CONNECTION
+ 211              	 .loc 1 118 0
+ 212 000c 0B4A     	 ldr r2,.L24
+ 213              	.LBB13:
+ 214              	.LBB12:
+ 205:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         status = OPTIGA_COMMS_SUCCESS;
+ 215              	 .loc 1 205 0
+ 216 000e 0121     	 movs r1,#1
+ 217 0010 4173     	 strb r1,[r0,#13]
+ 218              	.LVL17:
+ 219              	.LBE12:
+ 220              	.LBE13:
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->upper_layer_event_handler = ifx_i2c_event_han
+ 221              	 .loc 1 117 0
+ 222 0012 D861     	 str r0,[r3,#28]
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #ifdef OPTIGA_COMMS_SHIELDED_CONNECTION
+ 223              	 .loc 1 118 0
+ 224 0014 9A61     	 str r2,[r3,#24]
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #endif
+ 225              	 .loc 1 120 0
+ 226 0016 027C     	 ldrb r2,[r0,#16]
+ 227 0018 83F83220 	 strb r2,[r3,#50]
+ 228 001c 0446     	 mov r4,r0
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 229              	 .loc 1 122 0
+ 230 001e 0068     	 ldr r0,[r0]
+ 231              	.LVL18:
+ 232 0020 6369     	 ldr r3,[r4,#20]
+ 233 0022 C0F8D034 	 str r3,[r0,#1232]
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         if (IFX_I2C_STACK_SUCCESS != status)
+ 234              	 .loc 1 124 0
+ 235 0026 FFF7FEFF 	 bl ifx_i2c_open
+ 236              	.LVL19:
+ 125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         {
+ 237              	 .loc 1 125 0
+ 238 002a 10B1     	 cbz r0,.L16
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         }
+ 239              	 .loc 1 127 0
+ 240 002c 0023     	 movs r3,#0
+ 241 002e 6373     	 strb r3,[r4,#13]
+ 242 0030 10BD     	 pop {r4,pc}
+ 243              	.LVL20:
+ 244              	.L16:
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 245              	 .loc 1 131 0
+ 246 0032 10BD     	 pop {r4,pc}
+ 247              	.LVL21:
+ 248              	.L18:
+ 249              	.LCFI3:
+ 250              	 .cfi_def_cfa_offset 0
+ 251              	 .cfi_restore 4
+ 252              	 .cfi_restore 14
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     if (OPTIGA_COMMS_SUCCESS == check_optiga_comms_state(p_ctx))
+ 253              	 .loc 1 114 0
+ 254 0034 4FF48170 	 mov r0,#258
+ 255              	.LVL22:
+ 256 0038 7047     	 bx lr
+ 257              	.L25:
+ 258 003a 00BF     	 .align 2
+ 259              	.L24:
+ 260 003c 00000000 	 .word ifx_i2c_event_handler
+ 261              	 .cfi_endproc
+ 262              	.LFE4:
+ 264              	 .section .text.optiga_comms_reset,"ax",%progbits
+ 265              	 .align 2
+ 266              	 .global optiga_comms_reset
+ 267              	 .thumb
+ 268              	 .thumb_func
+ 270              	optiga_comms_reset:
+ 271              	.LFB5:
+ 134:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     optiga_lib_status_t status = OPTIGA_COMMS_ERROR;
+ 272              	 .loc 1 134 0
+ 273              	 .cfi_startproc
+ 274              	 
+ 275              	 
+ 276              	.LVL23:
+ 277              	.LBB14:
+ 278              	.LBB15:
+ 203:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     {
+ 279              	 .loc 1 203 0
+ 280 0000 90B1     	 cbz r0,.L29
+ 281 0002 437B     	 ldrb r3,[r0,#13]
+ 282 0004 012B     	 cmp r3,#1
+ 283 0006 0FD0     	 beq .L29
+ 284              	.LBE15:
+ 285              	.LBE14:
+ 134:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     optiga_lib_status_t status = OPTIGA_COMMS_ERROR;
+ 286              	 .loc 1 134 0
+ 287 0008 10B5     	 push {r4,lr}
+ 288              	.LCFI4:
+ 289              	 .cfi_def_cfa_offset 8
+ 290              	 .cfi_offset 4,-8
+ 291              	 .cfi_offset 14,-4
+ 138:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->upper_layer_event_handler = ifx_i2c_event_han
+ 292              	 .loc 1 138 0
+ 293 000a 0368     	 ldr r3,[r0]
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         status = ifx_i2c_reset((ifx_i2c_context_t * )(p_ctx->p_comms_ctx), (ifx_i2c_reset_type_t)re
+ 294              	 .loc 1 139 0
+ 295 000c 084A     	 ldr r2,.L35
+ 296 000e 0446     	 mov r4,r0
+ 297              	.LBB17:
+ 298              	.LBB16:
+ 205:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         status = OPTIGA_COMMS_SUCCESS;
+ 299              	 .loc 1 205 0
+ 300 0010 0120     	 movs r0,#1
+ 301              	.LVL24:
+ 302 0012 6073     	 strb r0,[r4,#13]
+ 303              	.LVL25:
+ 304              	.LBE16:
+ 305              	.LBE17:
+ 140:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         if (IFX_I2C_STACK_SUCCESS != status)
+ 306              	 .loc 1 140 0
+ 307 0014 1846     	 mov r0,r3
+ 138:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->upper_layer_event_handler = ifx_i2c_event_han
+ 308              	 .loc 1 138 0
+ 309 0016 DC61     	 str r4,[r3,#28]
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         status = ifx_i2c_reset((ifx_i2c_context_t * )(p_ctx->p_comms_ctx), (ifx_i2c_reset_type_t)re
+ 310              	 .loc 1 139 0
+ 311 0018 9A61     	 str r2,[r3,#24]
+ 140:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         if (IFX_I2C_STACK_SUCCESS != status)
+ 312              	 .loc 1 140 0
+ 313 001a FFF7FEFF 	 bl ifx_i2c_reset
+ 314              	.LVL26:
+ 141:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         {
+ 315              	 .loc 1 141 0
+ 316 001e 10B1     	 cbz r0,.L27
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         }
+ 317              	 .loc 1 143 0
+ 318 0020 0023     	 movs r3,#0
+ 319 0022 6373     	 strb r3,[r4,#13]
+ 320 0024 10BD     	 pop {r4,pc}
+ 321              	.LVL27:
+ 322              	.L27:
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 323              	 .loc 1 147 0
+ 324 0026 10BD     	 pop {r4,pc}
+ 325              	.LVL28:
+ 326              	.L29:
+ 327              	.LCFI5:
+ 328              	 .cfi_def_cfa_offset 0
+ 329              	 .cfi_restore 4
+ 330              	 .cfi_restore 14
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     if (OPTIGA_COMMS_SUCCESS == check_optiga_comms_state(p_ctx))
+ 331              	 .loc 1 135 0
+ 332 0028 4FF48170 	 mov r0,#258
+ 333              	.LVL29:
+ 334 002c 7047     	 bx lr
+ 335              	.L36:
+ 336 002e 00BF     	 .align 2
+ 337              	.L35:
+ 338 0030 00000000 	 .word ifx_i2c_event_handler
+ 339              	 .cfi_endproc
+ 340              	.LFE5:
+ 342              	 .section .text.optiga_comms_transceive,"ax",%progbits
+ 343              	 .align 2
+ 344              	 .global optiga_comms_transceive
+ 345              	 .thumb
+ 346              	 .thumb_func
+ 348              	optiga_comms_transceive:
+ 349              	.LFB6:
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     optiga_lib_status_t status = OPTIGA_COMMS_ERROR;
+ 350              	 .loc 1 155 0
+ 351              	 .cfi_startproc
+ 352              	 
+ 353              	 
+ 354              	.LVL30:
+ 355              	.LBB18:
+ 356              	.LBB19:
+ 203:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     {
+ 357              	 .loc 1 203 0
+ 358 0000 20B3     	 cbz r0,.L39
+ 359              	.LBE19:
+ 360              	.LBE18:
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     optiga_lib_status_t status = OPTIGA_COMMS_ERROR;
+ 361              	 .loc 1 155 0
+ 362 0002 70B5     	 push {r4,r5,r6,lr}
+ 363              	.LCFI6:
+ 364              	 .cfi_def_cfa_offset 16
+ 365              	 .cfi_offset 4,-16
+ 366              	 .cfi_offset 5,-12
+ 367              	 .cfi_offset 6,-8
+ 368              	 .cfi_offset 14,-4
+ 369              	.LBB23:
+ 370              	.LBB20:
+ 203:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     {
+ 371              	 .loc 1 203 0
+ 372 0004 447B     	 ldrb r4,[r0,#13]
+ 373 0006 012C     	 cmp r4,#1
+ 374              	.LBE20:
+ 375              	.LBE23:
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     optiga_lib_status_t status = OPTIGA_COMMS_ERROR;
+ 376              	 .loc 1 155 0
+ 377 0008 82B0     	 sub sp,sp,#8
+ 378              	.LCFI7:
+ 379              	 .cfi_def_cfa_offset 24
+ 380              	.LBB24:
+ 381              	.LBB21:
+ 203:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     {
+ 382              	 .loc 1 203 0
+ 383 000a 1BD0     	 beq .L40
+ 384 000c 0446     	 mov r4,r0
+ 385              	.LBE21:
+ 386              	.LBE24:
+ 159:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->upper_layer_event_handler = ifx_i2c_event_han
+ 387              	 .loc 1 159 0
+ 388 000e 0068     	 ldr r0,[r0]
+ 389              	.LVL31:
+ 160:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #ifdef OPTIGA_COMMS_SHIELDED_CONNECTION
+ 390              	 .loc 1 160 0
+ 391 0010 104D     	 ldr r5,.L45
+ 392              	.LBB25:
+ 393              	.LBB22:
+ 205:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         status = OPTIGA_COMMS_SUCCESS;
+ 394              	 .loc 1 205 0
+ 395 0012 0126     	 movs r6,#1
+ 396 0014 6673     	 strb r6,[r4,#13]
+ 397              	.LVL32:
+ 398              	.LBE22:
+ 399              	.LBE25:
+ 159:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->upper_layer_event_handler = ifx_i2c_event_han
+ 400              	 .loc 1 159 0
+ 401 0016 C461     	 str r4,[r0,#28]
+ 160:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #ifdef OPTIGA_COMMS_SHIELDED_CONNECTION
+ 402              	 .loc 1 160 0
+ 403 0018 8561     	 str r5,[r0,#24]
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->protocol_version = p_ctx->protocol_version;
+ 404              	 .loc 1 162 0
+ 405 001a A57B     	 ldrb r5,[r4,#14]
+ 406 001c 80F83050 	 strb r5,[r0,#48]
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->manage_context_operation = p_ctx->manage_cont
+ 407              	 .loc 1 163 0
+ 408 0020 2068     	 ldr r0,[r4]
+ 409 0022 E57B     	 ldrb r5,[r4,#15]
+ 410 0024 80F83150 	 strb r5,[r0,#49]
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #endif
+ 411              	 .loc 1 164 0
+ 412 0028 2068     	 ldr r0,[r4]
+ 413 002a 257C     	 ldrb r5,[r4,#16]
+ 414 002c 80F83250 	 strb r5,[r0,#50]
+ 166:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****                                      p_tx_data,
+ 415              	 .loc 1 166 0
+ 416 0030 069D     	 ldr r5,[sp,#24]
+ 417 0032 2068     	 ldr r0,[r4]
+ 418 0034 0095     	 str r5,[sp]
+ 419 0036 FFF7FEFF 	 bl ifx_i2c_transceive
+ 420              	.LVL33:
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         {
+ 421              	 .loc 1 171 0
+ 422 003a 08B1     	 cbz r0,.L38
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         }
+ 423              	 .loc 1 173 0
+ 424 003c 0023     	 movs r3,#0
+ 425 003e 6373     	 strb r3,[r4,#13]
+ 426              	.L38:
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 427              	 .loc 1 177 0
+ 428 0040 02B0     	 add sp,sp,#8
+ 429              	.LCFI8:
+ 430              	 .cfi_remember_state
+ 431              	 .cfi_def_cfa_offset 16
+ 432              	 
+ 433 0042 70BD     	 pop {r4,r5,r6,pc}
+ 434              	.LVL34:
+ 435              	.L40:
+ 436              	.LCFI9:
+ 437              	 .cfi_restore_state
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     if (OPTIGA_COMMS_SUCCESS == check_optiga_comms_state(p_ctx))
+ 438              	 .loc 1 156 0
+ 439 0044 4FF48170 	 mov r0,#258
+ 440              	.LVL35:
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 441              	 .loc 1 177 0
+ 442 0048 02B0     	 add sp,sp,#8
+ 443              	.LCFI10:
+ 444              	 .cfi_def_cfa_offset 16
+ 445              	 
+ 446 004a 70BD     	 pop {r4,r5,r6,pc}
+ 447              	.LVL36:
+ 448              	.L39:
+ 449              	.LCFI11:
+ 450              	 .cfi_def_cfa_offset 0
+ 451              	 .cfi_restore 4
+ 452              	 .cfi_restore 5
+ 453              	 .cfi_restore 6
+ 454              	 .cfi_restore 14
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     if (OPTIGA_COMMS_SUCCESS == check_optiga_comms_state(p_ctx))
+ 455              	 .loc 1 156 0
+ 456 004c 4FF48170 	 mov r0,#258
+ 457              	.LVL37:
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 458              	 .loc 1 177 0
+ 459 0050 7047     	 bx lr
+ 460              	.L46:
+ 461 0052 00BF     	 .align 2
+ 462              	.L45:
+ 463 0054 00000000 	 .word ifx_i2c_event_handler
+ 464              	 .cfi_endproc
+ 465              	.LFE6:
+ 467              	 .section .text.optiga_comms_close,"ax",%progbits
+ 468              	 .align 2
+ 469              	 .global optiga_comms_close
+ 470              	 .thumb
+ 471              	 .thumb_func
+ 473              	optiga_comms_close:
+ 474              	.LFB7:
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     optiga_lib_status_t status = OPTIGA_COMMS_ERROR;
+ 475              	 .loc 1 181 0
+ 476              	 .cfi_startproc
+ 477              	 
+ 478              	 
+ 479              	.LVL38:
+ 480              	.LBB26:
+ 481              	.LBB27:
+ 203:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     {
+ 482              	 .loc 1 203 0
+ 483 0000 A8B1     	 cbz r0,.L50
+ 484 0002 437B     	 ldrb r3,[r0,#13]
+ 485 0004 012B     	 cmp r3,#1
+ 486 0006 12D0     	 beq .L50
+ 487              	.LBE27:
+ 488              	.LBE26:
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     optiga_lib_status_t status = OPTIGA_COMMS_ERROR;
+ 489              	 .loc 1 181 0
+ 490 0008 10B5     	 push {r4,lr}
+ 491              	.LCFI12:
+ 492              	 .cfi_def_cfa_offset 8
+ 493              	 .cfi_offset 4,-8
+ 494              	 .cfi_offset 14,-4
+ 185:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->upper_layer_event_handler = ifx_i2c_event_han
+ 495              	 .loc 1 185 0
+ 496 000a 0368     	 ldr r3,[r0]
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #ifdef OPTIGA_COMMS_SHIELDED_CONNECTION
+ 497              	 .loc 1 186 0
+ 498 000c 094A     	 ldr r2,.L56
+ 499              	.LBB29:
+ 500              	.LBB28:
+ 205:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         status = OPTIGA_COMMS_SUCCESS;
+ 501              	 .loc 1 205 0
+ 502 000e 0121     	 movs r1,#1
+ 503 0010 4173     	 strb r1,[r0,#13]
+ 504              	.LVL39:
+ 505              	.LBE28:
+ 506              	.LBE29:
+ 185:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         ((ifx_i2c_context_t * )(p_ctx->p_comms_ctx))->upper_layer_event_handler = ifx_i2c_event_han
+ 507              	 .loc 1 185 0
+ 508 0012 D861     	 str r0,[r3,#28]
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #ifdef OPTIGA_COMMS_SHIELDED_CONNECTION
+ 509              	 .loc 1 186 0
+ 510 0014 9A61     	 str r2,[r3,#24]
+ 188:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** #endif
+ 511              	 .loc 1 188 0
+ 512 0016 027C     	 ldrb r2,[r0,#16]
+ 513 0018 83F83220 	 strb r2,[r3,#50]
+ 514 001c 0446     	 mov r4,r0
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         if (IFX_I2C_STACK_SUCCESS != status)
+ 515              	 .loc 1 190 0
+ 516 001e 0068     	 ldr r0,[r0]
+ 517              	.LVL40:
+ 518 0020 FFF7FEFF 	 bl ifx_i2c_close
+ 519              	.LVL41:
+ 191:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         {
+ 520              	 .loc 1 191 0
+ 521 0024 10B1     	 cbz r0,.L48
+ 193:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****         }
+ 522              	 .loc 1 193 0
+ 523 0026 0023     	 movs r3,#0
+ 524 0028 6373     	 strb r3,[r4,#13]
+ 525 002a 10BD     	 pop {r4,pc}
+ 526              	.LVL42:
+ 527              	.L48:
+ 197:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c **** 
+ 528              	 .loc 1 197 0
+ 529 002c 10BD     	 pop {r4,pc}
+ 530              	.LVL43:
+ 531              	.L50:
+ 532              	.LCFI13:
+ 533              	 .cfi_def_cfa_offset 0
+ 534              	 .cfi_restore 4
+ 535              	 .cfi_restore 14
+ 182:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/comms\optiga_comms_ifx_i2c.c ****     if (OPTIGA_COMMS_SUCCESS == check_optiga_comms_state(p_ctx))
+ 536              	 .loc 1 182 0
+ 537 002e 4FF48170 	 mov r0,#258
+ 538              	.LVL44:
+ 539 0032 7047     	 bx lr
+ 540              	.L57:
+ 541              	 .align 2
+ 542              	.L56:
+ 543 0034 00000000 	 .word ifx_i2c_event_handler
+ 544              	 .cfi_endproc
+ 545              	.LFE7:
+ 547              	 .global optiga_comms
+ 548              	 .section .data.optiga_comms,"aw",%progbits
+ 549              	 .align 2
+ 550              	 .set .LANCHOR0,.+0
+ 553              	optiga_comms:
+ 554 0000 00000000 	 .word ifx_i2c_context_0
+ 555 0004 00000000 	 .word 0
+ 556 0008 00000000 	 .word 0
+ 557 000c 00       	 .byte 0
+ 558 000d 00       	 .byte 0
+ 559 000e 00       	 .byte 0
+ 560 000f 00       	 .byte 0
+ 561 0010 00       	 .byte 0
+ 562 0011 000000   	 .space 3
+ 563 0014 00000000 	 .word 0
+ 564              	 .text
+ 565              	.Letext0:
+ 566              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 567              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 568              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_types.h"
+ 569              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/comms/optiga_comms.h"
+ 570              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal.h"
+ 571              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal_i2c.h"
+ 572              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal_gpio.h"
+ 573              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/ifx_i2c/ifx_i2c_config.h"
+ 574              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/ifx_i2c/ifx_i2c.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 optiga_comms_ifx_i2c.c
+    {standard input}:20     .text.ifx_i2c_event_handler:00000000 $t
+    {standard input}:24     .text.ifx_i2c_event_handler:00000000 ifx_i2c_event_handler
+    {standard input}:55     .text.optiga_comms_create:00000000 $t
+    {standard input}:60     .text.optiga_comms_create:00000000 optiga_comms_create
+    {standard input}:113    .text.optiga_comms_create:00000028 $d
+    {standard input}:118    .text.optiga_comms_destroy:00000000 $t
+    {standard input}:123    .text.optiga_comms_destroy:00000000 optiga_comms_destroy
+    {standard input}:136    .text.optiga_comms_set_callback_handler:00000000 $t
+    {standard input}:141    .text.optiga_comms_set_callback_handler:00000000 optiga_comms_set_callback_handler
+    {standard input}:159    .text.optiga_comms_set_callback_context:00000000 $t
+    {standard input}:164    .text.optiga_comms_set_callback_context:00000000 optiga_comms_set_callback_context
+    {standard input}:182    .text.optiga_comms_open:00000000 $t
+    {standard input}:187    .text.optiga_comms_open:00000000 optiga_comms_open
+    {standard input}:260    .text.optiga_comms_open:0000003c $d
+    {standard input}:265    .text.optiga_comms_reset:00000000 $t
+    {standard input}:270    .text.optiga_comms_reset:00000000 optiga_comms_reset
+    {standard input}:338    .text.optiga_comms_reset:00000030 $d
+    {standard input}:343    .text.optiga_comms_transceive:00000000 $t
+    {standard input}:348    .text.optiga_comms_transceive:00000000 optiga_comms_transceive
+    {standard input}:463    .text.optiga_comms_transceive:00000054 $d
+    {standard input}:468    .text.optiga_comms_close:00000000 $t
+    {standard input}:473    .text.optiga_comms_close:00000000 optiga_comms_close
+    {standard input}:543    .text.optiga_comms_close:00000034 $d
+    {standard input}:553    .data.optiga_comms:00000000 optiga_comms
+    {standard input}:549    .data.optiga_comms:00000000 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+pal_init
+ifx_i2c_open
+ifx_i2c_reset
+ifx_i2c_transceive
+ifx_i2c_close
+ifx_i2c_context_0

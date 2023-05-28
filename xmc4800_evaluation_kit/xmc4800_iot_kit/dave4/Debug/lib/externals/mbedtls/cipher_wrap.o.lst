@@ -1,0 +1,1043 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "cipher_wrap.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.ccm_ctx_free,"ax",%progbits
+  20              	 .align 2
+  21              	 .thumb
+  22              	 .thumb_func
+  24              	ccm_ctx_free:
+  25              	.LFB8:
+  26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library/cipher_wrap.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  * \file cipher_wrap.c
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  *
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  * \brief Generic cipher wrapper for mbed TLS
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  *
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  * \author Adriaan de Jong <dejong@fox-it.com>
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  *
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  *  Copyright (C) 2006-2015, ARM Limited, All Rights Reserved
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  *  SPDX-License-Identifier: Apache-2.0
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  *
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  *  Licensed under the Apache License, Version 2.0 (the "License"); you may
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  *  not use this file except in compliance with the License.
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  *  You may obtain a copy of the License at
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  *
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  *  http://www.apache.org/licenses/LICENSE-2.0
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  *
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  *  Unless required by applicable law or agreed to in writing, software
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  *  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  *  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  *  See the License for the specific language governing permissions and
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  *  limitations under the License.
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  *
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  *  This file is part of mbed TLS (https://tls.mbed.org)
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****  */
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if !defined(MBEDTLS_CONFIG_FILE)
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #include "mbedtls/config.h"
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #else
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #include MBEDTLS_CONFIG_FILE
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_C)
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #include "mbedtls/cipher_internal.h"
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CHACHAPOLY_C)
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #include "mbedtls/chachapoly.h"
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_AES_C)
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #include "mbedtls/aes.h"
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_ARC4_C)
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #include "mbedtls/arc4.h"
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CAMELLIA_C)
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #include "mbedtls/camellia.h"
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_ARIA_C)
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #include "mbedtls/aria.h"
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_DES_C)
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #include "mbedtls/des.h"
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_BLOWFISH_C)
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #include "mbedtls/blowfish.h"
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CHACHA20_C)
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #include "mbedtls/chacha20.h"
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_GCM_C)
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #include "mbedtls/gcm.h"
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CCM_C)
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #include "mbedtls/ccm.h"
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_NULL_CIPHER)
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #include <string.h>
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_PLATFORM_C)
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #include "mbedtls/platform.h"
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #else
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #include <stdlib.h>
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #define mbedtls_calloc    calloc
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #define mbedtls_free       free
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_GCM_C)
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** /* shared by all GCM ciphers */
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static void *gcm_ctx_alloc( void )
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** {
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     void *ctx = mbedtls_calloc( 1, sizeof( mbedtls_gcm_context ) );
+  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     if( ctx != NULL )
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****         mbedtls_gcm_init( (mbedtls_gcm_context *) ctx );
+  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     return( ctx );
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 100:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static void gcm_ctx_free( void *ctx )
+ 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** {
+ 102:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     mbedtls_gcm_free( ctx );
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     mbedtls_free( ctx );
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif /* MBEDTLS_GCM_C */
+ 106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CCM_C)
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** /* shared by all CCM ciphers */
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static void *ccm_ctx_alloc( void )
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** {
+ 111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     void *ctx = mbedtls_calloc( 1, sizeof( mbedtls_ccm_context ) );
+ 112:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     if( ctx != NULL )
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****         mbedtls_ccm_init( (mbedtls_ccm_context *) ctx );
+ 115:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     return( ctx );
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static void ccm_ctx_free( void *ctx )
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** {
+  27              	 .loc 1 120 0
+  28              	 .cfi_startproc
+  29              	 
+  30              	 
+  31              	.LVL0:
+  32 0000 10B5     	 push {r4,lr}
+  33              	.LCFI0:
+  34              	 .cfi_def_cfa_offset 8
+  35              	 .cfi_offset 4,-8
+  36              	 .cfi_offset 14,-4
+  37              	 .loc 1 120 0
+  38 0002 0446     	 mov r4,r0
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     mbedtls_ccm_free( ctx );
+  39              	 .loc 1 121 0
+  40 0004 FFF7FEFF 	 bl mbedtls_ccm_free
+  41              	.LVL1:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     mbedtls_free( ctx );
+  42              	 .loc 1 122 0
+  43 0008 2046     	 mov r0,r4
+ 123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+  44              	 .loc 1 123 0
+  45 000a BDE81040 	 pop {r4,lr}
+  46              	.LCFI1:
+  47              	 .cfi_restore 14
+  48              	 .cfi_restore 4
+  49              	 .cfi_def_cfa_offset 0
+  50              	.LVL2:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     mbedtls_free( ctx );
+  51              	 .loc 1 122 0
+  52 000e FFF7FEBF 	 b free
+  53              	.LVL3:
+  54              	 .cfi_endproc
+  55              	.LFE8:
+  57 0012 00BF     	 .section .text.ccm_ctx_alloc,"ax",%progbits
+  58              	 .align 2
+  59              	 .thumb
+  60              	 .thumb_func
+  62              	ccm_ctx_alloc:
+  63              	.LFB7:
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     void *ctx = mbedtls_calloc( 1, sizeof( mbedtls_ccm_context ) );
+  64              	 .loc 1 110 0
+  65              	 .cfi_startproc
+  66              	 
+  67              	 
+  68 0000 10B5     	 push {r4,lr}
+  69              	.LCFI2:
+  70              	 .cfi_def_cfa_offset 8
+  71              	 .cfi_offset 4,-8
+  72              	 .cfi_offset 14,-4
+ 111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+  73              	 .loc 1 111 0
+  74 0002 0120     	 movs r0,#1
+  75 0004 3821     	 movs r1,#56
+  76 0006 FFF7FEFF 	 bl calloc
+  77              	.LVL4:
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****         mbedtls_ccm_init( (mbedtls_ccm_context *) ctx );
+  78              	 .loc 1 113 0
+  79 000a 0446     	 mov r4,r0
+  80 000c 08B1     	 cbz r0,.L4
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+  81              	 .loc 1 114 0
+  82 000e FFF7FEFF 	 bl mbedtls_ccm_init
+  83              	.LVL5:
+  84              	.L4:
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+  85              	 .loc 1 117 0
+  86 0012 2046     	 mov r0,r4
+  87 0014 10BD     	 pop {r4,pc}
+  88              	 .cfi_endproc
+  89              	.LFE7:
+  91 0016 00BF     	 .section .text.ccm_aes_setkey_wrap,"ax",%progbits
+  92              	 .align 2
+  93              	 .thumb
+  94              	 .thumb_func
+  96              	ccm_aes_setkey_wrap:
+  97              	.LFB14:
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif /* MBEDTLS_CCM_C */
+ 125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_AES_C)
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static int aes_crypt_ecb_wrap( void *ctx, mbedtls_operation_t operation,
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****         const unsigned char *input, unsigned char *output )
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** {
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     return mbedtls_aes_crypt_ecb( (mbedtls_aes_context *) ctx, operation, input, output );
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 134:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CBC)
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static int aes_crypt_cbc_wrap( void *ctx, mbedtls_operation_t operation, size_t length,
+ 136:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****         unsigned char *iv, const unsigned char *input, unsigned char *output )
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** {
+ 138:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     return mbedtls_aes_crypt_cbc( (mbedtls_aes_context *) ctx, operation, length, iv, input,
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****                           output );
+ 140:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 141:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif /* MBEDTLS_CIPHER_MODE_CBC */
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CFB)
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static int aes_crypt_cfb128_wrap( void *ctx, mbedtls_operation_t operation,
+ 145:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****         size_t length, size_t *iv_off, unsigned char *iv,
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****         const unsigned char *input, unsigned char *output )
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** {
+ 148:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     return mbedtls_aes_crypt_cfb128( (mbedtls_aes_context *) ctx, operation, length, iv_off, iv,
+ 149:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****                              input, output );
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 151:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif /* MBEDTLS_CIPHER_MODE_CFB */
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_OFB)
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static int aes_crypt_ofb_wrap( void *ctx, size_t length, size_t *iv_off,
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****         unsigned char *iv, const unsigned char *input, unsigned char *output )
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** {
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     return mbedtls_aes_crypt_ofb( (mbedtls_aes_context *) ctx, length, iv_off,
+ 158:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****                                     iv, input, output );
+ 159:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 160:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif /* MBEDTLS_CIPHER_MODE_OFB */
+ 161:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CTR)
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static int aes_crypt_ctr_wrap( void *ctx, size_t length, size_t *nc_off,
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****         unsigned char *nonce_counter, unsigned char *stream_block,
+ 165:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****         const unsigned char *input, unsigned char *output )
+ 166:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** {
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     return mbedtls_aes_crypt_ctr( (mbedtls_aes_context *) ctx, length, nc_off, nonce_counter,
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****                           stream_block, input, output );
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 170:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif /* MBEDTLS_CIPHER_MODE_CTR */
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 172:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_XTS)
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static int aes_crypt_xts_wrap( void *ctx, mbedtls_operation_t operation,
+ 174:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****                                size_t length,
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****                                const unsigned char data_unit[16],
+ 176:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****                                const unsigned char *input,
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****                                unsigned char *output )
+ 178:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** {
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     mbedtls_aes_xts_context *xts_ctx = ctx;
+ 180:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     int mode;
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 182:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     switch( operation )
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     {
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****         case MBEDTLS_ENCRYPT:
+ 185:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****             mode = MBEDTLS_AES_ENCRYPT;
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****             break;
+ 187:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****         case MBEDTLS_DECRYPT:
+ 188:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****             mode = MBEDTLS_AES_DECRYPT;
+ 189:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****             break;
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****         default:
+ 191:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****             return MBEDTLS_ERR_CIPHER_BAD_INPUT_DATA;
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     }
+ 193:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 194:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     return mbedtls_aes_crypt_xts( xts_ctx, mode, length,
+ 195:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****                                   data_unit, input, output );
+ 196:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 197:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif /* MBEDTLS_CIPHER_MODE_XTS */
+ 198:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 199:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static int aes_setkey_dec_wrap( void *ctx, const unsigned char *key,
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****                                 unsigned int key_bitlen )
+ 201:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** {
+ 202:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     return mbedtls_aes_setkey_dec( (mbedtls_aes_context *) ctx, key, key_bitlen );
+ 203:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 204:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 205:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static int aes_setkey_enc_wrap( void *ctx, const unsigned char *key,
+ 206:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****                                 unsigned int key_bitlen )
+ 207:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** {
+ 208:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     return mbedtls_aes_setkey_enc( (mbedtls_aes_context *) ctx, key, key_bitlen );
+ 209:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 210:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 211:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static void * aes_ctx_alloc( void )
+ 212:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** {
+ 213:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     mbedtls_aes_context *aes = mbedtls_calloc( 1, sizeof( mbedtls_aes_context ) );
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 215:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     if( aes == NULL )
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****         return( NULL );
+ 217:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     mbedtls_aes_init( aes );
+ 219:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 220:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     return( aes );
+ 221:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 223:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static void aes_ctx_free( void *ctx )
+ 224:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** {
+ 225:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     mbedtls_aes_free( (mbedtls_aes_context *) ctx );
+ 226:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     mbedtls_free( ctx );
+ 227:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 228:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 229:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_base_t aes_info = {
+ 230:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_ID_AES,
+ 231:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     aes_crypt_ecb_wrap,
+ 232:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CBC)
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     aes_crypt_cbc_wrap,
+ 234:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+ 235:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CFB)
+ 236:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     aes_crypt_cfb128_wrap,
+ 237:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+ 238:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_OFB)
+ 239:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     aes_crypt_ofb_wrap,
+ 240:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+ 241:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CTR)
+ 242:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     aes_crypt_ctr_wrap,
+ 243:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+ 244:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_XTS)
+ 245:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     NULL,
+ 246:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+ 247:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_STREAM)
+ 248:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     NULL,
+ 249:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+ 250:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     aes_setkey_enc_wrap,
+ 251:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     aes_setkey_dec_wrap,
+ 252:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     aes_ctx_alloc,
+ 253:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     aes_ctx_free
+ 254:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 255:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 256:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_128_ecb_info = {
+ 257:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_128_ECB,
+ 258:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_MODE_ECB,
+ 259:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     128,
+ 260:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     "AES-128-ECB",
+ 261:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     0,
+ 262:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     0,
+ 263:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 264:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     &aes_info
+ 265:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 266:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 267:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_192_ecb_info = {
+ 268:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_192_ECB,
+ 269:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_MODE_ECB,
+ 270:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     192,
+ 271:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     "AES-192-ECB",
+ 272:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     0,
+ 273:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     0,
+ 274:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 275:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     &aes_info
+ 276:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 277:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 278:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_256_ecb_info = {
+ 279:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_256_ECB,
+ 280:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_MODE_ECB,
+ 281:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     256,
+ 282:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     "AES-256-ECB",
+ 283:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     0,
+ 284:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     0,
+ 285:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 286:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     &aes_info
+ 287:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 288:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 289:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CBC)
+ 290:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_128_cbc_info = {
+ 291:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_128_CBC,
+ 292:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_MODE_CBC,
+ 293:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     128,
+ 294:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     "AES-128-CBC",
+ 295:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 296:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     0,
+ 297:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 298:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     &aes_info
+ 299:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 300:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 301:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_192_cbc_info = {
+ 302:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_192_CBC,
+ 303:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_MODE_CBC,
+ 304:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     192,
+ 305:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     "AES-192-CBC",
+ 306:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 307:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     0,
+ 308:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 309:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     &aes_info
+ 310:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 311:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 312:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_256_cbc_info = {
+ 313:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_256_CBC,
+ 314:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_MODE_CBC,
+ 315:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     256,
+ 316:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     "AES-256-CBC",
+ 317:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 318:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     0,
+ 319:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 320:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     &aes_info
+ 321:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 322:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif /* MBEDTLS_CIPHER_MODE_CBC */
+ 323:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 324:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CFB)
+ 325:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_128_cfb128_info = {
+ 326:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_128_CFB128,
+ 327:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_MODE_CFB,
+ 328:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     128,
+ 329:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     "AES-128-CFB128",
+ 330:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 331:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     0,
+ 332:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 333:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     &aes_info
+ 334:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 335:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 336:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_192_cfb128_info = {
+ 337:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_192_CFB128,
+ 338:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_MODE_CFB,
+ 339:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     192,
+ 340:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     "AES-192-CFB128",
+ 341:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 342:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     0,
+ 343:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 344:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     &aes_info
+ 345:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 346:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 347:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_256_cfb128_info = {
+ 348:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_256_CFB128,
+ 349:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_MODE_CFB,
+ 350:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     256,
+ 351:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     "AES-256-CFB128",
+ 352:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 353:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     0,
+ 354:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 355:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     &aes_info
+ 356:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 357:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif /* MBEDTLS_CIPHER_MODE_CFB */
+ 358:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 359:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_OFB)
+ 360:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_128_ofb_info = {
+ 361:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_128_OFB,
+ 362:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_MODE_OFB,
+ 363:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     128,
+ 364:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     "AES-128-OFB",
+ 365:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 366:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     0,
+ 367:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 368:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     &aes_info
+ 369:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 370:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 371:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_192_ofb_info = {
+ 372:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_192_OFB,
+ 373:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_MODE_OFB,
+ 374:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     192,
+ 375:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     "AES-192-OFB",
+ 376:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 377:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     0,
+ 378:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 379:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     &aes_info
+ 380:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 381:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 382:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_256_ofb_info = {
+ 383:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_256_OFB,
+ 384:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_MODE_OFB,
+ 385:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     256,
+ 386:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     "AES-256-OFB",
+ 387:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 388:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     0,
+ 389:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 390:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     &aes_info
+ 391:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 392:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif /* MBEDTLS_CIPHER_MODE_OFB */
+ 393:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 394:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CTR)
+ 395:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_128_ctr_info = {
+ 396:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_128_CTR,
+ 397:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_MODE_CTR,
+ 398:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     128,
+ 399:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     "AES-128-CTR",
+ 400:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 401:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     0,
+ 402:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 403:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     &aes_info
+ 404:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 405:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 406:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_192_ctr_info = {
+ 407:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_192_CTR,
+ 408:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_MODE_CTR,
+ 409:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     192,
+ 410:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     "AES-192-CTR",
+ 411:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 412:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     0,
+ 413:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 414:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     &aes_info
+ 415:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 416:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 417:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_256_ctr_info = {
+ 418:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_256_CTR,
+ 419:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_MODE_CTR,
+ 420:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     256,
+ 421:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     "AES-256-CTR",
+ 422:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 423:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     0,
+ 424:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 425:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     &aes_info
+ 426:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 427:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif /* MBEDTLS_CIPHER_MODE_CTR */
+ 428:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 429:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_XTS)
+ 430:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static int xts_aes_setkey_enc_wrap( void *ctx, const unsigned char *key,
+ 431:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****                                     unsigned int key_bitlen )
+ 432:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** {
+ 433:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     mbedtls_aes_xts_context *xts_ctx = ctx;
+ 434:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     return( mbedtls_aes_xts_setkey_enc( xts_ctx, key, key_bitlen ) );
+ 435:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 436:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 437:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static int xts_aes_setkey_dec_wrap( void *ctx, const unsigned char *key,
+ 438:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****                                     unsigned int key_bitlen )
+ 439:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** {
+ 440:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     mbedtls_aes_xts_context *xts_ctx = ctx;
+ 441:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     return( mbedtls_aes_xts_setkey_dec( xts_ctx, key, key_bitlen ) );
+ 442:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 443:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 444:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static void *xts_aes_ctx_alloc( void )
+ 445:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** {
+ 446:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     mbedtls_aes_xts_context *xts_ctx = mbedtls_calloc( 1, sizeof( *xts_ctx ) );
+ 447:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 448:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     if( xts_ctx != NULL )
+ 449:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****         mbedtls_aes_xts_init( xts_ctx );
+ 450:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 451:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     return( xts_ctx );
+ 452:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 453:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 454:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static void xts_aes_ctx_free( void *ctx )
+ 455:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** {
+ 456:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     mbedtls_aes_xts_context *xts_ctx = ctx;
+ 457:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 458:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     if( xts_ctx == NULL )
+ 459:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****         return;
+ 460:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 461:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     mbedtls_aes_xts_free( xts_ctx );
+ 462:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     mbedtls_free( xts_ctx );
+ 463:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 464:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 465:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_base_t xts_aes_info = {
+ 466:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_ID_AES,
+ 467:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     NULL,
+ 468:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CBC)
+ 469:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     NULL,
+ 470:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+ 471:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CFB)
+ 472:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     NULL,
+ 473:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+ 474:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_OFB)
+ 475:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     NULL,
+ 476:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+ 477:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CTR)
+ 478:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     NULL,
+ 479:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+ 480:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_XTS)
+ 481:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     aes_crypt_xts_wrap,
+ 482:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+ 483:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_STREAM)
+ 484:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     NULL,
+ 485:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+ 486:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     xts_aes_setkey_enc_wrap,
+ 487:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     xts_aes_setkey_dec_wrap,
+ 488:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     xts_aes_ctx_alloc,
+ 489:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     xts_aes_ctx_free
+ 490:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 491:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 492:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_128_xts_info = {
+ 493:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_128_XTS,
+ 494:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_MODE_XTS,
+ 495:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     256,
+ 496:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     "AES-128-XTS",
+ 497:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 498:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     0,
+ 499:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 500:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     &xts_aes_info
+ 501:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 502:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 503:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_256_xts_info = {
+ 504:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_256_XTS,
+ 505:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_MODE_XTS,
+ 506:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     512,
+ 507:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     "AES-256-XTS",
+ 508:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 509:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     0,
+ 510:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 511:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     &xts_aes_info
+ 512:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 513:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif /* MBEDTLS_CIPHER_MODE_XTS */
+ 514:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 515:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_GCM_C)
+ 516:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static int gcm_aes_setkey_wrap( void *ctx, const unsigned char *key,
+ 517:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****                                 unsigned int key_bitlen )
+ 518:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** {
+ 519:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     return mbedtls_gcm_setkey( (mbedtls_gcm_context *) ctx, MBEDTLS_CIPHER_ID_AES,
+ 520:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****                      key, key_bitlen );
+ 521:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 522:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 523:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_base_t gcm_aes_info = {
+ 524:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_ID_AES,
+ 525:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     NULL,
+ 526:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CBC)
+ 527:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     NULL,
+ 528:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+ 529:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CFB)
+ 530:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     NULL,
+ 531:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+ 532:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_OFB)
+ 533:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     NULL,
+ 534:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+ 535:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_CTR)
+ 536:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     NULL,
+ 537:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+ 538:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_XTS)
+ 539:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     NULL,
+ 540:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+ 541:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CIPHER_MODE_STREAM)
+ 542:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     NULL,
+ 543:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif
+ 544:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     gcm_aes_setkey_wrap,
+ 545:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     gcm_aes_setkey_wrap,
+ 546:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     gcm_ctx_alloc,
+ 547:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     gcm_ctx_free,
+ 548:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 549:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 550:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_128_gcm_info = {
+ 551:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_128_GCM,
+ 552:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_MODE_GCM,
+ 553:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     128,
+ 554:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     "AES-128-GCM",
+ 555:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     12,
+ 556:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_VARIABLE_IV_LEN,
+ 557:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 558:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     &gcm_aes_info
+ 559:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 560:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 561:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_192_gcm_info = {
+ 562:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_192_GCM,
+ 563:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_MODE_GCM,
+ 564:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     192,
+ 565:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     "AES-192-GCM",
+ 566:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     12,
+ 567:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_VARIABLE_IV_LEN,
+ 568:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 569:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     &gcm_aes_info
+ 570:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 571:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 572:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static const mbedtls_cipher_info_t aes_256_gcm_info = {
+ 573:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_AES_256_GCM,
+ 574:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_MODE_GCM,
+ 575:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     256,
+ 576:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     "AES-256-GCM",
+ 577:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     12,
+ 578:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     MBEDTLS_CIPHER_VARIABLE_IV_LEN,
+ 579:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     16,
+ 580:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     &gcm_aes_info
+ 581:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** };
+ 582:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #endif /* MBEDTLS_GCM_C */
+ 583:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 584:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** #if defined(MBEDTLS_CCM_C)
+ 585:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** static int ccm_aes_setkey_wrap( void *ctx, const unsigned char *key,
+ 586:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****                                 unsigned int key_bitlen )
+ 587:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** {
+  98              	 .loc 1 587 0
+  99              	 .cfi_startproc
+ 100              	 
+ 101              	 
+ 102              	 
+ 103              	.LVL6:
+ 104              	 .loc 1 587 0
+ 105 0000 1346     	 mov r3,r2
+ 588:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     return mbedtls_ccm_setkey( (mbedtls_ccm_context *) ctx, MBEDTLS_CIPHER_ID_AES,
+ 106              	 .loc 1 588 0
+ 107 0002 0A46     	 mov r2,r1
+ 108              	.LVL7:
+ 109 0004 0221     	 movs r1,#2
+ 110              	.LVL8:
+ 111 0006 FFF7FEBF 	 b mbedtls_ccm_setkey
+ 112              	.LVL9:
+ 113              	 .cfi_endproc
+ 114              	.LFE14:
+ 116 000a 00BF     	 .section .text.aes_ctx_free,"ax",%progbits
+ 117              	 .align 2
+ 118              	 .thumb
+ 119              	 .thumb_func
+ 121              	aes_ctx_free:
+ 122              	.LFB13:
+ 224:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     mbedtls_aes_free( (mbedtls_aes_context *) ctx );
+ 123              	 .loc 1 224 0
+ 124              	 .cfi_startproc
+ 125              	 
+ 126              	 
+ 127              	.LVL10:
+ 128 0000 10B5     	 push {r4,lr}
+ 129              	.LCFI3:
+ 130              	 .cfi_def_cfa_offset 8
+ 131              	 .cfi_offset 4,-8
+ 132              	 .cfi_offset 14,-4
+ 224:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     mbedtls_aes_free( (mbedtls_aes_context *) ctx );
+ 133              	 .loc 1 224 0
+ 134 0002 0446     	 mov r4,r0
+ 225:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     mbedtls_free( ctx );
+ 135              	 .loc 1 225 0
+ 136 0004 FFF7FEFF 	 bl mbedtls_aes_free
+ 137              	.LVL11:
+ 226:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 138              	 .loc 1 226 0
+ 139 0008 2046     	 mov r0,r4
+ 227:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 140              	 .loc 1 227 0
+ 141 000a BDE81040 	 pop {r4,lr}
+ 142              	.LCFI4:
+ 143              	 .cfi_restore 14
+ 144              	 .cfi_restore 4
+ 145              	 .cfi_def_cfa_offset 0
+ 146              	.LVL12:
+ 226:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 147              	 .loc 1 226 0
+ 148 000e FFF7FEBF 	 b free
+ 149              	.LVL13:
+ 150              	 .cfi_endproc
+ 151              	.LFE13:
+ 153 0012 00BF     	 .section .text.aes_ctx_alloc,"ax",%progbits
+ 154              	 .align 2
+ 155              	 .thumb
+ 156              	 .thumb_func
+ 158              	aes_ctx_alloc:
+ 159              	.LFB12:
+ 212:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     mbedtls_aes_context *aes = mbedtls_calloc( 1, sizeof( mbedtls_aes_context ) );
+ 160              	 .loc 1 212 0
+ 161              	 .cfi_startproc
+ 162              	 
+ 163              	 
+ 164 0000 10B5     	 push {r4,lr}
+ 165              	.LCFI5:
+ 166              	 .cfi_def_cfa_offset 8
+ 167              	 .cfi_offset 4,-8
+ 168              	 .cfi_offset 14,-4
+ 213:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 169              	 .loc 1 213 0
+ 170 0002 0120     	 movs r0,#1
+ 171 0004 4FF48C71 	 mov r1,#280
+ 172 0008 FFF7FEFF 	 bl calloc
+ 173              	.LVL14:
+ 215:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****         return( NULL );
+ 174              	 .loc 1 215 0
+ 175 000c 0446     	 mov r4,r0
+ 176 000e 08B1     	 cbz r0,.L14
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 177              	 .loc 1 218 0
+ 178 0010 FFF7FEFF 	 bl mbedtls_aes_init
+ 179              	.LVL15:
+ 180              	.L14:
+ 221:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** 
+ 181              	 .loc 1 221 0
+ 182 0014 2046     	 mov r0,r4
+ 183 0016 10BD     	 pop {r4,pc}
+ 184              	 .cfi_endproc
+ 185              	.LFE12:
+ 187              	 .section .text.aes_setkey_dec_wrap,"ax",%progbits
+ 188              	 .align 2
+ 189              	 .thumb
+ 190              	 .thumb_func
+ 192              	aes_setkey_dec_wrap:
+ 193              	.LFB10:
+ 201:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     return mbedtls_aes_setkey_dec( (mbedtls_aes_context *) ctx, key, key_bitlen );
+ 194              	 .loc 1 201 0
+ 195              	 .cfi_startproc
+ 196              	 
+ 197              	 
+ 198              	 
+ 199              	.LVL16:
+ 202:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 200              	 .loc 1 202 0
+ 201 0000 FFF7FEBF 	 b mbedtls_aes_setkey_dec
+ 202              	.LVL17:
+ 203              	 .cfi_endproc
+ 204              	.LFE10:
+ 206              	 .section .text.aes_setkey_enc_wrap,"ax",%progbits
+ 207              	 .align 2
+ 208              	 .thumb
+ 209              	 .thumb_func
+ 211              	aes_setkey_enc_wrap:
+ 212              	.LFB11:
+ 207:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     return mbedtls_aes_setkey_enc( (mbedtls_aes_context *) ctx, key, key_bitlen );
+ 213              	 .loc 1 207 0
+ 214              	 .cfi_startproc
+ 215              	 
+ 216              	 
+ 217              	 
+ 218              	.LVL18:
+ 208:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 219              	 .loc 1 208 0
+ 220 0000 FFF7FEBF 	 b mbedtls_aes_setkey_enc
+ 221              	.LVL19:
+ 222              	 .cfi_endproc
+ 223              	.LFE11:
+ 225              	 .section .text.aes_crypt_ecb_wrap,"ax",%progbits
+ 226              	 .align 2
+ 227              	 .thumb
+ 228              	 .thumb_func
+ 230              	aes_crypt_ecb_wrap:
+ 231              	.LFB9:
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c ****     return mbedtls_aes_crypt_ecb( (mbedtls_aes_context *) ctx, operation, input, output );
+ 232              	 .loc 1 130 0
+ 233              	 .cfi_startproc
+ 234              	 
+ 235              	 
+ 236              	 
+ 237              	.LVL20:
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/library\cipher_wrap.c **** }
+ 238              	 .loc 1 131 0
+ 239 0000 FFF7FEBF 	 b mbedtls_aes_crypt_ecb
+ 240              	.LVL21:
+ 241              	 .cfi_endproc
+ 242              	.LFE9:
+ 244              	 .comm mbedtls_cipher_supported,28,4
+ 245              	 .global mbedtls_cipher_definitions
+ 246              	 .section .rodata.aes_info,"a",%progbits
+ 247              	 .align 2
+ 250              	aes_info:
+ 251 0000 02       	 .byte 2
+ 252 0001 000000   	 .space 3
+ 253 0004 00000000 	 .word aes_crypt_ecb_wrap
+ 254 0008 00000000 	 .word aes_setkey_enc_wrap
+ 255 000c 00000000 	 .word aes_setkey_dec_wrap
+ 256 0010 00000000 	 .word aes_ctx_alloc
+ 257 0014 00000000 	 .word aes_ctx_free
+ 258              	 .section .rodata.aes_192_ccm_info,"a",%progbits
+ 259              	 .align 2
+ 262              	aes_192_ccm_info:
+ 263 0000 2C       	 .byte 44
+ 264 0001 08       	 .byte 8
+ 265 0002 0000     	 .space 2
+ 266 0004 C0000000 	 .word 192
+ 267 0008 0C000000 	 .word .LC1
+ 268 000c 0C000000 	 .word 12
+ 269 0010 01000000 	 .word 1
+ 270 0014 10000000 	 .word 16
+ 271 0018 00000000 	 .word ccm_aes_info
+ 272              	 .section .rodata.mbedtls_cipher_definitions,"a",%progbits
+ 273              	 .align 2
+ 276              	mbedtls_cipher_definitions:
+ 277 0000 02       	 .byte 2
+ 278 0001 000000   	 .space 3
+ 279 0004 00000000 	 .word aes_128_ecb_info
+ 280 0008 03       	 .byte 3
+ 281 0009 000000   	 .space 3
+ 282 000c 00000000 	 .word aes_192_ecb_info
+ 283 0010 04       	 .byte 4
+ 284 0011 000000   	 .space 3
+ 285 0014 00000000 	 .word aes_256_ecb_info
+ 286 0018 2B       	 .byte 43
+ 287 0019 000000   	 .space 3
+ 288 001c 00000000 	 .word aes_128_ccm_info
+ 289 0020 2C       	 .byte 44
+ 290 0021 000000   	 .space 3
+ 291 0024 00000000 	 .word aes_192_ccm_info
+ 292 0028 2D       	 .byte 45
+ 293 0029 000000   	 .space 3
+ 294 002c 00000000 	 .word aes_256_ccm_info
+ 295 0030 00       	 .byte 0
+ 296 0031 000000   	 .space 3
+ 297 0034 00000000 	 .word 0
+ 298              	 .section .rodata.ccm_aes_info,"a",%progbits
+ 299              	 .align 2
+ 302              	ccm_aes_info:
+ 303 0000 02       	 .byte 2
+ 304 0001 000000   	 .space 3
+ 305 0004 00000000 	 .word 0
+ 306 0008 00000000 	 .word ccm_aes_setkey_wrap
+ 307 000c 00000000 	 .word ccm_aes_setkey_wrap
+ 308 0010 00000000 	 .word ccm_ctx_alloc
+ 309 0014 00000000 	 .word ccm_ctx_free
+ 310              	 .section .rodata.aes_128_ccm_info,"a",%progbits
+ 311              	 .align 2
+ 314              	aes_128_ccm_info:
+ 315 0000 2B       	 .byte 43
+ 316 0001 08       	 .byte 8
+ 317 0002 0000     	 .space 2
+ 318 0004 80000000 	 .word 128
+ 319 0008 18000000 	 .word .LC2
+ 320 000c 0C000000 	 .word 12
+ 321 0010 01000000 	 .word 1
+ 322 0014 10000000 	 .word 16
+ 323 0018 00000000 	 .word ccm_aes_info
+ 324              	 .section .rodata.str1.4,"aMS",%progbits,1
+ 325              	 .align 2
+ 326              	.LC0:
+ 327 0000 4145532D 	 .ascii "AES-256-CCM\000"
+ 327      3235362D 
+ 327      43434D00 
+ 328              	.LC1:
+ 329 000c 4145532D 	 .ascii "AES-192-CCM\000"
+ 329      3139322D 
+ 329      43434D00 
+ 330              	.LC2:
+ 331 0018 4145532D 	 .ascii "AES-128-CCM\000"
+ 331      3132382D 
+ 331      43434D00 
+ 332              	.LC3:
+ 333 0024 4145532D 	 .ascii "AES-256-ECB\000"
+ 333      3235362D 
+ 333      45434200 
+ 334              	.LC4:
+ 335 0030 4145532D 	 .ascii "AES-192-ECB\000"
+ 335      3139322D 
+ 335      45434200 
+ 336              	.LC5:
+ 337 003c 4145532D 	 .ascii "AES-128-ECB\000"
+ 337      3132382D 
+ 337      45434200 
+ 338              	 .section .rodata.aes_256_ccm_info,"a",%progbits
+ 339              	 .align 2
+ 342              	aes_256_ccm_info:
+ 343 0000 2D       	 .byte 45
+ 344 0001 08       	 .byte 8
+ 345 0002 0000     	 .space 2
+ 346 0004 00010000 	 .word 256
+ 347 0008 00000000 	 .word .LC0
+ 348 000c 0C000000 	 .word 12
+ 349 0010 01000000 	 .word 1
+ 350 0014 10000000 	 .word 16
+ 351 0018 00000000 	 .word ccm_aes_info
+ 352              	 .section .rodata.aes_192_ecb_info,"a",%progbits
+ 353              	 .align 2
+ 356              	aes_192_ecb_info:
+ 357 0000 03       	 .byte 3
+ 358 0001 01       	 .byte 1
+ 359 0002 0000     	 .space 2
+ 360 0004 C0000000 	 .word 192
+ 361 0008 30000000 	 .word .LC4
+ 362 000c 00000000 	 .word 0
+ 363 0010 00000000 	 .word 0
+ 364 0014 10000000 	 .word 16
+ 365 0018 00000000 	 .word aes_info
+ 366              	 .section .rodata.aes_256_ecb_info,"a",%progbits
+ 367              	 .align 2
+ 370              	aes_256_ecb_info:
+ 371 0000 04       	 .byte 4
+ 372 0001 01       	 .byte 1
+ 373 0002 0000     	 .space 2
+ 374 0004 00010000 	 .word 256
+ 375 0008 24000000 	 .word .LC3
+ 376 000c 00000000 	 .word 0
+ 377 0010 00000000 	 .word 0
+ 378 0014 10000000 	 .word 16
+ 379 0018 00000000 	 .word aes_info
+ 380              	 .section .rodata.aes_128_ecb_info,"a",%progbits
+ 381              	 .align 2
+ 384              	aes_128_ecb_info:
+ 385 0000 02       	 .byte 2
+ 386 0001 01       	 .byte 1
+ 387 0002 0000     	 .space 2
+ 388 0004 80000000 	 .word 128
+ 389 0008 3C000000 	 .word .LC5
+ 390 000c 00000000 	 .word 0
+ 391 0010 00000000 	 .word 0
+ 392 0014 10000000 	 .word 16
+ 393 0018 00000000 	 .word aes_info
+ 394              	 .text
+ 395              	.Letext0:
+ 396              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h"
+ 397              	 .file 3 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/include/mbedtls/cipher.h"
+ 398              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/include/mbedtls/cipher_internal.h"
+ 399              	 .file 5 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 400              	 .file 6 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 401              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/include/mbedtls/aes.h"
+ 402              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/externals/mbedtls/include/mbedtls/ccm.h"
+ 403              	 .file 9 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdlib.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 cipher_wrap.c
+    {standard input}:20     .text.ccm_ctx_free:00000000 $t
+    {standard input}:24     .text.ccm_ctx_free:00000000 ccm_ctx_free
+    {standard input}:58     .text.ccm_ctx_alloc:00000000 $t
+    {standard input}:62     .text.ccm_ctx_alloc:00000000 ccm_ctx_alloc
+    {standard input}:92     .text.ccm_aes_setkey_wrap:00000000 $t
+    {standard input}:96     .text.ccm_aes_setkey_wrap:00000000 ccm_aes_setkey_wrap
+    {standard input}:117    .text.aes_ctx_free:00000000 $t
+    {standard input}:121    .text.aes_ctx_free:00000000 aes_ctx_free
+    {standard input}:154    .text.aes_ctx_alloc:00000000 $t
+    {standard input}:158    .text.aes_ctx_alloc:00000000 aes_ctx_alloc
+    {standard input}:188    .text.aes_setkey_dec_wrap:00000000 $t
+    {standard input}:192    .text.aes_setkey_dec_wrap:00000000 aes_setkey_dec_wrap
+    {standard input}:207    .text.aes_setkey_enc_wrap:00000000 $t
+    {standard input}:211    .text.aes_setkey_enc_wrap:00000000 aes_setkey_enc_wrap
+    {standard input}:226    .text.aes_crypt_ecb_wrap:00000000 $t
+    {standard input}:230    .text.aes_crypt_ecb_wrap:00000000 aes_crypt_ecb_wrap
+                            *COM*:0000001c mbedtls_cipher_supported
+    {standard input}:276    .rodata.mbedtls_cipher_definitions:00000000 mbedtls_cipher_definitions
+    {standard input}:247    .rodata.aes_info:00000000 $d
+    {standard input}:250    .rodata.aes_info:00000000 aes_info
+    {standard input}:259    .rodata.aes_192_ccm_info:00000000 $d
+    {standard input}:262    .rodata.aes_192_ccm_info:00000000 aes_192_ccm_info
+    {standard input}:302    .rodata.ccm_aes_info:00000000 ccm_aes_info
+    {standard input}:273    .rodata.mbedtls_cipher_definitions:00000000 $d
+    {standard input}:384    .rodata.aes_128_ecb_info:00000000 aes_128_ecb_info
+    {standard input}:356    .rodata.aes_192_ecb_info:00000000 aes_192_ecb_info
+    {standard input}:370    .rodata.aes_256_ecb_info:00000000 aes_256_ecb_info
+    {standard input}:314    .rodata.aes_128_ccm_info:00000000 aes_128_ccm_info
+    {standard input}:342    .rodata.aes_256_ccm_info:00000000 aes_256_ccm_info
+    {standard input}:299    .rodata.ccm_aes_info:00000000 $d
+    {standard input}:311    .rodata.aes_128_ccm_info:00000000 $d
+    {standard input}:325    .rodata.str1.4:00000000 $d
+    {standard input}:339    .rodata.aes_256_ccm_info:00000000 $d
+    {standard input}:353    .rodata.aes_192_ecb_info:00000000 $d
+    {standard input}:367    .rodata.aes_256_ecb_info:00000000 $d
+    {standard input}:381    .rodata.aes_128_ecb_info:00000000 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+mbedtls_ccm_free
+free
+calloc
+mbedtls_ccm_init
+mbedtls_ccm_setkey
+mbedtls_aes_free
+mbedtls_aes_init
+mbedtls_aes_setkey_dec
+mbedtls_aes_setkey_enc
+mbedtls_aes_crypt_ecb

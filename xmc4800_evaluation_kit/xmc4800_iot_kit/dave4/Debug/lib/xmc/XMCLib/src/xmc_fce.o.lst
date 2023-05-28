@@ -1,0 +1,876 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "xmc_fce.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.XMC_FCE_Init,"ax",%progbits
+  20              	 .align 2
+  21              	 .global XMC_FCE_Init
+  22              	 .thumb
+  23              	 .thumb_func
+  25              	XMC_FCE_Init:
+  26              	.LFB188:
+  27              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src/xmc_fce.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * @file xmc_fce.c
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * @date 2017-12-14
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * @cond
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  **************************************************************************************************
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * XMClib v2.1.20 - XMC Peripheral Driver Library 
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * Copyright (c) 2015-2018, Infineon Technologies AG
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * All rights reserved.                        
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *                                             
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * Redistribution and use in source and binary forms, with or without modification,are permitted pr
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * following conditions are met:   
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *                                                                              
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * Redistributions of source code must retain the above copyright notice, this list of conditions a
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * disclaimer.                        
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * 
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * Redistributions in binary form must reproduce the above copyright notice, this list of condition
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * disclaimer in the documentation and/or other materials provided with the distribution.          
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * 
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * Neither the name of the copyright holders nor the names of its contributors may be used to endor
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * products derived from this software without specific prior written permission.                  
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *                                                                              
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR I
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTI
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, IN
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBS
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THE
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                            
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *                                                                              
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * To improve the quality of the software, users are encouraged to share modifications, enhancement
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * Infineon Technologies AG dave@infineon.com).                                                    
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  **************************************************************************************************
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * Change History
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * --------------
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * 2015-02-20:
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *     - Initial <br>
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *      
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * 2015-06-20:
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *     - Removed GetDriverVersion API
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * 2017-12-14:
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *     - XMC_FCE_CalculateCRC8()
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *       Ensure 32bit access to IR register
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *     - XMC_FCE_CalculateCRC16()
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *       Ensure 32bit access to IR register
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *       Remove restriction on data source allignment
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *     - XMC_FCE_CalculateCRC32()
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *       Ensure 32bit access to IR register
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *       Remove restriction on data source allignment
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * @endcond 
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  *
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  */
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** /**************************************************************************************************
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * HEADER FILES
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  **************************************************************************************************
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** #include <xmc_fce.h>
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** #if defined (FCE)
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** #include <xmc_scu.h>
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** /*******************************************************************************
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * API IMPLEMENTATION
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  **************************************************************************************************
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** /*
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * Initialize the FCE peripheral:
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  * Update FCE configuration and initialize seed value
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  */
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** XMC_FCE_STATUS_t XMC_FCE_Init(const XMC_FCE_t *const engine)
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** {
+  28              	 .loc 1 76 0
+  29              	 .cfi_startproc
+  30              	 
+  31              	 
+  32              	 
+  33              	.LVL0:
+  34              	 .loc 1 76 0
+  35 0000 0346     	 mov r3,r0
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   engine->kernel_ptr->CFG = engine->fce_cfg_update.regval;
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   engine->kernel_ptr->CRC = engine->seedvalue;
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   return XMC_FCE_STATUS_OK;
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** }
+  36              	 .loc 1 81 0
+  37 0002 0020     	 movs r0,#0
+  38              	.LVL1:
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   engine->kernel_ptr->CFG = engine->fce_cfg_update.regval;
+  39              	 .loc 1 77 0
+  40 0004 1A68     	 ldr r2,[r3]
+  41 0006 5968     	 ldr r1,[r3,#4]
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   
+  42              	 .loc 1 78 0
+  43 0008 9B68     	 ldr r3,[r3,#8]
+  44              	.LVL2:
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   engine->kernel_ptr->CFG = engine->fce_cfg_update.regval;
+  45              	 .loc 1 77 0
+  46 000a 9160     	 str r1,[r2,#8]
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   
+  47              	 .loc 1 78 0
+  48 000c 9361     	 str r3,[r2,#24]
+  49              	 .loc 1 81 0
+  50 000e 7047     	 bx lr
+  51              	 .cfi_endproc
+  52              	.LFE188:
+  54              	 .section .text.XMC_FCE_Disable,"ax",%progbits
+  55              	 .align 2
+  56              	 .global XMC_FCE_Disable
+  57              	 .thumb
+  58              	 .thumb_func
+  60              	XMC_FCE_Disable:
+  61              	.LFB189:
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** /* Disable FCE */
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** void XMC_FCE_Disable(void)
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** {
+  62              	 .loc 1 85 0
+  63              	 .cfi_startproc
+  64              	 
+  65              	 
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   FCE->CLC |= (uint32_t)FCE_CLC_DISR_Msk;
+  66              	 .loc 1 86 0
+  67 0000 074A     	 ldr r2,.L4
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   FCE->CLC |= (uint32_t)FCE_CLC_DISR_Msk;
+  68              	 .loc 1 85 0
+  69 0002 10B5     	 push {r4,lr}
+  70              	.LCFI0:
+  71              	 .cfi_def_cfa_offset 8
+  72              	 .cfi_offset 4,-8
+  73              	 .cfi_offset 14,-4
+  74              	 .loc 1 86 0
+  75 0004 1368     	 ldr r3,[r2]
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   XMC_SCU_RESET_AssertPeripheralReset(XMC_SCU_PERIPHERAL_RESET_FCE);
+  76              	 .loc 1 88 0
+  77 0006 074C     	 ldr r4,.L4+4
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   
+  78              	 .loc 1 86 0
+  79 0008 43F00103 	 orr r3,r3,#1
+  80              	 .loc 1 88 0
+  81 000c 2046     	 mov r0,r4
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   
+  82              	 .loc 1 86 0
+  83 000e 1360     	 str r3,[r2]
+  84              	 .loc 1 88 0
+  85 0010 FFF7FEFF 	 bl XMC_SCU_RESET_AssertPeripheralReset
+  86              	.LVL3:
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** #if defined(CLOCK_GATING_SUPPORTED)
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   XMC_SCU_CLOCK_GatePeripheralClock(XMC_SCU_PERIPHERAL_CLOCK_FCE);
+  87              	 .loc 1 91 0
+  88 0014 2046     	 mov r0,r4
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** #endif
+  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** }
+  89              	 .loc 1 94 0
+  90 0016 BDE81040 	 pop {r4,lr}
+  91              	.LCFI1:
+  92              	 .cfi_restore 14
+  93              	 .cfi_restore 4
+  94              	 .cfi_def_cfa_offset 0
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** #endif
+  95              	 .loc 1 91 0
+  96 001a FFF7FEBF 	 b XMC_SCU_CLOCK_GatePeripheralClock
+  97              	.LVL4:
+  98              	.L5:
+  99 001e 00BF     	 .align 2
+ 100              	.L4:
+ 101 0020 00000250 	 .word 1342308352
+ 102 0024 40000020 	 .word 536870976
+ 103              	 .cfi_endproc
+ 104              	.LFE189:
+ 106              	 .section .text.XMC_FCE_Enable,"ax",%progbits
+ 107              	 .align 2
+ 108              	 .global XMC_FCE_Enable
+ 109              	 .thumb
+ 110              	 .thumb_func
+ 112              	XMC_FCE_Enable:
+ 113              	.LFB190:
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** /* Enable FCE */
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** void XMC_FCE_Enable(void)
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** {
+ 114              	 .loc 1 98 0
+ 115              	 .cfi_startproc
+ 116              	 
+ 117              	 
+ 118 0000 10B5     	 push {r4,lr}
+ 119              	.LCFI2:
+ 120              	 .cfi_def_cfa_offset 8
+ 121              	 .cfi_offset 4,-8
+ 122              	 .cfi_offset 14,-4
+  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** #if defined(CLOCK_GATING_SUPPORTED)
+ 100:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   XMC_SCU_CLOCK_UngatePeripheralClock(XMC_SCU_PERIPHERAL_CLOCK_FCE);
+ 123              	 .loc 1 100 0
+ 124 0002 064C     	 ldr r4,.L8
+ 125 0004 2046     	 mov r0,r4
+ 126 0006 FFF7FEFF 	 bl XMC_SCU_CLOCK_UngatePeripheralClock
+ 127              	.LVL5:
+ 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** #endif
+ 102:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   XMC_SCU_RESET_DeassertPeripheralReset(XMC_SCU_PERIPHERAL_RESET_FCE);
+ 128              	 .loc 1 103 0
+ 129 000a 2046     	 mov r0,r4
+ 130 000c FFF7FEFF 	 bl XMC_SCU_RESET_DeassertPeripheralReset
+ 131              	.LVL6:
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   FCE->CLC &= (uint32_t)~FCE_CLC_DISR_Msk;
+ 132              	 .loc 1 105 0
+ 133 0010 034A     	 ldr r2,.L8+4
+ 134 0012 1368     	 ldr r3,[r2]
+ 135 0014 23F00103 	 bic r3,r3,#1
+ 136 0018 1360     	 str r3,[r2]
+ 137 001a 10BD     	 pop {r4,pc}
+ 138              	.L9:
+ 139              	 .align 2
+ 140              	.L8:
+ 141 001c 40000020 	 .word 536870976
+ 142 0020 00000250 	 .word 1342308352
+ 143              	 .cfi_endproc
+ 144              	.LFE190:
+ 146              	 .section .text.XMC_FCE_CalculateCRC8,"ax",%progbits
+ 147              	 .align 2
+ 148              	 .global XMC_FCE_CalculateCRC8
+ 149              	 .thumb
+ 150              	 .thumb_func
+ 152              	XMC_FCE_CalculateCRC8:
+ 153              	.LFB191:
+ 106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** }
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** /* Calculate and return the SAE J1850 CRC8 checksum */
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** XMC_FCE_STATUS_t XMC_FCE_CalculateCRC8(const XMC_FCE_t *const engine,
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****                                        const uint8_t *data,
+ 111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 									   uint32_t length,
+ 112:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 									   uint8_t *result)
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** {
+ 154              	 .loc 1 113 0
+ 155              	 .cfi_startproc
+ 156              	 
+ 157              	 
+ 158              	 
+ 159              	.LVL7:
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   XMC_FCE_STATUS_t status = XMC_FCE_STATUS_OK;
+ 115:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 	
+ 116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   XMC_ASSERT("XMC_FCE_CalculateCRC8: Wrong FCE kernel used", (engine -> kernel_ptr == XMC_FCE_CRC8)
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   if (length == 0UL)
+ 160              	 .loc 1 118 0
+ 161 0000 0AB9     	 cbnz r2,.L18
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   {
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     status = XMC_FCE_STATUS_ERROR;
+ 162              	 .loc 1 120 0
+ 163 0002 0220     	 movs r0,#2
+ 164              	.LVL8:
+ 165 0004 7047     	 bx lr
+ 166              	.LVL9:
+ 167              	.L18:
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   XMC_FCE_STATUS_t status = XMC_FCE_STATUS_OK;
+ 168              	 .loc 1 113 0
+ 169 0006 10B4     	 push {r4}
+ 170              	.LCFI3:
+ 171              	 .cfi_def_cfa_offset 4
+ 172              	 .cfi_offset 4,-4
+ 173 0008 0468     	 ldr r4,[r0]
+ 174 000a 0A44     	 add r2,r2,r1
+ 175              	.LVL10:
+ 176              	.L12:
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   }
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   else
+ 123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   {
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     while (0UL != length)
+ 125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     {
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****       engine->kernel_ptr->IR = (uint32_t)*data;
+ 177              	 .loc 1 126 0
+ 178 000c 11F8010B 	 ldrb r0,[r1],#1
+ 179              	.LVL11:
+ 180 0010 2060     	 str r0,[r4]
+ 181              	.LVL12:
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     {
+ 182              	 .loc 1 124 0
+ 183 0012 9142     	 cmp r1,r2
+ 184 0014 FAD1     	 bne .L12
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****       data++;
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****       length -= 1U;
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     }
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     *result = (uint8_t)engine->kernel_ptr->CRC;
+ 185              	 .loc 1 131 0
+ 186 0016 A269     	 ldr r2,[r4,#24]
+ 187 0018 1A70     	 strb r2,[r3]
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 	
+ 188              	 .loc 1 114 0
+ 189 001a 0020     	 movs r0,#0
+ 190              	.LVL13:
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   }
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+ 134:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   return status;
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** }
+ 191              	 .loc 1 135 0
+ 192 001c 5DF8044B 	 ldr r4,[sp],#4
+ 193              	.LCFI4:
+ 194              	 .cfi_restore 4
+ 195              	 .cfi_def_cfa_offset 0
+ 196 0020 7047     	 bx lr
+ 197              	 .cfi_endproc
+ 198              	.LFE191:
+ 200 0022 00BF     	 .section .text.XMC_FCE_CalculateCRC16,"ax",%progbits
+ 201              	 .align 2
+ 202              	 .global XMC_FCE_CalculateCRC16
+ 203              	 .thumb
+ 204              	 .thumb_func
+ 206              	XMC_FCE_CalculateCRC16:
+ 207              	.LFB192:
+ 136:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** /* Calculate and return calculated CCITT CRC16 checksum */
+ 138:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** XMC_FCE_STATUS_t XMC_FCE_CalculateCRC16(const XMC_FCE_t *const engine,
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****                                         const uint16_t *data,
+ 140:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 										uint32_t length,
+ 141:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 										uint16_t *result)
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** {
+ 208              	 .loc 1 142 0
+ 209              	 .cfi_startproc
+ 210              	 
+ 211              	 
+ 212              	 
+ 213              	.LVL14:
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   XMC_FCE_STATUS_t status = XMC_FCE_STATUS_OK;
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 	
+ 145:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   XMC_ASSERT("XMC_FCE_CalculateCRC16: Wrong FCE kernel used", (engine -> kernel_ptr == XMC_FCE_CRC1
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   XMC_ASSERT("XMC_FCE_CalculateCRC16: Length field is empty", (length != 0));
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   XMC_ASSERT("XMC_FCE_CalculateCRC16: Length is not aligned", ((length & 0x1U) == 0));
+ 148:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+ 149:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   /* Check length is a multiple of 2 */
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   if ((length == 0) || ((length & 0x1U) != 0U))
+ 214              	 .loc 1 150 0
+ 215 0000 0AB9     	 cbnz r2,.L27
+ 216              	.L23:
+ 151:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   {
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     status = XMC_FCE_STATUS_ERROR;
+ 217              	 .loc 1 152 0
+ 218 0002 0220     	 movs r0,#2
+ 219              	.LVL15:
+ 220 0004 7047     	 bx lr
+ 221              	.LVL16:
+ 222              	.L27:
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   {
+ 223              	 .loc 1 150 0 discriminator 1
+ 224 0006 12F0010F 	 tst r2,#1
+ 225 000a FAD1     	 bne .L23
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   XMC_FCE_STATUS_t status = XMC_FCE_STATUS_OK;
+ 226              	 .loc 1 142 0
+ 227 000c 10B4     	 push {r4}
+ 228              	.LCFI5:
+ 229              	 .cfi_def_cfa_offset 4
+ 230              	 .cfi_offset 4,-4
+ 231 000e 0468     	 ldr r4,[r0]
+ 232              	.LVL17:
+ 233              	.L21:
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   }
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   else
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   {
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     while (0UL != length)
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     {
+ 158:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****       engine->kernel_ptr->IR = (uint32_t)*data;
+ 234              	 .loc 1 158 0
+ 235 0010 31F8020B 	 ldrh r0,[r1],#2
+ 236              	.LVL18:
+ 237 0014 2060     	 str r0,[r4]
+ 238              	.LVL19:
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     {
+ 239              	 .loc 1 156 0
+ 240 0016 023A     	 subs r2,r2,#2
+ 241              	.LVL20:
+ 242 0018 FAD1     	 bne .L21
+ 159:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****       data++;
+ 160:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****       length -= 2U;
+ 161:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     }
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 	
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     *result = (uint16_t)engine->kernel_ptr->CRC;
+ 243              	 .loc 1 163 0
+ 244 001a A169     	 ldr r1,[r4,#24]
+ 245              	.LVL21:
+ 246 001c 1980     	 strh r1,[r3]
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 	
+ 247              	 .loc 1 143 0
+ 248 001e 1046     	 mov r0,r2
+ 249              	.LVL22:
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   }
+ 165:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+ 166:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   return status;
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** }
+ 250              	 .loc 1 167 0
+ 251 0020 5DF8044B 	 ldr r4,[sp],#4
+ 252              	.LCFI6:
+ 253              	 .cfi_restore 4
+ 254              	 .cfi_def_cfa_offset 0
+ 255 0024 7047     	 bx lr
+ 256              	 .cfi_endproc
+ 257              	.LFE192:
+ 259 0026 00BF     	 .section .text.XMC_FCE_CalculateCRC32,"ax",%progbits
+ 260              	 .align 2
+ 261              	 .global XMC_FCE_CalculateCRC32
+ 262              	 .thumb
+ 263              	 .thumb_func
+ 265              	XMC_FCE_CalculateCRC32:
+ 266              	.LFB193:
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** /* Calculate and return the IEEE 802.3 Ethernet CRC32 checksum */
+ 170:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** XMC_FCE_STATUS_t XMC_FCE_CalculateCRC32(const XMC_FCE_t *const engine,
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****                                         const uint32_t *data,
+ 172:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 										uint32_t length,
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 										uint32_t *result)
+ 174:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** {
+ 267              	 .loc 1 174 0
+ 268              	 .cfi_startproc
+ 269              	 
+ 270              	 
+ 271              	 
+ 272              	.LVL23:
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   XMC_FCE_STATUS_t status = XMC_FCE_STATUS_OK;
+ 176:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 	
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   XMC_ASSERT("XMC_FCE_CalculateCRC32: Wrong FCE kernel used", ((engine->kernel_ptr == XMC_FCE_CRC32
+ 178:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****                                                                (engine->kernel_ptr == XMC_FCE_CRC32
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   XMC_ASSERT("XMC_FCE_CalculateCRC32: Length field is empty", (length != 0));
+ 180:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   XMC_ASSERT("XMC_FCE_CalculateCRC32: Length is not aligned", ((length & 0x3U) == 0));
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+ 182:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   /* Check length is a multiple of 4 */
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   if ((length == 0) || ((length & 0x3U) != 0U))
+ 273              	 .loc 1 183 0
+ 274 0000 0AB9     	 cbnz r2,.L36
+ 275              	.L32:
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   {
+ 185:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     status = XMC_FCE_STATUS_ERROR;
+ 276              	 .loc 1 185 0
+ 277 0002 0220     	 movs r0,#2
+ 278              	.LVL24:
+ 279 0004 7047     	 bx lr
+ 280              	.LVL25:
+ 281              	.L36:
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   {
+ 282              	 .loc 1 183 0 discriminator 1
+ 283 0006 12F0030F 	 tst r2,#3
+ 284 000a FAD1     	 bne .L32
+ 174:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   XMC_FCE_STATUS_t status = XMC_FCE_STATUS_OK;
+ 285              	 .loc 1 174 0
+ 286 000c 10B4     	 push {r4}
+ 287              	.LCFI7:
+ 288              	 .cfi_def_cfa_offset 4
+ 289              	 .cfi_offset 4,-4
+ 290 000e 0468     	 ldr r4,[r0]
+ 291              	.LVL26:
+ 292              	.L30:
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   }
+ 187:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   else
+ 188:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   {
+ 189:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     while (0UL != length)
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     {
+ 191:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****       engine->kernel_ptr->IR = *data;
+ 293              	 .loc 1 191 0
+ 294 0010 51F8040B 	 ldr r0,[r1],#4
+ 295              	.LVL27:
+ 296 0014 2060     	 str r0,[r4]
+ 297              	.LVL28:
+ 189:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     {
+ 298              	 .loc 1 189 0
+ 299 0016 043A     	 subs r2,r2,#4
+ 300              	.LVL29:
+ 301 0018 FAD1     	 bne .L30
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****       data++;
+ 193:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****       length -= 4U;
+ 194:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     }
+ 195:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+ 196:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     *result = engine->kernel_ptr->CRC;
+ 302              	 .loc 1 196 0
+ 303 001a A169     	 ldr r1,[r4,#24]
+ 304              	.LVL30:
+ 305 001c 1960     	 str r1,[r3]
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 	
+ 306              	 .loc 1 175 0
+ 307 001e 1046     	 mov r0,r2
+ 308              	.LVL31:
+ 197:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   }
+ 198:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   
+ 199:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   return status;
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** }
+ 309              	 .loc 1 200 0
+ 310 0020 5DF8044B 	 ldr r4,[sp],#4
+ 311              	.LCFI8:
+ 312              	 .cfi_restore 4
+ 313              	 .cfi_def_cfa_offset 0
+ 314 0024 7047     	 bx lr
+ 315              	 .cfi_endproc
+ 316              	.LFE193:
+ 318 0026 00BF     	 .section .text.XMC_FCE_TriggerMismatch,"ax",%progbits
+ 319              	 .align 2
+ 320              	 .global XMC_FCE_TriggerMismatch
+ 321              	 .thumb
+ 322              	 .thumb_func
+ 324              	XMC_FCE_TriggerMismatch:
+ 325              	.LFB194:
+ 201:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+ 202:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** /* Trigger mismatch in the CRC registers */
+ 203:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** void XMC_FCE_TriggerMismatch(const XMC_FCE_t *const engine, XMC_FCE_CTR_TEST_t test)
+ 204:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** {
+ 326              	 .loc 1 204 0
+ 327              	 .cfi_startproc
+ 328              	 
+ 329              	 
+ 330              	 
+ 331              	.LVL32:
+ 205:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   /* Create a 0 to 1 transition and clear to 0 once it is done */
+ 206:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   engine->kernel_ptr->CTR &= ~((uint32_t)test);
+ 332              	 .loc 1 206 0
+ 333 0000 0368     	 ldr r3,[r0]
+ 334 0002 D869     	 ldr r0,[r3,#28]
+ 335              	.LVL33:
+ 204:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   /* Create a 0 to 1 transition and clear to 0 once it is done */
+ 336              	 .loc 1 204 0
+ 337 0004 10B4     	 push {r4}
+ 338              	.LCFI9:
+ 339              	 .cfi_def_cfa_offset 4
+ 340              	 .cfi_offset 4,-4
+ 341              	 .loc 1 206 0
+ 342 0006 CC43     	 mvns r4,r1
+ 343 0008 2040     	 ands r0,r0,r4
+ 344 000a D861     	 str r0,[r3,#28]
+ 207:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   engine->kernel_ptr->CTR |= (uint32_t)test;
+ 345              	 .loc 1 207 0
+ 346 000c D869     	 ldr r0,[r3,#28]
+ 347 000e 0143     	 orrs r1,r1,r0
+ 348              	.LVL34:
+ 349 0010 D961     	 str r1,[r3,#28]
+ 208:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   engine->kernel_ptr->CTR &= ~((uint32_t)test);
+ 350              	 .loc 1 208 0
+ 351 0012 DA69     	 ldr r2,[r3,#28]
+ 352 0014 2240     	 ands r2,r2,r4
+ 353 0016 DA61     	 str r2,[r3,#28]
+ 209:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** }
+ 354              	 .loc 1 209 0
+ 355 0018 5DF8044B 	 ldr r4,[sp],#4
+ 356              	.LCFI10:
+ 357              	 .cfi_restore 4
+ 358              	 .cfi_def_cfa_offset 0
+ 359 001c 7047     	 bx lr
+ 360              	 .cfi_endproc
+ 361              	.LFE194:
+ 363 001e 00BF     	 .section .text.XMC_FCE_LittleEndian16bit,"ax",%progbits
+ 364              	 .align 2
+ 365              	 .global XMC_FCE_LittleEndian16bit
+ 366              	 .thumb
+ 367              	 .thumb_func
+ 369              	XMC_FCE_LittleEndian16bit:
+ 370              	.LFB195:
+ 210:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+ 211:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** /* Change endianness of 16-bit input buffer */
+ 212:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** void XMC_FCE_LittleEndian16bit(uint8_t* inbuffer, uint16_t* outbuffer, uint16_t length)
+ 213:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** {
+ 371              	 .loc 1 213 0
+ 372              	 .cfi_startproc
+ 373              	 
+ 374              	 
+ 375              	.LVL35:
+ 376 0000 2DE9F041 	 push {r4,r5,r6,r7,r8,lr}
+ 377              	.LCFI11:
+ 378              	 .cfi_def_cfa_offset 24
+ 379              	 .cfi_offset 4,-24
+ 380              	 .cfi_offset 5,-20
+ 381              	 .cfi_offset 6,-16
+ 382              	 .cfi_offset 7,-12
+ 383              	 .cfi_offset 8,-8
+ 384              	 .cfi_offset 14,-4
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   uint16_t counter = 0U;
+ 215:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   uint16_t bytecounter = 0U;
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+ 217:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   if ((length & 0x01U)  == 0)
+ 385              	 .loc 1 217 0
+ 386 0004 12F00107 	 ands r7,r2,#1
+ 213:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   uint16_t counter = 0U;
+ 387              	 .loc 1 213 0
+ 388 0008 1446     	 mov r4,r2
+ 389              	 .loc 1 217 0
+ 390 000a 1FD1     	 bne .L39
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   {
+ 219:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     for (counter = 0U; counter < (length >> 1); counter++)
+ 391              	 .loc 1 219 0 discriminator 1
+ 392 000c 5FEA5208 	 lsrs r8,r2,#1
+ 393 0010 0546     	 mov r5,r0
+ 394 0012 0E46     	 mov r6,r1
+ 395 0014 1CD0     	 beq .L41
+ 220:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     {
+ 221:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****       outbuffer[counter] = 0U;
+ 396              	 .loc 1 221 0
+ 397 0016 08F1FF32 	 add r2,r8,#-1
+ 398              	.LVL36:
+ 399 001a 92B2     	 uxth r2,r2
+ 400 001c 0132     	 adds r2,r2,#1
+ 401 001e 0846     	 mov r0,r1
+ 402              	.LVL37:
+ 403 0020 5200     	 lsls r2,r2,#1
+ 404 0022 3946     	 mov r1,r7
+ 405              	.LVL38:
+ 406 0024 FFF7FEFF 	 bl memset
+ 407              	.LVL39:
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     }
+ 223:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+ 224:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     outbuffer[counter] = 0U;
+ 408              	 .loc 1 224 0
+ 409 0028 26F81870 	 strh r7,[r6,r8,lsl#1]
+ 410              	.LVL40:
+ 411              	.L42:
+ 219:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     {
+ 412              	 .loc 1 219 0
+ 413 002c 0022     	 movs r2,#0
+ 414              	.LVL41:
+ 415              	.L44:
+ 416 002e 5300     	 lsls r3,r2,#1
+ 225:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     counter = 0U;
+ 226:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+ 227:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     while (length)
+ 228:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     {
+ 229:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****       outbuffer[counter] = ((uint16_t)((uint16_t)inbuffer[bytecounter] << 8U) |
+ 417              	 .loc 1 229 0
+ 418 0030 9BB2     	 uxth r3,r3
+ 230:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****                             (inbuffer[bytecounter + 1U]));
+ 419              	 .loc 1 230 0
+ 420 0032 E918     	 adds r1,r5,r3
+ 229:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****                             (inbuffer[bytecounter + 1U]));
+ 421              	 .loc 1 229 0
+ 422 0034 E85C     	 ldrb r0,[r5,r3]
+ 423 0036 4B78     	 ldrb r3,[r1,#1]
+ 231:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****       counter += 1U;
+ 232:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****       bytecounter += 2U;
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****       length -= 2U;
+ 424              	 .loc 1 233 0
+ 425 0038 023C     	 subs r4,r4,#2
+ 426              	.LVL42:
+ 229:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****                             (inbuffer[bytecounter + 1U]));
+ 427              	 .loc 1 229 0
+ 428 003a 91B2     	 uxth r1,r2
+ 429 003c 43EA0023 	 orr r3,r3,r0,lsl#8
+ 430              	 .loc 1 233 0
+ 431 0040 A4B2     	 uxth r4,r4
+ 229:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****                             (inbuffer[bytecounter + 1U]));
+ 432              	 .loc 1 229 0
+ 433 0042 26F81130 	 strh r3,[r6,r1,lsl#1]
+ 434              	.LVL43:
+ 435 0046 0132     	 adds r2,r2,#1
+ 436              	.LVL44:
+ 227:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     {
+ 437              	 .loc 1 227 0
+ 438 0048 002C     	 cmp r4,#0
+ 439 004a F0D1     	 bne .L44
+ 440              	.LVL45:
+ 441              	.L39:
+ 442 004c BDE8F081 	 pop {r4,r5,r6,r7,r8,pc}
+ 443              	.LVL46:
+ 444              	.L41:
+ 224:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     counter = 0U;
+ 445              	 .loc 1 224 0
+ 446 0050 A1F80080 	 strh r8,[r1]
+ 227:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     {
+ 447              	 .loc 1 227 0
+ 448 0054 002A     	 cmp r2,#0
+ 449 0056 F9D0     	 beq .L39
+ 450 0058 E8E7     	 b .L42
+ 451              	 .cfi_endproc
+ 452              	.LFE195:
+ 454 005a 00BF     	 .section .text.XMC_FCE_LittleEndian32bit,"ax",%progbits
+ 455              	 .align 2
+ 456              	 .global XMC_FCE_LittleEndian32bit
+ 457              	 .thumb
+ 458              	 .thumb_func
+ 460              	XMC_FCE_LittleEndian32bit:
+ 461              	.LFB196:
+ 234:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     }
+ 235:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   }
+ 236:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** }
+ 237:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+ 238:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** /* Change endianness of 32-bit input buffer */
+ 239:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** void XMC_FCE_LittleEndian32bit(uint8_t* inbuffer, uint32_t* outbuffer, uint16_t length)
+ 240:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** {
+ 462              	 .loc 1 240 0
+ 463              	 .cfi_startproc
+ 464              	 
+ 465              	 
+ 466              	.LVL47:
+ 467 0000 2DE9F041 	 push {r4,r5,r6,r7,r8,lr}
+ 468              	.LCFI12:
+ 469              	 .cfi_def_cfa_offset 24
+ 470              	 .cfi_offset 4,-24
+ 471              	 .cfi_offset 5,-20
+ 472              	 .cfi_offset 6,-16
+ 473              	 .cfi_offset 7,-12
+ 474              	 .cfi_offset 8,-8
+ 475              	 .cfi_offset 14,-4
+ 241:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   uint16_t counter = 0U;
+ 242:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   uint16_t bytecounter = 0U;
+ 243:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****  
+ 244:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   if ((length & 0x03U) == 0)
+ 476              	 .loc 1 244 0
+ 477 0004 12F00307 	 ands r7,r2,#3
+ 240:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   uint16_t counter = 0U;
+ 478              	 .loc 1 240 0
+ 479 0008 1446     	 mov r4,r2
+ 480              	 .loc 1 244 0
+ 481 000a 25D1     	 bne .L50
+ 245:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****   {
+ 246:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     for (counter = 0U; counter < (length >> 2U); counter++)
+ 482              	 .loc 1 246 0 discriminator 1
+ 483 000c 5FEA9208 	 lsrs r8,r2,#2
+ 484 0010 0546     	 mov r5,r0
+ 485 0012 0E46     	 mov r6,r1
+ 486 0014 22D0     	 beq .L52
+ 247:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     {
+ 248:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****       outbuffer[counter] = 0U;
+ 487              	 .loc 1 248 0
+ 488 0016 08F1FF32 	 add r2,r8,#-1
+ 489              	.LVL48:
+ 490 001a 92B2     	 uxth r2,r2
+ 491 001c 0132     	 adds r2,r2,#1
+ 492 001e 0846     	 mov r0,r1
+ 493              	.LVL49:
+ 494 0020 9200     	 lsls r2,r2,#2
+ 495 0022 3946     	 mov r1,r7
+ 496              	.LVL50:
+ 497 0024 FFF7FEFF 	 bl memset
+ 498              	.LVL51:
+ 249:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     }
+ 250:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+ 251:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     outbuffer[counter] = 0U;
+ 499              	 .loc 1 251 0
+ 500 0028 46F82870 	 str r7,[r6,r8,lsl#2]
+ 501              	.LVL52:
+ 502              	.L53:
+ 246:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     {
+ 503              	 .loc 1 246 0
+ 504 002c 0020     	 movs r0,#0
+ 505              	.LVL53:
+ 506              	.L55:
+ 507 002e 8300     	 lsls r3,r0,#2
+ 252:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     counter = 0U;
+ 253:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c **** 
+ 254:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     while (length)
+ 255:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     {
+ 256:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****       outbuffer[counter] = ((uint32_t)inbuffer[bytecounter]      << 24U) |
+ 508              	 .loc 1 256 0
+ 509 0030 9BB2     	 uxth r3,r3
+ 257:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****                            ((uint32_t)inbuffer[bytecounter + 1U] << 16U) |
+ 258:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****                            ((uint32_t)inbuffer[bytecounter + 2U] <<  8U) |
+ 259:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****                            (inbuffer[bytecounter + 3U]);
+ 510              	 .loc 1 259 0
+ 511 0032 EF18     	 adds r7,r5,r3
+ 256:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****                            ((uint32_t)inbuffer[bytecounter + 1U] << 16U) |
+ 512              	 .loc 1 256 0
+ 513 0034 E95C     	 ldrb r1,[r5,r3]
+ 258:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****                            (inbuffer[bytecounter + 3U]);
+ 514              	 .loc 1 258 0
+ 515 0036 FA78     	 ldrb r2,[r7,#3]
+ 257:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****                            ((uint32_t)inbuffer[bytecounter + 1U] << 16U) |
+ 516              	 .loc 1 257 0
+ 517 0038 7B78     	 ldrb r3,[r7,#1]
+ 258:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****                            (inbuffer[bytecounter + 3U]);
+ 518              	 .loc 1 258 0
+ 519 003a BF78     	 ldrb r7,[r7,#2]
+ 520 003c 42EA0161 	 orr r1,r2,r1,lsl#24
+ 260:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****       counter += 1U;
+ 261:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****       bytecounter += 4U;
+ 262:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****       length -= 4U;
+ 521              	 .loc 1 262 0
+ 522 0040 043C     	 subs r4,r4,#4
+ 523              	.LVL54:
+ 256:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****                            ((uint32_t)inbuffer[bytecounter + 1U] << 16U) |
+ 524              	 .loc 1 256 0
+ 525 0042 82B2     	 uxth r2,r0
+ 526 0044 41EA0343 	 orr r3,r1,r3,lsl#16
+ 258:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****                            (inbuffer[bytecounter + 3U]);
+ 527              	 .loc 1 258 0
+ 528 0048 43EA0723 	 orr r3,r3,r7,lsl#8
+ 529              	 .loc 1 262 0
+ 530 004c A4B2     	 uxth r4,r4
+ 256:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****                            ((uint32_t)inbuffer[bytecounter + 1U] << 16U) |
+ 531              	 .loc 1 256 0
+ 532 004e 46F82230 	 str r3,[r6,r2,lsl#2]
+ 533              	.LVL55:
+ 534 0052 0130     	 adds r0,r0,#1
+ 535              	.LVL56:
+ 254:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     {
+ 536              	 .loc 1 254 0
+ 537 0054 002C     	 cmp r4,#0
+ 538 0056 EAD1     	 bne .L55
+ 539              	.LVL57:
+ 540              	.L50:
+ 541 0058 BDE8F081 	 pop {r4,r5,r6,r7,r8,pc}
+ 542              	.LVL58:
+ 543              	.L52:
+ 251:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     counter = 0U;
+ 544              	 .loc 1 251 0
+ 545 005c C1F80080 	 str r8,[r1]
+ 254:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/src\xmc_fce.c ****     {
+ 546              	 .loc 1 254 0
+ 547 0060 002A     	 cmp r2,#0
+ 548 0062 F9D0     	 beq .L50
+ 549 0064 E2E7     	 b .L53
+ 550              	 .cfi_endproc
+ 551              	.LFE196:
+ 553 0066 00BF     	 .text
+ 554              	.Letext0:
+ 555              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 556              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 557              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 558              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_fce.h"
+ 559              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc4_scu.h"
+ 560              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+ 561              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+ 562              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_scu.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 xmc_fce.c
+    {standard input}:20     .text.XMC_FCE_Init:00000000 $t
+    {standard input}:25     .text.XMC_FCE_Init:00000000 XMC_FCE_Init
+    {standard input}:55     .text.XMC_FCE_Disable:00000000 $t
+    {standard input}:60     .text.XMC_FCE_Disable:00000000 XMC_FCE_Disable
+    {standard input}:101    .text.XMC_FCE_Disable:00000020 $d
+    {standard input}:107    .text.XMC_FCE_Enable:00000000 $t
+    {standard input}:112    .text.XMC_FCE_Enable:00000000 XMC_FCE_Enable
+    {standard input}:141    .text.XMC_FCE_Enable:0000001c $d
+    {standard input}:147    .text.XMC_FCE_CalculateCRC8:00000000 $t
+    {standard input}:152    .text.XMC_FCE_CalculateCRC8:00000000 XMC_FCE_CalculateCRC8
+    {standard input}:201    .text.XMC_FCE_CalculateCRC16:00000000 $t
+    {standard input}:206    .text.XMC_FCE_CalculateCRC16:00000000 XMC_FCE_CalculateCRC16
+    {standard input}:260    .text.XMC_FCE_CalculateCRC32:00000000 $t
+    {standard input}:265    .text.XMC_FCE_CalculateCRC32:00000000 XMC_FCE_CalculateCRC32
+    {standard input}:319    .text.XMC_FCE_TriggerMismatch:00000000 $t
+    {standard input}:324    .text.XMC_FCE_TriggerMismatch:00000000 XMC_FCE_TriggerMismatch
+    {standard input}:364    .text.XMC_FCE_LittleEndian16bit:00000000 $t
+    {standard input}:369    .text.XMC_FCE_LittleEndian16bit:00000000 XMC_FCE_LittleEndian16bit
+    {standard input}:455    .text.XMC_FCE_LittleEndian32bit:00000000 $t
+    {standard input}:460    .text.XMC_FCE_LittleEndian32bit:00000000 XMC_FCE_LittleEndian32bit
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+XMC_SCU_RESET_AssertPeripheralReset
+XMC_SCU_CLOCK_GatePeripheralClock
+XMC_SCU_CLOCK_UngatePeripheralClock
+XMC_SCU_RESET_DeassertPeripheralReset
+memset

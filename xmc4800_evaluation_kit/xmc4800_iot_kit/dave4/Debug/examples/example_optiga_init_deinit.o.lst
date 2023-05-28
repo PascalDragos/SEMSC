@@ -1,0 +1,384 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "example_optiga_init_deinit.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.optiga_lib_callback,"ax",%progbits
+  20              	 .align 2
+  21              	 .thumb
+  22              	 .thumb_func
+  24              	optiga_lib_callback:
+  25              	.LFB0:
+  26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/example_optiga_init_deinit.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * \copyright
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * MIT License
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * Copyright (c) 2020 Infineon Technologies AG
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** *
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * Permission is hereby granted, free of charge, to any person obtaining a copy
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * of this software and associated documentation files (the "Software"), to deal
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * in the Software without restriction, including without limitation the rights
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * copies of the Software, and to permit persons to whom the Software is
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * furnished to do so, subject to the following conditions:
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** *
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * The above copyright notice and this permission notice shall be included in all
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * copies or substantial portions of the Software.
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** *
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * SOFTWARE
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** *
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * \endcopyright
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** *
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * \author Infineon Technologies AG
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** *
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * \file example_optiga_init_deinit.c
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** *
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * \brief   This file provides the API for initialization/Deinitialization of optiga.
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** *
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * \ingroup grOptigaExamples
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** *
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** * @{
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** */
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** #include "optiga_example.h"
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** #include "optiga/optiga_util.h"
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** 
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** 
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** #ifdef OPTIGA_COMMS_SHIELDED_CONNECTION
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** extern optiga_lib_status_t pair_host_and_optiga_using_pre_shared_secret(void);
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** #endif
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** 
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** /**
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****  * Callback when optiga_util_xxxx operation is completed asynchronously
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****  */
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** static volatile optiga_lib_status_t optiga_lib_status;
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** //lint --e{818} suppress "argument "context" is not used in the sample provided"
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** static void optiga_lib_callback(void * context, optiga_lib_status_t return_status)
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** {
+  27              	 .loc 1 52 0
+  28              	 .cfi_startproc
+  29              	 
+  30              	 
+  31              	 
+  32              	.LVL0:
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****     optiga_lib_status = return_status;
+  33              	 .loc 1 53 0
+  34 0000 014B     	 ldr r3,.L2
+  35 0002 1980     	 strh r1,[r3]
+  36 0004 7047     	 bx lr
+  37              	.L3:
+  38 0006 00BF     	 .align 2
+  39              	.L2:
+  40 0008 00000000 	 .word .LANCHOR0
+  41              	 .cfi_endproc
+  42              	.LFE0:
+  44              	 .section .text.example_optiga_init,"ax",%progbits
+  45              	 .align 2
+  46              	 .global example_optiga_init
+  47              	 .thumb
+  48              	 .thumb_func
+  50              	example_optiga_init:
+  51              	.LFB1:
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****     if (NULL != context)
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****     {
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         // callback to upper layer here
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****     }
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** }
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** 
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** optiga_util_t * me_util_instance = NULL;
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** 
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** void example_optiga_init(void)
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** {
+  52              	 .loc 1 63 0
+  53              	 .cfi_startproc
+  54              	 
+  55              	 
+  56              	.LVL1:
+  57 0000 10B5     	 push {r4,lr}
+  58              	.LCFI0:
+  59              	 .cfi_def_cfa_offset 8
+  60              	 .cfi_offset 4,-8
+  61              	 .cfi_offset 14,-4
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** #ifdef OPTIGA_COMMS_SHIELDED_CONNECTION
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****     static uint8_t host_optiga_pairing_completed = FALSE;
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** #endif
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****     OPTIGA_EXAMPLE_LOG_MESSAGE(__FUNCTION__);
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** 
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****     do
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****     {
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         if (NULL == me_util_instance)
+  62              	 .loc 1 72 0
+  63 0002 134C     	 ldr r4,.L17
+  64 0004 2068     	 ldr r0,[r4]
+  65 0006 D8B1     	 cbz r0,.L14
+  66              	.L5:
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         {
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****             //Create an instance of optiga_util to open the application on OPTIGA.
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****             me_util_instance = optiga_util_create(0, optiga_lib_callback, NULL);
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****             if (NULL == me_util_instance)
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****             {
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****                 break;
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****             }
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         }
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         /**
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****          * Open the application on OPTIGA which is a precondition to perform any other operations
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****          * using optiga_util_open_application
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****          */
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+  67              	 .loc 1 86 0
+  68 0008 124C     	 ldr r4,.L17+4
+  69 000a 0123     	 movs r3,#1
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         return_status = optiga_util_open_application(me_util_instance, 0);
+  70              	 .loc 1 87 0
+  71 000c 0021     	 movs r1,#0
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         return_status = optiga_util_open_application(me_util_instance, 0);
+  72              	 .loc 1 86 0
+  73 000e 2380     	 strh r3,[r4]
+  74              	 .loc 1 87 0
+  75 0010 FFF7FEFF 	 bl optiga_util_open_application
+  76              	.LVL2:
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** 
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);         
+  77              	 .loc 1 89 0
+  78 0014 50B9     	 cbnz r0,.L4
+  79              	.L8:
+  80              	 .loc 1 89 0 is_stmt 0 discriminator 1
+  81 0016 2388     	 ldrh r3,[r4]
+  82 0018 0E4A     	 ldr r2,.L17+4
+  83 001a 9BB2     	 uxth r3,r3
+  84 001c 012B     	 cmp r3,#1
+  85 001e FAD0     	 beq .L8
+  86              	 .loc 1 89 0 discriminator 2
+  87 0020 1388     	 ldrh r3,[r2]
+  88 0022 9BB2     	 uxth r3,r3
+  89 0024 1BB9     	 cbnz r3,.L15
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** #ifdef OPTIGA_COMMS_SHIELDED_CONNECTION
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         if(FALSE == host_optiga_pairing_completed)
+  90              	 .loc 1 92 0 is_stmt 1
+  91 0026 0C4C     	 ldr r4,.L17+8
+  92 0028 2378     	 ldrb r3,[r4]
+  93 002a 13B1     	 cbz r3,.L16
+  94              	.LVL3:
+  95              	.L4:
+  96 002c 10BD     	 pop {r4,pc}
+  97              	.LVL4:
+  98              	.L15:
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         
+  99              	 .loc 1 89 0 discriminator 3
+ 100 002e 1388     	 ldrh r3,[r2]
+ 101              	.LVL5:
+ 102 0030 10BD     	 pop {r4,pc}
+ 103              	.LVL6:
+ 104              	.L16:
+  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         {
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****             OPTIGA_EXAMPLE_LOG_MESSAGE("pair_host_and_optiga_using_pre_shared_secret");
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****             // Generate the pre-shared secret on host and write it to OPTIGA
+  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****             return_status = pair_host_and_optiga_using_pre_shared_secret();              
+ 105              	 .loc 1 96 0
+ 106 0032 FFF7FEFF 	 bl pair_host_and_optiga_using_pre_shared_secret
+ 107              	.LVL7:
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****             if (OPTIGA_LIB_SUCCESS != return_status)
+ 108              	 .loc 1 97 0
+ 109 0036 0028     	 cmp r0,#0
+ 110 0038 F8D1     	 bne .L4
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****             {
+  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****                 //pairing of host and optiga failed
+ 100:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****                 break;
+ 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****             }
+ 102:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****             host_optiga_pairing_completed = TRUE;
+ 111              	 .loc 1 102 0
+ 112 003a 0123     	 movs r3,#1
+ 113 003c 2370     	 strb r3,[r4]
+ 114 003e F5E7     	 b .L4
+ 115              	.LVL8:
+ 116              	.L14:
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****             if (NULL == me_util_instance)
+ 117              	 .loc 1 75 0
+ 118 0040 0246     	 mov r2,r0
+ 119 0042 0649     	 ldr r1,.L17+12
+ 120 0044 FFF7FEFF 	 bl optiga_util_create
+ 121              	.LVL9:
+ 122 0048 2060     	 str r0,[r4]
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****             {
+ 123              	 .loc 1 76 0
+ 124 004a 0028     	 cmp r0,#0
+ 125 004c DCD1     	 bne .L5
+ 126 004e EDE7     	 b .L4
+ 127              	.L18:
+ 128              	 .align 2
+ 129              	.L17:
+ 130 0050 00000000 	 .word .LANCHOR1
+ 131 0054 00000000 	 .word .LANCHOR0
+ 132 0058 00000000 	 .word .LANCHOR2
+ 133 005c 00000000 	 .word optiga_lib_callback
+ 134              	 .cfi_endproc
+ 135              	.LFE1:
+ 137              	 .section .text.example_optiga_deinit,"ax",%progbits
+ 138              	 .align 2
+ 139              	 .global example_optiga_deinit
+ 140              	 .thumb
+ 141              	 .thumb_func
+ 143              	example_optiga_deinit:
+ 144              	.LFB2:
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         }
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** #endif         
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****     }while(FALSE);
+ 106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****     OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** }
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** 
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** void example_optiga_deinit(void)
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** {
+ 145              	 .loc 1 110 0
+ 146              	 .cfi_startproc
+ 147              	 
+ 148              	 
+ 149              	.LVL10:
+ 150 0000 38B5     	 push {r3,r4,r5,lr}
+ 151              	.LCFI1:
+ 152              	 .cfi_def_cfa_offset 16
+ 153              	 .cfi_offset 3,-16
+ 154              	 .cfi_offset 4,-12
+ 155              	 .cfi_offset 5,-8
+ 156              	 .cfi_offset 14,-4
+ 111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+ 112:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****     OPTIGA_EXAMPLE_LOG_MESSAGE(__FUNCTION__);
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****     
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****     do
+ 115:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****     {
+ 116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         /**
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****          * Close the application on OPTIGA after all the operations are executed
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****          * using optiga_util_close_application
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****          */
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         return_status = optiga_util_close_application(me_util_instance, 0);
+ 157              	 .loc 1 121 0
+ 158 0002 0C4D     	 ldr r5,.L26
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         return_status = optiga_util_close_application(me_util_instance, 0);
+ 159              	 .loc 1 120 0
+ 160 0004 0C4C     	 ldr r4,.L26+4
+ 161              	 .loc 1 121 0
+ 162 0006 2868     	 ldr r0,[r5]
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         return_status = optiga_util_close_application(me_util_instance, 0);
+ 163              	 .loc 1 120 0
+ 164 0008 0123     	 movs r3,#1
+ 165              	 .loc 1 121 0
+ 166 000a 0021     	 movs r1,#0
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         return_status = optiga_util_close_application(me_util_instance, 0);
+ 167              	 .loc 1 120 0
+ 168 000c 2380     	 strh r3,[r4]
+ 169              	 .loc 1 121 0
+ 170 000e FFF7FEFF 	 bl optiga_util_close_application
+ 171              	.LVL11:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****             
+ 123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 172              	 .loc 1 123 0
+ 173 0012 68B9     	 cbnz r0,.L19
+ 174              	.L21:
+ 175              	 .loc 1 123 0 is_stmt 0 discriminator 1
+ 176 0014 2388     	 ldrh r3,[r4]
+ 177 0016 084A     	 ldr r2,.L26+4
+ 178 0018 9BB2     	 uxth r3,r3
+ 179 001a 012B     	 cmp r3,#1
+ 180 001c FAD0     	 beq .L21
+ 181              	 .loc 1 123 0 discriminator 2
+ 182 001e 1488     	 ldrh r4,[r2]
+ 183 0020 A4B2     	 uxth r4,r4
+ 184 0022 0CB1     	 cbz r4,.L22
+ 185              	 .loc 1 123 0 discriminator 3
+ 186 0024 1388     	 ldrh r3,[r2]
+ 187              	.LVL12:
+ 188 0026 38BD     	 pop {r3,r4,r5,pc}
+ 189              	.LVL13:
+ 190              	.L22:
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c **** 
+ 125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         // destroy util and crypt instances
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         //lint --e{534} suppress "Error handling is not required so return value is not checked"
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         optiga_util_destroy(me_util_instance);
+ 191              	 .loc 1 127 0 is_stmt 1
+ 192 0028 2868     	 ldr r0,[r5]
+ 193              	.LVL14:
+ 194 002a FFF7FEFF 	 bl optiga_util_destroy
+ 195              	.LVL15:
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_init_deinit.c ****         me_util_instance = NULL;
+ 196              	 .loc 1 128 0
+ 197 002e 2C60     	 str r4,[r5]
+ 198              	.L19:
+ 199 0030 38BD     	 pop {r3,r4,r5,pc}
+ 200              	.L27:
+ 201 0032 00BF     	 .align 2
+ 202              	.L26:
+ 203 0034 00000000 	 .word .LANCHOR1
+ 204 0038 00000000 	 .word .LANCHOR0
+ 205              	 .cfi_endproc
+ 206              	.LFE2:
+ 208              	 .global me_util_instance
+ 209              	 .section .bss.me_util_instance,"aw",%nobits
+ 210              	 .align 2
+ 211              	 .set .LANCHOR1,.+0
+ 214              	me_util_instance:
+ 215 0000 00000000 	 .space 4
+ 216              	 .section .bss.host_optiga_pairing_completed.6000,"aw",%nobits
+ 217              	 .set .LANCHOR2,.+0
+ 220              	host_optiga_pairing_completed.6000:
+ 221 0000 00       	 .space 1
+ 222              	 .section .bss.optiga_lib_status,"aw",%nobits
+ 223              	 .align 1
+ 224              	 .set .LANCHOR0,.+0
+ 227              	optiga_lib_status:
+ 228 0000 0000     	 .space 2
+ 229              	 .text
+ 230              	.Letext0:
+ 231              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 232              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 233              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_types.h"
+ 234              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_common.h"
+ 235              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/cmd/optiga_cmd.h"
+ 236              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_util.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 example_optiga_init_deinit.c
+    {standard input}:20     .text.optiga_lib_callback:00000000 $t
+    {standard input}:24     .text.optiga_lib_callback:00000000 optiga_lib_callback
+    {standard input}:40     .text.optiga_lib_callback:00000008 $d
+    {standard input}:45     .text.example_optiga_init:00000000 $t
+    {standard input}:50     .text.example_optiga_init:00000000 example_optiga_init
+    {standard input}:130    .text.example_optiga_init:00000050 $d
+    {standard input}:138    .text.example_optiga_deinit:00000000 $t
+    {standard input}:143    .text.example_optiga_deinit:00000000 example_optiga_deinit
+    {standard input}:203    .text.example_optiga_deinit:00000034 $d
+    {standard input}:214    .bss.me_util_instance:00000000 me_util_instance
+    {standard input}:210    .bss.me_util_instance:00000000 $d
+    {standard input}:220    .bss.host_optiga_pairing_completed.6000:00000000 host_optiga_pairing_completed.6000
+    {standard input}:221    .bss.host_optiga_pairing_completed.6000:00000000 $d
+    {standard input}:223    .bss.optiga_lib_status:00000000 $d
+    {standard input}:227    .bss.optiga_lib_status:00000000 optiga_lib_status
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+optiga_util_open_application
+pair_host_and_optiga_using_pre_shared_secret
+optiga_util_create
+optiga_util_close_application
+optiga_util_destroy

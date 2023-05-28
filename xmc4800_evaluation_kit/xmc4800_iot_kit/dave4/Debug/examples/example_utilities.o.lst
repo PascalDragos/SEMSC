@@ -1,0 +1,764 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "example_utilities.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.example_util_encode_rsa_public_key_in_bit_string_format,"ax",%progbits
+  20              	 .align 2
+  21              	 .global example_util_encode_rsa_public_key_in_bit_string_format
+  22              	 .thumb
+  23              	 .thumb_func
+  25              	example_util_encode_rsa_public_key_in_bit_string_format:
+  26              	.LFB0:
+  27              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/example_utilities.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * \copyright
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * MIT License
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * Copyright (c) 2020 Infineon Technologies AG
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** *
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * Permission is hereby granted, free of charge, to any person obtaining a copy
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * of this software and associated documentation files (the "Software"), to deal
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * in the Software without restriction, including without limitation the rights
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * copies of the Software, and to permit persons to whom the Software is
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * furnished to do so, subject to the following conditions:
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** *
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * The above copyright notice and this permission notice shall be included in all
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * copies or substantial portions of the Software.
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** *
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * SOFTWARE
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** *
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * \endcopyright
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** *
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * \author Infineon Technologies AG
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** *
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * \file example_utilities.c
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** *
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * \brief   This file provides the utilities for example code.
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** *
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * \ingroup grOptigaExamples
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** *
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** * @{
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** */
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #include "optiga/pal/pal_os_memory.h"
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #include "optiga/pal/pal_os_timer.h"
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #include "optiga/common/optiga_lib_logger.h"
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #include "optiga/common/optiga_lib_return_codes.h"
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** char performance_buffer_string[30];
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #define OPTIGA_EXAMPLE_UTIL_RSA_NEGATIVE_INTEGER          (0x7F)
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #define OPTIGA_EXAMPLE_UTIL_DER_BITSTRING_TAG               (0x03)
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #define OPTIGA_EXAMPLE_UTIL_DER_NUM_UNUSED_BITS             (0x00)
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #define OPTIGA_EXAMPLE_UTIL_SET_DER_LENGTH(buffer, index, value) \
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                 {\
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                     uint16_t position = *index; \
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                     if (0xFF < value) \
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                     { \
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                         buffer[position++] = (value & 0xFF00) >> 8; \
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                     } \
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                     buffer[position++] = (value & 0xFF); \
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                     *index = position; \
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                 }
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                 
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** //lint --e{838} suppress "first time use of modulus_signed_bit_len and length_field_in_bytes"
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** void example_util_encode_rsa_public_key_in_bit_string_format(const uint8_t * n_buffer,
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                                         uint16_t n_length,
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                                         const uint8_t * e_buffer,
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                                         uint16_t e_length,
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                                         uint8_t * pub_key_buffer,
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                                         uint16_t * pub_key_length)
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** {
+  28              	 .loc 1 67 0
+  29              	 .cfi_startproc
+  30              	 
+  31              	 
+  32              	.LVL0:
+  33 0000 2DE9F04F 	 push {r4,r5,r6,r7,r8,r9,r10,fp,lr}
+  34              	.LCFI0:
+  35              	 .cfi_def_cfa_offset 36
+  36              	 .cfi_offset 4,-36
+  37              	 .cfi_offset 5,-32
+  38              	 .cfi_offset 6,-28
+  39              	 .cfi_offset 7,-24
+  40              	 .cfi_offset 8,-20
+  41              	 .cfi_offset 9,-16
+  42              	 .cfi_offset 10,-12
+  43              	 .cfi_offset 11,-8
+  44              	 .cfi_offset 14,-4
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #define OPTIGA_EXAMPLE_UTIL_RSA_DER_MIN_LEN_FIELD     (0x80)
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #define OPTIGA_EXAMPLE_UTIL_RSA_DER_SEQUENCE_TAG      (0x30)
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #define OPTIGA_EXAMPLE_UTIL_RSA_DER_INTEGER_TAG       (0x02)
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     uint16_t index = 0;
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     uint16_t modulus_signed_bit_len = 0;
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     uint8_t length_field_in_bytes = 0;
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     // Check if the first byte of modulus is a negative integer
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     modulus_signed_bit_len = ((OPTIGA_EXAMPLE_UTIL_RSA_NEGATIVE_INTEGER < n_buffer[0]) ? 0x01 : 0x0
+  45              	 .loc 1 77 0
+  46 0004 90F800A0 	 ldrb r10,[r0]
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #define OPTIGA_EXAMPLE_UTIL_RSA_DER_MIN_LEN_FIELD     (0x80)
+  47              	 .loc 1 67 0
+  48 0008 91B0     	 sub sp,sp,#68
+  49              	.LCFI1:
+  50              	 .cfi_def_cfa_offset 104
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #define OPTIGA_EXAMPLE_UTIL_RSA_DER_MIN_LEN_FIELD     (0x80)
+  51              	 .loc 1 67 0
+  52 000a 0D46     	 mov r5,r1
+  53              	 .loc 1 77 0
+  54 000c 4FEADA1A 	 lsr r10,r10,#7
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #define OPTIGA_EXAMPLE_UTIL_RSA_DER_MIN_LEN_FIELD     (0x80)
+  55              	 .loc 1 67 0
+  56 0010 1F46     	 mov r7,r3
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     // Check the number of bytes required to represent the length field
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     length_field_in_bytes = ((n_length > 0xFF)? 0x02 : 0x01);
+  57              	 .loc 1 80 0
+  58 0012 FF2D     	 cmp r5,#255
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+  59              	 .loc 1 77 0
+  60 0014 1FFA8AF3 	 uxth r3,r10
+  61              	.LVL1:
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #define OPTIGA_EXAMPLE_UTIL_RSA_DER_MIN_LEN_FIELD     (0x80)
+  62              	 .loc 1 67 0
+  63 0018 0A90     	 str r0,[sp,#40]
+  64 001a 1A9C     	 ldr r4,[sp,#104]
+  65 001c 0B92     	 str r2,[sp,#44]
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+  66              	 .loc 1 77 0
+  67 001e 0393     	 str r3,[sp,#12]
+  68              	.LVL2:
+  69              	 .loc 1 80 0
+  70 0020 00F2B480 	 bhi .L6
+  71 0024 0220     	 movs r0,#2
+  72              	.LVL3:
+  73 0026 4FF0010B 	 mov fp,#1
+  74 002a 0246     	 mov r2,r0
+  75              	.LVL4:
+  76 002c CDF808B0 	 str fp,[sp,#8]
+  77 0030 8126     	 movs r6,#129
+  78              	.L2:
+  79              	.LVL5:
+  80              	.LBB2:
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     // RSA public key formation according to DER encoded format
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = OPTIGA_EXAMPLE_UTIL_DER_BITSTRING_TAG;
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = OPTIGA_EXAMPLE_UTIL_RSA_DER_MIN_LEN_FIELD + length_field_in_bytes;
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     // 7 bytes = Unused Bits(1 byte) + Sequence Tag (1 byte) +
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     //           Length tag (1 byte) * 3 occurrence + Integer tag (1 byte) * 2 occurrence
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     OPTIGA_EXAMPLE_UTIL_SET_DER_LENGTH(pub_key_buffer, &index, (0x07 +
+  81              	 .loc 1 87 0 discriminator 4
+  82 0032 EB1D     	 adds r3,r5,#7
+  83 0034 5344     	 add r3,r3,r10
+  84 0036 3B44     	 add r3,r3,r7
+  85 0038 1344     	 add r3,r3,r2
+  86 003a FF2B     	 cmp r3,#255
+  87              	.LBE2:
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = OPTIGA_EXAMPLE_UTIL_RSA_DER_MIN_LEN_FIELD + length_field_in_bytes;
+  88              	 .loc 1 83 0 discriminator 4
+  89 003c 4FF00302 	 mov r2,#3
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     // 7 bytes = Unused Bits(1 byte) + Sequence Tag (1 byte) +
+  90              	 .loc 1 84 0 discriminator 4
+  91 0040 6670     	 strb r6,[r4,#1]
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = OPTIGA_EXAMPLE_UTIL_RSA_DER_MIN_LEN_FIELD + length_field_in_bytes;
+  92              	 .loc 1 83 0 discriminator 4
+  93 0042 2270     	 strb r2,[r4]
+  94              	.LVL6:
+  95              	.LBB3:
+  96              	 .loc 1 87 0 discriminator 4
+  97 0044 40F38A80 	 ble .L7
+  98              	.LVL7:
+  99              	 .loc 1 87 0 is_stmt 0 discriminator 1
+ 100 0048 C3F3072C 	 ubfx ip,r3,#8,#8
+ 101 004c 0B23     	 movs r3,#11
+ 102 004e 0E93     	 str r3,[sp,#56]
+ 103 0050 0D93     	 str r3,[sp,#52]
+ 104 0052 0623     	 movs r3,#6
+ 105 0054 0993     	 str r3,[sp,#36]
+ 106 0056 0523     	 movs r3,#5
+ 107 0058 0A21     	 movs r1,#10
+ 108              	.LVL8:
+ 109 005a 4FF0080E 	 mov lr,#8
+ 110 005e 4FF00708 	 mov r8,#7
+ 111 0062 0893     	 str r3,[sp,#32]
+ 112 0064 0423     	 movs r3,#4
+ 113 0066 84F802C0 	 strb ip,[r4,#2]
+ 114 006a 0F91     	 str r1,[sp,#60]
+ 115 006c 0692     	 str r2,[sp,#24]
+ 116 006e 8C46     	 mov ip,r1
+ 117 0070 CDF830E0 	 str lr,[sp,#48]
+ 118 0074 CDF80480 	 str r8,[sp,#4]
+ 119 0078 4FF00909 	 mov r9,#9
+ 120 007c 0793     	 str r3,[sp,#28]
+ 121              	.LVL9:
+ 122              	.L3:
+ 123              	 .loc 1 87 0 discriminator 3
+ 124 007e 0AEB0503 	 add r3,r10,r5
+ 125 0082 DAB2     	 uxtb r2,r3
+ 126 0084 F9B2     	 uxtb r1,r7
+ 127 0086 0591     	 str r1,[sp,#20]
+ 128 0088 5118     	 adds r1,r2,r1
+ 129 008a C9B2     	 uxtb r1,r1
+ 130 008c 0492     	 str r2,[sp,#16]
+ 131              	.LBE3:
+ 132              	.LBB4:
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                                    n_length +
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                                    modulus_signed_bit_len +
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                                    e_length +
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                                    (2 * length_field_in_bytes)))
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = OPTIGA_EXAMPLE_UTIL_DER_NUM_UNUSED_BITS;
+  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = OPTIGA_EXAMPLE_UTIL_RSA_DER_SEQUENCE_TAG;
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = OPTIGA_EXAMPLE_UTIL_RSA_DER_MIN_LEN_FIELD + length_field_in_bytes;
+  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     // 4 bytes = Integer tag (1 byte) * 2 occurrence + Length tag (1 byte) * 2 occurrence
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     OPTIGA_EXAMPLE_UTIL_SET_DER_LENGTH(pub_key_buffer, &index, (0x04 +
+ 133              	 .loc 1 97 0 is_stmt 1 discriminator 3
+ 134 008e 2A1D     	 adds r2,r5,#4
+ 135 0090 5244     	 add r2,r2,r10
+ 136 0092 01F1070A 	 add r10,r1,#7
+ 137              	.LBE4:
+ 138              	.LBB5:
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                                    n_length +
+ 139              	 .loc 1 87 0 discriminator 3
+ 140 0096 0091     	 str r1,[sp]
+ 141 0098 00EB0A01 	 add r1,r0,r10
+ 142 009c 0698     	 ldr r0,[sp,#24]
+ 143              	.LBE5:
+ 144              	.LBB6:
+ 145              	 .loc 1 97 0 discriminator 3
+ 146 009e 3A44     	 add r2,r2,r7
+ 147              	.LBE6:
+ 148              	.LBB7:
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                                    n_length +
+ 149              	 .loc 1 87 0 discriminator 3
+ 150 00a0 2154     	 strb r1,[r4,r0]
+ 151              	.LVL10:
+ 152              	.LBE7:
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+ 153              	 .loc 1 92 0 discriminator 3
+ 154 00a2 0798     	 ldr r0,[sp,#28]
+ 155              	.LBB8:
+ 156              	 .loc 1 97 0 discriminator 3
+ 157 00a4 5A44     	 add r2,r2,fp
+ 158              	.LBE8:
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+ 159              	 .loc 1 92 0 discriminator 3
+ 160 00a6 4FF0000B 	 mov fp,#0
+ 161 00aa 04F800B0 	 strb fp,[r4,r0]
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = OPTIGA_EXAMPLE_UTIL_RSA_DER_MIN_LEN_FIELD + length_field_in_bytes;
+ 162              	 .loc 1 94 0 discriminator 3
+ 163 00ae 0898     	 ldr r0,[sp,#32]
+ 164 00b0 4FF0300A 	 mov r10,#48
+ 165 00b4 04F800A0 	 strb r10,[r4,r0]
+ 166              	.LVL11:
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     // 4 bytes = Integer tag (1 byte) * 2 occurrence + Length tag (1 byte) * 2 occurrence
+ 167              	 .loc 1 95 0 discriminator 3
+ 168 00b8 0998     	 ldr r0,[sp,#36]
+ 169              	.LBB9:
+ 170              	 .loc 1 97 0 discriminator 3
+ 171 00ba FF2A     	 cmp r2,#255
+ 172              	.LBE9:
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     // 4 bytes = Integer tag (1 byte) * 2 occurrence + Length tag (1 byte) * 2 occurrence
+ 173              	 .loc 1 95 0 discriminator 3
+ 174 00bc 2654     	 strb r6,[r4,r0]
+ 175              	.LVL12:
+ 176              	.LBB10:
+ 177              	 .loc 1 97 0 discriminator 3
+ 178 00be 4BDD     	 ble .L8
+ 179              	.LVL13:
+ 180              	 .loc 1 97 0 is_stmt 0 discriminator 1
+ 181 00c0 C2F30722 	 ubfx r2,r2,#8,#8
+ 182 00c4 04F80820 	 strb r2,[r4,r8]
+ 183 00c8 0C98     	 ldr r0,[sp,#48]
+ 184 00ca 0D9A     	 ldr r2,[sp,#52]
+ 185 00cc 0190     	 str r0,[sp,#4]
+ 186              	.LVL14:
+ 187 00ce F046     	 mov r8,lr
+ 188 00d0 CE46     	 mov lr,r9
+ 189 00d2 E146     	 mov r9,ip
+ 190 00d4 DDF838C0 	 ldr ip,[sp,#56]
+ 191              	.LVL15:
+ 192              	.L4:
+ 193 00d8 0099     	 ldr r1,[sp]
+ 194              	 .loc 1 97 0 discriminator 3
+ 195 00da 0298     	 ldr r0,[sp,#8]
+ 196 00dc 0431     	 adds r1,r1,#4
+ 197 00de 0844     	 add r0,r0,r1
+ 198 00e0 0146     	 mov r1,r0
+ 199              	.LBE10:
+ 200              	.LBB11:
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                                    n_length +
+  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                                    modulus_signed_bit_len +
+ 100:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                                    e_length +
+ 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                                    length_field_in_bytes))
+ 102:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = OPTIGA_EXAMPLE_UTIL_RSA_DER_INTEGER_TAG;
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = OPTIGA_EXAMPLE_UTIL_RSA_DER_MIN_LEN_FIELD + length_field_in_bytes;
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     OPTIGA_EXAMPLE_UTIL_SET_DER_LENGTH(pub_key_buffer, &index, (n_length  + modulus_signed_bit_len)
+ 201              	 .loc 1 105 0 is_stmt 1 discriminator 3
+ 202 00e2 FF2B     	 cmp r3,#255
+ 203              	.LBE11:
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = OPTIGA_EXAMPLE_UTIL_RSA_DER_MIN_LEN_FIELD + length_field_in_bytes;
+ 204              	 .loc 1 103 0 discriminator 3
+ 205 00e4 4FF00200 	 mov r0,#2
+ 206              	.LBB12:
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                                    n_length +
+ 207              	 .loc 1 97 0 discriminator 3
+ 208 00e8 04F80810 	 strb r1,[r4,r8]
+ 209              	.LBE12:
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = OPTIGA_EXAMPLE_UTIL_RSA_DER_MIN_LEN_FIELD + length_field_in_bytes;
+ 210              	 .loc 1 103 0 discriminator 3
+ 211 00ec 04F80E00 	 strb r0,[r4,lr]
+ 212              	.LVL16:
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     OPTIGA_EXAMPLE_UTIL_SET_DER_LENGTH(pub_key_buffer, &index, (n_length  + modulus_signed_bit_len)
+ 213              	 .loc 1 104 0 discriminator 3
+ 214 00f0 04F80960 	 strb r6,[r4,r9]
+ 215              	.LVL17:
+ 216              	.LBB13:
+ 217              	 .loc 1 105 0 discriminator 3
+ 218 00f4 07DD     	 ble .L5
+ 219              	 .loc 1 105 0 is_stmt 0 discriminator 1
+ 220 00f6 019A     	 ldr r2,[sp,#4]
+ 221              	.LVL18:
+ 222 00f8 0432     	 adds r2,r2,#4
+ 223 00fa 92B2     	 uxth r2,r2
+ 224              	.LVL19:
+ 225 00fc C3F30723 	 ubfx r3,r3,#8,#8
+ 226 0100 04F80C30 	 strb r3,[r4,ip]
+ 227 0104 9446     	 mov ip,r2
+ 228              	.L5:
+ 229              	.LVL20:
+ 230 0106 039B     	 ldr r3,[sp,#12]
+ 231              	.LBE13:
+ 106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     index += modulus_signed_bit_len;
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pal_os_memcpy(&pub_key_buffer[index], n_buffer, n_length);
+ 232              	 .loc 1 107 0 is_stmt 1 discriminator 3
+ 233 0108 0A99     	 ldr r1,[sp,#40]
+ 234 010a 03F10109 	 add r9,r3,#1
+ 106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     index += modulus_signed_bit_len;
+ 235              	 .loc 1 106 0 discriminator 3
+ 236 010e 4A44     	 add r2,r2,r9
+ 237              	.LVL21:
+ 238 0110 1FFA82F9 	 uxth r9,r2
+ 239              	.LBB14:
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     index += modulus_signed_bit_len;
+ 240              	 .loc 1 105 0 discriminator 3
+ 241 0114 9DF81030 	 ldrb r3,[sp,#16]
+ 242 0118 04F80C30 	 strb r3,[r4,ip]
+ 243              	.LVL22:
+ 244              	.LBE14:
+ 245              	 .loc 1 107 0 discriminator 3
+ 246 011c 2A46     	 mov r2,r5
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     index += n_length;
+ 247              	 .loc 1 108 0 discriminator 3
+ 248 011e 4D44     	 add r5,r5,r9
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     index += n_length;
+ 249              	 .loc 1 107 0 discriminator 3
+ 250 0120 04EB0900 	 add r0,r4,r9
+ 251              	 .loc 1 108 0 discriminator 3
+ 252 0124 ADB2     	 uxth r5,r5
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     index += n_length;
+ 253              	 .loc 1 107 0 discriminator 3
+ 254 0126 FFF7FEFF 	 bl pal_os_memcpy
+ 255              	.LVL23:
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = OPTIGA_EXAMPLE_UTIL_RSA_DER_INTEGER_TAG;
+ 256              	 .loc 1 110 0 discriminator 3
+ 257 012a 6B1C     	 adds r3,r5,#1
+ 111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = (uint8_t)e_length;
+ 258              	 .loc 1 111 0 discriminator 3
+ 259 012c 9BB2     	 uxth r3,r3
+ 260 012e 05F10209 	 add r9,r5,#2
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = (uint8_t)e_length;
+ 261              	 .loc 1 110 0 discriminator 3
+ 262 0132 0222     	 movs r2,#2
+ 263 0134 6255     	 strb r2,[r4,r5]
+ 264              	 .loc 1 111 0 discriminator 3
+ 265 0136 1FFA89F9 	 uxth r9,r9
+ 266              	.LVL24:
+ 267 013a 9DF81420 	 ldrb r2,[sp,#20]
+ 268 013e E254     	 strb r2,[r4,r3]
+ 112:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pal_os_memcpy(&pub_key_buffer[index], e_buffer, e_length);
+ 269              	 .loc 1 112 0 discriminator 3
+ 270 0140 0B99     	 ldr r1,[sp,#44]
+ 271 0142 3A46     	 mov r2,r7
+ 272 0144 04EB0900 	 add r0,r4,r9
+ 273 0148 FFF7FEFF 	 bl pal_os_memcpy
+ 274              	.LVL25:
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     index += e_length;
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+ 115:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     *pub_key_length = index;
+ 275              	 .loc 1 115 0 discriminator 3
+ 276 014c 1B9B     	 ldr r3,[sp,#108]
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     index += e_length;
+ 277              	 .loc 1 113 0 discriminator 3
+ 278 014e 4F44     	 add r7,r7,r9
+ 279              	.LVL26:
+ 280              	 .loc 1 115 0 discriminator 3
+ 281 0150 1F80     	 strh r7,[r3]
+ 116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #undef OPTIGA_EXAMPLE_UTIL_RSA_DER_MIN_LEN_FIELD
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #undef OPTIGA_EXAMPLE_UTIL_RSA_DER_SEQUENCE_TAG
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #undef OPTIGA_EXAMPLE_UTIL_RSA_DER_INTEGER_TAG
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** }
+ 282              	 .loc 1 120 0 discriminator 3
+ 283 0152 11B0     	 add sp,sp,#68
+ 284              	.LCFI2:
+ 285              	 .cfi_remember_state
+ 286              	 .cfi_def_cfa_offset 36
+ 287              	 
+ 288 0154 BDE8F08F 	 pop {r4,r5,r6,r7,r8,r9,r10,fp,pc}
+ 289              	.LVL27:
+ 290              	.L8:
+ 291              	.LCFI3:
+ 292              	 .cfi_restore_state
+ 293              	.LBB15:
+ 294 0158 0F9A     	 ldr r2,[sp,#60]
+ 295 015a BDE7     	 b .L4
+ 296              	.LVL28:
+ 297              	.L7:
+ 298              	.LBE15:
+ 299              	.LBB16:
+ 300 015c 0923     	 movs r3,#9
+ 301 015e 0F93     	 str r3,[sp,#60]
+ 302 0160 9C46     	 mov ip,r3
+ 303 0162 0523     	 movs r3,#5
+ 304 0164 0993     	 str r3,[sp,#36]
+ 305 0166 0423     	 movs r3,#4
+ 306 0168 0A21     	 movs r1,#10
+ 307              	.LVL29:
+ 308 016a 4FF0070E 	 mov lr,#7
+ 309 016e 4FF00608 	 mov r8,#6
+ 310 0172 0893     	 str r3,[sp,#32]
+ 311 0174 0223     	 movs r3,#2
+ 312 0176 0E91     	 str r1,[sp,#56]
+ 313 0178 0792     	 str r2,[sp,#28]
+ 314 017a 0D91     	 str r1,[sp,#52]
+ 315 017c CDF830E0 	 str lr,[sp,#48]
+ 316 0180 CDF80480 	 str r8,[sp,#4]
+ 317 0184 4FF00809 	 mov r9,#8
+ 318 0188 0693     	 str r3,[sp,#24]
+ 319 018a 78E7     	 b .L3
+ 320              	.LVL30:
+ 321              	.L6:
+ 322              	.LBE16:
+ 323 018c 0420     	 movs r0,#4
+ 324              	.LVL31:
+ 325 018e 4FF0020B 	 mov fp,#2
+ 326 0192 0246     	 mov r2,r0
+ 327              	.LVL32:
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+ 328              	 .loc 1 80 0
+ 329 0194 CDF808B0 	 str fp,[sp,#8]
+ 330 0198 8226     	 movs r6,#130
+ 331 019a 4AE7     	 b .L2
+ 332              	 .cfi_endproc
+ 333              	.LFE0:
+ 335              	 .section .text.example_util_encode_ecc_public_key_in_bit_string_format,"ax",%progbits
+ 336              	 .align 2
+ 337              	 .global example_util_encode_ecc_public_key_in_bit_string_format
+ 338              	 .thumb
+ 339              	 .thumb_func
+ 341              	example_util_encode_ecc_public_key_in_bit_string_format:
+ 342              	.LFB1:
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** void example_util_encode_ecc_public_key_in_bit_string_format(const uint8_t * q_buffer,
+ 123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                                         uint8_t q_length,
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                                         uint8_t * pub_key_buffer,
+ 125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                                                         uint16_t * pub_key_length)
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** {
+ 343              	 .loc 1 126 0
+ 344              	 .cfi_startproc
+ 345              	 
+ 346              	 
+ 347              	.LVL33:
+ 348 0000 F8B5     	 push {r3,r4,r5,r6,r7,lr}
+ 349              	.LCFI4:
+ 350              	 .cfi_def_cfa_offset 24
+ 351              	 .cfi_offset 3,-24
+ 352              	 .cfi_offset 4,-20
+ 353              	 .cfi_offset 5,-16
+ 354              	 .cfi_offset 6,-12
+ 355              	 .cfi_offset 7,-8
+ 356              	 .cfi_offset 14,-4
+ 357              	 .loc 1 126 0
+ 358 0002 0C46     	 mov r4,r1
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #define OPTIGA_EXAMPLE_UTIL_ECC_DER_ADDITIONAL_LENGTH (0x02)
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     uint16_t index = 0;
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = OPTIGA_EXAMPLE_UTIL_DER_BITSTRING_TAG;
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = q_length + OPTIGA_EXAMPLE_UTIL_ECC_DER_ADDITIONAL_LENGTH;
+ 359              	 .loc 1 132 0
+ 360 0004 04F1020E 	 add lr,r4,#2
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = OPTIGA_EXAMPLE_UTIL_DER_NUM_UNUSED_BITS;
+ 134:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     // Compression format. Supports only 04 [uncompressed]
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = 0x04;
+ 361              	 .loc 1 135 0
+ 362 0008 0426     	 movs r6,#4
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = q_length + OPTIGA_EXAMPLE_UTIL_ECC_DER_ADDITIONAL_LENGTH;
+ 363              	 .loc 1 131 0
+ 364 000a 4FF0030C 	 mov ip,#3
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #define OPTIGA_EXAMPLE_UTIL_ECC_DER_ADDITIONAL_LENGTH (0x02)
+ 365              	 .loc 1 126 0
+ 366 000e 1D46     	 mov r5,r3
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = OPTIGA_EXAMPLE_UTIL_DER_NUM_UNUSED_BITS;
+ 367              	 .loc 1 133 0
+ 368 0010 0027     	 movs r7,#0
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #define OPTIGA_EXAMPLE_UTIL_ECC_DER_ADDITIONAL_LENGTH (0x02)
+ 369              	 .loc 1 126 0
+ 370 0012 0146     	 mov r1,r0
+ 371              	.LVL34:
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = q_length + OPTIGA_EXAMPLE_UTIL_ECC_DER_ADDITIONAL_LENGTH;
+ 372              	 .loc 1 131 0
+ 373 0014 82F800C0 	 strb ip,[r2]
+ 374              	.LVL35:
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pub_key_buffer[index++] = OPTIGA_EXAMPLE_UTIL_DER_NUM_UNUSED_BITS;
+ 375              	 .loc 1 132 0
+ 376 0018 82F801E0 	 strb lr,[r2,#1]
+ 377              	.LVL36:
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     // Compression format. Supports only 04 [uncompressed]
+ 378              	 .loc 1 133 0
+ 379 001c 9770     	 strb r7,[r2,#2]
+ 380              	.LVL37:
+ 381              	 .loc 1 135 0
+ 382 001e D670     	 strb r6,[r2,#3]
+ 136:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     pal_os_memcpy(&pub_key_buffer[index], q_buffer, q_length);
+ 383              	 .loc 1 137 0
+ 384 0020 9019     	 adds r0,r2,r6
+ 385              	.LVL38:
+ 386 0022 2246     	 mov r2,r4
+ 387              	.LVL39:
+ 138:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     index += q_length;
+ 388              	 .loc 1 138 0
+ 389 0024 3444     	 add r4,r4,r6
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     index += q_length;
+ 390              	 .loc 1 137 0
+ 391 0026 FFF7FEFF 	 bl pal_os_memcpy
+ 392              	.LVL40:
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+ 140:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     *pub_key_length = index;
+ 393              	 .loc 1 140 0
+ 394 002a 2C80     	 strh r4,[r5]
+ 395 002c F8BD     	 pop {r3,r4,r5,r6,r7,pc}
+ 396              	 .cfi_endproc
+ 397              	.LFE1:
+ 399 002e 00BF     	 .section .text.example_check_tag_in_metadata,"ax",%progbits
+ 400              	 .align 2
+ 401              	 .global example_check_tag_in_metadata
+ 402              	 .thumb
+ 403              	 .thumb_func
+ 405              	example_check_tag_in_metadata:
+ 406              	.LFB2:
+ 141:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** #undef OPTIGA_EXAMPLE_UTIL_ECC_DER_ADDITIONAL_LENGTH
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** }
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** optiga_lib_status_t example_check_tag_in_metadata(const uint8_t * buffer, const uint8_t tag)
+ 145:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** {
+ 407              	 .loc 1 145 0
+ 408              	 .cfi_startproc
+ 409              	 
+ 410              	 
+ 411              	 
+ 412              	.LVL41:
+ 413 0000 10B4     	 push {r4}
+ 414              	.LCFI5:
+ 415              	 .cfi_def_cfa_offset 4
+ 416              	 .cfi_offset 4,-4
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     optiga_lib_status_t return_status = OPTIGA_LIB_SUCCESS;
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     uint8_t offset = 1;
+ 148:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     uint8_t buffer_length = 0;
+ 149:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     uint8_t tag_length = 0;
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     do
+ 151:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     {
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****         buffer_length = buffer[offset++];
+ 417              	 .loc 1 152 0
+ 418 0002 4478     	 ldrb r4,[r0,#1]
+ 419              	.LVL42:
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****         while(offset < buffer_length)
+ 420              	 .loc 1 153 0
+ 421 0004 022C     	 cmp r4,#2
+ 422 0006 10D9     	 bls .L17
+ 423              	.LVL43:
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****         {
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****             if (tag == buffer[offset++])
+ 424              	 .loc 1 155 0
+ 425 0008 8378     	 ldrb r3,[r0,#2]
+ 426 000a 8B42     	 cmp r3,r1
+ 427 000c 11D0     	 beq .L19
+ 428 000e 0323     	 movs r3,#3
+ 429 0010 02E0     	 b .L15
+ 430              	.LVL44:
+ 431              	.L16:
+ 432 0012 825C     	 ldrb r2,[r0,r2]
+ 433 0014 8A42     	 cmp r2,r1
+ 434 0016 0CD0     	 beq .L19
+ 435              	.LVL45:
+ 436              	.L15:
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****             {
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                 return_status = !OPTIGA_LIB_SUCCESS;
+ 158:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                 break;
+ 159:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****             }
+ 160:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****             tag_length = buffer[offset];
+ 437              	 .loc 1 160 0
+ 438 0018 C25C     	 ldrb r2,[r0,r3]
+ 439              	.LVL46:
+ 440 001a 0133     	 adds r3,r3,#1
+ 441              	.LVL47:
+ 161:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****             offset += (tag_length + 1);
+ 442              	 .loc 1 161 0
+ 443 001c 52FA83F3 	 uxtab r3,r2,r3
+ 444 0020 DAB2     	 uxtb r2,r3
+ 445              	.LVL48:
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****             {
+ 446              	 .loc 1 155 0
+ 447 0022 531C     	 adds r3,r2,#1
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****         {
+ 448              	 .loc 1 153 0
+ 449 0024 9442     	 cmp r4,r2
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****             {
+ 450              	 .loc 1 155 0
+ 451 0026 DBB2     	 uxtb r3,r3
+ 452              	.LVL49:
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****         {
+ 453              	 .loc 1 153 0
+ 454 0028 F3D8     	 bhi .L16
+ 455              	.LVL50:
+ 456              	.L17:
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     uint8_t offset = 1;
+ 457              	 .loc 1 146 0
+ 458 002a 0020     	 movs r0,#0
+ 459              	.LVL51:
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****         }
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     } while (FALSE);
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     return (return_status);
+ 165:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** }
+ 460              	 .loc 1 165 0
+ 461 002c 5DF8044B 	 ldr r4,[sp],#4
+ 462              	.LCFI6:
+ 463              	 .cfi_remember_state
+ 464              	 .cfi_restore 4
+ 465              	 .cfi_def_cfa_offset 0
+ 466              	.LVL52:
+ 467 0030 7047     	 bx lr
+ 468              	.LVL53:
+ 469              	.L19:
+ 470              	.LCFI7:
+ 471              	 .cfi_restore_state
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****                 break;
+ 472              	 .loc 1 157 0
+ 473 0032 0120     	 movs r0,#1
+ 474              	.LVL54:
+ 475              	 .loc 1 165 0
+ 476 0034 5DF8044B 	 ldr r4,[sp],#4
+ 477              	.LCFI8:
+ 478              	 .cfi_restore 4
+ 479              	 .cfi_def_cfa_offset 0
+ 480              	.LVL55:
+ 481 0038 7047     	 bx lr
+ 482              	 .cfi_endproc
+ 483              	.LFE2:
+ 485 003a 00BF     	 .section .text.example_performance_measurement,"ax",%progbits
+ 486              	 .align 2
+ 487              	 .global example_performance_measurement
+ 488              	 .thumb
+ 489              	 .thumb_func
+ 491              	example_performance_measurement:
+ 492              	.LFB3:
+ 166:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** 
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** void example_performance_measurement(uint32_t* time_value, uint8_t time_reset_flag)
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c **** {
+ 493              	 .loc 1 168 0
+ 494              	 .cfi_startproc
+ 495              	 
+ 496              	 
+ 497              	.LVL56:
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     if(TRUE == time_reset_flag)
+ 498              	 .loc 1 169 0
+ 499 0000 0129     	 cmp r1,#1
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     if(TRUE == time_reset_flag)
+ 500              	 .loc 1 168 0
+ 501 0002 10B5     	 push {r4,lr}
+ 502              	.LCFI9:
+ 503              	 .cfi_def_cfa_offset 8
+ 504              	 .cfi_offset 4,-8
+ 505              	 .cfi_offset 14,-4
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     if(TRUE == time_reset_flag)
+ 506              	 .loc 1 168 0
+ 507 0004 0446     	 mov r4,r0
+ 508              	 .loc 1 169 0
+ 509 0006 06D0     	 beq .L25
+ 170:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     {
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****         *time_value = pal_os_timer_get_time_in_milliseconds();
+ 172:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     }
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     else if(FALSE == time_reset_flag)
+ 510              	 .loc 1 173 0
+ 511 0008 21B9     	 cbnz r1,.L21
+ 174:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     {
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****         *time_value = pal_os_timer_get_time_in_milliseconds() - *time_value;
+ 512              	 .loc 1 175 0
+ 513 000a FFF7FEFF 	 bl pal_os_timer_get_time_in_milliseconds
+ 514              	.LVL57:
+ 515 000e 2368     	 ldr r3,[r4]
+ 516 0010 C01A     	 subs r0,r0,r3
+ 517 0012 2060     	 str r0,[r4]
+ 518              	.L21:
+ 519 0014 10BD     	 pop {r4,pc}
+ 520              	.LVL58:
+ 521              	.L25:
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_utilities.c ****     }
+ 522              	 .loc 1 171 0
+ 523 0016 FFF7FEFF 	 bl pal_os_timer_get_time_in_milliseconds
+ 524              	.LVL59:
+ 525 001a 2060     	 str r0,[r4]
+ 526 001c 10BD     	 pop {r4,pc}
+ 527              	 .cfi_endproc
+ 528              	.LFE3:
+ 530              	 .comm performance_buffer_string,30,4
+ 531 001e 00BF     	 .text
+ 532              	.Letext0:
+ 533              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 534              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 535              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_types.h"
+ 536              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal_os_memory.h"
+ 537              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal_os_timer.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 example_utilities.c
+    {standard input}:20     .text.example_util_encode_rsa_public_key_in_bit_string_format:00000000 $t
+    {standard input}:25     .text.example_util_encode_rsa_public_key_in_bit_string_format:00000000 example_util_encode_rsa_public_key_in_bit_string_format
+    {standard input}:336    .text.example_util_encode_ecc_public_key_in_bit_string_format:00000000 $t
+    {standard input}:341    .text.example_util_encode_ecc_public_key_in_bit_string_format:00000000 example_util_encode_ecc_public_key_in_bit_string_format
+    {standard input}:400    .text.example_check_tag_in_metadata:00000000 $t
+    {standard input}:405    .text.example_check_tag_in_metadata:00000000 example_check_tag_in_metadata
+    {standard input}:486    .text.example_performance_measurement:00000000 $t
+    {standard input}:491    .text.example_performance_measurement:00000000 example_performance_measurement
+                            *COM*:0000001e performance_buffer_string
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+pal_os_memcpy
+pal_os_timer_get_time_in_milliseconds

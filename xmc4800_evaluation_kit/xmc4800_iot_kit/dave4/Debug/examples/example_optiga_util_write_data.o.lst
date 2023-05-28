@@ -1,0 +1,1182 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "example_optiga_util_write_data.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.optiga_util_callback,"ax",%progbits
+  20              	 .align 2
+  21              	 .thumb
+  22              	 .thumb_func
+  24              	optiga_util_callback:
+  25              	.LFB0:
+  26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/example_optiga_util_write_data.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * \copyright
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * MIT License
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * Copyright (c) 2020 Infineon Technologies AG
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** *
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * Permission is hereby granted, free of charge, to any person obtaining a copy
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * of this software and associated documentation files (the "Software"), to deal
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * in the Software without restriction, including without limitation the rights
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * copies of the Software, and to permit persons to whom the Software is
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * furnished to do so, subject to the following conditions:
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** *
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * The above copyright notice and this permission notice shall be included in all
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * copies or substantial portions of the Software.
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** *
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * SOFTWARE
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** *
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * \endcopyright
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** *
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * \author Infineon Technologies AG
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** *
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * \file example_optiga_util_write_data.c
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** *
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * \brief   This file provides the example for writing data/metadata to OPTIGA using
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** *          #optiga_util_write_data and #optiga_util_write_metadata.
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** *
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * \ingroup grOptigaExamples
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** *
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** * @{
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** */
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** 
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** #include "optiga/optiga_util.h"
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** #include "optiga_example.h"
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** 
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** extern void example_optiga_init(void);
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** extern void example_optiga_deinit(void);
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** #endif
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** 
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** /**
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****  * Sample Trust Anchor
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****  */
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** static const uint8_t trust_anchor [] = {
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     //00    01    02    03    04    05    06    07    08    09    0A    0B    0C    0D    0E    0F
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x30, 0x82, 0x02, 0x7E, 0x30, 0x82, 0x02, 0x05, 0xA0, 0x03, 0x02, 0x01, 0x02, 0x02, 0x09, 0x00,
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x9B, 0x0C, 0x24, 0xB4, 0x5E, 0x7D, 0xE3, 0x73, 0x30, 0x0A, 0x06, 0x08, 0x2A, 0x86, 0x48, 0xCE,
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x3D, 0x04, 0x03, 0x02, 0x30, 0x74, 0x31, 0x0B, 0x30, 0x09, 0x06, 0x03, 0x55, 0x04, 0x06, 0x13,
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x02, 0x44, 0x45, 0x31, 0x21, 0x30, 0x1F, 0x06, 0x03, 0x55, 0x04, 0x0A, 0x0C, 0x18, 0x49, 0x6E,
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x66, 0x69, 0x6E, 0x65, 0x6F, 0x6E, 0x20, 0x54, 0x65, 0x63, 0x68, 0x6E, 0x6F, 0x6C, 0x6F, 0x67,
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x69, 0x65, 0x73, 0x20, 0x41, 0x47, 0x31, 0x1B, 0x30, 0x19, 0x06, 0x03, 0x55, 0x04, 0x0B, 0x0C,
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x12, 0x4F, 0x50, 0x54, 0x49, 0x47, 0x41, 0x28, 0x54, 0x4D, 0x29, 0x20, 0x54, 0x72, 0x75, 0x73,
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x74, 0x20, 0x58, 0x31, 0x25, 0x30, 0x23, 0x06, 0x03, 0x55, 0x04, 0x03, 0x0C, 0x1C, 0x49, 0x6E,
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x66, 0x69, 0x6E, 0x65, 0x6F, 0x6E, 0x20, 0x54, 0x65, 0x73, 0x74, 0x20, 0x53, 0x65, 0x72, 0x76,
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x65, 0x72, 0x20, 0x52, 0x6F, 0x6F, 0x74, 0x20, 0x43, 0x41, 0x30, 0x1E, 0x17, 0x0D, 0x31, 0x36,
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x31, 0x30, 0x31, 0x34, 0x30, 0x33, 0x35, 0x38, 0x33, 0x36, 0x5A, 0x17, 0x0D, 0x34, 0x31, 0x31,
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x30, 0x30, 0x38, 0x30, 0x33, 0x35, 0x38, 0x33, 0x36, 0x5A, 0x30, 0x74, 0x31, 0x0B, 0x30, 0x09,
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x06, 0x03, 0x55, 0x04, 0x06, 0x13, 0x02, 0x44, 0x45, 0x31, 0x21, 0x30, 0x1F, 0x06, 0x03, 0x55,
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x04, 0x0A, 0x0C, 0x18, 0x49, 0x6E, 0x66, 0x69, 0x6E, 0x65, 0x6F, 0x6E, 0x20, 0x54, 0x65, 0x63,
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x68, 0x6E, 0x6F, 0x6C, 0x6F, 0x67, 0x69, 0x65, 0x73, 0x20, 0x41, 0x47, 0x31, 0x1B, 0x30, 0x19,
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x06, 0x03, 0x55, 0x04, 0x0B, 0x0C, 0x12, 0x4F, 0x50, 0x54, 0x49, 0x47, 0x41, 0x28, 0x54, 0x4D,
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x29, 0x20, 0x54, 0x72, 0x75, 0x73, 0x74, 0x20, 0x58, 0x31, 0x25, 0x30, 0x23, 0x06, 0x03, 0x55,
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x04, 0x03, 0x0C, 0x1C, 0x49, 0x6E, 0x66, 0x69, 0x6E, 0x65, 0x6F, 0x6E, 0x20, 0x54, 0x65, 0x73,
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x74, 0x20, 0x53, 0x65, 0x72, 0x76, 0x65, 0x72, 0x20, 0x52, 0x6F, 0x6F, 0x74, 0x20, 0x43, 0x41,
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x30, 0x76, 0x30, 0x10, 0x06, 0x07, 0x2A, 0x86, 0x48, 0xCE, 0x3D, 0x02, 0x01, 0x06, 0x05, 0x2B,
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x81, 0x04, 0x00, 0x22, 0x03, 0x62, 0x00, 0x04, 0x7B, 0x2E, 0xE6, 0xFB, 0xBD, 0x6F, 0x40, 0x0F,
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x41, 0x9F, 0xE5, 0xF0, 0x8C, 0x97, 0x21, 0xB0, 0x07, 0xB5, 0xBB, 0xD2, 0xB8, 0x5A, 0x14, 0x3B,
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x75, 0x54, 0x7E, 0xEA, 0xFE, 0xF2, 0x8D, 0x5A, 0xB8, 0x54, 0xE0, 0xC8, 0xAD, 0xED, 0xF1, 0xD5,
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x8B, 0x97, 0xBA, 0x02, 0x3E, 0xD9, 0x25, 0xE0, 0x00, 0x86, 0x17, 0x35, 0xE6, 0xE6, 0xD9, 0x12,
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x0F, 0x8A, 0x21, 0x1C, 0x62, 0xFA, 0xCE, 0xF6, 0x9E, 0xB1, 0xF8, 0x8C, 0xA3, 0xDC, 0x52, 0x04,
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x83, 0xEB, 0xA0, 0xB3, 0xFA, 0xB0, 0xCA, 0x02, 0x30, 0xB1, 0xFE, 0x53, 0x4E, 0xAD, 0xFB, 0xE0,
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x88, 0x05, 0x86, 0x4E, 0x5E, 0x67, 0xEB, 0x7B, 0xA3, 0x63, 0x30, 0x61, 0x30, 0x1D, 0x06, 0x03,
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x55, 0x1D, 0x0E, 0x04, 0x16, 0x04, 0x14, 0x91, 0x4A, 0x4B, 0x07, 0x58, 0xB2, 0xC6, 0x4B, 0x37,
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0xFD, 0x91, 0x62, 0xD8, 0x8A, 0x17, 0x28, 0xAA, 0x94, 0x18, 0x62, 0x30, 0x1F, 0x06, 0x03, 0x55,
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x1D, 0x23, 0x04, 0x18, 0x30, 0x16, 0x80, 0x14, 0x91, 0x4A, 0x4B, 0x07, 0x58, 0xB2, 0xC6, 0x4B,
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x37, 0xFD, 0x91, 0x62, 0xD8, 0x8A, 0x17, 0x28, 0xAA, 0x94, 0x18, 0x62, 0x30, 0x0F, 0x06, 0x03,
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x55, 0x1D, 0x13, 0x01, 0x01, 0xFF, 0x04, 0x05, 0x30, 0x03, 0x01, 0x01, 0xFF, 0x30, 0x0E, 0x06,
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x03, 0x55, 0x1D, 0x0F, 0x01, 0x01, 0xFF, 0x04, 0x04, 0x03, 0x02, 0x02, 0x04, 0x30, 0x0A, 0x06,
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x08, 0x2A, 0x86, 0x48, 0xCE, 0x3D, 0x04, 0x03, 0x02, 0x03, 0x67, 0x00, 0x30, 0x64, 0x02, 0x30,
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x20, 0x1C, 0x7A, 0x21, 0x50, 0x50, 0xC9, 0x15, 0x1C, 0xC5, 0x14, 0x8D, 0x46, 0x5C, 0xA6, 0xD3,
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x81, 0xCE, 0x57, 0x06, 0x1A, 0xAE, 0x39, 0x10, 0x27, 0x51, 0x42, 0xEF, 0xCD, 0x64, 0x75, 0x99,
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0xDE, 0x0D, 0x3D, 0x01, 0x47, 0x69, 0xFC, 0x93, 0x6D, 0x99, 0xC7, 0xF0, 0xF8, 0x8C, 0xAA, 0xD1,
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x02, 0x30, 0x68, 0xC3, 0x27, 0xD9, 0x0F, 0x52, 0xAD, 0x3A, 0xA8, 0xDB, 0xF8, 0x53, 0x11, 0x1D,
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0xF1, 0x30, 0x6B, 0x39, 0xF3, 0x3F, 0xEF, 0x65, 0x61, 0xBE, 0xC4, 0xDD, 0x19, 0x11, 0x1E, 0x83,
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0xF9, 0xE8, 0x3F, 0x41, 0x97, 0x45, 0xFC, 0x61, 0xE0, 0x06, 0xD0, 0xE6, 0xF7, 0x5C, 0x9F, 0xE2,
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x57, 0xC2,
+  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     };
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** 
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** /**
+  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****  * Sample metadata
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****  */
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** static const uint8_t metadata [] = {
+  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     //Metadata tag in the data object
+ 100:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     0x20, 0x05,
+ 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         //Read tag in the metadata
+ 102:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         0xD1, 0x03,
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****             //LcsO < Operation
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****             0xE1 , 0xFB, 0x03,
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** };
+ 106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** 
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** /**
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****  * Callback when optiga_util_xxxx operation is completed asynchronously
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****  */
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** static volatile optiga_lib_status_t optiga_lib_status;
+ 111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** //lint --e{818} suppress "argument "context" is not used in the sample provided"
+ 112:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** static void optiga_util_callback(void * context, optiga_lib_status_t return_status)
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** {
+  27              	 .loc 1 113 0
+  28              	 .cfi_startproc
+  29              	 
+  30              	 
+  31              	 
+  32              	.LVL0:
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     optiga_lib_status = return_status;
+  33              	 .loc 1 114 0
+  34 0000 014B     	 ldr r3,.L2
+  35 0002 1980     	 strh r1,[r3]
+  36 0004 7047     	 bx lr
+  37              	.L3:
+  38 0006 00BF     	 .align 2
+  39              	.L2:
+  40 0008 00000000 	 .word .LANCHOR0
+  41              	 .cfi_endproc
+  42              	.LFE0:
+  44              	 .section .text.example_optiga_util_write_data,"ax",%progbits
+  45              	 .align 2
+  46              	 .global example_optiga_util_write_data
+  47              	 .thumb
+  48              	 .thumb_func
+  50              	example_optiga_util_write_data:
+  51              	.LFB1:
+ 115:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     if (NULL != context)
+ 116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     {
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         // callback to upper layer here
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     }
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** }
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** 
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** /**
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****  * The below example demonstrates write data/metadata functionalities
+ 123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****  *
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****  * Example for #optiga_util_write_data and #optiga_util_write_metadata
+ 125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****  *
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****  */
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** void example_optiga_util_write_data(void)
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** {
+  52              	 .loc 1 128 0
+  53              	 .cfi_startproc
+  54              	 
+  55              	 
+  56 0000 70B5     	 push {r4,r5,r6,lr}
+  57              	.LCFI0:
+  58              	 .cfi_def_cfa_offset 16
+  59              	 .cfi_offset 4,-16
+  60              	 .cfi_offset 5,-12
+  61              	 .cfi_offset 6,-8
+  62              	 .cfi_offset 14,-4
+  63 0002 84B0     	 sub sp,sp,#16
+  64              	.LCFI1:
+  65              	 .cfi_def_cfa_offset 32
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     uint32_t time_taken = 0;
+  66              	 .loc 1 129 0
+  67 0004 0025     	 movs r5,#0
+  68 0006 0395     	 str r5,[sp,#12]
+  69              	.LVL1:
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     uint16_t optiga_oid;
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     uint16_t offset;
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** 
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+ 134:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     optiga_util_t * me = NULL;
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** 
+ 136:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     do
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     {
+ 138:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 140:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         /**
+ 141:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****          * Open the application on OPTIGA which is a precondition to perform any other operations
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****          * using optiga_util_open_application
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****          */
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         example_optiga_init();
+  70              	 .loc 1 144 0
+  71 0008 FFF7FEFF 	 bl example_optiga_init
+  72              	.LVL2:
+ 145:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         OPTIGA_EXAMPLE_LOG_MESSAGE(__FUNCTION__);
+ 148:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         
+ 149:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         /**
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****          * 1. Create OPTIGA Util Instance
+ 151:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****          */
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         me = optiga_util_create(0, optiga_util_callback, NULL);
+  73              	 .loc 1 152 0
+  74 000c 2846     	 mov r0,r5
+  75 000e 2A46     	 mov r2,r5
+  76 0010 2C49     	 ldr r1,.L22
+  77 0012 FFF7FEFF 	 bl optiga_util_create
+  78              	.LVL3:
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         if (NULL == me)
+  79              	 .loc 1 153 0
+  80 0016 0028     	 cmp r0,#0
+  81 0018 33D0     	 beq .L5
+  82              	.LVL4:
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         {
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****             break;
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         }
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         
+ 158:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         /**
+ 159:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****          * Write Trust Anchor to a Trust Anchor object (e.g. E0E8)
+ 160:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****          * using optiga_util_write_data with no shielded connection protection.
+ 161:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****          *
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****          * Use Erase and Write (OPTIGA_UTIL_ERASE_AND_WRITE) option,
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****          * to clear the remaining data in the object
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****          */
+ 165:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         optiga_oid = 0xE0E8;
+ 166:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         offset = 0x00;
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** 
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         OPTIGA_UTIL_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_NO_PROTECTION);
+  83              	 .loc 1 168 0
+  84 001a 2A46     	 mov r2,r5
+  85 001c 0121     	 movs r1,#1
+  86 001e 0646     	 mov r6,r0
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** 
+ 170:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+  87              	 .loc 1 170 0
+  88 0020 294C     	 ldr r4,.L22+4
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** 
+  89              	 .loc 1 168 0
+  90 0022 FFF7FEFF 	 bl optiga_util_set_comms_params
+  91              	.LVL5:
+  92              	 .loc 1 170 0
+  93 0026 0123     	 movs r3,#1
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****                    
+ 172:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         START_PERFORMANCE_MEASUREMENT(time_taken);
+  94              	 .loc 1 172 0
+  95 0028 1946     	 mov r1,r3
+  96 002a 03A8     	 add r0,sp,#12
+ 170:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****                    
+  97              	 .loc 1 170 0
+  98 002c 2380     	 strh r3,[r4]
+  99              	 .loc 1 172 0
+ 100 002e FFF7FEFF 	 bl example_performance_measurement
+ 101              	.LVL6:
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         
+ 174:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         return_status = optiga_util_write_data(me,
+ 102              	 .loc 1 174 0
+ 103 0032 264B     	 ldr r3,.L22+8
+ 104 0034 0093     	 str r3,[sp]
+ 105 0036 40F28222 	 movw r2,#642
+ 106 003a 0192     	 str r2,[sp,#4]
+ 107 003c 2B46     	 mov r3,r5
+ 108 003e 3046     	 mov r0,r6
+ 109 0040 4EF2E801 	 movw r1,#57576
+ 110 0044 4022     	 movs r2,#64
+ 111 0046 FFF7FEFF 	 bl optiga_util_write_data
+ 112              	.LVL7:
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****                                                optiga_oid,
+ 176:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****                                                OPTIGA_UTIL_ERASE_AND_WRITE,
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****                                                offset,
+ 178:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****                                                trust_anchor,
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****                                                sizeof(trust_anchor));
+ 180:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** 
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 113              	 .loc 1 181 0
+ 114 004a 30B1     	 cbz r0,.L7
+ 115              	.L6:
+ 116              	.LVL8:
+ 182:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** 
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         /**
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****          *
+ 185:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****          * Write metadata to Trust Anchor to a Trust Anchor object (e.g. E0E8)
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****          * using optiga_util_write_metadata.
+ 187:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****          *
+ 188:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****          * Sample metadata: write "Read" access condition as LcsO < Operational
+ 189:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****          *
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****          */
+ 191:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         return_status = optiga_util_write_metadata(me,
+ 193:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****                                                    0xE0E8,
+ 194:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****                                                    metadata,
+ 195:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****                                                    sizeof(metadata));
+ 196:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** 
+ 197:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 198:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         
+ 199:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         READ_PERFORMANCE_MEASUREMENT(time_taken);
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         
+ 201:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 202:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** 
+ 203:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     } while (FALSE);
+ 204:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 205:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     
+ 206:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 207:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     /**
+ 208:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****      * Close the application on OPTIGA after all the operations are executed
+ 209:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****      * using optiga_util_close_application
+ 210:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****      */
+ 211:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     example_optiga_deinit();
+ 117              	 .loc 1 211 0
+ 118 004c FFF7FEFF 	 bl example_optiga_deinit
+ 119              	.LVL9:
+ 120              	.L14:
+ 212:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 213:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     OPTIGA_EXAMPLE_LOG_PERFORMANCE_VALUE(time_taken, return_status);
+ 215:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     if (me)
+ 217:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     {
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         //Destroy the instance after the completion of usecase if not required.
+ 219:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         return_status = optiga_util_destroy(me);
+ 121              	 .loc 1 219 0
+ 122 0050 3046     	 mov r0,r6
+ 123 0052 FFF7FEFF 	 bl optiga_util_destroy
+ 124              	.LVL10:
+ 220:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 221:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         {
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****             //lint --e{774} suppress This is a generic macro
+ 223:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****             OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 224:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         }
+ 225:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     }
+ 226:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     
+ 227:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** }
+ 125              	 .loc 1 227 0
+ 126 0056 04B0     	 add sp,sp,#16
+ 127              	.LCFI2:
+ 128              	 .cfi_remember_state
+ 129              	 .cfi_def_cfa_offset 16
+ 130              	 
+ 131 0058 70BD     	 pop {r4,r5,r6,pc}
+ 132              	.LVL11:
+ 133              	.L7:
+ 134              	.LCFI3:
+ 135              	 .cfi_restore_state
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** 
+ 136              	 .loc 1 181 0 discriminator 1
+ 137 005a 2388     	 ldrh r3,[r4]
+ 138 005c 1A4D     	 ldr r5,.L22+4
+ 139 005e 9BB2     	 uxth r3,r3
+ 140 0060 012B     	 cmp r3,#1
+ 141 0062 FAD0     	 beq .L7
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** 
+ 142              	 .loc 1 181 0 is_stmt 0 discriminator 2
+ 143 0064 2B88     	 ldrh r3,[r5]
+ 144 0066 9BB2     	 uxth r3,r3
+ 145 0068 7BB1     	 cbz r3,.L8
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** 
+ 146              	 .loc 1 181 0 discriminator 3
+ 147 006a 2C88     	 ldrh r4,[r5]
+ 148 006c A4B2     	 uxth r4,r4
+ 149              	.LVL12:
+ 150              	.L9:
+ 211:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 151              	 .loc 1 211 0 is_stmt 1
+ 152 006e FFF7FEFF 	 bl example_optiga_deinit
+ 153              	.LVL13:
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     
+ 154              	 .loc 1 214 0
+ 155 0072 002C     	 cmp r4,#0
+ 156 0074 ECD1     	 bne .L14
+ 157              	.LVL14:
+ 158              	.L12:
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****     
+ 159              	 .loc 1 214 0 is_stmt 0 discriminator 1
+ 160 0076 1649     	 ldr r1,.L22+12
+ 161 0078 039A     	 ldr r2,[sp,#12]
+ 162 007a 1648     	 ldr r0,.L22+16
+ 163 007c FFF7FEFF 	 bl sprintf
+ 164              	.LVL15:
+ 165 0080 E6E7     	 b .L14
+ 166              	.LVL16:
+ 167              	.L5:
+ 211:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 168              	 .loc 1 211 0 is_stmt 1
+ 169 0082 FFF7FEFF 	 bl example_optiga_deinit
+ 170              	.LVL17:
+ 171              	 .loc 1 227 0
+ 172 0086 04B0     	 add sp,sp,#16
+ 173              	.LCFI4:
+ 174              	 .cfi_remember_state
+ 175              	 .cfi_def_cfa_offset 16
+ 176              	 
+ 177 0088 70BD     	 pop {r4,r5,r6,pc}
+ 178              	.LVL18:
+ 179              	.L8:
+ 180              	.LCFI5:
+ 181              	 .cfi_restore_state
+ 191:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         return_status = optiga_util_write_metadata(me,
+ 182              	 .loc 1 191 0
+ 183 008a 0123     	 movs r3,#1
+ 184 008c 2B80     	 strh r3,[r5]
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****                                                    0xE0E8,
+ 185              	 .loc 1 192 0
+ 186 008e 3046     	 mov r0,r6
+ 187              	.LVL19:
+ 188 0090 4EF2E801 	 movw r1,#57576
+ 189 0094 104A     	 ldr r2,.L22+20
+ 190 0096 0723     	 movs r3,#7
+ 191 0098 FFF7FEFF 	 bl optiga_util_write_metadata
+ 192              	.LVL20:
+ 197:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         
+ 193              	 .loc 1 197 0
+ 194 009c 0028     	 cmp r0,#0
+ 195 009e D5D1     	 bne .L6
+ 196              	.L10:
+ 197:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         
+ 197              	 .loc 1 197 0 is_stmt 0 discriminator 1
+ 198 00a0 2388     	 ldrh r3,[r4]
+ 199 00a2 094A     	 ldr r2,.L22+4
+ 200 00a4 9BB2     	 uxth r3,r3
+ 201 00a6 012B     	 cmp r3,#1
+ 202 00a8 FAD0     	 beq .L10
+ 197:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         
+ 203              	 .loc 1 197 0 discriminator 2
+ 204 00aa 1188     	 ldrh r1,[r2]
+ 205 00ac 89B2     	 uxth r1,r1
+ 206 00ae 11B1     	 cbz r1,.L11
+ 197:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         
+ 207              	 .loc 1 197 0 discriminator 3
+ 208 00b0 1488     	 ldrh r4,[r2]
+ 209 00b2 A4B2     	 uxth r4,r4
+ 210              	.LVL21:
+ 211 00b4 DBE7     	 b .L9
+ 212              	.LVL22:
+ 213              	.L11:
+ 199:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c ****         
+ 214              	 .loc 1 199 0 is_stmt 1
+ 215 00b6 03A8     	 add r0,sp,#12
+ 216              	.LVL23:
+ 217 00b8 FFF7FEFF 	 bl example_performance_measurement
+ 218              	.LVL24:
+ 211:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_util_write_data.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 219              	 .loc 1 211 0
+ 220 00bc FFF7FEFF 	 bl example_optiga_deinit
+ 221              	.LVL25:
+ 222 00c0 D9E7     	 b .L12
+ 223              	.L23:
+ 224 00c2 00BF     	 .align 2
+ 225              	.L22:
+ 226 00c4 00000000 	 .word optiga_util_callback
+ 227 00c8 00000000 	 .word .LANCHOR0
+ 228 00cc 00000000 	 .word .LANCHOR1
+ 229 00d0 00000000 	 .word .LC0
+ 230 00d4 00000000 	 .word performance_buffer_string
+ 231 00d8 00000000 	 .word .LANCHOR2
+ 232              	 .cfi_endproc
+ 233              	.LFE1:
+ 235              	 .section .rodata.metadata,"a",%progbits
+ 236              	 .align 2
+ 237              	 .set .LANCHOR2,.+0
+ 240              	metadata:
+ 241 0000 20       	 .byte 32
+ 242 0001 05       	 .byte 5
+ 243 0002 D1       	 .byte -47
+ 244 0003 03       	 .byte 3
+ 245 0004 E1       	 .byte -31
+ 246 0005 FB       	 .byte -5
+ 247 0006 03       	 .byte 3
+ 248 0007 00       	 .section .rodata.str1.4,"aMS",%progbits,1
+ 249              	 .align 2
+ 250              	.LC0:
+ 251 0000 4578616D 	 .ascii "Example takes %d msec\000"
+ 251      706C6520 
+ 251      74616B65 
+ 251      73202564 
+ 251      206D7365 
+ 252 0016 0000     	 .section .rodata.trust_anchor,"a",%progbits
+ 253              	 .align 2
+ 254              	 .set .LANCHOR1,.+0
+ 257              	trust_anchor:
+ 258 0000 30       	 .byte 48
+ 259 0001 82       	 .byte -126
+ 260 0002 02       	 .byte 2
+ 261 0003 7E       	 .byte 126
+ 262 0004 30       	 .byte 48
+ 263 0005 82       	 .byte -126
+ 264 0006 02       	 .byte 2
+ 265 0007 05       	 .byte 5
+ 266 0008 A0       	 .byte -96
+ 267 0009 03       	 .byte 3
+ 268 000a 02       	 .byte 2
+ 269 000b 01       	 .byte 1
+ 270 000c 02       	 .byte 2
+ 271 000d 02       	 .byte 2
+ 272 000e 09       	 .byte 9
+ 273 000f 00       	 .byte 0
+ 274 0010 9B       	 .byte -101
+ 275 0011 0C       	 .byte 12
+ 276 0012 24       	 .byte 36
+ 277 0013 B4       	 .byte -76
+ 278 0014 5E       	 .byte 94
+ 279 0015 7D       	 .byte 125
+ 280 0016 E3       	 .byte -29
+ 281 0017 73       	 .byte 115
+ 282 0018 30       	 .byte 48
+ 283 0019 0A       	 .byte 10
+ 284 001a 06       	 .byte 6
+ 285 001b 08       	 .byte 8
+ 286 001c 2A       	 .byte 42
+ 287 001d 86       	 .byte -122
+ 288 001e 48       	 .byte 72
+ 289 001f CE       	 .byte -50
+ 290 0020 3D       	 .byte 61
+ 291 0021 04       	 .byte 4
+ 292 0022 03       	 .byte 3
+ 293 0023 02       	 .byte 2
+ 294 0024 30       	 .byte 48
+ 295 0025 74       	 .byte 116
+ 296 0026 31       	 .byte 49
+ 297 0027 0B       	 .byte 11
+ 298 0028 30       	 .byte 48
+ 299 0029 09       	 .byte 9
+ 300 002a 06       	 .byte 6
+ 301 002b 03       	 .byte 3
+ 302 002c 55       	 .byte 85
+ 303 002d 04       	 .byte 4
+ 304 002e 06       	 .byte 6
+ 305 002f 13       	 .byte 19
+ 306 0030 02       	 .byte 2
+ 307 0031 44       	 .byte 68
+ 308 0032 45       	 .byte 69
+ 309 0033 31       	 .byte 49
+ 310 0034 21       	 .byte 33
+ 311 0035 30       	 .byte 48
+ 312 0036 1F       	 .byte 31
+ 313 0037 06       	 .byte 6
+ 314 0038 03       	 .byte 3
+ 315 0039 55       	 .byte 85
+ 316 003a 04       	 .byte 4
+ 317 003b 0A       	 .byte 10
+ 318 003c 0C       	 .byte 12
+ 319 003d 18       	 .byte 24
+ 320 003e 49       	 .byte 73
+ 321 003f 6E       	 .byte 110
+ 322 0040 66       	 .byte 102
+ 323 0041 69       	 .byte 105
+ 324 0042 6E       	 .byte 110
+ 325 0043 65       	 .byte 101
+ 326 0044 6F       	 .byte 111
+ 327 0045 6E       	 .byte 110
+ 328 0046 20       	 .byte 32
+ 329 0047 54       	 .byte 84
+ 330 0048 65       	 .byte 101
+ 331 0049 63       	 .byte 99
+ 332 004a 68       	 .byte 104
+ 333 004b 6E       	 .byte 110
+ 334 004c 6F       	 .byte 111
+ 335 004d 6C       	 .byte 108
+ 336 004e 6F       	 .byte 111
+ 337 004f 67       	 .byte 103
+ 338 0050 69       	 .byte 105
+ 339 0051 65       	 .byte 101
+ 340 0052 73       	 .byte 115
+ 341 0053 20       	 .byte 32
+ 342 0054 41       	 .byte 65
+ 343 0055 47       	 .byte 71
+ 344 0056 31       	 .byte 49
+ 345 0057 1B       	 .byte 27
+ 346 0058 30       	 .byte 48
+ 347 0059 19       	 .byte 25
+ 348 005a 06       	 .byte 6
+ 349 005b 03       	 .byte 3
+ 350 005c 55       	 .byte 85
+ 351 005d 04       	 .byte 4
+ 352 005e 0B       	 .byte 11
+ 353 005f 0C       	 .byte 12
+ 354 0060 12       	 .byte 18
+ 355 0061 4F       	 .byte 79
+ 356 0062 50       	 .byte 80
+ 357 0063 54       	 .byte 84
+ 358 0064 49       	 .byte 73
+ 359 0065 47       	 .byte 71
+ 360 0066 41       	 .byte 65
+ 361 0067 28       	 .byte 40
+ 362 0068 54       	 .byte 84
+ 363 0069 4D       	 .byte 77
+ 364 006a 29       	 .byte 41
+ 365 006b 20       	 .byte 32
+ 366 006c 54       	 .byte 84
+ 367 006d 72       	 .byte 114
+ 368 006e 75       	 .byte 117
+ 369 006f 73       	 .byte 115
+ 370 0070 74       	 .byte 116
+ 371 0071 20       	 .byte 32
+ 372 0072 58       	 .byte 88
+ 373 0073 31       	 .byte 49
+ 374 0074 25       	 .byte 37
+ 375 0075 30       	 .byte 48
+ 376 0076 23       	 .byte 35
+ 377 0077 06       	 .byte 6
+ 378 0078 03       	 .byte 3
+ 379 0079 55       	 .byte 85
+ 380 007a 04       	 .byte 4
+ 381 007b 03       	 .byte 3
+ 382 007c 0C       	 .byte 12
+ 383 007d 1C       	 .byte 28
+ 384 007e 49       	 .byte 73
+ 385 007f 6E       	 .byte 110
+ 386 0080 66       	 .byte 102
+ 387 0081 69       	 .byte 105
+ 388 0082 6E       	 .byte 110
+ 389 0083 65       	 .byte 101
+ 390 0084 6F       	 .byte 111
+ 391 0085 6E       	 .byte 110
+ 392 0086 20       	 .byte 32
+ 393 0087 54       	 .byte 84
+ 394 0088 65       	 .byte 101
+ 395 0089 73       	 .byte 115
+ 396 008a 74       	 .byte 116
+ 397 008b 20       	 .byte 32
+ 398 008c 53       	 .byte 83
+ 399 008d 65       	 .byte 101
+ 400 008e 72       	 .byte 114
+ 401 008f 76       	 .byte 118
+ 402 0090 65       	 .byte 101
+ 403 0091 72       	 .byte 114
+ 404 0092 20       	 .byte 32
+ 405 0093 52       	 .byte 82
+ 406 0094 6F       	 .byte 111
+ 407 0095 6F       	 .byte 111
+ 408 0096 74       	 .byte 116
+ 409 0097 20       	 .byte 32
+ 410 0098 43       	 .byte 67
+ 411 0099 41       	 .byte 65
+ 412 009a 30       	 .byte 48
+ 413 009b 1E       	 .byte 30
+ 414 009c 17       	 .byte 23
+ 415 009d 0D       	 .byte 13
+ 416 009e 31       	 .byte 49
+ 417 009f 36       	 .byte 54
+ 418 00a0 31       	 .byte 49
+ 419 00a1 30       	 .byte 48
+ 420 00a2 31       	 .byte 49
+ 421 00a3 34       	 .byte 52
+ 422 00a4 30       	 .byte 48
+ 423 00a5 33       	 .byte 51
+ 424 00a6 35       	 .byte 53
+ 425 00a7 38       	 .byte 56
+ 426 00a8 33       	 .byte 51
+ 427 00a9 36       	 .byte 54
+ 428 00aa 5A       	 .byte 90
+ 429 00ab 17       	 .byte 23
+ 430 00ac 0D       	 .byte 13
+ 431 00ad 34       	 .byte 52
+ 432 00ae 31       	 .byte 49
+ 433 00af 31       	 .byte 49
+ 434 00b0 30       	 .byte 48
+ 435 00b1 30       	 .byte 48
+ 436 00b2 38       	 .byte 56
+ 437 00b3 30       	 .byte 48
+ 438 00b4 33       	 .byte 51
+ 439 00b5 35       	 .byte 53
+ 440 00b6 38       	 .byte 56
+ 441 00b7 33       	 .byte 51
+ 442 00b8 36       	 .byte 54
+ 443 00b9 5A       	 .byte 90
+ 444 00ba 30       	 .byte 48
+ 445 00bb 74       	 .byte 116
+ 446 00bc 31       	 .byte 49
+ 447 00bd 0B       	 .byte 11
+ 448 00be 30       	 .byte 48
+ 449 00bf 09       	 .byte 9
+ 450 00c0 06       	 .byte 6
+ 451 00c1 03       	 .byte 3
+ 452 00c2 55       	 .byte 85
+ 453 00c3 04       	 .byte 4
+ 454 00c4 06       	 .byte 6
+ 455 00c5 13       	 .byte 19
+ 456 00c6 02       	 .byte 2
+ 457 00c7 44       	 .byte 68
+ 458 00c8 45       	 .byte 69
+ 459 00c9 31       	 .byte 49
+ 460 00ca 21       	 .byte 33
+ 461 00cb 30       	 .byte 48
+ 462 00cc 1F       	 .byte 31
+ 463 00cd 06       	 .byte 6
+ 464 00ce 03       	 .byte 3
+ 465 00cf 55       	 .byte 85
+ 466 00d0 04       	 .byte 4
+ 467 00d1 0A       	 .byte 10
+ 468 00d2 0C       	 .byte 12
+ 469 00d3 18       	 .byte 24
+ 470 00d4 49       	 .byte 73
+ 471 00d5 6E       	 .byte 110
+ 472 00d6 66       	 .byte 102
+ 473 00d7 69       	 .byte 105
+ 474 00d8 6E       	 .byte 110
+ 475 00d9 65       	 .byte 101
+ 476 00da 6F       	 .byte 111
+ 477 00db 6E       	 .byte 110
+ 478 00dc 20       	 .byte 32
+ 479 00dd 54       	 .byte 84
+ 480 00de 65       	 .byte 101
+ 481 00df 63       	 .byte 99
+ 482 00e0 68       	 .byte 104
+ 483 00e1 6E       	 .byte 110
+ 484 00e2 6F       	 .byte 111
+ 485 00e3 6C       	 .byte 108
+ 486 00e4 6F       	 .byte 111
+ 487 00e5 67       	 .byte 103
+ 488 00e6 69       	 .byte 105
+ 489 00e7 65       	 .byte 101
+ 490 00e8 73       	 .byte 115
+ 491 00e9 20       	 .byte 32
+ 492 00ea 41       	 .byte 65
+ 493 00eb 47       	 .byte 71
+ 494 00ec 31       	 .byte 49
+ 495 00ed 1B       	 .byte 27
+ 496 00ee 30       	 .byte 48
+ 497 00ef 19       	 .byte 25
+ 498 00f0 06       	 .byte 6
+ 499 00f1 03       	 .byte 3
+ 500 00f2 55       	 .byte 85
+ 501 00f3 04       	 .byte 4
+ 502 00f4 0B       	 .byte 11
+ 503 00f5 0C       	 .byte 12
+ 504 00f6 12       	 .byte 18
+ 505 00f7 4F       	 .byte 79
+ 506 00f8 50       	 .byte 80
+ 507 00f9 54       	 .byte 84
+ 508 00fa 49       	 .byte 73
+ 509 00fb 47       	 .byte 71
+ 510 00fc 41       	 .byte 65
+ 511 00fd 28       	 .byte 40
+ 512 00fe 54       	 .byte 84
+ 513 00ff 4D       	 .byte 77
+ 514 0100 29       	 .byte 41
+ 515 0101 20       	 .byte 32
+ 516 0102 54       	 .byte 84
+ 517 0103 72       	 .byte 114
+ 518 0104 75       	 .byte 117
+ 519 0105 73       	 .byte 115
+ 520 0106 74       	 .byte 116
+ 521 0107 20       	 .byte 32
+ 522 0108 58       	 .byte 88
+ 523 0109 31       	 .byte 49
+ 524 010a 25       	 .byte 37
+ 525 010b 30       	 .byte 48
+ 526 010c 23       	 .byte 35
+ 527 010d 06       	 .byte 6
+ 528 010e 03       	 .byte 3
+ 529 010f 55       	 .byte 85
+ 530 0110 04       	 .byte 4
+ 531 0111 03       	 .byte 3
+ 532 0112 0C       	 .byte 12
+ 533 0113 1C       	 .byte 28
+ 534 0114 49       	 .byte 73
+ 535 0115 6E       	 .byte 110
+ 536 0116 66       	 .byte 102
+ 537 0117 69       	 .byte 105
+ 538 0118 6E       	 .byte 110
+ 539 0119 65       	 .byte 101
+ 540 011a 6F       	 .byte 111
+ 541 011b 6E       	 .byte 110
+ 542 011c 20       	 .byte 32
+ 543 011d 54       	 .byte 84
+ 544 011e 65       	 .byte 101
+ 545 011f 73       	 .byte 115
+ 546 0120 74       	 .byte 116
+ 547 0121 20       	 .byte 32
+ 548 0122 53       	 .byte 83
+ 549 0123 65       	 .byte 101
+ 550 0124 72       	 .byte 114
+ 551 0125 76       	 .byte 118
+ 552 0126 65       	 .byte 101
+ 553 0127 72       	 .byte 114
+ 554 0128 20       	 .byte 32
+ 555 0129 52       	 .byte 82
+ 556 012a 6F       	 .byte 111
+ 557 012b 6F       	 .byte 111
+ 558 012c 74       	 .byte 116
+ 559 012d 20       	 .byte 32
+ 560 012e 43       	 .byte 67
+ 561 012f 41       	 .byte 65
+ 562 0130 30       	 .byte 48
+ 563 0131 76       	 .byte 118
+ 564 0132 30       	 .byte 48
+ 565 0133 10       	 .byte 16
+ 566 0134 06       	 .byte 6
+ 567 0135 07       	 .byte 7
+ 568 0136 2A       	 .byte 42
+ 569 0137 86       	 .byte -122
+ 570 0138 48       	 .byte 72
+ 571 0139 CE       	 .byte -50
+ 572 013a 3D       	 .byte 61
+ 573 013b 02       	 .byte 2
+ 574 013c 01       	 .byte 1
+ 575 013d 06       	 .byte 6
+ 576 013e 05       	 .byte 5
+ 577 013f 2B       	 .byte 43
+ 578 0140 81       	 .byte -127
+ 579 0141 04       	 .byte 4
+ 580 0142 00       	 .byte 0
+ 581 0143 22       	 .byte 34
+ 582 0144 03       	 .byte 3
+ 583 0145 62       	 .byte 98
+ 584 0146 00       	 .byte 0
+ 585 0147 04       	 .byte 4
+ 586 0148 7B       	 .byte 123
+ 587 0149 2E       	 .byte 46
+ 588 014a E6       	 .byte -26
+ 589 014b FB       	 .byte -5
+ 590 014c BD       	 .byte -67
+ 591 014d 6F       	 .byte 111
+ 592 014e 40       	 .byte 64
+ 593 014f 0F       	 .byte 15
+ 594 0150 41       	 .byte 65
+ 595 0151 9F       	 .byte -97
+ 596 0152 E5       	 .byte -27
+ 597 0153 F0       	 .byte -16
+ 598 0154 8C       	 .byte -116
+ 599 0155 97       	 .byte -105
+ 600 0156 21       	 .byte 33
+ 601 0157 B0       	 .byte -80
+ 602 0158 07       	 .byte 7
+ 603 0159 B5       	 .byte -75
+ 604 015a BB       	 .byte -69
+ 605 015b D2       	 .byte -46
+ 606 015c B8       	 .byte -72
+ 607 015d 5A       	 .byte 90
+ 608 015e 14       	 .byte 20
+ 609 015f 3B       	 .byte 59
+ 610 0160 75       	 .byte 117
+ 611 0161 54       	 .byte 84
+ 612 0162 7E       	 .byte 126
+ 613 0163 EA       	 .byte -22
+ 614 0164 FE       	 .byte -2
+ 615 0165 F2       	 .byte -14
+ 616 0166 8D       	 .byte -115
+ 617 0167 5A       	 .byte 90
+ 618 0168 B8       	 .byte -72
+ 619 0169 54       	 .byte 84
+ 620 016a E0       	 .byte -32
+ 621 016b C8       	 .byte -56
+ 622 016c AD       	 .byte -83
+ 623 016d ED       	 .byte -19
+ 624 016e F1       	 .byte -15
+ 625 016f D5       	 .byte -43
+ 626 0170 8B       	 .byte -117
+ 627 0171 97       	 .byte -105
+ 628 0172 BA       	 .byte -70
+ 629 0173 02       	 .byte 2
+ 630 0174 3E       	 .byte 62
+ 631 0175 D9       	 .byte -39
+ 632 0176 25       	 .byte 37
+ 633 0177 E0       	 .byte -32
+ 634 0178 00       	 .byte 0
+ 635 0179 86       	 .byte -122
+ 636 017a 17       	 .byte 23
+ 637 017b 35       	 .byte 53
+ 638 017c E6       	 .byte -26
+ 639 017d E6       	 .byte -26
+ 640 017e D9       	 .byte -39
+ 641 017f 12       	 .byte 18
+ 642 0180 0F       	 .byte 15
+ 643 0181 8A       	 .byte -118
+ 644 0182 21       	 .byte 33
+ 645 0183 1C       	 .byte 28
+ 646 0184 62       	 .byte 98
+ 647 0185 FA       	 .byte -6
+ 648 0186 CE       	 .byte -50
+ 649 0187 F6       	 .byte -10
+ 650 0188 9E       	 .byte -98
+ 651 0189 B1       	 .byte -79
+ 652 018a F8       	 .byte -8
+ 653 018b 8C       	 .byte -116
+ 654 018c A3       	 .byte -93
+ 655 018d DC       	 .byte -36
+ 656 018e 52       	 .byte 82
+ 657 018f 04       	 .byte 4
+ 658 0190 83       	 .byte -125
+ 659 0191 EB       	 .byte -21
+ 660 0192 A0       	 .byte -96
+ 661 0193 B3       	 .byte -77
+ 662 0194 FA       	 .byte -6
+ 663 0195 B0       	 .byte -80
+ 664 0196 CA       	 .byte -54
+ 665 0197 02       	 .byte 2
+ 666 0198 30       	 .byte 48
+ 667 0199 B1       	 .byte -79
+ 668 019a FE       	 .byte -2
+ 669 019b 53       	 .byte 83
+ 670 019c 4E       	 .byte 78
+ 671 019d AD       	 .byte -83
+ 672 019e FB       	 .byte -5
+ 673 019f E0       	 .byte -32
+ 674 01a0 88       	 .byte -120
+ 675 01a1 05       	 .byte 5
+ 676 01a2 86       	 .byte -122
+ 677 01a3 4E       	 .byte 78
+ 678 01a4 5E       	 .byte 94
+ 679 01a5 67       	 .byte 103
+ 680 01a6 EB       	 .byte -21
+ 681 01a7 7B       	 .byte 123
+ 682 01a8 A3       	 .byte -93
+ 683 01a9 63       	 .byte 99
+ 684 01aa 30       	 .byte 48
+ 685 01ab 61       	 .byte 97
+ 686 01ac 30       	 .byte 48
+ 687 01ad 1D       	 .byte 29
+ 688 01ae 06       	 .byte 6
+ 689 01af 03       	 .byte 3
+ 690 01b0 55       	 .byte 85
+ 691 01b1 1D       	 .byte 29
+ 692 01b2 0E       	 .byte 14
+ 693 01b3 04       	 .byte 4
+ 694 01b4 16       	 .byte 22
+ 695 01b5 04       	 .byte 4
+ 696 01b6 14       	 .byte 20
+ 697 01b7 91       	 .byte -111
+ 698 01b8 4A       	 .byte 74
+ 699 01b9 4B       	 .byte 75
+ 700 01ba 07       	 .byte 7
+ 701 01bb 58       	 .byte 88
+ 702 01bc B2       	 .byte -78
+ 703 01bd C6       	 .byte -58
+ 704 01be 4B       	 .byte 75
+ 705 01bf 37       	 .byte 55
+ 706 01c0 FD       	 .byte -3
+ 707 01c1 91       	 .byte -111
+ 708 01c2 62       	 .byte 98
+ 709 01c3 D8       	 .byte -40
+ 710 01c4 8A       	 .byte -118
+ 711 01c5 17       	 .byte 23
+ 712 01c6 28       	 .byte 40
+ 713 01c7 AA       	 .byte -86
+ 714 01c8 94       	 .byte -108
+ 715 01c9 18       	 .byte 24
+ 716 01ca 62       	 .byte 98
+ 717 01cb 30       	 .byte 48
+ 718 01cc 1F       	 .byte 31
+ 719 01cd 06       	 .byte 6
+ 720 01ce 03       	 .byte 3
+ 721 01cf 55       	 .byte 85
+ 722 01d0 1D       	 .byte 29
+ 723 01d1 23       	 .byte 35
+ 724 01d2 04       	 .byte 4
+ 725 01d3 18       	 .byte 24
+ 726 01d4 30       	 .byte 48
+ 727 01d5 16       	 .byte 22
+ 728 01d6 80       	 .byte -128
+ 729 01d7 14       	 .byte 20
+ 730 01d8 91       	 .byte -111
+ 731 01d9 4A       	 .byte 74
+ 732 01da 4B       	 .byte 75
+ 733 01db 07       	 .byte 7
+ 734 01dc 58       	 .byte 88
+ 735 01dd B2       	 .byte -78
+ 736 01de C6       	 .byte -58
+ 737 01df 4B       	 .byte 75
+ 738 01e0 37       	 .byte 55
+ 739 01e1 FD       	 .byte -3
+ 740 01e2 91       	 .byte -111
+ 741 01e3 62       	 .byte 98
+ 742 01e4 D8       	 .byte -40
+ 743 01e5 8A       	 .byte -118
+ 744 01e6 17       	 .byte 23
+ 745 01e7 28       	 .byte 40
+ 746 01e8 AA       	 .byte -86
+ 747 01e9 94       	 .byte -108
+ 748 01ea 18       	 .byte 24
+ 749 01eb 62       	 .byte 98
+ 750 01ec 30       	 .byte 48
+ 751 01ed 0F       	 .byte 15
+ 752 01ee 06       	 .byte 6
+ 753 01ef 03       	 .byte 3
+ 754 01f0 55       	 .byte 85
+ 755 01f1 1D       	 .byte 29
+ 756 01f2 13       	 .byte 19
+ 757 01f3 01       	 .byte 1
+ 758 01f4 01       	 .byte 1
+ 759 01f5 FF       	 .byte -1
+ 760 01f6 04       	 .byte 4
+ 761 01f7 05       	 .byte 5
+ 762 01f8 30       	 .byte 48
+ 763 01f9 03       	 .byte 3
+ 764 01fa 01       	 .byte 1
+ 765 01fb 01       	 .byte 1
+ 766 01fc FF       	 .byte -1
+ 767 01fd 30       	 .byte 48
+ 768 01fe 0E       	 .byte 14
+ 769 01ff 06       	 .byte 6
+ 770 0200 03       	 .byte 3
+ 771 0201 55       	 .byte 85
+ 772 0202 1D       	 .byte 29
+ 773 0203 0F       	 .byte 15
+ 774 0204 01       	 .byte 1
+ 775 0205 01       	 .byte 1
+ 776 0206 FF       	 .byte -1
+ 777 0207 04       	 .byte 4
+ 778 0208 04       	 .byte 4
+ 779 0209 03       	 .byte 3
+ 780 020a 02       	 .byte 2
+ 781 020b 02       	 .byte 2
+ 782 020c 04       	 .byte 4
+ 783 020d 30       	 .byte 48
+ 784 020e 0A       	 .byte 10
+ 785 020f 06       	 .byte 6
+ 786 0210 08       	 .byte 8
+ 787 0211 2A       	 .byte 42
+ 788 0212 86       	 .byte -122
+ 789 0213 48       	 .byte 72
+ 790 0214 CE       	 .byte -50
+ 791 0215 3D       	 .byte 61
+ 792 0216 04       	 .byte 4
+ 793 0217 03       	 .byte 3
+ 794 0218 02       	 .byte 2
+ 795 0219 03       	 .byte 3
+ 796 021a 67       	 .byte 103
+ 797 021b 00       	 .byte 0
+ 798 021c 30       	 .byte 48
+ 799 021d 64       	 .byte 100
+ 800 021e 02       	 .byte 2
+ 801 021f 30       	 .byte 48
+ 802 0220 20       	 .byte 32
+ 803 0221 1C       	 .byte 28
+ 804 0222 7A       	 .byte 122
+ 805 0223 21       	 .byte 33
+ 806 0224 50       	 .byte 80
+ 807 0225 50       	 .byte 80
+ 808 0226 C9       	 .byte -55
+ 809 0227 15       	 .byte 21
+ 810 0228 1C       	 .byte 28
+ 811 0229 C5       	 .byte -59
+ 812 022a 14       	 .byte 20
+ 813 022b 8D       	 .byte -115
+ 814 022c 46       	 .byte 70
+ 815 022d 5C       	 .byte 92
+ 816 022e A6       	 .byte -90
+ 817 022f D3       	 .byte -45
+ 818 0230 81       	 .byte -127
+ 819 0231 CE       	 .byte -50
+ 820 0232 57       	 .byte 87
+ 821 0233 06       	 .byte 6
+ 822 0234 1A       	 .byte 26
+ 823 0235 AE       	 .byte -82
+ 824 0236 39       	 .byte 57
+ 825 0237 10       	 .byte 16
+ 826 0238 27       	 .byte 39
+ 827 0239 51       	 .byte 81
+ 828 023a 42       	 .byte 66
+ 829 023b EF       	 .byte -17
+ 830 023c CD       	 .byte -51
+ 831 023d 64       	 .byte 100
+ 832 023e 75       	 .byte 117
+ 833 023f 99       	 .byte -103
+ 834 0240 DE       	 .byte -34
+ 835 0241 0D       	 .byte 13
+ 836 0242 3D       	 .byte 61
+ 837 0243 01       	 .byte 1
+ 838 0244 47       	 .byte 71
+ 839 0245 69       	 .byte 105
+ 840 0246 FC       	 .byte -4
+ 841 0247 93       	 .byte -109
+ 842 0248 6D       	 .byte 109
+ 843 0249 99       	 .byte -103
+ 844 024a C7       	 .byte -57
+ 845 024b F0       	 .byte -16
+ 846 024c F8       	 .byte -8
+ 847 024d 8C       	 .byte -116
+ 848 024e AA       	 .byte -86
+ 849 024f D1       	 .byte -47
+ 850 0250 02       	 .byte 2
+ 851 0251 30       	 .byte 48
+ 852 0252 68       	 .byte 104
+ 853 0253 C3       	 .byte -61
+ 854 0254 27       	 .byte 39
+ 855 0255 D9       	 .byte -39
+ 856 0256 0F       	 .byte 15
+ 857 0257 52       	 .byte 82
+ 858 0258 AD       	 .byte -83
+ 859 0259 3A       	 .byte 58
+ 860 025a A8       	 .byte -88
+ 861 025b DB       	 .byte -37
+ 862 025c F8       	 .byte -8
+ 863 025d 53       	 .byte 83
+ 864 025e 11       	 .byte 17
+ 865 025f 1D       	 .byte 29
+ 866 0260 F1       	 .byte -15
+ 867 0261 30       	 .byte 48
+ 868 0262 6B       	 .byte 107
+ 869 0263 39       	 .byte 57
+ 870 0264 F3       	 .byte -13
+ 871 0265 3F       	 .byte 63
+ 872 0266 EF       	 .byte -17
+ 873 0267 65       	 .byte 101
+ 874 0268 61       	 .byte 97
+ 875 0269 BE       	 .byte -66
+ 876 026a C4       	 .byte -60
+ 877 026b DD       	 .byte -35
+ 878 026c 19       	 .byte 25
+ 879 026d 11       	 .byte 17
+ 880 026e 1E       	 .byte 30
+ 881 026f 83       	 .byte -125
+ 882 0270 F9       	 .byte -7
+ 883 0271 E8       	 .byte -24
+ 884 0272 3F       	 .byte 63
+ 885 0273 41       	 .byte 65
+ 886 0274 97       	 .byte -105
+ 887 0275 45       	 .byte 69
+ 888 0276 FC       	 .byte -4
+ 889 0277 61       	 .byte 97
+ 890 0278 E0       	 .byte -32
+ 891 0279 06       	 .byte 6
+ 892 027a D0       	 .byte -48
+ 893 027b E6       	 .byte -26
+ 894 027c F7       	 .byte -9
+ 895 027d 5C       	 .byte 92
+ 896 027e 9F       	 .byte -97
+ 897 027f E2       	 .byte -30
+ 898 0280 57       	 .byte 87
+ 899 0281 C2       	 .byte -62
+ 900 0282 0000     	 .section .bss.optiga_lib_status,"aw",%nobits
+ 901              	 .align 1
+ 902              	 .set .LANCHOR0,.+0
+ 905              	optiga_lib_status:
+ 906 0000 0000     	 .space 2
+ 907              	 .text
+ 908              	.Letext0:
+ 909              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 910              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 911              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_types.h"
+ 912              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_common.h"
+ 913              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/cmd/optiga_cmd.h"
+ 914              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_util.h"
+ 915              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/include/optiga_example.h"
+ 916              	 .file 9 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdio.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 example_optiga_util_write_data.c
+    {standard input}:20     .text.optiga_util_callback:00000000 $t
+    {standard input}:24     .text.optiga_util_callback:00000000 optiga_util_callback
+    {standard input}:40     .text.optiga_util_callback:00000008 $d
+    {standard input}:45     .text.example_optiga_util_write_data:00000000 $t
+    {standard input}:50     .text.example_optiga_util_write_data:00000000 example_optiga_util_write_data
+    {standard input}:226    .text.example_optiga_util_write_data:000000c4 $d
+    {standard input}:236    .rodata.metadata:00000000 $d
+    {standard input}:240    .rodata.metadata:00000000 metadata
+    {standard input}:249    .rodata.str1.4:00000000 $d
+    {standard input}:253    .rodata.trust_anchor:00000000 $d
+    {standard input}:257    .rodata.trust_anchor:00000000 trust_anchor
+    {standard input}:901    .bss.optiga_lib_status:00000000 $d
+    {standard input}:905    .bss.optiga_lib_status:00000000 optiga_lib_status
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+example_optiga_init
+optiga_util_create
+optiga_util_set_comms_params
+example_performance_measurement
+optiga_util_write_data
+example_optiga_deinit
+optiga_util_destroy
+sprintf
+optiga_util_write_metadata
+performance_buffer_string

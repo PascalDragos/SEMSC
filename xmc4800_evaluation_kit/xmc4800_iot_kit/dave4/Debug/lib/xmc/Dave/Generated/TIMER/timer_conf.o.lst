@@ -1,0 +1,165 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "timer_conf.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .global TIMER_Cooldwon
+  20              	 .global TIMER_Cooldwon_config
+  21              	 .global scheduler_timer
+  22              	 .global scheduler_timer_config
+  23              	 .global tick_timer
+  24              	 .global tick_timer_config
+  25              	 .section .data.tick_timer,"aw",%progbits
+  26              	 .align 2
+  29              	tick_timer:
+  30 0000 A0860100 	 .word 100000
+  31 0004 3435E358 	 .word 1491285300
+  32 0008 0A000000 	 .word 10
+  33 000c 00500000 	 .word 20480
+  34 0010 00000000 	 .word GLOBAL_CCU4_0
+  35 0014 00040140 	 .word 1073808384
+  36 0018 03       	 .byte 3
+  37 0019 000000   	 .space 3
+  38 001c 00000000 	 .word tick_timer_config
+  39 0020 01       	 .byte 1
+  40 0021 00000000 	 .space 20
+  40      00000000 
+  40      00000000 
+  40      00000000 
+  40      00000000 
+  41 0035 00       	 .byte 0
+  42 0036 9F8C     	 .short -29537
+  43 0038 01       	 .byte 1
+  44 0039 01       	 .byte 1
+  45 003a 00       	 .byte 0
+  46 003b 00       	 .space 1
+  47              	 .section .data.scheduler_timer,"aw",%progbits
+  48              	 .align 2
+  51              	scheduler_timer:
+  52 0000 A0860100 	 .word 100000
+  53 0004 3435E358 	 .word 1491285300
+  54 0008 0A000000 	 .word 10
+  55 000c 00500000 	 .word 20480
+  56 0010 00000000 	 .word GLOBAL_CCU4_1
+  57 0014 00440048 	 .word 1207976960
+  58 0018 03       	 .byte 3
+  59 0019 000000   	 .space 3
+  60 001c 00000000 	 .word scheduler_timer_config
+  61 0020 01       	 .byte 1
+  62 0021 00000000 	 .space 20
+  62      00000000 
+  62      00000000 
+  62      00000000 
+  62      00000000 
+  63 0035 00       	 .byte 0
+  64 0036 9F8C     	 .short -29537
+  65 0038 00       	 .byte 0
+  66 0039 01       	 .byte 1
+  67 003a 00       	 .byte 0
+  68 003b 00       	 .space 1
+  69              	 .section .data.TIMER_Cooldwon,"aw",%progbits
+  70              	 .align 2
+  73              	TIMER_Cooldwon:
+  74 0000 00E1F505 	 .word 100000000
+  75 0004 3435E358 	 .word 1491285300
+  76 0008 0A000000 	 .word 10
+  77 000c 05000000 	 .word 5
+  78 0010 00000000 	 .space 20
+  78      00000000 
+  78      00000000 
+  78      00000000 
+  78      00000000 
+  79 0024 00000000 	 .word GLOBAL_CCU8_0
+  80 0028 00010240 	 .word 1073873152
+  81 002c 00       	 .byte 0
+  82 002d 000000   	 .space 3
+  83 0030 00000000 	 .word TIMER_Cooldwon_config
+  84 0034 03       	 .byte 3
+  85 0035 01       	 .byte 1
+  86 0036 5389     	 .short -30381
+  87 0038 00       	 .byte 0
+  88 0039 01       	 .byte 1
+  89 003a 00       	 .byte 0
+  90 003b 00       	 .space 1
+  91              	 .section .data.scheduler_timer_config,"aw",%progbits
+  92              	 .align 2
+  95              	scheduler_timer_config:
+  96 0000 00       	 .byte 0
+  97 0001 00       	 .byte 0
+  98 0002 00       	 .byte 0
+  99 0003 00       	 .byte 0
+ 100 0004 02       	 .byte 2
+ 101 0005 00       	 .byte 0
+ 102 0006 0000     	 .space 2
+ 103              	 .section .data.TIMER_Cooldwon_config,"aw",%progbits
+ 104              	 .align 2
+ 107              	TIMER_Cooldwon_config:
+ 108 0000 00       	 .byte 0
+ 109 0001 00       	 .byte 0
+ 110 0002 00       	 .byte 0
+ 111 0003 00       	 .byte 0
+ 112 0004 00       	 .byte 0
+ 113 0005 000000   	 .space 3
+ 114 0008 00       	 .byte 0
+ 115 0009 000000   	 .space 3
+ 116 000c 0C       	 .byte 12
+ 117 000d 00       	 .byte 0
+ 118 000e 0000     	 .space 2
+ 119              	 .section .data.tick_timer_config,"aw",%progbits
+ 120              	 .align 2
+ 123              	tick_timer_config:
+ 124 0000 00       	 .byte 0
+ 125 0001 00       	 .byte 0
+ 126 0002 00       	 .byte 0
+ 127 0003 00       	 .byte 0
+ 128 0004 02       	 .byte 2
+ 129 0005 00       	 .byte 0
+ 130 0006 0000     	 .space 2
+ 131              	 .text
+ 132              	.Letext0:
+ 133              	 .file 1 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 134              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 135              	 .file 3 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 136              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_ccu4.h"
+ 137              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc4_scu.h"
+ 138              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/GLOBAL_CCU4/global_ccu4.h"
+ 139              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_ccu8.h"
+ 140              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/GLOBAL_CCU8/global_ccu8.h"
+ 141              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/TIMER/timer.h"
+ 142              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+ 143              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+ 144              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/GLOBAL_CCU4/global_ccu4_extern.h"
+ 145              	 .file 13 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/GLOBAL_CCU8/global_ccu8_extern.h"
+ 146              	 .file 14 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/TIMER/timer_conf.c"
+DEFINED SYMBOLS
+                            *ABS*:00000000 timer_conf.c
+    {standard input}:73     .data.TIMER_Cooldwon:00000000 TIMER_Cooldwon
+    {standard input}:107    .data.TIMER_Cooldwon_config:00000000 TIMER_Cooldwon_config
+    {standard input}:51     .data.scheduler_timer:00000000 scheduler_timer
+    {standard input}:95     .data.scheduler_timer_config:00000000 scheduler_timer_config
+    {standard input}:29     .data.tick_timer:00000000 tick_timer
+    {standard input}:123    .data.tick_timer_config:00000000 tick_timer_config
+    {standard input}:26     .data.tick_timer:00000000 $d
+    {standard input}:48     .data.scheduler_timer:00000000 $d
+    {standard input}:70     .data.TIMER_Cooldwon:00000000 $d
+    {standard input}:92     .data.scheduler_timer_config:00000000 $d
+    {standard input}:104    .data.TIMER_Cooldwon_config:00000000 $d
+    {standard input}:120    .data.tick_timer_config:00000000 $d
+
+UNDEFINED SYMBOLS
+GLOBAL_CCU4_0
+GLOBAL_CCU4_1
+GLOBAL_CCU8_0

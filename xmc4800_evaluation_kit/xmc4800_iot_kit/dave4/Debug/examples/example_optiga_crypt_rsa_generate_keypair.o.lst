@@ -1,0 +1,575 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "example_optiga_crypt_rsa_generate_keypair.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.optiga_crypt_callback,"ax",%progbits
+  20              	 .align 2
+  21              	 .thumb
+  22              	 .thumb_func
+  24              	optiga_crypt_callback:
+  25              	.LFB6:
+  26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/example_optiga_crypt_rsa_generate_keypair.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * \copyright
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * MIT License
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * Copyright (c) 2020 Infineon Technologies AG
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** *
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * Permission is hereby granted, free of charge, to any person obtaining a copy
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * of this software and associated documentation files (the "Software"), to deal
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * in the Software without restriction, including without limitation the rights
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * copies of the Software, and to permit persons to whom the Software is
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * furnished to do so, subject to the following conditions:
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** *
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * The above copyright notice and this permission notice shall be included in all
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * copies or substantial portions of the Software.
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** *
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * SOFTWARE
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** *
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * \endcopyright
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** *
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * \author Infineon Technologies AG
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** *
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * \file example_optiga_crypt_rsa_generate_keypair.c
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** *
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * \brief   This file provides the example for generation of RSA keypair using
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** *          optiga_crypt_rsa_generate_keypair.
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** *
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * \ingroup grOptigaExamples
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** *
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * @{
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** */
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** #include "optiga/optiga_util.h"
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** #include "optiga/optiga_crypt.h"
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** #include "optiga_example.h"
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** 
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** #ifdef OPTIGA_CRYPT_RSA_GENERATE_KEYPAIR_ENABLED
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** 
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** extern void example_optiga_init(void);
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** extern void example_optiga_deinit(void);
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** #endif
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** 
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** /**
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****  * Callback when optiga_crypt_xxxx operation is completed asynchronously
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****  */
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** static volatile optiga_lib_status_t optiga_lib_status;
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** //lint --e{818} suppress "argument "context" is not used in the sample provided"
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** static void optiga_crypt_callback(void * context, optiga_lib_status_t return_status)
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** {
+  27              	 .loc 1 55 0
+  28              	 .cfi_startproc
+  29              	 
+  30              	 
+  31              	 
+  32              	.LVL0:
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     optiga_lib_status = return_status;
+  33              	 .loc 1 56 0
+  34 0000 014B     	 ldr r3,.L2
+  35 0002 1980     	 strh r1,[r3]
+  36 0004 7047     	 bx lr
+  37              	.L3:
+  38 0006 00BF     	 .align 2
+  39              	.L2:
+  40 0008 00000000 	 .word .LANCHOR0
+  41              	 .cfi_endproc
+  42              	.LFE6:
+  44              	 .section .text.optiga_util_callback,"ax",%progbits
+  45              	 .align 2
+  46              	 .thumb
+  47              	 .thumb_func
+  49              	optiga_util_callback:
+  50              	.LFB7:
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     if (NULL != context)
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     {
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         // callback to upper layer here
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     }
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** }
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** 
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** //lint --e{818} suppress "argument "context" is not used in the sample provided"
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** static void optiga_util_callback(void * context, optiga_lib_status_t return_status)
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** {
+  51              	 .loc 1 65 0
+  52              	 .cfi_startproc
+  53              	 
+  54              	 
+  55              	 
+  56              	.LVL1:
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     optiga_lib_status = return_status;
+  57              	 .loc 1 66 0
+  58 0000 014B     	 ldr r3,.L5
+  59 0002 1980     	 strh r1,[r3]
+  60 0004 7047     	 bx lr
+  61              	.L6:
+  62 0006 00BF     	 .align 2
+  63              	.L5:
+  64 0008 00000000 	 .word .LANCHOR0
+  65              	 .cfi_endproc
+  66              	.LFE7:
+  68              	 .section .text.example_optiga_crypt_rsa_generate_keypair,"ax",%progbits
+  69              	 .align 2
+  70              	 .global example_optiga_crypt_rsa_generate_keypair
+  71              	 .thumb
+  72              	 .thumb_func
+  74              	example_optiga_crypt_rsa_generate_keypair:
+  75              	.LFB8:
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     if (NULL != context)
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     {
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         // callback to upper layer here
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     }
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** }
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** 
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** /**
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****  * Sample metadata of 0xE0F1 
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****  */
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** const uint8_t E0FC_metadata[] = { 0x20, 0x06, 0xD0, 0x01, 0x00, 0xD3, 0x01, 0x00 };
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** 
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** /**
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****  * The below example demonstrates the generation of
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****  * RSA Key pair using #optiga_crypt_rsa_generate_keypair.
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****  *
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****  */
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** void example_optiga_crypt_rsa_generate_keypair(void)
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** {
+  76              	 .loc 1 84 0
+  77              	 .cfi_startproc
+  78              	 
+  79              	 
+  80              	.LVL2:
+  81 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+  82              	.LCFI0:
+  83              	 .cfi_def_cfa_offset 20
+  84              	 .cfi_offset 4,-20
+  85              	 .cfi_offset 5,-16
+  86              	 .cfi_offset 6,-12
+  87              	 .cfi_offset 7,-8
+  88              	 .cfi_offset 14,-4
+  89 0002 ADB0     	 sub sp,sp,#180
+  90              	.LCFI1:
+  91              	 .cfi_def_cfa_offset 200
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     optiga_key_id_t optiga_key_id;
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     uint32_t time_taken = 0;
+  92              	 .loc 1 87 0
+  93 0004 0024     	 movs r4,#0
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     uint16_t optiga_oid;
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     //To store the generated public key as part of Generate key pair
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     /*
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     *
+  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     * Give a buffer of minimum size required to store the exported public key.
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     * E.g
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     * For 1024 bit key : modulus(128 bytes) + public expoenent(3 bytes) + Encoding bytes length(app
+  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     * For 2048 bit key : modulus(256 bytes) + public expoenent(3 bytes) + Encoding bytes length(app
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     */
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     uint8_t public_key [150];
+  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     uint16_t public_key_length = sizeof(public_key);
+  94              	 .loc 1 99 0
+  95 0006 9623     	 movs r3,#150
+  96 0008 ADF81230 	 strh r3,[sp,#18]
+  97              	.LVL3:
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     uint16_t optiga_oid;
+  98              	 .loc 1 87 0
+  99 000c 0594     	 str r4,[sp,#20]
+ 100:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** 
+ 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     optiga_crypt_t * crypt_me = NULL;
+ 102:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     optiga_util_t * util_me = NULL;    
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** 
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     do
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     {
+ 106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         /**
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****          * Open the application on OPTIGA which is a precondition to perform any other operations
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****          * using optiga_util_open_application
+ 111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****          */
+ 112:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         example_optiga_init();
+ 100              	 .loc 1 112 0
+ 101 000e FFF7FEFF 	 bl example_optiga_init
+ 102              	.LVL4:
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         
+ 115:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         OPTIGA_EXAMPLE_LOG_MESSAGE(__FUNCTION__);
+ 116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         /**
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****          * 1. Create OPTIGA Crypt Instance
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****          */
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         crypt_me = optiga_crypt_create(0, optiga_crypt_callback, NULL);
+ 103              	 .loc 1 120 0
+ 104 0012 2046     	 mov r0,r4
+ 105 0014 2246     	 mov r2,r4
+ 106 0016 3349     	 ldr r1,.L28
+ 107 0018 FFF7FEFF 	 bl optiga_crypt_create
+ 108              	.LVL5:
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         if (NULL == crypt_me)
+ 109              	 .loc 1 121 0
+ 110 001c 0546     	 mov r5,r0
+ 111 001e 0028     	 cmp r0,#0
+ 112 0020 35D0     	 beq .L8
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         {
+ 123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****             break;
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         }
+ 125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** 
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         util_me = optiga_util_create(0, optiga_util_callback, NULL);
+ 113              	 .loc 1 126 0
+ 114 0022 2046     	 mov r0,r4
+ 115              	.LVL6:
+ 116 0024 2246     	 mov r2,r4
+ 117 0026 3049     	 ldr r1,.L28+4
+ 118 0028 FFF7FEFF 	 bl optiga_util_create
+ 119              	.LVL7:
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         if (NULL == util_me)
+ 120              	 .loc 1 127 0
+ 121 002c 0646     	 mov r6,r0
+ 122 002e 38B3     	 cbz r0,.L9
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         {
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****             break;
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         }
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** 
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 123              	 .loc 1 132 0
+ 124 0030 2E4C     	 ldr r4,.L28+8
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         optiga_oid = 0xE0FC;
+ 134:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         return_status = optiga_util_write_metadata(util_me,
+ 125              	 .loc 1 134 0
+ 126 0032 2F4A     	 ldr r2,.L28+12
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         optiga_oid = 0xE0FC;
+ 127              	 .loc 1 132 0
+ 128 0034 0127     	 movs r7,#1
+ 129              	 .loc 1 134 0
+ 130 0036 4EF2FC01 	 movw r1,#57596
+ 131 003a 0823     	 movs r3,#8
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         optiga_oid = 0xE0FC;
+ 132              	 .loc 1 132 0
+ 133 003c 2780     	 strh r7,[r4]
+ 134              	.LVL8:
+ 135              	 .loc 1 134 0
+ 136 003e FFF7FEFF 	 bl optiga_util_write_metadata
+ 137              	.LVL9:
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****                                                    optiga_oid,
+ 136:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****                                                    E0FC_metadata,
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****                                                    sizeof(E0FC_metadata));
+ 138:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** 
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 138              	 .loc 1 139 0
+ 139 0042 48B1     	 cbz r0,.L11
+ 140              	.L10:
+ 141              	.LVL10:
+ 140:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         
+ 141:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         /**
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****          * 2. Generate RSA Key pair
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****          *       - Use 1024 or 2048 bit RSA key
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****          *       - Specify the Key Usage
+ 145:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****          *       - Store the Private key in OPTIGA Key store
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****          *              (When exporting the private key, provide buffer of sufficient length (key s
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****          *               encoding length))
+ 148:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****          *       - Export Public Key
+ 149:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****          */
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 151:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         optiga_key_id = OPTIGA_KEY_ID_E0FC;
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         START_PERFORMANCE_MEASUREMENT(time_taken);
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         return_status = optiga_crypt_rsa_generate_keypair(crypt_me,
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****                                                           OPTIGA_RSA_KEY_1024_BIT_EXPONENTIAL,
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****                                                           (uint8_t)OPTIGA_KEY_USAGE_SIGN,
+ 158:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****                                                           FALSE,
+ 159:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****                                                           &optiga_key_id,
+ 160:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****                                                           public_key,
+ 161:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****                                                           &public_key_length);
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         READ_PERFORMANCE_MEASUREMENT(time_taken);
+ 165:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         
+ 166:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     } while (FALSE);
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** 
+ 170:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     /**
+ 172:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****      * Close the application on OPTIGA after all the operations are executed
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****      * using optiga_util_close_application
+ 174:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****      */
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     example_optiga_deinit();
+ 142              	 .loc 1 175 0
+ 143 0044 FFF7FEFF 	 bl example_optiga_deinit
+ 144              	.LVL11:
+ 145              	.L18:
+ 176:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     OPTIGA_EXAMPLE_LOG_PERFORMANCE_VALUE(time_taken, return_status);
+ 178:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     if (crypt_me)
+ 180:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     {
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         //Destroy the instance after the completion of usecase if not required.
+ 182:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         return_status = optiga_crypt_destroy(crypt_me);
+ 146              	 .loc 1 182 0
+ 147 0048 2846     	 mov r0,r5
+ 148 004a FFF7FEFF 	 bl optiga_crypt_destroy
+ 149              	.LVL12:
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         {
+ 185:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****             //lint --e{774} suppress This is a generic macro
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****             OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 187:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         }
+ 188:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     }
+ 189:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     if (util_me)
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     {
+ 191:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         //Destroy the instance after the completion of usecase if not required.
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         return_status = optiga_util_destroy(util_me);
+ 150              	 .loc 1 192 0
+ 151 004e 3046     	 mov r0,r6
+ 152 0050 FFF7FEFF 	 bl optiga_util_destroy
+ 153              	.LVL13:
+ 193:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 194:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         {
+ 195:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****             //lint --e{774} suppress This is a generic macro
+ 196:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****             OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 197:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         }
+ 198:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     }
+ 199:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** }
+ 154              	 .loc 1 200 0
+ 155 0054 2DB0     	 add sp,sp,#180
+ 156              	.LCFI2:
+ 157              	 .cfi_remember_state
+ 158              	 .cfi_def_cfa_offset 20
+ 159              	 
+ 160 0056 F0BD     	 pop {r4,r5,r6,r7,pc}
+ 161              	.LVL14:
+ 162              	.L11:
+ 163              	.LCFI3:
+ 164              	 .cfi_restore_state
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         
+ 165              	 .loc 1 139 0 discriminator 1
+ 166 0058 2388     	 ldrh r3,[r4]
+ 167 005a 244A     	 ldr r2,.L28+8
+ 168 005c 9BB2     	 uxth r3,r3
+ 169 005e 012B     	 cmp r3,#1
+ 170 0060 FAD0     	 beq .L11
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         
+ 171              	 .loc 1 139 0 is_stmt 0 discriminator 2
+ 172 0062 1788     	 ldrh r7,[r2]
+ 173 0064 BFB2     	 uxth r7,r7
+ 174 0066 B7B1     	 cbz r7,.L27
+ 175              	.L25:
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         
+ 176              	 .loc 1 162 0 is_stmt 1 discriminator 3
+ 177 0068 1488     	 ldrh r4,[r2]
+ 178 006a A4B2     	 uxth r4,r4
+ 179              	.LVL15:
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 180              	 .loc 1 175 0 discriminator 3
+ 181 006c FFF7FEFF 	 bl example_optiga_deinit
+ 182              	.LVL16:
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     
+ 183              	 .loc 1 177 0 discriminator 3
+ 184 0070 002C     	 cmp r4,#0
+ 185 0072 E9D1     	 bne .L18
+ 186              	.LVL17:
+ 187              	.L16:
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     
+ 188              	 .loc 1 177 0 is_stmt 0 discriminator 1
+ 189 0074 1F49     	 ldr r1,.L28+16
+ 190 0076 059A     	 ldr r2,[sp,#20]
+ 191 0078 1F48     	 ldr r0,.L28+20
+ 192 007a FFF7FEFF 	 bl sprintf
+ 193              	.LVL18:
+ 194 007e E3E7     	 b .L18
+ 195              	.LVL19:
+ 196              	.L9:
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 197              	 .loc 1 175 0 is_stmt 1
+ 198 0080 FFF7FEFF 	 bl example_optiga_deinit
+ 199              	.LVL20:
+ 182:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 200              	 .loc 1 182 0
+ 201 0084 2846     	 mov r0,r5
+ 202 0086 FFF7FEFF 	 bl optiga_crypt_destroy
+ 203              	.LVL21:
+ 204              	 .loc 1 200 0
+ 205 008a 2DB0     	 add sp,sp,#180
+ 206              	.LCFI4:
+ 207              	 .cfi_remember_state
+ 208              	 .cfi_def_cfa_offset 20
+ 209              	 
+ 210 008c F0BD     	 pop {r4,r5,r6,r7,pc}
+ 211              	.LVL22:
+ 212              	.L8:
+ 213              	.LCFI5:
+ 214              	 .cfi_restore_state
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 215              	 .loc 1 175 0
+ 216 008e FFF7FEFF 	 bl example_optiga_deinit
+ 217              	.LVL23:
+ 218              	 .loc 1 200 0
+ 219 0092 2DB0     	 add sp,sp,#180
+ 220              	.LCFI6:
+ 221              	 .cfi_remember_state
+ 222              	 .cfi_def_cfa_offset 20
+ 223              	 
+ 224 0094 F0BD     	 pop {r4,r5,r6,r7,pc}
+ 225              	.LVL24:
+ 226              	.L27:
+ 227              	.LCFI7:
+ 228              	 .cfi_restore_state
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         optiga_key_id = OPTIGA_KEY_ID_E0FC;
+ 229              	 .loc 1 150 0
+ 230 0096 0123     	 movs r3,#1
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         
+ 231              	 .loc 1 153 0
+ 232 0098 1946     	 mov r1,r3
+ 233 009a 05A8     	 add r0,sp,#20
+ 234              	.LVL25:
+ 151:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         
+ 235              	 .loc 1 151 0
+ 236 009c 4EF2FC0E 	 movw lr,#57596
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         optiga_key_id = OPTIGA_KEY_ID_E0FC;
+ 237              	 .loc 1 150 0
+ 238 00a0 1380     	 strh r3,[r2]
+ 151:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         
+ 239              	 .loc 1 151 0
+ 240 00a2 ADF810E0 	 strh lr,[sp,#16]
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         
+ 241              	 .loc 1 153 0
+ 242 00a6 FFF7FEFF 	 bl example_performance_measurement
+ 243              	.LVL26:
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****                                                           OPTIGA_RSA_KEY_1024_BIT_EXPONENTIAL,
+ 244              	 .loc 1 155 0
+ 245 00aa 04A8     	 add r0,sp,#16
+ 246 00ac 06A9     	 add r1,sp,#24
+ 247 00ae 0DF11202 	 add r2,sp,#18
+ 248 00b2 8DE80700 	 stmia sp,{r0,r1,r2}
+ 249 00b6 3B46     	 mov r3,r7
+ 250 00b8 2846     	 mov r0,r5
+ 251 00ba 4121     	 movs r1,#65
+ 252 00bc 1022     	 movs r2,#16
+ 253 00be FFF7FEFF 	 bl optiga_crypt_rsa_generate_keypair
+ 254              	.LVL27:
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         
+ 255              	 .loc 1 162 0
+ 256 00c2 0028     	 cmp r0,#0
+ 257 00c4 BED1     	 bne .L10
+ 258              	.L14:
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         
+ 259              	 .loc 1 162 0 is_stmt 0 discriminator 1
+ 260 00c6 2388     	 ldrh r3,[r4]
+ 261 00c8 084A     	 ldr r2,.L28+8
+ 262 00ca 9BB2     	 uxth r3,r3
+ 263 00cc 012B     	 cmp r3,#1
+ 264 00ce FAD0     	 beq .L14
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         
+ 265              	 .loc 1 162 0 discriminator 2
+ 266 00d0 1188     	 ldrh r1,[r2]
+ 267 00d2 89B2     	 uxth r1,r1
+ 268 00d4 0029     	 cmp r1,#0
+ 269 00d6 C7D1     	 bne .L25
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         
+ 270              	 .loc 1 164 0 is_stmt 1
+ 271 00d8 05A8     	 add r0,sp,#20
+ 272              	.LVL28:
+ 273 00da FFF7FEFF 	 bl example_performance_measurement
+ 274              	.LVL29:
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 275              	 .loc 1 175 0
+ 276 00de FFF7FEFF 	 bl example_optiga_deinit
+ 277              	.LVL30:
+ 278 00e2 C7E7     	 b .L16
+ 279              	.L29:
+ 280              	 .align 2
+ 281              	.L28:
+ 282 00e4 00000000 	 .word optiga_crypt_callback
+ 283 00e8 00000000 	 .word optiga_util_callback
+ 284 00ec 00000000 	 .word .LANCHOR0
+ 285 00f0 00000000 	 .word .LANCHOR1
+ 286 00f4 00000000 	 .word .LC0
+ 287 00f8 00000000 	 .word performance_buffer_string
+ 288              	 .cfi_endproc
+ 289              	.LFE8:
+ 291              	 .global E0FC_metadata
+ 292              	 .section .rodata.E0FC_metadata,"a",%progbits
+ 293              	 .align 2
+ 294              	 .set .LANCHOR1,.+0
+ 297              	E0FC_metadata:
+ 298 0000 20       	 .byte 32
+ 299 0001 06       	 .byte 6
+ 300 0002 D0       	 .byte -48
+ 301 0003 01       	 .byte 1
+ 302 0004 00       	 .byte 0
+ 303 0005 D3       	 .byte -45
+ 304 0006 01       	 .byte 1
+ 305 0007 00       	 .byte 0
+ 306              	 .section .rodata.str1.4,"aMS",%progbits,1
+ 307              	 .align 2
+ 308              	.LC0:
+ 309 0000 4578616D 	 .ascii "Example takes %d msec\000"
+ 309      706C6520 
+ 309      74616B65 
+ 309      73202564 
+ 309      206D7365 
+ 310 0016 0000     	 .section .bss.optiga_lib_status,"aw",%nobits
+ 311              	 .align 1
+ 312              	 .set .LANCHOR0,.+0
+ 315              	optiga_lib_status:
+ 316 0000 0000     	 .space 2
+ 317              	 .text
+ 318              	.Letext0:
+ 319              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 320              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 321              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_types.h"
+ 322              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_common.h"
+ 323              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/cmd/optiga_cmd.h"
+ 324              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_util.h"
+ 325              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_crypt.h"
+ 326              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/include/optiga_example.h"
+ 327              	 .file 10 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdio.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 example_optiga_crypt_rsa_generate_keypair.c
+    {standard input}:20     .text.optiga_crypt_callback:00000000 $t
+    {standard input}:24     .text.optiga_crypt_callback:00000000 optiga_crypt_callback
+    {standard input}:40     .text.optiga_crypt_callback:00000008 $d
+    {standard input}:45     .text.optiga_util_callback:00000000 $t
+    {standard input}:49     .text.optiga_util_callback:00000000 optiga_util_callback
+    {standard input}:64     .text.optiga_util_callback:00000008 $d
+    {standard input}:69     .text.example_optiga_crypt_rsa_generate_keypair:00000000 $t
+    {standard input}:74     .text.example_optiga_crypt_rsa_generate_keypair:00000000 example_optiga_crypt_rsa_generate_keypair
+    {standard input}:282    .text.example_optiga_crypt_rsa_generate_keypair:000000e4 $d
+    {standard input}:297    .rodata.E0FC_metadata:00000000 E0FC_metadata
+    {standard input}:293    .rodata.E0FC_metadata:00000000 $d
+    {standard input}:307    .rodata.str1.4:00000000 $d
+    {standard input}:311    .bss.optiga_lib_status:00000000 $d
+    {standard input}:315    .bss.optiga_lib_status:00000000 optiga_lib_status
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+example_optiga_init
+optiga_crypt_create
+optiga_util_create
+optiga_util_write_metadata
+example_optiga_deinit
+optiga_crypt_destroy
+optiga_util_destroy
+sprintf
+example_performance_measurement
+optiga_crypt_rsa_generate_keypair
+performance_buffer_string

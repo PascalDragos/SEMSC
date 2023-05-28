@@ -1,0 +1,861 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "example_optiga_crypt_hmac.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.optiga_util_crypt_callback,"ax",%progbits
+  20              	 .align 2
+  21              	 .thumb
+  22              	 .thumb_func
+  24              	optiga_util_crypt_callback:
+  25              	.LFB6:
+  26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/example_optiga_crypt_hmac.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * \copyright
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * MIT License
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * Copyright (c) 2020 Infineon Technologies AG
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** *
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * Permission is hereby granted, free of charge, to any person obtaining a copy
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * of this software and associated documentation files (the "Software"), to deal
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * in the Software without restriction, including without limitation the rights
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * copies of the Software, and to permit persons to whom the Software is
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * furnished to do so, subject to the following conditions:
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** *
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * The above copyright notice and this permission notice shall be included in all
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * copies or substantial portions of the Software.
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** *
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * SOFTWARE
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** *
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * \endcopyright
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** *
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * \author Infineon Technologies AG
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** *
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * \file example_optiga_crypt_hmac.c
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** *
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * \brief   This file provides the example for HMAC generation  using
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** *          optiga_crypt_hmac_start, optiga_crypt_hmac_update and optiga_crypt_hmac_finalize APIs.
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** *
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * \ingroup grOptigaExamples
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** *
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** * @{
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** */
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** #include "optiga/optiga_util.h"
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** #include "optiga/optiga_crypt.h"
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** #include "optiga_example.h"
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** #if defined OPTIGA_CRYPT_HMAC_ENABLED
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** extern void example_optiga_init(void);
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** extern void example_optiga_deinit(void);
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** #endif
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** /**
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****  * Callback when optiga_crypt_xxxx operation is completed asynchronously
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****  */
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** static volatile optiga_lib_status_t optiga_lib_status;
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** static optiga_lib_status_t write_input_secret_to_oid(void);
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** static optiga_lib_status_t write_metadata(optiga_util_t * me);
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** //lint --e{818} suppress "argument "context" is not used in the sample provided"
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** static void optiga_util_crypt_callback(void * context, optiga_lib_status_t return_status)
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** {
+  27              	 .loc 1 60 0
+  28              	 .cfi_startproc
+  29              	 
+  30              	 
+  31              	 
+  32              	.LVL0:
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     optiga_lib_status = return_status;
+  33              	 .loc 1 61 0
+  34 0000 014B     	 ldr r3,.L2
+  35 0002 1980     	 strh r1,[r3]
+  36 0004 7047     	 bx lr
+  37              	.L3:
+  38 0006 00BF     	 .align 2
+  39              	.L2:
+  40 0008 00000000 	 .word .LANCHOR0
+  41              	 .cfi_endproc
+  42              	.LFE6:
+  44              	 .section .text.example_optiga_crypt_hmac,"ax",%progbits
+  45              	 .align 2
+  46              	 .global example_optiga_crypt_hmac
+  47              	 .thumb
+  48              	 .thumb_func
+  50              	example_optiga_crypt_hmac:
+  51              	.LFB9:
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     if (NULL != context)
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     {
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         // callback to upper layer here
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     }
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** }
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** // Write metadata
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** static optiga_lib_status_t write_metadata(optiga_util_t * me)
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** {
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     optiga_lib_status_t return_status = OPTIGA_LIB_SUCCESS;
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     const uint8_t input_secret_oid_metadata[] = {0x20, 0x06, 0xD3, 0x01, 0x00, 0xE8, 0x01, 0x21};
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     do
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     {
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         return_status = optiga_util_write_metadata(me,
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                    0xF1D0,
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                    input_secret_oid_metadata,
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                    sizeof(input_secret_oid_metadata));
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     } while (FALSE);
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     return(return_status);
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** }
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** // Write input secret to OID
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** static optiga_lib_status_t write_input_secret_to_oid()
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** {
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     optiga_lib_status_t return_status = OPTIGA_UTIL_ERROR;
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     optiga_util_t * me_util = NULL;
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     const uint8_t input_secret[] = {0x8d,0xe4,0x3f,0xff,
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                     0x65,0x2d,0xa0,0xa7,
+  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                     0xf0,0x4e,0x8f,0x22,
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                     0x84,0xa4,0x28,0x3b};
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     do
+  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     {
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         me_util = optiga_util_create(0, optiga_util_crypt_callback, NULL);
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         if (NULL == me_util)
+  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         {
+ 100:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****             break;
+ 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         }
+ 102:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         /**
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****          * Precondition 1 :
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****          * Metadata for 0xF1D0 :
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****          * Execute access condition = Always
+ 106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****          * Data object type  =  Pre-shared secret
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****          */
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         return_status = write_metadata(me_util);
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         if (OPTIGA_LIB_SUCCESS != return_status)
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         {
+ 111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****             break;
+ 112:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         }
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+ 115:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         /**
+ 116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         *  Precondition 2 :
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         *  Write secret in OID 0xF1D0
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         */
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         return_status = optiga_util_write_data(me_util,
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                0xF1D0,
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                OPTIGA_UTIL_ERASE_AND_WRITE,
+ 123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                0,
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                input_secret,
+ 125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                sizeof(input_secret));
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     } while (FALSE);
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     if(me_util)
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     {
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         //Destroy the instance after the completion of usecase if not required.
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         return_status = optiga_util_destroy(me_util);
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 134:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         {
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****             //lint --e{774} suppress This is a generic macro
+ 136:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****             OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         }
+ 138:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     }
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     return (return_status);
+ 140:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** }
+ 141:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** /**
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****  * The below example demonstrates HMAC-SHA256 generation using OPTIGA.
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****  *
+ 145:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****  * Example for 
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****  *  #optiga_crypt_hmac_start,
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****  *  #optiga_crypt_hmac_update and 
+ 148:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****  *  #optiga_crypt_hmac_finalize for HMAC-SHA256 generation
+ 149:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****  */
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** void example_optiga_crypt_hmac(void)
+ 151:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** {
+  52              	 .loc 1 151 0
+  53              	 .cfi_startproc
+  54              	 
+  55              	 
+  56 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+  57              	.LCFI0:
+  58              	 .cfi_def_cfa_offset 20
+  59              	 .cfi_offset 4,-20
+  60              	 .cfi_offset 5,-16
+  61              	 .cfi_offset 6,-12
+  62              	 .cfi_offset 7,-8
+  63              	 .cfi_offset 14,-4
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     const uint8_t input_data_buffer_start[] = {0x6b, 0xc1, 0xbe, 0xe2,
+  64              	 .loc 1 152 0
+  65 0002 6B4D     	 ldr r5,.L52
+ 151:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     const uint8_t input_data_buffer_start[] = {0x6b, 0xc1, 0xbe, 0xe2,
+  66              	 .loc 1 151 0
+  67 0004 9FB0     	 sub sp,sp,#124
+  68              	.LCFI1:
+  69              	 .cfi_def_cfa_offset 144
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                0x2e, 0x40, 0x9f, 0x96,
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                0xe9, 0x3d, 0x7e, 0x11,
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                0x73, 0x93, 0x17, 0x2a};
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     const uint8_t input_data_buffer_update[] = {0x7c,0xd2,0xcf,0xf3,
+  70              	 .loc 1 156 0
+  71 0006 2E46     	 mov r6,r5
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                0x2e, 0x40, 0x9f, 0x96,
+  72              	 .loc 1 152 0
+  73 0008 2868     	 ldr r0,[r5]
+  74 000a 6968     	 ldr r1,[r5,#4]
+  75 000c AA68     	 ldr r2,[r5,#8]
+  76 000e EB68     	 ldr r3,[r5,#12]
+  77 0010 06AC     	 add r4,sp,#24
+  78 0012 0FC4     	 stmia r4!,{r0,r1,r2,r3}
+  79              	 .loc 1 156 0
+  80 0014 56F8100F 	 ldr r0,[r6,#16]!
+  81 0018 7168     	 ldr r1,[r6,#4]
+  82 001a B268     	 ldr r2,[r6,#8]
+  83 001c F368     	 ldr r3,[r6,#12]
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                 0x3f,0x51,0xa0,0xa7,
+ 158:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                 0xf0,0x4e,0x8f,0x22,
+ 159:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                 0x84,0xa4,0x28,0x3b};
+ 160:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     const uint8_t input_data_buffer_final[] = {0x5a,0xb0,0xad,0xd1,
+  84              	 .loc 1 160 0
+  85 001e 2E46     	 mov r6,r5
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                 0x3f,0x51,0xa0,0xa7,
+  86              	 .loc 1 156 0
+  87 0020 0AAC     	 add r4,sp,#40
+  88 0022 0FC4     	 stmia r4!,{r0,r1,r2,r3}
+  89              	 .loc 1 160 0
+  90 0024 56F8200F 	 ldr r0,[r6,#32]!
+  91 0028 7168     	 ldr r1,[r6,#4]
+  92 002a B268     	 ldr r2,[r6,#8]
+  93 002c F368     	 ldr r3,[r6,#12]
+ 161:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                0x1d,0x3f,0x8e,0x85,
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                0xd8,0x2c,0x6d,0xf1,
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                0x62,0x82,0x06,0x19};
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     uint8_t mac_buffer[32] = {0};
+  94              	 .loc 1 164 0
+  95 002e 0024     	 movs r4,#0
+ 165:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     uint32_t mac_buffer_length = sizeof(mac_buffer);
+  96              	 .loc 1 165 0
+  97 0030 2027     	 movs r7,#32
+ 160:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                0x1d,0x3f,0x8e,0x85,
+  98              	 .loc 1 160 0
+  99 0032 0EAE     	 add r6,sp,#56
+ 100 0034 0FC6     	 stmia r6!,{r0,r1,r2,r3}
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     uint32_t mac_buffer_length = sizeof(mac_buffer);
+ 101              	 .loc 1 164 0
+ 102 0036 1694     	 str r4,[sp,#88]
+ 103 0038 1794     	 str r4,[sp,#92]
+ 104 003a 1894     	 str r4,[sp,#96]
+ 105 003c 1994     	 str r4,[sp,#100]
+ 106 003e 1A94     	 str r4,[sp,#104]
+ 107 0040 1B94     	 str r4,[sp,#108]
+ 108 0042 1C94     	 str r4,[sp,#112]
+ 109 0044 1D94     	 str r4,[sp,#116]
+ 110              	 .loc 1 165 0
+ 111 0046 0297     	 str r7,[sp,#8]
+ 166:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     uint32_t time_taken = 0;
+ 112              	 .loc 1 166 0
+ 113 0048 0394     	 str r4,[sp,#12]
+ 114              	.LVL1:
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     optiga_crypt_t * me_crypt = NULL;
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+ 170:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     do
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     {
+ 172:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 174:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         /**
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****          * Open the application on OPTIGA which is a precondition to perform any other operations
+ 176:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****          * using optiga_util_open_application
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****          */
+ 178:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         example_optiga_init();
+ 115              	 .loc 1 178 0
+ 116 004a FFF7FEFF 	 bl example_optiga_init
+ 117              	.LVL2:
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 180:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         OPTIGA_EXAMPLE_LOG_MESSAGE(__FUNCTION__);
+ 182:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         /**
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****          * 1. Create OPTIGA Crypt Instance
+ 185:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****          *
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****          */
+ 187:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         me_crypt = optiga_crypt_create(0, optiga_util_crypt_callback, NULL);
+ 118              	 .loc 1 187 0
+ 119 004e 2046     	 mov r0,r4
+ 120 0050 2246     	 mov r2,r4
+ 121 0052 5849     	 ldr r1,.L52+4
+ 122 0054 FFF7FEFF 	 bl optiga_crypt_create
+ 123              	.LVL3:
+ 188:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         if (NULL == me_crypt)
+ 124              	 .loc 1 188 0
+ 125 0058 0746     	 mov r7,r0
+ 126 005a 0028     	 cmp r0,#0
+ 127 005c 5BD0     	 beq .L5
+ 128              	.LVL4:
+ 129              	.LBB6:
+ 130              	.LBB7:
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                     0x65,0x2d,0xa0,0xa7,
+ 131              	 .loc 1 91 0
+ 132 005e 2B46     	 mov r3,r5
+ 133 0060 12AE     	 add r6,sp,#72
+ 134 0062 53F8300F 	 ldr r0,[r3,#48]!
+ 135              	.LVL5:
+ 136 0066 5968     	 ldr r1,[r3,#4]
+ 137 0068 9A68     	 ldr r2,[r3,#8]
+ 138 006a DB68     	 ldr r3,[r3,#12]
+ 139 006c 0FC6     	 stmia r6!,{r0,r1,r2,r3}
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         if (NULL == me_util)
+ 140              	 .loc 1 97 0
+ 141 006e 2046     	 mov r0,r4
+ 142 0070 2246     	 mov r2,r4
+ 143 0072 5049     	 ldr r1,.L52+4
+ 144 0074 FFF7FEFF 	 bl optiga_util_create
+ 145              	.LVL6:
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         {
+ 146              	 .loc 1 98 0
+ 147 0078 0646     	 mov r6,r0
+ 148 007a 0028     	 cmp r0,#0
+ 149 007c 30D0     	 beq .L14
+ 150              	.LVL7:
+ 151              	.LBB8:
+ 152              	.LBB9:
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     do
+ 153              	 .loc 1 72 0
+ 154 007e 55F8400F 	 ldr r0,[r5,#64]!
+ 155              	.LVL8:
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         return_status = optiga_util_write_metadata(me,
+ 156              	 .loc 1 75 0
+ 157 0082 4D4C     	 ldr r4,.L52+8
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     do
+ 158              	 .loc 1 72 0
+ 159 0084 6968     	 ldr r1,[r5,#4]
+ 160 0086 04AB     	 add r3,sp,#16
+ 161 0088 03C3     	 stmia r3!,{r0,r1}
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         return_status = optiga_util_write_metadata(me,
+ 162              	 .loc 1 75 0
+ 163 008a 0125     	 movs r5,#1
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                    0xF1D0,
+ 164              	 .loc 1 76 0
+ 165 008c 04AA     	 add r2,sp,#16
+ 166 008e 3046     	 mov r0,r6
+ 167 0090 4FF2D011 	 movw r1,#61904
+ 168 0094 0823     	 movs r3,#8
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         return_status = optiga_util_write_metadata(me,
+ 169              	 .loc 1 75 0
+ 170 0096 2580     	 strh r5,[r4]
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                    0xF1D0,
+ 171              	 .loc 1 76 0
+ 172 0098 FFF7FEFF 	 bl optiga_util_write_metadata
+ 173              	.LVL9:
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     } while (FALSE);
+ 174              	 .loc 1 80 0
+ 175 009c 60B9     	 cbnz r0,.L11
+ 176              	.L8:
+ 177 009e 2388     	 ldrh r3,[r4]
+ 178 00a0 454A     	 ldr r2,.L52+8
+ 179 00a2 9BB2     	 uxth r3,r3
+ 180 00a4 012B     	 cmp r3,#1
+ 181 00a6 FAD0     	 beq .L8
+ 182 00a8 1388     	 ldrh r3,[r2]
+ 183 00aa 9BB2     	 uxth r3,r3
+ 184 00ac 002B     	 cmp r3,#0
+ 185 00ae 36D0     	 beq .L10
+ 186 00b0 1388     	 ldrh r3,[r2]
+ 187 00b2 9BB2     	 uxth r3,r3
+ 188              	.LVL10:
+ 189              	.LBE9:
+ 190              	.LBE8:
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         {
+ 191              	 .loc 1 109 0
+ 192 00b4 002B     	 cmp r3,#0
+ 193 00b6 32D0     	 beq .L10
+ 194              	.LVL11:
+ 195              	.L11:
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 196              	 .loc 1 132 0
+ 197 00b8 3046     	 mov r0,r6
+ 198 00ba FFF7FEFF 	 bl optiga_util_destroy
+ 199              	.LVL12:
+ 200              	.LBE7:
+ 201              	.LBE6:
+ 189:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         {
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****             break;
+ 191:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         }
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+ 193:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         /**
+ 194:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****          * 2. Update input secret in 0xF1D0
+ 195:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****          *
+ 196:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****          */
+ 197:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         return_status = write_input_secret_to_oid();
+ 198:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         if (OPTIGA_LIB_SUCCESS != return_status)
+ 202              	 .loc 1 198 0
+ 203 00be 78B9     	 cbnz r0,.L14
+ 199:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         {
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****             // Update of secret failed
+ 201:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****             break;
+ 202:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         }
+ 203:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         /**
+ 204:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****          * 3. Start HMAC operation 
+ 205:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****          */
+ 206:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 204              	 .loc 1 206 0
+ 205 00c0 0123     	 movs r3,#1
+ 207:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         
+ 208:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         START_PERFORMANCE_MEASUREMENT(time_taken);
+ 206              	 .loc 1 208 0
+ 207 00c2 1946     	 mov r1,r3
+ 208 00c4 03A8     	 add r0,sp,#12
+ 209              	.LVL13:
+ 206:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         
+ 210              	 .loc 1 206 0
+ 211 00c6 2380     	 strh r3,[r4]
+ 212              	 .loc 1 208 0
+ 213 00c8 FFF7FEFF 	 bl example_performance_measurement
+ 214              	.LVL14:
+ 209:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         
+ 210:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         return_status = optiga_crypt_hmac_start(me_crypt,
+ 215              	 .loc 1 210 0
+ 216 00cc 1022     	 movs r2,#16
+ 217 00ce 0092     	 str r2,[sp]
+ 218 00d0 06AB     	 add r3,sp,#24
+ 219 00d2 3846     	 mov r0,r7
+ 220 00d4 2021     	 movs r1,#32
+ 221 00d6 4FF2D012 	 movw r2,#61904
+ 222 00da FFF7FEFF 	 bl optiga_crypt_hmac_start
+ 223              	.LVL15:
+ 211:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                 OPTIGA_HMAC_SHA_256,
+ 212:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                 0xF1D0,
+ 213:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                 input_data_buffer_start,
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                 sizeof(input_data_buffer_start));
+ 215:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 224              	 .loc 1 216 0
+ 225 00de 30B1     	 cbz r0,.L15
+ 226              	.LVL16:
+ 227              	.L14:
+ 217:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         /**
+ 219:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****          * 4. Continue HMAC operation on input data
+ 220:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****          */
+ 221:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         return_status = optiga_crypt_hmac_update(me_crypt,
+ 223:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                  input_data_buffer_update,
+ 224:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                  sizeof(input_data_buffer_update));
+ 225:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+ 226:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 227:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         /**
+ 228:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****          * 5. End HMAC sequence and return the MAC generated
+ 229:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****          */
+ 230:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 231:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         return_status = optiga_crypt_hmac_finalize(me_crypt,
+ 232:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                    input_data_buffer_final,
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                    sizeof(input_data_buffer_final),
+ 234:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                    mac_buffer,
+ 235:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                    &mac_buffer_length);
+ 236:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+ 237:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 238:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         
+ 239:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         READ_PERFORMANCE_MEASUREMENT(time_taken);
+ 240:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                    
+ 241:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 242:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+ 243:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     } while (FALSE);
+ 244:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 245:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     
+ 246:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 247:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     /**
+ 248:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****      * Close the application on OPTIGA after all the operations are executed
+ 249:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****      * using optiga_util_close_application
+ 250:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****      */
+ 251:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     example_optiga_deinit();
+ 228              	 .loc 1 251 0
+ 229 00e0 FFF7FEFF 	 bl example_optiga_deinit
+ 230              	.LVL17:
+ 231              	.L25:
+ 252:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY 
+ 253:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     OPTIGA_EXAMPLE_LOG_PERFORMANCE_VALUE(time_taken, return_status);
+ 254:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     
+ 255:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     if (me_crypt)
+ 256:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     {
+ 257:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         //Destroy the instance after the completion of usecase if not required.
+ 258:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         return_status = optiga_crypt_destroy(me_crypt);
+ 232              	 .loc 1 258 0
+ 233 00e4 3846     	 mov r0,r7
+ 234 00e6 FFF7FEFF 	 bl optiga_crypt_destroy
+ 235              	.LVL18:
+ 259:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 260:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         {
+ 261:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****             //lint --e{774} suppress This is a generic macro
+ 262:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****             OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 263:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         }
+ 264:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     }
+ 265:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     
+ 266:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** }
+ 236              	 .loc 1 266 0
+ 237 00ea 1FB0     	 add sp,sp,#124
+ 238              	.LCFI2:
+ 239              	 .cfi_remember_state
+ 240              	 .cfi_def_cfa_offset 20
+ 241              	 
+ 242 00ec F0BD     	 pop {r4,r5,r6,r7,pc}
+ 243              	.LVL19:
+ 244              	.L15:
+ 245              	.LCFI3:
+ 246              	 .cfi_restore_state
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+ 247              	 .loc 1 216 0 discriminator 1
+ 248 00ee 2388     	 ldrh r3,[r4]
+ 249 00f0 314D     	 ldr r5,.L52+8
+ 250 00f2 9BB2     	 uxth r3,r3
+ 251 00f4 012B     	 cmp r3,#1
+ 252 00f6 FAD0     	 beq .L15
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** 
+ 253              	 .loc 1 216 0 is_stmt 0 discriminator 2
+ 254 00f8 2B88     	 ldrh r3,[r5]
+ 255 00fa 9BB2     	 uxth r3,r3
+ 256 00fc 4BB3     	 cbz r3,.L51
+ 257              	.L48:
+ 226:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         /**
+ 258              	 .loc 1 226 0 is_stmt 1 discriminator 3
+ 259 00fe 2C88     	 ldrh r4,[r5]
+ 260 0100 A4B2     	 uxth r4,r4
+ 261              	.LVL20:
+ 262              	.L17:
+ 251:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY 
+ 263              	 .loc 1 251 0
+ 264 0102 FFF7FEFF 	 bl example_optiga_deinit
+ 265              	.LVL21:
+ 253:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     
+ 266              	 .loc 1 253 0
+ 267 0106 002C     	 cmp r4,#0
+ 268 0108 ECD1     	 bne .L25
+ 269              	.LVL22:
+ 270              	.L22:
+ 253:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     
+ 271              	 .loc 1 253 0 is_stmt 0 discriminator 1
+ 272 010a 2C49     	 ldr r1,.L52+12
+ 273 010c 039A     	 ldr r2,[sp,#12]
+ 274 010e 2C48     	 ldr r0,.L52+16
+ 275 0110 FFF7FEFF 	 bl sprintf
+ 276              	.LVL23:
+ 277 0114 E6E7     	 b .L25
+ 278              	.LVL24:
+ 279              	.L5:
+ 251:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY 
+ 280              	 .loc 1 251 0 is_stmt 1
+ 281 0116 FFF7FEFF 	 bl example_optiga_deinit
+ 282              	.LVL25:
+ 283              	 .loc 1 266 0
+ 284 011a 1FB0     	 add sp,sp,#124
+ 285              	.LCFI4:
+ 286              	 .cfi_remember_state
+ 287              	 .cfi_def_cfa_offset 20
+ 288              	 
+ 289 011c F0BD     	 pop {r4,r5,r6,r7,pc}
+ 290              	.LVL26:
+ 291              	.L10:
+ 292              	.LCFI5:
+ 293              	 .cfi_restore_state
+ 294              	.LBB11:
+ 295              	.LBB10:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                0xF1D0,
+ 296              	 .loc 1 120 0
+ 297 011e 1023     	 movs r3,#16
+ 298 0120 12AA     	 add r2,sp,#72
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         return_status = optiga_util_write_data(me_util,
+ 299              	 .loc 1 119 0
+ 300 0122 0125     	 movs r5,#1
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                0xF1D0,
+ 301              	 .loc 1 120 0
+ 302 0124 8DE80C00 	 stmia sp,{r2,r3}
+ 303 0128 3046     	 mov r0,r6
+ 304 012a 4FF2D011 	 movw r1,#61904
+ 305 012e 4022     	 movs r2,#64
+ 306 0130 0023     	 movs r3,#0
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         return_status = optiga_util_write_data(me_util,
+ 307              	 .loc 1 119 0
+ 308 0132 2580     	 strh r5,[r4]
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                0xF1D0,
+ 309              	 .loc 1 120 0
+ 310 0134 FFF7FEFF 	 bl optiga_util_write_data
+ 311              	.LVL27:
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****     } while (FALSE);
+ 312              	 .loc 1 127 0
+ 313 0138 0028     	 cmp r0,#0
+ 314 013a BDD1     	 bne .L11
+ 315              	.L13:
+ 316 013c 2388     	 ldrh r3,[r4]
+ 317 013e 1E4A     	 ldr r2,.L52+8
+ 318 0140 9BB2     	 uxth r3,r3
+ 319 0142 012B     	 cmp r3,#1
+ 320 0144 FAD0     	 beq .L13
+ 321 0146 1388     	 ldrh r3,[r2]
+ 322 0148 9BB2     	 uxth r3,r3
+ 323 014a 002B     	 cmp r3,#0
+ 324 014c B4D0     	 beq .L11
+ 325 014e 1388     	 ldrh r3,[r2]
+ 326              	.LVL28:
+ 327 0150 B2E7     	 b .L11
+ 328              	.LVL29:
+ 329              	.L51:
+ 330              	.LBE10:
+ 331              	.LBE11:
+ 221:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         return_status = optiga_crypt_hmac_update(me_crypt,
+ 332              	 .loc 1 221 0
+ 333 0152 0123     	 movs r3,#1
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                  input_data_buffer_update,
+ 334              	 .loc 1 222 0
+ 335 0154 0AA9     	 add r1,sp,#40
+ 336 0156 3846     	 mov r0,r7
+ 337              	.LVL30:
+ 338 0158 1022     	 movs r2,#16
+ 221:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         return_status = optiga_crypt_hmac_update(me_crypt,
+ 339              	 .loc 1 221 0
+ 340 015a 2B80     	 strh r3,[r5]
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                  input_data_buffer_update,
+ 341              	 .loc 1 222 0
+ 342 015c FFF7FEFF 	 bl optiga_crypt_hmac_update
+ 343              	.LVL31:
+ 226:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         /**
+ 344              	 .loc 1 226 0
+ 345 0160 0028     	 cmp r0,#0
+ 346 0162 BDD1     	 bne .L14
+ 347              	.L18:
+ 226:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         /**
+ 348              	 .loc 1 226 0 is_stmt 0 discriminator 1
+ 349 0164 2388     	 ldrh r3,[r4]
+ 350 0166 144D     	 ldr r5,.L52+8
+ 351 0168 9BB2     	 uxth r3,r3
+ 352 016a 012B     	 cmp r3,#1
+ 353 016c FAD0     	 beq .L18
+ 226:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         /**
+ 354              	 .loc 1 226 0 discriminator 2
+ 355 016e 2B88     	 ldrh r3,[r5]
+ 356 0170 9BB2     	 uxth r3,r3
+ 357 0172 002B     	 cmp r3,#0
+ 358 0174 C3D1     	 bne .L48
+ 231:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                    input_data_buffer_final,
+ 359              	 .loc 1 231 0 is_stmt 1
+ 360 0176 02AB     	 add r3,sp,#8
+ 230:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         return_status = optiga_crypt_hmac_finalize(me_crypt,
+ 361              	 .loc 1 230 0
+ 362 0178 0126     	 movs r6,#1
+ 363              	.LVL32:
+ 231:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                    input_data_buffer_final,
+ 364              	 .loc 1 231 0
+ 365 017a 0093     	 str r3,[sp]
+ 366 017c 0EA9     	 add r1,sp,#56
+ 367 017e 3846     	 mov r0,r7
+ 368              	.LVL33:
+ 369 0180 1022     	 movs r2,#16
+ 370 0182 16AB     	 add r3,sp,#88
+ 230:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         return_status = optiga_crypt_hmac_finalize(me_crypt,
+ 371              	 .loc 1 230 0
+ 372 0184 2E80     	 strh r6,[r5]
+ 231:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                    input_data_buffer_final,
+ 373              	 .loc 1 231 0
+ 374 0186 FFF7FEFF 	 bl optiga_crypt_hmac_finalize
+ 375              	.LVL34:
+ 237:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         
+ 376              	 .loc 1 237 0
+ 377 018a 0028     	 cmp r0,#0
+ 378 018c A8D1     	 bne .L14
+ 379              	.L20:
+ 237:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         
+ 380              	 .loc 1 237 0 is_stmt 0 discriminator 1
+ 381 018e 2388     	 ldrh r3,[r4]
+ 382 0190 094A     	 ldr r2,.L52+8
+ 383 0192 9BB2     	 uxth r3,r3
+ 384 0194 012B     	 cmp r3,#1
+ 385 0196 FAD0     	 beq .L20
+ 237:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         
+ 386              	 .loc 1 237 0 discriminator 2
+ 387 0198 1188     	 ldrh r1,[r2]
+ 388 019a 89B2     	 uxth r1,r1
+ 389 019c 11B1     	 cbz r1,.L21
+ 237:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****         
+ 390              	 .loc 1 237 0 discriminator 3
+ 391 019e 1488     	 ldrh r4,[r2]
+ 392 01a0 A4B2     	 uxth r4,r4
+ 393              	.LVL35:
+ 394 01a2 AEE7     	 b .L17
+ 395              	.LVL36:
+ 396              	.L21:
+ 239:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c ****                                                    
+ 397              	 .loc 1 239 0 is_stmt 1
+ 398 01a4 03A8     	 add r0,sp,#12
+ 399              	.LVL37:
+ 400 01a6 FFF7FEFF 	 bl example_performance_measurement
+ 401              	.LVL38:
+ 251:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hmac.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY 
+ 402              	 .loc 1 251 0
+ 403 01aa FFF7FEFF 	 bl example_optiga_deinit
+ 404              	.LVL39:
+ 405 01ae ACE7     	 b .L22
+ 406              	.L53:
+ 407              	 .align 2
+ 408              	.L52:
+ 409 01b0 00000000 	 .word .LANCHOR1
+ 410 01b4 00000000 	 .word optiga_util_crypt_callback
+ 411 01b8 00000000 	 .word .LANCHOR0
+ 412 01bc 00000000 	 .word .LC5
+ 413 01c0 00000000 	 .word performance_buffer_string
+ 414              	 .cfi_endproc
+ 415              	.LFE9:
+ 417              	 .section .rodata
+ 418              	 .align 2
+ 419              	 .set .LANCHOR1,.+0
+ 420              	.LC0:
+ 421 0000 6B       	 .byte 107
+ 422 0001 C1       	 .byte -63
+ 423 0002 BE       	 .byte -66
+ 424 0003 E2       	 .byte -30
+ 425 0004 2E       	 .byte 46
+ 426 0005 40       	 .byte 64
+ 427 0006 9F       	 .byte -97
+ 428 0007 96       	 .byte -106
+ 429 0008 E9       	 .byte -23
+ 430 0009 3D       	 .byte 61
+ 431 000a 7E       	 .byte 126
+ 432 000b 11       	 .byte 17
+ 433 000c 73       	 .byte 115
+ 434 000d 93       	 .byte -109
+ 435 000e 17       	 .byte 23
+ 436 000f 2A       	 .byte 42
+ 437              	.LC1:
+ 438 0010 7C       	 .byte 124
+ 439 0011 D2       	 .byte -46
+ 440 0012 CF       	 .byte -49
+ 441 0013 F3       	 .byte -13
+ 442 0014 3F       	 .byte 63
+ 443 0015 51       	 .byte 81
+ 444 0016 A0       	 .byte -96
+ 445 0017 A7       	 .byte -89
+ 446 0018 F0       	 .byte -16
+ 447 0019 4E       	 .byte 78
+ 448 001a 8F       	 .byte -113
+ 449 001b 22       	 .byte 34
+ 450 001c 84       	 .byte -124
+ 451 001d A4       	 .byte -92
+ 452 001e 28       	 .byte 40
+ 453 001f 3B       	 .byte 59
+ 454              	.LC2:
+ 455 0020 5A       	 .byte 90
+ 456 0021 B0       	 .byte -80
+ 457 0022 AD       	 .byte -83
+ 458 0023 D1       	 .byte -47
+ 459 0024 1D       	 .byte 29
+ 460 0025 3F       	 .byte 63
+ 461 0026 8E       	 .byte -114
+ 462 0027 85       	 .byte -123
+ 463 0028 D8       	 .byte -40
+ 464 0029 2C       	 .byte 44
+ 465 002a 6D       	 .byte 109
+ 466 002b F1       	 .byte -15
+ 467 002c 62       	 .byte 98
+ 468 002d 82       	 .byte -126
+ 469 002e 06       	 .byte 6
+ 470 002f 19       	 .byte 25
+ 471              	.LC3:
+ 472 0030 8D       	 .byte -115
+ 473 0031 E4       	 .byte -28
+ 474 0032 3F       	 .byte 63
+ 475 0033 FF       	 .byte -1
+ 476 0034 65       	 .byte 101
+ 477 0035 2D       	 .byte 45
+ 478 0036 A0       	 .byte -96
+ 479 0037 A7       	 .byte -89
+ 480 0038 F0       	 .byte -16
+ 481 0039 4E       	 .byte 78
+ 482 003a 8F       	 .byte -113
+ 483 003b 22       	 .byte 34
+ 484 003c 84       	 .byte -124
+ 485 003d A4       	 .byte -92
+ 486 003e 28       	 .byte 40
+ 487 003f 3B       	 .byte 59
+ 488              	.LC4:
+ 489 0040 20       	 .byte 32
+ 490 0041 06       	 .byte 6
+ 491 0042 D3       	 .byte -45
+ 492 0043 01       	 .byte 1
+ 493 0044 00       	 .byte 0
+ 494 0045 E8       	 .byte -24
+ 495 0046 01       	 .byte 1
+ 496 0047 21       	 .byte 33
+ 497              	 .section .rodata.str1.4,"aMS",%progbits,1
+ 498              	 .align 2
+ 499              	.LC5:
+ 500 0000 4578616D 	 .ascii "Example takes %d msec\000"
+ 500      706C6520 
+ 500      74616B65 
+ 500      73202564 
+ 500      206D7365 
+ 501 0016 0000     	 .section .bss.optiga_lib_status,"aw",%nobits
+ 502              	 .align 1
+ 503              	 .set .LANCHOR0,.+0
+ 506              	optiga_lib_status:
+ 507 0000 0000     	 .space 2
+ 508              	 .text
+ 509              	.Letext0:
+ 510              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 511              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 512              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_types.h"
+ 513              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_common.h"
+ 514              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/cmd/optiga_cmd.h"
+ 515              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_util.h"
+ 516              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_crypt.h"
+ 517              	 .file 9 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdio.h"
+ 518              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/include/optiga_example.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 example_optiga_crypt_hmac.c
+    {standard input}:20     .text.optiga_util_crypt_callback:00000000 $t
+    {standard input}:24     .text.optiga_util_crypt_callback:00000000 optiga_util_crypt_callback
+    {standard input}:40     .text.optiga_util_crypt_callback:00000008 $d
+    {standard input}:45     .text.example_optiga_crypt_hmac:00000000 $t
+    {standard input}:50     .text.example_optiga_crypt_hmac:00000000 example_optiga_crypt_hmac
+    {standard input}:409    .text.example_optiga_crypt_hmac:000001b0 $d
+    {standard input}:418    .rodata:00000000 $d
+    {standard input}:498    .rodata.str1.4:00000000 $d
+    {standard input}:502    .bss.optiga_lib_status:00000000 $d
+    {standard input}:506    .bss.optiga_lib_status:00000000 optiga_lib_status
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+example_optiga_init
+optiga_crypt_create
+optiga_util_create
+optiga_util_write_metadata
+optiga_util_destroy
+example_performance_measurement
+optiga_crypt_hmac_start
+example_optiga_deinit
+optiga_crypt_destroy
+sprintf
+optiga_util_write_data
+optiga_crypt_hmac_update
+optiga_crypt_hmac_finalize
+performance_buffer_string

@@ -1,0 +1,822 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "example_optiga_crypt_rsa_verify.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.optiga_crypt_callback,"ax",%progbits
+  20              	 .align 2
+  21              	 .thumb
+  22              	 .thumb_func
+  24              	optiga_crypt_callback:
+  25              	.LFB6:
+  26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/example_optiga_crypt_rsa_verify.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * \copyright
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * MIT License
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * Copyright (c) 2020 Infineon Technologies AG
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** *
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * Permission is hereby granted, free of charge, to any person obtaining a copy
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * of this software and associated documentation files (the "Software"), to deal
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * in the Software without restriction, including without limitation the rights
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * copies of the Software, and to permit persons to whom the Software is
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * furnished to do so, subject to the following conditions:
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** *
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * The above copyright notice and this permission notice shall be included in all
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * copies or substantial portions of the Software.
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** *
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * SOFTWARE
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** *
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * \endcopyright
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** *
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * \author Infineon Technologies AG
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** *
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * \file example_optiga_crypt_rsa_verify.c
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** *
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * \brief   This file provides the example for RSA verify operation using #optiga_crypt_rsa_verify.
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** *
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * \ingroup grOptigaExamples
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** *
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** * @{
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** */
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** 
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** #include "optiga/optiga_crypt.h"
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** #include "optiga_example.h"
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** 
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** #ifdef OPTIGA_CRYPT_RSA_VERIFY_ENABLED
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** 
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** extern void example_optiga_init(void);
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** extern void example_optiga_deinit(void);
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** #endif
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** 
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** void example_util_encode_rsa_public_key_in_bit_string_format(const uint8_t * n_buffer,
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****                                                         uint16_t n_length,
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****                                                         const uint8_t * e_buffer,
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****                                                         uint16_t e_length,
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****                                                         uint8_t * pub_key_buffer,
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****                                                         uint16_t * pub_key_length);
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** 
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** /**
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****  * Callback when optiga_crypt_xxxx operation is completed asynchronously
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****  */
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** static volatile optiga_lib_status_t optiga_lib_status;
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** //lint --e{818} suppress "argument "context" is not used in the sample provided"
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** static void optiga_crypt_callback(void * context, optiga_lib_status_t return_status)
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** {
+  27              	 .loc 1 61 0
+  28              	 .cfi_startproc
+  29              	 
+  30              	 
+  31              	 
+  32              	.LVL0:
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     optiga_lib_status = return_status;
+  33              	 .loc 1 62 0
+  34 0000 014B     	 ldr r3,.L2
+  35 0002 1980     	 strh r1,[r3]
+  36 0004 7047     	 bx lr
+  37              	.L3:
+  38 0006 00BF     	 .align 2
+  39              	.L2:
+  40 0008 00000000 	 .word .LANCHOR0
+  41              	 .cfi_endproc
+  42              	.LFE6:
+  44              	 .section .text.example_optiga_crypt_rsa_verify,"ax",%progbits
+  45              	 .align 2
+  46              	 .global example_optiga_crypt_rsa_verify
+  47              	 .thumb
+  48              	 .thumb_func
+  50              	example_optiga_crypt_rsa_verify:
+  51              	.LFB7:
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     if (NULL != context)
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     {
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         // callback to upper layer here
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     }
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** }
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** 
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** // RSA 1024 public key
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** static const uint8_t rsa_public_key_modulus [] = 
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** {
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     //Public key modulus
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     0xA1, 0xD4, 0x6F, 0xBA, 0x23, 0x18, 0xF8, 0xDC, 0xEF, 0x16, 0xC2, 0x80, 0x94, 0x8B, 0x1C, 0xF2,
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     0x79, 0x66, 0xB9, 0xB4, 0x72, 0x25, 0xED, 0x29, 0x89, 0xF8, 0xD7, 0x4B, 0x45, 0xBD, 0x36, 0x04,
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     0x9C, 0x0A, 0xAB, 0x5A, 0xD0, 0xFF, 0x00, 0x35, 0x53, 0xBA, 0x84, 0x3C, 0x8E, 0x12, 0x78, 0x2F,
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     0xC5, 0x87, 0x3B, 0xB8, 0x9A, 0x3D, 0xC8, 0x4B, 0x88, 0x3D, 0x25, 0x66, 0x6C, 0xD2, 0x2B, 0xF3,
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     0xAC, 0xD5, 0xB6, 0x75, 0x96, 0x9F, 0x8B, 0xEB, 0xFB, 0xCA, 0xC9, 0x3F, 0xDD, 0x92, 0x7C, 0x74,
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     0x42, 0xB1, 0x78, 0xB1, 0x0D, 0x1D, 0xFF, 0x93, 0x98, 0xE5, 0x23, 0x16, 0xAA, 0xE0, 0xAF, 0x74,
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     0xE5, 0x94, 0x65, 0x0B, 0xDC, 0x3C, 0x67, 0x02, 0x41, 0xD4, 0x18, 0x68, 0x45, 0x93, 0xCD, 0xA1,
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     0xA7, 0xB9, 0xDC, 0x4F, 0x20, 0xD2, 0xFD, 0xC6, 0xF6, 0x63, 0x44, 0x07, 0x40, 0x03, 0xE2, 0x11,
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** };
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** 
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** // RSA 1024 public key
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** static const uint8_t rsa_public_key_exponent [] = 
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** {
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     //Public Exponent
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     0x00, 0x01, 0x00, 0x01
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** };
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** 
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** //SHA-256 Digest
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** static const uint8_t digest [] =
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** {
+  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     0x91, 0x70, 0x02, 0x48, 0x3F, 0xBD, 0x5F, 0xDD, 0xD5, 0x38, 0xEB, 0xDA, 0x9A, 0x5E, 0x1F, 0x46,
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     0xFC, 0xAD, 0x8F, 0x1E, 0x2C, 0x75, 0xB0, 0x83, 0xD0, 0x71, 0x2B, 0x80, 0xD4, 0xAA, 0xC6, 0x9B
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** };
+  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** 
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** // RSA 1024 Signature ( no additional encoding needed )
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** static const uint8_t signature [] =
+  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** {
+ 100:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     0x5B, 0xDE, 0x46, 0xE4, 0x35, 0x48, 0xF4, 0x81, 0x45, 0x7C, 0x72, 0x31, 0x54, 0x55, 0xE8, 0x9F,
+ 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     0x1D, 0xD0, 0x5D, 0x9D, 0xEC, 0x40, 0xE6, 0x6B, 0x89, 0xF3, 0xBC, 0x52, 0x68, 0xB1, 0xD8, 0x70,
+ 102:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     0x35, 0x05, 0xFC, 0x98, 0xF6, 0x36, 0x99, 0x24, 0x53, 0xF0, 0x17, 0xB8, 0x9B, 0xD4, 0xA0, 0x5F,
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     0x12, 0x04, 0x8A, 0xA1, 0xA7, 0x96, 0xE6, 0x33, 0xCA, 0x48, 0x84, 0xD9, 0x00, 0xE4, 0xA3, 0x8E,
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     0x2F, 0x6F, 0x3F, 0x6D, 0xE0, 0x1D, 0xF8, 0xEA, 0xE0, 0x95, 0xBA, 0x63, 0x15, 0xED, 0x7B, 0x6A,
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     0xB6, 0x6E, 0x20, 0x17, 0xB5, 0x64, 0xDE, 0x49, 0x64, 0x97, 0xCA, 0x5E, 0x4D, 0x84, 0x63, 0xA0,
+ 106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     0xF1, 0x00, 0x6C, 0xEE, 0x70, 0x89, 0xD5, 0x6E, 0xC5, 0x05, 0x31, 0x0D, 0xAA, 0xB7, 0xBA, 0xA0,
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     0xAA, 0xBF, 0x98, 0xE8, 0x39, 0x93, 0x70, 0x07, 0x2D, 0xFF, 0x42, 0xF9, 0xA4, 0x6F, 0x1B, 0x00
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** };
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** 
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** static uint8_t rsa_public_key[150] = {0x00};
+ 111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** static uint16_t rsa_public_key_length = 0;
+ 112:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** 
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** /**
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****  * The below example demonstrates the verification of signature using
+ 115:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****  * the public key provided by host.
+ 116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****  *
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****  * Example for #optiga_crypt_rsa_verify
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****  *
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****  */
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** void example_optiga_crypt_rsa_verify(void)
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** {
+  52              	 .loc 1 121 0
+  53              	 .cfi_startproc
+  54              	 
+  55              	 
+  56              	.LVL1:
+  57 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+  58              	.LCFI0:
+  59              	 .cfi_def_cfa_offset 20
+  60              	 .cfi_offset 4,-20
+  61              	 .cfi_offset 5,-16
+  62              	 .cfi_offset 6,-12
+  63              	 .cfi_offset 7,-8
+  64              	 .cfi_offset 14,-4
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+ 123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     optiga_crypt_t * me = NULL;
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     uint32_t time_taken = 0;
+ 125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     // Form rsa public key in bit string format
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     example_util_encode_rsa_public_key_in_bit_string_format(rsa_public_key_modulus,
+  65              	 .loc 1 127 0
+  66 0002 2F4C     	 ldr r4,.L20
+  67 0004 2F4E     	 ldr r6,.L20+4
+  68 0006 3048     	 ldr r0,.L20+8
+  69 0008 304A     	 ldr r2,.L20+12
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+  70              	 .loc 1 121 0
+  71 000a 8BB0     	 sub sp,sp,#44
+  72              	.LCFI1:
+  73              	 .cfi_def_cfa_offset 64
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     
+  74              	 .loc 1 124 0
+  75 000c 0025     	 movs r5,#0
+  76              	 .loc 1 127 0
+  77 000e 8021     	 movs r1,#128
+  78 0010 0423     	 movs r3,#4
+  79 0012 8DE85000 	 stmia sp,{r4,r6}
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     
+  80              	 .loc 1 124 0
+  81 0016 0795     	 str r5,[sp,#28]
+  82              	 .loc 1 127 0
+  83 0018 FFF7FEFF 	 bl example_util_encode_rsa_public_key_in_bit_string_format
+  84              	.LVL2:
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****                                                        sizeof(rsa_public_key_modulus),
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****                                                        rsa_public_key_exponent,
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****                                                        sizeof(rsa_public_key_exponent),
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****                                                        rsa_public_key,
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****                                                        &rsa_public_key_length);
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****                                                         
+ 134:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     public_key_from_host_t public_key_details =
+  85              	 .loc 1 134 0
+  86 001c 3388     	 ldrh r3,[r6]
+  87 001e ADF82430 	 strh r3,[sp,#36]
+  88 0022 4123     	 movs r3,#65
+  89 0024 8DF82630 	 strb r3,[sp,#38]
+  90 0028 0894     	 str r4,[sp,#32]
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     {
+ 136:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****          rsa_public_key,
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****          rsa_public_key_length,
+ 138:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****          (uint8_t)OPTIGA_RSA_KEY_1024_BIT_EXPONENTIAL
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     };
+ 140:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     
+ 141:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     do
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     {
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 145:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         /**
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****          * Open the application on OPTIGA which is a precondition to perform any other operations
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****          * using optiga_util_open_application
+ 148:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****          */
+ 149:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         example_optiga_init();
+  91              	 .loc 1 149 0
+  92 002a FFF7FEFF 	 bl example_optiga_init
+  93              	.LVL3:
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 151:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         OPTIGA_EXAMPLE_LOG_MESSAGE(__FUNCTION__);
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         /**
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****          * 1. Create OPTIGA Crypt Instance
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****          */
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         me = optiga_crypt_create(0, optiga_crypt_callback, NULL);
+  94              	 .loc 1 156 0
+  95 002e 2846     	 mov r0,r5
+  96 0030 2A46     	 mov r2,r5
+  97 0032 2749     	 ldr r1,.L20+16
+  98 0034 FFF7FEFF 	 bl optiga_crypt_create
+  99              	.LVL4:
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         if (NULL == me)
+ 100              	 .loc 1 157 0
+ 101 0038 0746     	 mov r7,r0
+ 102 003a 0028     	 cmp r0,#0
+ 103 003c 30D0     	 beq .L5
+ 158:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         {
+ 159:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****             break;
+ 160:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         }
+ 161:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** 
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         /**
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****          * 2. Verify RSA signature using public key from host
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****          */
+ 165:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 104              	 .loc 1 165 0
+ 105 003e 0126     	 movs r6,#1
+ 106 0040 244C     	 ldr r4,.L20+20
+ 166:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         START_PERFORMANCE_MEASUREMENT(time_taken);
+ 107              	 .loc 1 167 0
+ 108 0042 3146     	 mov r1,r6
+ 109 0044 07A8     	 add r0,sp,#28
+ 110              	.LVL5:
+ 165:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         
+ 111              	 .loc 1 165 0
+ 112 0046 2680     	 strh r6,[r4]
+ 113              	 .loc 1 167 0
+ 114 0048 FFF7FEFF 	 bl example_performance_measurement
+ 115              	.LVL6:
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         return_status = optiga_crypt_rsa_verify (me,
+ 116              	 .loc 1 169 0
+ 117 004c 2248     	 ldr r0,.L20+24
+ 118 004e 0296     	 str r6,[sp,#8]
+ 119 0050 8022     	 movs r2,#128
+ 120 0052 08AB     	 add r3,sp,#32
+ 121 0054 8DE80500 	 stmia sp,{r0,r2}
+ 122 0058 0393     	 str r3,[sp,#12]
+ 123 005a 3146     	 mov r1,r6
+ 124 005c 0495     	 str r5,[sp,#16]
+ 125 005e 3846     	 mov r0,r7
+ 126 0060 1E4A     	 ldr r2,.L20+28
+ 127 0062 2023     	 movs r3,#32
+ 128 0064 FFF7FEFF 	 bl optiga_crypt_rsa_verify
+ 129              	.LVL7:
+ 170:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****                                                  OPTIGA_RSASSA_PKCS1_V15_SHA256,
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****                                                  digest,
+ 172:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****                                                  sizeof(digest),
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****                                                  signature,
+ 174:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****                                                  sizeof(signature),
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****                                                  OPTIGA_CRYPT_HOST_DATA,
+ 176:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****                                                  &public_key_details,
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****                                                  0x0000);
+ 178:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** 
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 130              	 .loc 1 179 0
+ 131 0068 30B1     	 cbz r0,.L7
+ 132              	.LVL8:
+ 180:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         READ_PERFORMANCE_MEASUREMENT(time_taken);
+ 182:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     } while (FALSE);
+ 185:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     
+ 187:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 188:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     /**
+ 189:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****      * Close the application on OPTIGA after all the operations are executed
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****      * using optiga_util_close_application
+ 191:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****      */
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     example_optiga_deinit();
+ 133              	 .loc 1 192 0
+ 134 006a FFF7FEFF 	 bl example_optiga_deinit
+ 135              	.LVL9:
+ 136              	.L11:
+ 193:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY  
+ 194:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     OPTIGA_EXAMPLE_LOG_PERFORMANCE_VALUE(time_taken, return_status);
+ 195:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     
+ 196:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     if (me)
+ 197:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     {
+ 198:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         //Destroy the instance after the completion of usecase if not required.
+ 199:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         return_status = optiga_crypt_destroy(me);
+ 137              	 .loc 1 199 0
+ 138 006e 3846     	 mov r0,r7
+ 139 0070 FFF7FEFF 	 bl optiga_crypt_destroy
+ 140              	.LVL10:
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 201:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         {
+ 202:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****             //lint --e{774} suppress This is a generic macro
+ 203:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****             OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 204:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         }
+ 205:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     }
+ 206:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** }
+ 141              	 .loc 1 206 0
+ 142 0074 0BB0     	 add sp,sp,#44
+ 143              	.LCFI2:
+ 144              	 .cfi_remember_state
+ 145              	 .cfi_def_cfa_offset 20
+ 146              	 
+ 147 0076 F0BD     	 pop {r4,r5,r6,r7,pc}
+ 148              	.LVL11:
+ 149              	.L7:
+ 150              	.LCFI3:
+ 151              	 .cfi_restore_state
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         
+ 152              	 .loc 1 179 0 discriminator 1
+ 153 0078 2388     	 ldrh r3,[r4]
+ 154 007a 164A     	 ldr r2,.L20+20
+ 155 007c 9BB2     	 uxth r3,r3
+ 156 007e 012B     	 cmp r3,#1
+ 157 0080 FAD0     	 beq .L7
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         
+ 158              	 .loc 1 179 0 is_stmt 0 discriminator 2
+ 159 0082 1188     	 ldrh r1,[r2]
+ 160 0084 89B2     	 uxth r1,r1
+ 161 0086 79B1     	 cbz r1,.L8
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         
+ 162              	 .loc 1 179 0 discriminator 3
+ 163 0088 1488     	 ldrh r4,[r2]
+ 164 008a A4B2     	 uxth r4,r4
+ 165              	.LVL12:
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY  
+ 166              	 .loc 1 192 0 is_stmt 1 discriminator 3
+ 167 008c FFF7FEFF 	 bl example_optiga_deinit
+ 168              	.LVL13:
+ 194:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     
+ 169              	 .loc 1 194 0 discriminator 3
+ 170 0090 002C     	 cmp r4,#0
+ 171 0092 ECD1     	 bne .L11
+ 172              	.LVL14:
+ 194:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     
+ 173              	 .loc 1 194 0 is_stmt 0 discriminator 1
+ 174 0094 1249     	 ldr r1,.L20+32
+ 175 0096 079A     	 ldr r2,[sp,#28]
+ 176 0098 1248     	 ldr r0,.L20+36
+ 177 009a FFF7FEFF 	 bl sprintf
+ 178              	.LVL15:
+ 179 009e E6E7     	 b .L11
+ 180              	.LVL16:
+ 181              	.L5:
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY  
+ 182              	 .loc 1 192 0 is_stmt 1
+ 183 00a0 FFF7FEFF 	 bl example_optiga_deinit
+ 184              	.LVL17:
+ 185              	 .loc 1 206 0
+ 186 00a4 0BB0     	 add sp,sp,#44
+ 187              	.LCFI4:
+ 188              	 .cfi_remember_state
+ 189              	 .cfi_def_cfa_offset 20
+ 190              	 
+ 191 00a6 F0BD     	 pop {r4,r5,r6,r7,pc}
+ 192              	.LVL18:
+ 193              	.L8:
+ 194              	.LCFI5:
+ 195              	 .cfi_restore_state
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****         
+ 196              	 .loc 1 181 0
+ 197 00a8 07A8     	 add r0,sp,#28
+ 198              	.LVL19:
+ 199 00aa FFF7FEFF 	 bl example_performance_measurement
+ 200              	.LVL20:
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY  
+ 201              	 .loc 1 192 0
+ 202 00ae FFF7FEFF 	 bl example_optiga_deinit
+ 203              	.LVL21:
+ 194:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_verify.c ****     
+ 204              	 .loc 1 194 0
+ 205 00b2 0B49     	 ldr r1,.L20+32
+ 206 00b4 079A     	 ldr r2,[sp,#28]
+ 207 00b6 0B48     	 ldr r0,.L20+36
+ 208 00b8 FFF7FEFF 	 bl sprintf
+ 209              	.LVL22:
+ 210 00bc D7E7     	 b .L11
+ 211              	.L21:
+ 212 00be 00BF     	 .align 2
+ 213              	.L20:
+ 214 00c0 00000000 	 .word .LANCHOR3
+ 215 00c4 00000000 	 .word .LANCHOR4
+ 216 00c8 00000000 	 .word .LANCHOR1
+ 217 00cc 00000000 	 .word .LANCHOR2
+ 218 00d0 00000000 	 .word optiga_crypt_callback
+ 219 00d4 00000000 	 .word .LANCHOR0
+ 220 00d8 00000000 	 .word .LANCHOR6
+ 221 00dc 00000000 	 .word .LANCHOR5
+ 222 00e0 00000000 	 .word .LC0
+ 223 00e4 00000000 	 .word performance_buffer_string
+ 224              	 .cfi_endproc
+ 225              	.LFE7:
+ 227              	 .section .rodata.digest,"a",%progbits
+ 228              	 .align 2
+ 229              	 .set .LANCHOR5,.+0
+ 232              	digest:
+ 233 0000 91       	 .byte -111
+ 234 0001 70       	 .byte 112
+ 235 0002 02       	 .byte 2
+ 236 0003 48       	 .byte 72
+ 237 0004 3F       	 .byte 63
+ 238 0005 BD       	 .byte -67
+ 239 0006 5F       	 .byte 95
+ 240 0007 DD       	 .byte -35
+ 241 0008 D5       	 .byte -43
+ 242 0009 38       	 .byte 56
+ 243 000a EB       	 .byte -21
+ 244 000b DA       	 .byte -38
+ 245 000c 9A       	 .byte -102
+ 246 000d 5E       	 .byte 94
+ 247 000e 1F       	 .byte 31
+ 248 000f 46       	 .byte 70
+ 249 0010 FC       	 .byte -4
+ 250 0011 AD       	 .byte -83
+ 251 0012 8F       	 .byte -113
+ 252 0013 1E       	 .byte 30
+ 253 0014 2C       	 .byte 44
+ 254 0015 75       	 .byte 117
+ 255 0016 B0       	 .byte -80
+ 256 0017 83       	 .byte -125
+ 257 0018 D0       	 .byte -48
+ 258 0019 71       	 .byte 113
+ 259 001a 2B       	 .byte 43
+ 260 001b 80       	 .byte -128
+ 261 001c D4       	 .byte -44
+ 262 001d AA       	 .byte -86
+ 263 001e C6       	 .byte -58
+ 264 001f 9B       	 .byte -101
+ 265              	 .section .bss.rsa_public_key,"aw",%nobits
+ 266              	 .align 2
+ 267              	 .set .LANCHOR3,.+0
+ 270              	rsa_public_key:
+ 271 0000 00000000 	 .space 150
+ 271      00000000 
+ 271      00000000 
+ 271      00000000 
+ 271      00000000 
+ 272 0096 0000     	 .section .rodata.str1.4,"aMS",%progbits,1
+ 273              	 .align 2
+ 274              	.LC0:
+ 275 0000 4578616D 	 .ascii "Example takes %d msec\000"
+ 275      706C6520 
+ 275      74616B65 
+ 275      73202564 
+ 275      206D7365 
+ 276 0016 0000     	 .section .rodata.signature,"a",%progbits
+ 277              	 .align 2
+ 278              	 .set .LANCHOR6,.+0
+ 281              	signature:
+ 282 0000 5B       	 .byte 91
+ 283 0001 DE       	 .byte -34
+ 284 0002 46       	 .byte 70
+ 285 0003 E4       	 .byte -28
+ 286 0004 35       	 .byte 53
+ 287 0005 48       	 .byte 72
+ 288 0006 F4       	 .byte -12
+ 289 0007 81       	 .byte -127
+ 290 0008 45       	 .byte 69
+ 291 0009 7C       	 .byte 124
+ 292 000a 72       	 .byte 114
+ 293 000b 31       	 .byte 49
+ 294 000c 54       	 .byte 84
+ 295 000d 55       	 .byte 85
+ 296 000e E8       	 .byte -24
+ 297 000f 9F       	 .byte -97
+ 298 0010 1D       	 .byte 29
+ 299 0011 D0       	 .byte -48
+ 300 0012 5D       	 .byte 93
+ 301 0013 9D       	 .byte -99
+ 302 0014 EC       	 .byte -20
+ 303 0015 40       	 .byte 64
+ 304 0016 E6       	 .byte -26
+ 305 0017 6B       	 .byte 107
+ 306 0018 89       	 .byte -119
+ 307 0019 F3       	 .byte -13
+ 308 001a BC       	 .byte -68
+ 309 001b 52       	 .byte 82
+ 310 001c 68       	 .byte 104
+ 311 001d B1       	 .byte -79
+ 312 001e D8       	 .byte -40
+ 313 001f 70       	 .byte 112
+ 314 0020 35       	 .byte 53
+ 315 0021 05       	 .byte 5
+ 316 0022 FC       	 .byte -4
+ 317 0023 98       	 .byte -104
+ 318 0024 F6       	 .byte -10
+ 319 0025 36       	 .byte 54
+ 320 0026 99       	 .byte -103
+ 321 0027 24       	 .byte 36
+ 322 0028 53       	 .byte 83
+ 323 0029 F0       	 .byte -16
+ 324 002a 17       	 .byte 23
+ 325 002b B8       	 .byte -72
+ 326 002c 9B       	 .byte -101
+ 327 002d D4       	 .byte -44
+ 328 002e A0       	 .byte -96
+ 329 002f 5F       	 .byte 95
+ 330 0030 12       	 .byte 18
+ 331 0031 04       	 .byte 4
+ 332 0032 8A       	 .byte -118
+ 333 0033 A1       	 .byte -95
+ 334 0034 A7       	 .byte -89
+ 335 0035 96       	 .byte -106
+ 336 0036 E6       	 .byte -26
+ 337 0037 33       	 .byte 51
+ 338 0038 CA       	 .byte -54
+ 339 0039 48       	 .byte 72
+ 340 003a 84       	 .byte -124
+ 341 003b D9       	 .byte -39
+ 342 003c 00       	 .byte 0
+ 343 003d E4       	 .byte -28
+ 344 003e A3       	 .byte -93
+ 345 003f 8E       	 .byte -114
+ 346 0040 2F       	 .byte 47
+ 347 0041 6F       	 .byte 111
+ 348 0042 3F       	 .byte 63
+ 349 0043 6D       	 .byte 109
+ 350 0044 E0       	 .byte -32
+ 351 0045 1D       	 .byte 29
+ 352 0046 F8       	 .byte -8
+ 353 0047 EA       	 .byte -22
+ 354 0048 E0       	 .byte -32
+ 355 0049 95       	 .byte -107
+ 356 004a BA       	 .byte -70
+ 357 004b 63       	 .byte 99
+ 358 004c 15       	 .byte 21
+ 359 004d ED       	 .byte -19
+ 360 004e 7B       	 .byte 123
+ 361 004f 6A       	 .byte 106
+ 362 0050 B6       	 .byte -74
+ 363 0051 6E       	 .byte 110
+ 364 0052 20       	 .byte 32
+ 365 0053 17       	 .byte 23
+ 366 0054 B5       	 .byte -75
+ 367 0055 64       	 .byte 100
+ 368 0056 DE       	 .byte -34
+ 369 0057 49       	 .byte 73
+ 370 0058 64       	 .byte 100
+ 371 0059 97       	 .byte -105
+ 372 005a CA       	 .byte -54
+ 373 005b 5E       	 .byte 94
+ 374 005c 4D       	 .byte 77
+ 375 005d 84       	 .byte -124
+ 376 005e 63       	 .byte 99
+ 377 005f A0       	 .byte -96
+ 378 0060 F1       	 .byte -15
+ 379 0061 00       	 .byte 0
+ 380 0062 6C       	 .byte 108
+ 381 0063 EE       	 .byte -18
+ 382 0064 70       	 .byte 112
+ 383 0065 89       	 .byte -119
+ 384 0066 D5       	 .byte -43
+ 385 0067 6E       	 .byte 110
+ 386 0068 C5       	 .byte -59
+ 387 0069 05       	 .byte 5
+ 388 006a 31       	 .byte 49
+ 389 006b 0D       	 .byte 13
+ 390 006c AA       	 .byte -86
+ 391 006d B7       	 .byte -73
+ 392 006e BA       	 .byte -70
+ 393 006f A0       	 .byte -96
+ 394 0070 AA       	 .byte -86
+ 395 0071 BF       	 .byte -65
+ 396 0072 98       	 .byte -104
+ 397 0073 E8       	 .byte -24
+ 398 0074 39       	 .byte 57
+ 399 0075 93       	 .byte -109
+ 400 0076 70       	 .byte 112
+ 401 0077 07       	 .byte 7
+ 402 0078 2D       	 .byte 45
+ 403 0079 FF       	 .byte -1
+ 404 007a 42       	 .byte 66
+ 405 007b F9       	 .byte -7
+ 406 007c A4       	 .byte -92
+ 407 007d 6F       	 .byte 111
+ 408 007e 1B       	 .byte 27
+ 409 007f 00       	 .byte 0
+ 410              	 .section .rodata.rsa_public_key_exponent,"a",%progbits
+ 411              	 .align 2
+ 412              	 .set .LANCHOR2,.+0
+ 415              	rsa_public_key_exponent:
+ 416 0000 00       	 .byte 0
+ 417 0001 01       	 .byte 1
+ 418 0002 00       	 .byte 0
+ 419 0003 01       	 .byte 1
+ 420              	 .section .bss.rsa_public_key_length,"aw",%nobits
+ 421              	 .align 1
+ 422              	 .set .LANCHOR4,.+0
+ 425              	rsa_public_key_length:
+ 426 0000 0000     	 .space 2
+ 427              	 .section .bss.optiga_lib_status,"aw",%nobits
+ 428              	 .align 1
+ 429              	 .set .LANCHOR0,.+0
+ 432              	optiga_lib_status:
+ 433 0000 0000     	 .space 2
+ 434              	 .section .rodata.rsa_public_key_modulus,"a",%progbits
+ 435              	 .align 2
+ 436              	 .set .LANCHOR1,.+0
+ 439              	rsa_public_key_modulus:
+ 440 0000 A1       	 .byte -95
+ 441 0001 D4       	 .byte -44
+ 442 0002 6F       	 .byte 111
+ 443 0003 BA       	 .byte -70
+ 444 0004 23       	 .byte 35
+ 445 0005 18       	 .byte 24
+ 446 0006 F8       	 .byte -8
+ 447 0007 DC       	 .byte -36
+ 448 0008 EF       	 .byte -17
+ 449 0009 16       	 .byte 22
+ 450 000a C2       	 .byte -62
+ 451 000b 80       	 .byte -128
+ 452 000c 94       	 .byte -108
+ 453 000d 8B       	 .byte -117
+ 454 000e 1C       	 .byte 28
+ 455 000f F2       	 .byte -14
+ 456 0010 79       	 .byte 121
+ 457 0011 66       	 .byte 102
+ 458 0012 B9       	 .byte -71
+ 459 0013 B4       	 .byte -76
+ 460 0014 72       	 .byte 114
+ 461 0015 25       	 .byte 37
+ 462 0016 ED       	 .byte -19
+ 463 0017 29       	 .byte 41
+ 464 0018 89       	 .byte -119
+ 465 0019 F8       	 .byte -8
+ 466 001a D7       	 .byte -41
+ 467 001b 4B       	 .byte 75
+ 468 001c 45       	 .byte 69
+ 469 001d BD       	 .byte -67
+ 470 001e 36       	 .byte 54
+ 471 001f 04       	 .byte 4
+ 472 0020 9C       	 .byte -100
+ 473 0021 0A       	 .byte 10
+ 474 0022 AB       	 .byte -85
+ 475 0023 5A       	 .byte 90
+ 476 0024 D0       	 .byte -48
+ 477 0025 FF       	 .byte -1
+ 478 0026 00       	 .byte 0
+ 479 0027 35       	 .byte 53
+ 480 0028 53       	 .byte 83
+ 481 0029 BA       	 .byte -70
+ 482 002a 84       	 .byte -124
+ 483 002b 3C       	 .byte 60
+ 484 002c 8E       	 .byte -114
+ 485 002d 12       	 .byte 18
+ 486 002e 78       	 .byte 120
+ 487 002f 2F       	 .byte 47
+ 488 0030 C5       	 .byte -59
+ 489 0031 87       	 .byte -121
+ 490 0032 3B       	 .byte 59
+ 491 0033 B8       	 .byte -72
+ 492 0034 9A       	 .byte -102
+ 493 0035 3D       	 .byte 61
+ 494 0036 C8       	 .byte -56
+ 495 0037 4B       	 .byte 75
+ 496 0038 88       	 .byte -120
+ 497 0039 3D       	 .byte 61
+ 498 003a 25       	 .byte 37
+ 499 003b 66       	 .byte 102
+ 500 003c 6C       	 .byte 108
+ 501 003d D2       	 .byte -46
+ 502 003e 2B       	 .byte 43
+ 503 003f F3       	 .byte -13
+ 504 0040 AC       	 .byte -84
+ 505 0041 D5       	 .byte -43
+ 506 0042 B6       	 .byte -74
+ 507 0043 75       	 .byte 117
+ 508 0044 96       	 .byte -106
+ 509 0045 9F       	 .byte -97
+ 510 0046 8B       	 .byte -117
+ 511 0047 EB       	 .byte -21
+ 512 0048 FB       	 .byte -5
+ 513 0049 CA       	 .byte -54
+ 514 004a C9       	 .byte -55
+ 515 004b 3F       	 .byte 63
+ 516 004c DD       	 .byte -35
+ 517 004d 92       	 .byte -110
+ 518 004e 7C       	 .byte 124
+ 519 004f 74       	 .byte 116
+ 520 0050 42       	 .byte 66
+ 521 0051 B1       	 .byte -79
+ 522 0052 78       	 .byte 120
+ 523 0053 B1       	 .byte -79
+ 524 0054 0D       	 .byte 13
+ 525 0055 1D       	 .byte 29
+ 526 0056 FF       	 .byte -1
+ 527 0057 93       	 .byte -109
+ 528 0058 98       	 .byte -104
+ 529 0059 E5       	 .byte -27
+ 530 005a 23       	 .byte 35
+ 531 005b 16       	 .byte 22
+ 532 005c AA       	 .byte -86
+ 533 005d E0       	 .byte -32
+ 534 005e AF       	 .byte -81
+ 535 005f 74       	 .byte 116
+ 536 0060 E5       	 .byte -27
+ 537 0061 94       	 .byte -108
+ 538 0062 65       	 .byte 101
+ 539 0063 0B       	 .byte 11
+ 540 0064 DC       	 .byte -36
+ 541 0065 3C       	 .byte 60
+ 542 0066 67       	 .byte 103
+ 543 0067 02       	 .byte 2
+ 544 0068 41       	 .byte 65
+ 545 0069 D4       	 .byte -44
+ 546 006a 18       	 .byte 24
+ 547 006b 68       	 .byte 104
+ 548 006c 45       	 .byte 69
+ 549 006d 93       	 .byte -109
+ 550 006e CD       	 .byte -51
+ 551 006f A1       	 .byte -95
+ 552 0070 A7       	 .byte -89
+ 553 0071 B9       	 .byte -71
+ 554 0072 DC       	 .byte -36
+ 555 0073 4F       	 .byte 79
+ 556 0074 20       	 .byte 32
+ 557 0075 D2       	 .byte -46
+ 558 0076 FD       	 .byte -3
+ 559 0077 C6       	 .byte -58
+ 560 0078 F6       	 .byte -10
+ 561 0079 63       	 .byte 99
+ 562 007a 44       	 .byte 68
+ 563 007b 07       	 .byte 7
+ 564 007c 40       	 .byte 64
+ 565 007d 03       	 .byte 3
+ 566 007e E2       	 .byte -30
+ 567 007f 11       	 .byte 17
+ 568              	 .text
+ 569              	.Letext0:
+ 570              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 571              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 572              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_types.h"
+ 573              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_common.h"
+ 574              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/cmd/optiga_cmd.h"
+ 575              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_crypt.h"
+ 576              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/include/optiga_example.h"
+ 577              	 .file 9 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdio.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 example_optiga_crypt_rsa_verify.c
+    {standard input}:20     .text.optiga_crypt_callback:00000000 $t
+    {standard input}:24     .text.optiga_crypt_callback:00000000 optiga_crypt_callback
+    {standard input}:40     .text.optiga_crypt_callback:00000008 $d
+    {standard input}:45     .text.example_optiga_crypt_rsa_verify:00000000 $t
+    {standard input}:50     .text.example_optiga_crypt_rsa_verify:00000000 example_optiga_crypt_rsa_verify
+    {standard input}:214    .text.example_optiga_crypt_rsa_verify:000000c0 $d
+    {standard input}:228    .rodata.digest:00000000 $d
+    {standard input}:232    .rodata.digest:00000000 digest
+    {standard input}:266    .bss.rsa_public_key:00000000 $d
+    {standard input}:270    .bss.rsa_public_key:00000000 rsa_public_key
+    {standard input}:273    .rodata.str1.4:00000000 $d
+    {standard input}:277    .rodata.signature:00000000 $d
+    {standard input}:281    .rodata.signature:00000000 signature
+    {standard input}:411    .rodata.rsa_public_key_exponent:00000000 $d
+    {standard input}:415    .rodata.rsa_public_key_exponent:00000000 rsa_public_key_exponent
+    {standard input}:421    .bss.rsa_public_key_length:00000000 $d
+    {standard input}:425    .bss.rsa_public_key_length:00000000 rsa_public_key_length
+    {standard input}:428    .bss.optiga_lib_status:00000000 $d
+    {standard input}:432    .bss.optiga_lib_status:00000000 optiga_lib_status
+    {standard input}:435    .rodata.rsa_public_key_modulus:00000000 $d
+    {standard input}:439    .rodata.rsa_public_key_modulus:00000000 rsa_public_key_modulus
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+example_util_encode_rsa_public_key_in_bit_string_format
+example_optiga_init
+optiga_crypt_create
+example_performance_measurement
+optiga_crypt_rsa_verify
+example_optiga_deinit
+optiga_crypt_destroy
+sprintf
+performance_buffer_string

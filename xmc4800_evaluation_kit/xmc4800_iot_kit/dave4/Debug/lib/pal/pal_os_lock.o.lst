@@ -1,0 +1,252 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "pal_os_lock.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.pal_os_lock_create,"ax",%progbits
+  20              	 .align 2
+  21              	 .global pal_os_lock_create
+  22              	 .thumb
+  23              	 .thumb_func
+  25              	pal_os_lock_create:
+  26              	.LFB0:
+  27              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800/pal_os_lock.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * \copyright
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * MIT License
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * Copyright (c) 2020 Infineon Technologies AG
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** *
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * Permission is hereby granted, free of charge, to any person obtaining a copy
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * of this software and associated documentation files (the "Software"), to deal
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * in the Software without restriction, including without limitation the rights
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * copies of the Software, and to permit persons to whom the Software is
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * furnished to do so, subject to the following conditions:
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** *
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * The above copyright notice and this permission notice shall be included in all
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * copies or substantial portions of the Software.
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** *
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * SOFTWARE
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** *
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * \endcopyright
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** *
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * \author Infineon Technologies AG
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** *
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * \file pal_os_lock.c
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** *
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * \brief   This file implements the platform abstraction layer APIs for os locks (e.g. semaphore).
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** *
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * \ingroup  grPAL
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** *
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** * @{
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** */
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** 
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** #include "optiga/pal/pal_os_lock.h"
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** 
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** void pal_os_lock_create(pal_os_lock_t * p_lock, uint8_t lock_type)
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** {
+  28              	 .loc 1 41 0
+  29              	 .cfi_startproc
+  30              	 
+  31              	 
+  32              	 
+  33              	.LVL0:
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c ****     p_lock->type = lock_type;
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c ****     p_lock->lock = 0;
+  34              	 .loc 1 43 0
+  35 0000 0023     	 movs r3,#0
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c ****     p_lock->type = lock_type;
+  36              	 .loc 1 42 0
+  37 0002 4170     	 strb r1,[r0,#1]
+  38              	 .loc 1 43 0
+  39 0004 0370     	 strb r3,[r0]
+  40 0006 7047     	 bx lr
+  41              	 .cfi_endproc
+  42              	.LFE0:
+  44              	 .section .text.pal_os_lock_destroy,"ax",%progbits
+  45              	 .align 2
+  46              	 .global pal_os_lock_destroy
+  47              	 .thumb
+  48              	 .thumb_func
+  50              	pal_os_lock_destroy:
+  51              	.LFB1:
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** }
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** 
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** //lint --e{715} suppress "p_lock is not used here as it is placeholder for future." 
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** //lint --e{818} suppress "Not declared as pointer as nothing needs to be updated in the pointer."
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** void pal_os_lock_destroy(pal_os_lock_t * p_lock)
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** {
+  52              	 .loc 1 49 0
+  53              	 .cfi_startproc
+  54              	 
+  55              	 
+  56              	 
+  57              	.LVL1:
+  58 0000 7047     	 bx lr
+  59              	 .cfi_endproc
+  60              	.LFE1:
+  62 0002 00BF     	 .section .text.pal_os_lock_acquire,"ax",%progbits
+  63              	 .align 2
+  64              	 .global pal_os_lock_acquire
+  65              	 .thumb
+  66              	 .thumb_func
+  68              	pal_os_lock_acquire:
+  69              	.LFB2:
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c ****     
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** }
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** 
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** pal_status_t pal_os_lock_acquire(pal_os_lock_t * p_lock)
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** {
+  70              	 .loc 1 54 0
+  71              	 .cfi_startproc
+  72              	 
+  73              	 
+  74              	 
+  75              	.LVL2:
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c ****     pal_status_t return_status = PAL_STATUS_FAILURE;
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** 
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c ****     if (!(p_lock->lock))
+  76              	 .loc 1 57 0
+  77 0000 0378     	 ldrb r3,[r0]
+  78 0002 1BB9     	 cbnz r3,.L5
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c ****     {
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c ****         p_lock->lock++;
+  79              	 .loc 1 59 0
+  80 0004 0122     	 movs r2,#1
+  81 0006 0270     	 strb r2,[r0]
+  82              	.LVL3:
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c ****         if (1 != p_lock->lock)
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c ****         {
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c ****             p_lock->lock--;
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c ****         }
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c ****         return_status = PAL_STATUS_SUCCESS;
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c ****     }
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c ****     return return_status;
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** }
+  83              	 .loc 1 67 0
+  84 0008 1846     	 mov r0,r3
+  85              	.LVL4:
+  86 000a 7047     	 bx lr
+  87              	.LVL5:
+  88              	.L5:
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** 
+  89              	 .loc 1 55 0
+  90 000c 0123     	 movs r3,#1
+  91              	.LVL6:
+  92              	 .loc 1 67 0
+  93 000e 1846     	 mov r0,r3
+  94              	.LVL7:
+  95 0010 7047     	 bx lr
+  96              	 .cfi_endproc
+  97              	.LFE2:
+  99 0012 00BF     	 .section .text.pal_os_lock_release,"ax",%progbits
+ 100              	 .align 2
+ 101              	 .global pal_os_lock_release
+ 102              	 .thumb
+ 103              	 .thumb_func
+ 105              	pal_os_lock_release:
+ 106              	.LFB3:
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** 
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** void pal_os_lock_release(pal_os_lock_t * p_lock)
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** {
+ 107              	 .loc 1 70 0
+ 108              	 .cfi_startproc
+ 109              	 
+ 110              	 
+ 111              	 
+ 112              	.LVL8:
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c ****     if (0 != p_lock->lock)
+ 113              	 .loc 1 71 0
+ 114 0000 0378     	 ldrb r3,[r0]
+ 115 0002 0BB1     	 cbz r3,.L7
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c ****     {
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c ****         p_lock->lock--;
+ 116              	 .loc 1 73 0
+ 117 0004 013B     	 subs r3,r3,#1
+ 118 0006 0370     	 strb r3,[r0]
+ 119              	.L7:
+ 120 0008 7047     	 bx lr
+ 121              	 .cfi_endproc
+ 122              	.LFE3:
+ 124 000a 00BF     	 .section .text.pal_os_lock_enter_critical_section,"ax",%progbits
+ 125              	 .align 2
+ 126              	 .global pal_os_lock_enter_critical_section
+ 127              	 .thumb
+ 128              	 .thumb_func
+ 130              	pal_os_lock_enter_critical_section:
+ 131              	.LFB4:
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c ****     }
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** }
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** 
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** void pal_os_lock_enter_critical_section()
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** {
+ 132              	 .loc 1 78 0
+ 133              	 .cfi_startproc
+ 134              	 
+ 135              	 
+ 136              	 
+ 137 0000 7047     	 bx lr
+ 138              	 .cfi_endproc
+ 139              	.LFE4:
+ 141 0002 00BF     	 .section .text.pal_os_lock_exit_critical_section,"ax",%progbits
+ 142              	 .align 2
+ 143              	 .global pal_os_lock_exit_critical_section
+ 144              	 .thumb
+ 145              	 .thumb_func
+ 147              	pal_os_lock_exit_critical_section:
+ 148              	.LFB5:
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** }
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** 
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** void pal_os_lock_exit_critical_section()
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_lock.c **** {
+ 149              	 .loc 1 82 0
+ 150              	 .cfi_startproc
+ 151              	 
+ 152              	 
+ 153              	 
+ 154 0000 7047     	 bx lr
+ 155              	 .cfi_endproc
+ 156              	.LFE5:
+ 158 0002 00BF     	 .text
+ 159              	.Letext0:
+ 160              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 161              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 162              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal.h"
+ 163              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal_os_lock.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 pal_os_lock.c
+    {standard input}:20     .text.pal_os_lock_create:00000000 $t
+    {standard input}:25     .text.pal_os_lock_create:00000000 pal_os_lock_create
+    {standard input}:45     .text.pal_os_lock_destroy:00000000 $t
+    {standard input}:50     .text.pal_os_lock_destroy:00000000 pal_os_lock_destroy
+    {standard input}:63     .text.pal_os_lock_acquire:00000000 $t
+    {standard input}:68     .text.pal_os_lock_acquire:00000000 pal_os_lock_acquire
+    {standard input}:100    .text.pal_os_lock_release:00000000 $t
+    {standard input}:105    .text.pal_os_lock_release:00000000 pal_os_lock_release
+    {standard input}:125    .text.pal_os_lock_enter_critical_section:00000000 $t
+    {standard input}:130    .text.pal_os_lock_enter_critical_section:00000000 pal_os_lock_enter_critical_section
+    {standard input}:142    .text.pal_os_lock_exit_critical_section:00000000 $t
+    {standard input}:147    .text.pal_os_lock_exit_critical_section:00000000 pal_os_lock_exit_critical_section
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

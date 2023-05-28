@@ -1,0 +1,519 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "example_read_coprocessor_id.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.optiga_lib_callback,"ax",%progbits
+  20              	 .align 2
+  21              	 .thumb
+  22              	 .thumb_func
+  24              	optiga_lib_callback:
+  25              	.LFB0:
+  26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases/example_read_coprocessor_id.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * \copyright
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * MIT License
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * Copyright (c) 2020 Infineon Technologies AG
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** *
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * Permission is hereby granted, free of charge, to any person obtaining a copy
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * of this software and associated documentation files (the "Software"), to deal
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * in the Software without restriction, including without limitation the rights
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * copies of the Software, and to permit persons to whom the Software is
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * furnished to do so, subject to the following conditions:
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** *
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * The above copyright notice and this permission notice shall be included in all
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * copies or substantial portions of the Software.
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** *
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * SOFTWARE
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** *
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * \endcopyright
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** *
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * \author Infineon Technologies AG
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** *
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * \file example_read_coprocessor_id.c
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** *
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * \brief   This file provides an example for reading the Coprocessor ID and displaying it's fields.
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** *
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * \ingroup grUseCases
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** *
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** * @{
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** */
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** #include "optiga/optiga_util.h"
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** #include "optiga_example.h"
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** #include "optiga/pal/pal_logger.h"
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** #include "optiga/pal/pal_os_memory.h"
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** extern void example_optiga_init(void);
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** extern void example_optiga_deinit(void);
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** #endif
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** extern pal_logger_t logger_console;
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** /**
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****  * Callback when optiga_util_xxxx operation is completed asynchronously
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****  */
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** static volatile optiga_lib_status_t optiga_lib_status;
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** //lint --e{818} suppress "argument "context" is not used in the sample provided"
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** static void optiga_lib_callback(void * context, optiga_lib_status_t return_status)
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** {
+  27              	 .loc 1 56 0
+  28              	 .cfi_startproc
+  29              	 
+  30              	 
+  31              	 
+  32              	.LVL0:
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     optiga_lib_status = return_status;
+  33              	 .loc 1 57 0
+  34 0000 014B     	 ldr r3,.L2
+  35 0002 1980     	 strh r1,[r3]
+  36 0004 7047     	 bx lr
+  37              	.L3:
+  38 0006 00BF     	 .align 2
+  39              	.L2:
+  40 0008 00000000 	 .word .LANCHOR0
+  41              	 .cfi_endproc
+  42              	.LFE0:
+  44              	 .section .text.example_read_coprocessor_id,"ax",%progbits
+  45              	 .align 2
+  46              	 .global example_read_coprocessor_id
+  47              	 .thumb
+  48              	 .thumb_func
+  50              	example_read_coprocessor_id:
+  51              	.LFB1:
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     if (NULL != context)
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     {
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         // callback to upper layer here
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     }
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** }
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** #if defined (OPTIGA_LIB_ENABLE_EXAMPLE_LOGGING)
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** /*Convert Byte to HexString */
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** #define OPTIGA_LOGGER_CONVERT_BYTE_TO_HEX(hex_byte, p_hex_string, index) \
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** { \
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     uint8_t nibble;                       \
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     nibble = (hex_byte & 0xF0)>>4;         \
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     p_hex_string [index++] = ((nibble > 0x09)) ? (nibble + 0x37) : (nibble + 0x30); \
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     nibble = hex_byte & 0x0F;         \
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     p_hex_string [index++] = ((nibble > 0x09)) ? (nibble + 0x37) : (nibble + 0x30); \
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** }
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** /* Converts the uint8 array to hex string format */
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** static void optiga_lib_byte_to_hex_string(const uint8_t * p_array_buffer,
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****                                              uint8_t * p_hex_string,
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****                                              uint32_t length,
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****                                              bool_t is_input_byte_array)
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** {
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     uint32_t loop = 0;
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     uint8_t hex_byte = 0, index = 0;
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     do
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     {
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         if ((NULL == p_array_buffer) || (NULL == p_hex_string))
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         {
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****             return;
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         }
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         for (loop = 0; loop < length; loop++)
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         {
+  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****             index = 0;
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****             hex_byte = p_array_buffer[loop];
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****             if (TRUE == is_input_byte_array)
+  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****             {
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****                 p_hex_string [index++] = '0';
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****                 p_hex_string [index++] = 'x';
+  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****             }
+ 100:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+ 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****             /*Convert Byte to HexString */
+ 102:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****             OPTIGA_LOGGER_CONVERT_BYTE_TO_HEX(hex_byte,p_hex_string, index);
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****             
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****             p_hex_string [index++] = ' ';
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****             p_hex_string += index;
+ 106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         }
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         *p_hex_string = 0x00;
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     } while(0);
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** }
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+ 111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** static void optiga_lib_print_coprocessor_data(const uint8_t * p_log_string,
+ 112:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****                                               uint16_t length,
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****                                               const char_t * p_log_color)
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** {
+ 115:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     uint8_t temp_buffer[100];
+ 116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     char_t output_buffer[100];
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     uint16_t index;
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     uint16_t temp_length;
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     uint8_t new_line_characters[2] = {0x0D, 0x0A};
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     uint8_t buffer_window = 32; // Alignment of 16 bytes per line
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     //Logging the arrays in chunks of 16 bytes through chaining
+ 123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     for (index = 0; index < length; index+=buffer_window)
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     {
+ 125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         temp_length = buffer_window;
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         if ((length - index) < buffer_window)
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         {
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****             temp_length =  length - index;
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         }
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         pal_os_memset(temp_buffer, 0x00, sizeof(temp_buffer));
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         pal_os_memset(output_buffer, 0x00, sizeof(output_buffer));
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+ 134:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         optiga_lib_byte_to_hex_string((uint8_t*)(p_log_string + index), temp_buffer, temp_length, F
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+ 136:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         sprintf((char_t *)output_buffer, "%s%s%s", p_log_color, temp_buffer, OPTIGA_LIB_LOGGER_COLO
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+ 138:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         // New line characted entered at the end of each segment
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         output_buffer[strlen(output_buffer)] = (char_t)new_line_characters[0];
+ 140:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         output_buffer[strlen(output_buffer)+1] = (char_t)new_line_characters[1];
+ 141:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         //lint --e{534} The return value is not used hence not checked*/
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         pal_logger_write(&logger_console, (const uint8_t *)output_buffer, strlen(output_buffer) + 2
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     }
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** }
+ 145:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** static void optiga_lib_print_coprocessor_components(const char_t * p_log_string,
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****                                                     const uint8_t * p_log_array,
+ 148:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****                                                     uint16_t length)
+ 149:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** {
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     char_t color_buffer[100];
+ 151:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     OPTIGA_LIB_LOGGER_PRINT_INFO(color_buffer, p_log_string, OPTIGA_EXAMPLE, OPTIGA_EXAMPLE_COLOR);
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     //lint --e{534} The return value is not used hence not checked*/
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     pal_logger_write(&logger_console, (const uint8_t *)color_buffer, strlen(color_buffer));
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     optiga_lib_print_coprocessor_data(p_log_array, length, OPTIGA_EXAMPLE_COLOR);
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** }
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+ 158:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** #define OPTIGA_EXAMPLE_LOG_COPROCESSOR_ID_INFO(msg, array, length) \
+ 159:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****                                                optiga_lib_print_coprocessor_components(msg, array, 
+ 160:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** #else
+ 161:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** #define OPTIGA_EXAMPLE_LOG_COPROCESSOR_ID_INFO(msg, array, length)
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** #endif
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** /**
+ 165:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****  * The below example demonstrates reading of Coprocessor ID and displaying it's individual componen
+ 166:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****  *
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****  * Preconditions: The optiga_util_open_application must be executed before invoking the below examp
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****  *
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****  */
+ 170:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** void example_read_coprocessor_id(void)
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** {  
+  52              	 .loc 1 171 0
+  53              	 .cfi_startproc
+  54              	 
+  55              	 
+  56 0000 70B5     	 push {r4,r5,r6,lr}
+  57              	.LCFI0:
+  58              	 .cfi_def_cfa_offset 16
+  59              	 .cfi_offset 4,-16
+  60              	 .cfi_offset 5,-12
+  61              	 .cfi_offset 6,-8
+  62              	 .cfi_offset 14,-4
+  63 0002 8CB0     	 sub sp,sp,#48
+  64              	.LCFI1:
+  65              	 .cfi_def_cfa_offset 64
+ 172:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     uint32_t time_taken = 0;    
+  66              	 .loc 1 172 0
+  67 0004 0025     	 movs r5,#0
+  68 0006 0395     	 str r5,[sp,#12]
+  69              	.LVL1:
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     uint16_t bytes_to_read;
+ 174:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     uint8_t coprocessor_uid[32];
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+ 176:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     optiga_util_t * me_util = NULL;
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+ 178:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+ 180:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     do
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     {
+ 182:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         /**
+ 185:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****          * Open the application on OPTIGA which is a precondition to perform any other operations
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****          * using optiga_util_open_application
+ 187:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****          */
+ 188:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         example_optiga_init();
+  70              	 .loc 1 188 0
+  71 0008 FFF7FEFF 	 bl example_optiga_init
+  72              	.LVL2:
+ 189:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         
+ 191:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         OPTIGA_EXAMPLE_LOG_MESSAGE(__FUNCTION__);
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         /**
+ 193:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****          * 1. Create OPTIGA Util Instance
+ 194:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****          */
+ 195:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         me_util = optiga_util_create(0, optiga_lib_callback, NULL);
+  73              	 .loc 1 195 0
+  74 000c 2846     	 mov r0,r5
+  75 000e 2A46     	 mov r2,r5
+  76 0010 2349     	 ldr r1,.L20
+  77 0012 FFF7FEFF 	 bl optiga_util_create
+  78              	.LVL3:
+ 196:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         if (NULL == me_util)
+  79              	 .loc 1 196 0
+  80 0016 0646     	 mov r6,r0
+  81 0018 0028     	 cmp r0,#0
+  82 001a 2FD0     	 beq .L5
+ 197:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         {
+ 198:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****             break;
+ 199:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         }
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+ 201:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         /**
+ 202:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****          * 2. Read Coprocessor UID (0xE0C2) data object from OPTIGA
+ 203:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****          *    using optiga_util_read_data.
+ 204:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****          */
+ 205:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         bytes_to_read = sizeof(coprocessor_uid);
+ 206:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+  83              	 .loc 1 206 0
+  84 001c 0123     	 movs r3,#1
+  85 001e 214C     	 ldr r4,.L20+4
+ 207:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         
+ 208:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         START_PERFORMANCE_MEASUREMENT(time_taken);
+  86              	 .loc 1 208 0
+  87 0020 1946     	 mov r1,r3
+ 205:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+  88              	 .loc 1 205 0
+  89 0022 2022     	 movs r2,#32
+  90              	 .loc 1 208 0
+  91 0024 03A8     	 add r0,sp,#12
+  92              	.LVL4:
+ 206:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         
+  93              	 .loc 1 206 0
+  94 0026 2380     	 strh r3,[r4]
+ 205:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+  95              	 .loc 1 205 0
+  96 0028 ADF80A20 	 strh r2,[sp,#10]
+  97              	 .loc 1 208 0
+  98 002c FFF7FEFF 	 bl example_performance_measurement
+  99              	.LVL5:
+ 209:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         
+ 210:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         return_status = optiga_util_read_data(me_util,
+ 100              	 .loc 1 210 0
+ 101 0030 0DF10A03 	 add r3,sp,#10
+ 102 0034 0093     	 str r3,[sp]
+ 103 0036 2A46     	 mov r2,r5
+ 104 0038 3046     	 mov r0,r6
+ 105 003a 4EF2C201 	 movw r1,#57538
+ 106 003e 04AB     	 add r3,sp,#16
+ 107 0040 FFF7FEFF 	 bl optiga_util_read_data
+ 108              	.LVL6:
+ 211:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****                                               0xE0C2,
+ 212:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****                                               0x0000,
+ 213:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****                                               coprocessor_uid,
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****                                               &bytes_to_read);
+ 215:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** 
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 109              	 .loc 1 216 0
+ 110 0044 30B1     	 cbz r0,.L7
+ 111              	.LVL7:
+ 217:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         READ_PERFORMANCE_MEASUREMENT(time_taken);
+ 219:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         
+ 220:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 221:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         OPTIGA_EXAMPLE_LOG_MESSAGE("Coprocessor UID components are mentioned below:\n");
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         OPTIGA_EXAMPLE_LOG_COPROCESSOR_ID_INFO("CIM Identifier                       : ", &coproces
+ 223:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         OPTIGA_EXAMPLE_LOG_COPROCESSOR_ID_INFO("Platform Identifier                  : ", &coproces
+ 224:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         OPTIGA_EXAMPLE_LOG_COPROCESSOR_ID_INFO("Model Identifier                     : ", &coproces
+ 225:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         OPTIGA_EXAMPLE_LOG_COPROCESSOR_ID_INFO("ROM mask ID                          : ", &coproces
+ 226:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         OPTIGA_EXAMPLE_LOG_COPROCESSOR_ID_INFO("Chip type                            : ", &coproces
+ 227:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         OPTIGA_EXAMPLE_LOG_COPROCESSOR_ID_INFO("Batch number                         : ", &coproces
+ 228:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         OPTIGA_EXAMPLE_LOG_COPROCESSOR_ID_INFO("Chip position on wafer: X-coordinate : ", &coproces
+ 229:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         OPTIGA_EXAMPLE_LOG_COPROCESSOR_ID_INFO("Chip position on wafer: Y-coordinate : ", &coproces
+ 230:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         OPTIGA_EXAMPLE_LOG_COPROCESSOR_ID_INFO("Firmware Identifier                  : ", &coproces
+ 231:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         OPTIGA_EXAMPLE_LOG_COPROCESSOR_ID_INFO("ESW build number, BCD coded          : ", &coproces
+ 232:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         optiga_lib_print_string_with_newline("");
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     } while(FALSE);
+ 234:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 235:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     
+ 236:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 237:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     /**
+ 238:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****      * Close the application on OPTIGA after all the operations are executed
+ 239:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****      * using optiga_util_close_application
+ 240:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****      */
+ 241:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     example_optiga_deinit();
+ 112              	 .loc 1 241 0
+ 113 0046 FFF7FEFF 	 bl example_optiga_deinit
+ 114              	.LVL8:
+ 115              	.L11:
+ 242:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 243:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     OPTIGA_EXAMPLE_LOG_PERFORMANCE_VALUE(time_taken, return_status);
+ 244:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     
+ 245:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     if(me_util)
+ 246:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     {
+ 247:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         //Destroy the instance after the completion of usecase if not required.
+ 248:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         return_status = optiga_util_destroy(me_util);
+ 116              	 .loc 1 248 0
+ 117 004a 3046     	 mov r0,r6
+ 118 004c FFF7FEFF 	 bl optiga_util_destroy
+ 119              	.LVL9:
+ 249:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 250:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         {
+ 251:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****             //lint --e{774} suppress This is a generic macro
+ 252:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****             OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 253:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         }
+ 254:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     }
+ 255:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** }
+ 120              	 .loc 1 255 0
+ 121 0050 0CB0     	 add sp,sp,#48
+ 122              	.LCFI2:
+ 123              	 .cfi_remember_state
+ 124              	 .cfi_def_cfa_offset 16
+ 125              	 
+ 126 0052 70BD     	 pop {r4,r5,r6,pc}
+ 127              	.LVL10:
+ 128              	.L7:
+ 129              	.LCFI3:
+ 130              	 .cfi_restore_state
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         
+ 131              	 .loc 1 216 0 discriminator 1
+ 132 0054 2388     	 ldrh r3,[r4]
+ 133 0056 134A     	 ldr r2,.L20+4
+ 134 0058 9BB2     	 uxth r3,r3
+ 135 005a 012B     	 cmp r3,#1
+ 136 005c FAD0     	 beq .L7
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         
+ 137              	 .loc 1 216 0 is_stmt 0 discriminator 2
+ 138 005e 1188     	 ldrh r1,[r2]
+ 139 0060 89B2     	 uxth r1,r1
+ 140 0062 79B1     	 cbz r1,.L8
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         
+ 141              	 .loc 1 216 0 discriminator 3
+ 142 0064 1488     	 ldrh r4,[r2]
+ 143 0066 A4B2     	 uxth r4,r4
+ 144              	.LVL11:
+ 241:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 145              	 .loc 1 241 0 is_stmt 1 discriminator 3
+ 146 0068 FFF7FEFF 	 bl example_optiga_deinit
+ 147              	.LVL12:
+ 243:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     
+ 148              	 .loc 1 243 0 discriminator 3
+ 149 006c 002C     	 cmp r4,#0
+ 150 006e ECD1     	 bne .L11
+ 151              	.LVL13:
+ 243:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     
+ 152              	 .loc 1 243 0 is_stmt 0 discriminator 1
+ 153 0070 0D49     	 ldr r1,.L20+8
+ 154 0072 039A     	 ldr r2,[sp,#12]
+ 155 0074 0D48     	 ldr r0,.L20+12
+ 156 0076 FFF7FEFF 	 bl sprintf
+ 157              	.LVL14:
+ 158 007a E6E7     	 b .L11
+ 159              	.LVL15:
+ 160              	.L5:
+ 241:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 161              	 .loc 1 241 0 is_stmt 1
+ 162 007c FFF7FEFF 	 bl example_optiga_deinit
+ 163              	.LVL16:
+ 164              	 .loc 1 255 0
+ 165 0080 0CB0     	 add sp,sp,#48
+ 166              	.LCFI4:
+ 167              	 .cfi_remember_state
+ 168              	 .cfi_def_cfa_offset 16
+ 169              	 
+ 170 0082 70BD     	 pop {r4,r5,r6,pc}
+ 171              	.LVL17:
+ 172              	.L8:
+ 173              	.LCFI5:
+ 174              	 .cfi_restore_state
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****         
+ 175              	 .loc 1 218 0
+ 176 0084 03A8     	 add r0,sp,#12
+ 177              	.LVL18:
+ 178 0086 FFF7FEFF 	 bl example_performance_measurement
+ 179              	.LVL19:
+ 232:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     } while(FALSE);
+ 180              	 .loc 1 232 0
+ 181 008a 0948     	 ldr r0,.L20+16
+ 182 008c FFF7FEFF 	 bl optiga_lib_print_string_with_newline
+ 183              	.LVL20:
+ 241:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 184              	 .loc 1 241 0
+ 185 0090 FFF7FEFF 	 bl example_optiga_deinit
+ 186              	.LVL21:
+ 243:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_read_coprocessor_id.c ****     
+ 187              	 .loc 1 243 0
+ 188 0094 0449     	 ldr r1,.L20+8
+ 189 0096 039A     	 ldr r2,[sp,#12]
+ 190 0098 0448     	 ldr r0,.L20+12
+ 191 009a FFF7FEFF 	 bl sprintf
+ 192              	.LVL22:
+ 193 009e D4E7     	 b .L11
+ 194              	.L21:
+ 195              	 .align 2
+ 196              	.L20:
+ 197 00a0 00000000 	 .word optiga_lib_callback
+ 198 00a4 00000000 	 .word .LANCHOR0
+ 199 00a8 04000000 	 .word .LC1
+ 200 00ac 00000000 	 .word performance_buffer_string
+ 201 00b0 00000000 	 .word .LC0
+ 202              	 .cfi_endproc
+ 203              	.LFE1:
+ 205              	 .section .rodata.str1.4,"aMS",%progbits,1
+ 206              	 .align 2
+ 207              	.LC0:
+ 208 0000 00       	 .ascii "\000"
+ 209 0001 000000   	 .space 3
+ 210              	.LC1:
+ 211 0004 4578616D 	 .ascii "Example takes %d msec\000"
+ 211      706C6520 
+ 211      74616B65 
+ 211      73202564 
+ 211      206D7365 
+ 212 001a 0000     	 .section .bss.optiga_lib_status,"aw",%nobits
+ 213              	 .align 1
+ 214              	 .set .LANCHOR0,.+0
+ 217              	optiga_lib_status:
+ 218 0000 0000     	 .space 2
+ 219              	 .text
+ 220              	.Letext0:
+ 221              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 222              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 223              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_types.h"
+ 224              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_common.h"
+ 225              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/cmd/optiga_cmd.h"
+ 226              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_util.h"
+ 227              	 .file 8 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdio.h"
+ 228              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/include/optiga_example.h"
+ 229              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_logger.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 example_read_coprocessor_id.c
+    {standard input}:20     .text.optiga_lib_callback:00000000 $t
+    {standard input}:24     .text.optiga_lib_callback:00000000 optiga_lib_callback
+    {standard input}:40     .text.optiga_lib_callback:00000008 $d
+    {standard input}:45     .text.example_read_coprocessor_id:00000000 $t
+    {standard input}:50     .text.example_read_coprocessor_id:00000000 example_read_coprocessor_id
+    {standard input}:197    .text.example_read_coprocessor_id:000000a0 $d
+    {standard input}:206    .rodata.str1.4:00000000 $d
+    {standard input}:213    .bss.optiga_lib_status:00000000 $d
+    {standard input}:217    .bss.optiga_lib_status:00000000 optiga_lib_status
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+example_optiga_init
+optiga_util_create
+example_performance_measurement
+optiga_util_read_data
+example_optiga_deinit
+optiga_util_destroy
+sprintf
+optiga_lib_print_string_with_newline
+performance_buffer_string

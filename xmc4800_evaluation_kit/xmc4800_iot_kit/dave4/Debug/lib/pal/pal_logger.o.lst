@@ -1,0 +1,573 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "pal_logger.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.cunit_console_uart_end_of_transmit_callback,"ax",%progbits
+  20              	 .align 2
+  21              	 .global cunit_console_uart_end_of_transmit_callback
+  22              	 .thumb
+  23              	 .thumb_func
+  25              	cunit_console_uart_end_of_transmit_callback:
+  26              	.LFB448:
+  27              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800/pal_logger.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** * \copyright
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** * MIT License
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** * Copyright (c) 2020 Infineon Technologies AG
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** *
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** * Permission is hereby granted, free of charge, to any person obtaining a copy
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** * of this software and associated documentation files (the "Software"), to deal
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** * in the Software without restriction, including without limitation the rights
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** * copies of the Software, and to permit persons to whom the Software is
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** * furnished to do so, subject to the following conditions:
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** *
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** * The above copyright notice and this permission notice shall be included in all
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** * copies or substantial portions of the Software.
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** *
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** * SOFTWARE
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** *
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** * \endcopyright
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** *
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** * \author Infineon Technologies AG
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****  *
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****  * \file    pal_logger.c
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****  *
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****  * \brief   This file provides the prototypes declarations for pal logger.
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****  *
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****  * \ingroup grPAL
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****  *
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****  * @{
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****  */
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** #include <DAVE.h>
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** #include "optiga/pal/pal_logger.h"
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** /// @cond hidden
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** //lint --e{552,714} suppress "Accessed by user of this structure" 
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** pal_logger_t logger_console =
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** {
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         .logger_config_ptr = NULL,
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         .logger_rx_flag = 1,
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         .logger_tx_flag = 1
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** };
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** //lint --e{552} suppress "Accessed by user of this structure"
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** pal_logger_t cunit_console =
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** {
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         .logger_config_ptr = (void*)(&cunit_logger),
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         .logger_rx_flag = 1,
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         .logger_tx_flag = 1
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** };
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** void cunit_console_uart_end_of_transmit_callback(void)
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** {
+  28              	 .loc 1 58 0
+  29              	 .cfi_startproc
+  30              	 
+  31              	 
+  32              	 
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     cunit_console.logger_tx_flag = 0;
+  33              	 .loc 1 59 0
+  34 0000 014B     	 ldr r3,.L2
+  35 0002 0022     	 movs r2,#0
+  36 0004 5A71     	 strb r2,[r3,#5]
+  37 0006 7047     	 bx lr
+  38              	.L3:
+  39              	 .align 2
+  40              	.L2:
+  41 0008 00000000 	 .word .LANCHOR0
+  42              	 .cfi_endproc
+  43              	.LFE448:
+  45              	 .section .text.cunit_console_uart_end_of_receive_callback,"ax",%progbits
+  46              	 .align 2
+  47              	 .global cunit_console_uart_end_of_receive_callback
+  48              	 .thumb
+  49              	 .thumb_func
+  51              	cunit_console_uart_end_of_receive_callback:
+  52              	.LFB449:
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** }
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** void cunit_console_uart_end_of_receive_callback(void)
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** {
+  53              	 .loc 1 63 0
+  54              	 .cfi_startproc
+  55              	 
+  56              	 
+  57              	 
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     cunit_console.logger_rx_flag = 0;
+  58              	 .loc 1 64 0
+  59 0000 014B     	 ldr r3,.L5
+  60 0002 0022     	 movs r2,#0
+  61 0004 1A71     	 strb r2,[r3,#4]
+  62 0006 7047     	 bx lr
+  63              	.L6:
+  64              	 .align 2
+  65              	.L5:
+  66 0008 00000000 	 .word .LANCHOR0
+  67              	 .cfi_endproc
+  68              	.LFE449:
+  70              	 .section .text.pal_logger_init,"ax",%progbits
+  71              	 .align 2
+  72              	 .global pal_logger_init
+  73              	 .thumb
+  74              	 .thumb_func
+  76              	pal_logger_init:
+  77              	.LFB450:
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** }
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** /// @endcond
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** pal_status_t pal_logger_init(void * p_logger_context)
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** {
+  78              	 .loc 1 71 0
+  79              	 .cfi_startproc
+  80              	 
+  81              	 
+  82              	.LVL0:
+  83 0000 08B5     	 push {r3,lr}
+  84              	.LCFI0:
+  85              	 .cfi_def_cfa_offset 8
+  86              	 .cfi_offset 3,-8
+  87              	 .cfi_offset 14,-4
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     pal_status_t return_status = PAL_STATUS_FAILURE;
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     pal_logger_t * p_log_context = p_logger_context;
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     do
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     {
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         // The instance of VMCOMS is internally declared
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         if(NULL == p_log_context->logger_config_ptr)
+  88              	 .loc 1 78 0
+  89 0002 0368     	 ldr r3,[r0]
+  90 0004 0BB1     	 cbz r3,.L8
+  91              	.LVL1:
+  92              	.L11:
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         {
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             if(USBD_VCOM_STATUS_SUCCESS != USBD_VCOM_Connect())
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             {
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****                 break;
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             }
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             while(!USBD_VCOM_IsEnumDone()){};
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             return_status = PAL_STATUS_SUCCESS;
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         }
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         else
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         {
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             return_status = PAL_STATUS_SUCCESS;
+  93              	 .loc 1 90 0
+  94 0006 0020     	 movs r0,#0
+  95 0008 08BD     	 pop {r3,pc}
+  96              	.LVL2:
+  97              	.L8:
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             {
+  98              	 .loc 1 80 0
+  99 000a FFF7FEFF 	 bl USBD_VCOM_Connect
+ 100              	.LVL3:
+ 101 000e 20B9     	 cbnz r0,.L12
+ 102              	.L10:
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             return_status = PAL_STATUS_SUCCESS;
+ 103              	 .loc 1 85 0 discriminator 1
+ 104 0010 FFF7FEFF 	 bl USBD_VCOM_IsEnumDone
+ 105              	.LVL4:
+ 106 0014 0028     	 cmp r0,#0
+ 107 0016 FBD0     	 beq .L10
+ 108 0018 F5E7     	 b .L11
+ 109              	.L12:
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     pal_logger_t * p_log_context = p_logger_context;
+ 110              	 .loc 1 72 0
+ 111 001a 0120     	 movs r0,#1
+ 112              	.LVL5:
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         }
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     }while(FALSE);
+  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     return return_status;
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** }
+ 113              	 .loc 1 94 0
+ 114 001c 08BD     	 pop {r3,pc}
+ 115              	 .cfi_endproc
+ 116              	.LFE450:
+ 118 001e 00BF     	 .section .text.pal_logger_deinit,"ax",%progbits
+ 119              	 .align 2
+ 120              	 .global pal_logger_deinit
+ 121              	 .thumb
+ 122              	 .thumb_func
+ 124              	pal_logger_deinit:
+ 125              	.LFB451:
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** pal_status_t pal_logger_deinit(void * p_logger_context)
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** {
+ 126              	 .loc 1 98 0
+ 127              	 .cfi_startproc
+ 128              	 
+ 129              	 
+ 130              	.LVL6:
+ 131 0000 08B5     	 push {r3,lr}
+ 132              	.LCFI1:
+ 133              	 .cfi_def_cfa_offset 8
+ 134              	 .cfi_offset 3,-8
+ 135              	 .cfi_offset 14,-4
+  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     pal_status_t return_status = PAL_STATUS_FAILURE;
+ 100:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     pal_logger_t * p_log_context = p_logger_context;
+ 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+ 102:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     do
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     {
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         // The instance of VMCOMS is internally declared
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         if(NULL == p_log_context->logger_config_ptr)
+ 136              	 .loc 1 105 0
+ 137 0002 0368     	 ldr r3,[r0]
+ 138 0004 0BB1     	 cbz r3,.L20
+ 139              	.LVL7:
+ 106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         {
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             //lint --e{534} suppress "The return status of USBD_VCOM_Disconnect is not required to 
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             USBD_VCOM_Disconnect();
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             return_status = PAL_STATUS_SUCCESS;
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         }
+ 111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         else
+ 112:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         {
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             return_status = PAL_STATUS_SUCCESS;
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         }
+ 115:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     }while(FALSE);
+ 116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     return return_status;
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** }
+ 140              	 .loc 1 117 0
+ 141 0006 0020     	 movs r0,#0
+ 142              	.LVL8:
+ 143 0008 08BD     	 pop {r3,pc}
+ 144              	.LVL9:
+ 145              	.L20:
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             return_status = PAL_STATUS_SUCCESS;
+ 146              	 .loc 1 108 0
+ 147 000a FFF7FEFF 	 bl USBD_VCOM_Disconnect
+ 148              	.LVL10:
+ 149              	 .loc 1 117 0
+ 150 000e 0020     	 movs r0,#0
+ 151 0010 08BD     	 pop {r3,pc}
+ 152              	 .cfi_endproc
+ 153              	.LFE451:
+ 155 0012 00BF     	 .section .text.pal_logger_write,"ax",%progbits
+ 156              	 .align 2
+ 157              	 .global pal_logger_write
+ 158              	 .thumb
+ 159              	 .thumb_func
+ 161              	pal_logger_write:
+ 162              	.LFB452:
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** pal_status_t pal_logger_write(void * p_logger_context, const uint8_t * p_log_data, uint32_t log_dat
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** {
+ 163              	 .loc 1 121 0
+ 164              	 .cfi_startproc
+ 165              	 
+ 166              	 
+ 167              	.LVL11:
+ 168 0000 38B5     	 push {r3,r4,r5,lr}
+ 169              	.LCFI2:
+ 170              	 .cfi_def_cfa_offset 16
+ 171              	 .cfi_offset 3,-16
+ 172              	 .cfi_offset 4,-12
+ 173              	 .cfi_offset 5,-8
+ 174              	 .cfi_offset 14,-4
+ 175              	 .loc 1 121 0
+ 176 0002 0446     	 mov r4,r0
+ 177              	.LVL12:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+ 123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     int32_t return_status = PAL_STATUS_FAILURE;
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     pal_logger_t * p_log_context = p_logger_context;
+ 125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     do
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     {
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         // The instance of VMCOMS is internally declared
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         if(NULL == p_log_context->logger_config_ptr)
+ 178              	 .loc 1 129 0
+ 179 0004 0068     	 ldr r0,[r0]
+ 180              	.LVL13:
+ 181 0006 60B1     	 cbz r0,.L30
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         {
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             if (USBD_VCOM_STATUS_SUCCESS != USBD_VCOM_SendData((int8_t *)p_log_data,(uint16_t)log_d
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             {
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****                 break;
+ 134:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             }
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             CDC_Device_USBTask(&USBD_VCOM_cdc_interface);
+ 136:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             return_status = PAL_STATUS_SUCCESS;
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         }
+ 138:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         else
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         {
+ 140:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             p_log_context->logger_tx_flag = 1U;
+ 182              	 .loc 1 140 0
+ 183 0008 0123     	 movs r3,#1
+ 184 000a 6371     	 strb r3,[r4,#5]
+ 141:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             return_status = (int32_t)UART_Transmit(p_log_context->logger_config_ptr, (uint8_t *)p_l
+ 185              	 .loc 1 142 0
+ 186 000c FFF7FEFF 	 bl UART_Transmit
+ 187              	.LVL14:
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             if (return_status != PAL_STATUS_SUCCESS)
+ 188              	 .loc 1 143 0
+ 189 0010 28B9     	 cbnz r0,.L31
+ 190              	.LVL15:
+ 191              	.L24:
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             {
+ 145:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****                 break;
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             }
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             while (p_log_context->logger_tx_flag)
+ 192              	 .loc 1 147 0 discriminator 1
+ 193 0012 6379     	 ldrb r3,[r4,#5]
+ 194 0014 03F0FF00 	 and r0,r3,#255
+ 195 0018 002B     	 cmp r3,#0
+ 196 001a FAD1     	 bne .L24
+ 197 001c 38BD     	 pop {r3,r4,r5,pc}
+ 198              	.LVL16:
+ 199              	.L31:
+ 200 001e 80B2     	 uxth r0,r0
+ 201              	.LVL17:
+ 202 0020 38BD     	 pop {r3,r4,r5,pc}
+ 203              	.LVL18:
+ 204              	.L30:
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             {
+ 205              	 .loc 1 131 0
+ 206 0022 0846     	 mov r0,r1
+ 207 0024 91B2     	 uxth r1,r2
+ 208              	.LVL19:
+ 209 0026 FFF7FEFF 	 bl USBD_VCOM_SendData
+ 210              	.LVL20:
+ 211 002a 0446     	 mov r4,r0
+ 212              	.LVL21:
+ 213 002c 08B1     	 cbz r0,.L32
+ 214 002e 0120     	 movs r0,#1
+ 215              	.LVL22:
+ 148:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             {
+ 149:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             }
+ 151:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             return_status = PAL_STATUS_SUCCESS;
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         }
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     } while(0);
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     return ((pal_status_t)return_status);
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** }
+ 216              	 .loc 1 155 0
+ 217 0030 38BD     	 pop {r3,r4,r5,pc}
+ 218              	.LVL23:
+ 219              	.L32:
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             return_status = PAL_STATUS_SUCCESS;
+ 220              	 .loc 1 135 0
+ 221 0032 0248     	 ldr r0,.L33
+ 222 0034 FFF7FEFF 	 bl CDC_Device_USBTask
+ 223              	.LVL24:
+ 224 0038 2046     	 mov r0,r4
+ 225 003a 38BD     	 pop {r3,r4,r5,pc}
+ 226              	.L34:
+ 227              	 .align 2
+ 228              	.L33:
+ 229 003c 00000000 	 .word USBD_VCOM_cdc_interface
+ 230              	 .cfi_endproc
+ 231              	.LFE452:
+ 233              	 .section .text.pal_logger_read,"ax",%progbits
+ 234              	 .align 2
+ 235              	 .global pal_logger_read
+ 236              	 .thumb
+ 237              	 .thumb_func
+ 239              	pal_logger_read:
+ 240              	.LFB453:
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** pal_status_t pal_logger_read(void * p_logger_context, uint8_t * p_log_data, uint32_t log_data_lengt
+ 158:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** {
+ 241              	 .loc 1 158 0
+ 242              	 .cfi_startproc
+ 243              	 
+ 244              	 
+ 245              	.LVL25:
+ 246 0000 38B5     	 push {r3,r4,r5,lr}
+ 247              	.LCFI3:
+ 248              	 .cfi_def_cfa_offset 16
+ 249              	 .cfi_offset 3,-16
+ 250              	 .cfi_offset 4,-12
+ 251              	 .cfi_offset 5,-8
+ 252              	 .cfi_offset 14,-4
+ 253              	 .loc 1 158 0
+ 254 0002 0446     	 mov r4,r0
+ 255              	.LVL26:
+ 159:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+ 160:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     int32_t return_status = PAL_STATUS_FAILURE;
+ 161:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     pal_logger_t * p_log_context = p_logger_context;
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     do
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     {
+ 165:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         // The instance of VMCOMS is internally declared
+ 166:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         if(NULL == p_log_context->logger_config_ptr)
+ 256              	 .loc 1 166 0
+ 257 0004 0068     	 ldr r0,[r0]
+ 258              	.LVL27:
+ 259 0006 60B1     	 cbz r0,.L44
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         {
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             if (USBD_VCOM_STATUS_SUCCESS != USBD_VCOM_ReceiveData((int8_t * )p_log_data,(uint16_t)l
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             {
+ 170:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****                 break;
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             }
+ 172:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             CDC_Device_USBTask(&USBD_VCOM_cdc_interface);
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             return_status = PAL_STATUS_SUCCESS;
+ 174:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         }
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         else
+ 176:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         {
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             p_log_context->logger_rx_flag = 1U;
+ 260              	 .loc 1 177 0
+ 261 0008 0123     	 movs r3,#1
+ 262 000a 2371     	 strb r3,[r4,#4]
+ 178:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             return_status = (int32_t)UART_Receive(p_log_context->logger_config_ptr, p_log_data, log
+ 263              	 .loc 1 178 0
+ 264 000c FFF7FEFF 	 bl UART_Receive
+ 265              	.LVL28:
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             if (return_status != PAL_STATUS_SUCCESS)
+ 266              	 .loc 1 179 0
+ 267 0010 28B9     	 cbnz r0,.L45
+ 268              	.LVL29:
+ 269              	.L38:
+ 180:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             {
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****                 break;
+ 182:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             }
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             while (p_log_context->logger_rx_flag)
+ 270              	 .loc 1 183 0 discriminator 1
+ 271 0012 2379     	 ldrb r3,[r4,#4]
+ 272 0014 03F0FF00 	 and r0,r3,#255
+ 273 0018 002B     	 cmp r3,#0
+ 274 001a FAD1     	 bne .L38
+ 275 001c 38BD     	 pop {r3,r4,r5,pc}
+ 276              	.LVL30:
+ 277              	.L45:
+ 278 001e 80B2     	 uxth r0,r0
+ 279              	.LVL31:
+ 280 0020 38BD     	 pop {r3,r4,r5,pc}
+ 281              	.LVL32:
+ 282              	.L44:
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             {
+ 283              	 .loc 1 168 0
+ 284 0022 0846     	 mov r0,r1
+ 285 0024 91B2     	 uxth r1,r2
+ 286              	.LVL33:
+ 287 0026 FFF7FEFF 	 bl USBD_VCOM_ReceiveData
+ 288              	.LVL34:
+ 289 002a 0446     	 mov r4,r0
+ 290              	.LVL35:
+ 291 002c 08B1     	 cbz r0,.L46
+ 292 002e 0120     	 movs r0,#1
+ 293              	.LVL36:
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             {
+ 185:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             }
+ 187:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             return_status = PAL_STATUS_SUCCESS;
+ 188:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****         }
+ 189:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     } while(0);
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****     return ((pal_status_t)return_status);
+ 191:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** }
+ 294              	 .loc 1 191 0
+ 295 0030 38BD     	 pop {r3,r4,r5,pc}
+ 296              	.LVL37:
+ 297              	.L46:
+ 172:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c ****             return_status = PAL_STATUS_SUCCESS;
+ 298              	 .loc 1 172 0
+ 299 0032 0248     	 ldr r0,.L47
+ 300 0034 FFF7FEFF 	 bl CDC_Device_USBTask
+ 301              	.LVL38:
+ 302 0038 2046     	 mov r0,r4
+ 303 003a 38BD     	 pop {r3,r4,r5,pc}
+ 304              	.L48:
+ 305              	 .align 2
+ 306              	.L47:
+ 307 003c 00000000 	 .word USBD_VCOM_cdc_interface
+ 308              	 .cfi_endproc
+ 309              	.LFE453:
+ 311              	 .global cunit_console
+ 312              	 .global logger_console
+ 313              	 .section .data.cunit_console,"aw",%progbits
+ 314              	 .align 2
+ 315              	 .set .LANCHOR0,.+0
+ 318              	cunit_console:
+ 319 0000 00000000 	 .word cunit_logger
+ 320 0004 01       	 .byte 1
+ 321 0005 01       	 .byte 1
+ 322 0006 0000     	 .space 2
+ 323              	 .section .data.logger_console,"aw",%progbits
+ 324              	 .align 2
+ 327              	logger_console:
+ 328 0000 00000000 	 .word 0
+ 329 0004 01       	 .byte 1
+ 330 0005 01       	 .byte 1
+ 331 0006 0000     	 .space 2
+ 332              	 .text
+ 333              	.Letext0:
+ 334              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 335              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 336              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 337              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_gpio.h"
+ 338              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc4_gpio.h"
+ 339              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usic.h"
+ 340              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_uart.h"
+ 341              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/UART/uart.h"
+ 342              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+ 343              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+ 344              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+ 345              	 .file 13 "d:\\school\\diseratie\\sems\\xmc4800_evaluation_kit\\xmc4800_iot_kit\\common\\dave\\generated\\usbd\\usb\\core\\endpoint.h"
+ 346              	 .file 14 "d:\\school\\diseratie\\sems\\xmc4800_evaluation_kit\\xmc4800_iot_kit\\common\\dave\\generated\\usbd_vcom\\class_driver\\common\\cdc_class_common.h"
+ 347              	 .file 15 "d:\\school\\diseratie\\sems\\xmc4800_evaluation_kit\\xmc4800_iot_kit\\common\\dave\\generated\\usbd_vcom\\class_driver\\device/cdc_class_device.h"
+ 348              	 .file 16 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD_VCOM/usbd_vcom.h"
+ 349              	 .file 17 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal.h"
+ 350              	 .file 18 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal_logger.h"
+ 351              	 .file 19 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+ 352              	 .file 20 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+ 353              	 .file 21 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/UART/uart_extern.h"
+ 354              	 .file 22 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+ 355              	 .file 23 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD_VCOM/usbd_vcom_extern.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 pal_logger.c
+    {standard input}:20     .text.cunit_console_uart_end_of_transmit_callback:00000000 $t
+    {standard input}:25     .text.cunit_console_uart_end_of_transmit_callback:00000000 cunit_console_uart_end_of_transmit_callback
+    {standard input}:41     .text.cunit_console_uart_end_of_transmit_callback:00000008 $d
+    {standard input}:46     .text.cunit_console_uart_end_of_receive_callback:00000000 $t
+    {standard input}:51     .text.cunit_console_uart_end_of_receive_callback:00000000 cunit_console_uart_end_of_receive_callback
+    {standard input}:66     .text.cunit_console_uart_end_of_receive_callback:00000008 $d
+    {standard input}:71     .text.pal_logger_init:00000000 $t
+    {standard input}:76     .text.pal_logger_init:00000000 pal_logger_init
+    {standard input}:119    .text.pal_logger_deinit:00000000 $t
+    {standard input}:124    .text.pal_logger_deinit:00000000 pal_logger_deinit
+    {standard input}:156    .text.pal_logger_write:00000000 $t
+    {standard input}:161    .text.pal_logger_write:00000000 pal_logger_write
+    {standard input}:229    .text.pal_logger_write:0000003c $d
+    {standard input}:234    .text.pal_logger_read:00000000 $t
+    {standard input}:239    .text.pal_logger_read:00000000 pal_logger_read
+    {standard input}:307    .text.pal_logger_read:0000003c $d
+    {standard input}:318    .data.cunit_console:00000000 cunit_console
+    {standard input}:327    .data.logger_console:00000000 logger_console
+    {standard input}:314    .data.cunit_console:00000000 $d
+    {standard input}:324    .data.logger_console:00000000 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+USBD_VCOM_Connect
+USBD_VCOM_IsEnumDone
+USBD_VCOM_Disconnect
+UART_Transmit
+USBD_VCOM_SendData
+CDC_Device_USBTask
+USBD_VCOM_cdc_interface
+UART_Receive
+USBD_VCOM_ReceiveData
+cunit_logger

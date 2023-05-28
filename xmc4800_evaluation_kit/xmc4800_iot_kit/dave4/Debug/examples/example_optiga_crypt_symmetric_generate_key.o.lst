@@ -1,0 +1,891 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "example_optiga_crypt_symmetric_generate_key.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.optiga_crypt_callback,"ax",%progbits
+  20              	 .align 2
+  21              	 .thumb
+  22              	 .thumb_func
+  24              	optiga_crypt_callback:
+  25              	.LFB6:
+  26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/example_optiga_crypt_symmetric_generate_key.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * \copyright
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * MIT License
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * Copyright (c) 2020 Infineon Technologies AG
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** *
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * Permission is hereby granted, free of charge, to any person obtaining a copy
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * of this software and associated documentation files (the "Software"), to deal
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * in the Software without restriction, including without limitation the rights
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * copies of the Software, and to permit persons to whom the Software is
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * furnished to do so, subject to the following conditions:
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** *
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * The above copyright notice and this permission notice shall be included in all
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * copies or substantial portions of the Software.
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** *
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * SOFTWARE
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** *
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * \endcopyright
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** *
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * \author Infineon Technologies AG
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** *
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * \file example_optiga_crypt_symmetric_generate_key.c
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** *
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * \brief   This file provides the example for generation of symmetric key using
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** *          optiga_crypt_symmetric_generate_key.
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** *
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * \ingroup grOptigaExamples
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** *
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** * @{
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** */
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** #include "optiga/optiga_util.h"
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** #include "optiga/optiga_crypt.h"
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** #include "optiga_example.h"
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** 
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** #ifdef OPTIGA_CRYPT_SYM_GENERATE_KEY_ENABLED
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** 
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** extern void example_optiga_init(void);
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** extern void example_optiga_deinit(void);
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** #endif
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** 
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** uint32_t time_taken_to_generate_key = 0;
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** 
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** #define METADATA_TAG_KEY_ALGO_ID     (0xE0)
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** extern optiga_lib_status_t example_check_tag_in_metadata(const uint8_t * buffer, 
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****                                                          const uint8_t tag);
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** 
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** /**
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****  * Callback when optiga_crypt_xxxx operation is completed asynchronously
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****  */
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** static volatile optiga_lib_status_t optiga_lib_status;
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** //lint --e{818} suppress "argument "context" is not used in the sample provided"
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** static void optiga_crypt_callback(void * context, optiga_lib_status_t return_status)
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** {
+  27              	 .loc 1 61 0
+  28              	 .cfi_startproc
+  29              	 
+  30              	 
+  31              	 
+  32              	.LVL0:
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     optiga_lib_status = return_status;
+  33              	 .loc 1 62 0
+  34 0000 014B     	 ldr r3,.L2
+  35 0002 1980     	 strh r1,[r3]
+  36 0004 7047     	 bx lr
+  37              	.L3:
+  38 0006 00BF     	 .align 2
+  39              	.L2:
+  40 0008 00000000 	 .word .LANCHOR0
+  41              	 .cfi_endproc
+  42              	.LFE6:
+  44              	 .section .text.optiga_util_callback,"ax",%progbits
+  45              	 .align 2
+  46              	 .thumb
+  47              	 .thumb_func
+  49              	optiga_util_callback:
+  50              	.LFB7:
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     if (NULL != context)
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     {
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         // callback to upper layer here
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     }
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** }
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** 
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** //lint --e{818} suppress "argument "context" is not used in the sample provided"
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** static void optiga_util_callback(void * context, optiga_lib_status_t return_status)
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** {
+  51              	 .loc 1 71 0
+  52              	 .cfi_startproc
+  53              	 
+  54              	 
+  55              	 
+  56              	.LVL1:
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     optiga_lib_status = return_status;
+  57              	 .loc 1 72 0
+  58 0000 014B     	 ldr r3,.L5
+  59 0002 1980     	 strh r1,[r3]
+  60 0004 7047     	 bx lr
+  61              	.L6:
+  62 0006 00BF     	 .align 2
+  63              	.L5:
+  64 0008 00000000 	 .word .LANCHOR0
+  65              	 .cfi_endproc
+  66              	.LFE7:
+  68              	 .section .text.generate_symmetric_key,"ax",%progbits
+  69              	 .align 2
+  70              	 .global generate_symmetric_key
+  71              	 .thumb
+  72              	 .thumb_func
+  74              	generate_symmetric_key:
+  75              	.LFB8:
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     if (NULL != context)
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     {
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         // callback to upper layer here
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     }
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** }
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** 
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** /**
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****  * Sample metadata of 0xE200 
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****  */
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** const uint8_t E200_metadata[] = { 0x20, 0x06, 0xD0, 0x01, 0x00, 0xD3, 0x01, 0x00 };
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** 
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** /**
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****  * The below generates symmetric Key using optiga_crypt_symmetric_generate_key.
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****  *
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****  */
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** optiga_lib_status_t generate_symmetric_key(void)
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** {
+  76              	 .loc 1 89 0
+  77              	 .cfi_startproc
+  78              	 
+  79              	 
+  80              	.LVL2:
+  81 0000 2DE9F041 	 push {r4,r5,r6,r7,r8,lr}
+  82              	.LCFI0:
+  83              	 .cfi_def_cfa_offset 24
+  84              	 .cfi_offset 4,-24
+  85              	 .cfi_offset 5,-20
+  86              	 .cfi_offset 6,-16
+  87              	 .cfi_offset 7,-12
+  88              	 .cfi_offset 8,-8
+  89              	 .cfi_offset 14,-4
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     optiga_key_id_t symmetric_key;
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     uint16_t optiga_oid, bytes_to_read;
+  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     uint8_t read_data_buffer[100];
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** 
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     optiga_crypt_t * crypt_me = NULL;
+  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     optiga_util_t * util_me = NULL;    
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** 
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     do
+  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     {
+ 100:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****        /**
+ 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****          * 1. Create OPTIGA Crypt Instance
+ 102:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****          */
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         crypt_me = optiga_crypt_create(0, optiga_crypt_callback, NULL);
+  90              	 .loc 1 103 0
+  91 0004 0020     	 movs r0,#0
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+  92              	 .loc 1 89 0
+  93 0006 9CB0     	 sub sp,sp,#112
+  94              	.LCFI1:
+  95              	 .cfi_def_cfa_offset 136
+  96              	 .loc 1 103 0
+  97 0008 0246     	 mov r2,r0
+  98 000a 3B49     	 ldr r1,.L29
+  99 000c FFF7FEFF 	 bl optiga_crypt_create
+ 100              	.LVL3:
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         if (NULL == crypt_me)
+ 101              	 .loc 1 104 0
+ 102 0010 0646     	 mov r6,r0
+ 103 0012 78B3     	 cbz r0,.L17
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         {
+ 106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****             break;
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         }
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** 
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         util_me = optiga_util_create(0, optiga_util_callback, NULL);
+ 104              	 .loc 1 109 0
+ 105 0014 0020     	 movs r0,#0
+ 106              	.LVL4:
+ 107 0016 0246     	 mov r2,r0
+ 108 0018 3849     	 ldr r1,.L29+4
+ 109 001a FFF7FEFF 	 bl optiga_util_create
+ 110              	.LVL5:
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         if (NULL == util_me)
+ 111              	 .loc 1 110 0
+ 112 001e 0746     	 mov r7,r0
+ 113 0020 10B3     	 cbz r0,.L9
+ 114              	.LVL6:
+ 111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         {
+ 112:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****             break;
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         }
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 115:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         /**
+ 116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****          * Read metadata of a data object (e.g. key data object 0xE200)
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****          * using optiga_util_read_metadata.
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****          */
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         optiga_oid = 0xE200;
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         bytes_to_read = sizeof(read_data_buffer);
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 115              	 .loc 1 121 0
+ 116 0022 374C     	 ldr r4,.L29+8
+ 117 0024 4FF0010E 	 mov lr,#1
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 118              	 .loc 1 120 0
+ 119 0028 6425     	 movs r5,#100
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         return_status = optiga_util_read_metadata(util_me,
+ 120              	 .loc 1 122 0
+ 121 002a 03AA     	 add r2,sp,#12
+ 122 002c 4FF46241 	 mov r1,#57856
+ 123 0030 0DF10A03 	 add r3,sp,#10
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         return_status = optiga_util_read_metadata(util_me,
+ 124              	 .loc 1 121 0
+ 125 0034 A4F800E0 	 strh lr,[r4]
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 126              	 .loc 1 120 0
+ 127 0038 ADF80A50 	 strh r5,[sp,#10]
+ 128              	 .loc 1 122 0
+ 129 003c FFF7FEFF 	 bl optiga_util_read_metadata
+ 130              	.LVL7:
+ 123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****                                                   optiga_oid,
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****                                                   read_data_buffer,
+ 125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****                                                   &bytes_to_read);
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** 
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 131              	 .loc 1 127 0
+ 132 0040 40B1     	 cbz r0,.L11
+ 133              	.LVL8:
+ 134              	.L10:
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         return_status = example_check_tag_in_metadata(read_data_buffer,
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****                                                       METADATA_TAG_KEY_ALGO_ID);
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         if (OPTIGA_LIB_SUCCESS != return_status)
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         {
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****             return_status = OPTIGA_LIB_SUCCESS;
+ 134:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****             break;
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         }
+ 136:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 138:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         optiga_oid = 0xE200;
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         return_status = optiga_util_write_metadata(util_me,
+ 140:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****                                                    optiga_oid,
+ 141:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****                                                    E200_metadata,
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****                                                    sizeof(E200_metadata));
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** 
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 145:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         /**
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****          * 2. Generate symmetric key
+ 148:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****          *       - Use AES-128 key type
+ 149:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****          *       - OPTIGA_KEY_USAGE_ENCRYPTION as a Key Usage
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****          *       - Store the Symmetric key in OPTIGA Key store OID(E200)
+ 151:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****          */
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         symmetric_key = OPTIGA_KEY_ID_SECRET_BASED;
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         START_PERFORMANCE_MEASUREMENT(time_taken_to_generate_key);
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         return_status = optiga_crypt_symmetric_generate_key(crypt_me,
+ 158:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****                                                             OPTIGA_SYMMETRIC_AES_128,
+ 159:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****                                                             (uint8_t)OPTIGA_KEY_USAGE_ENCRYPTION,
+ 160:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****                                                             FALSE,
+ 161:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****                                                             &symmetric_key);
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         READ_PERFORMANCE_MEASUREMENT(time_taken_to_generate_key);
+ 165:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 166:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     } while (FALSE);
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** 
+ 170:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     if (crypt_me)
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     {
+ 172:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         //Destroy the instance after the completion of usecase if not required.
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         return_status = optiga_crypt_destroy(crypt_me);
+ 135              	 .loc 1 173 0
+ 136 0042 3046     	 mov r0,r6
+ 137 0044 FFF7FEFF 	 bl optiga_crypt_destroy
+ 138              	.LVL9:
+ 174:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         {
+ 176:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****             //lint --e{774} suppress This is a generic macro
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****             OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 178:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         }
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     }
+ 180:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     if (util_me)
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     {
+ 182:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         //Destroy the instance after the completion of usecase if not required.
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         return_status = optiga_util_destroy(util_me);
+ 139              	 .loc 1 183 0
+ 140 0048 3846     	 mov r0,r7
+ 141 004a FFF7FEFF 	 bl optiga_util_destroy
+ 142              	.LVL10:
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 185:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         {
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****             //lint --e{774} suppress This is a generic macro
+ 187:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****             OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 188:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         }
+ 189:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     }
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     return return_status;
+ 191:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** }
+ 143              	 .loc 1 191 0
+ 144 004e 1CB0     	 add sp,sp,#112
+ 145              	.LCFI2:
+ 146              	 .cfi_remember_state
+ 147              	 .cfi_def_cfa_offset 24
+ 148              	 
+ 149 0050 BDE8F081 	 pop {r4,r5,r6,r7,r8,pc}
+ 150              	.LVL11:
+ 151              	.L11:
+ 152              	.LCFI3:
+ 153              	 .cfi_restore_state
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 154              	 .loc 1 127 0 discriminator 1
+ 155 0054 2388     	 ldrh r3,[r4]
+ 156 0056 2A4D     	 ldr r5,.L29+8
+ 157 0058 9BB2     	 uxth r3,r3
+ 158 005a 012B     	 cmp r3,#1
+ 159 005c FAD0     	 beq .L11
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 160              	 .loc 1 127 0 is_stmt 0 discriminator 2
+ 161 005e 2B88     	 ldrh r3,[r5]
+ 162 0060 9BB2     	 uxth r3,r3
+ 163 0062 5BB1     	 cbz r3,.L12
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 164              	 .loc 1 127 0 discriminator 3
+ 165 0064 2B88     	 ldrh r3,[r5]
+ 166              	.LVL12:
+ 167 0066 ECE7     	 b .L10
+ 168              	.LVL13:
+ 169              	.L9:
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 170              	 .loc 1 173 0 is_stmt 1
+ 171 0068 3046     	 mov r0,r6
+ 172 006a FFF7FEFF 	 bl optiga_crypt_destroy
+ 173              	.LVL14:
+ 174              	 .loc 1 191 0
+ 175 006e 1CB0     	 add sp,sp,#112
+ 176              	.LCFI4:
+ 177              	 .cfi_remember_state
+ 178              	 .cfi_def_cfa_offset 24
+ 179              	 
+ 180 0070 BDE8F081 	 pop {r4,r5,r6,r7,r8,pc}
+ 181              	.LVL15:
+ 182              	.L17:
+ 183              	.LCFI5:
+ 184              	 .cfi_restore_state
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     optiga_key_id_t symmetric_key;
+ 185              	 .loc 1 90 0
+ 186 0074 0120     	 movs r0,#1
+ 187              	.LVL16:
+ 188              	 .loc 1 191 0
+ 189 0076 1CB0     	 add sp,sp,#112
+ 190              	.LCFI6:
+ 191              	 .cfi_remember_state
+ 192              	 .cfi_def_cfa_offset 24
+ 193              	 
+ 194 0078 BDE8F081 	 pop {r4,r5,r6,r7,r8,pc}
+ 195              	.LVL17:
+ 196              	.L12:
+ 197              	.LCFI7:
+ 198              	 .cfi_restore_state
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****                                                       METADATA_TAG_KEY_ALGO_ID);
+ 199              	 .loc 1 129 0
+ 200 007c 03A8     	 add r0,sp,#12
+ 201              	.LVL18:
+ 202 007e E021     	 movs r1,#224
+ 203 0080 FFF7FEFF 	 bl example_check_tag_in_metadata
+ 204              	.LVL19:
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         {
+ 205              	 .loc 1 131 0
+ 206 0084 0028     	 cmp r0,#0
+ 207 0086 DCD1     	 bne .L10
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         optiga_oid = 0xE200;
+ 208              	 .loc 1 137 0
+ 209 0088 0123     	 movs r3,#1
+ 210 008a 2B80     	 strh r3,[r5]
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****                                                    optiga_oid,
+ 211              	 .loc 1 139 0
+ 212 008c 3846     	 mov r0,r7
+ 213              	.LVL20:
+ 214 008e 4FF46241 	 mov r1,#57856
+ 215 0092 1C4A     	 ldr r2,.L29+12
+ 216 0094 0823     	 movs r3,#8
+ 217 0096 FFF7FEFF 	 bl optiga_util_write_metadata
+ 218              	.LVL21:
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 219              	 .loc 1 144 0
+ 220 009a 0028     	 cmp r0,#0
+ 221 009c D1D1     	 bne .L10
+ 222              	.L13:
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 223              	 .loc 1 144 0 is_stmt 0 discriminator 1
+ 224 009e 2388     	 ldrh r3,[r4]
+ 225 00a0 174A     	 ldr r2,.L29+8
+ 226 00a2 9BB2     	 uxth r3,r3
+ 227 00a4 012B     	 cmp r3,#1
+ 228 00a6 FAD0     	 beq .L13
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 229              	 .loc 1 144 0 discriminator 2
+ 230 00a8 1588     	 ldrh r5,[r2]
+ 231 00aa ADB2     	 uxth r5,r5
+ 232 00ac 0DB1     	 cbz r5,.L28
+ 233              	.L26:
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 234              	 .loc 1 162 0 is_stmt 1 discriminator 3
+ 235 00ae 1388     	 ldrh r3,[r2]
+ 236              	.LVL22:
+ 237 00b0 C7E7     	 b .L10
+ 238              	.LVL23:
+ 239              	.L28:
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 240              	 .loc 1 153 0
+ 241 00b2 0DF17008 	 add r8,sp,#112
+ 242 00b6 4FF46243 	 mov r3,#57856
+ 243 00ba 28F8683D 	 strh r3,[r8,#-104]!
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         symmetric_key = OPTIGA_KEY_ID_SECRET_BASED;
+ 244              	 .loc 1 152 0
+ 245 00be 0123     	 movs r3,#1
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 246              	 .loc 1 155 0
+ 247 00c0 1946     	 mov r1,r3
+ 248 00c2 1148     	 ldr r0,.L29+16
+ 249              	.LVL24:
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         symmetric_key = OPTIGA_KEY_ID_SECRET_BASED;
+ 250              	 .loc 1 152 0
+ 251 00c4 1380     	 strh r3,[r2]
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 252              	 .loc 1 155 0
+ 253 00c6 FFF7FEFF 	 bl example_performance_measurement
+ 254              	.LVL25:
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****                                                             OPTIGA_SYMMETRIC_AES_128,
+ 255              	 .loc 1 157 0
+ 256 00ca CDF80080 	 str r8,[sp]
+ 257 00ce 2B46     	 mov r3,r5
+ 258 00d0 3046     	 mov r0,r6
+ 259 00d2 8121     	 movs r1,#129
+ 260 00d4 0222     	 movs r2,#2
+ 261 00d6 FFF7FEFF 	 bl optiga_crypt_symmetric_generate_key
+ 262              	.LVL26:
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 263              	 .loc 1 162 0
+ 264 00da 0028     	 cmp r0,#0
+ 265 00dc B1D1     	 bne .L10
+ 266              	.L15:
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 267              	 .loc 1 162 0 is_stmt 0 discriminator 1
+ 268 00de 2388     	 ldrh r3,[r4]
+ 269 00e0 074A     	 ldr r2,.L29+8
+ 270 00e2 9BB2     	 uxth r3,r3
+ 271 00e4 012B     	 cmp r3,#1
+ 272 00e6 FAD0     	 beq .L15
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 273              	 .loc 1 162 0 discriminator 2
+ 274 00e8 1188     	 ldrh r1,[r2]
+ 275 00ea 89B2     	 uxth r1,r1
+ 276 00ec 0029     	 cmp r1,#0
+ 277 00ee DED1     	 bne .L26
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 278              	 .loc 1 164 0 is_stmt 1
+ 279 00f0 0548     	 ldr r0,.L29+16
+ 280              	.LVL27:
+ 281 00f2 FFF7FEFF 	 bl example_performance_measurement
+ 282              	.LVL28:
+ 283 00f6 A4E7     	 b .L10
+ 284              	.L30:
+ 285              	 .align 2
+ 286              	.L29:
+ 287 00f8 00000000 	 .word optiga_crypt_callback
+ 288 00fc 00000000 	 .word optiga_util_callback
+ 289 0100 00000000 	 .word .LANCHOR0
+ 290 0104 00000000 	 .word .LANCHOR1
+ 291 0108 00000000 	 .word .LANCHOR2
+ 292              	 .cfi_endproc
+ 293              	.LFE8:
+ 295              	 .section .text.example_optiga_crypt_symmetric_generate_key,"ax",%progbits
+ 296              	 .align 2
+ 297              	 .global example_optiga_crypt_symmetric_generate_key
+ 298              	 .thumb
+ 299              	 .thumb_func
+ 301              	example_optiga_crypt_symmetric_generate_key:
+ 302              	.LFB9:
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** 
+ 193:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** /**
+ 194:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****  * The below example demonstrates the generation of
+ 195:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****  * symmetric Key using optiga_crypt_symmetric_generate_key.
+ 196:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****  *
+ 197:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****  */
+ 198:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** void example_optiga_crypt_symmetric_generate_key(void)
+ 199:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** {
+ 303              	 .loc 1 199 0
+ 304              	 .cfi_startproc
+ 305              	 
+ 306              	 
+ 307 0000 2DE9F041 	 push {r4,r5,r6,r7,r8,lr}
+ 308              	.LCFI8:
+ 309              	 .cfi_def_cfa_offset 24
+ 310              	 .cfi_offset 4,-24
+ 311              	 .cfi_offset 5,-20
+ 312              	 .cfi_offset 6,-16
+ 313              	 .cfi_offset 7,-12
+ 314              	 .cfi_offset 8,-8
+ 315              	 .cfi_offset 14,-4
+ 316 0004 9CB0     	 sub sp,sp,#112
+ 317              	.LCFI9:
+ 318              	 .cfi_def_cfa_offset 136
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     optiga_lib_status_t return_status;
+ 201:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     
+ 202:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 203:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         /**
+ 204:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****          * Open the application on OPTIGA which is a precondition to perform any other operations
+ 205:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****          * using optiga_util_open_application
+ 206:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****          */
+ 207:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         example_optiga_init();
+ 319              	 .loc 1 207 0
+ 320 0006 FFF7FEFF 	 bl example_optiga_init
+ 321              	.LVL29:
+ 322              	.LBB4:
+ 323              	.LBB5:
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         if (NULL == crypt_me)
+ 324              	 .loc 1 103 0
+ 325 000a 0020     	 movs r0,#0
+ 326 000c 0246     	 mov r2,r0
+ 327 000e 4149     	 ldr r1,.L52
+ 328 0010 FFF7FEFF 	 bl optiga_crypt_create
+ 329              	.LVL30:
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         {
+ 330              	 .loc 1 104 0
+ 331 0014 0646     	 mov r6,r0
+ 332 0016 0028     	 cmp r0,#0
+ 333 0018 38D0     	 beq .L32
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         if (NULL == util_me)
+ 334              	 .loc 1 109 0
+ 335 001a 0020     	 movs r0,#0
+ 336              	.LVL31:
+ 337 001c 0246     	 mov r2,r0
+ 338 001e 3E49     	 ldr r1,.L52+4
+ 339 0020 FFF7FEFF 	 bl optiga_util_create
+ 340              	.LVL32:
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         {
+ 341              	 .loc 1 110 0
+ 342 0024 0746     	 mov r7,r0
+ 343 0026 60B3     	 cbz r0,.L33
+ 344              	.LVL33:
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         return_status = optiga_util_read_metadata(util_me,
+ 345              	 .loc 1 121 0
+ 346 0028 3C4C     	 ldr r4,.L52+8
+ 347 002a 4FF0010E 	 mov lr,#1
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 348              	 .loc 1 120 0
+ 349 002e 6425     	 movs r5,#100
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****                                                   optiga_oid,
+ 350              	 .loc 1 122 0
+ 351 0030 03AA     	 add r2,sp,#12
+ 352 0032 4FF46241 	 mov r1,#57856
+ 353 0036 0DF10A03 	 add r3,sp,#10
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         return_status = optiga_util_read_metadata(util_me,
+ 354              	 .loc 1 121 0
+ 355 003a A4F800E0 	 strh lr,[r4]
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 356              	 .loc 1 120 0
+ 357 003e ADF80A50 	 strh r5,[sp,#10]
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****                                                   optiga_oid,
+ 358              	 .loc 1 122 0
+ 359 0042 FFF7FEFF 	 bl optiga_util_read_metadata
+ 360              	.LVL34:
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 361              	 .loc 1 127 0
+ 362 0046 90B1     	 cbz r0,.L35
+ 363              	.LVL35:
+ 364              	.L34:
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 365              	 .loc 1 173 0
+ 366 0048 3046     	 mov r0,r6
+ 367 004a FFF7FEFF 	 bl optiga_crypt_destroy
+ 368              	.LVL36:
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 369              	 .loc 1 183 0
+ 370 004e 3846     	 mov r0,r7
+ 371 0050 FFF7FEFF 	 bl optiga_util_destroy
+ 372              	.LVL37:
+ 373 0054 0446     	 mov r4,r0
+ 374              	.LVL38:
+ 375              	.L42:
+ 376              	.LBE5:
+ 377              	.LBE4:
+ 208:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 209:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** 
+ 210:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     OPTIGA_EXAMPLE_LOG_MESSAGE(__FUNCTION__);
+ 211:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 212:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     return_status = generate_symmetric_key();
+ 213:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 215:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     /**
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****      * Close the application on OPTIGA after all the operations are executed
+ 217:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****      * using optiga_util_close_application
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****      */
+ 219:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     example_optiga_deinit();
+ 378              	 .loc 1 219 0
+ 379 0056 FFF7FEFF 	 bl example_optiga_deinit
+ 380              	.LVL39:
+ 220:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 221:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****     OPTIGA_EXAMPLE_LOG_PERFORMANCE_VALUE(time_taken_to_generate_key, return_status);
+ 381              	 .loc 1 221 0
+ 382 005a 2CB9     	 cbnz r4,.L31
+ 383              	 .loc 1 221 0 is_stmt 0 discriminator 1
+ 384 005c 304B     	 ldr r3,.L52+12
+ 385 005e 3148     	 ldr r0,.L52+16
+ 386 0060 1A68     	 ldr r2,[r3]
+ 387 0062 3149     	 ldr r1,.L52+20
+ 388 0064 FFF7FEFF 	 bl sprintf
+ 389              	.LVL40:
+ 390              	.L31:
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** }
+ 391              	 .loc 1 222 0 is_stmt 1
+ 392 0068 1CB0     	 add sp,sp,#112
+ 393              	.LCFI10:
+ 394              	 .cfi_remember_state
+ 395              	 .cfi_def_cfa_offset 24
+ 396              	 
+ 397 006a BDE8F081 	 pop {r4,r5,r6,r7,r8,pc}
+ 398              	.LVL41:
+ 399              	.L35:
+ 400              	.LCFI11:
+ 401              	 .cfi_restore_state
+ 402              	.LBB8:
+ 403              	.LBB6:
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 404              	 .loc 1 127 0
+ 405 006e 2388     	 ldrh r3,[r4]
+ 406 0070 2A4D     	 ldr r5,.L52+8
+ 407 0072 9BB2     	 uxth r3,r3
+ 408 0074 012B     	 cmp r3,#1
+ 409 0076 FAD0     	 beq .L35
+ 410 0078 2B88     	 ldrh r3,[r5]
+ 411 007a 9BB2     	 uxth r3,r3
+ 412 007c 5BB1     	 cbz r3,.L36
+ 413 007e 2B88     	 ldrh r3,[r5]
+ 414              	.LVL42:
+ 415 0080 E2E7     	 b .L34
+ 416              	.LVL43:
+ 417              	.L33:
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 418              	 .loc 1 173 0
+ 419 0082 3046     	 mov r0,r6
+ 420 0084 FFF7FEFF 	 bl optiga_crypt_destroy
+ 421              	.LVL44:
+ 422 0088 0446     	 mov r4,r0
+ 423              	.LVL45:
+ 424 008a E4E7     	 b .L42
+ 425              	.LVL46:
+ 426              	.L32:
+ 427              	.LBE6:
+ 428              	.LBE8:
+ 219:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 429              	 .loc 1 219 0
+ 430 008c FFF7FEFF 	 bl example_optiga_deinit
+ 431              	.LVL47:
+ 432              	 .loc 1 222 0
+ 433 0090 1CB0     	 add sp,sp,#112
+ 434              	.LCFI12:
+ 435              	 .cfi_remember_state
+ 436              	 .cfi_def_cfa_offset 24
+ 437              	 
+ 438 0092 BDE8F081 	 pop {r4,r5,r6,r7,r8,pc}
+ 439              	.LVL48:
+ 440              	.L36:
+ 441              	.LCFI13:
+ 442              	 .cfi_restore_state
+ 443              	.LBB9:
+ 444              	.LBB7:
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****                                                       METADATA_TAG_KEY_ALGO_ID);
+ 445              	 .loc 1 129 0
+ 446 0096 03A8     	 add r0,sp,#12
+ 447              	.LVL49:
+ 448 0098 E021     	 movs r1,#224
+ 449 009a FFF7FEFF 	 bl example_check_tag_in_metadata
+ 450              	.LVL50:
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         {
+ 451              	 .loc 1 131 0
+ 452 009e 0028     	 cmp r0,#0
+ 453 00a0 D2D1     	 bne .L34
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         optiga_oid = 0xE200;
+ 454              	 .loc 1 137 0
+ 455 00a2 0123     	 movs r3,#1
+ 456 00a4 2B80     	 strh r3,[r5]
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****                                                    optiga_oid,
+ 457              	 .loc 1 139 0
+ 458 00a6 3846     	 mov r0,r7
+ 459              	.LVL51:
+ 460 00a8 4FF46241 	 mov r1,#57856
+ 461 00ac 1F4A     	 ldr r2,.L52+24
+ 462 00ae 0823     	 movs r3,#8
+ 463 00b0 FFF7FEFF 	 bl optiga_util_write_metadata
+ 464              	.LVL52:
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 465              	 .loc 1 144 0
+ 466 00b4 0028     	 cmp r0,#0
+ 467 00b6 C7D1     	 bne .L34
+ 468              	.L37:
+ 469 00b8 2388     	 ldrh r3,[r4]
+ 470 00ba 184A     	 ldr r2,.L52+8
+ 471 00bc 9BB2     	 uxth r3,r3
+ 472 00be 012B     	 cmp r3,#1
+ 473 00c0 FAD0     	 beq .L37
+ 474 00c2 1588     	 ldrh r5,[r2]
+ 475 00c4 ADB2     	 uxth r5,r5
+ 476 00c6 0DB1     	 cbz r5,.L51
+ 477              	.L50:
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 478              	 .loc 1 162 0
+ 479 00c8 1388     	 ldrh r3,[r2]
+ 480              	.LVL53:
+ 481 00ca BDE7     	 b .L34
+ 482              	.LVL54:
+ 483              	.L51:
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 484              	 .loc 1 153 0
+ 485 00cc 0DF17008 	 add r8,sp,#112
+ 486 00d0 4FF46243 	 mov r3,#57856
+ 487 00d4 28F8683D 	 strh r3,[r8,#-104]!
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         symmetric_key = OPTIGA_KEY_ID_SECRET_BASED;
+ 488              	 .loc 1 152 0
+ 489 00d8 0123     	 movs r3,#1
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 490              	 .loc 1 155 0
+ 491 00da 1946     	 mov r1,r3
+ 492 00dc 1048     	 ldr r0,.L52+12
+ 493              	.LVL55:
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         symmetric_key = OPTIGA_KEY_ID_SECRET_BASED;
+ 494              	 .loc 1 152 0
+ 495 00de 1380     	 strh r3,[r2]
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 496              	 .loc 1 155 0
+ 497 00e0 FFF7FEFF 	 bl example_performance_measurement
+ 498              	.LVL56:
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****                                                             OPTIGA_SYMMETRIC_AES_128,
+ 499              	 .loc 1 157 0
+ 500 00e4 CDF80080 	 str r8,[sp]
+ 501 00e8 2B46     	 mov r3,r5
+ 502 00ea 3046     	 mov r0,r6
+ 503 00ec 8121     	 movs r1,#129
+ 504 00ee 0222     	 movs r2,#2
+ 505 00f0 FFF7FEFF 	 bl optiga_crypt_symmetric_generate_key
+ 506              	.LVL57:
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 507              	 .loc 1 162 0
+ 508 00f4 0028     	 cmp r0,#0
+ 509 00f6 A7D1     	 bne .L34
+ 510              	.L39:
+ 511 00f8 2388     	 ldrh r3,[r4]
+ 512 00fa 084A     	 ldr r2,.L52+8
+ 513 00fc 9BB2     	 uxth r3,r3
+ 514 00fe 012B     	 cmp r3,#1
+ 515 0100 FAD0     	 beq .L39
+ 516 0102 1188     	 ldrh r1,[r2]
+ 517 0104 89B2     	 uxth r1,r1
+ 518 0106 0029     	 cmp r1,#0
+ 519 0108 DED1     	 bne .L50
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_symmetric_generate_key.c ****         
+ 520              	 .loc 1 164 0
+ 521 010a 0548     	 ldr r0,.L52+12
+ 522              	.LVL58:
+ 523 010c FFF7FEFF 	 bl example_performance_measurement
+ 524              	.LVL59:
+ 525 0110 9AE7     	 b .L34
+ 526              	.L53:
+ 527 0112 00BF     	 .align 2
+ 528              	.L52:
+ 529 0114 00000000 	 .word optiga_crypt_callback
+ 530 0118 00000000 	 .word optiga_util_callback
+ 531 011c 00000000 	 .word .LANCHOR0
+ 532 0120 00000000 	 .word .LANCHOR2
+ 533 0124 00000000 	 .word performance_buffer_string
+ 534 0128 00000000 	 .word .LC0
+ 535 012c 00000000 	 .word .LANCHOR1
+ 536              	.LBE7:
+ 537              	.LBE9:
+ 538              	 .cfi_endproc
+ 539              	.LFE9:
+ 541              	 .global E200_metadata
+ 542              	 .global time_taken_to_generate_key
+ 543              	 .section .bss.time_taken_to_generate_key,"aw",%nobits
+ 544              	 .align 2
+ 545              	 .set .LANCHOR2,.+0
+ 548              	time_taken_to_generate_key:
+ 549 0000 00000000 	 .space 4
+ 550              	 .section .rodata.str1.4,"aMS",%progbits,1
+ 551              	 .align 2
+ 552              	.LC0:
+ 553 0000 4578616D 	 .ascii "Example takes %d msec\000"
+ 553      706C6520 
+ 553      74616B65 
+ 553      73202564 
+ 553      206D7365 
+ 554 0016 0000     	 .section .rodata.E200_metadata,"a",%progbits
+ 555              	 .align 2
+ 556              	 .set .LANCHOR1,.+0
+ 559              	E200_metadata:
+ 560 0000 20       	 .byte 32
+ 561 0001 06       	 .byte 6
+ 562 0002 D0       	 .byte -48
+ 563 0003 01       	 .byte 1
+ 564 0004 00       	 .byte 0
+ 565 0005 D3       	 .byte -45
+ 566 0006 01       	 .byte 1
+ 567 0007 00       	 .byte 0
+ 568              	 .section .bss.optiga_lib_status,"aw",%nobits
+ 569              	 .align 1
+ 570              	 .set .LANCHOR0,.+0
+ 573              	optiga_lib_status:
+ 574 0000 0000     	 .space 2
+ 575              	 .text
+ 576              	.Letext0:
+ 577              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 578              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 579              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_types.h"
+ 580              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_common.h"
+ 581              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/cmd/optiga_cmd.h"
+ 582              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_util.h"
+ 583              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_crypt.h"
+ 584              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/include/optiga_example.h"
+ 585              	 .file 10 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdio.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 example_optiga_crypt_symmetric_generate_key.c
+    {standard input}:20     .text.optiga_crypt_callback:00000000 $t
+    {standard input}:24     .text.optiga_crypt_callback:00000000 optiga_crypt_callback
+    {standard input}:40     .text.optiga_crypt_callback:00000008 $d
+    {standard input}:45     .text.optiga_util_callback:00000000 $t
+    {standard input}:49     .text.optiga_util_callback:00000000 optiga_util_callback
+    {standard input}:64     .text.optiga_util_callback:00000008 $d
+    {standard input}:69     .text.generate_symmetric_key:00000000 $t
+    {standard input}:74     .text.generate_symmetric_key:00000000 generate_symmetric_key
+    {standard input}:287    .text.generate_symmetric_key:000000f8 $d
+    {standard input}:296    .text.example_optiga_crypt_symmetric_generate_key:00000000 $t
+    {standard input}:301    .text.example_optiga_crypt_symmetric_generate_key:00000000 example_optiga_crypt_symmetric_generate_key
+    {standard input}:529    .text.example_optiga_crypt_symmetric_generate_key:00000114 $d
+    {standard input}:559    .rodata.E200_metadata:00000000 E200_metadata
+    {standard input}:548    .bss.time_taken_to_generate_key:00000000 time_taken_to_generate_key
+    {standard input}:544    .bss.time_taken_to_generate_key:00000000 $d
+    {standard input}:551    .rodata.str1.4:00000000 $d
+    {standard input}:555    .rodata.E200_metadata:00000000 $d
+    {standard input}:569    .bss.optiga_lib_status:00000000 $d
+    {standard input}:573    .bss.optiga_lib_status:00000000 optiga_lib_status
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+optiga_crypt_create
+optiga_util_create
+optiga_util_read_metadata
+optiga_crypt_destroy
+optiga_util_destroy
+example_check_tag_in_metadata
+optiga_util_write_metadata
+example_performance_measurement
+optiga_crypt_symmetric_generate_key
+example_optiga_init
+example_optiga_deinit
+sprintf
+performance_buffer_string

@@ -1,0 +1,827 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "example_optiga_crypt_hkdf.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.optiga_lib_callback,"ax",%progbits
+  20              	 .align 2
+  21              	 .thumb
+  22              	 .thumb_func
+  24              	optiga_lib_callback:
+  25              	.LFB6:
+  26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/example_optiga_crypt_hkdf.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * \copyright
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * MIT License
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * Copyright (c) 2020 Infineon Technologies AG
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** *
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * Permission is hereby granted, free of charge, to any person obtaining a copy
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * of this software and associated documentation files (the "Software"), to deal
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * in the Software without restriction, including without limitation the rights
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * copies of the Software, and to permit persons to whom the Software is
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * furnished to do so, subject to the following conditions:
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** *
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * The above copyright notice and this permission notice shall be included in all
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * copies or substantial portions of the Software.
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** *
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * SOFTWARE
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** *
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * \endcopyright
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** *
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * \author Infineon Technologies AG
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** *
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * \file example_optiga_crypt_hkdf.c
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** *
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * \brief   This file provides the example for key derivation (HKDF-SHA256) using
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** *          #optiga_crypt_hkdf.
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** *
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * \ingroup grOptigaExamples
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** *
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** * @{
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** */
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** #include "optiga/optiga_crypt.h"
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** #include "optiga/optiga_util.h"
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** #include "optiga_example.h"
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** #ifdef OPTIGA_CRYPT_HKDF_ENABLED
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** extern void example_optiga_init(void);
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** extern void example_optiga_deinit(void);
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** #endif
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** /**
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****  * Callback when optiga_crypt_xxxx operation is completed asynchronously
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****  */
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** static volatile optiga_lib_status_t optiga_lib_status;
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** //lint --e{818} suppress "argument "context" is not used in the sample provided"
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** static void optiga_lib_callback(void * context, optiga_lib_status_t return_status)
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** {
+  27              	 .loc 1 56 0
+  28              	 .cfi_startproc
+  29              	 
+  30              	 
+  31              	 
+  32              	.LVL0:
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     optiga_lib_status = return_status;
+  33              	 .loc 1 57 0
+  34 0000 014B     	 ldr r3,.L2
+  35 0002 1980     	 strh r1,[r3]
+  36 0004 7047     	 bx lr
+  37              	.L3:
+  38 0006 00BF     	 .align 2
+  39              	.L2:
+  40 0008 00000000 	 .word .LANCHOR0
+  41              	 .cfi_endproc
+  42              	.LFE6:
+  44              	 .section .text.example_optiga_crypt_hkdf,"ax",%progbits
+  45              	 .align 2
+  46              	 .global example_optiga_crypt_hkdf
+  47              	 .thumb
+  48              	 .thumb_func
+  50              	example_optiga_crypt_hkdf:
+  51              	.LFB7:
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     if (NULL != context)
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     {
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         // callback to upper layer here
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     }
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** }
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** /**
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****  * Sample metadata
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****  */
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** static const uint8_t metadata [] = {
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     //Metadata tag in the data object
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     0x20, 0x06,
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         //Data object type set to PRESSEC
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         0xE8, 0x01, 0x21,
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         0xD3, 0x01, 0x00,
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** };
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** /**
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****  * Default metadata
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****  */
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** static const uint8_t default_metadata [] = {
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     //Metadata tag in the data object
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     0x20, 0x06,
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         //Data object type set to BSTR
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         0xE8, 0x01, 0x00,
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         0xD3, 0x01, 0xFF,
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** };
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** static const uint8_t info [] = {0x8D,0xE4,0x3F,0xFF,
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                           0x65,0x2D,0xA0,0xA7,
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                           0xF0,0x4E,0x8F,0x22,
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                           0x84,0xA4,0x28,0x3B};
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** static const uint8_t salt [] = {
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     0x61, 0xC7, 0xDE, 0xF9, 0x0F, 0xD5, 0xCD, 0x7A,
+  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     0x8B, 0x7A, 0x36, 0x41, 0x04, 0xE0, 0x0D, 0x82,
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     0x38, 0x46, 0xBF, 0xB7, 0x70, 0xEE, 0xBF, 0x8F,
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     0x40, 0x25, 0x2E, 0x0A, 0x21, 0x42, 0xAF, 0x9C,
+  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** };
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** // Secret to be written to data object which will be
+  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** // later used as part of TLS PRF SHA256 key derivation
+ 100:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** static const uint8_t secret_to_be_written [] = {
+ 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     0xBF, 0xB7, 0x70, 0xEE, 0xBF, 0x8F, 0x61, 0xC7,
+ 102:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     0x04, 0xE0, 0x0D, 0x82, 0x8B, 0x7A, 0x36, 0x41,
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     0xD5, 0xCD, 0x7A, 0x38, 0x46, 0xDE, 0xF9, 0x0F,
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     0x21, 0x42, 0x40, 0x25, 0x0A, 0xAF, 0x9C, 0x2E,
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** };
+ 106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** /**
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****  * The below example demonstrates the key derivation using #optiga_crypt_hkdf.
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****  *
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****  */
+ 111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** void example_optiga_crypt_hkdf(void)
+ 112:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** {
+  52              	 .loc 1 112 0
+  53              	 .cfi_startproc
+  54              	 
+  55              	 
+  56 0000 2DE9F041 	 push {r4,r5,r6,r7,r8,lr}
+  57              	.LCFI0:
+  58              	 .cfi_def_cfa_offset 24
+  59              	 .cfi_offset 4,-24
+  60              	 .cfi_offset 5,-20
+  61              	 .cfi_offset 6,-16
+  62              	 .cfi_offset 7,-12
+  63              	 .cfi_offset 8,-8
+  64              	 .cfi_offset 14,-4
+  65 0004 8CB0     	 sub sp,sp,#48
+  66              	.LCFI1:
+  67              	 .cfi_def_cfa_offset 72
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     uint8_t decryption_key [16] = {0};
+  68              	 .loc 1 113 0
+  69 0006 0024     	 movs r4,#0
+  70 0008 0894     	 str r4,[sp,#32]
+  71 000a 0994     	 str r4,[sp,#36]
+  72 000c 0A94     	 str r4,[sp,#40]
+  73 000e 0B94     	 str r4,[sp,#44]
+  74              	.LVL1:
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 115:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+ 116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     uint32_t time_taken = 0;
+  75              	 .loc 1 116 0
+  76 0010 0794     	 str r4,[sp,#28]
+  77              	.LVL2:
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     optiga_crypt_t * me = NULL;
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     optiga_util_t * me_util = NULL;
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     do
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     {
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         /**
+ 125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****          * Open the application on OPTIGA which is a precondition to perform any other operations
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****          * using optiga_util_open_application
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****          */
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         example_optiga_init();
+  78              	 .loc 1 128 0
+  79 0012 FFF7FEFF 	 bl example_optiga_init
+  80              	.LVL3:
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         OPTIGA_EXAMPLE_LOG_MESSAGE(__FUNCTION__);
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         me_util = optiga_util_create(0, optiga_lib_callback, NULL);
+  81              	 .loc 1 133 0
+  82 0016 2046     	 mov r0,r4
+  83 0018 2246     	 mov r2,r4
+  84 001a 5749     	 ldr r1,.L38
+  85 001c FFF7FEFF 	 bl optiga_util_create
+  86              	.LVL4:
+ 134:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         if (NULL == me_util)
+  87              	 .loc 1 134 0
+  88 0020 0646     	 mov r6,r0
+  89 0022 68B1     	 cbz r0,.L5
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         {
+ 136:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****             break;
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         }
+ 138:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         /**
+ 140:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****          * 1. Write the shared secret to the Arbitrary data object F1D0
+ 141:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****          *       - This is typically a one time activity and
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****          *       - use the this OID as input secret to derive keys further
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****          * 2. Use Erase and Write (OPTIGA_UTIL_ERASE_AND_WRITE) option,
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****          *    to clear the remaining data in the object
+ 145:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****          */
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         return_status = optiga_util_write_data(me_util,
+  90              	 .loc 1 147 0
+  91 0024 554B     	 ldr r3,.L38+4
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         return_status = optiga_util_write_data(me_util,
+  92              	 .loc 1 146 0
+  93 0026 564D     	 ldr r5,.L38+8
+  94              	 .loc 1 147 0
+  95 0028 0093     	 str r3,[sp]
+  96 002a 2022     	 movs r2,#32
+  97 002c 2346     	 mov r3,r4
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         return_status = optiga_util_write_data(me_util,
+  98              	 .loc 1 146 0
+  99 002e 0124     	 movs r4,#1
+ 100              	 .loc 1 147 0
+ 101 0030 0192     	 str r2,[sp,#4]
+ 102 0032 4FF2D011 	 movw r1,#61904
+ 103 0036 4022     	 movs r2,#64
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         return_status = optiga_util_write_data(me_util,
+ 104              	 .loc 1 146 0
+ 105 0038 2C80     	 strh r4,[r5]
+ 106              	 .loc 1 147 0
+ 107 003a FFF7FEFF 	 bl optiga_util_write_data
+ 108              	.LVL5:
+ 148:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                                0xF1D0,
+ 149:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                                OPTIGA_UTIL_ERASE_AND_WRITE ,
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                                0x00,
+ 151:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                                secret_to_be_written,
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                                sizeof(secret_to_be_written));
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 109              	 .loc 1 154 0
+ 110 003e 28B1     	 cbz r0,.L6
+ 111              	.LVL6:
+ 112              	.L5:
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         /**
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****          * 2. Change data object type to PRESSEC
+ 158:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****          *
+ 159:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****          */
+ 160:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 161:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         return_status = optiga_util_write_metadata(me_util,
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                                    0xF1D0,
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                                    metadata,
+ 165:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                                    sizeof(metadata));
+ 166:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         /**
+ 170:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****          * 3. Create OPTIGA Crypt Instance
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****          *
+ 172:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****          */
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         me = optiga_crypt_create(0, optiga_lib_callback, NULL);
+ 174:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         if (NULL == me)
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         {
+ 176:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****             break;
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         }
+ 178:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         /**
+ 180:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****          * 4. Derive key (e.g. decryption key) using optiga_crypt_hkdf with protected I2C communica
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****          *       - Use shared secret from F1D0 data object
+ 182:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****          */
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_COMMAND_PROTECTION);
+ 185:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         OPTIGA_CRYPT_SET_COMMS_PROTOCOL_VERSION(me, OPTIGA_COMMS_PROTOCOL_VERSION_PRE_SHARED_SECRET
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 187:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         START_PERFORMANCE_MEASUREMENT(time_taken);
+ 188:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         
+ 189:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         return_status = optiga_crypt_hkdf(me,
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                           OPTIGA_HKDF_SHA_256,
+ 191:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                           0xF1D0, /* Input secret OID */
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                           salt,
+ 193:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                           sizeof(salt),
+ 194:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                           info,
+ 195:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                           sizeof(info),
+ 196:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                           sizeof(decryption_key),
+ 197:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                           TRUE,
+ 198:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                           decryption_key);
+ 199:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 201:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         
+ 202:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         READ_PERFORMANCE_MEASUREMENT(time_taken);
+ 203:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         
+ 204:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         /**
+ 205:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****          * 5. Change meta data to default value
+ 206:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****          *
+ 207:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****          */
+ 208:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 209:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         return_status = optiga_util_write_metadata(me_util,
+ 210:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                                    0xF1D0,
+ 211:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                                    default_metadata,
+ 212:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                                    sizeof(default_metadata));
+ 213:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 215:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 217:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     } while (FALSE);
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 219:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     
+ 220:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 221:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     /**
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****      * Close the application on OPTIGA after all the operations are executed
+ 223:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****      * using optiga_util_close_application
+ 224:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****      */
+ 225:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     example_optiga_deinit();
+ 113              	 .loc 1 225 0
+ 114 0040 FFF7FEFF 	 bl example_optiga_deinit
+ 115              	.LVL7:
+ 226:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 227:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     OPTIGA_EXAMPLE_LOG_PERFORMANCE_VALUE(time_taken, return_status);
+ 228:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     
+ 229:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     if (me)
+ 230:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     {
+ 231:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         //Destroy the instance after the completion of usecase if not required.
+ 232:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         return_status = optiga_crypt_destroy(me);
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 234:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         {
+ 235:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****             //lint --e{774} suppress This is a generic macro
+ 236:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****             OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 237:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         }
+ 238:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     }
+ 239:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 240:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     if (me_util)
+ 116              	 .loc 1 240 0
+ 117 0044 A6B9     	 cbnz r6,.L19
+ 241:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     {
+ 242:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         //Destroy the instance after the completion of usecase if not required.
+ 243:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         return_status = optiga_util_destroy(me_util);
+ 244:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 245:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         {
+ 246:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****             //lint --e{774} suppress This is a generic macro
+ 247:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****             OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 248:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         }
+ 249:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     }
+ 250:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     
+ 251:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** }
+ 118              	 .loc 1 251 0
+ 119 0046 0CB0     	 add sp,sp,#48
+ 120              	.LCFI2:
+ 121              	 .cfi_remember_state
+ 122              	 .cfi_def_cfa_offset 24
+ 123              	 
+ 124 0048 BDE8F081 	 pop {r4,r5,r6,r7,r8,pc}
+ 125              	.LVL8:
+ 126              	.L6:
+ 127              	.LCFI3:
+ 128              	 .cfi_restore_state
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 129              	 .loc 1 154 0 discriminator 1
+ 130 004c 2B88     	 ldrh r3,[r5]
+ 131 004e 4C4C     	 ldr r4,.L38+8
+ 132 0050 9BB2     	 uxth r3,r3
+ 133 0052 012B     	 cmp r3,#1
+ 134 0054 FAD0     	 beq .L6
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 135              	 .loc 1 154 0 is_stmt 0 discriminator 2
+ 136 0056 2388     	 ldrh r3,[r4]
+ 137 0058 9BB2     	 uxth r3,r3
+ 138 005a 7BB1     	 cbz r3,.L7
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 139              	 .loc 1 154 0 discriminator 3
+ 140 005c 2488     	 ldrh r4,[r4]
+ 141 005e A4B2     	 uxth r4,r4
+ 142              	.LVL9:
+ 143              	.L8:
+ 225:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 144              	 .loc 1 225 0 is_stmt 1
+ 145 0060 FFF7FEFF 	 bl example_optiga_deinit
+ 146              	.LVL10:
+ 227:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     
+ 147              	 .loc 1 227 0
+ 148 0064 24B9     	 cbnz r4,.L19
+ 149              	.LVL11:
+ 150              	.L34:
+ 151 0066 4748     	 ldr r0,.L38+12
+ 152 0068 4749     	 ldr r1,.L38+16
+ 153 006a 079A     	 ldr r2,[sp,#28]
+ 154 006c FFF7FEFF 	 bl sprintf
+ 155              	.LVL12:
+ 156              	.L19:
+ 243:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 157              	 .loc 1 243 0
+ 158 0070 3046     	 mov r0,r6
+ 159 0072 FFF7FEFF 	 bl optiga_util_destroy
+ 160              	.LVL13:
+ 161              	.L37:
+ 162              	 .loc 1 251 0
+ 163 0076 0CB0     	 add sp,sp,#48
+ 164              	.LCFI4:
+ 165              	 .cfi_remember_state
+ 166              	 .cfi_def_cfa_offset 24
+ 167              	 
+ 168 0078 BDE8F081 	 pop {r4,r5,r6,r7,r8,pc}
+ 169              	.LVL14:
+ 170              	.L7:
+ 171              	.LCFI5:
+ 172              	 .cfi_restore_state
+ 161:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         return_status = optiga_util_write_metadata(me_util,
+ 173              	 .loc 1 161 0
+ 174 007c 0123     	 movs r3,#1
+ 175 007e 2380     	 strh r3,[r4]
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                                    0xF1D0,
+ 176              	 .loc 1 162 0
+ 177 0080 3046     	 mov r0,r6
+ 178              	.LVL15:
+ 179 0082 4FF2D011 	 movw r1,#61904
+ 180 0086 414A     	 ldr r2,.L38+20
+ 181 0088 0823     	 movs r3,#8
+ 182 008a FFF7FEFF 	 bl optiga_util_write_metadata
+ 183              	.LVL16:
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 184              	 .loc 1 167 0
+ 185 008e 0028     	 cmp r0,#0
+ 186 0090 D6D1     	 bne .L5
+ 187              	.L9:
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 188              	 .loc 1 167 0 is_stmt 0 discriminator 1
+ 189 0092 2B88     	 ldrh r3,[r5]
+ 190 0094 3A4F     	 ldr r7,.L38+8
+ 191 0096 9BB2     	 uxth r3,r3
+ 192 0098 012B     	 cmp r3,#1
+ 193 009a FAD0     	 beq .L9
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 194              	 .loc 1 167 0 discriminator 2
+ 195 009c 3888     	 ldrh r0,[r7]
+ 196              	.LVL17:
+ 197 009e 80B2     	 uxth r0,r0
+ 198 00a0 10B1     	 cbz r0,.L10
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 199              	 .loc 1 167 0 discriminator 3
+ 200 00a2 3C88     	 ldrh r4,[r7]
+ 201 00a4 A4B2     	 uxth r4,r4
+ 202              	.LVL18:
+ 203 00a6 DBE7     	 b .L8
+ 204              	.LVL19:
+ 205              	.L10:
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         if (NULL == me)
+ 206              	 .loc 1 173 0 is_stmt 1
+ 207 00a8 0246     	 mov r2,r0
+ 208 00aa 3349     	 ldr r1,.L38
+ 209 00ac FFF7FEFF 	 bl optiga_crypt_create
+ 210              	.LVL20:
+ 174:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         {
+ 211              	 .loc 1 174 0
+ 212 00b0 0446     	 mov r4,r0
+ 213 00b2 0028     	 cmp r0,#0
+ 214 00b4 40D0     	 beq .L11
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_COMMAND_PROTECTION);
+ 215              	 .loc 1 183 0
+ 216 00b6 4FF00108 	 mov r8,#1
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         OPTIGA_CRYPT_SET_COMMS_PROTOCOL_VERSION(me, OPTIGA_COMMS_PROTOCOL_VERSION_PRE_SHARED_SECRET
+ 217              	 .loc 1 184 0
+ 218 00ba 4146     	 mov r1,r8
+ 219 00bc 4246     	 mov r2,r8
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_COMMAND_PROTECTION);
+ 220              	 .loc 1 183 0
+ 221 00be A7F80080 	 strh r8,[r7]
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         OPTIGA_CRYPT_SET_COMMS_PROTOCOL_VERSION(me, OPTIGA_COMMS_PROTOCOL_VERSION_PRE_SHARED_SECRET
+ 222              	 .loc 1 184 0
+ 223 00c2 FFF7FEFF 	 bl optiga_crypt_set_comms_params
+ 224              	.LVL21:
+ 185:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** 
+ 225              	 .loc 1 185 0
+ 226 00c6 4246     	 mov r2,r8
+ 227 00c8 2046     	 mov r0,r4
+ 228 00ca 0221     	 movs r1,#2
+ 229 00cc FFF7FEFF 	 bl optiga_crypt_set_comms_params
+ 230              	.LVL22:
+ 187:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         
+ 231              	 .loc 1 187 0
+ 232 00d0 4146     	 mov r1,r8
+ 233 00d2 07A8     	 add r0,sp,#28
+ 234 00d4 FFF7FEFF 	 bl example_performance_measurement
+ 235              	.LVL23:
+ 189:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                           OPTIGA_HKDF_SHA_256,
+ 236              	 .loc 1 189 0
+ 237 00d8 2020     	 movs r0,#32
+ 238 00da 2D49     	 ldr r1,.L38+24
+ 239 00dc CDF81080 	 str r8,[sp,#16]
+ 240 00e0 1023     	 movs r3,#16
+ 241 00e2 0DEB0002 	 add r2,sp,r0
+ 242 00e6 8DE80B00 	 stmia sp,{r0,r1,r3}
+ 243 00ea 0393     	 str r3,[sp,#12]
+ 244 00ec 0592     	 str r2,[sp,#20]
+ 245 00ee 2046     	 mov r0,r4
+ 246 00f0 0821     	 movs r1,#8
+ 247 00f2 4FF2D012 	 movw r2,#61904
+ 248 00f6 274B     	 ldr r3,.L38+28
+ 249 00f8 FFF7FEFF 	 bl optiga_crypt_hkdf
+ 250              	.LVL24:
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         
+ 251              	 .loc 1 200 0
+ 252 00fc 40B1     	 cbz r0,.L13
+ 253              	.L12:
+ 254              	.LVL25:
+ 225:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 255              	 .loc 1 225 0
+ 256 00fe FFF7FEFF 	 bl example_optiga_deinit
+ 257              	.LVL26:
+ 258              	.L21:
+ 232:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 259              	 .loc 1 232 0
+ 260 0102 2046     	 mov r0,r4
+ 261 0104 FFF7FEFF 	 bl optiga_crypt_destroy
+ 262              	.LVL27:
+ 243:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 263              	 .loc 1 243 0
+ 264 0108 3046     	 mov r0,r6
+ 265 010a FFF7FEFF 	 bl optiga_util_destroy
+ 266              	.LVL28:
+ 267 010e B2E7     	 b .L37
+ 268              	.LVL29:
+ 269              	.L13:
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         
+ 270              	 .loc 1 200 0 discriminator 1
+ 271 0110 2B88     	 ldrh r3,[r5]
+ 272 0112 1B4F     	 ldr r7,.L38+8
+ 273 0114 9BB2     	 uxth r3,r3
+ 274 0116 012B     	 cmp r3,#1
+ 275 0118 FAD0     	 beq .L13
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         
+ 276              	 .loc 1 200 0 is_stmt 0 discriminator 2
+ 277 011a 3988     	 ldrh r1,[r7]
+ 278 011c 89B2     	 uxth r1,r1
+ 279 011e 71B1     	 cbz r1,.L14
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         
+ 280              	 .loc 1 200 0 discriminator 3
+ 281 0120 3D88     	 ldrh r5,[r7]
+ 282 0122 ADB2     	 uxth r5,r5
+ 283              	.LVL30:
+ 284              	.L15:
+ 225:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 285              	 .loc 1 225 0 is_stmt 1
+ 286 0124 FFF7FEFF 	 bl example_optiga_deinit
+ 287              	.LVL31:
+ 227:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****     
+ 288              	 .loc 1 227 0
+ 289 0128 002D     	 cmp r5,#0
+ 290 012a EAD1     	 bne .L21
+ 291              	.LVL32:
+ 292              	.L35:
+ 293 012c 1649     	 ldr r1,.L38+16
+ 294 012e 079A     	 ldr r2,[sp,#28]
+ 295 0130 1448     	 ldr r0,.L38+12
+ 296 0132 FFF7FEFF 	 bl sprintf
+ 297              	.LVL33:
+ 298 0136 E4E7     	 b .L21
+ 299              	.LVL34:
+ 300              	.L11:
+ 225:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 301              	 .loc 1 225 0
+ 302 0138 FFF7FEFF 	 bl example_optiga_deinit
+ 303              	.LVL35:
+ 304 013c 93E7     	 b .L34
+ 305              	.LVL36:
+ 306              	.L14:
+ 202:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         
+ 307              	 .loc 1 202 0
+ 308 013e 07A8     	 add r0,sp,#28
+ 309              	.LVL37:
+ 310 0140 FFF7FEFF 	 bl example_performance_measurement
+ 311              	.LVL38:
+ 208:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         return_status = optiga_util_write_metadata(me_util,
+ 312              	 .loc 1 208 0
+ 313 0144 0123     	 movs r3,#1
+ 314 0146 3B80     	 strh r3,[r7]
+ 209:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****                                                    0xF1D0,
+ 315              	 .loc 1 209 0
+ 316 0148 3046     	 mov r0,r6
+ 317 014a 4FF2D011 	 movw r1,#61904
+ 318 014e 124A     	 ldr r2,.L38+32
+ 319 0150 0823     	 movs r3,#8
+ 320 0152 FFF7FEFF 	 bl optiga_util_write_metadata
+ 321              	.LVL39:
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 322              	 .loc 1 214 0
+ 323 0156 0028     	 cmp r0,#0
+ 324 0158 D1D1     	 bne .L12
+ 325              	.L16:
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 326              	 .loc 1 214 0 is_stmt 0 discriminator 1
+ 327 015a 2B88     	 ldrh r3,[r5]
+ 328 015c 084A     	 ldr r2,.L38+8
+ 329 015e 9BB2     	 uxth r3,r3
+ 330 0160 012B     	 cmp r3,#1
+ 331 0162 FAD0     	 beq .L16
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 332              	 .loc 1 214 0 discriminator 2
+ 333 0164 1388     	 ldrh r3,[r2]
+ 334 0166 9BB2     	 uxth r3,r3
+ 335 0168 13B1     	 cbz r3,.L17
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 336              	 .loc 1 214 0 discriminator 3
+ 337 016a 1588     	 ldrh r5,[r2]
+ 338 016c ADB2     	 uxth r5,r5
+ 339              	.LVL40:
+ 340 016e D9E7     	 b .L15
+ 341              	.LVL41:
+ 342              	.L17:
+ 225:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hkdf.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 343              	 .loc 1 225 0 is_stmt 1
+ 344 0170 FFF7FEFF 	 bl example_optiga_deinit
+ 345              	.LVL42:
+ 346 0174 DAE7     	 b .L35
+ 347              	.L39:
+ 348 0176 00BF     	 .align 2
+ 349              	.L38:
+ 350 0178 00000000 	 .word optiga_lib_callback
+ 351 017c 00000000 	 .word .LANCHOR1
+ 352 0180 00000000 	 .word .LANCHOR0
+ 353 0184 00000000 	 .word performance_buffer_string
+ 354 0188 00000000 	 .word .LC0
+ 355 018c 00000000 	 .word .LANCHOR2
+ 356 0190 00000000 	 .word .LANCHOR4
+ 357 0194 00000000 	 .word .LANCHOR3
+ 358 0198 00000000 	 .word .LANCHOR5
+ 359              	 .cfi_endproc
+ 360              	.LFE7:
+ 362              	 .section .rodata.secret_to_be_written,"a",%progbits
+ 363              	 .align 2
+ 364              	 .set .LANCHOR1,.+0
+ 367              	secret_to_be_written:
+ 368 0000 BF       	 .byte -65
+ 369 0001 B7       	 .byte -73
+ 370 0002 70       	 .byte 112
+ 371 0003 EE       	 .byte -18
+ 372 0004 BF       	 .byte -65
+ 373 0005 8F       	 .byte -113
+ 374 0006 61       	 .byte 97
+ 375 0007 C7       	 .byte -57
+ 376 0008 04       	 .byte 4
+ 377 0009 E0       	 .byte -32
+ 378 000a 0D       	 .byte 13
+ 379 000b 82       	 .byte -126
+ 380 000c 8B       	 .byte -117
+ 381 000d 7A       	 .byte 122
+ 382 000e 36       	 .byte 54
+ 383 000f 41       	 .byte 65
+ 384 0010 D5       	 .byte -43
+ 385 0011 CD       	 .byte -51
+ 386 0012 7A       	 .byte 122
+ 387 0013 38       	 .byte 56
+ 388 0014 46       	 .byte 70
+ 389 0015 DE       	 .byte -34
+ 390 0016 F9       	 .byte -7
+ 391 0017 0F       	 .byte 15
+ 392 0018 21       	 .byte 33
+ 393 0019 42       	 .byte 66
+ 394 001a 40       	 .byte 64
+ 395 001b 25       	 .byte 37
+ 396 001c 0A       	 .byte 10
+ 397 001d AF       	 .byte -81
+ 398 001e 9C       	 .byte -100
+ 399 001f 2E       	 .byte 46
+ 400              	 .section .rodata.metadata,"a",%progbits
+ 401              	 .align 2
+ 402              	 .set .LANCHOR2,.+0
+ 405              	metadata:
+ 406 0000 20       	 .byte 32
+ 407 0001 06       	 .byte 6
+ 408 0002 E8       	 .byte -24
+ 409 0003 01       	 .byte 1
+ 410 0004 21       	 .byte 33
+ 411 0005 D3       	 .byte -45
+ 412 0006 01       	 .byte 1
+ 413 0007 00       	 .byte 0
+ 414              	 .section .rodata.default_metadata,"a",%progbits
+ 415              	 .align 2
+ 416              	 .set .LANCHOR5,.+0
+ 419              	default_metadata:
+ 420 0000 20       	 .byte 32
+ 421 0001 06       	 .byte 6
+ 422 0002 E8       	 .byte -24
+ 423 0003 01       	 .byte 1
+ 424 0004 00       	 .byte 0
+ 425 0005 D3       	 .byte -45
+ 426 0006 01       	 .byte 1
+ 427 0007 FF       	 .byte -1
+ 428              	 .section .rodata.str1.4,"aMS",%progbits,1
+ 429              	 .align 2
+ 430              	.LC0:
+ 431 0000 4578616D 	 .ascii "Example takes %d msec\000"
+ 431      706C6520 
+ 431      74616B65 
+ 431      73202564 
+ 431      206D7365 
+ 432 0016 0000     	 .section .rodata.info,"a",%progbits
+ 433              	 .align 2
+ 434              	 .set .LANCHOR4,.+0
+ 437              	info:
+ 438 0000 8D       	 .byte -115
+ 439 0001 E4       	 .byte -28
+ 440 0002 3F       	 .byte 63
+ 441 0003 FF       	 .byte -1
+ 442 0004 65       	 .byte 101
+ 443 0005 2D       	 .byte 45
+ 444 0006 A0       	 .byte -96
+ 445 0007 A7       	 .byte -89
+ 446 0008 F0       	 .byte -16
+ 447 0009 4E       	 .byte 78
+ 448 000a 8F       	 .byte -113
+ 449 000b 22       	 .byte 34
+ 450 000c 84       	 .byte -124
+ 451 000d A4       	 .byte -92
+ 452 000e 28       	 .byte 40
+ 453 000f 3B       	 .byte 59
+ 454              	 .section .rodata.salt,"a",%progbits
+ 455              	 .align 2
+ 456              	 .set .LANCHOR3,.+0
+ 459              	salt:
+ 460 0000 61       	 .byte 97
+ 461 0001 C7       	 .byte -57
+ 462 0002 DE       	 .byte -34
+ 463 0003 F9       	 .byte -7
+ 464 0004 0F       	 .byte 15
+ 465 0005 D5       	 .byte -43
+ 466 0006 CD       	 .byte -51
+ 467 0007 7A       	 .byte 122
+ 468 0008 8B       	 .byte -117
+ 469 0009 7A       	 .byte 122
+ 470 000a 36       	 .byte 54
+ 471 000b 41       	 .byte 65
+ 472 000c 04       	 .byte 4
+ 473 000d E0       	 .byte -32
+ 474 000e 0D       	 .byte 13
+ 475 000f 82       	 .byte -126
+ 476 0010 38       	 .byte 56
+ 477 0011 46       	 .byte 70
+ 478 0012 BF       	 .byte -65
+ 479 0013 B7       	 .byte -73
+ 480 0014 70       	 .byte 112
+ 481 0015 EE       	 .byte -18
+ 482 0016 BF       	 .byte -65
+ 483 0017 8F       	 .byte -113
+ 484 0018 40       	 .byte 64
+ 485 0019 25       	 .byte 37
+ 486 001a 2E       	 .byte 46
+ 487 001b 0A       	 .byte 10
+ 488 001c 21       	 .byte 33
+ 489 001d 42       	 .byte 66
+ 490 001e AF       	 .byte -81
+ 491 001f 9C       	 .byte -100
+ 492              	 .section .bss.optiga_lib_status,"aw",%nobits
+ 493              	 .align 1
+ 494              	 .set .LANCHOR0,.+0
+ 497              	optiga_lib_status:
+ 498 0000 0000     	 .space 2
+ 499              	 .text
+ 500              	.Letext0:
+ 501              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 502              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 503              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_types.h"
+ 504              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_common.h"
+ 505              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/cmd/optiga_cmd.h"
+ 506              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_crypt.h"
+ 507              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_util.h"
+ 508              	 .file 9 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdio.h"
+ 509              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/include/optiga_example.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 example_optiga_crypt_hkdf.c
+    {standard input}:20     .text.optiga_lib_callback:00000000 $t
+    {standard input}:24     .text.optiga_lib_callback:00000000 optiga_lib_callback
+    {standard input}:40     .text.optiga_lib_callback:00000008 $d
+    {standard input}:45     .text.example_optiga_crypt_hkdf:00000000 $t
+    {standard input}:50     .text.example_optiga_crypt_hkdf:00000000 example_optiga_crypt_hkdf
+    {standard input}:350    .text.example_optiga_crypt_hkdf:00000178 $d
+    {standard input}:363    .rodata.secret_to_be_written:00000000 $d
+    {standard input}:367    .rodata.secret_to_be_written:00000000 secret_to_be_written
+    {standard input}:401    .rodata.metadata:00000000 $d
+    {standard input}:405    .rodata.metadata:00000000 metadata
+    {standard input}:415    .rodata.default_metadata:00000000 $d
+    {standard input}:419    .rodata.default_metadata:00000000 default_metadata
+    {standard input}:429    .rodata.str1.4:00000000 $d
+    {standard input}:433    .rodata.info:00000000 $d
+    {standard input}:437    .rodata.info:00000000 info
+    {standard input}:455    .rodata.salt:00000000 $d
+    {standard input}:459    .rodata.salt:00000000 salt
+    {standard input}:493    .bss.optiga_lib_status:00000000 $d
+    {standard input}:497    .bss.optiga_lib_status:00000000 optiga_lib_status
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+example_optiga_init
+optiga_util_create
+optiga_util_write_data
+example_optiga_deinit
+sprintf
+optiga_util_destroy
+optiga_util_write_metadata
+optiga_crypt_create
+optiga_crypt_set_comms_params
+example_performance_measurement
+optiga_crypt_hkdf
+optiga_crypt_destroy
+performance_buffer_string

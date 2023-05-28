@@ -68,5 +68,14 @@ extern const INTERRUPT_t tick_timer_intr;
 	
 extern const INTERRUPT_t scheduler_timer_intr; 
 	
+	
+#define TimerInterval_ISR IRQ_Hdlr_63
+		
+/***********************************************************************************************************************
+ * EXTERN DECLARATIONS
+***********************************************************************************************************************/
+	
+extern const INTERRUPT_t INTERRUPT_0; 
+	
 #endif  /* INTERRUPT_EXTERN_H */
 

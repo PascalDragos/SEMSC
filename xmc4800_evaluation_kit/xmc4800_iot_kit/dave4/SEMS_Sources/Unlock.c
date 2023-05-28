@@ -1,11 +1,5 @@
-#include "optiga/optiga_crypt.h"
-#include "optiga/optiga_util.h"
-#include "optiga/common/optiga_lib_logger.h"
-#include "optiga/pal/pal_os_event.h"
-#include "optiga/pal/pal.h"
-#include "optiga/pal/pal_os_timer.h"
-#include "optiga_example.h"
 #include "optiga/pal/pal_logger.h"
+#include "optiga/common/optiga_lib_logger.h"
 
 #include "../SEMS_Headers/Unlock.h"
 #include "../SEMS_Headers/SymEncrypt.h"
@@ -14,15 +8,14 @@
 
 extern pal_logger_t logger_console;
 uint32_t user_token = 0;
-//uint16_t user_nonce = 2;
 
 
 uint8_t secure_unlock(void)
 {
     uint8_t random_buf[32] = {0x00};
     uint8_t signature[128] = {0x00};
-    // 1 + 4 + 2
-    uint8_t response[1 + 4 + 2] = {0x00, 0x01, 0x02, 0x03 , 0x04, 0x05, 0x06};
+    // 1 (succes) + 4 (token)
+    uint8_t response[1 + 4] = {0x00, 0x01, 0x02, 0x03};
     uint8_t success = false;
 
 	// Generate random number using Optiga
@@ -40,7 +33,7 @@ uint8_t secure_unlock(void)
 		if(success)
 		{
 
-			// Assing response
+			// Assign response
 			response[0] = success;
 			// Generate random number using Optiga
 			optiga_crypt_random_wrapper(response + 1, 8);  // nu pot genera doar 6
@@ -51,8 +44,6 @@ uint8_t secure_unlock(void)
 						 (response[3] <<  8)+
 						 (response[4] <<  0);
 
-//			user_nonce = (response[5] <<  8)+
-//						 (response[6] <<  0);
 		}
 		// Send response
 		optiga_lib_print_bytes(response, 5);
@@ -60,6 +51,7 @@ uint8_t secure_unlock(void)
 
 	return success;
 }
+
 
 uint8_t secure_unlock_old(void)
 {

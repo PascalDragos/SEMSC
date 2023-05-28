@@ -79,6 +79,9 @@ int main(void)
         }
     }
 
+
+
+
     do
     {
         if(PAL_STATUS_SUCCESS != pal_logger_init(&logger_console))
@@ -88,6 +91,7 @@ int main(void)
 
         pal_os_timer_delay_in_milliseconds(100);
 
+
 //        optiga_shell_wait_for_user();
         my_optiga_shell_begin();
 
@@ -95,6 +99,9 @@ int main(void)
 
     return return_value;
 }
+
+
+
 
 /**
 * @}

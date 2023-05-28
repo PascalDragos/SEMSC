@@ -1,0 +1,892 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "example_optiga_hibernate_restore.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.optiga_lib_callback,"ax",%progbits
+  20              	 .align 2
+  21              	 .thumb
+  22              	 .thumb_func
+  24              	optiga_lib_callback:
+  25              	.LFB6:
+  26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases/example_optiga_hibernate_restore.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * \copyright
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * MIT License
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * Copyright (c) 2020 Infineon Technologies AG
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** *
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * Permission is hereby granted, free of charge, to any person obtaining a copy
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * of this software and associated documentation files (the "Software"), to deal
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * in the Software without restriction, including without limitation the rights
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * copies of the Software, and to permit persons to whom the Software is
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * furnished to do so, subject to the following conditions:
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** *
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * The above copyright notice and this permission notice shall be included in all
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * copies or substantial portions of the Software.
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** *
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * SOFTWARE
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** *
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * \endcopyright
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** *
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * \author Infineon Technologies AG
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** *
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * \file example_optiga_hibernate_restore.c
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** *
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * \brief   This file provides an example for hibernate and restore functionalities
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** *
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * \ingroup grUseCases
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** *
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * @{
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** */
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** #include "optiga/optiga_util.h"
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** #include "optiga/optiga_crypt.h"
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** #include "optiga/pal/pal_os_timer.h"
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** #include "optiga_example.h"
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** #if defined (OPTIGA_CRYPT_ECC_GENERATE_KEYPAIR_ENABLED) && defined (OPTIGA_CRYPT_ECDSA_SIGN_ENABLED
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** #ifdef OPTIGA_COMMS_SHIELDED_CONNECTION 
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** //lint --e{526} suppress "the function is defined in example_pair_host_and_optiga_using_pre_shared_
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** extern optiga_lib_status_t pair_host_and_optiga_using_pre_shared_secret(void);
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** #endif
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** /**
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****  * Callback when optiga_util_xxxx operation is completed asynchronously
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****  */
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** static volatile optiga_lib_status_t optiga_lib_status;
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** //lint --e{818} suppress "argument "context" is not used in the sample provided"
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** static void optiga_lib_callback(void * context, optiga_lib_status_t return_status)
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** {
+  27              	 .loc 1 55 0
+  28              	 .cfi_startproc
+  29              	 
+  30              	 
+  31              	 
+  32              	.LVL0:
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     optiga_lib_status = return_status;
+  33              	 .loc 1 56 0
+  34 0000 014B     	 ldr r3,.L2
+  35 0002 1980     	 strh r1,[r3]
+  36 0004 7047     	 bx lr
+  37              	.L3:
+  38 0006 00BF     	 .align 2
+  39              	.L2:
+  40 0008 00000000 	 .word .LANCHOR0
+  41              	 .cfi_endproc
+  42              	.LFE6:
+  44              	 .section .text.example_optiga_util_hibernate_restore,"ax",%progbits
+  45              	 .align 2
+  46              	 .global example_optiga_util_hibernate_restore
+  47              	 .thumb
+  48              	 .thumb_func
+  50              	example_optiga_util_hibernate_restore:
+  51              	.LFB7:
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     if (NULL != context)
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     {
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         // callback to upper layer here
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     }
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** }
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** //SHA-256 Digest to be signed
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** static const uint8_t digest [] =
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** {
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     0x61, 0xC7, 0xDE, 0xF9, 0x0F, 0xD5, 0xCD, 0x7A,0x8B, 0x7A, 0x36, 0x41, 0x04, 0xE0, 0x0D, 0x82,
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     0x38, 0x46, 0xBF, 0xB7, 0x70, 0xEE, 0xBF, 0x8F,0x40, 0x25, 0x2E, 0x0A, 0x21, 0x42, 0xAF, 0x9C,
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** };
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** /**
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****  * The below example demonstrates hibernate and restore functionalities
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****  *
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****  * Example for #optiga_util_open_application and #optiga_util_close_application
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****  *
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****  */
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** void example_optiga_util_hibernate_restore(void)
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** {
+  52              	 .loc 1 77 0
+  53              	 .cfi_startproc
+  54              	 
+  55              	 
+  56              	.LVL1:
+  57 0000 2DE9F043 	 push {r4,r5,r6,r7,r8,r9,lr}
+  58              	.LCFI0:
+  59              	 .cfi_def_cfa_offset 28
+  60              	 .cfi_offset 4,-28
+  61              	 .cfi_offset 5,-24
+  62              	 .cfi_offset 6,-20
+  63              	 .cfi_offset 7,-16
+  64              	 .cfi_offset 8,-12
+  65              	 .cfi_offset 9,-8
+  66              	 .cfi_offset 14,-4
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     optiga_util_t * me_util = NULL;
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     optiga_crypt_t * me_crypt = NULL;
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     // To store the public key generated
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     uint8_t public_key [100];
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     //To store the signature generated
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     uint8_t signature [80];
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     uint16_t signature_length = sizeof(signature);
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     uint16_t bytes_to_read = 1;
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     optiga_key_id_t optiga_key_id;
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     uint8_t security_event_counter = 0;
+  67              	 .loc 1 88 0
+  68 0004 0024     	 movs r4,#0
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     optiga_util_t * me_util = NULL;
+  69              	 .loc 1 77 0
+  70 0006 B9B0     	 sub sp,sp,#228
+  71              	.LCFI1:
+  72              	 .cfi_def_cfa_offset 256
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     public_key_from_host_t public_key_details;
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     //To store the generated public key as part of Generate key pair
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     uint16_t public_key_length = sizeof(public_key);
+  73              	 .loc 1 91 0
+  74 0008 6423     	 movs r3,#100
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 	uint32_t time_taken = 0;
+  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     OPTIGA_EXAMPLE_LOG_MESSAGE("Begin demonstrating hibernate feature...\n");    
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     OPTIGA_EXAMPLE_LOG_MESSAGE(__FUNCTION__);
+  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     do
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     {
+  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         //Create an instance of optiga_util and optiga_crypt
+ 100:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         me_util = optiga_util_create(0, optiga_lib_callback, NULL);
+  75              	 .loc 1 100 0
+  76 000a 2046     	 mov r0,r4
+  77 000c 2246     	 mov r2,r4
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     uint16_t bytes_to_read = 1;
+  78              	 .loc 1 84 0
+  79 000e 5025     	 movs r5,#80
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     optiga_key_id_t optiga_key_id;
+  80              	 .loc 1 85 0
+  81 0010 0127     	 movs r7,#1
+  82              	 .loc 1 100 0
+  83 0012 7F49     	 ldr r1,.L57
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     public_key_from_host_t public_key_details;
+  84              	 .loc 1 88 0
+  85 0014 8DF81740 	 strb r4,[sp,#23]
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+  86              	 .loc 1 92 0
+  87 0018 0894     	 str r4,[sp,#32]
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     uint16_t bytes_to_read = 1;
+  88              	 .loc 1 84 0
+  89 001a ADF81850 	 strh r5,[sp,#24]
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     optiga_key_id_t optiga_key_id;
+  90              	 .loc 1 85 0
+  91 001e ADF81A70 	 strh r7,[sp,#26]
+  92              	.LVL2:
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 	uint32_t time_taken = 0;
+  93              	 .loc 1 91 0
+  94 0022 ADF81E30 	 strh r3,[sp,#30]
+  95              	 .loc 1 100 0
+  96 0026 FFF7FEFF 	 bl optiga_util_create
+  97              	.LVL3:
+ 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         if (NULL == me_util)
+  98              	 .loc 1 101 0
+  99 002a 0646     	 mov r6,r0
+ 100 002c B8B1     	 cbz r0,.L4
+ 102:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         {
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****             break;
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         }
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         me_crypt = optiga_crypt_create(0, optiga_lib_callback, NULL);
+ 101              	 .loc 1 106 0
+ 102 002e 2046     	 mov r0,r4
+ 103              	.LVL4:
+ 104 0030 7749     	 ldr r1,.L57
+ 105 0032 2246     	 mov r2,r4
+ 106 0034 FFF7FEFF 	 bl optiga_crypt_create
+ 107              	.LVL5:
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         if (NULL == me_crypt)
+ 108              	 .loc 1 107 0
+ 109 0038 8046     	 mov r8,r0
+ 110 003a E8B1     	 cbz r0,.L7
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         {
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****             break;
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         }
+ 111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 112:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         /**
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          * 1. Open the application on OPTIGA which is a pre-condition to perform any other operatio
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          *    using optiga_util_open_application
+ 115:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          */
+ 116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 111              	 .loc 1 116 0
+ 112 003c 754D     	 ldr r5,.L57+4
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                 
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         START_PERFORMANCE_MEASUREMENT(time_taken);
+ 113              	 .loc 1 118 0
+ 114 003e 3946     	 mov r1,r7
+ 115 0040 08A8     	 add r0,sp,#32
+ 116              	.LVL6:
+ 116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                 
+ 117              	 .loc 1 116 0
+ 118 0042 2F80     	 strh r7,[r5]
+ 119              	 .loc 1 118 0
+ 120 0044 FFF7FEFF 	 bl example_performance_measurement
+ 121              	.LVL7:
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         return_status = optiga_util_open_application(me_util, 0);
+ 122              	 .loc 1 120 0
+ 123 0048 3046     	 mov r0,r6
+ 124 004a 2146     	 mov r1,r4
+ 125 004c FFF7FEFF 	 bl optiga_util_open_application
+ 126              	.LVL8:
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 127              	 .loc 1 122 0
+ 128 0050 40B1     	 cbz r0,.L9
+ 129              	.LVL9:
+ 130              	.L8:
+ 123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** #ifdef OPTIGA_COMMS_SHIELDED_CONNECTION 
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         /**
+ 125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          * 2. Pairing the Host and OPTIGA using a pre-shared secret
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          */
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         return_status = pair_host_and_optiga_using_pre_shared_secret();
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         {
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****             //pairing of host and optiga failed
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****             break;
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         }
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         
+ 134:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** #endif        
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 136:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         /**
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          * 3. Generate ECC Key pair
+ 138:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          *       - Use ECC NIST P 256 Curve
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          *       - Specify the Key Usage (Key Agreement or Sign based on requirement)
+ 140:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          *       - Store the Private key generated in a Session OID
+ 141:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          *       - Export Public Key
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          */
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         optiga_key_id = OPTIGA_KEY_ID_SESSION_BASED;
+ 145:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         // OPTIGA Comms Shielded connection settings to enable the protection
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL(me_crypt, OPTIGA_COMMS_RESPONSE_PROTECTION);
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 148:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         return_status = optiga_crypt_ecc_generate_keypair(me_crypt,
+ 149:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                           OPTIGA_ECC_CURVE_NIST_P_256,
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                           (uint8_t)OPTIGA_KEY_USAGE_SIGN,
+ 151:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                           FALSE,
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                           &optiga_key_id,
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                           public_key,
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                           &public_key_length);
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         /**
+ 158:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          * - The subsequent steps will hibernate OPTIGA and save the session and optiga comms relat
+ 159:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          * - The session and optiga comms related information are then restored back and crypto ope
+ 160:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          */
+ 161:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         /**
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          * 4. To perform the hibernate, Security Event Counter(SEC) must be 0.
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          *    Read SEC data object (0xE0C5) and wait until SEC = 0
+ 165:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          */
+ 166:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         do
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         {
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****             optiga_lib_status = OPTIGA_LIB_BUSY;
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****             return_status = optiga_util_read_data(me_util,
+ 170:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                   0xE0C5,
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                   0x0000,
+ 172:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                   &security_event_counter,
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                   &bytes_to_read);
+ 174:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****             WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 176:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****             pal_os_timer_delay_in_milliseconds(1000);
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         } while (0 != security_event_counter);
+ 178:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         /**
+ 180:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          * 5. Hibernate the application on OPTIGA
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          *    using optiga_util_close_application with perform_hibernate parameter as true
+ 182:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          */
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         return_status = optiga_util_close_application(me_util, 1);
+ 185:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 187:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 188:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         /**
+ 189:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          * 6. Restore the application on OPTIGA
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          *    using optiga_util_open_application with perform_restore parameter as true
+ 191:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          */
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 193:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         return_status = optiga_util_open_application(me_util, 1);
+ 194:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 195:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 196:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 197:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         /**
+ 198:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          * 7. Sign the digest using the session key from Step 3
+ 199:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          */
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 201:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL(me_crypt, OPTIGA_COMMS_RESPONSE_PROTECTION);
+ 202:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         return_status = optiga_crypt_ecdsa_sign(me_crypt,
+ 203:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                 digest,
+ 204:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                 sizeof(digest),
+ 205:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                 OPTIGA_KEY_ID_SESSION_BASED,
+ 206:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                 signature,
+ 207:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                 &signature_length);
+ 208:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 209:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 210:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 211:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         /**
+ 212:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          * 8. Verify ECDSA signature using public key from step 2
+ 213:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          */
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 215:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         public_key_details.public_key = public_key;
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         public_key_details.length = public_key_length;
+ 217:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         public_key_details.key_type = (uint8_t)OPTIGA_ECC_CURVE_NIST_P_256;
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         return_status = optiga_crypt_ecdsa_verify (me_crypt,
+ 219:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                    digest,
+ 220:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                    sizeof(digest),
+ 221:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                    signature,
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                    signature_length,
+ 223:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                    OPTIGA_CRYPT_HOST_DATA,
+ 224:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                    &public_key_details);
+ 225:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 226:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 227:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 228:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         /**
+ 229:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          * 9. Close the application on OPTIGA without hibernating
+ 230:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          *    using optiga_util_close_application
+ 231:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****          */
+ 232:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         return_status = optiga_util_close_application(me_util, 0);
+ 234:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 235:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         
+ 236:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         READ_PERFORMANCE_MEASUREMENT(time_taken);
+ 237:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         
+ 238:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 239:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         OPTIGA_EXAMPLE_LOG_MESSAGE("Hibernate feature demonstration completed...\n");
+ 240:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     } while (FALSE);
+ 241:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 242:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 243:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     if (me_util)
+ 244:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     {
+ 245:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         //Destroy the instance after the completion of usecase if not required.
+ 246:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         return_status = optiga_util_destroy(me_util);
+ 131              	 .loc 1 246 0
+ 132 0052 3046     	 mov r0,r6
+ 133 0054 FFF7FEFF 	 bl optiga_util_destroy
+ 134              	.LVL10:
+ 247:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 248:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         {
+ 249:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****             //lint --e{774} suppress This is a generic macro
+ 250:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****             OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 251:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         }
+ 252:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     }
+ 253:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 254:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     if (me_crypt)
+ 255:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     {
+ 256:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         //Destroy the instance after the completion of usecase if not required.
+ 257:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         return_status = optiga_crypt_destroy(me_crypt);
+ 135              	 .loc 1 257 0
+ 136 0058 4046     	 mov r0,r8
+ 137 005a FFF7FEFF 	 bl optiga_crypt_destroy
+ 138              	.LVL11:
+ 139              	.L4:
+ 258:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 259:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         {
+ 260:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****             //lint --e{774} suppress This is a generic macro
+ 261:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****             OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 262:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         }
+ 263:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     }
+ 264:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** }
+ 140              	 .loc 1 264 0
+ 141 005e 39B0     	 add sp,sp,#228
+ 142              	.LCFI2:
+ 143              	 .cfi_remember_state
+ 144              	 .cfi_def_cfa_offset 28
+ 145              	 
+ 146 0060 BDE8F083 	 pop {r4,r5,r6,r7,r8,r9,pc}
+ 147              	.LVL12:
+ 148              	.L9:
+ 149              	.LCFI3:
+ 150              	 .cfi_restore_state
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** #ifdef OPTIGA_COMMS_SHIELDED_CONNECTION 
+ 151              	 .loc 1 122 0 discriminator 1
+ 152 0064 2B88     	 ldrh r3,[r5]
+ 153 0066 6B4C     	 ldr r4,.L57+4
+ 154 0068 9BB2     	 uxth r3,r3
+ 155 006a 012B     	 cmp r3,#1
+ 156 006c FAD0     	 beq .L9
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** #ifdef OPTIGA_COMMS_SHIELDED_CONNECTION 
+ 157              	 .loc 1 122 0 is_stmt 0 discriminator 2
+ 158 006e 2388     	 ldrh r3,[r4]
+ 159 0070 9BB2     	 uxth r3,r3
+ 160 0072 3BB1     	 cbz r3,.L53
+ 161              	.L49:
+ 209:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 162              	 .loc 1 209 0 is_stmt 1 discriminator 3
+ 163 0074 2388     	 ldrh r3,[r4]
+ 164              	.LVL13:
+ 165 0076 ECE7     	 b .L8
+ 166              	.LVL14:
+ 167              	.L7:
+ 246:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 168              	 .loc 1 246 0
+ 169 0078 3046     	 mov r0,r6
+ 170 007a FFF7FEFF 	 bl optiga_util_destroy
+ 171              	.LVL15:
+ 172              	 .loc 1 264 0
+ 173 007e 39B0     	 add sp,sp,#228
+ 174              	.LCFI4:
+ 175              	 .cfi_remember_state
+ 176              	 .cfi_def_cfa_offset 28
+ 177              	 
+ 178 0080 BDE8F083 	 pop {r4,r5,r6,r7,r8,r9,pc}
+ 179              	.LVL16:
+ 180              	.L53:
+ 181              	.LCFI5:
+ 182              	 .cfi_restore_state
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 183              	 .loc 1 127 0
+ 184 0084 FFF7FEFF 	 bl pair_host_and_optiga_using_pre_shared_secret
+ 185              	.LVL17:
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         {
+ 186              	 .loc 1 128 0
+ 187 0088 0746     	 mov r7,r0
+ 188 008a 0028     	 cmp r0,#0
+ 189 008c E1D1     	 bne .L8
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         // OPTIGA Comms Shielded connection settings to enable the protection
+ 190              	 .loc 1 144 0
+ 191 008e 0DF1E009 	 add r9,sp,#224
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         optiga_key_id = OPTIGA_KEY_ID_SESSION_BASED;
+ 192              	 .loc 1 143 0
+ 193 0092 0123     	 movs r3,#1
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         // OPTIGA Comms Shielded connection settings to enable the protection
+ 194              	 .loc 1 144 0
+ 195 0094 29F8C40D 	 strh r0,[r9,#-196]!
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 196              	 .loc 1 146 0
+ 197 0098 1946     	 mov r1,r3
+ 198 009a 4046     	 mov r0,r8
+ 199              	.LVL18:
+ 200 009c 0222     	 movs r2,#2
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         optiga_key_id = OPTIGA_KEY_ID_SESSION_BASED;
+ 201              	 .loc 1 143 0
+ 202 009e 2380     	 strh r3,[r4]
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 203              	 .loc 1 146 0
+ 204 00a0 FFF7FEFF 	 bl optiga_crypt_set_comms_params
+ 205              	.LVL19:
+ 148:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                           OPTIGA_ECC_CURVE_NIST_P_256,
+ 206              	 .loc 1 148 0
+ 207 00a4 0DF11E02 	 add r2,sp,#30
+ 208 00a8 1FA9     	 add r1,sp,#124
+ 209 00aa 0191     	 str r1,[sp,#4]
+ 210 00ac 0292     	 str r2,[sp,#8]
+ 211 00ae CDF80090 	 str r9,[sp]
+ 212 00b2 3B46     	 mov r3,r7
+ 213 00b4 4046     	 mov r0,r8
+ 214 00b6 0321     	 movs r1,#3
+ 215 00b8 1022     	 movs r2,#16
+ 216 00ba FFF7FEFF 	 bl optiga_crypt_ecc_generate_keypair
+ 217              	.LVL20:
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 218              	 .loc 1 155 0
+ 219 00be 0028     	 cmp r0,#0
+ 220 00c0 C7D1     	 bne .L8
+ 221              	.L11:
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 222              	 .loc 1 155 0 is_stmt 0 discriminator 1
+ 223 00c2 2B88     	 ldrh r3,[r5]
+ 224 00c4 534C     	 ldr r4,.L57+4
+ 225 00c6 9BB2     	 uxth r3,r3
+ 226 00c8 012B     	 cmp r3,#1
+ 227 00ca FAD0     	 beq .L11
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 228              	 .loc 1 155 0 discriminator 2
+ 229 00cc 2388     	 ldrh r3,[r4]
+ 230 00ce 9BB2     	 uxth r3,r3
+ 231 00d0 002B     	 cmp r3,#0
+ 232 00d2 CFD1     	 bne .L49
+ 233 00d4 0DF11A09 	 add r9,sp,#26
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****             return_status = optiga_util_read_data(me_util,
+ 234              	 .loc 1 168 0 is_stmt 1
+ 235 00d8 0127     	 movs r7,#1
+ 236              	.LVL21:
+ 237              	.L12:
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                   0xE0C5,
+ 238              	 .loc 1 169 0
+ 239 00da CDF80090 	 str r9,[sp]
+ 240 00de 3046     	 mov r0,r6
+ 241 00e0 4EF2C501 	 movw r1,#57541
+ 242 00e4 0022     	 movs r2,#0
+ 243 00e6 0DF11703 	 add r3,sp,#23
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****             return_status = optiga_util_read_data(me_util,
+ 244              	 .loc 1 168 0
+ 245 00ea 2F80     	 strh r7,[r5]
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                   0xE0C5,
+ 246              	 .loc 1 169 0
+ 247 00ec FFF7FEFF 	 bl optiga_util_read_data
+ 248              	.LVL22:
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****             pal_os_timer_delay_in_milliseconds(1000);
+ 249              	 .loc 1 175 0
+ 250 00f0 78B9     	 cbnz r0,.L14
+ 251              	.L13:
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****             pal_os_timer_delay_in_milliseconds(1000);
+ 252              	 .loc 1 175 0 is_stmt 0 discriminator 1
+ 253 00f2 2B88     	 ldrh r3,[r5]
+ 254 00f4 474A     	 ldr r2,.L57+4
+ 255 00f6 9BB2     	 uxth r3,r3
+ 256 00f8 012B     	 cmp r3,#1
+ 257 00fa FAD0     	 beq .L13
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****             pal_os_timer_delay_in_milliseconds(1000);
+ 258              	 .loc 1 175 0 discriminator 2
+ 259 00fc 2388     	 ldrh r3,[r4]
+ 260 00fe 9BB2     	 uxth r3,r3
+ 261 0100 CBB9     	 cbnz r3,.L54
+ 176:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         } while (0 != security_event_counter);
+ 262              	 .loc 1 176 0 is_stmt 1
+ 263 0102 4FF47A70 	 mov r0,#1000
+ 264              	.LVL23:
+ 265 0106 FFF7FEFF 	 bl pal_os_timer_delay_in_milliseconds
+ 266              	.LVL24:
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 267              	 .loc 1 177 0
+ 268 010a 9DF81730 	 ldrb r3,[sp,#23]
+ 269 010e 002B     	 cmp r3,#0
+ 270 0110 E3D1     	 bne .L12
+ 271              	.L14:
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         return_status = optiga_util_close_application(me_util, 1);
+ 272              	 .loc 1 183 0
+ 273 0112 0123     	 movs r3,#1
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 274              	 .loc 1 184 0
+ 275 0114 1946     	 mov r1,r3
+ 276 0116 3046     	 mov r0,r6
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         return_status = optiga_util_close_application(me_util, 1);
+ 277              	 .loc 1 183 0
+ 278 0118 2B80     	 strh r3,[r5]
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 279              	 .loc 1 184 0
+ 280 011a FFF7FEFF 	 bl optiga_util_close_application
+ 281              	.LVL25:
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 282              	 .loc 1 186 0
+ 283 011e 0028     	 cmp r0,#0
+ 284 0120 97D1     	 bne .L8
+ 285              	.L17:
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 286              	 .loc 1 186 0 is_stmt 0 discriminator 1
+ 287 0122 2B88     	 ldrh r3,[r5]
+ 288 0124 3B4A     	 ldr r2,.L57+4
+ 289 0126 9BB2     	 uxth r3,r3
+ 290 0128 012B     	 cmp r3,#1
+ 291 012a FAD0     	 beq .L17
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 292              	 .loc 1 186 0 discriminator 2
+ 293 012c 1388     	 ldrh r3,[r2]
+ 294 012e 9BB2     	 uxth r3,r3
+ 295 0130 1BB1     	 cbz r3,.L55
+ 296              	.L50:
+ 234:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         
+ 297              	 .loc 1 234 0 is_stmt 1 discriminator 3
+ 298 0132 1388     	 ldrh r3,[r2]
+ 299              	.LVL26:
+ 300 0134 8DE7     	 b .L8
+ 301              	.LVL27:
+ 302              	.L54:
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****             pal_os_timer_delay_in_milliseconds(1000);
+ 303              	 .loc 1 175 0 discriminator 3
+ 304 0136 1388     	 ldrh r3,[r2]
+ 305              	.LVL28:
+ 306 0138 EBE7     	 b .L14
+ 307              	.LVL29:
+ 308              	.L55:
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         return_status = optiga_util_open_application(me_util, 1);
+ 309              	 .loc 1 192 0
+ 310 013a 0123     	 movs r3,#1
+ 193:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 311              	 .loc 1 193 0
+ 312 013c 1946     	 mov r1,r3
+ 313 013e 3046     	 mov r0,r6
+ 314              	.LVL30:
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         return_status = optiga_util_open_application(me_util, 1);
+ 315              	 .loc 1 192 0
+ 316 0140 1380     	 strh r3,[r2]
+ 193:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 317              	 .loc 1 193 0
+ 318 0142 FFF7FEFF 	 bl optiga_util_open_application
+ 319              	.LVL31:
+ 195:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 320              	 .loc 1 195 0
+ 321 0146 0028     	 cmp r0,#0
+ 322 0148 83D1     	 bne .L8
+ 323              	.L19:
+ 195:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 324              	 .loc 1 195 0 is_stmt 0 discriminator 1
+ 325 014a 2A88     	 ldrh r2,[r5]
+ 326 014c 314B     	 ldr r3,.L57+4
+ 327 014e 92B2     	 uxth r2,r2
+ 328 0150 012A     	 cmp r2,#1
+ 329 0152 FAD0     	 beq .L19
+ 195:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 330              	 .loc 1 195 0 discriminator 2
+ 331 0154 1C88     	 ldrh r4,[r3]
+ 332 0156 A4B2     	 uxth r4,r4
+ 333 0158 0CB1     	 cbz r4,.L56
+ 334              	.L51:
+ 226:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 335              	 .loc 1 226 0 is_stmt 1 discriminator 3
+ 336 015a 1B88     	 ldrh r3,[r3]
+ 337              	.LVL32:
+ 338 015c 79E7     	 b .L8
+ 339              	.LVL33:
+ 340              	.L56:
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL(me_crypt, OPTIGA_COMMS_RESPONSE_PROTECTION);
+ 341              	 .loc 1 200 0
+ 342 015e 0127     	 movs r7,#1
+ 201:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         return_status = optiga_crypt_ecdsa_sign(me_crypt,
+ 343              	 .loc 1 201 0
+ 344 0160 3946     	 mov r1,r7
+ 345 0162 4046     	 mov r0,r8
+ 346              	.LVL34:
+ 347 0164 0222     	 movs r2,#2
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL(me_crypt, OPTIGA_COMMS_RESPONSE_PROTECTION);
+ 348              	 .loc 1 200 0
+ 349 0166 1F80     	 strh r7,[r3]
+ 201:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         return_status = optiga_crypt_ecdsa_sign(me_crypt,
+ 350              	 .loc 1 201 0
+ 351 0168 FFF7FEFF 	 bl optiga_crypt_set_comms_params
+ 352              	.LVL35:
+ 202:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                 digest,
+ 353              	 .loc 1 202 0
+ 354 016c 0BAF     	 add r7,sp,#44
+ 355 016e 06AA     	 add r2,sp,#24
+ 356 0170 0192     	 str r2,[sp,#4]
+ 357 0172 2346     	 mov r3,r4
+ 358 0174 0097     	 str r7,[sp]
+ 359 0176 4046     	 mov r0,r8
+ 360 0178 2749     	 ldr r1,.L57+8
+ 361 017a 2022     	 movs r2,#32
+ 362 017c FFF7FEFF 	 bl optiga_crypt_ecdsa_sign
+ 363              	.LVL36:
+ 209:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 364              	 .loc 1 209 0
+ 365 0180 0028     	 cmp r0,#0
+ 366 0182 7FF466AF 	 bne .L8
+ 367              	.L21:
+ 209:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 368              	 .loc 1 209 0 is_stmt 0 discriminator 1
+ 369 0186 2B88     	 ldrh r3,[r5]
+ 370 0188 224C     	 ldr r4,.L57+4
+ 371 018a 9BB2     	 uxth r3,r3
+ 372 018c 012B     	 cmp r3,#1
+ 373 018e FAD0     	 beq .L21
+ 209:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 374              	 .loc 1 209 0 discriminator 2
+ 375 0190 2388     	 ldrh r3,[r4]
+ 376 0192 9BB2     	 uxth r3,r3
+ 377 0194 002B     	 cmp r3,#0
+ 378 0196 7FF46DAF 	 bne .L49
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                    digest,
+ 379              	 .loc 1 218 0 is_stmt 1
+ 380 019a 09AA     	 add r2,sp,#36
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         public_key_details.public_key = public_key;
+ 381              	 .loc 1 214 0
+ 382 019c 4FF0010E 	 mov lr,#1
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                    digest,
+ 383              	 .loc 1 218 0
+ 384 01a0 BDF81810 	 ldrh r1,[sp,#24]
+ 385 01a4 0292     	 str r2,[sp,#8]
+ 215:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         public_key_details.length = public_key_length;
+ 386              	 .loc 1 215 0
+ 387 01a6 1FAA     	 add r2,sp,#124
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                    digest,
+ 388              	 .loc 1 218 0
+ 389 01a8 0091     	 str r1,[sp]
+ 390 01aa CDF804E0 	 str lr,[sp,#4]
+ 391 01ae 3B46     	 mov r3,r7
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         public_key_details.key_type = (uint8_t)OPTIGA_ECC_CURVE_NIST_P_256;
+ 392              	 .loc 1 216 0
+ 393 01b0 BDF81EC0 	 ldrh ip,[sp,#30]
+ 215:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         public_key_details.length = public_key_length;
+ 394              	 .loc 1 215 0
+ 395 01b4 0992     	 str r2,[sp,#36]
+ 217:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         return_status = optiga_crypt_ecdsa_verify (me_crypt,
+ 396              	 .loc 1 217 0
+ 397 01b6 0327     	 movs r7,#3
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                    digest,
+ 398              	 .loc 1 218 0
+ 399 01b8 1749     	 ldr r1,.L57+8
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         public_key_details.public_key = public_key;
+ 400              	 .loc 1 214 0
+ 401 01ba A4F800E0 	 strh lr,[r4]
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                    digest,
+ 402              	 .loc 1 218 0
+ 403 01be 4046     	 mov r0,r8
+ 404              	.LVL37:
+ 405 01c0 2022     	 movs r2,#32
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         public_key_details.key_type = (uint8_t)OPTIGA_ECC_CURVE_NIST_P_256;
+ 406              	 .loc 1 216 0
+ 407 01c2 ADF828C0 	 strh ip,[sp,#40]
+ 217:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         return_status = optiga_crypt_ecdsa_verify (me_crypt,
+ 408              	 .loc 1 217 0
+ 409 01c6 8DF82A70 	 strb r7,[sp,#42]
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****                                                    digest,
+ 410              	 .loc 1 218 0
+ 411 01ca FFF7FEFF 	 bl optiga_crypt_ecdsa_verify
+ 412              	.LVL38:
+ 226:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 413              	 .loc 1 226 0
+ 414 01ce 0028     	 cmp r0,#0
+ 415 01d0 7FF43FAF 	 bne .L8
+ 416              	.L23:
+ 226:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 417              	 .loc 1 226 0 is_stmt 0 discriminator 1
+ 418 01d4 2A88     	 ldrh r2,[r5]
+ 419 01d6 0F4B     	 ldr r3,.L57+4
+ 420 01d8 92B2     	 uxth r2,r2
+ 421 01da 012A     	 cmp r2,#1
+ 422 01dc FAD0     	 beq .L23
+ 226:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** 
+ 423              	 .loc 1 226 0 discriminator 2
+ 424 01de 1988     	 ldrh r1,[r3]
+ 425 01e0 89B2     	 uxth r1,r1
+ 426 01e2 0029     	 cmp r1,#0
+ 427 01e4 B9D1     	 bne .L51
+ 232:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         return_status = optiga_util_close_application(me_util, 0);
+ 428              	 .loc 1 232 0 is_stmt 1
+ 429 01e6 0122     	 movs r2,#1
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 430              	 .loc 1 233 0
+ 431 01e8 3046     	 mov r0,r6
+ 432              	.LVL39:
+ 232:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         return_status = optiga_util_close_application(me_util, 0);
+ 433              	 .loc 1 232 0
+ 434 01ea 1A80     	 strh r2,[r3]
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 435              	 .loc 1 233 0
+ 436 01ec FFF7FEFF 	 bl optiga_util_close_application
+ 437              	.LVL40:
+ 234:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         
+ 438              	 .loc 1 234 0
+ 439 01f0 0028     	 cmp r0,#0
+ 440 01f2 7FF42EAF 	 bne .L8
+ 441              	.L25:
+ 234:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         
+ 442              	 .loc 1 234 0 is_stmt 0 discriminator 1
+ 443 01f6 2B88     	 ldrh r3,[r5]
+ 444 01f8 064A     	 ldr r2,.L57+4
+ 445 01fa 9BB2     	 uxth r3,r3
+ 446 01fc 012B     	 cmp r3,#1
+ 447 01fe FAD0     	 beq .L25
+ 234:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         
+ 448              	 .loc 1 234 0 discriminator 2
+ 449 0200 1188     	 ldrh r1,[r2]
+ 450 0202 89B2     	 uxth r1,r1
+ 451 0204 0029     	 cmp r1,#0
+ 452 0206 94D1     	 bne .L50
+ 236:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         
+ 453              	 .loc 1 236 0 is_stmt 1
+ 454 0208 08A8     	 add r0,sp,#32
+ 455              	.LVL41:
+ 456 020a FFF7FEFF 	 bl example_performance_measurement
+ 457              	.LVL42:
+ 458 020e 20E7     	 b .L8
+ 459              	.L58:
+ 460              	 .align 2
+ 461              	.L57:
+ 462 0210 00000000 	 .word optiga_lib_callback
+ 463 0214 00000000 	 .word .LANCHOR0
+ 464 0218 00000000 	 .word .LANCHOR1
+ 465              	 .cfi_endproc
+ 466              	.LFE7:
+ 468              	 .section .rodata.digest,"a",%progbits
+ 469              	 .align 2
+ 470              	 .set .LANCHOR1,.+0
+ 473              	digest:
+ 474 0000 61       	 .byte 97
+ 475 0001 C7       	 .byte -57
+ 476 0002 DE       	 .byte -34
+ 477 0003 F9       	 .byte -7
+ 478 0004 0F       	 .byte 15
+ 479 0005 D5       	 .byte -43
+ 480 0006 CD       	 .byte -51
+ 481 0007 7A       	 .byte 122
+ 482 0008 8B       	 .byte -117
+ 483 0009 7A       	 .byte 122
+ 484 000a 36       	 .byte 54
+ 485 000b 41       	 .byte 65
+ 486 000c 04       	 .byte 4
+ 487 000d E0       	 .byte -32
+ 488 000e 0D       	 .byte 13
+ 489 000f 82       	 .byte -126
+ 490 0010 38       	 .byte 56
+ 491 0011 46       	 .byte 70
+ 492 0012 BF       	 .byte -65
+ 493 0013 B7       	 .byte -73
+ 494 0014 70       	 .byte 112
+ 495 0015 EE       	 .byte -18
+ 496 0016 BF       	 .byte -65
+ 497 0017 8F       	 .byte -113
+ 498 0018 40       	 .byte 64
+ 499 0019 25       	 .byte 37
+ 500 001a 2E       	 .byte 46
+ 501 001b 0A       	 .byte 10
+ 502 001c 21       	 .byte 33
+ 503 001d 42       	 .byte 66
+ 504 001e AF       	 .byte -81
+ 505 001f 9C       	 .byte -100
+ 506              	 .section .bss.optiga_lib_status,"aw",%nobits
+ 507              	 .align 1
+ 508              	 .set .LANCHOR0,.+0
+ 511              	optiga_lib_status:
+ 512 0000 0000     	 .space 2
+ 513              	 .text
+ 514              	.Letext0:
+ 515              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 516              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 517              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_types.h"
+ 518              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_common.h"
+ 519              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/cmd/optiga_cmd.h"
+ 520              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_util.h"
+ 521              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_crypt.h"
+ 522              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/include/optiga_example.h"
+ 523              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal_os_timer.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 example_optiga_hibernate_restore.c
+    {standard input}:20     .text.optiga_lib_callback:00000000 $t
+    {standard input}:24     .text.optiga_lib_callback:00000000 optiga_lib_callback
+    {standard input}:40     .text.optiga_lib_callback:00000008 $d
+    {standard input}:45     .text.example_optiga_util_hibernate_restore:00000000 $t
+    {standard input}:50     .text.example_optiga_util_hibernate_restore:00000000 example_optiga_util_hibernate_restore
+    {standard input}:462    .text.example_optiga_util_hibernate_restore:00000210 $d
+    {standard input}:469    .rodata.digest:00000000 $d
+    {standard input}:473    .rodata.digest:00000000 digest
+    {standard input}:507    .bss.optiga_lib_status:00000000 $d
+    {standard input}:511    .bss.optiga_lib_status:00000000 optiga_lib_status
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+optiga_util_create
+optiga_crypt_create
+example_performance_measurement
+optiga_util_open_application
+optiga_util_destroy
+optiga_crypt_destroy
+pair_host_and_optiga_using_pre_shared_secret
+optiga_crypt_set_comms_params
+optiga_crypt_ecc_generate_keypair
+optiga_util_read_data
+pal_os_timer_delay_in_milliseconds
+optiga_util_close_application
+optiga_crypt_ecdsa_sign
+optiga_crypt_ecdsa_verify

@@ -1,0 +1,445 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "example_optiga_crypt_ecdsa_sign.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.optiga_crypt_callback,"ax",%progbits
+  20              	 .align 2
+  21              	 .thumb
+  22              	 .thumb_func
+  24              	optiga_crypt_callback:
+  25              	.LFB6:
+  26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/example_optiga_crypt_ecdsa_sign.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * \copyright
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * MIT License
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * Copyright (c) 2020 Infineon Technologies AG
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** *
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * Permission is hereby granted, free of charge, to any person obtaining a copy
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * of this software and associated documentation files (the "Software"), to deal
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * in the Software without restriction, including without limitation the rights
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * copies of the Software, and to permit persons to whom the Software is
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * furnished to do so, subject to the following conditions:
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** *
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * The above copyright notice and this permission notice shall be included in all
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * copies or substantial portions of the Software.
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** *
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * SOFTWARE
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** *
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * \endcopyright
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** *
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * \author Infineon Technologies AG
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** *
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * \file example_optiga_crypt_ecdsa_sign.c
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** *
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * \brief   This file provides the example for ECDSA Sign operation using #optiga_crypt_ecdsa_sign.
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** *
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * \ingroup grOptigaExamples
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** *
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** * @{
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** */
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** 
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** #include "optiga/optiga_crypt.h"
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** #include "optiga_example.h"
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** 
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** #ifdef OPTIGA_CRYPT_ECDSA_SIGN_ENABLED
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** 
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** extern void example_optiga_init(void);
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** extern void example_optiga_deinit(void);
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** #endif
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** 
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** /**
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****  * Callback when optiga_crypt_xxxx operation is completed asynchronously
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****  */
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** static volatile optiga_lib_status_t optiga_lib_status;
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** //lint --e{818} suppress "argument "context" is not used in the sample provided"
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** static void optiga_crypt_callback(void * context, optiga_lib_status_t return_status)
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** {
+  27              	 .loc 1 54 0
+  28              	 .cfi_startproc
+  29              	 
+  30              	 
+  31              	 
+  32              	.LVL0:
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     optiga_lib_status = return_status;
+  33              	 .loc 1 55 0
+  34 0000 014B     	 ldr r3,.L2
+  35 0002 1980     	 strh r1,[r3]
+  36 0004 7047     	 bx lr
+  37              	.L3:
+  38 0006 00BF     	 .align 2
+  39              	.L2:
+  40 0008 00000000 	 .word .LANCHOR0
+  41              	 .cfi_endproc
+  42              	.LFE6:
+  44              	 .section .text.example_optiga_crypt_ecdsa_sign,"ax",%progbits
+  45              	 .align 2
+  46              	 .global example_optiga_crypt_ecdsa_sign
+  47              	 .thumb
+  48              	 .thumb_func
+  50              	example_optiga_crypt_ecdsa_sign:
+  51              	.LFB7:
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     if (NULL != context)
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     {
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         // callback to upper layer here
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     }
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** }
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** //SHA-256 Digest to be signed
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** static const uint8_t digest [] =
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** {
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     // Size of digest to be chosen based on Curve
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     0x61, 0xC7, 0xDE, 0xF9, 0x0F, 0xD5, 0xCD, 0x7A,0x8B, 0x7A, 0x36, 0x41, 0x04, 0xE0, 0x0D, 0x82,
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     0x38, 0x46, 0xBF, 0xB7, 0x70, 0xEE, 0xBF, 0x8F,0x40, 0x25, 0x2E, 0x0A, 0x21, 0x42, 0xAF, 0x9C,
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** };
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** 
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** /**
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****  * The below example demonstrates the signing of digest using
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****  * the Private key in OPTIGA Key store.
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****  *
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****  * Example for #optiga_crypt_ecdsa_sign
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****  *
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****  */
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** void example_optiga_crypt_ecdsa_sign(void)
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** {
+  52              	 .loc 1 77 0
+  53              	 .cfi_startproc
+  54              	 
+  55              	 
+  56 0000 70B5     	 push {r4,r5,r6,lr}
+  57              	.LCFI0:
+  58              	 .cfi_def_cfa_offset 16
+  59              	 .cfi_offset 4,-16
+  60              	 .cfi_offset 5,-12
+  61              	 .cfi_offset 6,-8
+  62              	 .cfi_offset 14,-4
+  63 0002 98B0     	 sub sp,sp,#96
+  64              	.LCFI1:
+  65              	 .cfi_def_cfa_offset 112
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     //To store the signture generated
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     uint8_t signature [80];
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     uint16_t signature_length = sizeof(signature);
+  66              	 .loc 1 80 0
+  67 0004 5023     	 movs r3,#80
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     uint32_t time_taken = 0;
+  68              	 .loc 1 81 0
+  69 0006 0024     	 movs r4,#0
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     uint32_t time_taken = 0;
+  70              	 .loc 1 80 0
+  71 0008 ADF80A30 	 strh r3,[sp,#10]
+  72              	 .loc 1 81 0
+  73 000c 0394     	 str r4,[sp,#12]
+  74              	.LVL1:
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     optiga_crypt_t * me = NULL;
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** 
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     do
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     {
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         /**
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****          * Open the application on OPTIGA which is a precondition to perform any other operations
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****          * using optiga_util_open_application
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****          */
+  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         example_optiga_init();
+  75              	 .loc 1 93 0
+  76 000e FFF7FEFF 	 bl example_optiga_init
+  77              	.LVL2:
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         
+  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         OPTIGA_EXAMPLE_LOG_MESSAGE(__FUNCTION__);
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         
+  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         /**
+ 100:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****          * 1. Create OPTIGA Crypt Instance
+ 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****          */
+ 102:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         me = optiga_crypt_create(0, optiga_crypt_callback, NULL);
+  78              	 .loc 1 102 0
+  79 0012 2046     	 mov r0,r4
+  80 0014 2246     	 mov r2,r4
+  81 0016 2249     	 ldr r1,.L20
+  82 0018 FFF7FEFF 	 bl optiga_crypt_create
+  83              	.LVL3:
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         if (NULL == me)
+  84              	 .loc 1 103 0
+  85 001c 0546     	 mov r5,r0
+  86 001e 0028     	 cmp r0,#0
+  87 0020 2ED0     	 beq .L5
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         {
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****             break;
+ 106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         }
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** 
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         START_PERFORMANCE_MEASUREMENT(time_taken);
+  88              	 .loc 1 108 0
+  89 0022 03A8     	 add r0,sp,#12
+  90              	.LVL4:
+  91 0024 0121     	 movs r1,#1
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         /**
+ 111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****          * 2. Sign the digest using Private key from Key Store ID E0F0
+ 112:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****          */
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+  92              	 .loc 1 113 0
+  93 0026 1F4C     	 ldr r4,.L20+4
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         
+  94              	 .loc 1 108 0
+  95 0028 FFF7FEFF 	 bl example_performance_measurement
+  96              	.LVL5:
+  97              	 .loc 1 113 0
+  98 002c 0126     	 movs r6,#1
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         return_status = optiga_crypt_ecdsa_sign(me,
+  99              	 .loc 1 114 0
+ 100 002e 04AA     	 add r2,sp,#16
+ 101 0030 0DF10A03 	 add r3,sp,#10
+ 102 0034 8DE80C00 	 stmia sp,{r2,r3}
+ 103 0038 1B49     	 ldr r1,.L20+8
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         return_status = optiga_crypt_ecdsa_sign(me,
+ 104              	 .loc 1 113 0
+ 105 003a 2680     	 strh r6,[r4]
+ 106              	 .loc 1 114 0
+ 107 003c 2846     	 mov r0,r5
+ 108 003e 2022     	 movs r2,#32
+ 109 0040 4EF2F003 	 movw r3,#57584
+ 110 0044 FFF7FEFF 	 bl optiga_crypt_ecdsa_sign
+ 111              	.LVL6:
+ 115:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****                                                 digest,
+ 116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****                                                 sizeof(digest),
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****                                                 OPTIGA_KEY_ID_E0F0,
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****                                                 signature,
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****                                                 &signature_length);
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** 
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 112              	 .loc 1 121 0
+ 113 0048 30B1     	 cbz r0,.L7
+ 114              	.LVL7:
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****                                                 
+ 123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         READ_PERFORMANCE_MEASUREMENT(time_taken);
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****                                                 
+ 125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** 
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     } while (FALSE);
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     /**
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****      * Close the application on OPTIGA after all the operations are executed
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****      * using optiga_util_close_application
+ 134:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****      */
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     example_optiga_deinit();
+ 115              	 .loc 1 135 0
+ 116 004a FFF7FEFF 	 bl example_optiga_deinit
+ 117              	.LVL8:
+ 118              	.L11:
+ 136:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     OPTIGA_EXAMPLE_LOG_PERFORMANCE_VALUE(time_taken, return_status);
+ 138:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     if (me)
+ 140:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     {
+ 141:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         //Destroy the instance after the completion of usecase if not required.
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         return_status = optiga_crypt_destroy(me);
+ 119              	 .loc 1 142 0
+ 120 004e 2846     	 mov r0,r5
+ 121 0050 FFF7FEFF 	 bl optiga_crypt_destroy
+ 122              	.LVL9:
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         {
+ 145:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****             //lint --e{774} suppress This is a generic macro
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****             OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****         }
+ 148:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     }    
+ 149:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** 
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** }
+ 123              	 .loc 1 150 0
+ 124 0054 18B0     	 add sp,sp,#96
+ 125              	.LCFI2:
+ 126              	 .cfi_remember_state
+ 127              	 .cfi_def_cfa_offset 16
+ 128              	 
+ 129 0056 70BD     	 pop {r4,r5,r6,pc}
+ 130              	.LVL10:
+ 131              	.L7:
+ 132              	.LCFI3:
+ 133              	 .cfi_restore_state
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****                                                 
+ 134              	 .loc 1 121 0 discriminator 1
+ 135 0058 2388     	 ldrh r3,[r4]
+ 136 005a 124A     	 ldr r2,.L20+4
+ 137 005c 9BB2     	 uxth r3,r3
+ 138 005e 012B     	 cmp r3,#1
+ 139 0060 FAD0     	 beq .L7
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****                                                 
+ 140              	 .loc 1 121 0 is_stmt 0 discriminator 2
+ 141 0062 1188     	 ldrh r1,[r2]
+ 142 0064 89B2     	 uxth r1,r1
+ 143 0066 79B1     	 cbz r1,.L8
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****                                                 
+ 144              	 .loc 1 121 0 discriminator 3
+ 145 0068 1488     	 ldrh r4,[r2]
+ 146 006a A4B2     	 uxth r4,r4
+ 147              	.LVL11:
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 148              	 .loc 1 135 0 is_stmt 1 discriminator 3
+ 149 006c FFF7FEFF 	 bl example_optiga_deinit
+ 150              	.LVL12:
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     
+ 151              	 .loc 1 137 0 discriminator 3
+ 152 0070 002C     	 cmp r4,#0
+ 153 0072 ECD1     	 bne .L11
+ 154              	.LVL13:
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     
+ 155              	 .loc 1 137 0 is_stmt 0 discriminator 1
+ 156 0074 0D49     	 ldr r1,.L20+12
+ 157 0076 039A     	 ldr r2,[sp,#12]
+ 158 0078 0D48     	 ldr r0,.L20+16
+ 159 007a FFF7FEFF 	 bl sprintf
+ 160              	.LVL14:
+ 161 007e E6E7     	 b .L11
+ 162              	.LVL15:
+ 163              	.L5:
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 164              	 .loc 1 135 0 is_stmt 1
+ 165 0080 FFF7FEFF 	 bl example_optiga_deinit
+ 166              	.LVL16:
+ 167              	 .loc 1 150 0
+ 168 0084 18B0     	 add sp,sp,#96
+ 169              	.LCFI4:
+ 170              	 .cfi_remember_state
+ 171              	 .cfi_def_cfa_offset 16
+ 172              	 
+ 173 0086 70BD     	 pop {r4,r5,r6,pc}
+ 174              	.LVL17:
+ 175              	.L8:
+ 176              	.LCFI5:
+ 177              	 .cfi_restore_state
+ 123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****                                                 
+ 178              	 .loc 1 123 0
+ 179 0088 03A8     	 add r0,sp,#12
+ 180              	.LVL18:
+ 181 008a FFF7FEFF 	 bl example_performance_measurement
+ 182              	.LVL19:
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 183              	 .loc 1 135 0
+ 184 008e FFF7FEFF 	 bl example_optiga_deinit
+ 185              	.LVL20:
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_sign.c ****     
+ 186              	 .loc 1 137 0
+ 187 0092 0649     	 ldr r1,.L20+12
+ 188 0094 039A     	 ldr r2,[sp,#12]
+ 189 0096 0648     	 ldr r0,.L20+16
+ 190 0098 FFF7FEFF 	 bl sprintf
+ 191              	.LVL21:
+ 192 009c D7E7     	 b .L11
+ 193              	.L21:
+ 194 009e 00BF     	 .align 2
+ 195              	.L20:
+ 196 00a0 00000000 	 .word optiga_crypt_callback
+ 197 00a4 00000000 	 .word .LANCHOR0
+ 198 00a8 00000000 	 .word .LANCHOR1
+ 199 00ac 00000000 	 .word .LC0
+ 200 00b0 00000000 	 .word performance_buffer_string
+ 201              	 .cfi_endproc
+ 202              	.LFE7:
+ 204              	 .section .rodata.digest,"a",%progbits
+ 205              	 .align 2
+ 206              	 .set .LANCHOR1,.+0
+ 209              	digest:
+ 210 0000 61       	 .byte 97
+ 211 0001 C7       	 .byte -57
+ 212 0002 DE       	 .byte -34
+ 213 0003 F9       	 .byte -7
+ 214 0004 0F       	 .byte 15
+ 215 0005 D5       	 .byte -43
+ 216 0006 CD       	 .byte -51
+ 217 0007 7A       	 .byte 122
+ 218 0008 8B       	 .byte -117
+ 219 0009 7A       	 .byte 122
+ 220 000a 36       	 .byte 54
+ 221 000b 41       	 .byte 65
+ 222 000c 04       	 .byte 4
+ 223 000d E0       	 .byte -32
+ 224 000e 0D       	 .byte 13
+ 225 000f 82       	 .byte -126
+ 226 0010 38       	 .byte 56
+ 227 0011 46       	 .byte 70
+ 228 0012 BF       	 .byte -65
+ 229 0013 B7       	 .byte -73
+ 230 0014 70       	 .byte 112
+ 231 0015 EE       	 .byte -18
+ 232 0016 BF       	 .byte -65
+ 233 0017 8F       	 .byte -113
+ 234 0018 40       	 .byte 64
+ 235 0019 25       	 .byte 37
+ 236 001a 2E       	 .byte 46
+ 237 001b 0A       	 .byte 10
+ 238 001c 21       	 .byte 33
+ 239 001d 42       	 .byte 66
+ 240 001e AF       	 .byte -81
+ 241 001f 9C       	 .byte -100
+ 242              	 .section .rodata.str1.4,"aMS",%progbits,1
+ 243              	 .align 2
+ 244              	.LC0:
+ 245 0000 4578616D 	 .ascii "Example takes %d msec\000"
+ 245      706C6520 
+ 245      74616B65 
+ 245      73202564 
+ 245      206D7365 
+ 246 0016 0000     	 .section .bss.optiga_lib_status,"aw",%nobits
+ 247              	 .align 1
+ 248              	 .set .LANCHOR0,.+0
+ 251              	optiga_lib_status:
+ 252 0000 0000     	 .space 2
+ 253              	 .text
+ 254              	.Letext0:
+ 255              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 256              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 257              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_types.h"
+ 258              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_common.h"
+ 259              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/cmd/optiga_cmd.h"
+ 260              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_crypt.h"
+ 261              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/include/optiga_example.h"
+ 262              	 .file 9 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdio.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 example_optiga_crypt_ecdsa_sign.c
+    {standard input}:20     .text.optiga_crypt_callback:00000000 $t
+    {standard input}:24     .text.optiga_crypt_callback:00000000 optiga_crypt_callback
+    {standard input}:40     .text.optiga_crypt_callback:00000008 $d
+    {standard input}:45     .text.example_optiga_crypt_ecdsa_sign:00000000 $t
+    {standard input}:50     .text.example_optiga_crypt_ecdsa_sign:00000000 example_optiga_crypt_ecdsa_sign
+    {standard input}:196    .text.example_optiga_crypt_ecdsa_sign:000000a0 $d
+    {standard input}:205    .rodata.digest:00000000 $d
+    {standard input}:209    .rodata.digest:00000000 digest
+    {standard input}:243    .rodata.str1.4:00000000 $d
+    {standard input}:247    .bss.optiga_lib_status:00000000 $d
+    {standard input}:251    .bss.optiga_lib_status:00000000 optiga_lib_status
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+example_optiga_init
+optiga_crypt_create
+example_performance_measurement
+optiga_crypt_ecdsa_sign
+example_optiga_deinit
+optiga_crypt_destroy
+sprintf
+performance_buffer_string

@@ -1,0 +1,339 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "pal_os_timer.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.CCU41_1_IRQHandler,"ax",%progbits
+  20              	 .align 2
+  21              	 .global CCU41_1_IRQHandler
+  22              	 .thumb
+  23              	 .thumb_func
+  25              	CCU41_1_IRQHandler:
+  26              	.LFB448:
+  27              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800/pal_os_timer.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * \copyright
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * MIT License
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * Copyright (c) 2020 Infineon Technologies AG
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** *
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * Permission is hereby granted, free of charge, to any person obtaining a copy
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * of this software and associated documentation files (the "Software"), to deal
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * in the Software without restriction, including without limitation the rights
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * copies of the Software, and to permit persons to whom the Software is
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * furnished to do so, subject to the following conditions:
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** *
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * The above copyright notice and this permission notice shall be included in all
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * copies or substantial portions of the Software.
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** *
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * SOFTWARE
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** *
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * \endcopyright
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** *
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * \author Infineon Technologies AG
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** *
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * \file pal_os_timer.c
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** *
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * \brief   This file implements the platform abstraction layer APIs for timer.
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** *
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * \ingroup  grPAL
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** *
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * @{
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** */
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** 
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** #include <DAVE.h>
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** #include "optiga/pal/pal_os_timer.h"
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** 
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** /// @cond hidden
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** static volatile uint32_t g_tick_count = 0;
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** 
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** void delay_timer_isr(void)
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** {
+  28              	 .loc 1 45 0
+  29              	 .cfi_startproc
+  30              	 
+  31              	 
+  32 0000 10B5     	 push {r4,lr}
+  33              	.LCFI0:
+  34              	 .cfi_def_cfa_offset 8
+  35              	 .cfi_offset 4,-8
+  36              	 .cfi_offset 14,-4
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****     TIMER_ClearEvent(&tick_timer);
+  37              	 .loc 1 46 0
+  38 0002 064C     	 ldr r4,.L3
+  39 0004 2046     	 mov r0,r4
+  40 0006 FFF7FEFF 	 bl TIMER_ClearEvent
+  41              	.LVL0:
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****     (void)TIMER_Clear(&tick_timer);
+  42              	 .loc 1 47 0
+  43 000a 2046     	 mov r0,r4
+  44 000c FFF7FEFF 	 bl TIMER_Clear
+  45              	.LVL1:
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****     g_tick_count += 1U;
+  46              	 .loc 1 48 0
+  47 0010 034A     	 ldr r2,.L3+4
+  48 0012 1368     	 ldr r3,[r2]
+  49 0014 0133     	 adds r3,r3,#1
+  50 0016 1360     	 str r3,[r2]
+  51 0018 10BD     	 pop {r4,pc}
+  52              	.L4:
+  53 001a 00BF     	 .align 2
+  54              	.L3:
+  55 001c 00000000 	 .word tick_timer
+  56 0020 00000000 	 .word .LANCHOR0
+  57              	 .cfi_endproc
+  58              	.LFE448:
+  60              	 .section .text.pal_os_timer_get_time_in_microseconds,"ax",%progbits
+  61              	 .align 2
+  62              	 .global pal_os_timer_get_time_in_microseconds
+  63              	 .thumb
+  64              	 .thumb_func
+  66              	pal_os_timer_get_time_in_microseconds:
+  67              	.LFB449:
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** }
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** 
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** /// @endcond
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** 
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** 
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** uint32_t pal_os_timer_get_time_in_microseconds(void)
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** {
+  68              	 .loc 1 55 0
+  69              	 .cfi_startproc
+  70              	 
+  71              	 
+  72              	 
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****     // !!!OPTIGA_LIB_PORTING_REQUIRED
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****     // This API is needed to support optiga cmd scheduler. 
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****     static uint32_t count = 0;
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****     // The implementation must ensure that every invocation of this API returns a unique value.
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****     return (count++);
+  73              	 .loc 1 60 0
+  74 0000 024B     	 ldr r3,.L6
+  75 0002 1868     	 ldr r0,[r3]
+  76 0004 421C     	 adds r2,r0,#1
+  77 0006 1A60     	 str r2,[r3]
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** }
+  78              	 .loc 1 61 0
+  79 0008 7047     	 bx lr
+  80              	.L7:
+  81 000a 00BF     	 .align 2
+  82              	.L6:
+  83 000c 00000000 	 .word .LANCHOR1
+  84              	 .cfi_endproc
+  85              	.LFE449:
+  87              	 .section .text.pal_os_timer_get_time_in_milliseconds,"ax",%progbits
+  88              	 .align 2
+  89              	 .global pal_os_timer_get_time_in_milliseconds
+  90              	 .thumb
+  91              	 .thumb_func
+  93              	pal_os_timer_get_time_in_milliseconds:
+  94              	.LFB450:
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** 
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** uint32_t pal_os_timer_get_time_in_milliseconds(void)
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** {
+  95              	 .loc 1 64 0
+  96              	 .cfi_startproc
+  97              	 
+  98              	 
+  99              	 
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****     return (g_tick_count);
+ 100              	 .loc 1 65 0
+ 101 0000 014B     	 ldr r3,.L9
+ 102 0002 1868     	 ldr r0,[r3]
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** }
+ 103              	 .loc 1 66 0
+ 104 0004 7047     	 bx lr
+ 105              	.L10:
+ 106 0006 00BF     	 .align 2
+ 107              	.L9:
+ 108 0008 00000000 	 .word .LANCHOR0
+ 109              	 .cfi_endproc
+ 110              	.LFE450:
+ 112              	 .section .text.pal_os_timer_delay_in_milliseconds,"ax",%progbits
+ 113              	 .align 2
+ 114              	 .global pal_os_timer_delay_in_milliseconds
+ 115              	 .thumb
+ 116              	 .thumb_func
+ 118              	pal_os_timer_delay_in_milliseconds:
+ 119              	.LFB451:
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** 
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** void pal_os_timer_delay_in_milliseconds(uint16_t milliseconds)
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** {
+ 120              	 .loc 1 69 0
+ 121              	 .cfi_startproc
+ 122              	 
+ 123              	 
+ 124              	 
+ 125              	.LVL2:
+ 126              	.LBB6:
+ 127              	.LBB7:
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** }
+ 128              	 .loc 1 65 0
+ 129 0000 034A     	 ldr r2,.L15
+ 130 0002 1168     	 ldr r1,[r2]
+ 131              	.LVL3:
+ 132              	.L12:
+ 133              	.LBE7:
+ 134              	.LBE6:
+ 135              	.LBB8:
+ 136              	.LBB9:
+ 137 0004 1368     	 ldr r3,[r2]
+ 138              	.LVL4:
+ 139              	.LBE9:
+ 140              	.LBE8:
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****     uint32_t start_time;
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****     uint32_t current_time;
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****     uint32_t time_stamp_diff;
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** 
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****     start_time = pal_os_timer_get_time_in_milliseconds();
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****     current_time = start_time;
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****     time_stamp_diff = current_time - start_time;
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****     while (time_stamp_diff <= (uint32_t)milliseconds)
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****     {
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****         current_time = pal_os_timer_get_time_in_milliseconds();
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****         time_stamp_diff = current_time - start_time;
+ 141              	 .loc 1 80 0
+ 142 0006 5B1A     	 subs r3,r3,r1
+ 143              	.LVL5:
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****     {
+ 144              	 .loc 1 77 0
+ 145 0008 8342     	 cmp r3,r0
+ 146 000a FBD9     	 bls .L12
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****         if (start_time > current_time)
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****         {
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****             time_stamp_diff = (0xFFFFFFFF + (current_time - start_time)) + 0x01;
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****         }        
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****     }
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** }
+ 147              	 .loc 1 86 0
+ 148 000c 7047     	 bx lr
+ 149              	.L16:
+ 150 000e 00BF     	 .align 2
+ 151              	.L15:
+ 152 0010 00000000 	 .word .LANCHOR0
+ 153              	 .cfi_endproc
+ 154              	.LFE451:
+ 156              	 .section .text.pal_timer_init,"ax",%progbits
+ 157              	 .align 2
+ 158              	 .global pal_timer_init
+ 159              	 .thumb
+ 160              	 .thumb_func
+ 162              	pal_timer_init:
+ 163              	.LFB452:
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** 
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** //lint --e{714} suppress "This is implemented for overall completion of API"
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** pal_status_t pal_timer_init(void)
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** {
+ 164              	 .loc 1 90 0
+ 165              	 .cfi_startproc
+ 166              	 
+ 167              	 
+ 168              	 
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****     return PAL_STATUS_SUCCESS;
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** }
+ 169              	 .loc 1 92 0
+ 170 0000 0020     	 movs r0,#0
+ 171 0002 7047     	 bx lr
+ 172              	 .cfi_endproc
+ 173              	.LFE452:
+ 175              	 .section .text.pal_timer_deinit,"ax",%progbits
+ 176              	 .align 2
+ 177              	 .global pal_timer_deinit
+ 178              	 .thumb
+ 179              	 .thumb_func
+ 181              	pal_timer_deinit:
+ 182              	.LFB453:
+  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** 
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** //lint --e{714} suppress "This is implemented for overall completion of API"
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** pal_status_t pal_timer_deinit(void)
+  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** {
+ 183              	 .loc 1 96 0
+ 184              	 .cfi_startproc
+ 185              	 
+ 186              	 
+ 187              	 
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c ****     return PAL_STATUS_SUCCESS;
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** }
+ 188              	 .loc 1 98 0
+ 189 0000 0020     	 movs r0,#0
+ 190 0002 7047     	 bx lr
+ 191              	 .cfi_endproc
+ 192              	.LFE453:
+ 194              	 .section .bss.g_tick_count,"aw",%nobits
+ 195              	 .align 2
+ 196              	 .set .LANCHOR0,.+0
+ 199              	g_tick_count:
+ 200 0000 00000000 	 .space 4
+ 201              	 .section .bss.count.13558,"aw",%nobits
+ 202              	 .align 2
+ 203              	 .set .LANCHOR1,.+0
+ 206              	count.13558:
+ 207 0000 00000000 	 .space 4
+ 208              	 .text
+ 209              	.Letext0:
+ 210              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 211              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 212              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 213              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc4_scu.h"
+ 214              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usic.h"
+ 215              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_ccu4.h"
+ 216              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/GLOBAL_CCU4/global_ccu4.h"
+ 217              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_ccu8.h"
+ 218              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/GLOBAL_CCU8/global_ccu8.h"
+ 219              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/TIMER/timer.h"
+ 220              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+ 221              	 .file 13 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+ 222              	 .file 14 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+ 223              	 .file 15 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal.h"
+ 224              	 .file 16 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+ 225              	 .file 17 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+ 226              	 .file 18 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/TIMER/timer_extern.h"
+ 227              	 .file 19 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 pal_os_timer.c
+    {standard input}:20     .text.CCU41_1_IRQHandler:00000000 $t
+    {standard input}:25     .text.CCU41_1_IRQHandler:00000000 CCU41_1_IRQHandler
+    {standard input}:55     .text.CCU41_1_IRQHandler:0000001c $d
+    {standard input}:61     .text.pal_os_timer_get_time_in_microseconds:00000000 $t
+    {standard input}:66     .text.pal_os_timer_get_time_in_microseconds:00000000 pal_os_timer_get_time_in_microseconds
+    {standard input}:83     .text.pal_os_timer_get_time_in_microseconds:0000000c $d
+    {standard input}:88     .text.pal_os_timer_get_time_in_milliseconds:00000000 $t
+    {standard input}:93     .text.pal_os_timer_get_time_in_milliseconds:00000000 pal_os_timer_get_time_in_milliseconds
+    {standard input}:108    .text.pal_os_timer_get_time_in_milliseconds:00000008 $d
+    {standard input}:113    .text.pal_os_timer_delay_in_milliseconds:00000000 $t
+    {standard input}:118    .text.pal_os_timer_delay_in_milliseconds:00000000 pal_os_timer_delay_in_milliseconds
+    {standard input}:152    .text.pal_os_timer_delay_in_milliseconds:00000010 $d
+    {standard input}:157    .text.pal_timer_init:00000000 $t
+    {standard input}:162    .text.pal_timer_init:00000000 pal_timer_init
+    {standard input}:176    .text.pal_timer_deinit:00000000 $t
+    {standard input}:181    .text.pal_timer_deinit:00000000 pal_timer_deinit
+    {standard input}:195    .bss.g_tick_count:00000000 $d
+    {standard input}:199    .bss.g_tick_count:00000000 g_tick_count
+    {standard input}:202    .bss.count.13558:00000000 $d
+    {standard input}:206    .bss.count.13558:00000000 count.13558
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+TIMER_ClearEvent
+TIMER_Clear
+tick_timer

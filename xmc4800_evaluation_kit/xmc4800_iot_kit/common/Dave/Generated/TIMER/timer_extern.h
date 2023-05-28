@@ -68,6 +68,7 @@ extern TIMER_t tick_timer;
 
 /* Extern declaration of EVENT_DET APP handler */
 extern TIMER_t scheduler_timer;
+extern TIMER_t TIMER_Cooldwon;
 
 #endif /* TIMER_EXTERN_H */
 

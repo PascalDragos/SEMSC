@@ -1,0 +1,1529 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "example_optiga_crypt_tls_prf_sha256.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.optiga_lib_callback,"ax",%progbits
+  20              	 .align 2
+  21              	 .thumb
+  22              	 .thumb_func
+  24              	optiga_lib_callback:
+  25              	.LFB6:
+  26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/example_optiga_crypt_tls_prf_sha256.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * \copyright
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * MIT License
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * Copyright (c) 2020 Infineon Technologies AG
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** *
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * Permission is hereby granted, free of charge, to any person obtaining a copy
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * of this software and associated documentation files (the "Software"), to deal
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * in the Software without restriction, including without limitation the rights
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * copies of the Software, and to permit persons to whom the Software is
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * furnished to do so, subject to the following conditions:
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** *
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * The above copyright notice and this permission notice shall be included in all
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * copies or substantial portions of the Software.
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** *
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * SOFTWARE
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** *
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * \endcopyright
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** *
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * \author Infineon Technologies AG
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** *
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * \file example_optiga_crypt_tls_prf_sha256.c
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** *
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * \brief   This file provides the example for key derivation (PRF SHA256 as per TLS v1.2) using
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** *          #optiga_crypt_tls_prf_sha256.
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** *
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * \ingroup grOptigaExamples
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** *
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * @{
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** */
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** #include "optiga/optiga_crypt.h"
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** #include "optiga/optiga_util.h"
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** #include "optiga_example.h"
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** #if defined (OPTIGA_CRYPT_TLS_PRF_SHA256_ENABLED)
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** extern void example_optiga_init(void);
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** extern void example_optiga_deinit(void);
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** #endif
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** /**
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****  * Sample metadata
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****  */
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** static const uint8_t metadata [] = {
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     //Metadata tag in the data object
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     0x20, 0x06,
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         //Data object type set to PRESSEC
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         0xE8, 0x01, 0x21,
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         0xD3, 0x01, 0x00,
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** };
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** /**
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****  * Default metadata
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****  */
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** static const uint8_t default_metadata [] = {
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     //Metadata tag in the data object
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     0x20, 0x06,
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         //Data object type set to BSTR
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         0xE8, 0x01, 0x00,
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         0xD3, 0x01, 0xFF,
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** };
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** /**
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****  * Callback when optiga_crypt_xxxx operation is completed asynchronously
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****  */
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** static volatile optiga_lib_status_t optiga_lib_status;
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** //lint --e{818} suppress "argument "context" is not used in the sample provided"
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** static void optiga_lib_callback(void * context, optiga_lib_status_t return_status)
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** {
+  27              	 .loc 1 77 0
+  28              	 .cfi_startproc
+  29              	 
+  30              	 
+  31              	 
+  32              	.LVL0:
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     optiga_lib_status = return_status;
+  33              	 .loc 1 78 0
+  34 0000 014B     	 ldr r3,.L2
+  35 0002 1980     	 strh r1,[r3]
+  36 0004 7047     	 bx lr
+  37              	.L3:
+  38 0006 00BF     	 .align 2
+  39              	.L2:
+  40 0008 00000000 	 .word .LANCHOR0
+  41              	 .cfi_endproc
+  42              	.LFE6:
+  44              	 .section .text.example_optiga_crypt_tls_prf_sha256,"ax",%progbits
+  45              	 .align 2
+  46              	 .global example_optiga_crypt_tls_prf_sha256
+  47              	 .thumb
+  48              	 .thumb_func
+  50              	example_optiga_crypt_tls_prf_sha256:
+  51              	.LFB7:
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     if (NULL != context)
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     {
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         // callback to upper layer here
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     }
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** }
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** static const uint8_t label [] = "Firmware update";
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** static const uint8_t random_seed [] = {
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     0x61, 0xC7, 0xDE, 0xF9, 0x0F, 0xD5, 0xCD, 0x7A,
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     0x8B, 0x7A, 0x36, 0x41, 0x04, 0xE0, 0x0D, 0x82,
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     0x38, 0x46, 0xBF, 0xB7, 0x70, 0xEE, 0xBF, 0x8F,
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     0x40, 0x25, 0x2E, 0x0A, 0x21, 0x42, 0xAF, 0x9C,
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** };
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** // Secret to be written to data object which will be
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** // later used as part of TLS PRF SHA256 key derivation
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** static const uint8_t secret_to_be_written [] = {
+  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     0xBF, 0xB7, 0x70, 0xEE, 0xBF, 0x8F, 0x61, 0xC7,
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     0x04, 0xE0, 0x0D, 0x82, 0x8B, 0x7A, 0x36, 0x41,
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     0xD5, 0xCD, 0x7A, 0x38, 0x46, 0xDE, 0xF9, 0x0F,
+  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     0x21, 0x42, 0x40, 0x25, 0x0A, 0xAF, 0x9C, 0x2E,
+ 100:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** };
+ 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 102:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** /**
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****  * The below example demonstrates the key derivation using #optiga_crypt_tls_prf_sha256.
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****  *
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****  */
+ 106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** void example_optiga_crypt_tls_prf_sha256(void)
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** {
+  52              	 .loc 1 107 0
+  53              	 .cfi_startproc
+  54              	 
+  55              	 
+  56 0000 2DE9F041 	 push {r4,r5,r6,r7,r8,lr}
+  57              	.LCFI0:
+  58              	 .cfi_def_cfa_offset 24
+  59              	 .cfi_offset 4,-24
+  60              	 .cfi_offset 5,-20
+  61              	 .cfi_offset 6,-16
+  62              	 .cfi_offset 7,-12
+  63              	 .cfi_offset 8,-8
+  64              	 .cfi_offset 14,-4
+  65 0004 8CB0     	 sub sp,sp,#48
+  66              	.LCFI1:
+  67              	 .cfi_def_cfa_offset 72
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     uint8_t decryption_key [16] = {0};
+  68              	 .loc 1 108 0
+  69 0006 0024     	 movs r4,#0
+  70 0008 0894     	 str r4,[sp,#32]
+  71 000a 0994     	 str r4,[sp,#36]
+  72 000c 0A94     	 str r4,[sp,#40]
+  73 000e 0B94     	 str r4,[sp,#44]
+  74              	.LVL1:
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+ 111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 112:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     optiga_crypt_t * me = NULL;
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     optiga_util_t * me_util = NULL;
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     uint32_t time_taken = 0;
+  75              	 .loc 1 114 0
+  76 0010 0794     	 str r4,[sp,#28]
+ 115:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     
+ 116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     do
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     {
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         /**
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****          * Open the application on OPTIGA which is a precondition to perform any other operations
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****          * using optiga_util_open_application
+ 123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****          */
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         example_optiga_init();
+  77              	 .loc 1 124 0
+  78 0012 FFF7FEFF 	 bl example_optiga_init
+  79              	.LVL2:
+ 125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         OPTIGA_EXAMPLE_LOG_MESSAGE(__FUNCTION__);
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         me_util = optiga_util_create(0, optiga_lib_callback, NULL);
+  80              	 .loc 1 129 0
+  81 0016 2046     	 mov r0,r4
+  82 0018 2246     	 mov r2,r4
+  83 001a 5749     	 ldr r1,.L38
+  84 001c FFF7FEFF 	 bl optiga_util_create
+  85              	.LVL3:
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         if (NULL == me_util)
+  86              	 .loc 1 130 0
+  87 0020 0646     	 mov r6,r0
+  88 0022 68B1     	 cbz r0,.L5
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         {
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****             break;
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         }
+ 134:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         /**
+ 136:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****          * 1. Write the shared secret to the Arbitrary data object F1D0
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****          *       - This is typically a one time activity and
+ 138:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****          *       - use the this OID as input secret to derive keys further
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****          * 2. Use Erase and Write (OPTIGA_UTIL_ERASE_AND_WRITE) option,
+ 140:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****          *    to clear the remaining data in the object
+ 141:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****          */
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         return_status = optiga_util_write_data(me_util,
+  89              	 .loc 1 143 0
+  90 0024 554B     	 ldr r3,.L38+4
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         return_status = optiga_util_write_data(me_util,
+  91              	 .loc 1 142 0
+  92 0026 564D     	 ldr r5,.L38+8
+  93              	 .loc 1 143 0
+  94 0028 0093     	 str r3,[sp]
+  95 002a 2022     	 movs r2,#32
+  96 002c 2346     	 mov r3,r4
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         return_status = optiga_util_write_data(me_util,
+  97              	 .loc 1 142 0
+  98 002e 0124     	 movs r4,#1
+  99              	 .loc 1 143 0
+ 100 0030 0192     	 str r2,[sp,#4]
+ 101 0032 4FF2D011 	 movw r1,#61904
+ 102 0036 4022     	 movs r2,#64
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         return_status = optiga_util_write_data(me_util,
+ 103              	 .loc 1 142 0
+ 104 0038 2C80     	 strh r4,[r5]
+ 105              	 .loc 1 143 0
+ 106 003a FFF7FEFF 	 bl optiga_util_write_data
+ 107              	.LVL4:
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****                                                0xF1D0,
+ 145:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****                                                OPTIGA_UTIL_ERASE_AND_WRITE ,
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****                                                0x00,
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****                                                secret_to_be_written,
+ 148:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****                                                sizeof(secret_to_be_written));
+ 149:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 108              	 .loc 1 150 0
+ 109 003e 28B1     	 cbz r0,.L6
+ 110              	.LVL5:
+ 111              	.L5:
+ 151:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         /**
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****          * 2. Change data object type to PRESSEC
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****          *
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****          */
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 158:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         return_status = optiga_util_write_metadata(me_util,
+ 159:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****                                                    0xF1D0,
+ 160:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****                                                    metadata,
+ 161:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****                                                    sizeof(metadata));
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 165:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         /**
+ 166:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****          * 3. Create OPTIGA Crypt Instance
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****          *
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****          */
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         me = optiga_crypt_create(0, optiga_lib_callback, NULL);
+ 170:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         if (NULL == me)
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         {
+ 172:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****             break;
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         }
+ 174:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         /**
+ 176:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****          * 4. Derive key (e.g. decryption key) using optiga_crypt_tls_prf_sha256 with protected I2C
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****          *       - Use shared secret from F1D0 data object
+ 178:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****          */
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 180:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_COMMAND_PROTECTION);
+ 182:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         OPTIGA_CRYPT_SET_COMMS_PROTOCOL_VERSION(me, OPTIGA_COMMS_PROTOCOL_VERSION_PRE_SHARED_SECRET
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         START_PERFORMANCE_MEASUREMENT(time_taken);
+ 185:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         return_status = optiga_crypt_tls_prf_sha256(me,
+ 187:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****                                                     0xF1D0, /* Input secret OID */
+ 188:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****                                                     label,
+ 189:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****                                                     sizeof(label),
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****                                                     random_seed,
+ 191:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****                                                     sizeof(random_seed),
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****                                                     sizeof(decryption_key),
+ 193:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****                                                     TRUE,
+ 194:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****                                                     decryption_key);
+ 195:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 196:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 197:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         
+ 198:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         READ_PERFORMANCE_MEASUREMENT(time_taken);
+ 199:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         /**
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****          * 5. Change meta data to default value
+ 201:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****          *
+ 202:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****          */
+ 203:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 204:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 205:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 206:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         return_status = optiga_util_write_metadata(me_util,
+ 207:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****                                                    0xF1D0,
+ 208:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****                                                    default_metadata,
+ 209:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****                                                    sizeof(default_metadata));
+ 210:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 211:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 212:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 213:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     } while (FALSE);
+ 215:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     
+ 217:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     /**
+ 219:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****      * Close the application on OPTIGA after all the operations are executed
+ 220:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****      * using optiga_util_close_application
+ 221:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****      */
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     example_optiga_deinit();
+ 112              	 .loc 1 222 0
+ 113 0040 FFF7FEFF 	 bl example_optiga_deinit
+ 114              	.LVL6:
+ 223:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY  
+ 224:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     OPTIGA_EXAMPLE_LOG_PERFORMANCE_VALUE(time_taken, return_status);
+ 225:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     
+ 226:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     if (me)
+ 227:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     {
+ 228:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         //Destroy the instance after the completion of usecase if not required.
+ 229:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         return_status = optiga_crypt_destroy(me);
+ 230:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 231:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         {
+ 232:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****             //lint --e{774} suppress This is a generic macro
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****             OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 234:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         }
+ 235:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     }
+ 236:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 237:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     if (me_util)
+ 115              	 .loc 1 237 0
+ 116 0044 A6B9     	 cbnz r6,.L19
+ 238:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     {
+ 239:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         //Destroy the instance after the completion of usecase if not required.
+ 240:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         return_status = optiga_util_destroy(me_util);
+ 241:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 242:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         {
+ 243:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****             //lint --e{774} suppress This is a generic macro
+ 244:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****             OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 245:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         }
+ 246:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     }
+ 247:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     
+ 248:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** }
+ 117              	 .loc 1 248 0
+ 118 0046 0CB0     	 add sp,sp,#48
+ 119              	.LCFI2:
+ 120              	 .cfi_remember_state
+ 121              	 .cfi_def_cfa_offset 24
+ 122              	 
+ 123 0048 BDE8F081 	 pop {r4,r5,r6,r7,r8,pc}
+ 124              	.LVL7:
+ 125              	.L6:
+ 126              	.LCFI3:
+ 127              	 .cfi_restore_state
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 128              	 .loc 1 150 0 discriminator 1
+ 129 004c 2B88     	 ldrh r3,[r5]
+ 130 004e 4C4C     	 ldr r4,.L38+8
+ 131 0050 9BB2     	 uxth r3,r3
+ 132 0052 012B     	 cmp r3,#1
+ 133 0054 FAD0     	 beq .L6
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 134              	 .loc 1 150 0 is_stmt 0 discriminator 2
+ 135 0056 2388     	 ldrh r3,[r4]
+ 136 0058 9BB2     	 uxth r3,r3
+ 137 005a 7BB1     	 cbz r3,.L7
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 138              	 .loc 1 150 0 discriminator 3
+ 139 005c 2488     	 ldrh r4,[r4]
+ 140 005e A4B2     	 uxth r4,r4
+ 141              	.LVL8:
+ 142              	.L8:
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY  
+ 143              	 .loc 1 222 0 is_stmt 1
+ 144 0060 FFF7FEFF 	 bl example_optiga_deinit
+ 145              	.LVL9:
+ 224:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     
+ 146              	 .loc 1 224 0
+ 147 0064 24B9     	 cbnz r4,.L19
+ 148              	.LVL10:
+ 149              	.L34:
+ 150 0066 4748     	 ldr r0,.L38+12
+ 151 0068 4749     	 ldr r1,.L38+16
+ 152 006a 079A     	 ldr r2,[sp,#28]
+ 153 006c FFF7FEFF 	 bl sprintf
+ 154              	.LVL11:
+ 155              	.L19:
+ 240:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 156              	 .loc 1 240 0
+ 157 0070 3046     	 mov r0,r6
+ 158 0072 FFF7FEFF 	 bl optiga_util_destroy
+ 159              	.LVL12:
+ 160              	.L37:
+ 161              	 .loc 1 248 0
+ 162 0076 0CB0     	 add sp,sp,#48
+ 163              	.LCFI4:
+ 164              	 .cfi_remember_state
+ 165              	 .cfi_def_cfa_offset 24
+ 166              	 
+ 167 0078 BDE8F081 	 pop {r4,r5,r6,r7,r8,pc}
+ 168              	.LVL13:
+ 169              	.L7:
+ 170              	.LCFI5:
+ 171              	 .cfi_restore_state
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         return_status = optiga_util_write_metadata(me_util,
+ 172              	 .loc 1 157 0
+ 173 007c 0123     	 movs r3,#1
+ 174 007e 2380     	 strh r3,[r4]
+ 158:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****                                                    0xF1D0,
+ 175              	 .loc 1 158 0
+ 176 0080 3046     	 mov r0,r6
+ 177              	.LVL14:
+ 178 0082 4FF2D011 	 movw r1,#61904
+ 179 0086 414A     	 ldr r2,.L38+20
+ 180 0088 0823     	 movs r3,#8
+ 181 008a FFF7FEFF 	 bl optiga_util_write_metadata
+ 182              	.LVL15:
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 183              	 .loc 1 163 0
+ 184 008e 0028     	 cmp r0,#0
+ 185 0090 D6D1     	 bne .L5
+ 186              	.L9:
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 187              	 .loc 1 163 0 is_stmt 0 discriminator 1
+ 188 0092 2B88     	 ldrh r3,[r5]
+ 189 0094 3A4F     	 ldr r7,.L38+8
+ 190 0096 9BB2     	 uxth r3,r3
+ 191 0098 012B     	 cmp r3,#1
+ 192 009a FAD0     	 beq .L9
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 193              	 .loc 1 163 0 discriminator 2
+ 194 009c 3888     	 ldrh r0,[r7]
+ 195              	.LVL16:
+ 196 009e 80B2     	 uxth r0,r0
+ 197 00a0 10B1     	 cbz r0,.L10
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 198              	 .loc 1 163 0 discriminator 3
+ 199 00a2 3C88     	 ldrh r4,[r7]
+ 200 00a4 A4B2     	 uxth r4,r4
+ 201              	.LVL17:
+ 202 00a6 DBE7     	 b .L8
+ 203              	.LVL18:
+ 204              	.L10:
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         if (NULL == me)
+ 205              	 .loc 1 169 0 is_stmt 1
+ 206 00a8 0246     	 mov r2,r0
+ 207 00aa 3349     	 ldr r1,.L38
+ 208 00ac FFF7FEFF 	 bl optiga_crypt_create
+ 209              	.LVL19:
+ 170:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         {
+ 210              	 .loc 1 170 0
+ 211 00b0 0446     	 mov r4,r0
+ 212 00b2 0028     	 cmp r0,#0
+ 213 00b4 41D0     	 beq .L11
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 214              	 .loc 1 179 0
+ 215 00b6 4FF00108 	 mov r8,#1
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         OPTIGA_CRYPT_SET_COMMS_PROTOCOL_VERSION(me, OPTIGA_COMMS_PROTOCOL_VERSION_PRE_SHARED_SECRET
+ 216              	 .loc 1 181 0
+ 217 00ba 4146     	 mov r1,r8
+ 218 00bc 4246     	 mov r2,r8
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** 
+ 219              	 .loc 1 179 0
+ 220 00be A7F80080 	 strh r8,[r7]
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         OPTIGA_CRYPT_SET_COMMS_PROTOCOL_VERSION(me, OPTIGA_COMMS_PROTOCOL_VERSION_PRE_SHARED_SECRET
+ 221              	 .loc 1 181 0
+ 222 00c2 FFF7FEFF 	 bl optiga_crypt_set_comms_params
+ 223              	.LVL20:
+ 182:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         
+ 224              	 .loc 1 182 0
+ 225 00c6 4246     	 mov r2,r8
+ 226 00c8 2046     	 mov r0,r4
+ 227 00ca 0221     	 movs r1,#2
+ 228 00cc FFF7FEFF 	 bl optiga_crypt_set_comms_params
+ 229              	.LVL21:
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         
+ 230              	 .loc 1 184 0
+ 231 00d0 4146     	 mov r1,r8
+ 232 00d2 07A8     	 add r0,sp,#28
+ 233 00d4 FFF7FEFF 	 bl example_performance_measurement
+ 234              	.LVL22:
+ 235              	.LBB4:
+ 236              	.LBB5:
+ 237              	 .file 2 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_crypt.h"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * \copyright
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * MIT License
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * Copyright (c) 2020 Infineon Technologies AG
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** *
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * Permission is hereby granted, free of charge, to any person obtaining a copy
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * of this software and associated documentation files (the "Software"), to deal
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * in the Software without restriction, including without limitation the rights
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * copies of the Software, and to permit persons to whom the Software is
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * furnished to do so, subject to the following conditions:
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** *
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * The above copyright notice and this permission notice shall be included in all
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * copies or substantial portions of the Software.
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** *
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * SOFTWARE
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** *
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * \endcopyright
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** *
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * \author Infineon Technologies AG
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** *
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * \file optiga_crypt.h
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** *
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * \brief   This file implements the prototype declarations of OPTIGA Crypt module.
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** *
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * \ingroup  grOptigaCrypt
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** *
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** * @{
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** */
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #ifndef _OPTIGA_CRYPT_H_
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #define _OPTIGA_CRYPT_H_
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #ifdef __cplusplus
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** extern "C" {
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #endif
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #include "optiga/cmd/optiga_cmd.h"
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** /** \brief union for OPTIGA crypt parameters */
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** typedef union optiga_crypt_params
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** {
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     /// get random params
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     optiga_get_random_params_t optiga_get_random_params;
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     /// get key pair params
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     optiga_gen_keypair_params_t optiga_gen_keypair_params;
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     /// calc sign params
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     optiga_calc_sign_params_t optiga_calc_sign_params;
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     /// verify sign params
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     optiga_verify_sign_params_t optiga_verify_sign_params;
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #if defined (OPTIGA_CRYPT_RSA_ENCRYPT_ENABLED) || defined (OPTIGA_CRYPT_RSA_DECRYPT_ENABLED)    
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     /// asymmetric encryption params
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     optiga_encrypt_asym_params_t optiga_encrypt_asym_params;
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #endif    
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     /// calc hash params
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     optiga_calc_hash_params_t optiga_calc_hash_params;
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     /// calc ssec params
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     optiga_calc_ssec_params_t optiga_calc_ssec_params;
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     /// derive key params
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     optiga_derive_key_params_t optiga_derive_key_params;
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #if defined (OPTIGA_CRYPT_SYM_ENCRYPT_ENABLED) && defined (OPTIGA_CRYPT_SYM_DECRYPT_ENABLED)
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     /// derive key params
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     optiga_encrypt_sym_params_t optiga_symmetric_enc_dec_params;
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #endif    
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #ifdef OPTIGA_CRYPT_SYM_GENERATE_KEY_ENABLED    
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     /// generate symmetric key params
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     optiga_gen_symkey_params_t optiga_gen_sym_key_params;   
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #endif    
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** }optiga_crypt_params_t;
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** /** \brief OPTIGA crypt instance structure */
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** struct optiga_crypt
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** {
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     /// Details/references (pointers) to the Application Inputs
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     optiga_crypt_params_t params;
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     /// Command module instance
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     optiga_cmd_t * my_cmd;
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     /// Caller context
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     void * caller_context;
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     /// Callback handler
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     callback_handler_t handler;
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     ///To provide the busy/free status of the crypt instance
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     uint16_t instance_state;
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #ifdef OPTIGA_COMMS_SHIELDED_CONNECTION
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     /// To provide the encryption and decryption need for command and response
+  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     uint8_t protection_level;
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     /// To provide the presentation layer protocol version to be used
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     uint8_t protocol_version;
+  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #endif //OPTIGA_COMMS_SHIELDED_CONNECTION
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** };
+  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+ 100:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** /** \brief OPTIGA crypt instance structure type*/
+ 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** typedef struct optiga_crypt optiga_crypt_t;
+ 102:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #ifdef OPTIGA_COMMS_SHIELDED_CONNECTION
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** /**
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \brief Sets/updates the OPTIGA Comms Shielded connection configuration in
+ 106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *        the respective (optiga_util) instance.
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *\details
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * Sets/updates the OPTIGA Comms Shielded connection configuration in the respective (optiga_util) 
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The #OPTIGA_COMMS_PROTECTION_LEVEL configuration settings using this API, will be used in the 
+ 111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Once the API is invoked, this level gets reset to the default protection level #OPTIGA_COMMS_D
+ 112:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *\pre
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - None
+ 115:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *\note
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - None
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in,out]  me                     Valid instance of #optiga_util_t
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]      parameter_type         Parameter Type
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                        Possible Types are
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                        #OPTIGA_COMMS_PROTECTION_LEVEL
+ 123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                        #OPTIGA_COMMS_PROTOCOL_VERSION
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]      value                  Value part for the respective configuration
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * <b>Example</b><br>
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  */
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** void optiga_crypt_set_comms_params(optiga_crypt_t * me,
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                    uint8_t parameter_type,
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                    uint8_t value);
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #endif
+ 134:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** /**
+ 136:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \brief Create an instance of #optiga_crypt_t.
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 138:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \details
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * Create an instance of #optiga_crypt_t.
+ 140:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Stores the callers context and callback handler.
+ 141:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Allocate memory for #optiga_crypt_t.
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \pre
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - None
+ 145:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \note
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - This API is implemented in synchronous mode.
+ 148:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - For <b>protected I2C communication</b>,
+ 149:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *      - Default protection level for this API is #OPTIGA_COMMS_DEFAULT_PROTECTION_LEVEL.
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *      - Default protocol version for this API is #OPTIGA_COMMS_PROTOCOL_VERSION_PRE_SHARED_SECRET
+ 151:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]   optiga_instance_id  Indicates the OPTIGA instance to be associated with #optiga_cry
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                  Use #OPTIGA_INSTANCE_ID_0.
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]   handler             Pointer to callback function, must not be NULL.
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]   caller_context      Pointer to upper layer context. Contains user context data.
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval      #optiga_crypt_t     On success function will return pointer of #optiga_crypt_t.
+ 158:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval      NULL                Input arguments are NULL.<br>
+ 159:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                  Low layer function fails.<br>
+ 160:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                  OPTIGA_CMD_MAX_REGISTRATIONS number of instances are already cr
+ 161:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  */
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** LIBRARY_EXPORTS optiga_crypt_t * optiga_crypt_create(uint8_t optiga_instance_id,
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                      callback_handler_t handler,
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                      void * caller_context);
+ 165:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+ 166:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** /**
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \brief Destroys an instance of #optiga_crypt_t.
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \details
+ 170:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * Destroys the #optiga_crypt_t instance.
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - De-allocate the memory of the #optiga_crypt_t instance.
+ 172:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \pre
+ 174:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - An instance of optiga_crypt using #optiga_crypt_create must be available.<br>
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 176:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \note
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *  - User must take care to nullify the instance pointer.
+ 178:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *  - Invoke this API only after all the asynchronous process is completed otherwise the behavior o
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 180:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in] me                                      Valid instance of #optiga_crypt_t.
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 182:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval    #OPTIGA_LIB_SUCCESS                    Successful invocation.
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval    #OPTIGA_CRYPT_ERROR_INVALID_INPUT       Wrong Input arguments provided.
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval    #OPTIGA_CRYPT_ERROR_INSTANCE_IN_USE     The previous operation with the same instance
+ 185:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  */
+ 187:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** LIBRARY_EXPORTS optiga_lib_status_t optiga_crypt_destroy(optiga_crypt_t * me);
+ 188:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+ 189:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #ifdef OPTIGA_CRYPT_RANDOM_ENABLED
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** /**
+ 191:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \brief Generates a random number.
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 193:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \details
+ 194:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * Generates the requested random stream of data for the user provided length.
+ 195:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Invokes #optiga_cmd_get_random API, based on the input arguments to retrieve random data .
+ 196:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 197:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \pre
+ 198:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The application on OPTIGA must be opened using #optiga_util_open_application before using this
+ 199:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \note
+ 201:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - For <b>protected I2C communication</b>, Refer #OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL
+ 202:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Error codes from lower layers is returned as it is.<br>
+ 203:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The maximum value of the <b>random_data_length</b> parameter is size of buffer <b>random_data<
+ 204:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *   In case the value is greater than buffer size, memory corruption can occur.<br>
+ 205:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 206:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]      me                                       Valid instance of #optiga_crypt_t creat
+ 207:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]      rng_type                                 Type of random data generator.
+ 208:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                          - The input must be from #optiga_rng_ty
+ 209:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                          - Argument check for rng_type is not do
+ 210:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in,out]  random_data                              Pointer to the buffer into which random
+ 211:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]      random_data_length                       Length of random data to be generated.
+ 212:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                          - Range should be 8 - 256 bytes.
+ 213:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                          - Length validation is not done, since 
+ 214:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 215:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_CRYPT_SUCCESS                    Successful invocation.
+ 216:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_CRYPT_ERROR_INVALID_INPUT        Wrong Input arguments provided.
+ 217:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_CRYPT_ERROR_INSTANCE_IN_USE      The previous operation with the same in
+ 218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_DEVICE_ERROR                     Command execution failure in OPTIGA and
+ 219:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                          (Refer Solution Reference Manual)
+ 220:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 221:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * <b>Example</b><br>
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * example_optiga_crypt_random.c
+ 223:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 224:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  */
+ 225:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** LIBRARY_EXPORTS optiga_lib_status_t optiga_crypt_random(optiga_crypt_t * me,
+ 226:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                         optiga_rng_type_t rng_type,
+ 227:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                         uint8_t * random_data,
+ 228:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                         uint16_t random_data_length);
+ 229:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #endif //OPTIGA_CRYPT_RANDOM_ENABLED
+ 230:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+ 231:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #ifdef OPTIGA_CRYPT_HASH_ENABLED
+ 232:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** /**
+ 233:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 234:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \brief Updates a hashing for input data and returns digest.
+ 235:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 236:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \details
+ 237:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * Updates hashing for the given data and returns digest.<br>
+ 238:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 239:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \pre
+ 240:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The application on OPTIGA must be opened using #optiga_util_open_application.<br>
+ 241:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 242:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \note
+ 243:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - For <b>protected I2C communication</b>, Refer #OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL.
+ 244:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Error codes from lower layer will be returned as it is.<br>
+ 245:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 246:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *<br>
+ 247:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]      me                                        Valid instance of #optiga_crypt_t crea
+ 248:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]      hash_algorithm                            Hash algorithm of #optiga_hash_type_t.
+ 249:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]      source_of_data_to_hash                    Data from host / Data in OPTIGA. Must 
+ 250:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                           - #OPTIGA_CRYPT_HOST_DATA or Non-Zero 
+ 251:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                           - #OPTIGA_CRYPT_OID_DATA, if the sourc
+ 252:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]      data_to_hash                              Data for hashing either in #hash_data_
+ 253:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[inout]   hash_output                               Pointer to the valid buffer to store h
+ 254:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 255:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_CRYPT_SUCCESS                     Successful invocation.
+ 256:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_CRYPT_ERROR_INVALID_INPUT         Wrong Input arguments provided.
+ 257:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_CRYPT_ERROR_INSTANCE_IN_USE       The previous operation with the same i
+ 258:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_DEVICE_ERROR                      Command execution failure in OPTIGA an
+ 259:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                           (Refer Solution Reference Manual)
+ 260:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 261:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * <b>Example</b><br>
+ 262:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * example_optiga_crypt_hash.c
+ 263:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 264:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  */
+ 265:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** LIBRARY_EXPORTS optiga_lib_status_t optiga_crypt_hash(optiga_crypt_t * me,
+ 266:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                       optiga_hash_type_t hash_algorithm,
+ 267:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                       uint8_t source_of_data_to_hash,
+ 268:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                       const void * data_to_hash, 
+ 269:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                       uint8_t * hash_output);
+ 270:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                       
+ 271:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  /**
+ 272:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 273:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \brief Initializes a hash context.
+ 274:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 275:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \details
+ 276:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * Sets up a hash context and exports it.
+ 277:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Invokes #optiga_cmd_calc_hash API, based on the input arguments.<br>
+ 278:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Initializes a new hash context.<br>
+ 279:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Exports the hash context to caller.<br>
+ 280:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The callback registered with instance (#optiga_crypt_create) gets invoked, when the operation 
+ 281:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 282:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \pre
+ 283:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The application on OPTIGA must be opened using #optiga_util_open_application before using this
+ 284:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 285:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \note
+ 286:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - For <b>protected I2C communication</b>, Refer #OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL.
+ 287:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Error codes from lower layer will be returned as it is.<br>
+ 288:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - User must save the output hash context for further usage because OPTIGA does not store it inte
+ 289:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 290:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *<br>
+ 291:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]      me                                        Valid instance of #optiga_crypt_t crea
+ 292:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[inout]   hash_ctx                                  Pointer to #optiga_hash_context_t to s
+ 293:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                           - The minimum size of the <b>context_b
+ 294:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                           - The input <b>hash_algo</b> in  <b>ha
+ 295:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 296:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_CRYPT_SUCCESS                     Successful invocation.
+ 297:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_CRYPT_ERROR_INVALID_INPUT         Wrong Input arguments provided.
+ 298:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_CRYPT_ERROR_INSTANCE_IN_USE       The previous operation with the same i
+ 299:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_DEVICE_ERROR                      Command execution failure in OPTIGA an
+ 300:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                           (Refer Solution Reference Manual)
+ 301:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 302:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * <b>Example</b><br>
+ 303:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * example_optiga_crypt_hash.c
+ 304:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 305:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  */
+ 306:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** LIBRARY_EXPORTS optiga_lib_status_t optiga_crypt_hash_start(optiga_crypt_t * me,
+ 307:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                             optiga_hash_context_t * hash_ctx);
+ 308:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+ 309:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+ 310:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  /**
+ 311:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \brief Updates a hash context with the input data.
+ 312:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 313:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \details
+ 314:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * Updates hashing for the given data and hash context then export the updated hash context.<br>
+ 315:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Invokes #optiga_cmd_calc_hash API, based on the input arguments.<br>
+ 316:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Update the input hash context.<br>
+ 317:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Exports the hash context to caller.<br>
+ 318:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The callback registered with instance (#optiga_crypt_create) gets invoked, when the operation 
+ 319:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 320:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \pre
+ 321:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The application on OPTIGA must be opened using #optiga_util_open_application before using this
+ 322:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - #optiga_hash_context_t from #optiga_crypt_hash_start or #optiga_crypt_hash_update must be avai
+ 323:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 324:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \note<br>
+ 325:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - For <b>protected I2C communication</b>, Refer #OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL
+ 326:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Error codes from lower layer will be returned as it is.<br>
+ 327:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - User must save the output hash context for further usage as OPTIGA does not store it internall
+ 328:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 329:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]   me                                      Valid instance of #optiga_crypt_t created u
+ 330:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]   hash_ctx                                Pointer to #optiga_hash_context_t containin
+ 331:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                      - The minimum size of the <b>context_buffer
+ 332:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]   source_of_data_to_hash                  Data from host / Data in optiga. Must be on
+ 333:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                      - #OPTIGA_CRYPT_HOST_DATA or Non-Zero value
+ 334:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                      - #OPTIGA_CRYPT_OID_DATA, if the source of 
+ 335:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]   data_to_hash                            Data for hashing either in #hash_data_from_
+ 336:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 337:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval      #OPTIGA_CRYPT_SUCCESS                   Successful invocation.
+ 338:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval      #OPTIGA_CRYPT_ERROR_INVALID_INPUT       Wrong Input arguments provided.
+ 339:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval      #OPTIGA_CRYPT_ERROR_INSTANCE_IN_USE     The previous operation with the same instan
+ 340:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval      #OPTIGA_DEVICE_ERROR                    Command execution failure in OPTIGA and the
+ 341:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                      (Refer Solution Reference Manual)
+ 342:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 343:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * <b>Example</b><br>
+ 344:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * example_optiga_crypt_hash.c
+ 345:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 346:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  */
+ 347:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** LIBRARY_EXPORTS optiga_lib_status_t optiga_crypt_hash_update(optiga_crypt_t * me,
+ 348:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                              optiga_hash_context_t * hash_ctx,
+ 349:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                              uint8_t source_of_data_to_hash,
+ 350:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                              const void * data_to_hash);
+ 351:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+ 352:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  /**
+ 353:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 354:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \brief Finalizes and exports the hash output.
+ 355:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 356:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \details
+ 357:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * Finalizes the hash context and returns hash as output.
+ 358:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Invokes #optiga_cmd_calc_hash API, based on the input arguments.<br>
+ 359:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Finalize the hash from the input hash context
+ 360:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Exports the finalized hash.
+ 361:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The callback registered with instance (#optiga_crypt_create) gets invoked, when the operation 
+ 362:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 363:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \pre
+ 364:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The application on OPTIGA must be opened using #optiga_util_open_application before using this
+ 365:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - #optiga_hash_context_t from #optiga_crypt_hash_start or #optiga_crypt_hash_update must be avai
+ 366:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 367:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \note
+ 368:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - For <b>protected I2C communication</b>, Refer #OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL
+ 369:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Error codes from lower layer will be returned as it is.
+ 370:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - hash context is not updated by this API. This can be used later to fulfill intermediate hash u
+ 371:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - User must save the output hash context for further usage as OPTIGA does not store it internall
+ 372:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 373:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]      me                                      Valid instance of #optiga_crypt_t create
+ 374:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]      hash_ctx                                Pointer to #optiga_hash_context_t contai
+ 375:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                         - The minimum size of the <b>context_buf
+ 376:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[inout]   hash_output                             Output Hash.
+ 377:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 378:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_CRYPT_SUCCESS                   Successful invocation.
+ 379:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_CRYPT_ERROR_INVALID_INPUT       Wrong Input arguments provided.
+ 380:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_CRYPT_ERROR_INSTANCE_IN_USE     The previous operation with the same ins
+ 381:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_DEVICE_ERROR                    Command execution failure in OPTIGA and 
+ 382:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                         (Refer Solution Reference Manual)
+ 383:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 384:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * <b>Example</b><br>
+ 385:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * example_optiga_crypt_hash.c
+ 386:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 387:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  */
+ 388:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** LIBRARY_EXPORTS optiga_lib_status_t optiga_crypt_hash_finalize(optiga_crypt_t * me,
+ 389:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                                optiga_hash_context_t * hash_ctx,
+ 390:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                                uint8_t * hash_output);
+ 391:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+ 392:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #endif //OPTIGA_CRYPT_HASH_ENABLED
+ 393:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+ 394:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+ 395:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #ifdef OPTIGA_CRYPT_ECC_GENERATE_KEYPAIR_ENABLED
+ 396:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+ 397:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** /**
+ 398:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \brief Generates a key pair based on ECC curves.
+ 399:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 400:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \details
+ 401:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * Generates an ECC key-pair based on the input curve.
+ 402:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Invokes #optiga_cmd_gen_keypair API, based on the input arguments.<br>
+ 403:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Generate an ECC key pair using OPTIGA.
+ 404:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Private key is exported only if explicitly requested otherwise it is stored in the input priva
+ 405:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Public key is always exported.
+ 406:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The callback registered with instance (#optiga_crypt_create) gets invoked, when the operation 
+ 407:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 408:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \pre
+ 409:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The application on OPTIGA must be opened using #optiga_util_open_application before using this
+ 410:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 411:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \note
+ 412:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - For <b>protected I2C communication</b>, Refer #OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL
+ 413:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Error codes from lower layers is returned as it is.
+ 414:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 415:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]       me                                      Valid instance of #optiga_crypt_t creat
+ 416:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]       curve_id                                ECC curve id as #optiga_ecc_curve.
+ 417:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]       key_usage                               Key usage defined in #optiga_key_usage_
+ 418:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                          - Values from #optiga_key_usage can be 
+ 419:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                          - It is ignored if export_private_key i
+ 420:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]       export_private_key                      TRUE (1) or Non-Zero value - Exports pr
+ 421:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                          FALSE (0) - Exports only public key to 
+ 422:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]       private_key                             Buffer to store private key or private 
+ 423:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                          - If export_private_key is TRUE, assign
+ 424:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                          - The size of the buffer must be suffic
+ 425:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                          - If export_private_key is FALSE, assig
+ 426:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in,out]   public_key                              Buffer to store public key, must not be
+ 427:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]       public_key_length                       Initially set as length of buffer to st
+ 428:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 429:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval          #OPTIGA_CRYPT_SUCCESS                   Successful invocation.
+ 430:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval          #OPTIGA_CRYPT_ERROR_INVALID_INPUT       Wrong Input arguments provided.
+ 431:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval          #OPTIGA_CRYPT_ERROR_INSTANCE_IN_USE     The previous operation with the same in
+ 432:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval          #OPTIGA_DEVICE_ERROR                    Command execution failure in OPTIGA and
+ 433:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                          (Refer Solution Reference Manual)
+ 434:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 435:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * <b>Example</b><br>
+ 436:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * example_optiga_crypt_ecc_generate_keypair.c
+ 437:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 438:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  */
+ 439:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** LIBRARY_EXPORTS optiga_lib_status_t optiga_crypt_ecc_generate_keypair(optiga_crypt_t * me,
+ 440:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                                       optiga_ecc_curve_t curve_id,
+ 441:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                                       uint8_t key_usage,
+ 442:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                                       bool_t export_private_key,
+ 443:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                                       void * private_key,
+ 444:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                                       uint8_t * public_key,
+ 445:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                                       uint16_t * public_key_length)
+ 446:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #endif //OPTIGA_CRYPT_ECC_GENERATE_KEYPAIR_ENABLED
+ 447:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+ 448:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #ifdef OPTIGA_CRYPT_ECDSA_SIGN_ENABLED
+ 449:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  /**
+ 450:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \brief Generates a signature for the given digest.
+ 451:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 452:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \details
+ 453:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * Generates a signature for the given digest using private key stored in OPTIGA.
+ 454:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Invokes #optiga_cmd_calc_sign API, based on the input arguments.<br>
+ 455:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Generates signature for the input digest.
+ 456:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Exports the generated signature.
+ 457:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The callback registered with instance (#optiga_crypt_create) gets invoked, when the operation 
+ 458:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 459:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \pre
+ 460:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The application on OPTIGA must be opened using #optiga_util_open_application before using this
+ 461:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - If the private_key type is #OPTIGA_KEY_ID_SESSION_BASED then session must be already available
+ 462:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \note
+ 463:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - For <b>protected I2C communication</b>, Refer #OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL
+ 464:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Error codes from lower layers is returned as it is.
+ 465:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 466:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]      me                                       Valid instance of #optiga_crypt_t creat
+ 467:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]      digest                                   Digest on which signature is generated.
+ 468:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]      digest_length                            Length of the input digest.
+ 469:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]      private_key                              Private key OID to generate signature.
+ 470:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in,out]  signature                                Pointer to store generated signature, m
+ 471:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                          - The size of the buffer must be suffic
+ 472:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                          DER encoding formatting for R and S com
+ 473:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in,out]  signature_length                         Length of signature. Initial value set 
+ 474:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 475:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_CRYPT_SUCCESS                    Successful invocation.
+ 476:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_CRYPT_ERROR_INVALID_INPUT        Wrong Input arguments provided.<br>
+ 477:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                             Session is not available in instance an
+ 478:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_CRYPT_ERROR_INSTANCE_IN_USE      The previous operation with the same in
+ 479:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_DEVICE_ERROR                     Command execution failure in OPTIGA and
+ 480:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                          (Refer Solution Reference Manual)
+ 481:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 482:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * <b>Example</b><br>
+ 483:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * example_optiga_crypt_ecdsa_sign.c
+ 484:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 485:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  */
+ 486:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** LIBRARY_EXPORTS optiga_lib_status_t optiga_crypt_ecdsa_sign(optiga_crypt_t * me,
+ 487:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                             const uint8_t * digest,
+ 488:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                             uint8_t digest_length,
+ 489:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                             optiga_key_id_t private_key,
+ 490:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                             uint8_t * signature,
+ 491:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                             uint16_t * signature_length);
+ 492:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #endif //OPTIGA_CRYPT_ECDSA_SIGN_ENABLED
+ 493:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+ 494:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #ifdef OPTIGA_CRYPT_ECDSA_VERIFY_ENABLED
+ 495:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** /**
+ 496:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \brief Verifies the signature over the given digest.
+ 497:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 498:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \details
+ 499:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * Verifies the signature over a given digest provided with the input data.
+ 500:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Invokes #optiga_cmd_verify_sign API, based on the input arguments.<br>
+ 501:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Verifies the signature over the given provided with the input data using public key.
+ 502:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - It invokes the callback handler of the instance, when it is asynchronously completed.
+ 503:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The callback registered with instance (#optiga_crypt_create) gets invoked, when the operation 
+ 504:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 505:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \pre
+ 506:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The application on OPTIGA must be opened using #optiga_util_open_application.<br>
+ 507:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 508:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \note
+ 509:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - For <b>protected I2C communication</b>, Refer #OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL.
+ 510:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Error codes from lower layers is returned as it is to the application.<br>
+ 511:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 512:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]   me                                        Valid instance of #optiga_crypt_t created
+ 513:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]   digest                                    Pointer to a given digest buffer, must no
+ 514:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]   digest_length                             Length of digest.
+ 515:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]   signature                                 Pointer to a given signature buffer, must
+ 516:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]   signature_length                          Length of signature.
+ 517:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]   public_key_source_type                    Public key from host / public key of cert
+ 518:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                        - #OPTIGA_CRYPT_OID_DATA, if the public k
+ 519:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                        - #OPTIGA_CRYPT_HOST_DATA  or Non-Zero va
+ 520:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]   public_key                                Public key from host / OID of certificate
+ 521:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                        - For certificate OID, pointer OID value 
+ 522:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                        - For Public key from host, pointer to #p
+ 523:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 524:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval      #OPTIGA_CRYPT_SUCCESS                     Successful invocation
+ 525:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval      #OPTIGA_CRYPT_ERROR_INVALID_INPUT         Wrong Input arguments provided
+ 526:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval      #OPTIGA_CRYPT_ERROR_INSTANCE_IN_USE       The previous operation with the same inst
+ 527:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval      #OPTIGA_DEVICE_ERROR                      Command execution failure in OPTIGA and t
+ 528:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                        (Refer Solution Reference Manual)
+ 529:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 530:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * <b>Example</b><br>
+ 531:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * example_optiga_crypt_ecdsa_verify.c
+ 532:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 533:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  */
+ 534:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** LIBRARY_EXPORTS optiga_lib_status_t optiga_crypt_ecdsa_verify(optiga_crypt_t * me,
+ 535:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                               const uint8_t * digest,
+ 536:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                               uint8_t digest_length,
+ 537:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                               const uint8_t * signature,
+ 538:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                               uint16_t signature_length,
+ 539:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                               uint8_t public_key_source_type,
+ 540:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                               const void * public_key);
+ 541:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #endif //OPTIGA_CRYPT_ECDSA_VERIFY_ENABLED
+ 542:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+ 543:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #ifdef OPTIGA_CRYPT_ECDH_ENABLED
+ 544:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  /**
+ 545:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \brief Calculates the shared secret using ECDH algorithm.<br>
+ 546:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 547:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \details
+ 548:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * Calculates the shared secret using ECDH algorithm
+ 549:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Invokes #optiga_cmd_calc_ssec API, based on the input arguments.<br>
+ 550:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Calculates the shared secret based on input private key object ID and public key.
+ 551:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Based on user request (export_to_host), the shared secret can either be exported to the host o
+ 552:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The callback registered with instance (#optiga_crypt_create) gets invoked, when the operation 
+ 553:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 554:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \pre
+ 555:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The application on OPTIGA must be opened using #optiga_util_open_application.
+ 556:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - There must be a private key available in the "session context / data object OID" provided as i
+ 557:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - If the private_key type is #OPTIGA_KEY_ID_SESSION_BASED then session must be already available
+ 558:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 559:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \note
+ 560:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - For <b>protected I2C communication</b>, Refer #OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL
+ 561:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Error codes from lower layers is returned as it is.
+ 562:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The buffer size for shared secret should be appropriately provided by the user
+ 563:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - If the user provides <b>private_key</b> as session based and <b>export_to_host</b> as FALSE,<b
+ 564:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *   then the shared secret generated will overwrite the private key stored in the session object I
+ 565:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 566:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]      me                                          Valid instance of #optiga_crypt_t cr
+ 567:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]      private_key                                 Object ID of the private key stored 
+ 568:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             - Possible values are from the #opti
+ 569:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             - Argument check for private_key is 
+ 570:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]      public_key                                  Pointer to the public key structure 
+ 571:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             - Provide the inputs according to th
+ 572:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]      export_to_host                              TRUE (1) or Non-Zero value - Exports
+ 573:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             FALSE (0) - Stores the generated sha
+ 574:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in,out]  shared_secret                               Pointer to the shared secret buffer,
+ 575:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             Otherwise provide NULL as input.
+ 576:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 577:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_CRYPT_SUCCESS                       Successful invocation
+ 578:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_CRYPT_ERROR_INVALID_INPUT           Wrong Input arguments provided.<br>
+ 579:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                                Session is not available in instance
+ 580:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_CRYPT_ERROR_INSTANCE_IN_USE         The previous operation with the same
+ 581:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval         #OPTIGA_DEVICE_ERROR                        Command execution failure in OPTIGA 
+ 582:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             (Refer Solution Reference Manual)
+ 583:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 584:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * <b>Example</b><br>
+ 585:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * example_optiga_crypt_ecdh.c
+ 586:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  */
+ 587:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** LIBRARY_EXPORTS optiga_lib_status_t optiga_crypt_ecdh(optiga_crypt_t * me,
+ 588:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                       optiga_key_id_t private_key,
+ 589:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                       public_key_from_host_t * public_key,
+ 590:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                       bool_t export_to_host,
+ 591:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                       uint8_t * shared_secret);
+ 592:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #endif //OPTIGA_CRYPT_ECDH_ENABLED
+ 593:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** 
+ 594:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #if defined (OPTIGA_CRYPT_TLS_PRF_SHA256_ENABLED) || defined (OPTIGA_CRYPT_TLS_PRF_SHA384_ENABLED) 
+ 595:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** /**
+ 596:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \brief Derives a key.<br>
+ 597:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 598:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \details
+ 599:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * Derives a key using the secret stored in OPTIGA.
+ 600:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Invokes #optiga_cmd_derive_key API, based on the input arguments.<br>
+ 601:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Stores the derived key into OPTIGA session context or export it to the host.
+ 602:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The callback registered with instance (#optiga_crypt_create) gets invoked, when the operation 
+ 603:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 604:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \pre
+ 605:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The application on OPTIGA must be opened using #optiga_util_open_application.<br>
+ 606:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - There must be a secret available in the "session context / data object OID" provided as input 
+ 607:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - If the secret type is #OPTIGA_KEY_ID_SESSION_BASED then session must be already available in t
+ 608:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 609:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \note
+ 610:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - For <b>protected I2C communication</b>, Refer #OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL
+ 611:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *      - Default protection level for this API is OPTIGA_COMMS_COMMAND_PROTECTION if secret is in 
+ 612:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Error codes from lower layers is returned as it is to the application.<br>
+ 613:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 614:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]         me                                       Valid instance of #optiga_crypt_t cr
+ 615:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]         type                                     Type of scheme to be used for TLS PR
+ 616:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]         secret                                   Object ID where the secret is stored
+ 617:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             - #OPTIGA_KEY_ID_SESSION_BASED from 
+ 618:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                               in the session context acquired by
+ 619:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             - or any OPTIGA data object ID(16 bi
+ 620:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]         label                                    Pointer to the label, can be NULL if
+ 621:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]         label_length                             Length of the label.
+ 622:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]         seed                                     Valid pointer to the seed, must not 
+ 623:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]         seed_length                              Length of the seed.
+ 624:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]         derived_key_length                       Length of derived key.
+ 625:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             - Export to Host : The minimum lengt
+ 626:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             - Save in Sesssion OID : The minimum
+ 627:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             For derived key lengths from 1 to 15
+ 628:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]         export_to_host                           TRUE (1) or Non-Zero value - Exports
+ 629:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             FALSE (0) - Stores the derived key i
+ 630:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in,out]     derived_key                              Pointer to the valid buffer with a m
+ 631:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             in case of exporting the key to host
+ 632:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 633:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval            #OPTIGA_CRYPT_SUCCESS                    Successful invocation
+ 634:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval            #OPTIGA_CRYPT_ERROR_INVALID_INPUT        - Wrong Input arguments provided
+ 635:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             - Attempt to use a session OID which
+ 636:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                                Session is not available in instance
+ 637:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval            #OPTIGA_CRYPT_ERROR_INSTANCE_IN_USE      The previous operation with the same
+ 638:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval            #OPTIGA_DEVICE_ERROR                     Command execution failure in OPTIGA 
+ 639:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             (Refer Solution Reference Manual)
+ 640:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 641:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * <b>Example</b><br>
+ 642:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * example_optiga_crypt_tls_prf_sha256.c
+ 643:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 644:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  */
+ 645:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** LIBRARY_EXPORTS optiga_lib_status_t optiga_crypt_tls_prf(optiga_crypt_t * me,
+ 646:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                          optiga_tls_prf_type_t type,
+ 647:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                          uint16_t secret,
+ 648:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                          const uint8_t * label,
+ 649:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                          uint16_t label_length,
+ 650:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                          const uint8_t * seed,
+ 651:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                          uint16_t seed_length,
+ 652:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                          uint16_t derived_key_length,
+ 653:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                          bool_t export_to_host,
+ 654:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                          uint8_t * derived_key); 
+ 655:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #endif // OPTIGA_CRYPT_TLS_PRF_SHA256_ENABLED || OPTIGA_CRYPT_TLS_PRF_SHA384_ENABLED || OPTIGA_CRYP
+ 656:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                 
+ 657:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** #ifdef OPTIGA_CRYPT_TLS_PRF_SHA256_ENABLED                                                         
+ 658:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** /**
+ 659:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \brief Derives a key using TLS PRF SHA256.<br>
+ 660:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 661:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \details
+ 662:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * Derives a key TLS PRF SHA256 using the secret stored in OPTIGA.
+ 663:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Invokes #optiga_cmd_derive_key API, based on the input arguments.<br>
+ 664:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Stores the derived key into OPTIGA session context or export it to the host.
+ 665:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The callback registered with instance (#optiga_crypt_create) gets invoked, when the operation 
+ 666:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 667:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \pre
+ 668:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - The application on OPTIGA must be opened using #optiga_util_open_application.<br>
+ 669:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - There must be a secret available in the "session context / data object OID" provided as input 
+ 670:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Try to access session OID without acquiring session in #optiga_crypt_ecdh throws #OPTIGA_CMD_E
+ 671:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 672:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \note
+ 673:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - For <b>protected I2C communication</b>, Refer #OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL
+ 674:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *      - Default protection level for this API is OPTIGA_COMMS_COMMAND_PROTECTION if secret is in 
+ 675:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * - Error codes from lower layers is returned as it is to the application.<br>
+ 676:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 677:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]         me                                       Valid instance of #optiga_crypt_t cr
+ 678:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]         secret                                   Object ID where the secret is stored
+ 679:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             - #OPTIGA_KEY_ID_SESSION_BASED from 
+ 680:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                               in the session context acquired by
+ 681:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             - or any OPTIGA data object ID(16 bi
+ 682:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]         label                                    Pointer to the label, can be NULL if
+ 683:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]         label_length                             Length of the label.
+ 684:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]         seed                                     Valid pointer to the seed, must not 
+ 685:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]         seed_length                              Length of the seed.
+ 686:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]         derived_key_length                       Length of derived key.
+ 687:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             - Export to Host : The minimum lengt
+ 688:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             - Save in Sesssion OID : The minimum
+ 689:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             For derived key lengths from 1 to 15
+ 690:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in]         export_to_host                           TRUE (1) or Non-Zero value - Exports
+ 691:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             FALSE (0) - Stores the derived key i
+ 692:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \param[in,out]     derived_key                              Pointer to the valid buffer with a m
+ 693:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             in case of exporting the key to host
+ 694:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 695:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval            #OPTIGA_CRYPT_SUCCESS                    Successful invocation
+ 696:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval            #OPTIGA_CRYPT_ERROR_INVALID_INPUT        Wrong Input arguments provided
+ 697:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             - Attempt to use a session OID which
+ 698:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval            #OPTIGA_CRYPT_ERROR_INSTANCE_IN_USE      The previous operation with the same
+ 699:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * \retval            #OPTIGA_DEVICE_ERROR                     Command execution failure in OPTIGA 
+ 700:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *                                                             (Refer Solution Reference Manual)
+ 701:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 702:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * <b>Example</b><br>
+ 703:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  * example_optiga_crypt_tls_prf_sha256.c
+ 704:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  *
+ 705:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****  */
+ 706:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** _STATIC_INLINE LIBRARY_EXPORTS optiga_lib_status_t optiga_crypt_tls_prf_sha256(optiga_crypt_t * me,
+ 707:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                                                uint16_t secret,
+ 708:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                                                const uint8_t * labe
+ 709:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                                                uint16_t label_lengt
+ 710:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                                                const uint8_t * seed
+ 711:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                                                uint16_t seed_length
+ 712:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                                                uint16_t derived_key
+ 713:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                                                bool_t export_to_hos
+ 714:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****                                                                                uint8_t * derived_ke
+ 715:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h **** {
+ 716:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga\optiga_crypt.h ****     return (optiga_crypt_tls_prf(me,
+ 238              	 .loc 2 716 0
+ 239 00d8 2020     	 movs r0,#32
+ 240 00da 1023     	 movs r3,#16
+ 241 00dc 0DEB0002 	 add r2,sp,r0
+ 242 00e0 2B4F     	 ldr r7,.L38+24
+ 243 00e2 0093     	 str r3,[sp]
+ 244 00e4 0393     	 str r3,[sp,#12]
+ 245 00e6 0290     	 str r0,[sp,#8]
+ 246 00e8 0592     	 str r2,[sp,#20]
+ 247 00ea CDF81080 	 str r8,[sp,#16]
+ 248 00ee 4146     	 mov r1,r8
+ 249 00f0 0197     	 str r7,[sp,#4]
+ 250 00f2 2046     	 mov r0,r4
+ 251 00f4 4FF2D012 	 movw r2,#61904
+ 252 00f8 264B     	 ldr r3,.L38+28
+ 253 00fa FFF7FEFF 	 bl optiga_crypt_tls_prf
+ 254              	.LVL23:
+ 255              	.LBE5:
+ 256              	.LBE4:
+ 196:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         
+ 257              	 .loc 1 196 0
+ 258 00fe 40B1     	 cbz r0,.L13
+ 259              	.L12:
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY  
+ 260              	 .loc 1 222 0
+ 261 0100 FFF7FEFF 	 bl example_optiga_deinit
+ 262              	.LVL24:
+ 263              	.L21:
+ 229:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 264              	 .loc 1 229 0
+ 265 0104 2046     	 mov r0,r4
+ 266 0106 FFF7FEFF 	 bl optiga_crypt_destroy
+ 267              	.LVL25:
+ 240:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 268              	 .loc 1 240 0
+ 269 010a 3046     	 mov r0,r6
+ 270 010c FFF7FEFF 	 bl optiga_util_destroy
+ 271              	.LVL26:
+ 272 0110 B1E7     	 b .L37
+ 273              	.L13:
+ 196:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         
+ 274              	 .loc 1 196 0 discriminator 1
+ 275 0112 2B88     	 ldrh r3,[r5]
+ 276 0114 1A4F     	 ldr r7,.L38+8
+ 277 0116 9BB2     	 uxth r3,r3
+ 278 0118 012B     	 cmp r3,#1
+ 279 011a FAD0     	 beq .L13
+ 196:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         
+ 280              	 .loc 1 196 0 is_stmt 0 discriminator 2
+ 281 011c 3988     	 ldrh r1,[r7]
+ 282 011e 89B2     	 uxth r1,r1
+ 283 0120 71B1     	 cbz r1,.L14
+ 196:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         
+ 284              	 .loc 1 196 0 discriminator 3
+ 285 0122 3D88     	 ldrh r5,[r7]
+ 286 0124 ADB2     	 uxth r5,r5
+ 287              	.LVL27:
+ 288              	.L15:
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY  
+ 289              	 .loc 1 222 0 is_stmt 1
+ 290 0126 FFF7FEFF 	 bl example_optiga_deinit
+ 291              	.LVL28:
+ 224:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     
+ 292              	 .loc 1 224 0
+ 293 012a 002D     	 cmp r5,#0
+ 294 012c EAD1     	 bne .L21
+ 295              	.LVL29:
+ 296              	.L35:
+ 297 012e 1649     	 ldr r1,.L38+16
+ 298 0130 079A     	 ldr r2,[sp,#28]
+ 299 0132 1448     	 ldr r0,.L38+12
+ 300 0134 FFF7FEFF 	 bl sprintf
+ 301              	.LVL30:
+ 302 0138 E4E7     	 b .L21
+ 303              	.LVL31:
+ 304              	.L11:
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY  
+ 305              	 .loc 1 222 0
+ 306 013a FFF7FEFF 	 bl example_optiga_deinit
+ 307              	.LVL32:
+ 308 013e 92E7     	 b .L34
+ 309              	.LVL33:
+ 310              	.L14:
+ 198:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         /**
+ 311              	 .loc 1 198 0
+ 312 0140 07A8     	 add r0,sp,#28
+ 313 0142 FFF7FEFF 	 bl example_performance_measurement
+ 314              	.LVL34:
+ 205:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         return_status = optiga_util_write_metadata(me_util,
+ 315              	 .loc 1 205 0
+ 316 0146 0123     	 movs r3,#1
+ 317 0148 3B80     	 strh r3,[r7]
+ 206:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****                                                    0xF1D0,
+ 318              	 .loc 1 206 0
+ 319 014a 3046     	 mov r0,r6
+ 320 014c 4FF2D011 	 movw r1,#61904
+ 321 0150 114A     	 ldr r2,.L38+32
+ 322 0152 0823     	 movs r3,#8
+ 323 0154 FFF7FEFF 	 bl optiga_util_write_metadata
+ 324              	.LVL35:
+ 211:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 325              	 .loc 1 211 0
+ 326 0158 0028     	 cmp r0,#0
+ 327 015a D1D1     	 bne .L12
+ 328              	.L16:
+ 211:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 329              	 .loc 1 211 0 is_stmt 0 discriminator 1
+ 330 015c 2B88     	 ldrh r3,[r5]
+ 331 015e 084A     	 ldr r2,.L38+8
+ 332 0160 9BB2     	 uxth r3,r3
+ 333 0162 012B     	 cmp r3,#1
+ 334 0164 FAD0     	 beq .L16
+ 211:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 335              	 .loc 1 211 0 discriminator 2
+ 336 0166 1388     	 ldrh r3,[r2]
+ 337 0168 9BB2     	 uxth r3,r3
+ 338 016a 13B1     	 cbz r3,.L17
+ 211:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 339              	 .loc 1 211 0 discriminator 3
+ 340 016c 1588     	 ldrh r5,[r2]
+ 341 016e ADB2     	 uxth r5,r5
+ 342              	.LVL36:
+ 343 0170 D9E7     	 b .L15
+ 344              	.LVL37:
+ 345              	.L17:
+ 222:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY  
+ 346              	 .loc 1 222 0 is_stmt 1
+ 347 0172 FFF7FEFF 	 bl example_optiga_deinit
+ 348              	.LVL38:
+ 349 0176 DAE7     	 b .L35
+ 350              	.L39:
+ 351              	 .align 2
+ 352              	.L38:
+ 353 0178 00000000 	 .word optiga_lib_callback
+ 354 017c 00000000 	 .word .LANCHOR1
+ 355 0180 00000000 	 .word .LANCHOR0
+ 356 0184 00000000 	 .word performance_buffer_string
+ 357 0188 00000000 	 .word .LC0
+ 358 018c 00000000 	 .word .LANCHOR2
+ 359 0190 00000000 	 .word .LANCHOR4
+ 360 0194 00000000 	 .word .LANCHOR3
+ 361 0198 00000000 	 .word .LANCHOR5
+ 362              	 .cfi_endproc
+ 363              	.LFE7:
+ 365              	 .section .rodata.random_seed,"a",%progbits
+ 366              	 .align 2
+ 367              	 .set .LANCHOR4,.+0
+ 370              	random_seed:
+ 371 0000 61       	 .byte 97
+ 372 0001 C7       	 .byte -57
+ 373 0002 DE       	 .byte -34
+ 374 0003 F9       	 .byte -7
+ 375 0004 0F       	 .byte 15
+ 376 0005 D5       	 .byte -43
+ 377 0006 CD       	 .byte -51
+ 378 0007 7A       	 .byte 122
+ 379 0008 8B       	 .byte -117
+ 380 0009 7A       	 .byte 122
+ 381 000a 36       	 .byte 54
+ 382 000b 41       	 .byte 65
+ 383 000c 04       	 .byte 4
+ 384 000d E0       	 .byte -32
+ 385 000e 0D       	 .byte 13
+ 386 000f 82       	 .byte -126
+ 387 0010 38       	 .byte 56
+ 388 0011 46       	 .byte 70
+ 389 0012 BF       	 .byte -65
+ 390 0013 B7       	 .byte -73
+ 391 0014 70       	 .byte 112
+ 392 0015 EE       	 .byte -18
+ 393 0016 BF       	 .byte -65
+ 394 0017 8F       	 .byte -113
+ 395 0018 40       	 .byte 64
+ 396 0019 25       	 .byte 37
+ 397 001a 2E       	 .byte 46
+ 398 001b 0A       	 .byte 10
+ 399 001c 21       	 .byte 33
+ 400 001d 42       	 .byte 66
+ 401 001e AF       	 .byte -81
+ 402 001f 9C       	 .byte -100
+ 403              	 .section .rodata.label,"a",%progbits
+ 404              	 .align 2
+ 405              	 .set .LANCHOR3,.+0
+ 408              	label:
+ 409 0000 4669726D 	 .ascii "Firmware update\000"
+ 409      77617265 
+ 409      20757064 
+ 409      61746500 
+ 410              	 .section .rodata.secret_to_be_written,"a",%progbits
+ 411              	 .align 2
+ 412              	 .set .LANCHOR1,.+0
+ 415              	secret_to_be_written:
+ 416 0000 BF       	 .byte -65
+ 417 0001 B7       	 .byte -73
+ 418 0002 70       	 .byte 112
+ 419 0003 EE       	 .byte -18
+ 420 0004 BF       	 .byte -65
+ 421 0005 8F       	 .byte -113
+ 422 0006 61       	 .byte 97
+ 423 0007 C7       	 .byte -57
+ 424 0008 04       	 .byte 4
+ 425 0009 E0       	 .byte -32
+ 426 000a 0D       	 .byte 13
+ 427 000b 82       	 .byte -126
+ 428 000c 8B       	 .byte -117
+ 429 000d 7A       	 .byte 122
+ 430 000e 36       	 .byte 54
+ 431 000f 41       	 .byte 65
+ 432 0010 D5       	 .byte -43
+ 433 0011 CD       	 .byte -51
+ 434 0012 7A       	 .byte 122
+ 435 0013 38       	 .byte 56
+ 436 0014 46       	 .byte 70
+ 437 0015 DE       	 .byte -34
+ 438 0016 F9       	 .byte -7
+ 439 0017 0F       	 .byte 15
+ 440 0018 21       	 .byte 33
+ 441 0019 42       	 .byte 66
+ 442 001a 40       	 .byte 64
+ 443 001b 25       	 .byte 37
+ 444 001c 0A       	 .byte 10
+ 445 001d AF       	 .byte -81
+ 446 001e 9C       	 .byte -100
+ 447 001f 2E       	 .byte 46
+ 448              	 .section .rodata.metadata,"a",%progbits
+ 449              	 .align 2
+ 450              	 .set .LANCHOR2,.+0
+ 453              	metadata:
+ 454 0000 20       	 .byte 32
+ 455 0001 06       	 .byte 6
+ 456 0002 E8       	 .byte -24
+ 457 0003 01       	 .byte 1
+ 458 0004 21       	 .byte 33
+ 459 0005 D3       	 .byte -45
+ 460 0006 01       	 .byte 1
+ 461 0007 00       	 .byte 0
+ 462              	 .section .rodata.default_metadata,"a",%progbits
+ 463              	 .align 2
+ 464              	 .set .LANCHOR5,.+0
+ 467              	default_metadata:
+ 468 0000 20       	 .byte 32
+ 469 0001 06       	 .byte 6
+ 470 0002 E8       	 .byte -24
+ 471 0003 01       	 .byte 1
+ 472 0004 00       	 .byte 0
+ 473 0005 D3       	 .byte -45
+ 474 0006 01       	 .byte 1
+ 475 0007 FF       	 .byte -1
+ 476              	 .section .rodata.str1.4,"aMS",%progbits,1
+ 477              	 .align 2
+ 478              	.LC0:
+ 479 0000 4578616D 	 .ascii "Example takes %d msec\000"
+ 479      706C6520 
+ 479      74616B65 
+ 479      73202564 
+ 479      206D7365 
+ 480 0016 0000     	 .section .bss.optiga_lib_status,"aw",%nobits
+ 481              	 .align 1
+ 482              	 .set .LANCHOR0,.+0
+ 485              	optiga_lib_status:
+ 486 0000 0000     	 .space 2
+ 487              	 .text
+ 488              	.Letext0:
+ 489              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 490              	 .file 4 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 491              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_types.h"
+ 492              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_common.h"
+ 493              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/cmd/optiga_cmd.h"
+ 494              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_util.h"
+ 495              	 .file 9 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdio.h"
+ 496              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/include/optiga_example.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 example_optiga_crypt_tls_prf_sha256.c
+    {standard input}:20     .text.optiga_lib_callback:00000000 $t
+    {standard input}:24     .text.optiga_lib_callback:00000000 optiga_lib_callback
+    {standard input}:40     .text.optiga_lib_callback:00000008 $d
+    {standard input}:45     .text.example_optiga_crypt_tls_prf_sha256:00000000 $t
+    {standard input}:50     .text.example_optiga_crypt_tls_prf_sha256:00000000 example_optiga_crypt_tls_prf_sha256
+    {standard input}:353    .text.example_optiga_crypt_tls_prf_sha256:00000178 $d
+    {standard input}:366    .rodata.random_seed:00000000 $d
+    {standard input}:370    .rodata.random_seed:00000000 random_seed
+    {standard input}:404    .rodata.label:00000000 $d
+    {standard input}:408    .rodata.label:00000000 label
+    {standard input}:411    .rodata.secret_to_be_written:00000000 $d
+    {standard input}:415    .rodata.secret_to_be_written:00000000 secret_to_be_written
+    {standard input}:449    .rodata.metadata:00000000 $d
+    {standard input}:453    .rodata.metadata:00000000 metadata
+    {standard input}:463    .rodata.default_metadata:00000000 $d
+    {standard input}:467    .rodata.default_metadata:00000000 default_metadata
+    {standard input}:477    .rodata.str1.4:00000000 $d
+    {standard input}:481    .bss.optiga_lib_status:00000000 $d
+    {standard input}:485    .bss.optiga_lib_status:00000000 optiga_lib_status
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+example_optiga_init
+optiga_util_create
+optiga_util_write_data
+example_optiga_deinit
+sprintf
+optiga_util_destroy
+optiga_util_write_metadata
+optiga_crypt_create
+optiga_crypt_set_comms_params
+example_performance_measurement
+optiga_crypt_tls_prf
+optiga_crypt_destroy
+performance_buffer_string

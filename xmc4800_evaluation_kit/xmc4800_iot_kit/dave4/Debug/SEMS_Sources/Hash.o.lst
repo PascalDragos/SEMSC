@@ -1,0 +1,287 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "Hash.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.optiga_crypt_callback,"ax",%progbits
+  20              	 .align 2
+  21              	 .thumb
+  22              	 .thumb_func
+  24              	optiga_crypt_callback:
+  25              	.LFB6:
+  26              	 .file 1 "../SEMS_Sources/Hash.c"
+   1:../SEMS_Sources/Hash.c **** #include "optiga/optiga_crypt.h"
+   2:../SEMS_Sources/Hash.c **** #include "optiga_example.h"
+   3:../SEMS_Sources/Hash.c **** #include "../SEMS_Headers/Hash.h"
+   4:../SEMS_Sources/Hash.c **** 
+   5:../SEMS_Sources/Hash.c **** #ifdef OPTIGA_CRYPT_HASH_ENABLED
+   6:../SEMS_Sources/Hash.c **** 
+   7:../SEMS_Sources/Hash.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+   8:../SEMS_Sources/Hash.c **** extern void example_optiga_init(void);
+   9:../SEMS_Sources/Hash.c **** extern void example_optiga_deinit(void);
+  10:../SEMS_Sources/Hash.c **** #endif
+  11:../SEMS_Sources/Hash.c **** 
+  12:../SEMS_Sources/Hash.c **** /**
+  13:../SEMS_Sources/Hash.c ****  * Callback when optiga_crypt_xxxx operation is completed asynchronously
+  14:../SEMS_Sources/Hash.c ****  */
+  15:../SEMS_Sources/Hash.c **** static volatile optiga_lib_status_t optiga_lib_status;
+  16:../SEMS_Sources/Hash.c **** //lint --e{818} suppress "argument "context" is not used in the sample provided"
+  17:../SEMS_Sources/Hash.c **** static void optiga_crypt_callback(void * context, optiga_lib_status_t return_status)
+  18:../SEMS_Sources/Hash.c **** {
+  27              	 .loc 1 18 0
+  28              	 .cfi_startproc
+  29              	 
+  30              	 
+  31              	 
+  32              	.LVL0:
+  19:../SEMS_Sources/Hash.c ****     optiga_lib_status = return_status;
+  33              	 .loc 1 19 0
+  34 0000 014B     	 ldr r3,.L2
+  35 0002 1980     	 strh r1,[r3]
+  36 0004 7047     	 bx lr
+  37              	.L3:
+  38 0006 00BF     	 .align 2
+  39              	.L2:
+  40 0008 00000000 	 .word .LANCHOR0
+  41              	 .cfi_endproc
+  42              	.LFE6:
+  44              	 .section .text.optiga_crypt_hash_data_wrapper,"ax",%progbits
+  45              	 .align 2
+  46              	 .global optiga_crypt_hash_data_wrapper
+  47              	 .thumb
+  48              	 .thumb_func
+  50              	optiga_crypt_hash_data_wrapper:
+  51              	.LFB7:
+  20:../SEMS_Sources/Hash.c ****     if (NULL != context)
+  21:../SEMS_Sources/Hash.c ****     {
+  22:../SEMS_Sources/Hash.c ****         // callback to upper layer here
+  23:../SEMS_Sources/Hash.c ****     }
+  24:../SEMS_Sources/Hash.c **** }
+  25:../SEMS_Sources/Hash.c **** 
+  26:../SEMS_Sources/Hash.c **** 
+  27:../SEMS_Sources/Hash.c **** void optiga_crypt_hash_data_wrapper(uint8_t data_to_hash[], uint8_t size_of_data, uint8_t digest[])
+  28:../SEMS_Sources/Hash.c **** {
+  52              	 .loc 1 28 0
+  53              	 .cfi_startproc
+  54              	 
+  55              	 
+  56              	.LVL1:
+  57 0000 2DE9F041 	 push {r4,r5,r6,r7,r8,lr}
+  58              	.LCFI0:
+  59              	 .cfi_def_cfa_offset 24
+  60              	 .cfi_offset 4,-24
+  61              	 .cfi_offset 5,-20
+  62              	 .cfi_offset 6,-16
+  63              	 .cfi_offset 7,-12
+  64              	 .cfi_offset 8,-8
+  65              	 .cfi_offset 14,-4
+  66 0004 84B0     	 sub sp,sp,#16
+  67              	.LCFI1:
+  68              	 .cfi_def_cfa_offset 40
+  69              	 .loc 1 28 0
+  70 0006 8046     	 mov r8,r0
+  71 0008 0F46     	 mov r7,r1
+  72 000a 1546     	 mov r5,r2
+  29:../SEMS_Sources/Hash.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+  30:../SEMS_Sources/Hash.c **** 
+  31:../SEMS_Sources/Hash.c ****     hash_data_from_host_t hash_data_host;
+  32:../SEMS_Sources/Hash.c **** 
+  33:../SEMS_Sources/Hash.c **** 
+  34:../SEMS_Sources/Hash.c ****     optiga_crypt_t * me = NULL;
+  35:../SEMS_Sources/Hash.c **** 
+  36:../SEMS_Sources/Hash.c ****     do
+  37:../SEMS_Sources/Hash.c ****     {
+  38:../SEMS_Sources/Hash.c **** 
+  39:../SEMS_Sources/Hash.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+  40:../SEMS_Sources/Hash.c ****         /**
+  41:../SEMS_Sources/Hash.c ****          * Open the application on OPTIGA which is a precondition to perform any other operations
+  42:../SEMS_Sources/Hash.c ****          * using optiga_util_open_application
+  43:../SEMS_Sources/Hash.c ****          */
+  44:../SEMS_Sources/Hash.c ****         example_optiga_init();
+  73              	 .loc 1 44 0
+  74 000c FFF7FEFF 	 bl example_optiga_init
+  75              	.LVL2:
+  45:../SEMS_Sources/Hash.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+  46:../SEMS_Sources/Hash.c **** 
+  47:../SEMS_Sources/Hash.c ****         OPTIGA_EXAMPLE_LOG_MESSAGE(__FUNCTION__);
+  48:../SEMS_Sources/Hash.c **** 
+  49:../SEMS_Sources/Hash.c ****         /**
+  50:../SEMS_Sources/Hash.c ****          * 1. Create OPTIGA Crypt Instance
+  51:../SEMS_Sources/Hash.c ****          */
+  52:../SEMS_Sources/Hash.c ****         me = optiga_crypt_create(0, optiga_crypt_callback, NULL);
+  76              	 .loc 1 52 0
+  77 0010 0020     	 movs r0,#0
+  78 0012 0246     	 mov r2,r0
+  79 0014 1449     	 ldr r1,.L16
+  80 0016 FFF7FEFF 	 bl optiga_crypt_create
+  81              	.LVL3:
+  53:../SEMS_Sources/Hash.c ****         if (NULL == me)
+  82              	 .loc 1 53 0
+  83 001a 00B3     	 cbz r0,.L5
+  54:../SEMS_Sources/Hash.c ****         {
+  55:../SEMS_Sources/Hash.c ****             break;
+  56:../SEMS_Sources/Hash.c ****         }
+  57:../SEMS_Sources/Hash.c **** 
+  58:../SEMS_Sources/Hash.c ****         /**
+  59:../SEMS_Sources/Hash.c ****          * 2. Initialize the hashing context at OPTIGA
+  60:../SEMS_Sources/Hash.c ****          */
+  61:../SEMS_Sources/Hash.c ****         hash_data_host.buffer = data_to_hash;
+  62:../SEMS_Sources/Hash.c ****         hash_data_host.length = size_of_data;
+  63:../SEMS_Sources/Hash.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+  84              	 .loc 1 63 0
+  85 001c 134C     	 ldr r4,.L16+4
+  64:../SEMS_Sources/Hash.c **** 
+  65:../SEMS_Sources/Hash.c **** 
+  66:../SEMS_Sources/Hash.c ****         return_status = optiga_crypt_hash(me, OPTIGA_HASH_TYPE_SHA_256, OPTIGA_CRYPT_HOST_DATA, &ha
+  86              	 .loc 1 66 0
+  87 001e 0095     	 str r5,[sp]
+  63:../SEMS_Sources/Hash.c **** 
+  88              	 .loc 1 63 0
+  89 0020 0125     	 movs r5,#1
+  90              	.LVL4:
+  91              	 .loc 1 66 0
+  92 0022 2A46     	 mov r2,r5
+  93 0024 E221     	 movs r1,#226
+  94 0026 02AB     	 add r3,sp,#8
+  95 0028 0646     	 mov r6,r0
+  61:../SEMS_Sources/Hash.c ****         hash_data_host.length = size_of_data;
+  96              	 .loc 1 61 0
+  97 002a CDF80880 	 str r8,[sp,#8]
+  62:../SEMS_Sources/Hash.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+  98              	 .loc 1 62 0
+  99 002e 0397     	 str r7,[sp,#12]
+  63:../SEMS_Sources/Hash.c **** 
+ 100              	 .loc 1 63 0
+ 101 0030 2580     	 strh r5,[r4]
+ 102              	 .loc 1 66 0
+ 103 0032 FFF7FEFF 	 bl optiga_crypt_hash
+ 104              	.LVL5:
+  67:../SEMS_Sources/Hash.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 105              	 .loc 1 67 0
+ 106 0036 38B1     	 cbz r0,.L7
+ 107              	.LVL6:
+ 108              	.L6:
+  68:../SEMS_Sources/Hash.c **** 
+  69:../SEMS_Sources/Hash.c **** 
+  70:../SEMS_Sources/Hash.c **** 
+  71:../SEMS_Sources/Hash.c ****         return_status = OPTIGA_LIB_SUCCESS;
+  72:../SEMS_Sources/Hash.c **** 
+  73:../SEMS_Sources/Hash.c ****     } while (FALSE);
+  74:../SEMS_Sources/Hash.c ****     OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+  75:../SEMS_Sources/Hash.c **** 
+  76:../SEMS_Sources/Hash.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+  77:../SEMS_Sources/Hash.c ****     /**
+  78:../SEMS_Sources/Hash.c ****      * Close the application on OPTIGA after all the operations are executed
+  79:../SEMS_Sources/Hash.c ****      * using optiga_util_close_application
+  80:../SEMS_Sources/Hash.c ****      */
+  81:../SEMS_Sources/Hash.c ****     example_optiga_deinit();
+ 109              	 .loc 1 81 0
+ 110 0038 FFF7FEFF 	 bl example_optiga_deinit
+ 111              	.LVL7:
+  82:../SEMS_Sources/Hash.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+  83:../SEMS_Sources/Hash.c **** 
+  84:../SEMS_Sources/Hash.c ****     if (me)
+  85:../SEMS_Sources/Hash.c ****     {
+  86:../SEMS_Sources/Hash.c ****         //Destroy the instance after the completion of usecase if not required.
+  87:../SEMS_Sources/Hash.c ****         return_status = optiga_crypt_destroy(me);
+ 112              	 .loc 1 87 0
+ 113 003c 3046     	 mov r0,r6
+ 114 003e FFF7FEFF 	 bl optiga_crypt_destroy
+ 115              	.LVL8:
+  88:../SEMS_Sources/Hash.c ****     }
+  89:../SEMS_Sources/Hash.c **** 
+  90:../SEMS_Sources/Hash.c **** 
+  91:../SEMS_Sources/Hash.c **** }
+ 116              	 .loc 1 91 0
+ 117 0042 04B0     	 add sp,sp,#16
+ 118              	.LCFI2:
+ 119              	 .cfi_remember_state
+ 120              	 .cfi_def_cfa_offset 24
+ 121              	 
+ 122 0044 BDE8F081 	 pop {r4,r5,r6,r7,r8,pc}
+ 123              	.LVL9:
+ 124              	.L7:
+ 125              	.LCFI3:
+ 126              	 .cfi_restore_state
+  67:../SEMS_Sources/Hash.c **** 
+ 127              	 .loc 1 67 0 discriminator 1
+ 128 0048 2388     	 ldrh r3,[r4]
+ 129 004a 084A     	 ldr r2,.L16+4
+ 130 004c 9BB2     	 uxth r3,r3
+ 131 004e 012B     	 cmp r3,#1
+ 132 0050 FAD0     	 beq .L7
+  67:../SEMS_Sources/Hash.c **** 
+ 133              	 .loc 1 67 0 is_stmt 0 discriminator 2
+ 134 0052 1388     	 ldrh r3,[r2]
+ 135 0054 9BB2     	 uxth r3,r3
+ 136 0056 002B     	 cmp r3,#0
+ 137 0058 EED0     	 beq .L6
+  67:../SEMS_Sources/Hash.c **** 
+ 138              	 .loc 1 67 0 discriminator 3
+ 139 005a 1388     	 ldrh r3,[r2]
+ 140              	.LVL10:
+ 141 005c ECE7     	 b .L6
+ 142              	.LVL11:
+ 143              	.L5:
+  81:../SEMS_Sources/Hash.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 144              	 .loc 1 81 0 is_stmt 1
+ 145 005e FFF7FEFF 	 bl example_optiga_deinit
+ 146              	.LVL12:
+ 147              	 .loc 1 91 0
+ 148 0062 04B0     	 add sp,sp,#16
+ 149              	.LCFI4:
+ 150              	 .cfi_def_cfa_offset 24
+ 151              	 
+ 152 0064 BDE8F081 	 pop {r4,r5,r6,r7,r8,pc}
+ 153              	.LVL13:
+ 154              	.L17:
+ 155              	 .align 2
+ 156              	.L16:
+ 157 0068 00000000 	 .word optiga_crypt_callback
+ 158 006c 00000000 	 .word .LANCHOR0
+ 159              	 .cfi_endproc
+ 160              	.LFE7:
+ 162              	 .section .bss.optiga_lib_status,"aw",%nobits
+ 163              	 .align 1
+ 164              	 .set .LANCHOR0,.+0
+ 167              	optiga_lib_status:
+ 168 0000 0000     	 .space 2
+ 169              	 .text
+ 170              	.Letext0:
+ 171              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 172              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 173              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_types.h"
+ 174              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_common.h"
+ 175              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/cmd/optiga_cmd.h"
+ 176              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_crypt.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 Hash.c
+    {standard input}:20     .text.optiga_crypt_callback:00000000 $t
+    {standard input}:24     .text.optiga_crypt_callback:00000000 optiga_crypt_callback
+    {standard input}:40     .text.optiga_crypt_callback:00000008 $d
+    {standard input}:45     .text.optiga_crypt_hash_data_wrapper:00000000 $t
+    {standard input}:50     .text.optiga_crypt_hash_data_wrapper:00000000 optiga_crypt_hash_data_wrapper
+    {standard input}:157    .text.optiga_crypt_hash_data_wrapper:00000068 $d
+    {standard input}:163    .bss.optiga_lib_status:00000000 $d
+    {standard input}:167    .bss.optiga_lib_status:00000000 optiga_lib_status
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+example_optiga_init
+optiga_crypt_create
+optiga_crypt_hash
+example_optiga_deinit
+optiga_crypt_destroy

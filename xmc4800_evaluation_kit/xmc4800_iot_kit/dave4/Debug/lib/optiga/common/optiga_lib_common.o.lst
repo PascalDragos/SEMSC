@@ -1,0 +1,228 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "optiga_lib_common.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.optiga_common_set_uint16,"ax",%progbits
+  20              	 .align 2
+  21              	 .global optiga_common_set_uint16
+  22              	 .thumb
+  23              	 .thumb_func
+  25              	optiga_common_set_uint16:
+  26              	.LFB0:
+  27              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common/optiga_lib_common.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * \copyright
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * MIT License
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * Copyright (c) 2020 Infineon Technologies AG
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** *
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * Permission is hereby granted, free of charge, to any person obtaining a copy
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * of this software and associated documentation files (the "Software"), to deal
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * in the Software without restriction, including without limitation the rights
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * copies of the Software, and to permit persons to whom the Software is
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * furnished to do so, subject to the following conditions:
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** *
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * The above copyright notice and this permission notice shall be included in all
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * copies or substantial portions of the Software.
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** *
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * SOFTWARE
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** *
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * \endcopyright
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** *
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * \author Infineon Technologies AG
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** *
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * \file optiga_lib_common.c
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** *
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * \brief   This file implements the commonly used functions by the OPTIGA Library .
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** *
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * \ingroup  grOptigaLibCommon
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** *
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** * @{
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** */
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** 
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** #include "optiga/common/optiga_lib_types.h"
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** #include "optiga/common/optiga_lib_common.h"
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** 
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** void optiga_common_set_uint16 (uint8_t * p_output_buffer,uint16_t two_byte_value)
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** {
+  28              	 .loc 1 42 0
+  29              	 .cfi_startproc
+  30              	 
+  31              	 
+  32              	 
+  33              	.LVL0:
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c ****     *p_output_buffer = (uint8_t)(two_byte_value>>8);
+  34              	 .loc 1 43 0
+  35 0000 0B0A     	 lsrs r3,r1,#8
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c ****     *(p_output_buffer + 1) = (uint8_t)(two_byte_value);
+  36              	 .loc 1 44 0
+  37 0002 4170     	 strb r1,[r0,#1]
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c ****     *p_output_buffer = (uint8_t)(two_byte_value>>8);
+  38              	 .loc 1 43 0
+  39 0004 0370     	 strb r3,[r0]
+  40 0006 7047     	 bx lr
+  41              	 .cfi_endproc
+  42              	.LFE0:
+  44              	 .section .text.optiga_common_set_uint32,"ax",%progbits
+  45              	 .align 2
+  46              	 .global optiga_common_set_uint32
+  47              	 .thumb
+  48              	 .thumb_func
+  50              	optiga_common_set_uint32:
+  51              	.LFB1:
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** }
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** 
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** void optiga_common_set_uint32 (uint8_t* p_output_buffer,uint32_t four_byte_value)
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** {
+  52              	 .loc 1 48 0
+  53              	 .cfi_startproc
+  54              	 
+  55              	 
+  56              	 
+  57              	.LVL1:
+  58 0000 10B4     	 push {r4}
+  59              	.LCFI0:
+  60              	 .cfi_def_cfa_offset 4
+  61              	 .cfi_offset 4,-4
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c ****     *(p_output_buffer) = (uint8_t)(four_byte_value>>24);
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c ****     *(p_output_buffer + 1) = (uint8_t)(four_byte_value>>16);
+  62              	 .loc 1 50 0
+  63 0002 0A0C     	 lsrs r2,r1,#16
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c ****     *(p_output_buffer) = (uint8_t)(four_byte_value>>24);
+  64              	 .loc 1 49 0
+  65 0004 0C0E     	 lsrs r4,r1,#24
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c ****     *(p_output_buffer + 2) = (uint8_t)(four_byte_value>>8);
+  66              	 .loc 1 51 0
+  67 0006 0B0A     	 lsrs r3,r1,#8
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c ****     *(p_output_buffer) = (uint8_t)(four_byte_value>>24);
+  68              	 .loc 1 49 0
+  69 0008 0470     	 strb r4,[r0]
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c ****     *(p_output_buffer + 3) = (uint8_t)(four_byte_value);
+  70              	 .loc 1 52 0
+  71 000a C170     	 strb r1,[r0,#3]
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c ****     *(p_output_buffer + 2) = (uint8_t)(four_byte_value>>8);
+  72              	 .loc 1 50 0
+  73 000c 4270     	 strb r2,[r0,#1]
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c ****     *(p_output_buffer + 2) = (uint8_t)(four_byte_value>>8);
+  74              	 .loc 1 51 0
+  75 000e 8370     	 strb r3,[r0,#2]
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** }
+  76              	 .loc 1 53 0
+  77 0010 5DF8044B 	 ldr r4,[sp],#4
+  78              	.LCFI1:
+  79              	 .cfi_restore 4
+  80              	 .cfi_def_cfa_offset 0
+  81 0014 7047     	 bx lr
+  82              	 .cfi_endproc
+  83              	.LFE1:
+  85 0016 00BF     	 .section .text.optiga_common_get_uint32,"ax",%progbits
+  86              	 .align 2
+  87              	 .global optiga_common_get_uint32
+  88              	 .thumb
+  89              	 .thumb_func
+  91              	optiga_common_get_uint32:
+  92              	.LFB2:
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** 
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** uint32_t optiga_common_get_uint32 (const uint8_t* p_input_buffer)
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** {
+  93              	 .loc 1 56 0
+  94              	 .cfi_startproc
+  95              	 
+  96              	 
+  97              	 
+  98              	.LVL2:
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c ****     uint32_t four_byte_value;
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c ****     four_byte_value = ((uint32_t)(*p_input_buffer))<< 24 | ((uint32_t)(*(p_input_buffer + 1))<< 16 
+  99              	 .loc 1 58 0
+ 100 0000 4278     	 ldrb r2,[r0,#1]
+ 101              	.LVL3:
+ 102 0002 0378     	 ldrb r3,[r0]
+ 103              	.LVL4:
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c ****                       ((uint32_t)(*(p_input_buffer + 2)))<< 8 | (uint32_t)(*(p_input_buffer + 3)));
+ 104              	 .loc 1 59 0
+ 105 0004 C178     	 ldrb r1,[r0,#3]
+ 106 0006 8078     	 ldrb r0,[r0,#2]
+ 107              	.LVL5:
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c ****                       ((uint32_t)(*(p_input_buffer + 2)))<< 8 | (uint32_t)(*(p_input_buffer + 3)));
+ 108              	 .loc 1 58 0
+ 109 0008 1204     	 lsls r2,r2,#16
+ 110              	.LVL6:
+ 111 000a 42EA0363 	 orr r3,r2,r3,lsl#24
+ 112              	.LVL7:
+ 113 000e 0B43     	 orrs r3,r3,r1
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** 
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c ****     return (four_byte_value);
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** }
+ 114              	 .loc 1 62 0
+ 115 0010 43EA0020 	 orr r0,r3,r0,lsl#8
+ 116              	.LVL8:
+ 117 0014 7047     	 bx lr
+ 118              	 .cfi_endproc
+ 119              	.LFE2:
+ 121 0016 00BF     	 .section .text.optiga_common_get_uint16,"ax",%progbits
+ 122              	 .align 2
+ 123              	 .global optiga_common_get_uint16
+ 124              	 .thumb
+ 125              	 .thumb_func
+ 127              	optiga_common_get_uint16:
+ 128              	.LFB3:
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** 
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** void optiga_common_get_uint16 (const uint8_t * p_input_buffer,uint16_t* p_two_byte_value)
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c **** {
+ 129              	 .loc 1 65 0
+ 130              	 .cfi_startproc
+ 131              	 
+ 132              	 
+ 133              	 
+ 134              	.LVL9:
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c ****     *p_two_byte_value = (uint16_t)(*p_input_buffer << 8);
+ 135              	 .loc 1 66 0
+ 136 0000 0378     	 ldrb r3,[r0]
+ 137 0002 1B02     	 lsls r3,r3,#8
+ 138 0004 0B80     	 strh r3,[r1]
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/common\optiga_lib_common.c ****     *p_two_byte_value |= (uint16_t)(*(p_input_buffer+1));
+ 139              	 .loc 1 67 0
+ 140 0006 4278     	 ldrb r2,[r0,#1]
+ 141 0008 1343     	 orrs r3,r3,r2
+ 142 000a 0B80     	 strh r3,[r1]
+ 143 000c 7047     	 bx lr
+ 144              	 .cfi_endproc
+ 145              	.LFE3:
+ 147 000e 00BF     	 .text
+ 148              	.Letext0:
+ 149              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 150              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 optiga_lib_common.c
+    {standard input}:20     .text.optiga_common_set_uint16:00000000 $t
+    {standard input}:25     .text.optiga_common_set_uint16:00000000 optiga_common_set_uint16
+    {standard input}:45     .text.optiga_common_set_uint32:00000000 $t
+    {standard input}:50     .text.optiga_common_set_uint32:00000000 optiga_common_set_uint32
+    {standard input}:86     .text.optiga_common_get_uint32:00000000 $t
+    {standard input}:91     .text.optiga_common_get_uint32:00000000 optiga_common_get_uint32
+    {standard input}:122    .text.optiga_common_get_uint16:00000000 $t
+    {standard input}:127    .text.optiga_common_get_uint16:00000000 optiga_common_get_uint16
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

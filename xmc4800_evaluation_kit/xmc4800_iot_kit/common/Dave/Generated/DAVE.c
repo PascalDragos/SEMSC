@@ -113,6 +113,16 @@ DAVE_STATUS_t DAVE_Init(void)
 	 /**  Initialization of DIGITAL_IO APP instance vdd_pin */
 	 init_status = (DAVE_STATUS_t)DIGITAL_IO_Init(&vdd_pin); 
    }  
+    if (init_status == DAVE_STATUS_SUCCESS)
+  {
+	 /**  Initialization of INTERRUPT APP instance INTERRUPT_0 */
+	 init_status = (DAVE_STATUS_t)INTERRUPT_Init(&INTERRUPT_0); 
+   }
+    if (init_status == DAVE_STATUS_SUCCESS)
+  {
+	 /**  Initialization of INTERRUPT APP instance INTERRUPT_0 */
+	 init_status = (DAVE_STATUS_t) TIMER_Init(&TIMER_Cooldwon);
+   }  
   return init_status;
 } /**  End of function DAVE_Init */
 

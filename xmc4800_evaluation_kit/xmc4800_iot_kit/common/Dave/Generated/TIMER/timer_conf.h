@@ -79,11 +79,19 @@
 #define scheduler_timer_SLICE_SH_MSK      XMC_CCU4_SHADOW_TRANSFER_SLICE_3
 #define scheduler_timer_PRESCALER_SH_MSK  XMC_CCU4_SHADOW_TRANSFER_PRESCALER_SLICE_3
 
+#define TIMER_Cooldwon_KERNEL_PTR (XMC_CCU8_MODULE_t*)(void *)CCU80_BASE
+#define TIMER_Cooldwon_SLICE_PTR  (XMC_CCU8_SLICE_t*)(void *)CCU80_CC80
+/* Shadow transfer masks */
+#define TIMER_Cooldwon_SLICE_SH_MSK      XMC_CCU8_SHADOW_TRANSFER_SLICE_0
+#define TIMER_Cooldwon_PRESCALER_SH_MSK  XMC_CCU8_SHADOW_TRANSFER_PRESCALER_SLICE_0
+
 /** This is used to calculate the time in GetTime API */
 #define TIMER_CLK_CONST_SCALED (2982616177U)
 
 /** This enables the functionality for the CCU4 timer */
 #define TIMER_CCU4_USED
+/** This enables the functionality for the CCU8 timer */
+#define TIMER_CCU8_USED
 
 /** This enables the Interrupt functionality */
 #define TIMER_INTERRUPT

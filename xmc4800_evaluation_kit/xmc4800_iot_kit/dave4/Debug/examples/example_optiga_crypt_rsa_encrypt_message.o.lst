@@ -1,0 +1,662 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "example_optiga_crypt_rsa_encrypt_message.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.optiga_crypt_callback,"ax",%progbits
+  20              	 .align 2
+  21              	 .thumb
+  22              	 .thumb_func
+  24              	optiga_crypt_callback:
+  25              	.LFB6:
+  26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/example_optiga_crypt_rsa_encrypt_message.c"
+   1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** /**
+   2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * \copyright
+   3:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * MIT License
+   4:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** *
+   5:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * Copyright (c) 2020 Infineon Technologies AG
+   6:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** *
+   7:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * Permission is hereby granted, free of charge, to any person obtaining a copy
+   8:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * of this software and associated documentation files (the "Software"), to deal
+   9:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * in the Software without restriction, including without limitation the rights
+  10:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  11:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * copies of the Software, and to permit persons to whom the Software is
+  12:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * furnished to do so, subject to the following conditions:
+  13:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** *
+  14:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * The above copyright notice and this permission notice shall be included in all
+  15:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * copies or substantial portions of the Software.
+  16:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** *
+  17:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  18:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  19:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  20:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  21:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  22:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  23:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * SOFTWARE
+  24:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** *
+  25:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * \endcopyright
+  26:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** *
+  27:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * \author Infineon Technologies AG
+  28:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** *
+  29:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * \file example_optiga_crypt_rsa_encrypt_message.c
+  30:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** *
+  31:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * \brief    This file provides the example for RSA Encryption using #optiga_crypt_rsa_encrypt_messa
+  32:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** *
+  33:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * \ingroup grOptigaExamples
+  34:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** *
+  35:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** * @{
+  36:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** */
+  37:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** 
+  38:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** #include "optiga/optiga_crypt.h"
+  39:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** #include "optiga_example.h"
+  40:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** 
+  41:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** #ifdef OPTIGA_CRYPT_RSA_ENCRYPT_ENABLED
+  42:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** 
+  43:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+  44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** extern void example_optiga_init(void);
+  45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** extern void example_optiga_deinit(void);
+  46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** #endif
+  47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** 
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** void example_util_encode_rsa_public_key_in_bit_string_format(const uint8_t * n_buffer,
+  49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****                                                         uint16_t n_length,
+  50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****                                                         const uint8_t * e_buffer,
+  51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****                                                         uint16_t e_length,
+  52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****                                                         uint8_t * pub_key_buffer,
+  53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****                                                         uint16_t * pub_key_length);
+  54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****                                                         
+  55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** /**
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****  * Callback when optiga_crypt_xxxx operation is completed asynchronously
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****  */
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** static volatile optiga_lib_status_t optiga_lib_status;
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** //lint --e{818} suppress "argument "context" is not used in the sample provided"
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** static void optiga_crypt_callback(void * context, optiga_lib_status_t return_status)
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** {
+  27              	 .loc 1 61 0
+  28              	 .cfi_startproc
+  29              	 
+  30              	 
+  31              	 
+  32              	.LVL0:
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     optiga_lib_status = return_status;
+  33              	 .loc 1 62 0
+  34 0000 014B     	 ldr r3,.L2
+  35 0002 1980     	 strh r1,[r3]
+  36 0004 7047     	 bx lr
+  37              	.L3:
+  38 0006 00BF     	 .align 2
+  39              	.L2:
+  40 0008 00000000 	 .word .LANCHOR0
+  41              	 .cfi_endproc
+  42              	.LFE6:
+  44              	 .section .text.example_optiga_crypt_rsa_encrypt_message,"ax",%progbits
+  45              	 .align 2
+  46              	 .global example_optiga_crypt_rsa_encrypt_message
+  47              	 .thumb
+  48              	 .thumb_func
+  50              	example_optiga_crypt_rsa_encrypt_message:
+  51              	.LFB7:
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     if (NULL != context)
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     {
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         // callback to upper layer here
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     }
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** }
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** 
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** // RSA 1024 public key
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** static const uint8_t rsa_public_key_modulus [] = 
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** {
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     //Public key modulus
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     0xA1, 0xD4, 0x6F, 0xBA, 0x23, 0x18, 0xF8, 0xDC, 0xEF, 0x16, 0xC2, 0x80, 0x94, 0x8B, 0x1C, 0xF2,
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     0x79, 0x66, 0xB9, 0xB4, 0x72, 0x25, 0xED, 0x29, 0x89, 0xF8, 0xD7, 0x4B, 0x45, 0xBD, 0x36, 0x04,
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     0x9C, 0x0A, 0xAB, 0x5A, 0xD0, 0xFF, 0x00, 0x35, 0x53, 0xBA, 0x84, 0x3C, 0x8E, 0x12, 0x78, 0x2F,
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     0xC5, 0x87, 0x3B, 0xB8, 0x9A, 0x3D, 0xC8, 0x4B, 0x88, 0x3D, 0x25, 0x66, 0x6C, 0xD2, 0x2B, 0xF3,
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     0xAC, 0xD5, 0xB6, 0x75, 0x96, 0x9F, 0x8B, 0xEB, 0xFB, 0xCA, 0xC9, 0x3F, 0xDD, 0x92, 0x7C, 0x74,
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     0x42, 0xB1, 0x78, 0xB1, 0x0D, 0x1D, 0xFF, 0x93, 0x98, 0xE5, 0x23, 0x16, 0xAA, 0xE0, 0xAF, 0x74,
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     0xE5, 0x94, 0x65, 0x0B, 0xDC, 0x3C, 0x67, 0x02, 0x41, 0xD4, 0x18, 0x68, 0x45, 0x93, 0xCD, 0xA1,
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     0xA7, 0xB9, 0xDC, 0x4F, 0x20, 0xD2, 0xFD, 0xC6, 0xF6, 0x63, 0x44, 0x07, 0x40, 0x03, 0xE2, 0x11,
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** };
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** 
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** // RSA 1024 public key
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** static const uint8_t rsa_public_key_exponent [] = 
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** {
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     //Public Exponent
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     0x00, 0x01, 0x00, 0x01
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** };
+  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** 
+  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** const uint8_t message[] = {"RSA PKCS1_v1.5 Encryption of user message"};
+  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** 
+  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** static uint8_t rsa_public_key[150] = {0x00};
+  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** static uint16_t rsa_public_key_length = 0;
+  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** 
+  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** /**
+  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****  * The below example demonstrates RSA encryption
+  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****  * #optiga_crypt_rsa_encrypt_message where message is provided by user
+  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****  *
+  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****  */
+ 100:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** void example_optiga_crypt_rsa_encrypt_message(void)
+ 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** {
+  52              	 .loc 1 101 0
+  53              	 .cfi_startproc
+  54              	 
+  55              	 
+  56              	.LVL1:
+  57 0000 2DE9F043 	 push {r4,r5,r6,r7,r8,r9,lr}
+  58              	.LCFI0:
+  59              	 .cfi_def_cfa_offset 28
+  60              	 .cfi_offset 4,-28
+  61              	 .cfi_offset 5,-24
+  62              	 .cfi_offset 6,-20
+  63              	 .cfi_offset 7,-16
+  64              	 .cfi_offset 8,-12
+  65              	 .cfi_offset 9,-8
+  66              	 .cfi_offset 14,-4
+  67 0004 ABB0     	 sub sp,sp,#172
+  68              	.LCFI1:
+  69              	 .cfi_def_cfa_offset 200
+ 102:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+ 103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     optiga_rsa_encryption_scheme_t encryption_scheme;
+ 104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     uint8_t encrypted_message[128];
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     uint16_t encrypted_message_length = sizeof(encrypted_message);
+ 106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     uint32_t time_taken = 0;
+  70              	 .loc 1 106 0
+  71 0006 0024     	 movs r4,#0
+ 105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     uint32_t time_taken = 0;
+  72              	 .loc 1 105 0
+  73 0008 8025     	 movs r5,#128
+  74 000a ADF81A50 	 strh r5,[sp,#26]
+  75              	 .loc 1 106 0
+  76 000e 0794     	 str r4,[sp,#28]
+  77              	.LVL2:
+ 107:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     public_key_from_host_t public_key_from_host;
+ 108:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** 
+ 109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     optiga_crypt_t * me = NULL;
+ 110:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** 
+ 111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     do
+ 112:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     {
+ 113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         
+ 114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 115:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         /**
+ 116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****          * Open the application on OPTIGA which is a precondition to perform any other operations
+ 117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****          * using optiga_util_open_application
+ 118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****          */
+ 119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         example_optiga_init();
+  78              	 .loc 1 119 0
+  79 0010 FFF7FEFF 	 bl example_optiga_init
+  80              	.LVL3:
+ 120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** 
+ 122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         OPTIGA_EXAMPLE_LOG_MESSAGE(__FUNCTION__);
+ 123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         /**
+ 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****          * 1. Create OPTIGA Crypt Instance
+ 125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****          *
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****          */
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         me = optiga_crypt_create(0, optiga_crypt_callback, NULL);
+  81              	 .loc 1 127 0
+  82 0014 2046     	 mov r0,r4
+  83 0016 2246     	 mov r2,r4
+  84 0018 3049     	 ldr r1,.L20
+  85 001a FFF7FEFF 	 bl optiga_crypt_create
+  86              	.LVL4:
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         if (NULL == me)
+  87              	 .loc 1 128 0
+  88 001e 0646     	 mov r6,r0
+  89 0020 0028     	 cmp r0,#0
+  90 0022 4AD0     	 beq .L5
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         {
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****             break;
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         }
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** 
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         /**
+ 134:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****          * 2. RSA encryption
+ 135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****          */
+ 136:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         // Form rsa public key in bit string format
+ 137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         example_util_encode_rsa_public_key_in_bit_string_format(rsa_public_key_modulus,
+  91              	 .loc 1 137 0
+  92 0024 DFF8D080 	 ldr r8,.L20+28
+  93 0028 DFF8D090 	 ldr r9,.L20+32
+  94 002c 2C4A     	 ldr r2,.L20+4
+  95 002e 2D48     	 ldr r0,.L20+8
+  96              	.LVL5:
+  97 0030 CDF80080 	 str r8,[sp]
+  98 0034 2946     	 mov r1,r5
+  99 0036 0423     	 movs r3,#4
+ 100 0038 CDF80490 	 str r9,[sp,#4]
+ 101 003c FFF7FEFF 	 bl example_util_encode_rsa_public_key_in_bit_string_format
+ 102              	.LVL6:
+ 138:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****                                                            sizeof(rsa_public_key_modulus),
+ 139:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****                                                            rsa_public_key_exponent,
+ 140:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****                                                            sizeof(rsa_public_key_exponent),
+ 141:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****                                                            rsa_public_key,
+ 142:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****                                                            &rsa_public_key_length);
+ 143:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****                                                            
+ 144:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         encryption_scheme = OPTIGA_RSAES_PKCS1_V15;
+ 145:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         public_key_from_host.public_key = rsa_public_key;
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         public_key_from_host.length = rsa_public_key_length;
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         public_key_from_host.key_type = (uint8_t)OPTIGA_RSA_KEY_1024_BIT_EXPONENTIAL;
+ 148:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 103              	 .loc 1 148 0
+ 104 0040 0127     	 movs r7,#1
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         public_key_from_host.key_type = (uint8_t)OPTIGA_RSA_KEY_1024_BIT_EXPONENTIAL;
+ 105              	 .loc 1 146 0
+ 106 0042 B9F80030 	 ldrh r3,[r9]
+ 107              	 .loc 1 148 0
+ 108 0046 284D     	 ldr r5,.L20+12
+ 146:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         public_key_from_host.key_type = (uint8_t)OPTIGA_RSA_KEY_1024_BIT_EXPONENTIAL;
+ 109              	 .loc 1 146 0
+ 110 0048 ADF82430 	 strh r3,[sp,#36]
+ 149:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         
+ 150:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         START_PERFORMANCE_MEASUREMENT(time_taken);
+ 111              	 .loc 1 150 0
+ 112 004c 3946     	 mov r1,r7
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 113              	 .loc 1 147 0
+ 114 004e 4123     	 movs r3,#65
+ 115              	 .loc 1 150 0
+ 116 0050 07A8     	 add r0,sp,#28
+ 147:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 117              	 .loc 1 147 0
+ 118 0052 8DF82630 	 strb r3,[sp,#38]
+ 145:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         public_key_from_host.length = rsa_public_key_length;
+ 119              	 .loc 1 145 0
+ 120 0056 CDF82080 	 str r8,[sp,#32]
+ 148:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         
+ 121              	 .loc 1 148 0
+ 122 005a 2F80     	 strh r7,[r5]
+ 123              	 .loc 1 150 0
+ 124 005c FFF7FEFF 	 bl example_performance_measurement
+ 125              	.LVL7:
+ 151:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         
+ 152:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         return_status = optiga_crypt_rsa_encrypt_message(me,
+ 126              	 .loc 1 152 0
+ 127 0060 08A9     	 add r1,sp,#32
+ 128 0062 0AAA     	 add r2,sp,#40
+ 129 0064 0DF11A03 	 add r3,sp,#26
+ 130 0068 0391     	 str r1,[sp,#12]
+ 131 006a 0492     	 str r2,[sp,#16]
+ 132 006c 0593     	 str r3,[sp,#20]
+ 133 006e 0297     	 str r7,[sp,#8]
+ 134 0070 0094     	 str r4,[sp]
+ 135 0072 0194     	 str r4,[sp,#4]
+ 136 0074 3046     	 mov r0,r6
+ 137 0076 1121     	 movs r1,#17
+ 138 0078 1C4A     	 ldr r2,.L20+16
+ 139 007a 2A23     	 movs r3,#42
+ 140 007c FFF7FEFF 	 bl optiga_crypt_rsa_encrypt_message
+ 141              	.LVL8:
+ 153:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****                                                             encryption_scheme,
+ 154:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****                                                             message,
+ 155:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****                                                             sizeof(message),
+ 156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****                                                             NULL,
+ 157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****                                                             0,
+ 158:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****                                                             OPTIGA_CRYPT_HOST_DATA,
+ 159:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****                                                             &public_key_from_host,
+ 160:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****                                                             encrypted_message,
+ 161:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****                                                             &encrypted_message_length);
+ 162:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** 
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 142              	 .loc 1 163 0
+ 143 0080 38B1     	 cbz r0,.L7
+ 144              	.LVL9:
+ 164:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         
+ 165:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         READ_PERFORMANCE_MEASUREMENT(time_taken);
+ 166:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         
+ 167:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 168:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** 
+ 169:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     } while (FALSE);
+ 170:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 171:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     
+ 172:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 173:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     /**
+ 174:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****      * Close the application on OPTIGA after all the operations are executed
+ 175:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****      * using optiga_util_close_application
+ 176:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****      */
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     example_optiga_deinit();
+ 145              	 .loc 1 177 0
+ 146 0082 FFF7FEFF 	 bl example_optiga_deinit
+ 147              	.LVL10:
+ 148              	.L11:
+ 178:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     OPTIGA_EXAMPLE_LOG_PERFORMANCE_VALUE(time_taken, return_status);
+ 180:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     
+ 181:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     if (me)
+ 182:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     {
+ 183:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         //Destroy the instance after the completion of usecase if not required.
+ 184:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         return_status = optiga_crypt_destroy(me);
+ 149              	 .loc 1 184 0
+ 150 0086 3046     	 mov r0,r6
+ 151 0088 FFF7FEFF 	 bl optiga_crypt_destroy
+ 152              	.LVL11:
+ 185:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
+ 186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         {
+ 187:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****             //lint --e{774} suppress This is a generic macro
+ 188:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****             OPTIGA_EXAMPLE_LOG_STATUS(return_status);
+ 189:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         }
+ 190:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     }
+ 191:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     
+ 192:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** }
+ 153              	 .loc 1 192 0
+ 154 008c 2BB0     	 add sp,sp,#172
+ 155              	.LCFI2:
+ 156              	 .cfi_remember_state
+ 157              	 .cfi_def_cfa_offset 28
+ 158              	 
+ 159 008e BDE8F083 	 pop {r4,r5,r6,r7,r8,r9,pc}
+ 160              	.LVL12:
+ 161              	.L7:
+ 162              	.LCFI3:
+ 163              	 .cfi_restore_state
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         
+ 164              	 .loc 1 163 0 discriminator 1
+ 165 0092 2B88     	 ldrh r3,[r5]
+ 166 0094 144A     	 ldr r2,.L20+12
+ 167 0096 9BB2     	 uxth r3,r3
+ 168 0098 012B     	 cmp r3,#1
+ 169 009a FAD0     	 beq .L7
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         
+ 170              	 .loc 1 163 0 is_stmt 0 discriminator 2
+ 171 009c 1188     	 ldrh r1,[r2]
+ 172 009e 89B2     	 uxth r1,r1
+ 173 00a0 81B1     	 cbz r1,.L8
+ 163:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         
+ 174              	 .loc 1 163 0 discriminator 3
+ 175 00a2 1488     	 ldrh r4,[r2]
+ 176 00a4 A4B2     	 uxth r4,r4
+ 177              	.LVL13:
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 178              	 .loc 1 177 0 is_stmt 1 discriminator 3
+ 179 00a6 FFF7FEFF 	 bl example_optiga_deinit
+ 180              	.LVL14:
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     
+ 181              	 .loc 1 179 0 discriminator 3
+ 182 00aa 002C     	 cmp r4,#0
+ 183 00ac EBD1     	 bne .L11
+ 184              	.LVL15:
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     
+ 185              	 .loc 1 179 0 is_stmt 0 discriminator 1
+ 186 00ae 1049     	 ldr r1,.L20+20
+ 187 00b0 079A     	 ldr r2,[sp,#28]
+ 188 00b2 1048     	 ldr r0,.L20+24
+ 189 00b4 FFF7FEFF 	 bl sprintf
+ 190              	.LVL16:
+ 191 00b8 E5E7     	 b .L11
+ 192              	.LVL17:
+ 193              	.L5:
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 194              	 .loc 1 177 0 is_stmt 1
+ 195 00ba FFF7FEFF 	 bl example_optiga_deinit
+ 196              	.LVL18:
+ 197              	 .loc 1 192 0
+ 198 00be 2BB0     	 add sp,sp,#172
+ 199              	.LCFI4:
+ 200              	 .cfi_remember_state
+ 201              	 .cfi_def_cfa_offset 28
+ 202              	 
+ 203 00c0 BDE8F083 	 pop {r4,r5,r6,r7,r8,r9,pc}
+ 204              	.LVL19:
+ 205              	.L8:
+ 206              	.LCFI5:
+ 207              	 .cfi_restore_state
+ 165:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****         
+ 208              	 .loc 1 165 0
+ 209 00c4 07A8     	 add r0,sp,#28
+ 210              	.LVL20:
+ 211 00c6 FFF7FEFF 	 bl example_performance_measurement
+ 212              	.LVL21:
+ 177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+ 213              	 .loc 1 177 0
+ 214 00ca FFF7FEFF 	 bl example_optiga_deinit
+ 215              	.LVL22:
+ 179:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_encrypt_message.c ****     
+ 216              	 .loc 1 179 0
+ 217 00ce 0849     	 ldr r1,.L20+20
+ 218 00d0 079A     	 ldr r2,[sp,#28]
+ 219 00d2 0848     	 ldr r0,.L20+24
+ 220 00d4 FFF7FEFF 	 bl sprintf
+ 221              	.LVL23:
+ 222 00d8 D5E7     	 b .L11
+ 223              	.L21:
+ 224 00da 00BF     	 .align 2
+ 225              	.L20:
+ 226 00dc 00000000 	 .word optiga_crypt_callback
+ 227 00e0 00000000 	 .word .LANCHOR2
+ 228 00e4 00000000 	 .word .LANCHOR1
+ 229 00e8 00000000 	 .word .LANCHOR0
+ 230 00ec 00000000 	 .word .LANCHOR5
+ 231 00f0 00000000 	 .word .LC0
+ 232 00f4 00000000 	 .word performance_buffer_string
+ 233 00f8 00000000 	 .word .LANCHOR3
+ 234 00fc 00000000 	 .word .LANCHOR4
+ 235              	 .cfi_endproc
+ 236              	.LFE7:
+ 238              	 .global message
+ 239              	 .section .rodata.message,"a",%progbits
+ 240              	 .align 2
+ 241              	 .set .LANCHOR5,.+0
+ 244              	message:
+ 245 0000 52534120 	 .ascii "RSA PKCS1_v1.5 Encryption of user message\000"
+ 245      504B4353 
+ 245      315F7631 
+ 245      2E352045 
+ 245      6E637279 
+ 246 002a 0000     	 .section .bss.rsa_public_key,"aw",%nobits
+ 247              	 .align 2
+ 248              	 .set .LANCHOR3,.+0
+ 251              	rsa_public_key:
+ 252 0000 00000000 	 .space 150
+ 252      00000000 
+ 252      00000000 
+ 252      00000000 
+ 252      00000000 
+ 253 0096 0000     	 .section .rodata.str1.4,"aMS",%progbits,1
+ 254              	 .align 2
+ 255              	.LC0:
+ 256 0000 4578616D 	 .ascii "Example takes %d msec\000"
+ 256      706C6520 
+ 256      74616B65 
+ 256      73202564 
+ 256      206D7365 
+ 257 0016 0000     	 .section .rodata.rsa_public_key_exponent,"a",%progbits
+ 258              	 .align 2
+ 259              	 .set .LANCHOR2,.+0
+ 262              	rsa_public_key_exponent:
+ 263 0000 00       	 .byte 0
+ 264 0001 01       	 .byte 1
+ 265 0002 00       	 .byte 0
+ 266 0003 01       	 .byte 1
+ 267              	 .section .bss.rsa_public_key_length,"aw",%nobits
+ 268              	 .align 1
+ 269              	 .set .LANCHOR4,.+0
+ 272              	rsa_public_key_length:
+ 273 0000 0000     	 .space 2
+ 274              	 .section .bss.optiga_lib_status,"aw",%nobits
+ 275              	 .align 1
+ 276              	 .set .LANCHOR0,.+0
+ 279              	optiga_lib_status:
+ 280 0000 0000     	 .space 2
+ 281              	 .section .rodata.rsa_public_key_modulus,"a",%progbits
+ 282              	 .align 2
+ 283              	 .set .LANCHOR1,.+0
+ 286              	rsa_public_key_modulus:
+ 287 0000 A1       	 .byte -95
+ 288 0001 D4       	 .byte -44
+ 289 0002 6F       	 .byte 111
+ 290 0003 BA       	 .byte -70
+ 291 0004 23       	 .byte 35
+ 292 0005 18       	 .byte 24
+ 293 0006 F8       	 .byte -8
+ 294 0007 DC       	 .byte -36
+ 295 0008 EF       	 .byte -17
+ 296 0009 16       	 .byte 22
+ 297 000a C2       	 .byte -62
+ 298 000b 80       	 .byte -128
+ 299 000c 94       	 .byte -108
+ 300 000d 8B       	 .byte -117
+ 301 000e 1C       	 .byte 28
+ 302 000f F2       	 .byte -14
+ 303 0010 79       	 .byte 121
+ 304 0011 66       	 .byte 102
+ 305 0012 B9       	 .byte -71
+ 306 0013 B4       	 .byte -76
+ 307 0014 72       	 .byte 114
+ 308 0015 25       	 .byte 37
+ 309 0016 ED       	 .byte -19
+ 310 0017 29       	 .byte 41
+ 311 0018 89       	 .byte -119
+ 312 0019 F8       	 .byte -8
+ 313 001a D7       	 .byte -41
+ 314 001b 4B       	 .byte 75
+ 315 001c 45       	 .byte 69
+ 316 001d BD       	 .byte -67
+ 317 001e 36       	 .byte 54
+ 318 001f 04       	 .byte 4
+ 319 0020 9C       	 .byte -100
+ 320 0021 0A       	 .byte 10
+ 321 0022 AB       	 .byte -85
+ 322 0023 5A       	 .byte 90
+ 323 0024 D0       	 .byte -48
+ 324 0025 FF       	 .byte -1
+ 325 0026 00       	 .byte 0
+ 326 0027 35       	 .byte 53
+ 327 0028 53       	 .byte 83
+ 328 0029 BA       	 .byte -70
+ 329 002a 84       	 .byte -124
+ 330 002b 3C       	 .byte 60
+ 331 002c 8E       	 .byte -114
+ 332 002d 12       	 .byte 18
+ 333 002e 78       	 .byte 120
+ 334 002f 2F       	 .byte 47
+ 335 0030 C5       	 .byte -59
+ 336 0031 87       	 .byte -121
+ 337 0032 3B       	 .byte 59
+ 338 0033 B8       	 .byte -72
+ 339 0034 9A       	 .byte -102
+ 340 0035 3D       	 .byte 61
+ 341 0036 C8       	 .byte -56
+ 342 0037 4B       	 .byte 75
+ 343 0038 88       	 .byte -120
+ 344 0039 3D       	 .byte 61
+ 345 003a 25       	 .byte 37
+ 346 003b 66       	 .byte 102
+ 347 003c 6C       	 .byte 108
+ 348 003d D2       	 .byte -46
+ 349 003e 2B       	 .byte 43
+ 350 003f F3       	 .byte -13
+ 351 0040 AC       	 .byte -84
+ 352 0041 D5       	 .byte -43
+ 353 0042 B6       	 .byte -74
+ 354 0043 75       	 .byte 117
+ 355 0044 96       	 .byte -106
+ 356 0045 9F       	 .byte -97
+ 357 0046 8B       	 .byte -117
+ 358 0047 EB       	 .byte -21
+ 359 0048 FB       	 .byte -5
+ 360 0049 CA       	 .byte -54
+ 361 004a C9       	 .byte -55
+ 362 004b 3F       	 .byte 63
+ 363 004c DD       	 .byte -35
+ 364 004d 92       	 .byte -110
+ 365 004e 7C       	 .byte 124
+ 366 004f 74       	 .byte 116
+ 367 0050 42       	 .byte 66
+ 368 0051 B1       	 .byte -79
+ 369 0052 78       	 .byte 120
+ 370 0053 B1       	 .byte -79
+ 371 0054 0D       	 .byte 13
+ 372 0055 1D       	 .byte 29
+ 373 0056 FF       	 .byte -1
+ 374 0057 93       	 .byte -109
+ 375 0058 98       	 .byte -104
+ 376 0059 E5       	 .byte -27
+ 377 005a 23       	 .byte 35
+ 378 005b 16       	 .byte 22
+ 379 005c AA       	 .byte -86
+ 380 005d E0       	 .byte -32
+ 381 005e AF       	 .byte -81
+ 382 005f 74       	 .byte 116
+ 383 0060 E5       	 .byte -27
+ 384 0061 94       	 .byte -108
+ 385 0062 65       	 .byte 101
+ 386 0063 0B       	 .byte 11
+ 387 0064 DC       	 .byte -36
+ 388 0065 3C       	 .byte 60
+ 389 0066 67       	 .byte 103
+ 390 0067 02       	 .byte 2
+ 391 0068 41       	 .byte 65
+ 392 0069 D4       	 .byte -44
+ 393 006a 18       	 .byte 24
+ 394 006b 68       	 .byte 104
+ 395 006c 45       	 .byte 69
+ 396 006d 93       	 .byte -109
+ 397 006e CD       	 .byte -51
+ 398 006f A1       	 .byte -95
+ 399 0070 A7       	 .byte -89
+ 400 0071 B9       	 .byte -71
+ 401 0072 DC       	 .byte -36
+ 402 0073 4F       	 .byte 79
+ 403 0074 20       	 .byte 32
+ 404 0075 D2       	 .byte -46
+ 405 0076 FD       	 .byte -3
+ 406 0077 C6       	 .byte -58
+ 407 0078 F6       	 .byte -10
+ 408 0079 63       	 .byte 99
+ 409 007a 44       	 .byte 68
+ 410 007b 07       	 .byte 7
+ 411 007c 40       	 .byte 64
+ 412 007d 03       	 .byte 3
+ 413 007e E2       	 .byte -30
+ 414 007f 11       	 .byte 17
+ 415              	 .text
+ 416              	.Letext0:
+ 417              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 418              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 419              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_types.h"
+ 420              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_common.h"
+ 421              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/cmd/optiga_cmd.h"
+ 422              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_crypt.h"
+ 423              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/include/optiga_example.h"
+ 424              	 .file 9 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdio.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 example_optiga_crypt_rsa_encrypt_message.c
+    {standard input}:20     .text.optiga_crypt_callback:00000000 $t
+    {standard input}:24     .text.optiga_crypt_callback:00000000 optiga_crypt_callback
+    {standard input}:40     .text.optiga_crypt_callback:00000008 $d
+    {standard input}:45     .text.example_optiga_crypt_rsa_encrypt_message:00000000 $t
+    {standard input}:50     .text.example_optiga_crypt_rsa_encrypt_message:00000000 example_optiga_crypt_rsa_encrypt_message
+    {standard input}:226    .text.example_optiga_crypt_rsa_encrypt_message:000000dc $d
+    {standard input}:244    .rodata.message:00000000 message
+    {standard input}:240    .rodata.message:00000000 $d
+    {standard input}:247    .bss.rsa_public_key:00000000 $d
+    {standard input}:251    .bss.rsa_public_key:00000000 rsa_public_key
+    {standard input}:254    .rodata.str1.4:00000000 $d
+    {standard input}:258    .rodata.rsa_public_key_exponent:00000000 $d
+    {standard input}:262    .rodata.rsa_public_key_exponent:00000000 rsa_public_key_exponent
+    {standard input}:268    .bss.rsa_public_key_length:00000000 $d
+    {standard input}:272    .bss.rsa_public_key_length:00000000 rsa_public_key_length
+    {standard input}:275    .bss.optiga_lib_status:00000000 $d
+    {standard input}:279    .bss.optiga_lib_status:00000000 optiga_lib_status
+    {standard input}:282    .rodata.rsa_public_key_modulus:00000000 $d
+    {standard input}:286    .rodata.rsa_public_key_modulus:00000000 rsa_public_key_modulus
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+example_optiga_init
+optiga_crypt_create
+example_util_encode_rsa_public_key_in_bit_string_format
+example_performance_measurement
+optiga_crypt_rsa_encrypt_message
+example_optiga_deinit
+optiga_crypt_destroy
+sprintf
+performance_buffer_string
