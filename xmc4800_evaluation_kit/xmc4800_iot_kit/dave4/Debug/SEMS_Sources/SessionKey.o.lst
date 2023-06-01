@@ -1,0 +1,392 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "SessionKey.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.optiga_util_write_shared_key,"ax",%progbits
+  20              	 .align 2
+  21              	 .global optiga_util_write_shared_key
+  22              	 .thumb
+  23              	 .thumb_func
+  25              	optiga_util_write_shared_key:
+  26              	.LFB454:
+  27              	 .file 1 "../SEMS_Sources/SessionKey.c"
+   1:../SEMS_Sources/SessionKey.c **** #include <SEMS_Headers/Skey.h>
+   2:../SEMS_Sources/SessionKey.c **** 
+   3:../SEMS_Sources/SessionKey.c **** #include "../SEMS_Headers/Util.h"
+   4:../SEMS_Sources/SessionKey.c **** #include "../SEMS_Headers/Constructor.h"
+   5:../SEMS_Sources/SessionKey.c **** 
+   6:../SEMS_Sources/SessionKey.c **** 
+   7:../SEMS_Sources/SessionKey.c **** 
+   8:../SEMS_Sources/SessionKey.c **** void optiga_util_write_shared_key(uint16_t optiga_oid, const uint8_t key[], uint16_t bytes_to_write
+   9:../SEMS_Sources/SessionKey.c **** {
+  28              	 .loc 1 9 0
+  29              	 .cfi_startproc
+  30              	 
+  31              	 
+  32              	.LVL0:
+  33 0000 2DE9F041 	 push {r4,r5,r6,r7,r8,lr}
+  34              	.LCFI0:
+  35              	 .cfi_def_cfa_offset 24
+  36              	 .cfi_offset 4,-24
+  37              	 .cfi_offset 5,-20
+  38              	 .cfi_offset 6,-16
+  39              	 .cfi_offset 7,-12
+  40              	 .cfi_offset 8,-8
+  41              	 .cfi_offset 14,-4
+  42 0004 82B0     	 sub sp,sp,#8
+  43              	.LCFI1:
+  44              	 .cfi_def_cfa_offset 32
+  45              	 .loc 1 9 0
+  46 0006 0646     	 mov r6,r0
+  47 0008 8846     	 mov r8,r1
+  48 000a 1746     	 mov r7,r2
+  10:../SEMS_Sources/SessionKey.c ****     uint16_t offset = 0;
+  11:../SEMS_Sources/SessionKey.c **** 
+  12:../SEMS_Sources/SessionKey.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+  13:../SEMS_Sources/SessionKey.c ****     optiga_util_t * me = NULL;
+  14:../SEMS_Sources/SessionKey.c **** 
+  15:../SEMS_Sources/SessionKey.c ****     do
+  16:../SEMS_Sources/SessionKey.c ****     {
+  17:../SEMS_Sources/SessionKey.c ****         example_optiga_init();
+  49              	 .loc 1 17 0
+  50 000c FFF7FEFF 	 bl example_optiga_init
+  51              	.LVL1:
+  18:../SEMS_Sources/SessionKey.c **** 
+  19:../SEMS_Sources/SessionKey.c **** 
+  20:../SEMS_Sources/SessionKey.c ****         me = optiga_util_create_wrapper();
+  52              	 .loc 1 20 0
+  53 0010 FFF7FEFF 	 bl optiga_util_create_wrapper
+  54              	.LVL2:
+  21:../SEMS_Sources/SessionKey.c ****         if (NULL == me)
+  55              	 .loc 1 21 0
+  56 0014 F8B1     	 cbz r0,.L2
+  22:../SEMS_Sources/SessionKey.c ****         {
+  23:../SEMS_Sources/SessionKey.c ****             break;
+  24:../SEMS_Sources/SessionKey.c ****         }
+  25:../SEMS_Sources/SessionKey.c **** 
+  26:../SEMS_Sources/SessionKey.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+  57              	 .loc 1 26 0
+  58 0016 124C     	 ldr r4,.L12
+  27:../SEMS_Sources/SessionKey.c **** 
+  28:../SEMS_Sources/SessionKey.c ****         return_status = optiga_util_write_data(me,
+  59              	 .loc 1 28 0
+  60 0018 CDF80080 	 str r8,[sp]
+  61 001c 3146     	 mov r1,r6
+  62 001e 0197     	 str r7,[sp,#4]
+  26:../SEMS_Sources/SessionKey.c **** 
+  63              	 .loc 1 26 0
+  64 0020 0126     	 movs r6,#1
+  65              	 .loc 1 28 0
+  66 0022 4022     	 movs r2,#64
+  67 0024 0023     	 movs r3,#0
+  68 0026 0546     	 mov r5,r0
+  26:../SEMS_Sources/SessionKey.c **** 
+  69              	 .loc 1 26 0
+  70 0028 2680     	 strh r6,[r4]
+  71              	 .loc 1 28 0
+  72 002a FFF7FEFF 	 bl optiga_util_write_data
+  73              	.LVL3:
+  29:../SEMS_Sources/SessionKey.c ****                                                optiga_oid,
+  30:../SEMS_Sources/SessionKey.c ****                                                OPTIGA_UTIL_ERASE_AND_WRITE,
+  31:../SEMS_Sources/SessionKey.c ****                                                offset,
+  32:../SEMS_Sources/SessionKey.c ****                                                key,
+  33:../SEMS_Sources/SessionKey.c **** 											   bytes_to_write);
+  34:../SEMS_Sources/SessionKey.c **** 
+  35:../SEMS_Sources/SessionKey.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+  74              	 .loc 1 35 0
+  75 002e 38B1     	 cbz r0,.L4
+  76              	.LVL4:
+  77              	.L3:
+  36:../SEMS_Sources/SessionKey.c **** 
+  37:../SEMS_Sources/SessionKey.c ****         return_status = OPTIGA_LIB_SUCCESS;
+  38:../SEMS_Sources/SessionKey.c **** 
+  39:../SEMS_Sources/SessionKey.c ****     } while (FALSE);
+  40:../SEMS_Sources/SessionKey.c **** 
+  41:../SEMS_Sources/SessionKey.c **** 
+  42:../SEMS_Sources/SessionKey.c ****     example_optiga_deinit();
+  78              	 .loc 1 42 0
+  79 0030 FFF7FEFF 	 bl example_optiga_deinit
+  80              	.LVL5:
+  43:../SEMS_Sources/SessionKey.c **** 
+  44:../SEMS_Sources/SessionKey.c **** 
+  45:../SEMS_Sources/SessionKey.c **** 
+  46:../SEMS_Sources/SessionKey.c ****     if (me)
+  47:../SEMS_Sources/SessionKey.c ****     {
+  48:../SEMS_Sources/SessionKey.c ****         return_status = optiga_util_destroy(me);
+  81              	 .loc 1 48 0
+  82 0034 2846     	 mov r0,r5
+  49:../SEMS_Sources/SessionKey.c ****     }
+  50:../SEMS_Sources/SessionKey.c **** }
+  83              	 .loc 1 50 0
+  84 0036 02B0     	 add sp,sp,#8
+  85              	.LCFI2:
+  86              	 .cfi_remember_state
+  87              	 .cfi_def_cfa_offset 24
+  88              	 
+  89 0038 BDE8F041 	 pop {r4,r5,r6,r7,r8,lr}
+  90              	.LCFI3:
+  91              	 .cfi_restore 14
+  92              	 .cfi_restore 8
+  93              	 .cfi_restore 7
+  94              	 .cfi_restore 6
+  95              	 .cfi_restore 5
+  96              	 .cfi_restore 4
+  97              	 .cfi_def_cfa_offset 0
+  98              	.LVL6:
+  48:../SEMS_Sources/SessionKey.c ****     }
+  99              	 .loc 1 48 0
+ 100 003c FFF7FEBF 	 b optiga_util_destroy
+ 101              	.LVL7:
+ 102              	.L4:
+ 103              	.LCFI4:
+ 104              	 .cfi_restore_state
+  35:../SEMS_Sources/SessionKey.c **** 
+ 105              	 .loc 1 35 0 discriminator 1
+ 106 0040 2388     	 ldrh r3,[r4]
+ 107 0042 074A     	 ldr r2,.L12
+ 108 0044 9BB2     	 uxth r3,r3
+ 109 0046 012B     	 cmp r3,#1
+ 110 0048 FAD0     	 beq .L4
+  35:../SEMS_Sources/SessionKey.c **** 
+ 111              	 .loc 1 35 0 is_stmt 0 discriminator 2
+ 112 004a 1388     	 ldrh r3,[r2]
+ 113 004c 9BB2     	 uxth r3,r3
+ 114 004e 002B     	 cmp r3,#0
+ 115 0050 EED0     	 beq .L3
+  35:../SEMS_Sources/SessionKey.c **** 
+ 116              	 .loc 1 35 0 discriminator 3
+ 117 0052 1388     	 ldrh r3,[r2]
+ 118              	.LVL8:
+ 119 0054 ECE7     	 b .L3
+ 120              	.LVL9:
+ 121              	.L2:
+ 122              	 .loc 1 50 0 is_stmt 1
+ 123 0056 02B0     	 add sp,sp,#8
+ 124              	.LCFI5:
+ 125              	 .cfi_def_cfa_offset 24
+ 126              	 
+ 127 0058 BDE8F041 	 pop {r4,r5,r6,r7,r8,lr}
+ 128              	.LCFI6:
+ 129              	 .cfi_restore 14
+ 130              	 .cfi_restore 8
+ 131              	 .cfi_restore 7
+ 132              	 .cfi_restore 6
+ 133              	 .cfi_restore 5
+ 134              	 .cfi_restore 4
+ 135              	 .cfi_def_cfa_offset 0
+ 136              	.LVL10:
+  42:../SEMS_Sources/SessionKey.c **** 
+ 137              	 .loc 1 42 0
+ 138 005c FFF7FEBF 	 b example_optiga_deinit
+ 139              	.LVL11:
+ 140              	.L13:
+ 141              	 .align 2
+ 142              	.L12:
+ 143 0060 00000000 	 .word optiga_lib_status
+ 144              	 .cfi_endproc
+ 145              	.LFE454:
+ 147              	 .section .text.optiga_util_read_shared_key,"ax",%progbits
+ 148              	 .align 2
+ 149              	 .global optiga_util_read_shared_key
+ 150              	 .thumb
+ 151              	 .thumb_func
+ 153              	optiga_util_read_shared_key:
+ 154              	.LFB455:
+  51:../SEMS_Sources/SessionKey.c **** 
+  52:../SEMS_Sources/SessionKey.c **** 
+  53:../SEMS_Sources/SessionKey.c **** void optiga_util_read_shared_key(uint16_t optiga_oid, uint8_t read_data_buffer[], uint16_t bytes_to
+  54:../SEMS_Sources/SessionKey.c **** {
+ 155              	 .loc 1 54 0
+ 156              	 .cfi_startproc
+ 157              	 
+ 158              	 
+ 159              	.LVL12:
+ 160 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+ 161              	.LCFI7:
+ 162              	 .cfi_def_cfa_offset 20
+ 163              	 .cfi_offset 4,-20
+ 164              	 .cfi_offset 5,-16
+ 165              	 .cfi_offset 6,-12
+ 166              	 .cfi_offset 7,-8
+ 167              	 .cfi_offset 14,-4
+ 168 0002 85B0     	 sub sp,sp,#20
+ 169              	.LCFI8:
+ 170              	 .cfi_def_cfa_offset 40
+ 171              	 .loc 1 54 0
+ 172 0004 0746     	 mov r7,r0
+ 173 0006 0E46     	 mov r6,r1
+ 174 0008 ADF80E20 	 strh r2,[sp,#14]
+  55:../SEMS_Sources/SessionKey.c ****     uint16_t offset = 0x00;
+  56:../SEMS_Sources/SessionKey.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+  57:../SEMS_Sources/SessionKey.c ****     optiga_util_t * me = NULL;
+  58:../SEMS_Sources/SessionKey.c **** 
+  59:../SEMS_Sources/SessionKey.c ****     do
+  60:../SEMS_Sources/SessionKey.c ****     {
+  61:../SEMS_Sources/SessionKey.c ****         example_optiga_init();
+ 175              	 .loc 1 61 0
+ 176 000c FFF7FEFF 	 bl example_optiga_init
+ 177              	.LVL13:
+  62:../SEMS_Sources/SessionKey.c **** 
+  63:../SEMS_Sources/SessionKey.c ****         me = optiga_util_create_wrapper();
+ 178              	 .loc 1 63 0
+ 179 0010 FFF7FEFF 	 bl optiga_util_create_wrapper
+ 180              	.LVL14:
+  64:../SEMS_Sources/SessionKey.c ****         if (NULL == me)
+ 181              	 .loc 1 64 0
+ 182 0014 F0B1     	 cbz r0,.L15
+  65:../SEMS_Sources/SessionKey.c ****         {
+  66:../SEMS_Sources/SessionKey.c ****             break;
+  67:../SEMS_Sources/SessionKey.c ****         }
+  68:../SEMS_Sources/SessionKey.c **** 
+  69:../SEMS_Sources/SessionKey.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+  70:../SEMS_Sources/SessionKey.c **** 
+  71:../SEMS_Sources/SessionKey.c ****         return_status = optiga_util_read_data(me,
+ 183              	 .loc 1 71 0
+ 184 0016 0DF10E02 	 add r2,sp,#14
+ 185              	.LVL15:
+  69:../SEMS_Sources/SessionKey.c **** 
+ 186              	 .loc 1 69 0
+ 187 001a 104C     	 ldr r4,.L25
+ 188              	 .loc 1 71 0
+ 189 001c 0092     	 str r2,[sp]
+ 190 001e 3346     	 mov r3,r6
+ 191 0020 3946     	 mov r1,r7
+  69:../SEMS_Sources/SessionKey.c **** 
+ 192              	 .loc 1 69 0
+ 193 0022 0126     	 movs r6,#1
+ 194              	.LVL16:
+ 195              	 .loc 1 71 0
+ 196 0024 0022     	 movs r2,#0
+ 197              	.LVL17:
+ 198 0026 0546     	 mov r5,r0
+  69:../SEMS_Sources/SessionKey.c **** 
+ 199              	 .loc 1 69 0
+ 200 0028 2680     	 strh r6,[r4]
+ 201              	 .loc 1 71 0
+ 202 002a FFF7FEFF 	 bl optiga_util_read_data
+ 203              	.LVL18:
+  72:../SEMS_Sources/SessionKey.c ****                                               optiga_oid,
+  73:../SEMS_Sources/SessionKey.c ****                                               offset,
+  74:../SEMS_Sources/SessionKey.c ****                                               read_data_buffer,
+  75:../SEMS_Sources/SessionKey.c ****                                               &bytes_to_read);
+  76:../SEMS_Sources/SessionKey.c **** 
+  77:../SEMS_Sources/SessionKey.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 204              	 .loc 1 77 0
+ 205 002e 30B1     	 cbz r0,.L17
+ 206              	.LVL19:
+ 207              	.L16:
+  78:../SEMS_Sources/SessionKey.c **** 
+  79:../SEMS_Sources/SessionKey.c ****         return_status = OPTIGA_LIB_SUCCESS;
+  80:../SEMS_Sources/SessionKey.c ****     } while (FALSE);
+  81:../SEMS_Sources/SessionKey.c **** 
+  82:../SEMS_Sources/SessionKey.c ****     example_optiga_deinit();
+ 208              	 .loc 1 82 0
+ 209 0030 FFF7FEFF 	 bl example_optiga_deinit
+ 210              	.LVL20:
+  83:../SEMS_Sources/SessionKey.c **** 
+  84:../SEMS_Sources/SessionKey.c ****     if (me)
+  85:../SEMS_Sources/SessionKey.c ****     {
+  86:../SEMS_Sources/SessionKey.c ****         return_status = optiga_util_destroy(me);
+ 211              	 .loc 1 86 0
+ 212 0034 2846     	 mov r0,r5
+ 213 0036 FFF7FEFF 	 bl optiga_util_destroy
+ 214              	.LVL21:
+  87:../SEMS_Sources/SessionKey.c ****     }
+  88:../SEMS_Sources/SessionKey.c **** }
+ 215              	 .loc 1 88 0
+ 216 003a 05B0     	 add sp,sp,#20
+ 217              	.LCFI9:
+ 218              	 .cfi_remember_state
+ 219              	 .cfi_def_cfa_offset 20
+ 220              	 
+ 221 003c F0BD     	 pop {r4,r5,r6,r7,pc}
+ 222              	.LVL22:
+ 223              	.L17:
+ 224              	.LCFI10:
+ 225              	 .cfi_restore_state
+  77:../SEMS_Sources/SessionKey.c **** 
+ 226              	 .loc 1 77 0 discriminator 1
+ 227 003e 2388     	 ldrh r3,[r4]
+ 228 0040 064A     	 ldr r2,.L25
+ 229 0042 9BB2     	 uxth r3,r3
+ 230 0044 012B     	 cmp r3,#1
+ 231 0046 FAD0     	 beq .L17
+  77:../SEMS_Sources/SessionKey.c **** 
+ 232              	 .loc 1 77 0 is_stmt 0 discriminator 2
+ 233 0048 1388     	 ldrh r3,[r2]
+ 234 004a 9BB2     	 uxth r3,r3
+ 235 004c 002B     	 cmp r3,#0
+ 236 004e EFD0     	 beq .L16
+  77:../SEMS_Sources/SessionKey.c **** 
+ 237              	 .loc 1 77 0 discriminator 3
+ 238 0050 1388     	 ldrh r3,[r2]
+ 239              	.LVL23:
+ 240 0052 EDE7     	 b .L16
+ 241              	.LVL24:
+ 242              	.L15:
+  82:../SEMS_Sources/SessionKey.c **** 
+ 243              	 .loc 1 82 0 is_stmt 1
+ 244 0054 FFF7FEFF 	 bl example_optiga_deinit
+ 245              	.LVL25:
+ 246              	 .loc 1 88 0
+ 247 0058 05B0     	 add sp,sp,#20
+ 248              	.LCFI11:
+ 249              	 .cfi_def_cfa_offset 20
+ 250              	 
+ 251 005a F0BD     	 pop {r4,r5,r6,r7,pc}
+ 252              	.LVL26:
+ 253              	.L26:
+ 254              	 .align 2
+ 255              	.L25:
+ 256 005c 00000000 	 .word optiga_lib_status
+ 257              	 .cfi_endproc
+ 258              	.LFE455:
+ 260              	 .text
+ 261              	.Letext0:
+ 262              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 263              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 264              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 265              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+ 266              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+ 267              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+ 268              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_types.h"
+ 269              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_common.h"
+ 270              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/cmd/optiga_cmd.h"
+ 271              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_util.h"
+ 272              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+ 273              	 .file 13 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+ 274              	 .file 14 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+ 275              	 .file 15 "../SEMS_Sources/../SEMS_Headers/Util.h"
+ 276              	 .file 16 "../SEMS_Sources/../SEMS_Headers/../SEMS_Headers/Constructor.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 SessionKey.c
+    {standard input}:20     .text.optiga_util_write_shared_key:00000000 $t
+    {standard input}:25     .text.optiga_util_write_shared_key:00000000 optiga_util_write_shared_key
+    {standard input}:143    .text.optiga_util_write_shared_key:00000060 $d
+    {standard input}:148    .text.optiga_util_read_shared_key:00000000 $t
+    {standard input}:153    .text.optiga_util_read_shared_key:00000000 optiga_util_read_shared_key
+    {standard input}:256    .text.optiga_util_read_shared_key:0000005c $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+example_optiga_init
+optiga_util_create_wrapper
+optiga_util_write_data
+example_optiga_deinit
+optiga_util_destroy
+optiga_lib_status
+optiga_util_read_data

@@ -1,0 +1,585 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "Nonce.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.optiga_util_read_nonce,"ax",%progbits
+  20              	 .align 2
+  21              	 .global optiga_util_read_nonce
+  22              	 .thumb
+  23              	 .thumb_func
+  25              	optiga_util_read_nonce:
+  26              	.LFB454:
+  27              	 .file 1 "../SEMS_Sources/Nonce.c"
+   1:../SEMS_Sources/Nonce.c **** #include "../SEMS_Headers/Nonce.h"
+   2:../SEMS_Sources/Nonce.c **** 
+   3:../SEMS_Sources/Nonce.c **** #include "../SEMS_Headers/Util.h"
+   4:../SEMS_Sources/Nonce.c **** 
+   5:../SEMS_Sources/Nonce.c **** 
+   6:../SEMS_Sources/Nonce.c **** void optiga_util_read_nonce(uint16_t optiga_oid, uint8_t read_data_buffer[], uint16_t bytes_to_read
+   7:../SEMS_Sources/Nonce.c **** {
+  28              	 .loc 1 7 0
+  29              	 .cfi_startproc
+  30              	 
+  31              	 
+  32              	.LVL0:
+  33 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+  34              	.LCFI0:
+  35              	 .cfi_def_cfa_offset 20
+  36              	 .cfi_offset 4,-20
+  37              	 .cfi_offset 5,-16
+  38              	 .cfi_offset 6,-12
+  39              	 .cfi_offset 7,-8
+  40              	 .cfi_offset 14,-4
+  41 0002 85B0     	 sub sp,sp,#20
+  42              	.LCFI1:
+  43              	 .cfi_def_cfa_offset 40
+  44              	 .loc 1 7 0
+  45 0004 0746     	 mov r7,r0
+  46 0006 0E46     	 mov r6,r1
+  47 0008 ADF80E20 	 strh r2,[sp,#14]
+   8:../SEMS_Sources/Nonce.c ****     uint16_t offset = 0x00;
+   9:../SEMS_Sources/Nonce.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+  10:../SEMS_Sources/Nonce.c ****     optiga_util_t * me = NULL;
+  11:../SEMS_Sources/Nonce.c **** 
+  12:../SEMS_Sources/Nonce.c ****     do
+  13:../SEMS_Sources/Nonce.c ****     {
+  14:../SEMS_Sources/Nonce.c ****         example_optiga_init();
+  48              	 .loc 1 14 0
+  49 000c FFF7FEFF 	 bl example_optiga_init
+  50              	.LVL1:
+  15:../SEMS_Sources/Nonce.c **** 
+  16:../SEMS_Sources/Nonce.c ****         me = optiga_util_create_wrapper();
+  51              	 .loc 1 16 0
+  52 0010 FFF7FEFF 	 bl optiga_util_create_wrapper
+  53              	.LVL2:
+  17:../SEMS_Sources/Nonce.c ****         if (NULL == me)
+  54              	 .loc 1 17 0
+  55 0014 F0B1     	 cbz r0,.L2
+  18:../SEMS_Sources/Nonce.c ****         {
+  19:../SEMS_Sources/Nonce.c ****             break;
+  20:../SEMS_Sources/Nonce.c ****         }
+  21:../SEMS_Sources/Nonce.c **** 
+  22:../SEMS_Sources/Nonce.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+  23:../SEMS_Sources/Nonce.c **** 
+  24:../SEMS_Sources/Nonce.c **** 
+  25:../SEMS_Sources/Nonce.c **** 
+  26:../SEMS_Sources/Nonce.c ****         return_status = optiga_util_read_data(me,
+  56              	 .loc 1 26 0
+  57 0016 0DF10E02 	 add r2,sp,#14
+  58              	.LVL3:
+  22:../SEMS_Sources/Nonce.c **** 
+  59              	 .loc 1 22 0
+  60 001a 104C     	 ldr r4,.L13
+  61              	 .loc 1 26 0
+  62 001c 0092     	 str r2,[sp]
+  63 001e 3346     	 mov r3,r6
+  64 0020 3946     	 mov r1,r7
+  22:../SEMS_Sources/Nonce.c **** 
+  65              	 .loc 1 22 0
+  66 0022 0126     	 movs r6,#1
+  67              	.LVL4:
+  68              	 .loc 1 26 0
+  69 0024 0022     	 movs r2,#0
+  70              	.LVL5:
+  71 0026 0546     	 mov r5,r0
+  22:../SEMS_Sources/Nonce.c **** 
+  72              	 .loc 1 22 0
+  73 0028 2680     	 strh r6,[r4]
+  74              	 .loc 1 26 0
+  75 002a FFF7FEFF 	 bl optiga_util_read_data
+  76              	.LVL6:
+  27:../SEMS_Sources/Nonce.c ****                                               optiga_oid,
+  28:../SEMS_Sources/Nonce.c ****                                               offset,
+  29:../SEMS_Sources/Nonce.c ****                                               read_data_buffer,
+  30:../SEMS_Sources/Nonce.c ****                                               &bytes_to_read);
+  31:../SEMS_Sources/Nonce.c **** 
+  32:../SEMS_Sources/Nonce.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+  77              	 .loc 1 32 0
+  78 002e 30B1     	 cbz r0,.L4
+  79              	.LVL7:
+  80              	.L3:
+  33:../SEMS_Sources/Nonce.c **** 
+  34:../SEMS_Sources/Nonce.c **** 
+  35:../SEMS_Sources/Nonce.c ****         return_status = OPTIGA_LIB_SUCCESS;
+  36:../SEMS_Sources/Nonce.c ****     } while (FALSE);
+  37:../SEMS_Sources/Nonce.c **** 
+  38:../SEMS_Sources/Nonce.c ****     example_optiga_deinit();
+  81              	 .loc 1 38 0
+  82 0030 FFF7FEFF 	 bl example_optiga_deinit
+  83              	.LVL8:
+  39:../SEMS_Sources/Nonce.c **** 
+  40:../SEMS_Sources/Nonce.c ****     if (me)
+  41:../SEMS_Sources/Nonce.c ****     {
+  42:../SEMS_Sources/Nonce.c ****         return_status = optiga_util_destroy(me);
+  84              	 .loc 1 42 0
+  85 0034 2846     	 mov r0,r5
+  86 0036 FFF7FEFF 	 bl optiga_util_destroy
+  87              	.LVL9:
+  43:../SEMS_Sources/Nonce.c ****     }
+  44:../SEMS_Sources/Nonce.c **** }
+  88              	 .loc 1 44 0
+  89 003a 05B0     	 add sp,sp,#20
+  90              	.LCFI2:
+  91              	 .cfi_remember_state
+  92              	 .cfi_def_cfa_offset 20
+  93              	 
+  94 003c F0BD     	 pop {r4,r5,r6,r7,pc}
+  95              	.LVL10:
+  96              	.L4:
+  97              	.LCFI3:
+  98              	 .cfi_restore_state
+  32:../SEMS_Sources/Nonce.c **** 
+  99              	 .loc 1 32 0 discriminator 1
+ 100 003e 2388     	 ldrh r3,[r4]
+ 101 0040 064A     	 ldr r2,.L13
+ 102 0042 9BB2     	 uxth r3,r3
+ 103 0044 012B     	 cmp r3,#1
+ 104 0046 FAD0     	 beq .L4
+  32:../SEMS_Sources/Nonce.c **** 
+ 105              	 .loc 1 32 0 is_stmt 0 discriminator 2
+ 106 0048 1388     	 ldrh r3,[r2]
+ 107 004a 9BB2     	 uxth r3,r3
+ 108 004c 002B     	 cmp r3,#0
+ 109 004e EFD0     	 beq .L3
+  32:../SEMS_Sources/Nonce.c **** 
+ 110              	 .loc 1 32 0 discriminator 3
+ 111 0050 1388     	 ldrh r3,[r2]
+ 112              	.LVL11:
+ 113 0052 EDE7     	 b .L3
+ 114              	.LVL12:
+ 115              	.L2:
+  38:../SEMS_Sources/Nonce.c **** 
+ 116              	 .loc 1 38 0 is_stmt 1
+ 117 0054 FFF7FEFF 	 bl example_optiga_deinit
+ 118              	.LVL13:
+ 119              	 .loc 1 44 0
+ 120 0058 05B0     	 add sp,sp,#20
+ 121              	.LCFI4:
+ 122              	 .cfi_def_cfa_offset 20
+ 123              	 
+ 124 005a F0BD     	 pop {r4,r5,r6,r7,pc}
+ 125              	.LVL14:
+ 126              	.L14:
+ 127              	 .align 2
+ 128              	.L13:
+ 129 005c 00000000 	 .word optiga_lib_status
+ 130              	 .cfi_endproc
+ 131              	.LFE454:
+ 133              	 .section .text.optiga_util_update_count_wrapper,"ax",%progbits
+ 134              	 .align 2
+ 135              	 .global optiga_util_update_count_wrapper
+ 136              	 .thumb
+ 137              	 .thumb_func
+ 139              	optiga_util_update_count_wrapper:
+ 140              	.LFB455:
+  45:../SEMS_Sources/Nonce.c **** 
+  46:../SEMS_Sources/Nonce.c **** 
+  47:../SEMS_Sources/Nonce.c **** void optiga_util_update_count_wrapper(uint16_t optiga_counter_oid, uint8_t ticks)
+  48:../SEMS_Sources/Nonce.c **** {
+ 141              	 .loc 1 48 0
+ 142              	 .cfi_startproc
+ 143              	 
+ 144              	 
+ 145              	.LVL15:
+ 146 0000 F8B5     	 push {r3,r4,r5,r6,r7,lr}
+ 147              	.LCFI5:
+ 148              	 .cfi_def_cfa_offset 24
+ 149              	 .cfi_offset 3,-24
+ 150              	 .cfi_offset 4,-20
+ 151              	 .cfi_offset 5,-16
+ 152              	 .cfi_offset 6,-12
+ 153              	 .cfi_offset 7,-8
+ 154              	 .cfi_offset 14,-4
+ 155              	 .loc 1 48 0
+ 156 0002 0746     	 mov r7,r0
+ 157 0004 0E46     	 mov r6,r1
+  49:../SEMS_Sources/Nonce.c **** 
+  50:../SEMS_Sources/Nonce.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+  51:../SEMS_Sources/Nonce.c ****     optiga_util_t * me = NULL;
+  52:../SEMS_Sources/Nonce.c **** 
+  53:../SEMS_Sources/Nonce.c ****     do
+  54:../SEMS_Sources/Nonce.c ****     {
+  55:../SEMS_Sources/Nonce.c ****         example_optiga_init();
+ 158              	 .loc 1 55 0
+ 159 0006 FFF7FEFF 	 bl example_optiga_init
+ 160              	.LVL16:
+  56:../SEMS_Sources/Nonce.c **** 
+  57:../SEMS_Sources/Nonce.c ****         me = optiga_util_create_wrapper();
+ 161              	 .loc 1 57 0
+ 162 000a FFF7FEFF 	 bl optiga_util_create_wrapper
+ 163              	.LVL17:
+  58:../SEMS_Sources/Nonce.c ****         if (NULL == me)
+ 164              	 .loc 1 58 0
+ 165 000e 00B3     	 cbz r0,.L16
+  59:../SEMS_Sources/Nonce.c ****         {
+  60:../SEMS_Sources/Nonce.c ****             break;
+  61:../SEMS_Sources/Nonce.c ****         }
+  62:../SEMS_Sources/Nonce.c **** 
+  63:../SEMS_Sources/Nonce.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 166              	 .loc 1 63 0
+ 167 0010 124C     	 ldr r4,.L25
+ 168 0012 0123     	 movs r3,#1
+  64:../SEMS_Sources/Nonce.c ****         return_status = optiga_util_update_count(me,
+ 169              	 .loc 1 64 0
+ 170 0014 3946     	 mov r1,r7
+ 171 0016 3246     	 mov r2,r6
+ 172 0018 0546     	 mov r5,r0
+  63:../SEMS_Sources/Nonce.c ****         return_status = optiga_util_update_count(me,
+ 173              	 .loc 1 63 0
+ 174 001a 2380     	 strh r3,[r4]
+ 175              	 .loc 1 64 0
+ 176 001c FFF7FEFF 	 bl optiga_util_update_count
+ 177              	.LVL18:
+  65:../SEMS_Sources/Nonce.c ****                                                  optiga_counter_oid,
+  66:../SEMS_Sources/Nonce.c **** 												 ticks);
+  67:../SEMS_Sources/Nonce.c **** 
+  68:../SEMS_Sources/Nonce.c **** 
+  69:../SEMS_Sources/Nonce.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 178              	 .loc 1 69 0
+ 179 0020 30B1     	 cbz r0,.L18
+ 180              	.L17:
+  70:../SEMS_Sources/Nonce.c **** 
+  71:../SEMS_Sources/Nonce.c ****         return_status = OPTIGA_LIB_SUCCESS;
+  72:../SEMS_Sources/Nonce.c ****     } while (FALSE);
+  73:../SEMS_Sources/Nonce.c **** 
+  74:../SEMS_Sources/Nonce.c ****     example_optiga_deinit();
+ 181              	 .loc 1 74 0
+ 182 0022 FFF7FEFF 	 bl example_optiga_deinit
+ 183              	.LVL19:
+  75:../SEMS_Sources/Nonce.c **** 
+  76:../SEMS_Sources/Nonce.c **** 
+  77:../SEMS_Sources/Nonce.c ****     if (me)
+  78:../SEMS_Sources/Nonce.c ****     {
+  79:../SEMS_Sources/Nonce.c ****     	return_status = optiga_util_destroy(me);
+ 184              	 .loc 1 79 0
+ 185 0026 2846     	 mov r0,r5
+  80:../SEMS_Sources/Nonce.c **** 
+  81:../SEMS_Sources/Nonce.c ****     }
+  82:../SEMS_Sources/Nonce.c **** }
+ 186              	 .loc 1 82 0
+ 187 0028 BDE8F840 	 pop {r3,r4,r5,r6,r7,lr}
+ 188              	.LCFI6:
+ 189              	 .cfi_remember_state
+ 190              	 .cfi_restore 14
+ 191              	 .cfi_restore 7
+ 192              	 .cfi_restore 6
+ 193              	 .cfi_restore 5
+ 194              	 .cfi_restore 4
+ 195              	 .cfi_restore 3
+ 196              	 .cfi_def_cfa_offset 0
+ 197              	.LVL20:
+  79:../SEMS_Sources/Nonce.c **** 
+ 198              	 .loc 1 79 0
+ 199 002c FFF7FEBF 	 b optiga_util_destroy
+ 200              	.LVL21:
+ 201              	.L18:
+ 202              	.LCFI7:
+ 203              	 .cfi_restore_state
+  69:../SEMS_Sources/Nonce.c **** 
+ 204              	 .loc 1 69 0 discriminator 1
+ 205 0030 2388     	 ldrh r3,[r4]
+ 206 0032 0A4A     	 ldr r2,.L25
+ 207 0034 9BB2     	 uxth r3,r3
+ 208 0036 012B     	 cmp r3,#1
+ 209 0038 FAD0     	 beq .L18
+  69:../SEMS_Sources/Nonce.c **** 
+ 210              	 .loc 1 69 0 is_stmt 0 discriminator 2
+ 211 003a 1388     	 ldrh r3,[r2]
+ 212 003c 9BB2     	 uxth r3,r3
+ 213 003e 002B     	 cmp r3,#0
+ 214 0040 EFD0     	 beq .L17
+  69:../SEMS_Sources/Nonce.c **** 
+ 215              	 .loc 1 69 0 discriminator 3
+ 216 0042 1388     	 ldrh r3,[r2]
+ 217              	.LVL22:
+  74:../SEMS_Sources/Nonce.c **** 
+ 218              	 .loc 1 74 0 is_stmt 1 discriminator 3
+ 219 0044 FFF7FEFF 	 bl example_optiga_deinit
+ 220              	.LVL23:
+  79:../SEMS_Sources/Nonce.c **** 
+ 221              	 .loc 1 79 0 discriminator 3
+ 222 0048 2846     	 mov r0,r5
+ 223              	 .loc 1 82 0 discriminator 3
+ 224 004a BDE8F840 	 pop {r3,r4,r5,r6,r7,lr}
+ 225              	.LCFI8:
+ 226              	 .cfi_remember_state
+ 227              	 .cfi_restore 3
+ 228              	 .cfi_restore 4
+ 229              	 .cfi_restore 5
+ 230              	 .cfi_restore 6
+ 231              	 .cfi_restore 7
+ 232              	 .cfi_restore 14
+ 233              	 .cfi_def_cfa_offset 0
+ 234              	.LVL24:
+  79:../SEMS_Sources/Nonce.c **** 
+ 235              	 .loc 1 79 0 discriminator 3
+ 236 004e FFF7FEBF 	 b optiga_util_destroy
+ 237              	.LVL25:
+ 238              	.L16:
+ 239              	.LCFI9:
+ 240              	 .cfi_restore_state
+ 241              	 .loc 1 82 0
+ 242 0052 BDE8F840 	 pop {r3,r4,r5,r6,r7,lr}
+ 243              	.LCFI10:
+ 244              	 .cfi_restore 14
+ 245              	 .cfi_restore 7
+ 246              	 .cfi_restore 6
+ 247              	 .cfi_restore 5
+ 248              	 .cfi_restore 4
+ 249              	 .cfi_restore 3
+ 250              	 .cfi_def_cfa_offset 0
+  74:../SEMS_Sources/Nonce.c **** 
+ 251              	 .loc 1 74 0
+ 252 0056 FFF7FEBF 	 b example_optiga_deinit
+ 253              	.LVL26:
+ 254              	.L26:
+ 255 005a 00BF     	 .align 2
+ 256              	.L25:
+ 257 005c 00000000 	 .word optiga_lib_status
+ 258              	 .cfi_endproc
+ 259              	.LFE455:
+ 261              	 .section .text.optiga_util_reset_count,"ax",%progbits
+ 262              	 .align 2
+ 263              	 .global optiga_util_reset_count
+ 264              	 .thumb
+ 265              	 .thumb_func
+ 267              	optiga_util_reset_count:
+ 268              	.LFB456:
+  83:../SEMS_Sources/Nonce.c **** 
+  84:../SEMS_Sources/Nonce.c **** 
+  85:../SEMS_Sources/Nonce.c **** void optiga_util_reset_count(uint16_t optiga_counter_oid)
+  86:../SEMS_Sources/Nonce.c **** {
+ 269              	 .loc 1 86 0
+ 270              	 .cfi_startproc
+ 271              	 
+ 272              	 
+ 273              	.LVL27:
+ 274 0000 70B5     	 push {r4,r5,r6,lr}
+ 275              	.LCFI11:
+ 276              	 .cfi_def_cfa_offset 16
+ 277              	 .cfi_offset 4,-16
+ 278              	 .cfi_offset 5,-12
+ 279              	 .cfi_offset 6,-8
+ 280              	 .cfi_offset 14,-4
+  87:../SEMS_Sources/Nonce.c **** 	const uint8_t initial_counter_object_data [] =
+ 281              	 .loc 1 87 0
+ 282 0002 184B     	 ldr r3,.L38
+  86:../SEMS_Sources/Nonce.c **** 	const uint8_t initial_counter_object_data [] =
+ 283              	 .loc 1 86 0
+ 284 0004 84B0     	 sub sp,sp,#16
+ 285              	.LCFI12:
+ 286              	 .cfi_def_cfa_offset 32
+ 287              	 .loc 1 87 0
+ 288 0006 5968     	 ldr r1,[r3,#4]
+  86:../SEMS_Sources/Nonce.c **** 	const uint8_t initial_counter_object_data [] =
+ 289              	 .loc 1 86 0
+ 290 0008 0646     	 mov r6,r0
+ 291              	 .loc 1 87 0
+ 292 000a 1868     	 ldr r0,[r3]
+ 293              	.LVL28:
+ 294 000c 02AB     	 add r3,sp,#8
+ 295 000e 03C3     	 stmia r3!,{r0,r1}
+ 296              	.LVL29:
+  88:../SEMS_Sources/Nonce.c **** 	{
+  89:../SEMS_Sources/Nonce.c **** 	    // Initial counter value
+  90:../SEMS_Sources/Nonce.c **** 	    0x00, 0x00, 0x00, 0x02,
+  91:../SEMS_Sources/Nonce.c **** 	    // Maximum counter value
+  92:../SEMS_Sources/Nonce.c **** 	    0xFF, 0xFF, 0xFF, 0xFF,
+  93:../SEMS_Sources/Nonce.c **** 	};
+  94:../SEMS_Sources/Nonce.c ****     uint8_t offset;
+  95:../SEMS_Sources/Nonce.c **** 
+  96:../SEMS_Sources/Nonce.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+  97:../SEMS_Sources/Nonce.c ****     optiga_util_t * me = NULL;
+  98:../SEMS_Sources/Nonce.c **** 
+  99:../SEMS_Sources/Nonce.c ****     do
+ 100:../SEMS_Sources/Nonce.c ****     {
+ 101:../SEMS_Sources/Nonce.c **** 
+ 102:../SEMS_Sources/Nonce.c ****         example_optiga_init();
+ 297              	 .loc 1 102 0
+ 298 0010 FFF7FEFF 	 bl example_optiga_init
+ 299              	.LVL30:
+ 103:../SEMS_Sources/Nonce.c **** 
+ 104:../SEMS_Sources/Nonce.c ****         me = optiga_util_create_wrapper();
+ 300              	 .loc 1 104 0
+ 301 0014 FFF7FEFF 	 bl optiga_util_create_wrapper
+ 302              	.LVL31:
+ 105:../SEMS_Sources/Nonce.c ****         if (NULL == me)
+ 303              	 .loc 1 105 0
+ 304 0018 F8B1     	 cbz r0,.L28
+ 305              	.LVL32:
+ 106:../SEMS_Sources/Nonce.c ****         {
+ 107:../SEMS_Sources/Nonce.c ****             break;
+ 108:../SEMS_Sources/Nonce.c ****         }
+ 109:../SEMS_Sources/Nonce.c **** 
+ 110:../SEMS_Sources/Nonce.c ****         offset = 0x00;
+ 111:../SEMS_Sources/Nonce.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 112:../SEMS_Sources/Nonce.c **** 
+ 113:../SEMS_Sources/Nonce.c **** 
+ 114:../SEMS_Sources/Nonce.c ****         return_status = optiga_util_write_data(me,
+ 306              	 .loc 1 114 0
+ 307 001a 02AB     	 add r3,sp,#8
+ 111:../SEMS_Sources/Nonce.c **** 
+ 308              	 .loc 1 111 0
+ 309 001c 124C     	 ldr r4,.L38+4
+ 310              	 .loc 1 114 0
+ 311 001e 0093     	 str r3,[sp]
+ 312 0020 0823     	 movs r3,#8
+ 313 0022 3146     	 mov r1,r6
+ 314 0024 0193     	 str r3,[sp,#4]
+ 111:../SEMS_Sources/Nonce.c **** 
+ 315              	 .loc 1 111 0
+ 316 0026 0126     	 movs r6,#1
+ 317              	 .loc 1 114 0
+ 318 0028 4022     	 movs r2,#64
+ 319 002a 0023     	 movs r3,#0
+ 320 002c 0546     	 mov r5,r0
+ 111:../SEMS_Sources/Nonce.c **** 
+ 321              	 .loc 1 111 0
+ 322 002e 2680     	 strh r6,[r4]
+ 323              	 .loc 1 114 0
+ 324 0030 FFF7FEFF 	 bl optiga_util_write_data
+ 325              	.LVL33:
+ 115:../SEMS_Sources/Nonce.c ****                                                optiga_counter_oid,
+ 116:../SEMS_Sources/Nonce.c ****                                                OPTIGA_UTIL_ERASE_AND_WRITE,
+ 117:../SEMS_Sources/Nonce.c ****                                                offset,
+ 118:../SEMS_Sources/Nonce.c ****                                                initial_counter_object_data,
+ 119:../SEMS_Sources/Nonce.c ****                                                sizeof(initial_counter_object_data));
+ 120:../SEMS_Sources/Nonce.c **** 
+ 121:../SEMS_Sources/Nonce.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 326              	 .loc 1 121 0
+ 327 0034 30B1     	 cbz r0,.L30
+ 328              	.LVL34:
+ 329              	.L29:
+ 122:../SEMS_Sources/Nonce.c **** 
+ 123:../SEMS_Sources/Nonce.c **** 
+ 124:../SEMS_Sources/Nonce.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 125:../SEMS_Sources/Nonce.c ****     } while (FALSE);
+ 126:../SEMS_Sources/Nonce.c **** 
+ 127:../SEMS_Sources/Nonce.c ****     example_optiga_deinit();
+ 330              	 .loc 1 127 0
+ 331 0036 FFF7FEFF 	 bl example_optiga_deinit
+ 332              	.LVL35:
+ 128:../SEMS_Sources/Nonce.c **** 
+ 129:../SEMS_Sources/Nonce.c ****     if (me)
+ 130:../SEMS_Sources/Nonce.c ****     {
+ 131:../SEMS_Sources/Nonce.c ****     	return_status = optiga_util_destroy(me);
+ 333              	 .loc 1 131 0
+ 334 003a 2846     	 mov r0,r5
+ 335 003c FFF7FEFF 	 bl optiga_util_destroy
+ 336              	.LVL36:
+ 132:../SEMS_Sources/Nonce.c ****     }
+ 133:../SEMS_Sources/Nonce.c **** }
+ 337              	 .loc 1 133 0
+ 338 0040 04B0     	 add sp,sp,#16
+ 339              	.LCFI13:
+ 340              	 .cfi_remember_state
+ 341              	 .cfi_def_cfa_offset 16
+ 342              	 
+ 343 0042 70BD     	 pop {r4,r5,r6,pc}
+ 344              	.LVL37:
+ 345              	.L30:
+ 346              	.LCFI14:
+ 347              	 .cfi_restore_state
+ 121:../SEMS_Sources/Nonce.c **** 
+ 348              	 .loc 1 121 0 discriminator 1
+ 349 0044 2388     	 ldrh r3,[r4]
+ 350 0046 084A     	 ldr r2,.L38+4
+ 351 0048 9BB2     	 uxth r3,r3
+ 352 004a 012B     	 cmp r3,#1
+ 353 004c FAD0     	 beq .L30
+ 121:../SEMS_Sources/Nonce.c **** 
+ 354              	 .loc 1 121 0 is_stmt 0 discriminator 2
+ 355 004e 1388     	 ldrh r3,[r2]
+ 356 0050 9BB2     	 uxth r3,r3
+ 357 0052 002B     	 cmp r3,#0
+ 358 0054 EFD0     	 beq .L29
+ 121:../SEMS_Sources/Nonce.c **** 
+ 359              	 .loc 1 121 0 discriminator 3
+ 360 0056 1388     	 ldrh r3,[r2]
+ 361              	.LVL38:
+ 362 0058 EDE7     	 b .L29
+ 363              	.LVL39:
+ 364              	.L28:
+ 127:../SEMS_Sources/Nonce.c **** 
+ 365              	 .loc 1 127 0 is_stmt 1
+ 366 005a FFF7FEFF 	 bl example_optiga_deinit
+ 367              	.LVL40:
+ 368              	 .loc 1 133 0
+ 369 005e 04B0     	 add sp,sp,#16
+ 370              	.LCFI15:
+ 371              	 .cfi_def_cfa_offset 16
+ 372              	 
+ 373 0060 70BD     	 pop {r4,r5,r6,pc}
+ 374              	.L39:
+ 375 0062 00BF     	 .align 2
+ 376              	.L38:
+ 377 0064 00000000 	 .word .LANCHOR0
+ 378 0068 00000000 	 .word optiga_lib_status
+ 379              	 .cfi_endproc
+ 380              	.LFE456:
+ 382              	 .section .rodata
+ 383              	 .align 2
+ 384              	 .set .LANCHOR0,.+0
+ 385              	.LC0:
+ 386 0000 00       	 .byte 0
+ 387 0001 00       	 .byte 0
+ 388 0002 00       	 .byte 0
+ 389 0003 02       	 .byte 2
+ 390 0004 FF       	 .byte -1
+ 391 0005 FF       	 .byte -1
+ 392 0006 FF       	 .byte -1
+ 393 0007 FF       	 .byte -1
+ 394              	 .text
+ 395              	.Letext0:
+ 396              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 397              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 398              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 399              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+ 400              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+ 401              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+ 402              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_types.h"
+ 403              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_common.h"
+ 404              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/cmd/optiga_cmd.h"
+ 405              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_util.h"
+ 406              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+ 407              	 .file 13 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+ 408              	 .file 14 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+ 409              	 .file 15 "../SEMS_Sources/../SEMS_Headers/Util.h"
+ 410              	 .file 16 "../SEMS_Sources/../SEMS_Headers/../SEMS_Headers/Constructor.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 Nonce.c
+    {standard input}:20     .text.optiga_util_read_nonce:00000000 $t
+    {standard input}:25     .text.optiga_util_read_nonce:00000000 optiga_util_read_nonce
+    {standard input}:129    .text.optiga_util_read_nonce:0000005c $d
+    {standard input}:134    .text.optiga_util_update_count_wrapper:00000000 $t
+    {standard input}:139    .text.optiga_util_update_count_wrapper:00000000 optiga_util_update_count_wrapper
+    {standard input}:257    .text.optiga_util_update_count_wrapper:0000005c $d
+    {standard input}:262    .text.optiga_util_reset_count:00000000 $t
+    {standard input}:267    .text.optiga_util_reset_count:00000000 optiga_util_reset_count
+    {standard input}:377    .text.optiga_util_reset_count:00000064 $d
+    {standard input}:383    .rodata:00000000 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+example_optiga_init
+optiga_util_create_wrapper
+optiga_util_read_data
+example_optiga_deinit
+optiga_util_destroy
+optiga_lib_status
+optiga_util_update_count
+optiga_util_write_data

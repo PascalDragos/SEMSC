@@ -1,0 +1,160 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "Timer.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.start_cooldown_timer,"ax",%progbits
+  20              	 .align 2
+  21              	 .global start_cooldown_timer
+  22              	 .thumb
+  23              	 .thumb_func
+  25              	start_cooldown_timer:
+  26              	.LFB454:
+  27              	 .file 1 "../SEMS_Sources/Timer.c"
+   1:../SEMS_Sources/Timer.c **** #include "../SEMS_Headers/Timer.h"
+   2:../SEMS_Sources/Timer.c **** 
+   3:../SEMS_Sources/Timer.c **** #include "../SEMS_Headers/Util.h"
+   4:../SEMS_Sources/Timer.c **** 
+   5:../SEMS_Sources/Timer.c **** 
+   6:../SEMS_Sources/Timer.c **** extern volatile uint8_t failed_req;
+   7:../SEMS_Sources/Timer.c **** extern volatile uint8_t cooldowned;
+   8:../SEMS_Sources/Timer.c **** 
+   9:../SEMS_Sources/Timer.c **** 
+  10:../SEMS_Sources/Timer.c **** void start_cooldown_timer(void)
+  11:../SEMS_Sources/Timer.c **** {
+  28              	 .loc 1 11 0
+  29              	 .cfi_startproc
+  30              	 
+  31              	 
+  32              	.LVL0:
+  33 0000 10B5     	 push {r4,lr}
+  34              	.LCFI0:
+  35              	 .cfi_def_cfa_offset 8
+  36              	 .cfi_offset 4,-8
+  37              	 .cfi_offset 14,-4
+  12:../SEMS_Sources/Timer.c **** 	uint32_t timeout = TIMEOUT_IN_SECONDS * 100u * 1000u * 1000u ; // us
+  13:../SEMS_Sources/Timer.c **** 	TIMER_SetTimeInterval(&TIMER_Cooldwon, timeout);
+  38              	 .loc 1 13 0
+  39 0002 054C     	 ldr r4,.L3
+  40 0004 0549     	 ldr r1,.L3+4
+  41 0006 2046     	 mov r0,r4
+  42 0008 FFF7FEFF 	 bl TIMER_SetTimeInterval
+  43              	.LVL1:
+  14:../SEMS_Sources/Timer.c **** 	TIMER_Start(&TIMER_Cooldwon);
+  44              	 .loc 1 14 0
+  45 000c 2046     	 mov r0,r4
+  15:../SEMS_Sources/Timer.c **** }
+  46              	 .loc 1 15 0
+  47 000e BDE81040 	 pop {r4,lr}
+  48              	.LCFI1:
+  49              	 .cfi_restore 14
+  50              	 .cfi_restore 4
+  51              	 .cfi_def_cfa_offset 0
+  14:../SEMS_Sources/Timer.c **** 	TIMER_Start(&TIMER_Cooldwon);
+  52              	 .loc 1 14 0
+  53 0012 FFF7FEBF 	 b TIMER_Start
+  54              	.LVL2:
+  55              	.L4:
+  56 0016 00BF     	 .align 2
+  57              	.L3:
+  58 0018 00000000 	 .word TIMER_Cooldwon
+  59 001c 00CA9A3B 	 .word 1000000000
+  60              	 .cfi_endproc
+  61              	.LFE454:
+  63              	 .section .text.CCU80_3_IRQHandler,"ax",%progbits
+  64              	 .align 2
+  65              	 .global CCU80_3_IRQHandler
+  66              	 .thumb
+  67              	 .thumb_func
+  69              	CCU80_3_IRQHandler:
+  70              	.LFB455:
+  16:../SEMS_Sources/Timer.c **** 
+  17:../SEMS_Sources/Timer.c **** 
+  18:../SEMS_Sources/Timer.c **** void TimerInterval_ISR(void)
+  19:../SEMS_Sources/Timer.c **** {
+  71              	 .loc 1 19 0
+  72              	 .cfi_startproc
+  73              	 
+  74              	 
+  75              	 
+  20:../SEMS_Sources/Timer.c **** 	if(failed_req > 0)
+  76              	 .loc 1 20 0
+  77 0000 064B     	 ldr r3,.L12
+  78 0002 1A78     	 ldrb r2,[r3]
+  79 0004 1AB1     	 cbz r2,.L6
+  21:../SEMS_Sources/Timer.c **** 	{
+  22:../SEMS_Sources/Timer.c **** 		failed_req--;
+  80              	 .loc 1 22 0
+  81 0006 1A78     	 ldrb r2,[r3]
+  82 0008 013A     	 subs r2,r2,#1
+  83 000a D2B2     	 uxtb r2,r2
+  84 000c 1A70     	 strb r2,[r3]
+  85              	.L6:
+  23:../SEMS_Sources/Timer.c **** 	}
+  24:../SEMS_Sources/Timer.c **** 
+  25:../SEMS_Sources/Timer.c **** 	if(failed_req == 0)
+  86              	 .loc 1 25 0
+  87 000e 1B78     	 ldrb r3,[r3]
+  88 0010 03F0FF02 	 and r2,r3,#255
+  89 0014 0BB9     	 cbnz r3,.L5
+  26:../SEMS_Sources/Timer.c **** 	{
+  27:../SEMS_Sources/Timer.c **** 		cooldowned = false;
+  90              	 .loc 1 27 0
+  91 0016 024B     	 ldr r3,.L12+4
+  92 0018 1A70     	 strb r2,[r3]
+  93              	.L5:
+  94 001a 7047     	 bx lr
+  95              	.L13:
+  96              	 .align 2
+  97              	.L12:
+  98 001c 00000000 	 .word failed_req
+  99 0020 00000000 	 .word cooldowned
+ 100              	 .cfi_endproc
+ 101              	.LFE455:
+ 103              	 .text
+ 104              	.Letext0:
+ 105              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 106              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 107              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 108              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc4_scu.h"
+ 109              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_ccu4.h"
+ 110              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/GLOBAL_CCU4/global_ccu4.h"
+ 111              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_ccu8.h"
+ 112              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/GLOBAL_CCU8/global_ccu8.h"
+ 113              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/TIMER/timer.h"
+ 114              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+ 115              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+ 116              	 .file 13 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+ 117              	 .file 14 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+ 118              	 .file 15 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+ 119              	 .file 16 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/TIMER/timer_extern.h"
+ 120              	 .file 17 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 Timer.c
+    {standard input}:20     .text.start_cooldown_timer:00000000 $t
+    {standard input}:25     .text.start_cooldown_timer:00000000 start_cooldown_timer
+    {standard input}:58     .text.start_cooldown_timer:00000018 $d
+    {standard input}:64     .text.CCU80_3_IRQHandler:00000000 $t
+    {standard input}:69     .text.CCU80_3_IRQHandler:00000000 CCU80_3_IRQHandler
+    {standard input}:98     .text.CCU80_3_IRQHandler:0000001c $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+TIMER_SetTimeInterval
+TIMER_Start
+TIMER_Cooldwon
+failed_req
+cooldowned

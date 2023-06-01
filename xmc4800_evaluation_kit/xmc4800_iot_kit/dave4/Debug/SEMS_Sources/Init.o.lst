@@ -1,0 +1,61 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "Init.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.init_SEMS,"ax",%progbits
+  20              	 .align 2
+  21              	 .global init_SEMS
+  22              	 .thumb
+  23              	 .thumb_func
+  25              	init_SEMS:
+  26              	.LFB454:
+  27              	 .file 1 "../SEMS_Sources/Init.c"
+   1:../SEMS_Sources/Init.c **** #include "../SEMS_Headers/Init.h"
+   2:../SEMS_Sources/Init.c **** #include "../SEMS_Headers/Constructor.h"
+   3:../SEMS_Sources/Init.c **** 
+   4:../SEMS_Sources/Init.c **** 
+   5:../SEMS_Sources/Init.c **** #include "../SEMS_Headers/Util.h"
+   6:../SEMS_Sources/Init.c **** 
+   7:../SEMS_Sources/Init.c **** 
+   8:../SEMS_Sources/Init.c **** void init_SEMS(void)
+   9:../SEMS_Sources/Init.c **** {
+  28              	 .loc 1 9 0
+  29              	 .cfi_startproc
+  30              	 
+  31              	 
+  32              	 
+  33 0000 7047     	 bx lr
+  34              	 .cfi_endproc
+  35              	.LFE454:
+  37 0002 00BF     	 .text
+  38              	.Letext0:
+  39              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+  40              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+  41              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+  42              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+  43              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+  44              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+  45              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+  46              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+  47              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 Init.c
+    {standard input}:20     .text.init_SEMS:00000000 $t
+    {standard input}:25     .text.init_SEMS:00000000 init_SEMS
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

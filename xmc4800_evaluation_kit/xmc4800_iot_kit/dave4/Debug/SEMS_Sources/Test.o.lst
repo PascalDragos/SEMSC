@@ -1,0 +1,172 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "Test.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.testing,"ax",%progbits
+  20              	 .align 2
+  21              	 .global testing
+  22              	 .thumb
+  23              	 .thumb_func
+  25              	testing:
+  26              	.LFB454:
+  27              	 .file 1 "../SEMS_Sources/Test.c"
+   1:../SEMS_Sources/Test.c **** #include <DAVE.h>
+   2:../SEMS_Sources/Test.c **** #include "optiga/optiga_crypt.h"
+   3:../SEMS_Sources/Test.c **** #include "optiga/optiga_util.h"
+   4:../SEMS_Sources/Test.c **** #include "optiga/common/optiga_lib_logger.h"
+   5:../SEMS_Sources/Test.c **** #include "optiga/pal/pal_os_event.h"
+   6:../SEMS_Sources/Test.c **** #include "optiga/pal/pal.h"
+   7:../SEMS_Sources/Test.c **** #include "optiga/pal/pal_os_timer.h"
+   8:../SEMS_Sources/Test.c **** #include "optiga_example.h"
+   9:../SEMS_Sources/Test.c **** #include "optiga/pal/pal_logger.h"
+  10:../SEMS_Sources/Test.c **** 
+  11:../SEMS_Sources/Test.c **** #include "optiga_example.h"
+  12:../SEMS_Sources/Test.c **** #include "optiga/optiga_util.h"
+  13:../SEMS_Sources/Test.c **** #include "../SEMS_Headers/Timer.h"
+  14:../SEMS_Sources/Test.c **** #include "../SEMS_Headers/Random.h"
+  15:../SEMS_Sources/Test.c **** #include "../SEMS_Headers/RSA.h"
+  16:../SEMS_Sources/Test.c **** #include "../SEMS_Headers/SymEncrypt.h"
+  17:../SEMS_Sources/Test.c **** #include "../SEMS_Headers/Unlock.h"
+  18:../SEMS_Sources/Test.c **** #include "../SEMS_Headers/Com.h"
+  19:../SEMS_Sources/Test.c **** #include "../SEMS_Headers/Hash.h"
+  20:../SEMS_Sources/Test.c **** #include "../SEMS_Headers/Patcher.h"
+  21:../SEMS_Sources/Test.c **** #include "../SEMS_Headers/Config.h"
+  22:../SEMS_Sources/Test.c **** #include "../SEMS_Headers/Init.h"
+  23:../SEMS_Sources/Test.c **** #include "../SEMS_Headers/Test.h"
+  24:../SEMS_Sources/Test.c **** 
+  25:../SEMS_Sources/Test.c **** #include "../SEMS_Headers/Util.h"
+  26:../SEMS_Sources/Test.c **** 
+  27:../SEMS_Sources/Test.c **** 
+  28:../SEMS_Sources/Test.c **** void testing(void)
+  29:../SEMS_Sources/Test.c **** {
+  28              	 .loc 1 29 0
+  29              	 .cfi_startproc
+  30              	 
+  31              	 
+  32              	.LVL0:
+  33 0000 2DE9F043 	 push {r4,r5,r6,r7,r8,r9,lr}
+  34              	.LCFI0:
+  35              	 .cfi_def_cfa_offset 28
+  36              	 .cfi_offset 4,-28
+  37              	 .cfi_offset 5,-24
+  38              	 .cfi_offset 6,-20
+  39              	 .cfi_offset 7,-16
+  40              	 .cfi_offset 8,-12
+  41              	 .cfi_offset 9,-8
+  42              	 .cfi_offset 14,-4
+  30:../SEMS_Sources/Test.c **** 	uint8_t i = 0;
+  31:../SEMS_Sources/Test.c **** 	uint8_t data_to_hash[32] = {0};
+  32:../SEMS_Sources/Test.c **** 	uint8_t digest[32] = {0};
+  33:../SEMS_Sources/Test.c **** 	uint8_t res;
+  34:../SEMS_Sources/Test.c **** 	for(i = 0; i < sizeof(data_to_hash); ++i)
+  35:../SEMS_Sources/Test.c **** 	{
+  36:../SEMS_Sources/Test.c **** 		data_to_hash[i] = i;
+  37:../SEMS_Sources/Test.c **** 	}
+  38:../SEMS_Sources/Test.c **** 	optiga_crypt_hash_data_wrapper(data_to_hash, sizeof(data_to_hash), digest);
+  43              	 .loc 1 38 0
+  44 0004 2021     	 movs r1,#32
+  29:../SEMS_Sources/Test.c **** 	uint8_t i = 0;
+  45              	 .loc 1 29 0
+  46 0006 91B0     	 sub sp,sp,#68
+  47              	.LCFI1:
+  48              	 .cfi_def_cfa_offset 96
+  31:../SEMS_Sources/Test.c **** 	uint8_t digest[32] = {0};
+  49              	 .loc 1 31 0
+  50 0008 0023     	 movs r3,#0
+  36:../SEMS_Sources/Test.c **** 	}
+  51              	 .loc 1 36 0
+  52 000a DFF860C0 	 ldr ip,.L3+16
+  53 000e DFF860E0 	 ldr lr,.L3+20
+  54 0012 DFF86090 	 ldr r9,.L3+24
+  55 0016 DFF86080 	 ldr r8,.L3+28
+  56 001a 104F     	 ldr r7,.L3
+  57 001c 104E     	 ldr r6,.L3+4
+  58 001e 114D     	 ldr r5,.L3+8
+  59 0020 114C     	 ldr r4,.L3+12
+  32:../SEMS_Sources/Test.c **** 	uint8_t res;
+  60              	 .loc 1 32 0
+  61 0022 0893     	 str r3,[sp,#32]
+  62              	 .loc 1 38 0
+  63 0024 6846     	 mov r0,sp
+  64 0026 0DEB0102 	 add r2,sp,r1
+  32:../SEMS_Sources/Test.c **** 	uint8_t res;
+  65              	 .loc 1 32 0
+  66 002a 0993     	 str r3,[sp,#36]
+  67 002c 0A93     	 str r3,[sp,#40]
+  68 002e 0B93     	 str r3,[sp,#44]
+  69 0030 0C93     	 str r3,[sp,#48]
+  70 0032 0D93     	 str r3,[sp,#52]
+  71 0034 0E93     	 str r3,[sp,#56]
+  72 0036 0F93     	 str r3,[sp,#60]
+  73              	.LVL1:
+  36:../SEMS_Sources/Test.c **** 	}
+  74              	 .loc 1 36 0
+  75 0038 CDF80090 	 str r9,[sp]
+  76 003c CDF80480 	 str r8,[sp,#4]
+  77 0040 CDF808C0 	 str ip,[sp,#8]
+  78 0044 CDF80CE0 	 str lr,[sp,#12]
+  79 0048 0497     	 str r7,[sp,#16]
+  80 004a 0596     	 str r6,[sp,#20]
+  81 004c 0695     	 str r5,[sp,#24]
+  82 004e 0794     	 str r4,[sp,#28]
+  83              	 .loc 1 38 0
+  84 0050 FFF7FEFF 	 bl optiga_crypt_hash_data_wrapper
+  85              	.LVL2:
+  39:../SEMS_Sources/Test.c **** 	res = digest[1];
+  40:../SEMS_Sources/Test.c **** 	digest[1] = res;
+  41:../SEMS_Sources/Test.c **** }
+  86              	 .loc 1 41 0
+  87 0054 11B0     	 add sp,sp,#68
+  88              	.LCFI2:
+  89              	 .cfi_def_cfa_offset 28
+  90              	 
+  91 0056 BDE8F083 	 pop {r4,r5,r6,r7,r8,r9,pc}
+  92              	.LVL3:
+  93              	.L4:
+  94 005a 00BF     	 .align 2
+  95              	.L3:
+  96 005c 10111213 	 .word 319951120
+  97 0060 14151617 	 .word 387323156
+  98 0064 18191A1B 	 .word 454695192
+  99 0068 1C1D1E1F 	 .word 522067228
+ 100 006c 08090A0B 	 .word 185207048
+ 101 0070 0C0D0E0F 	 .word 252579084
+ 102 0074 00010203 	 .word 50462976
+ 103 0078 04050607 	 .word 117835012
+ 104              	 .cfi_endproc
+ 105              	.LFE454:
+ 107              	 .text
+ 108              	.Letext0:
+ 109              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 110              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 111              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 112              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+ 113              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+ 114              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+ 115              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+ 116              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+ 117              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+ 118              	 .file 11 "../SEMS_Sources/../SEMS_Headers/Hash.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 Test.c
+    {standard input}:20     .text.testing:00000000 $t
+    {standard input}:25     .text.testing:00000000 testing
+    {standard input}:96     .text.testing:0000005c $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+optiga_crypt_hash_data_wrapper
