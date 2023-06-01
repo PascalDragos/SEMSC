@@ -101,7 +101,8 @@ SEMS_Sources/Unlock.o SEMS_Sources/Unlock.d SEMS_Sources/Unlock.o: \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD_VCOM/usbd_vcom_extern.h \
  ../SEMS_Sources/../SEMS_Headers/SymEncrypt.h \
  ../SEMS_Sources/../SEMS_Headers/RSA.h \
- ../SEMS_Sources/../SEMS_Headers/Random.h
+ ../SEMS_Sources/../SEMS_Headers/Random.h \
+ ../SEMS_Sources/../SEMS_Headers/Skey.h
 
 D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal_logger.h:
 
@@ -306,3 +307,5 @@ D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Gene
 ../SEMS_Sources/../SEMS_Headers/RSA.h:
 
 ../SEMS_Sources/../SEMS_Headers/Random.h:
+
+../SEMS_Sources/../SEMS_Headers/Skey.h:

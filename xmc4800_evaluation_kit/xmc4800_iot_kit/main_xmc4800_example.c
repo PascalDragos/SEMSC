@@ -53,14 +53,6 @@ extern void optiga_shell_begin(void);
 extern pal_logger_t logger_console;
 
 
-/**
- * This function is the entry point of sample.
- *
- * \retval
- *  0 on success
- *  1 on failure
- */
-
 int main(void)
 {
     DAVE_STATUS_t status;
@@ -80,8 +72,6 @@ int main(void)
     }
 
 
-
-
     do
     {
         if(PAL_STATUS_SUCCESS != pal_logger_init(&logger_console))
@@ -90,9 +80,6 @@ int main(void)
         }
 
         pal_os_timer_delay_in_milliseconds(100);
-
-
-//        optiga_shell_wait_for_user();
         my_optiga_shell_begin();
 
     }while (FALSE);
@@ -101,8 +88,3 @@ int main(void)
 }
 
 
-
-
-/**
-* @}
-*/

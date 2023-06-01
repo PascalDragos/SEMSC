@@ -79,17 +79,9 @@
   53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** extern pal_logger_t logger_console;
   54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
   55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
-  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** /**
-  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****  * This function is the entry point of sample.
-  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****  *
-  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****  * \retval
-  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****  *  0 on success
-  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****  *  1 on failure
-  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****  */
-  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
-  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** int main(void)
-  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** {
-  28              	 .loc 1 65 0
+  56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** int main(void)
+  57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** {
+  28              	 .loc 1 57 0
   29              	 .cfi_startproc
   30              	 
   31              	 
@@ -99,72 +91,67 @@
   35              	 .cfi_def_cfa_offset 8
   36              	 .cfi_offset 3,-8
   37              	 .cfi_offset 14,-4
-  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     DAVE_STATUS_t status;
-  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     uint8_t return_value = 0;
-  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
-  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     // Initialization of DAVE Apps
-  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     status = DAVE_Init(); /* Initialization of DAVE APPs  */
-  38              	 .loc 1 70 0
+  58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     DAVE_STATUS_t status;
+  59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     uint8_t return_value = 0;
+  60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
+  61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     // Initialization of DAVE Apps
+  62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     status = DAVE_Init(); /* Initialization of DAVE APPs  */
+  38              	 .loc 1 62 0
   39 0002 FFF7FEFF 	 bl DAVE_Init
   40              	.LVL1:
-  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     if (status == DAVE_STATUS_FAILURE)
-  41              	 .loc 1 71 0
+  63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     if (status == DAVE_STATUS_FAILURE)
+  41              	 .loc 1 63 0
   42 0006 0128     	 cmp r0,#1
   43 0008 05D0     	 beq .L3
-  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     {
-  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****         /* Placeholder for error handler code. The while loop below can be replaced with an user er
-  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****         XMC_DEBUG("DAVE APPs initialization failed\n");
-  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
-  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****         while (1U)
-  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****         {
-  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
-  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****         }
-  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     }
-  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
-  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
-  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
-  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
-  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     do
-  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     {
-  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****         if(PAL_STATUS_SUCCESS != pal_logger_init(&logger_console))
-  44              	 .loc 1 87 0
+  64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     {
+  65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****         /* Placeholder for error handler code. The while loop below can be replaced with an user er
+  66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****         XMC_DEBUG("DAVE APPs initialization failed\n");
+  67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
+  68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****         while (1U)
+  69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****         {
+  70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****         }
+  72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     }
+  73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
+  74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
+  75:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     do
+  76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     {
+  77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****         if(PAL_STATUS_SUCCESS != pal_logger_init(&logger_console))
+  44              	 .loc 1 77 0
   45 000a 0648     	 ldr r0,.L8
   46              	.LVL2:
   47 000c FFF7FEFF 	 bl pal_logger_init
   48              	.LVL3:
   49 0010 10B1     	 cbz r0,.L7
   50              	.L4:
-  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****         {
-  89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****             break;
-  90:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****         }
-  91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
-  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****         pal_os_timer_delay_in_milliseconds(100);
-  93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
-  94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
-  95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** //        optiga_shell_wait_for_user();
-  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****         my_optiga_shell_begin();
-  97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
-  98:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     }while (FALSE);
-  99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
- 100:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     return return_value;
- 101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** }
-  51              	 .loc 1 101 0
+  78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****         {
+  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****             break;
+  80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****         }
+  81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****         pal_os_timer_delay_in_milliseconds(100);
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****         my_optiga_shell_begin();
+  84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
+  85:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     }while (FALSE);
+  86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
+  87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     return return_value;
+  88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** }
+  51              	 .loc 1 88 0
   52 0012 0020     	 movs r0,#0
   53 0014 08BD     	 pop {r3,pc}
   54              	.LVL4:
   55              	.L3:
-  79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     }
-  56              	 .loc 1 79 0 discriminator 1
+  71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****     }
+  56              	 .loc 1 71 0 discriminator 1
   57 0016 FEE7     	 b .L3
   58              	.LVL5:
   59              	.L7:
-  92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
-  60              	 .loc 1 92 0
+  82:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c ****         my_optiga_shell_begin();
+  60              	 .loc 1 82 0
   61 0018 6420     	 movs r0,#100
   62 001a FFF7FEFF 	 bl pal_os_timer_delay_in_milliseconds
   63              	.LVL6:
-  96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
-  64              	 .loc 1 96 0
+  83:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
+  64              	 .loc 1 83 0
   65 001e FFF7FEFF 	 bl my_optiga_shell_begin
   66              	.LVL7:
   67 0022 F6E7     	 b .L4

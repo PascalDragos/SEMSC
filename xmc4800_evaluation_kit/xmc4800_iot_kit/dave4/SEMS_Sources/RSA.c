@@ -1,15 +1,8 @@
-#include "optiga/optiga_crypt.h"
-#include "optiga_example.h"
 #include "../SEMS_Headers/RSA.h"
 #include "../SEMS_Headers/Hash.h"
-#include <DAVE.h>
+#include "../SEMS_Headers/Constructor.h"
 
-#ifdef OPTIGA_CRYPT_RSA_ENCRYPT_ENABLED
-
-#ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
-extern void example_optiga_init(void);
-extern void example_optiga_deinit(void);
-#endif
+#include "../SEMS_Headers/Util.h"
 
 
 
@@ -20,19 +13,6 @@ void example_util_encode_rsa_public_key_in_bit_string_format(const uint8_t * n_b
                                                         uint8_t * pub_key_buffer,
                                                         uint16_t * pub_key_length);
 
-/**
- * Callback when optiga_crypt_xxxx operation is completed asynchronously
- */
-static volatile optiga_lib_status_t optiga_lib_status;
-//lint --e{818} suppress "argument "context" is not used in the sample provided"
-static void optiga_crypt_callback(void * context, optiga_lib_status_t return_status)
-{
-    optiga_lib_status = return_status;
-    if (NULL != context)
-    {
-        // callback to upper layer here
-    }
-}
 
 // RSA 1024 public key
 static const uint8_t rsa_public_key_modulus [] =
@@ -58,57 +38,38 @@ static const uint8_t rsa_public_key_exponent [] =
 static uint8_t rsa_public_key[150] = {0x00};
 static uint16_t rsa_public_key_length = 0;
 
-/**
- * The below example demonstrates RSA encryption
- * #optiga_crypt_rsa_encrypt_message where message is provided by user
- *
- */
+
 void optiga_crypt_rsa_encrypt_message_wrapper(uint8_t message[], uint8_t message_length, uint8_t encrypted_message[], uint16_t* encrypted_message_length)
 {
+    optiga_crypt_t * me = NULL;
     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+
     optiga_rsa_encryption_scheme_t encryption_scheme;
     public_key_from_host_t public_key_from_host;
 
-    optiga_crypt_t * me = NULL;
+    example_util_encode_rsa_public_key_in_bit_string_format(rsa_public_key_modulus,
+                                                               sizeof(rsa_public_key_modulus),
+                                                               rsa_public_key_exponent,
+                                                               sizeof(rsa_public_key_exponent),
+                                                               rsa_public_key,
+                                                               &rsa_public_key_length);
+
+	encryption_scheme = OPTIGA_RSAES_PKCS1_V15;
+	public_key_from_host.public_key = rsa_public_key;
+	public_key_from_host.length = rsa_public_key_length;
+	public_key_from_host.key_type = (uint8_t)OPTIGA_RSA_KEY_1024_BIT_EXPONENTIAL;
+	optiga_lib_status = OPTIGA_LIB_BUSY;
+
 
     do
     {
-
-#ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
-        /**
-         * Open the application on OPTIGA which is a precondition to perform any other operations
-         * using optiga_util_open_application
-         */
         example_optiga_init();
-#endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
 
-        /**
-         * 1. Create OPTIGA Crypt Instance
-         *
-         */
-        me = optiga_crypt_create(0, optiga_crypt_callback, NULL);
+        me = optiga_crypt_create_wrapper();
         if (NULL == me)
         {
             break;
         }
-
-        /**
-         * 2. RSA encryption
-         */
-        // Form rsa public key in bit string format
-        example_util_encode_rsa_public_key_in_bit_string_format(rsa_public_key_modulus,
-                                                           sizeof(rsa_public_key_modulus),
-                                                           rsa_public_key_exponent,
-                                                           sizeof(rsa_public_key_exponent),
-                                                           rsa_public_key,
-                                                           &rsa_public_key_length);
-
-        encryption_scheme = OPTIGA_RSAES_PKCS1_V15;
-        public_key_from_host.public_key = rsa_public_key;
-        public_key_from_host.length = rsa_public_key_length;
-        public_key_from_host.key_type = (uint8_t)OPTIGA_RSA_KEY_1024_BIT_EXPONENTIAL;
-        optiga_lib_status = OPTIGA_LIB_BUSY;
-
 
         return_status = optiga_crypt_rsa_encrypt_message(me,
                                                             encryption_scheme,
@@ -123,49 +84,20 @@ void optiga_crypt_rsa_encrypt_message_wrapper(uint8_t message[], uint8_t message
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
 
-
         return_status = OPTIGA_LIB_SUCCESS;
 
     } while (FALSE);
-    OPTIGA_EXAMPLE_LOG_STATUS(return_status);
 
-#ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
-    /**
-     * Close the application on OPTIGA after all the operations are executed
-     * using optiga_util_close_application
-     */
     example_optiga_deinit();
-#endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
+
 
     if (me)
     {
-        //Destroy the instance after the completion of usecase if not required.
         return_status = optiga_crypt_destroy(me);
     }
-
 }
-#endif  //OPTIGA_CRYPT_RSA_ENCRYPT_ENABLED
-
-// Hash
-// Encrypt Hash with PV
 
 
-uint8_t optiga_crypt_rsa_verify_message_wrapper(uint8_t message[], uint8_t message_length, uint8_t signature[], uint16_t signature_length)
-{
-	uint8_t hashed_digest[32];
-	uint8_t decrypted_digest[32];
-	uint16_t decrypted_digest_length;
-	// Get digest
-	optiga_crypt_hash_data_wrapper(message, message_length, hashed_digest);
-	// Decrypt digest with public key => received digest
-	optiga_crypt_rsa_encrypt_message_wrapper(signature, signature_length, decrypted_digest, &decrypted_digest_length);
-	// compare digest
-	if (hashed_digest[0] == decrypted_digest[0])
-	{
-		return true;
-	}
-	return false;
-}
 
 
 uint8_t optiga_crypt_rsa_verify_wrapper(uint8_t message[], uint8_t message_length, uint8_t signature[], uint16_t signature_length)
@@ -178,7 +110,7 @@ uint8_t optiga_crypt_rsa_verify_wrapper(uint8_t message[], uint8_t message_lengt
 
     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
     optiga_crypt_t * me = NULL;
-    uint32_t time_taken = 0;
+
 
     // Form rsa public key in bit string format
     example_util_encode_rsa_public_key_in_bit_string_format(rsa_public_key_modulus,
@@ -198,26 +130,14 @@ uint8_t optiga_crypt_rsa_verify_wrapper(uint8_t message[], uint8_t message_lengt
     do
     {
 
-#ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
-        /**
-         * Open the application on OPTIGA which is a precondition to perform any other operations
-         * using optiga_util_open_application
-         */
         example_optiga_init();
-#endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
 
-        /**
-         * 1. Create OPTIGA Crypt Instance
-         */
-        me = optiga_crypt_create(0, optiga_crypt_callback, NULL);
+        me = optiga_crypt_create_wrapper();
         if (NULL == me)
         {
             break;
         }
 
-        /**
-         * 2. Verify RSA signature using public key from host
-         */
         optiga_lib_status = OPTIGA_LIB_BUSY;
 
 
@@ -237,29 +157,16 @@ uint8_t optiga_crypt_rsa_verify_wrapper(uint8_t message[], uint8_t message_lengt
         // 082c -> failed
         succes = !return_status;
 
-
-        READ_PERFORMANCE_MEASUREMENT(time_taken);
-
         return_status = OPTIGA_LIB_SUCCESS;
     } while (FALSE);
-    OPTIGA_EXAMPLE_LOG_STATUS(return_status);
 
-#ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
-    /**
-     * Close the application on OPTIGA after all the operations are executed
-     * using optiga_util_close_application
-     */
     example_optiga_deinit();
-#endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
-    OPTIGA_EXAMPLE_LOG_PERFORMANCE_VALUE(time_taken, return_status);
 
     if (me)
     {
-        //Destroy the instance after the completion of usecase if not required.
-        return_status = optiga_crypt_destroy(me);
-
-
+         return_status = optiga_crypt_destroy(me);
     }
+
     return succes;
 }
 

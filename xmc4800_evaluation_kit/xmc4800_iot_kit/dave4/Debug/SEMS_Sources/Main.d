@@ -109,14 +109,18 @@ SEMS_Sources/Main.o SEMS_Sources/Main.d SEMS_Sources/Main.o: \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal.h \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/include/optiga_example.h \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal_logger.h \
+ ../SEMS_Sources/../SEMS_Headers/Timer.h \
+ D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/Dave.h \
  ../SEMS_Sources/../SEMS_Headers/Random.h \
  ../SEMS_Sources/../SEMS_Headers/RSA.h \
  ../SEMS_Sources/../SEMS_Headers/SymEncrypt.h \
  ../SEMS_Sources/../SEMS_Headers/Unlock.h \
- D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/Dave.h \
  ../SEMS_Sources/../SEMS_Headers/Com.h \
  ../SEMS_Sources/../SEMS_Headers/Hash.h \
- ../SEMS_Sources/../SEMS_Headers/Patcher.h
+ ../SEMS_Sources/../SEMS_Headers/Patcher.h \
+ ../SEMS_Sources/../SEMS_Headers/Config.h \
+ ../SEMS_Sources/../SEMS_Headers/Init.h \
+ ../SEMS_Sources/../SEMS_Headers/Test.h
 
 D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/DAVE.h:
 
@@ -336,6 +340,10 @@ D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/i
 
 D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal_logger.h:
 
+../SEMS_Sources/../SEMS_Headers/Timer.h:
+
+D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/Dave.h:
+
 ../SEMS_Sources/../SEMS_Headers/Random.h:
 
 ../SEMS_Sources/../SEMS_Headers/RSA.h:
@@ -344,10 +352,14 @@ D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/op
 
 ../SEMS_Sources/../SEMS_Headers/Unlock.h:
 
-D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/Dave.h:
-
 ../SEMS_Sources/../SEMS_Headers/Com.h:
 
 ../SEMS_Sources/../SEMS_Headers/Hash.h:
 
 ../SEMS_Sources/../SEMS_Headers/Patcher.h:
+
+../SEMS_Sources/../SEMS_Headers/Config.h:
+
+../SEMS_Sources/../SEMS_Headers/Init.h:
+
+../SEMS_Sources/../SEMS_Headers/Test.h:

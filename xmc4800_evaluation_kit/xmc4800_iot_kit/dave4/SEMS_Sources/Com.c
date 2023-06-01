@@ -1,19 +1,17 @@
-#include "optiga/optiga_crypt.h"
-#include "optiga/optiga_util.h"
-#include "optiga/common/optiga_lib_logger.h"
-#include "optiga/pal/pal_os_event.h"
-#include "optiga/pal/pal.h"
-#include "optiga/pal/pal_os_timer.h"
-#include "optiga_example.h"
-#include "optiga/pal/pal_logger.h"
-
 #include "../SEMS_Headers/Com.h"
+
+#include "../SEMS_Headers/Util.h"
+
 #include "../SEMS_Headers/SymEncrypt.h"
 #include "../SEMS_Headers/RSA.h"
 #include "../SEMS_Headers/Random.h"
 #include "../SEMS_Headers/Patcher.h"
+#include "../SEMS_Headers/Nonce.h"
+#include "../SEMS_Headers/Skey.h"
+
 
 extern pal_logger_t logger_console;
+
 
 extern void example_optiga_util_update_count(void);
 

@@ -5,6 +5,7 @@
 #include "../SEMS_Headers/SymEncrypt.h"
 #include "../SEMS_Headers/RSA.h"
 #include "../SEMS_Headers/Random.h"
+#include "../SEMS_Headers/Skey.h"
 
 extern pal_logger_t logger_console;
 uint32_t user_token = 0;

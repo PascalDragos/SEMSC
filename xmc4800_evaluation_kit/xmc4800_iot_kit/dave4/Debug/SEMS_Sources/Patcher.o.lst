@@ -16,1806 +16,728 @@
   16              	 .text
   17              	.Ltext0:
   18              	 .cfi_sections .debug_frame
-  19              	 .section .text.optiga_util_callback,"ax",%progbits
+  19              	 .section .text.read_request,"ax",%progbits
   20              	 .align 2
-  21              	 .thumb
-  22              	 .thumb_func
-  24              	optiga_util_callback:
-  25              	.LFB448:
-  26              	 .file 1 "../SEMS_Sources/Patcher.c"
-   1:../SEMS_Sources/Patcher.c **** #include "Dave.h"
-   2:../SEMS_Sources/Patcher.c **** #include "optiga_example.h"
-   3:../SEMS_Sources/Patcher.c **** #include "optiga/optiga_util.h"
-   4:../SEMS_Sources/Patcher.c **** #include "optiga/pal/pal_logger.h"
-   5:../SEMS_Sources/Patcher.c **** #include "../SEMS_Headers/Patcher.h"
-   6:../SEMS_Sources/Patcher.c **** #include "../SEMS_Headers/SymEncrypt.h"
-   7:../SEMS_Sources/Patcher.c **** #include "../SEMS_Headers/Hash.h"
+  21              	 .global read_request
+  22              	 .thumb
+  23              	 .thumb_func
+  25              	read_request:
+  26              	.LFB454:
+  27              	 .file 1 "../SEMS_Sources/Patcher.c"
+   1:../SEMS_Sources/Patcher.c **** #include <SEMS_Headers/Skey.h>
+   2:../SEMS_Sources/Patcher.c **** #include "../SEMS_Headers/Patcher.h"
+   3:../SEMS_Sources/Patcher.c **** #include "../SEMS_Headers/Util.h"
+   4:../SEMS_Sources/Patcher.c **** 
+   5:../SEMS_Sources/Patcher.c **** #include "../SEMS_Headers/SymEncrypt.h"
+   6:../SEMS_Sources/Patcher.c **** #include "../SEMS_Headers/Hash.h"
+   7:../SEMS_Sources/Patcher.c **** #include "../SEMS_Headers/Nonce.h"
    8:../SEMS_Sources/Patcher.c **** 
-   9:../SEMS_Sources/Patcher.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
-  10:../SEMS_Sources/Patcher.c **** extern void example_optiga_init(void);
-  11:../SEMS_Sources/Patcher.c **** extern void example_optiga_deinit(void);
-  12:../SEMS_Sources/Patcher.c **** #endif
+   9:../SEMS_Sources/Patcher.c **** 
+  10:../SEMS_Sources/Patcher.c **** 
+  11:../SEMS_Sources/Patcher.c **** extern pal_logger_t logger_console;
+  12:../SEMS_Sources/Patcher.c **** extern uint32_t user_token;
   13:../SEMS_Sources/Patcher.c **** 
   14:../SEMS_Sources/Patcher.c **** 
-  15:../SEMS_Sources/Patcher.c **** /**
-  16:../SEMS_Sources/Patcher.c ****  * Callback when optiga_util_xxxx operation is completed asynchronously
-  17:../SEMS_Sources/Patcher.c ****  */
-  18:../SEMS_Sources/Patcher.c **** static volatile optiga_lib_status_t optiga_lib_status;
-  19:../SEMS_Sources/Patcher.c **** //lint --e{818} suppress "argument "context" is not used in the sample provided"
-  20:../SEMS_Sources/Patcher.c **** static void optiga_util_callback(void * context, optiga_lib_status_t return_status)
-  21:../SEMS_Sources/Patcher.c **** {
-  27              	 .loc 1 21 0
-  28              	 .cfi_startproc
-  29              	 
+  15:../SEMS_Sources/Patcher.c **** uint8_t read_request(uint8_t command[], uint8_t is_secure_unlock, uint8_t is_secure_com)
+  16:../SEMS_Sources/Patcher.c **** {
+  28              	 .loc 1 16 0
+  29              	 .cfi_startproc
   30              	 
   31              	 
   32              	.LVL0:
-  22:../SEMS_Sources/Patcher.c ****     optiga_lib_status = return_status;
-  33              	 .loc 1 22 0
-  34 0000 014B     	 ldr r3,.L2
-  35 0002 1980     	 strh r1,[r3]
-  36 0004 7047     	 bx lr
-  37              	.L3:
-  38 0006 00BF     	 .align 2
-  39              	.L2:
-  40 0008 00000000 	 .word .LANCHOR0
-  41              	 .cfi_endproc
-  42              	.LFE448:
-  44              	 .section .text.read_request,"ax",%progbits
-  45              	 .align 2
-  46              	 .global read_request
-  47              	 .thumb
-  48              	 .thumb_func
-  50              	read_request:
-  51              	.LFB449:
-  23:../SEMS_Sources/Patcher.c ****     if (NULL != context)
-  24:../SEMS_Sources/Patcher.c ****     {
-  25:../SEMS_Sources/Patcher.c ****         // callback to upper layer here
-  26:../SEMS_Sources/Patcher.c ****     }
-  27:../SEMS_Sources/Patcher.c **** }
-  28:../SEMS_Sources/Patcher.c **** 
-  29:../SEMS_Sources/Patcher.c **** 
-  30:../SEMS_Sources/Patcher.c **** extern pal_logger_t logger_console;
-  31:../SEMS_Sources/Patcher.c **** extern uint32_t user_token;
-  32:../SEMS_Sources/Patcher.c **** 
-  33:../SEMS_Sources/Patcher.c **** 
-  34:../SEMS_Sources/Patcher.c **** uint8_t read_request(uint8_t command[], uint8_t is_secure_unlock, uint8_t is_secure_com)
-  35:../SEMS_Sources/Patcher.c **** {
-  52              	 .loc 1 35 0
-  53              	 .cfi_startproc
-  54              	 
-  55              	 
-  56              	.LVL1:
-  57 0000 2DE9F041 	 push {r4,r5,r6,r7,r8,lr}
-  58              	.LCFI0:
-  59              	 .cfi_def_cfa_offset 24
-  60              	 .cfi_offset 4,-24
-  61              	 .cfi_offset 5,-20
-  62              	 .cfi_offset 6,-16
-  63              	 .cfi_offset 7,-12
-  64              	 .cfi_offset 8,-8
-  65              	 .cfi_offset 14,-4
-  36:../SEMS_Sources/Patcher.c **** 	uint8_t is_invalid_req = false;
-  37:../SEMS_Sources/Patcher.c **** 
-  38:../SEMS_Sources/Patcher.c **** 
-  39:../SEMS_Sources/Patcher.c **** 	if (0 == pal_logger_read(&logger_console, command, 32))
-  66              	 .loc 1 39 0
-  67 0004 0146     	 mov r1,r0
-  68              	.LVL2:
-  35:../SEMS_Sources/Patcher.c **** 	uint8_t is_invalid_req = false;
+  33 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+  34              	.LCFI0:
+  35              	 .cfi_def_cfa_offset 20
+  36              	 .cfi_offset 4,-20
+  37              	 .cfi_offset 5,-16
+  38              	 .cfi_offset 6,-12
+  39              	 .cfi_offset 7,-8
+  40              	 .cfi_offset 14,-4
+  17:../SEMS_Sources/Patcher.c **** 	uint8_t is_invalid_req = false;
+  18:../SEMS_Sources/Patcher.c **** 
+  19:../SEMS_Sources/Patcher.c **** 
+  20:../SEMS_Sources/Patcher.c **** 	if (0 == pal_logger_read(&logger_console, command, 32))
+  41              	 .loc 1 20 0
+  42 0002 0146     	 mov r1,r0
+  43              	.LVL1:
+  16:../SEMS_Sources/Patcher.c **** 	uint8_t is_invalid_req = false;
+  44              	 .loc 1 16 0
+  45 0004 93B0     	 sub sp,sp,#76
+  46              	.LCFI1:
+  47              	 .cfi_def_cfa_offset 96
+  16:../SEMS_Sources/Patcher.c **** 	uint8_t is_invalid_req = false;
+  48              	 .loc 1 16 0
+  49 0006 0546     	 mov r5,r0
+  50 0008 1446     	 mov r4,r2
+  51              	 .loc 1 20 0
+  52 000a 3D48     	 ldr r0,.L17
+  53              	.LVL2:
+  54 000c 2022     	 movs r2,#32
+  55              	.LVL3:
+  56 000e FFF7FEFF 	 bl pal_logger_read
+  57              	.LVL4:
+  58 0012 0346     	 mov r3,r0
+  59 0014 0028     	 cmp r0,#0
+  60 0016 58D1     	 bne .L8
+  21:../SEMS_Sources/Patcher.c **** 	{
+  22:../SEMS_Sources/Patcher.c **** 		if('U' == command[0])
+  61              	 .loc 1 22 0
+  62 0018 2A78     	 ldrb r2,[r5]
+  63 001a 552A     	 cmp r2,#85
+  64 001c 58D0     	 beq .L9
+  23:../SEMS_Sources/Patcher.c **** 		{
+  24:../SEMS_Sources/Patcher.c **** 			// nothing to do, sec unlock will be called
+  25:../SEMS_Sources/Patcher.c **** 
+  26:../SEMS_Sources/Patcher.c **** 		}
+  27:../SEMS_Sources/Patcher.c **** 		else
+  28:../SEMS_Sources/Patcher.c **** 		{
+  29:../SEMS_Sources/Patcher.c **** 			if (0 == is_secure_com)
+  65              	 .loc 1 29 0
+  66 001e 84B9     	 cbnz r4,.L3
+  67              	.LVL5:
+  68              	.LBB2:
+  30:../SEMS_Sources/Patcher.c **** 			{
+  31:../SEMS_Sources/Patcher.c **** 				uint8_t *received_user_token_start;
+  32:../SEMS_Sources/Patcher.c **** 				uint32_t received_user_token;
+  33:../SEMS_Sources/Patcher.c **** 				received_user_token_start = command + 16;
+  34:../SEMS_Sources/Patcher.c **** 				received_user_token = (received_user_token_start[0] << 24)+
+  35:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[1] << 16)+
   69              	 .loc 1 35 0
-  70 0006 96B0     	 sub sp,sp,#88
-  71              	.LCFI1:
-  72              	 .cfi_def_cfa_offset 112
-  35:../SEMS_Sources/Patcher.c **** 	uint8_t is_invalid_req = false;
-  73              	 .loc 1 35 0
-  74 0008 0646     	 mov r6,r0
-  75 000a 1446     	 mov r4,r2
-  76              	 .loc 1 39 0
-  77 000c 6B48     	 ldr r0,.L41
-  78              	.LVL3:
-  79 000e 2022     	 movs r2,#32
-  80              	.LVL4:
-  81 0010 FFF7FEFF 	 bl pal_logger_read
-  82              	.LVL5:
-  83 0014 0346     	 mov r3,r0
-  84 0016 0028     	 cmp r0,#0
-  85 0018 40F08180 	 bne .L21
-  40:../SEMS_Sources/Patcher.c **** 	{
-  41:../SEMS_Sources/Patcher.c **** 		if('U' == command[0])
-  86              	 .loc 1 41 0
-  87 001c 3278     	 ldrb r2,[r6]
-  88 001e 552A     	 cmp r2,#85
-  89 0020 00F08280 	 beq .L22
-  42:../SEMS_Sources/Patcher.c **** 		{
-  43:../SEMS_Sources/Patcher.c **** 			// nothing to do, sec unlock will be called
-  44:../SEMS_Sources/Patcher.c **** 
-  45:../SEMS_Sources/Patcher.c **** 		}
-  46:../SEMS_Sources/Patcher.c **** 		else
-  47:../SEMS_Sources/Patcher.c **** 		{
-  48:../SEMS_Sources/Patcher.c **** 			if (0 == is_secure_com)
-  90              	 .loc 1 48 0
-  91 0024 94B9     	 cbnz r4,.L6
-  92              	.LVL6:
-  93              	.LBB8:
-  49:../SEMS_Sources/Patcher.c **** 			{
+  70 0020 697C     	 ldrb r1,[r5,#17]
+  34:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[1] << 16)+
+  71              	 .loc 1 34 0
+  72 0022 2C7C     	 ldrb r4,[r5,#16]
+  73              	.LVL6:
+  36:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[2] <<  8)+
+  74              	 .loc 1 36 0
+  75 0024 AB7C     	 ldrb r3,[r5,#18]
+  76              	.LVL7:
+  37:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[3] <<  0);
+  38:../SEMS_Sources/Patcher.c **** 
+  39:../SEMS_Sources/Patcher.c **** 				if(received_user_token != user_token)
+  77              	 .loc 1 39 0
+  78 0026 3748     	 ldr r0,.L17+4
+  37:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[3] <<  0);
+  79              	 .loc 1 37 0
+  80 0028 EA7C     	 ldrb r2,[r5,#19]
+  81              	 .loc 1 39 0
+  82 002a 0068     	 ldr r0,[r0]
+  35:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[2] <<  8)+
+  83              	 .loc 1 35 0
+  84 002c 0904     	 lsls r1,r1,#16
+  34:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[1] << 16)+
+  85              	 .loc 1 34 0
+  86 002e 01EB0461 	 add r1,r1,r4,lsl#24
+  35:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[2] <<  8)+
+  87              	 .loc 1 35 0
+  88 0032 01EB0323 	 add r3,r1,r3,lsl#8
+  89              	.LVL8:
+  36:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[3] <<  0);
+  90              	 .loc 1 36 0
+  91 0036 1344     	 add r3,r3,r2
+  40:../SEMS_Sources/Patcher.c **** 				{
+  41:../SEMS_Sources/Patcher.c **** 					is_invalid_req = true;
+  92              	 .loc 1 41 0
+  93 0038 181A     	 subs r0,r3,r0
+  94 003a 18BF     	 it ne
+  95 003c 0120     	 movne r0,#1
+  96              	.LVL9:
+  97              	.L11:
+  98              	.LBE2:
+  42:../SEMS_Sources/Patcher.c **** 				}
+  43:../SEMS_Sources/Patcher.c **** 
+  44:../SEMS_Sources/Patcher.c **** 			}
+  45:../SEMS_Sources/Patcher.c **** 			else
+  46:../SEMS_Sources/Patcher.c **** 			{
+  47:../SEMS_Sources/Patcher.c **** 				uint8_t key[32] = {0x01, 0x01, 0x01, 0x01};
+  48:../SEMS_Sources/Patcher.c **** 				uint8_t *received_digest_start;
+  49:../SEMS_Sources/Patcher.c **** 				uint8_t calculated_digest[32]; //  SHA 256
   50:../SEMS_Sources/Patcher.c **** 				uint8_t *received_user_token_start;
   51:../SEMS_Sources/Patcher.c **** 				uint32_t received_user_token;
-  52:../SEMS_Sources/Patcher.c **** 				received_user_token_start = command + 16;
-  53:../SEMS_Sources/Patcher.c **** 				received_user_token = (received_user_token_start[0] << 24)+
-  54:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[1] << 16)+
-  94              	 .loc 1 54 0
-  95 0026 717C     	 ldrb r1,[r6,#17]
-  53:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[1] << 16)+
-  96              	 .loc 1 53 0
-  97 0028 327C     	 ldrb r2,[r6,#16]
-  98              	.LVL7:
-  55:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[2] <<  8)+
-  99              	 .loc 1 55 0
- 100 002a B47C     	 ldrb r4,[r6,#18]
- 101              	.LVL8:
-  56:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[3] <<  0);
-  57:../SEMS_Sources/Patcher.c **** 
-  58:../SEMS_Sources/Patcher.c **** 				if(received_user_token != user_token)
- 102              	 .loc 1 58 0
- 103 002c 644B     	 ldr r3,.L41+4
-  56:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[3] <<  0);
- 104              	 .loc 1 56 0
- 105 002e F07C     	 ldrb r0,[r6,#19]
- 106              	 .loc 1 58 0
- 107 0030 1B68     	 ldr r3,[r3]
-  54:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[2] <<  8)+
- 108              	 .loc 1 54 0
- 109 0032 0904     	 lsls r1,r1,#16
-  53:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[1] << 16)+
- 110              	 .loc 1 53 0
- 111 0034 01EB0261 	 add r1,r1,r2,lsl#24
-  54:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[2] <<  8)+
- 112              	 .loc 1 54 0
- 113 0038 01EB0422 	 add r2,r1,r4,lsl#8
- 114              	.LVL9:
-  55:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[3] <<  0);
- 115              	 .loc 1 55 0
- 116 003c 0244     	 add r2,r2,r0
-  59:../SEMS_Sources/Patcher.c **** 				{
-  60:../SEMS_Sources/Patcher.c **** 					is_invalid_req = true;
- 117              	 .loc 1 60 0
- 118 003e D41A     	 subs r4,r2,r3
- 119              	.LVL10:
- 120 0040 18BF     	 it ne
- 121 0042 0124     	 movne r4,#1
- 122              	.LVL11:
- 123              	.L36:
- 124              	.LBE8:
-  61:../SEMS_Sources/Patcher.c **** 				}
+  52:../SEMS_Sources/Patcher.c **** 				uint8_t *received_user_nonce_start;
+  53:../SEMS_Sources/Patcher.c **** 				uint8_t nonce[4];
+  54:../SEMS_Sources/Patcher.c **** 				uint16_t optiga_key_oid = 0xF1E0;
+  55:../SEMS_Sources/Patcher.c **** 				uint16_t optiga_counter_oid = 0xE120;
+  56:../SEMS_Sources/Patcher.c **** 
+  57:../SEMS_Sources/Patcher.c **** 				// Extract Hash
+  58:../SEMS_Sources/Patcher.c **** 				received_digest_start = command + 24;  // last 8 bytes of the SHA256(Ciphertext)
+  59:../SEMS_Sources/Patcher.c **** 
+  60:../SEMS_Sources/Patcher.c **** 				// Calculate Hash
+  61:../SEMS_Sources/Patcher.c **** 				optiga_crypt_hash_data_wrapper(command, 24, calculated_digest); // SHA256(Ciphertext)
   62:../SEMS_Sources/Patcher.c **** 
-  63:../SEMS_Sources/Patcher.c **** 			}
-  64:../SEMS_Sources/Patcher.c **** 			else
-  65:../SEMS_Sources/Patcher.c **** 			{
-  66:../SEMS_Sources/Patcher.c **** 				uint8_t key[32] = {0x01, 0x01, 0x01, 0x01};
-  67:../SEMS_Sources/Patcher.c **** 				uint8_t *received_digest_start;
-  68:../SEMS_Sources/Patcher.c **** 				uint8_t calculated_digest[32]; //  SHA 256
-  69:../SEMS_Sources/Patcher.c **** 				uint8_t *received_user_token_start;
-  70:../SEMS_Sources/Patcher.c **** 				uint32_t received_user_token;
-  71:../SEMS_Sources/Patcher.c **** 				uint8_t *received_user_nonce_start;
-  72:../SEMS_Sources/Patcher.c **** 				uint8_t nonce[4];
-  73:../SEMS_Sources/Patcher.c **** 				uint16_t optiga_key_oid = 0xF1E0;
-  74:../SEMS_Sources/Patcher.c **** 				uint16_t optiga_counter_oid = 0xE120;
-  75:../SEMS_Sources/Patcher.c **** 
-  76:../SEMS_Sources/Patcher.c **** 				// Extract Hash
-  77:../SEMS_Sources/Patcher.c **** 				received_digest_start = command + 24;  // last 8 bytes of the SHA256(Ciphertext)
-  78:../SEMS_Sources/Patcher.c **** 
-  79:../SEMS_Sources/Patcher.c **** 				// Calculate Hash
-  80:../SEMS_Sources/Patcher.c **** 				optiga_crypt_hash_data_wrapper(command, 24, calculated_digest); // SHA256(Ciphertext)
-  81:../SEMS_Sources/Patcher.c **** 
-  82:../SEMS_Sources/Patcher.c **** 				// Compare digests
-  83:../SEMS_Sources/Patcher.c **** 				if(0 != memcmp(received_digest_start, calculated_digest + 24, 8))  // compare 8 bytes
+  63:../SEMS_Sources/Patcher.c **** 				// Compare digests
+  64:../SEMS_Sources/Patcher.c **** 				if(0 != memcmp(received_digest_start, calculated_digest + 24, 8))  // compare 8 bytes
+  65:../SEMS_Sources/Patcher.c **** 				{
+  66:../SEMS_Sources/Patcher.c **** 					is_invalid_req = true;
+  67:../SEMS_Sources/Patcher.c **** 				}
+  68:../SEMS_Sources/Patcher.c **** 
+  69:../SEMS_Sources/Patcher.c **** 				// Retrive Session Key
+  70:../SEMS_Sources/Patcher.c **** 				optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));  // sesion key from Secure Comm 
+  71:../SEMS_Sources/Patcher.c **** 
+  72:../SEMS_Sources/Patcher.c **** 				// Decrypt ciphertext
+  73:../SEMS_Sources/Patcher.c **** 				stream_enc(command, key, 24);
+  74:../SEMS_Sources/Patcher.c **** 
+  75:../SEMS_Sources/Patcher.c **** 				// Extract Token
+  76:../SEMS_Sources/Patcher.c **** 
+  77:../SEMS_Sources/Patcher.c **** 				received_user_token_start = command + 16;
+  78:../SEMS_Sources/Patcher.c **** 				received_user_token = (received_user_token_start[0] << 24)+
+  79:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[1] << 16)+
+  80:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[2] <<  8)+
+  81:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[3] <<  0);
+  82:../SEMS_Sources/Patcher.c **** 
+  83:../SEMS_Sources/Patcher.c **** 				if(received_user_token != user_token)
   84:../SEMS_Sources/Patcher.c **** 				{
   85:../SEMS_Sources/Patcher.c **** 					is_invalid_req = true;
   86:../SEMS_Sources/Patcher.c **** 				}
   87:../SEMS_Sources/Patcher.c **** 
-  88:../SEMS_Sources/Patcher.c **** 				// Retrive Session Key
-  89:../SEMS_Sources/Patcher.c **** 				optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));  // sesion key from Secure Comm 
+  88:../SEMS_Sources/Patcher.c **** 				// Extract Nonce
+  89:../SEMS_Sources/Patcher.c **** 				received_user_nonce_start = command + 20;
   90:../SEMS_Sources/Patcher.c **** 
-  91:../SEMS_Sources/Patcher.c **** 				// Decrypt ciphertext
-  92:../SEMS_Sources/Patcher.c **** 				stream_enc(command, key, 24);
-  93:../SEMS_Sources/Patcher.c **** 
-  94:../SEMS_Sources/Patcher.c **** 				// Extract Token
-  95:../SEMS_Sources/Patcher.c **** 
-  96:../SEMS_Sources/Patcher.c **** 				received_user_token_start = command + 16;
-  97:../SEMS_Sources/Patcher.c **** 				received_user_token = (received_user_token_start[0] << 24)+
-  98:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[1] << 16)+
-  99:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[2] <<  8)+
- 100:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[3] <<  0);
- 101:../SEMS_Sources/Patcher.c **** 
- 102:../SEMS_Sources/Patcher.c **** 				if(received_user_token != user_token)
- 103:../SEMS_Sources/Patcher.c **** 				{
- 104:../SEMS_Sources/Patcher.c **** 					is_invalid_req = true;
- 105:../SEMS_Sources/Patcher.c **** 				}
- 106:../SEMS_Sources/Patcher.c **** 
- 107:../SEMS_Sources/Patcher.c **** 				// Extract Nonce
- 108:../SEMS_Sources/Patcher.c **** 				received_user_nonce_start = command + 20;
- 109:../SEMS_Sources/Patcher.c **** 
+  91:../SEMS_Sources/Patcher.c **** 
+  92:../SEMS_Sources/Patcher.c **** 				// Read Nonce from Optiga
+  93:../SEMS_Sources/Patcher.c **** 				optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
+  94:../SEMS_Sources/Patcher.c **** 
+  95:../SEMS_Sources/Patcher.c **** 				// Compare Nonces
+  96:../SEMS_Sources/Patcher.c **** 				// recv_nonced trebuie sa fie mai mare decat nonce
+  97:../SEMS_Sources/Patcher.c **** 				// daca e mai mare sau egal, invalid
+  98:../SEMS_Sources/Patcher.c **** 				if(0 >= memcmp(received_user_nonce_start, nonce, sizeof(nonce)))
+  99:../SEMS_Sources/Patcher.c **** 				{
+ 100:../SEMS_Sources/Patcher.c **** 					is_invalid_req = true;
+ 101:../SEMS_Sources/Patcher.c **** 				}
+ 102:../SEMS_Sources/Patcher.c **** 
+ 103:../SEMS_Sources/Patcher.c **** 				if(false == is_invalid_req)
+ 104:../SEMS_Sources/Patcher.c **** 				{
+ 105:../SEMS_Sources/Patcher.c **** 					optiga_util_update_count_wrapper(optiga_counter_oid, 1);
+ 106:../SEMS_Sources/Patcher.c **** 				}
+ 107:../SEMS_Sources/Patcher.c **** 				// Command will be OUT variable also
+ 108:../SEMS_Sources/Patcher.c **** 			}
+ 109:../SEMS_Sources/Patcher.c **** 		}
  110:../SEMS_Sources/Patcher.c **** 
- 111:../SEMS_Sources/Patcher.c **** 				// Read Nonce from Optiga
- 112:../SEMS_Sources/Patcher.c **** 				optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
- 113:../SEMS_Sources/Patcher.c **** 
- 114:../SEMS_Sources/Patcher.c **** 				// Compare Nonces
- 115:../SEMS_Sources/Patcher.c **** 				// recv_nonced trebuie sa fie mai mare decat nonce
- 116:../SEMS_Sources/Patcher.c **** 				// daca e mai mare sau egal, invalid
- 117:../SEMS_Sources/Patcher.c **** 				if(0 >= memcmp(received_user_nonce_start, nonce, sizeof(nonce)))
- 118:../SEMS_Sources/Patcher.c **** 				{
- 119:../SEMS_Sources/Patcher.c **** 					is_invalid_req = true;
- 120:../SEMS_Sources/Patcher.c **** 				}
+ 111:../SEMS_Sources/Patcher.c **** 	}
+ 112:../SEMS_Sources/Patcher.c **** 	else
+ 113:../SEMS_Sources/Patcher.c **** 	{
+ 114:../SEMS_Sources/Patcher.c **** 		is_invalid_req = true;
+ 115:../SEMS_Sources/Patcher.c **** 	}
+ 116:../SEMS_Sources/Patcher.c **** 	return is_invalid_req;
+ 117:../SEMS_Sources/Patcher.c **** }
+  99              	 .loc 1 117 0
+ 100 003e 13B0     	 add sp,sp,#76
+ 101              	.LCFI2:
+ 102              	 .cfi_remember_state
+ 103              	 .cfi_def_cfa_offset 20
+ 104              	 
+ 105 0040 F0BD     	 pop {r4,r5,r6,r7,pc}
+ 106              	.LVL10:
+ 107              	.L3:
+ 108              	.LCFI3:
+ 109              	 .cfi_restore_state
+ 110              	.LBB3:
+  47:../SEMS_Sources/Patcher.c **** 				uint8_t *received_digest_start;
+ 111              	 .loc 1 47 0
+ 112 0042 0126     	 movs r6,#1
+  61:../SEMS_Sources/Patcher.c **** 
+ 113              	 .loc 1 61 0
+ 114 0044 2846     	 mov r0,r5
+ 115 0046 1821     	 movs r1,#24
+ 116 0048 0AAA     	 add r2,sp,#40
+  47:../SEMS_Sources/Patcher.c **** 				uint8_t *received_digest_start;
+ 117              	 .loc 1 47 0
+ 118 004a 0393     	 str r3,[sp,#12]
+ 119 004c 0493     	 str r3,[sp,#16]
+ 120 004e 0593     	 str r3,[sp,#20]
+ 121 0050 0693     	 str r3,[sp,#24]
+ 122 0052 0793     	 str r3,[sp,#28]
+ 123 0054 0893     	 str r3,[sp,#32]
+ 124 0056 0993     	 str r3,[sp,#36]
+ 125 0058 8DF80860 	 strb r6,[sp,#8]
+ 126 005c 8DF80960 	 strb r6,[sp,#9]
+ 127 0060 8DF80A60 	 strb r6,[sp,#10]
+ 128 0064 8DF80B60 	 strb r6,[sp,#11]
+ 129              	.LVL11:
+  61:../SEMS_Sources/Patcher.c **** 
+ 130              	 .loc 1 61 0
+ 131 0068 FFF7FEFF 	 bl optiga_crypt_hash_data_wrapper
+ 132              	.LVL12:
+  64:../SEMS_Sources/Patcher.c **** 				{
+ 133              	 .loc 1 64 0
+ 134 006c 10A9     	 add r1,sp,#64
+ 135 006e 0822     	 movs r2,#8
+ 136 0070 05F11800 	 add r0,r5,#24
+ 137              	.LVL13:
+ 138 0074 FFF7FEFF 	 bl memcmp
+ 139              	.LVL14:
+  70:../SEMS_Sources/Patcher.c **** 
+ 140              	 .loc 1 70 0
+ 141 0078 02A9     	 add r1,sp,#8
+ 142 007a 2022     	 movs r2,#32
+  64:../SEMS_Sources/Patcher.c **** 				{
+ 143              	 .loc 1 64 0
+ 144 007c 0446     	 mov r4,r0
+ 145              	.LVL15:
+  70:../SEMS_Sources/Patcher.c **** 
+ 146              	 .loc 1 70 0
+ 147 007e 4FF2E010 	 movw r0,#61920
+ 148              	.LVL16:
+ 149 0082 FFF7FEFF 	 bl optiga_util_read_shared_key
+ 150              	.LVL17:
+  73:../SEMS_Sources/Patcher.c **** 
+ 151              	 .loc 1 73 0
+ 152 0086 2846     	 mov r0,r5
+ 153 0088 02A9     	 add r1,sp,#8
+ 154 008a 1822     	 movs r2,#24
+ 155 008c FFF7FEFF 	 bl stream_enc
+ 156              	.LVL18:
+  79:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[2] <<  8)+
+ 157              	 .loc 1 79 0
+ 158 0090 697C     	 ldrb r1,[r5,#17]
+  78:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[1] << 16)+
+ 159              	 .loc 1 78 0
+ 160 0092 2A7C     	 ldrb r2,[r5,#16]
+ 161              	.LVL19:
+  80:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[3] <<  0);
+ 162              	 .loc 1 80 0
+ 163 0094 AF7C     	 ldrb r7,[r5,#18]
+ 164              	.LVL20:
+  83:../SEMS_Sources/Patcher.c **** 				{
+ 165              	 .loc 1 83 0
+ 166 0096 1B48     	 ldr r0,.L17+4
+  81:../SEMS_Sources/Patcher.c **** 
+ 167              	 .loc 1 81 0
+ 168 0098 EB7C     	 ldrb r3,[r5,#19]
+  83:../SEMS_Sources/Patcher.c **** 				{
+ 169              	 .loc 1 83 0
+ 170 009a 0068     	 ldr r0,[r0]
+  79:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[2] <<  8)+
+ 171              	 .loc 1 79 0
+ 172 009c 0904     	 lsls r1,r1,#16
+  78:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[1] << 16)+
+ 173              	 .loc 1 78 0
+ 174 009e 01EB0261 	 add r1,r1,r2,lsl#24
+  79:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[2] <<  8)+
+ 175              	 .loc 1 79 0
+ 176 00a2 01EB0722 	 add r2,r1,r7,lsl#8
+ 177              	.LVL21:
+  80:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[3] <<  0);
+ 178              	 .loc 1 80 0
+ 179 00a6 1A44     	 add r2,r2,r3
+  83:../SEMS_Sources/Patcher.c **** 				{
+ 180              	 .loc 1 83 0
+ 181 00a8 8242     	 cmp r2,r0
+  93:../SEMS_Sources/Patcher.c **** 
+ 182              	 .loc 1 93 0
+ 183 00aa 01A9     	 add r1,sp,#4
+ 184 00ac 4EF22010 	 movw r0,#57632
+ 185 00b0 4FF00402 	 mov r2,#4
+  83:../SEMS_Sources/Patcher.c **** 				{
+ 186              	 .loc 1 83 0
+ 187 00b4 0ED0     	 beq .L15
+ 188              	.LVL22:
+  93:../SEMS_Sources/Patcher.c **** 
+ 189              	 .loc 1 93 0
+ 190 00b6 FFF7FEFF 	 bl optiga_util_read_nonce
+ 191              	.LVL23:
+  98:../SEMS_Sources/Patcher.c **** 				{
+ 192              	 .loc 1 98 0
+ 193 00ba 01A9     	 add r1,sp,#4
+ 194 00bc 05F11400 	 add r0,r5,#20
+ 195              	.LVL24:
+ 196 00c0 0422     	 movs r2,#4
+ 197 00c2 FFF7FEFF 	 bl memcmp
+ 198              	.LVL25:
+ 199 00c6 0028     	 cmp r0,#0
+ 200 00c8 0FDC     	 bgt .L13
+ 201              	.LVL26:
+ 202              	.L8:
+ 203              	.LBE3:
+ 114:../SEMS_Sources/Patcher.c **** 	}
+ 204              	 .loc 1 114 0
+ 205 00ca 0120     	 movs r0,#1
+ 206              	 .loc 1 117 0
+ 207 00cc 13B0     	 add sp,sp,#76
+ 208              	.LCFI4:
+ 209              	 .cfi_remember_state
+ 210              	 .cfi_def_cfa_offset 20
+ 211              	 
+ 212 00ce F0BD     	 pop {r4,r5,r6,r7,pc}
+ 213              	.LVL27:
+ 214              	.L9:
+ 215              	.LCFI5:
+ 216              	 .cfi_restore_state
+ 217 00d0 13B0     	 add sp,sp,#76
+ 218              	.LCFI6:
+ 219              	 .cfi_remember_state
+ 220              	 .cfi_def_cfa_offset 20
+ 221              	 
+ 222 00d2 F0BD     	 pop {r4,r5,r6,r7,pc}
+ 223              	.LVL28:
+ 224              	.L15:
+ 225              	.LCFI7:
+ 226              	 .cfi_restore_state
+ 227              	.LBB4:
+  93:../SEMS_Sources/Patcher.c **** 
+ 228              	 .loc 1 93 0
+ 229 00d4 FFF7FEFF 	 bl optiga_util_read_nonce
+ 230              	.LVL29:
+  98:../SEMS_Sources/Patcher.c **** 				{
+ 231              	 .loc 1 98 0
+ 232 00d8 01A9     	 add r1,sp,#4
+ 233 00da 05F11400 	 add r0,r5,#20
+ 234              	.LVL30:
+ 235 00de 0422     	 movs r2,#4
+ 236 00e0 FFF7FEFF 	 bl memcmp
+ 237              	.LVL31:
+ 238 00e4 0028     	 cmp r0,#0
+ 239 00e6 F0DD     	 ble .L8
+ 103:../SEMS_Sources/Patcher.c **** 				{
+ 240              	 .loc 1 103 0
+ 241 00e8 14B1     	 cbz r4,.L16
+ 242              	.LVL32:
+ 243              	.L13:
+  85:../SEMS_Sources/Patcher.c **** 				}
+ 244              	 .loc 1 85 0
+ 245 00ea 3046     	 mov r0,r6
+ 246              	.LVL33:
+ 247              	.LBE4:
+ 248              	 .loc 1 117 0
+ 249 00ec 13B0     	 add sp,sp,#76
+ 250              	.LCFI8:
+ 251              	 .cfi_remember_state
+ 252              	 .cfi_def_cfa_offset 20
+ 253              	 
+ 254 00ee F0BD     	 pop {r4,r5,r6,r7,pc}
+ 255              	.LVL34:
+ 256              	.L16:
+ 257              	.LCFI9:
+ 258              	 .cfi_restore_state
+ 259              	.LBB5:
+ 105:../SEMS_Sources/Patcher.c **** 				}
+ 260              	 .loc 1 105 0
+ 261 00f0 4EF22010 	 movw r0,#57632
+ 262 00f4 3146     	 mov r1,r6
+ 263 00f6 FFF7FEFF 	 bl optiga_util_update_count_wrapper
+ 264              	.LVL35:
+ 265 00fa 2046     	 mov r0,r4
+ 266 00fc 9FE7     	 b .L11
+ 267              	.L18:
+ 268 00fe 00BF     	 .align 2
+ 269              	.L17:
+ 270 0100 00000000 	 .word logger_console
+ 271 0104 00000000 	 .word user_token
+ 272              	.LBE5:
+ 273              	 .cfi_endproc
+ 274              	.LFE454:
+ 276              	 .section .text.write_request,"ax",%progbits
+ 277              	 .align 2
+ 278              	 .global write_request
+ 279              	 .thumb
+ 280              	 .thumb_func
+ 282              	write_request:
+ 283              	.LFB455:
+ 118:../SEMS_Sources/Patcher.c **** 
+ 119:../SEMS_Sources/Patcher.c **** 
+ 120:../SEMS_Sources/Patcher.c **** 
  121:../SEMS_Sources/Patcher.c **** 
- 122:../SEMS_Sources/Patcher.c **** 				if(false == is_invalid_req)
- 123:../SEMS_Sources/Patcher.c **** 				{
- 124:../SEMS_Sources/Patcher.c **** 					optiga_util_update_count_wrapper(optiga_counter_oid, 1);
- 125:../SEMS_Sources/Patcher.c **** 				}
- 126:../SEMS_Sources/Patcher.c **** 				// Command will be OUT variable also
- 127:../SEMS_Sources/Patcher.c **** 			}
- 128:../SEMS_Sources/Patcher.c **** 		}
+ 122:../SEMS_Sources/Patcher.c **** uint8_t write_request(uint8_t msg[], uint8_t is_secure_com)
+ 123:../SEMS_Sources/Patcher.c **** {
+ 284              	 .loc 1 123 0
+ 285              	 .cfi_startproc
+ 286              	 
+ 287              	 
+ 288              	.LVL36:
+ 289 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+ 290              	.LCFI10:
+ 291              	 .cfi_def_cfa_offset 20
+ 292              	 .cfi_offset 4,-20
+ 293              	 .cfi_offset 5,-16
+ 294              	 .cfi_offset 6,-12
+ 295              	 .cfi_offset 7,-8
+ 296              	 .cfi_offset 14,-4
+ 297 0002 0446     	 mov r4,r0
+ 298 0004 9BB0     	 sub sp,sp,#108
+ 299              	.LCFI11:
+ 300              	 .cfi_def_cfa_offset 128
+ 124:../SEMS_Sources/Patcher.c **** 	if(0 == is_secure_com)
+ 301              	 .loc 1 124 0
+ 302 0006 0D46     	 mov r5,r1
+ 303 0008 0029     	 cmp r1,#0
+ 304 000a 48D0     	 beq .L23
+ 305              	.LBB6:
+ 125:../SEMS_Sources/Patcher.c **** 	{
+ 126:../SEMS_Sources/Patcher.c **** 		uint8_t response[32] ={0};
+ 127:../SEMS_Sources/Patcher.c **** 		uint8_t send_user_token[4];
+ 128:../SEMS_Sources/Patcher.c **** 
  129:../SEMS_Sources/Patcher.c **** 
- 130:../SEMS_Sources/Patcher.c **** 	}
- 131:../SEMS_Sources/Patcher.c **** 	else
- 132:../SEMS_Sources/Patcher.c **** 	{
- 133:../SEMS_Sources/Patcher.c **** 		is_invalid_req = true;
- 134:../SEMS_Sources/Patcher.c **** 	}
- 135:../SEMS_Sources/Patcher.c **** 	return is_invalid_req;
- 136:../SEMS_Sources/Patcher.c **** }
- 125              	 .loc 1 136 0
- 126 0044 2046     	 mov r0,r4
- 127 0046 16B0     	 add sp,sp,#88
- 128              	.LCFI2:
- 129              	 .cfi_remember_state
- 130              	 .cfi_def_cfa_offset 24
- 131              	 
- 132 0048 BDE8F081 	 pop {r4,r5,r6,r7,r8,pc}
- 133              	.LVL12:
- 134              	.L6:
- 135              	.LCFI3:
- 136              	 .cfi_restore_state
- 137              	.LBB9:
-  66:../SEMS_Sources/Patcher.c **** 				uint8_t *received_digest_start;
- 138              	 .loc 1 66 0
- 139 004c 0124     	 movs r4,#1
-  80:../SEMS_Sources/Patcher.c **** 
- 140              	 .loc 1 80 0
- 141 004e 3046     	 mov r0,r6
- 142 0050 1821     	 movs r1,#24
- 143 0052 0EAA     	 add r2,sp,#56
-  66:../SEMS_Sources/Patcher.c **** 				uint8_t *received_digest_start;
- 144              	 .loc 1 66 0
- 145 0054 0793     	 str r3,[sp,#28]
- 146 0056 0893     	 str r3,[sp,#32]
- 147 0058 0993     	 str r3,[sp,#36]
- 148 005a 0A93     	 str r3,[sp,#40]
- 149 005c 0B93     	 str r3,[sp,#44]
- 150 005e 0C93     	 str r3,[sp,#48]
- 151 0060 0D93     	 str r3,[sp,#52]
- 152 0062 8DF81840 	 strb r4,[sp,#24]
- 153 0066 8DF81940 	 strb r4,[sp,#25]
- 154 006a 8DF81A40 	 strb r4,[sp,#26]
- 155 006e 8DF81B40 	 strb r4,[sp,#27]
- 156              	.LVL13:
-  80:../SEMS_Sources/Patcher.c **** 
- 157              	 .loc 1 80 0
- 158 0072 FFF7FEFF 	 bl optiga_crypt_hash_data_wrapper
- 159              	.LVL14:
-  83:../SEMS_Sources/Patcher.c **** 				{
- 160              	 .loc 1 83 0
- 161 0076 14A9     	 add r1,sp,#80
- 162 0078 0822     	 movs r2,#8
- 163 007a 06F11800 	 add r0,r6,#24
- 164              	.LVL15:
- 165 007e FFF7FEFF 	 bl memcmp
- 166              	.LVL16:
-  89:../SEMS_Sources/Patcher.c **** 
- 167              	 .loc 1 89 0
- 168 0082 06A9     	 add r1,sp,#24
- 169 0084 2022     	 movs r2,#32
-  83:../SEMS_Sources/Patcher.c **** 				{
- 170              	 .loc 1 83 0
- 171 0086 0546     	 mov r5,r0
- 172              	.LVL17:
-  89:../SEMS_Sources/Patcher.c **** 
- 173              	 .loc 1 89 0
- 174 0088 4FF2E010 	 movw r0,#61920
- 175              	.LVL18:
- 176 008c FFF7FEFF 	 bl optiga_util_read_shared_key
- 177              	.LVL19:
-  92:../SEMS_Sources/Patcher.c **** 
- 178              	 .loc 1 92 0
- 179 0090 3046     	 mov r0,r6
- 180 0092 06A9     	 add r1,sp,#24
- 181 0094 1822     	 movs r2,#24
- 182 0096 FFF7FEFF 	 bl stream_enc
- 183              	.LVL20:
-  98:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[2] <<  8)+
- 184              	 .loc 1 98 0
- 185 009a 717C     	 ldrb r1,[r6,#17]
-  97:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[1] << 16)+
- 186              	 .loc 1 97 0
- 187 009c 327C     	 ldrb r2,[r6,#16]
- 188              	.LVL21:
-  99:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[3] <<  0);
- 189              	 .loc 1 99 0
- 190 009e B77C     	 ldrb r7,[r6,#18]
- 191              	.LVL22:
- 102:../SEMS_Sources/Patcher.c **** 				{
- 192              	 .loc 1 102 0
- 193 00a0 4748     	 ldr r0,.L41+4
- 100:../SEMS_Sources/Patcher.c **** 
- 194              	 .loc 1 100 0
- 195 00a2 F37C     	 ldrb r3,[r6,#19]
- 102:../SEMS_Sources/Patcher.c **** 				{
- 196              	 .loc 1 102 0
- 197 00a4 0068     	 ldr r0,[r0]
-  98:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[2] <<  8)+
- 198              	 .loc 1 98 0
- 199 00a6 0904     	 lsls r1,r1,#16
-  97:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[1] << 16)+
- 200              	 .loc 1 97 0
- 201 00a8 01EB0261 	 add r1,r1,r2,lsl#24
-  98:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[2] <<  8)+
- 202              	 .loc 1 98 0
- 203 00ac 01EB0722 	 add r2,r1,r7,lsl#8
- 204              	.LVL23:
-  99:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[3] <<  0);
- 205              	 .loc 1 99 0
- 206 00b0 1A44     	 add r2,r2,r3
- 102:../SEMS_Sources/Patcher.c **** 				{
- 207              	 .loc 1 102 0
- 208 00b2 8242     	 cmp r2,r0
- 209 00b4 74D0     	 beq .L39
- 210              	.L7:
- 211              	.LVL24:
- 212 00b6 0423     	 movs r3,#4
- 213 00b8 ADF80E30 	 strh r3,[sp,#14]
- 214              	.LBB10:
- 215              	.LBB11:
+ 130:../SEMS_Sources/Patcher.c **** 		send_user_token[0] = (user_token >> 24) & 0xFF;
+ 131:../SEMS_Sources/Patcher.c **** 				send_user_token[1] = (user_token >> 16) & 0xFF;
+ 132:../SEMS_Sources/Patcher.c **** 				send_user_token[2] = (user_token >>  8) & 0xFF;
+ 133:../SEMS_Sources/Patcher.c **** 				send_user_token[3] = (user_token >>  0) & 0xFF;
+ 134:../SEMS_Sources/Patcher.c **** 
+ 135:../SEMS_Sources/Patcher.c **** 		memcpy(response, msg, 16);
+ 136:../SEMS_Sources/Patcher.c **** 		memcpy(response + 16, send_user_token, 4);
  137:../SEMS_Sources/Patcher.c **** 
- 138:../SEMS_Sources/Patcher.c **** 
- 139:../SEMS_Sources/Patcher.c **** 
- 140:../SEMS_Sources/Patcher.c **** 
- 141:../SEMS_Sources/Patcher.c **** uint8_t write_request(uint8_t msg[], uint8_t is_secure_com)
- 142:../SEMS_Sources/Patcher.c **** {
- 143:../SEMS_Sources/Patcher.c **** 	if(0 == is_secure_com)
- 144:../SEMS_Sources/Patcher.c **** 	{
- 145:../SEMS_Sources/Patcher.c **** 		uint8_t response[32] ={0};
- 146:../SEMS_Sources/Patcher.c **** 		uint8_t send_user_token[4];
- 147:../SEMS_Sources/Patcher.c **** 
- 148:../SEMS_Sources/Patcher.c **** 
- 149:../SEMS_Sources/Patcher.c **** 		send_user_token[0] = (user_token >> 24) & 0xFF;
- 150:../SEMS_Sources/Patcher.c **** 				send_user_token[1] = (user_token >> 16) & 0xFF;
- 151:../SEMS_Sources/Patcher.c **** 				send_user_token[2] = (user_token >>  8) & 0xFF;
- 152:../SEMS_Sources/Patcher.c **** 				send_user_token[3] = (user_token >>  0) & 0xFF;
- 153:../SEMS_Sources/Patcher.c **** 
- 154:../SEMS_Sources/Patcher.c **** 		memcpy(response, msg, 16);
- 155:../SEMS_Sources/Patcher.c **** 		memcpy(response + 16, send_user_token, 4);
- 156:../SEMS_Sources/Patcher.c **** 
- 157:../SEMS_Sources/Patcher.c **** 		optiga_lib_print_bytes(response, 32);
- 158:../SEMS_Sources/Patcher.c **** 	}
- 159:../SEMS_Sources/Patcher.c **** 	else
- 160:../SEMS_Sources/Patcher.c **** 	{
- 161:../SEMS_Sources/Patcher.c **** 		uint8_t response[32];
- 162:../SEMS_Sources/Patcher.c **** 		uint8_t nonce[4];
- 163:../SEMS_Sources/Patcher.c **** 		uint8_t send_user_token[4];
- 164:../SEMS_Sources/Patcher.c **** 		uint8_t calculated_digest[32];
- 165:../SEMS_Sources/Patcher.c **** 		uint8_t key[32] = {0x01, 0x01, 0x01, 0x01};
- 166:../SEMS_Sources/Patcher.c **** 		uint16_t optiga_key_oid = 0xF1E0;
- 167:../SEMS_Sources/Patcher.c **** 		uint16_t optiga_counter_oid = 0xE120;
+ 138:../SEMS_Sources/Patcher.c **** 		optiga_lib_print_bytes(response, 32);
+ 139:../SEMS_Sources/Patcher.c **** 	}
+ 140:../SEMS_Sources/Patcher.c **** 	else
+ 141:../SEMS_Sources/Patcher.c **** 	{
+ 142:../SEMS_Sources/Patcher.c **** 		uint8_t response[32];
+ 143:../SEMS_Sources/Patcher.c **** 		uint8_t nonce[4];
+ 144:../SEMS_Sources/Patcher.c **** 		uint8_t send_user_token[4];
+ 145:../SEMS_Sources/Patcher.c **** 		uint8_t calculated_digest[32];
+ 146:../SEMS_Sources/Patcher.c **** 		uint8_t key[32] = {0x01, 0x01, 0x01, 0x01};
+ 306              	 .loc 1 146 0
+ 307 000c 0023     	 movs r3,#0
+ 308 000e 0125     	 movs r5,#1
+ 147:../SEMS_Sources/Patcher.c **** 		uint16_t optiga_key_oid = 0xF1E0;
+ 148:../SEMS_Sources/Patcher.c **** 		uint16_t optiga_counter_oid = 0xE120;
+ 149:../SEMS_Sources/Patcher.c **** 
+ 150:../SEMS_Sources/Patcher.c **** 
+ 151:../SEMS_Sources/Patcher.c **** 
+ 152:../SEMS_Sources/Patcher.c **** 		// Read nonce
+ 153:../SEMS_Sources/Patcher.c **** 		optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
+ 309              	 .loc 1 153 0
+ 310 0010 01A9     	 add r1,sp,#4
+ 311              	.LVL37:
+ 312 0012 4EF22010 	 movw r0,#57632
+ 313              	.LVL38:
+ 314 0016 0422     	 movs r2,#4
+ 146:../SEMS_Sources/Patcher.c **** 		uint16_t optiga_key_oid = 0xF1E0;
+ 315              	 .loc 1 146 0
+ 316 0018 1393     	 str r3,[sp,#76]
+ 317 001a 1493     	 str r3,[sp,#80]
+ 318 001c 1593     	 str r3,[sp,#84]
+ 319 001e 1693     	 str r3,[sp,#88]
+ 320 0020 1793     	 str r3,[sp,#92]
+ 321 0022 1893     	 str r3,[sp,#96]
+ 322 0024 1993     	 str r3,[sp,#100]
+ 323 0026 8DF84850 	 strb r5,[sp,#72]
+ 324 002a 8DF84950 	 strb r5,[sp,#73]
+ 325 002e 8DF84A50 	 strb r5,[sp,#74]
+ 326 0032 8DF84B50 	 strb r5,[sp,#75]
+ 327              	.LVL39:
+ 328              	 .loc 1 153 0
+ 329 0036 FFF7FEFF 	 bl optiga_util_read_nonce
+ 330              	.LVL40:
+ 154:../SEMS_Sources/Patcher.c **** 
+ 155:../SEMS_Sources/Patcher.c **** 		send_user_token[0] = (user_token >> 24) & 0xFF;
+ 331              	 .loc 1 155 0
+ 332 003a 274B     	 ldr r3,.L24
+ 156:../SEMS_Sources/Patcher.c **** 		send_user_token[1] = (user_token >> 16) & 0xFF;
+ 157:../SEMS_Sources/Patcher.c **** 		send_user_token[2] = (user_token >>  8) & 0xFF;
+ 158:../SEMS_Sources/Patcher.c **** 		send_user_token[3] = (user_token >>  0) & 0xFF;
+ 159:../SEMS_Sources/Patcher.c **** 
+ 160:../SEMS_Sources/Patcher.c **** 
+ 161:../SEMS_Sources/Patcher.c **** 		// First Pack
+ 162:../SEMS_Sources/Patcher.c **** 		memcpy(response, msg, 16);
+ 333              	 .loc 1 162 0
+ 334 003c 2068     	 ldr r0,[r4]
+ 155:../SEMS_Sources/Patcher.c **** 		send_user_token[1] = (user_token >> 16) & 0xFF;
+ 335              	 .loc 1 155 0
+ 336 003e 1D68     	 ldr r5,[r3]
+ 337              	.LVL41:
+ 338              	 .loc 1 162 0
+ 339 0040 6168     	 ldr r1,[r4,#4]
+ 340 0042 A268     	 ldr r2,[r4,#8]
+ 341 0044 E368     	 ldr r3,[r4,#12]
+ 163:../SEMS_Sources/Patcher.c **** 		memcpy(response + 16, send_user_token, 4);  // global
+ 164:../SEMS_Sources/Patcher.c **** 		memcpy(response + 20, nonce, 4);
+ 342              	 .loc 1 164 0
+ 343 0046 019E     	 ldr r6,[sp,#4]
+ 162:../SEMS_Sources/Patcher.c **** 		memcpy(response + 16, send_user_token, 4);  // global
+ 344              	 .loc 1 162 0
+ 345 0048 02AC     	 add r4,sp,#8
+ 346              	.LVL42:
+ 347 004a 0FC4     	 stmia r4!,{r0,r1,r2,r3}
+ 155:../SEMS_Sources/Patcher.c **** 		send_user_token[1] = (user_token >> 16) & 0xFF;
+ 348              	 .loc 1 155 0
+ 349 004c 2F0E     	 lsrs r7,r5,#24
+ 157:../SEMS_Sources/Patcher.c **** 		send_user_token[3] = (user_token >>  0) & 0xFF;
+ 350              	 .loc 1 157 0
+ 351 004e 2B0A     	 lsrs r3,r5,#8
+ 165:../SEMS_Sources/Patcher.c **** 
+ 166:../SEMS_Sources/Patcher.c **** 		// Retrive Session Key
+ 167:../SEMS_Sources/Patcher.c **** 		optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));  // sesion key from Secure Comm ac
+ 352              	 .loc 1 167 0
+ 353 0050 12A9     	 add r1,sp,#72
+ 156:../SEMS_Sources/Patcher.c **** 		send_user_token[2] = (user_token >>  8) & 0xFF;
+ 354              	 .loc 1 156 0
+ 355 0052 2C0C     	 lsrs r4,r5,#16
+ 356              	 .loc 1 167 0
+ 357 0054 4FF2E010 	 movw r0,#61920
+ 358 0058 2022     	 movs r2,#32
+ 157:../SEMS_Sources/Patcher.c **** 		send_user_token[3] = (user_token >>  0) & 0xFF;
+ 359              	 .loc 1 157 0
+ 360 005a 8DF81A30 	 strb r3,[sp,#26]
+ 155:../SEMS_Sources/Patcher.c **** 		send_user_token[1] = (user_token >> 16) & 0xFF;
+ 361              	 .loc 1 155 0
+ 362 005e 8DF81870 	 strb r7,[sp,#24]
+ 158:../SEMS_Sources/Patcher.c **** 
+ 363              	 .loc 1 158 0
+ 364 0062 8DF81B50 	 strb r5,[sp,#27]
+ 156:../SEMS_Sources/Patcher.c **** 		send_user_token[2] = (user_token >>  8) & 0xFF;
+ 365              	 .loc 1 156 0
+ 366 0066 8DF81940 	 strb r4,[sp,#25]
+ 164:../SEMS_Sources/Patcher.c **** 
+ 367              	 .loc 1 164 0
+ 368 006a 0796     	 str r6,[sp,#28]
+ 369              	 .loc 1 167 0
+ 370 006c FFF7FEFF 	 bl optiga_util_read_shared_key
+ 371              	.LVL43:
  168:../SEMS_Sources/Patcher.c **** 
- 169:../SEMS_Sources/Patcher.c **** 
- 170:../SEMS_Sources/Patcher.c **** 
- 171:../SEMS_Sources/Patcher.c **** 		// Read nonce
- 172:../SEMS_Sources/Patcher.c **** 		optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
- 173:../SEMS_Sources/Patcher.c **** 
- 174:../SEMS_Sources/Patcher.c **** 		send_user_token[0] = (user_token >> 24) & 0xFF;
- 175:../SEMS_Sources/Patcher.c **** 		send_user_token[1] = (user_token >> 16) & 0xFF;
- 176:../SEMS_Sources/Patcher.c **** 		send_user_token[2] = (user_token >>  8) & 0xFF;
- 177:../SEMS_Sources/Patcher.c **** 		send_user_token[3] = (user_token >>  0) & 0xFF;
- 178:../SEMS_Sources/Patcher.c **** 
- 179:../SEMS_Sources/Patcher.c **** 
- 180:../SEMS_Sources/Patcher.c **** 		// First Pack
- 181:../SEMS_Sources/Patcher.c **** 		memcpy(response, msg, 16);
- 182:../SEMS_Sources/Patcher.c **** 		memcpy(response + 16, send_user_token, 4);  // global
- 183:../SEMS_Sources/Patcher.c **** 		memcpy(response + 20, nonce, 4);
- 184:../SEMS_Sources/Patcher.c **** 
- 185:../SEMS_Sources/Patcher.c **** 		// Retrive Session Key
- 186:../SEMS_Sources/Patcher.c **** 		optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));  // sesion key from Secure Comm ac
- 187:../SEMS_Sources/Patcher.c **** 
- 188:../SEMS_Sources/Patcher.c **** 		// Encrypt ciphertext
- 189:../SEMS_Sources/Patcher.c **** 		stream_enc(response, key, 24);
- 190:../SEMS_Sources/Patcher.c **** 
- 191:../SEMS_Sources/Patcher.c **** 		// Calculate Hash
- 192:../SEMS_Sources/Patcher.c **** 		optiga_crypt_hash_data_wrapper(response, 24, calculated_digest); // SHA256(Ciphertext)
- 193:../SEMS_Sources/Patcher.c **** 
- 194:../SEMS_Sources/Patcher.c **** 		// Pack the message
- 195:../SEMS_Sources/Patcher.c **** 		memcpy(response + 24, calculated_digest + 24, 8);
- 196:../SEMS_Sources/Patcher.c **** 
- 197:../SEMS_Sources/Patcher.c **** 		optiga_lib_print_bytes(response, 32);
- 198:../SEMS_Sources/Patcher.c **** 	}
- 199:../SEMS_Sources/Patcher.c **** 
- 200:../SEMS_Sources/Patcher.c **** 	return true;
- 201:../SEMS_Sources/Patcher.c **** }
- 202:../SEMS_Sources/Patcher.c **** 
- 203:../SEMS_Sources/Patcher.c **** 
- 204:../SEMS_Sources/Patcher.c **** void optiga_util_read_nonce(uint16_t optiga_oid, uint8_t read_data_buffer[], uint16_t bytes_to_read
- 205:../SEMS_Sources/Patcher.c **** {
- 206:../SEMS_Sources/Patcher.c ****     uint16_t offset = 0x00;
- 207:../SEMS_Sources/Patcher.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
- 208:../SEMS_Sources/Patcher.c ****     optiga_util_t * me = NULL;
- 209:../SEMS_Sources/Patcher.c **** 
- 210:../SEMS_Sources/Patcher.c ****     do
- 211:../SEMS_Sources/Patcher.c ****     {
- 212:../SEMS_Sources/Patcher.c **** 
- 213:../SEMS_Sources/Patcher.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 214:../SEMS_Sources/Patcher.c ****         /**
- 215:../SEMS_Sources/Patcher.c ****          * Open the application on OPTIGA which is a precondition to perform any other operations
- 216:../SEMS_Sources/Patcher.c ****          * using optiga_util_open_application
- 217:../SEMS_Sources/Patcher.c ****          */
- 218:../SEMS_Sources/Patcher.c ****         example_optiga_init();
- 216              	 .loc 1 218 0
- 217 00bc FFF7FEFF 	 bl example_optiga_init
- 218              	.LVL25:
- 219:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 220:../SEMS_Sources/Patcher.c **** 
- 221:../SEMS_Sources/Patcher.c **** 
- 222:../SEMS_Sources/Patcher.c ****         /**
- 223:../SEMS_Sources/Patcher.c ****          * 1. Create OPTIGA Util Instance
- 224:../SEMS_Sources/Patcher.c ****          */
- 225:../SEMS_Sources/Patcher.c ****         me = optiga_util_create(0, optiga_util_callback, NULL);
- 219              	 .loc 1 225 0
- 220 00c0 0020     	 movs r0,#0
- 221 00c2 0246     	 mov r2,r0
- 222 00c4 3F49     	 ldr r1,.L41+8
- 223 00c6 FFF7FEFF 	 bl optiga_util_create
- 224              	.LVL26:
- 225              	.LBE11:
- 226              	.LBE10:
- 108:../SEMS_Sources/Patcher.c **** 
- 227              	 .loc 1 108 0
- 228 00ca 1436     	 adds r6,r6,#20
- 229              	.LVL27:
- 230              	.LBB14:
- 231              	.LBB12:
- 226:../SEMS_Sources/Patcher.c ****         if (NULL == me)
- 232              	 .loc 1 226 0
- 233 00cc 8046     	 mov r8,r0
- 234 00ce 0028     	 cmp r0,#0
- 235 00d0 62D0     	 beq .L8
- 227:../SEMS_Sources/Patcher.c ****         {
- 228:../SEMS_Sources/Patcher.c ****             break;
- 229:../SEMS_Sources/Patcher.c ****         }
- 230:../SEMS_Sources/Patcher.c **** 
- 231:../SEMS_Sources/Patcher.c **** 
- 232:../SEMS_Sources/Patcher.c ****         // OPTIGA Comms Shielded connection settings to enable the protection
- 233:../SEMS_Sources/Patcher.c **** //        OPTIGA_UTIL_SET_COMMS_PROTOCOL_VERSION(me, OPTIGA_COMMS_PROTOCOL_VERSION_PRE_SHARED_SECRE
- 234:../SEMS_Sources/Patcher.c **** //        OPTIGA_UTIL_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_RESPONSE_PROTECTION);
- 235:../SEMS_Sources/Patcher.c **** 
- 236:../SEMS_Sources/Patcher.c ****         /**
- 237:../SEMS_Sources/Patcher.c ****          * 2. Read data from a data object (e.g. certificate data object)
- 238:../SEMS_Sources/Patcher.c ****          *    using optiga_util_read_data.
- 239:../SEMS_Sources/Patcher.c ****          */
- 240:../SEMS_Sources/Patcher.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
- 236              	 .loc 1 240 0
- 237 00d2 3D4D     	 ldr r5,.L41+12
- 241:../SEMS_Sources/Patcher.c **** 
- 242:../SEMS_Sources/Patcher.c **** 
- 243:../SEMS_Sources/Patcher.c **** 
- 244:../SEMS_Sources/Patcher.c ****         return_status = optiga_util_read_data(me,
- 238              	 .loc 1 244 0
- 239 00d4 0DF10E02 	 add r2,sp,#14
- 240 00d8 04AF     	 add r7,sp,#16
- 241              	.LVL28:
- 240:../SEMS_Sources/Patcher.c **** 
- 242              	 .loc 1 240 0
- 243 00da 4FF0010E 	 mov lr,#1
- 244              	 .loc 1 244 0
- 245 00de 0092     	 str r2,[sp]
- 246 00e0 3B46     	 mov r3,r7
- 247 00e2 4EF22011 	 movw r1,#57632
- 248 00e6 0022     	 movs r2,#0
- 240:../SEMS_Sources/Patcher.c **** 
- 249              	 .loc 1 240 0
- 250 00e8 A5F800E0 	 strh lr,[r5]
- 251              	 .loc 1 244 0
- 252 00ec FFF7FEFF 	 bl optiga_util_read_data
- 253              	.LVL29:
- 245:../SEMS_Sources/Patcher.c ****                                               optiga_oid,
- 246:../SEMS_Sources/Patcher.c ****                                               offset,
- 247:../SEMS_Sources/Patcher.c ****                                               read_data_buffer,
- 248:../SEMS_Sources/Patcher.c ****                                               &bytes_to_read);
- 249:../SEMS_Sources/Patcher.c **** 
- 250:../SEMS_Sources/Patcher.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
- 254              	 .loc 1 250 0
- 255 00f0 40B9     	 cbnz r0,.L9
- 256              	.L10:
- 257 00f2 2B88     	 ldrh r3,[r5]
- 258 00f4 344A     	 ldr r2,.L41+12
- 259 00f6 9BB2     	 uxth r3,r3
- 260 00f8 012B     	 cmp r3,#1
- 261 00fa FAD0     	 beq .L10
- 262 00fc 1388     	 ldrh r3,[r2]
- 263 00fe 9BB2     	 uxth r3,r3
- 264 0100 03B1     	 cbz r3,.L9
- 265 0102 1388     	 ldrh r3,[r2]
- 266              	.LVL30:
- 267              	.L9:
- 251:../SEMS_Sources/Patcher.c **** 
- 252:../SEMS_Sources/Patcher.c **** 
- 253:../SEMS_Sources/Patcher.c ****         return_status = OPTIGA_LIB_SUCCESS;
- 254:../SEMS_Sources/Patcher.c ****     } while (FALSE);
- 255:../SEMS_Sources/Patcher.c **** 
- 256:../SEMS_Sources/Patcher.c **** 
- 257:../SEMS_Sources/Patcher.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 258:../SEMS_Sources/Patcher.c ****     /**
- 259:../SEMS_Sources/Patcher.c ****      * Close the application on OPTIGA after all the operations are executed
- 260:../SEMS_Sources/Patcher.c ****      * using optiga_util_close_application
- 261:../SEMS_Sources/Patcher.c ****      */
- 262:../SEMS_Sources/Patcher.c ****     example_optiga_deinit();
- 268              	 .loc 1 262 0
- 269 0104 FFF7FEFF 	 bl example_optiga_deinit
- 270              	.LVL31:
- 263:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 264:../SEMS_Sources/Patcher.c **** 
- 265:../SEMS_Sources/Patcher.c **** 
- 266:../SEMS_Sources/Patcher.c ****     if (me)
- 267:../SEMS_Sources/Patcher.c ****     {
- 268:../SEMS_Sources/Patcher.c ****         //Destroy the instance after the completion of usecase if not required.
- 269:../SEMS_Sources/Patcher.c ****         return_status = optiga_util_destroy(me);
- 271              	 .loc 1 269 0
- 272 0108 4046     	 mov r0,r8
- 273 010a FFF7FEFF 	 bl optiga_util_destroy
- 274              	.LVL32:
- 275              	.L18:
- 276              	.LBE12:
- 277              	.LBE14:
- 117:../SEMS_Sources/Patcher.c **** 				{
- 278              	 .loc 1 117 0
- 279 010e 3046     	 mov r0,r6
- 280 0110 3946     	 mov r1,r7
- 281 0112 0422     	 movs r2,#4
- 282 0114 FFF7FEFF 	 bl memcmp
- 283              	.LVL33:
- 284 0118 0028     	 cmp r0,#0
- 285 011a 00DD     	 ble .L21
- 122:../SEMS_Sources/Patcher.c **** 				{
- 286              	 .loc 1 122 0
- 287 011c 4CB1     	 cbz r4,.L40
- 288              	.LVL34:
- 289              	.L21:
- 290              	.LBE9:
- 133:../SEMS_Sources/Patcher.c **** 	}
- 291              	 .loc 1 133 0
- 292 011e 0124     	 movs r4,#1
- 136:../SEMS_Sources/Patcher.c **** 
- 293              	 .loc 1 136 0
- 294 0120 2046     	 mov r0,r4
- 295 0122 16B0     	 add sp,sp,#88
- 296              	.LCFI4:
- 297              	 .cfi_remember_state
- 298              	 .cfi_def_cfa_offset 24
- 299              	 
- 300 0124 BDE8F081 	 pop {r4,r5,r6,r7,r8,pc}
- 301              	.LVL35:
- 302              	.L22:
- 303              	.LCFI5:
- 304              	 .cfi_restore_state
-  36:../SEMS_Sources/Patcher.c **** 
- 305              	 .loc 1 36 0
- 306 0128 0446     	 mov r4,r0
- 136:../SEMS_Sources/Patcher.c **** 
- 307              	 .loc 1 136 0
- 308 012a 2046     	 mov r0,r4
- 309 012c 16B0     	 add sp,sp,#88
- 310              	.LCFI6:
- 311              	 .cfi_remember_state
- 312              	 .cfi_def_cfa_offset 24
- 313              	 
- 314 012e BDE8F081 	 pop {r4,r5,r6,r7,r8,pc}
- 315              	.LVL36:
- 316              	.L40:
- 317              	.LCFI7:
- 318              	 .cfi_restore_state
- 319              	.LBB20:
- 320              	.LBB15:
- 321              	.LBB16:
- 270:../SEMS_Sources/Patcher.c ****     }
- 271:../SEMS_Sources/Patcher.c **** }
- 272:../SEMS_Sources/Patcher.c **** 
- 273:../SEMS_Sources/Patcher.c **** 
- 274:../SEMS_Sources/Patcher.c **** 
- 275:../SEMS_Sources/Patcher.c **** 
- 276:../SEMS_Sources/Patcher.c **** 
- 277:../SEMS_Sources/Patcher.c **** void optiga_util_update_count_wrapper(uint16_t optiga_counter_oid, uint8_t ticks)
- 278:../SEMS_Sources/Patcher.c **** {
- 279:../SEMS_Sources/Patcher.c ****     uint32_t time_taken = 0;
- 322              	 .loc 1 279 0
- 323 0132 0594     	 str r4,[sp,#20]
- 324              	.LVL37:
- 280:../SEMS_Sources/Patcher.c **** 
- 281:../SEMS_Sources/Patcher.c **** 
- 282:../SEMS_Sources/Patcher.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
- 283:../SEMS_Sources/Patcher.c ****     optiga_util_t * me = NULL;
- 284:../SEMS_Sources/Patcher.c **** 
- 285:../SEMS_Sources/Patcher.c ****     do
- 286:../SEMS_Sources/Patcher.c ****     {
- 287:../SEMS_Sources/Patcher.c **** 
- 288:../SEMS_Sources/Patcher.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 289:../SEMS_Sources/Patcher.c ****         /**
- 290:../SEMS_Sources/Patcher.c ****          * Open the application on OPTIGA which is a precondition to perform any other operations
- 291:../SEMS_Sources/Patcher.c ****          * using optiga_util_open_application
- 292:../SEMS_Sources/Patcher.c ****          */
- 293:../SEMS_Sources/Patcher.c ****         example_optiga_init();
- 325              	 .loc 1 293 0
- 326 0134 FFF7FEFF 	 bl example_optiga_init
- 327              	.LVL38:
- 294:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 295:../SEMS_Sources/Patcher.c **** 
- 296:../SEMS_Sources/Patcher.c ****         OPTIGA_EXAMPLE_LOG_MESSAGE(__FUNCTION__);
- 297:../SEMS_Sources/Patcher.c ****         /**
- 298:../SEMS_Sources/Patcher.c ****          * 1. Create OPTIGA Util Instance
- 299:../SEMS_Sources/Patcher.c ****          */
- 300:../SEMS_Sources/Patcher.c ****         me = optiga_util_create(0, optiga_util_callback, NULL);
- 328              	 .loc 1 300 0
- 329 0138 2046     	 mov r0,r4
- 330 013a 2249     	 ldr r1,.L41+8
- 331 013c 2246     	 mov r2,r4
- 332 013e FFF7FEFF 	 bl optiga_util_create
- 333              	.LVL39:
- 301:../SEMS_Sources/Patcher.c ****         if (NULL == me)
- 334              	 .loc 1 301 0
- 335 0142 0646     	 mov r6,r0
- 336              	.LVL40:
- 337 0144 0028     	 cmp r0,#0
- 338 0146 2FD0     	 beq .L12
- 302:../SEMS_Sources/Patcher.c ****         {
- 303:../SEMS_Sources/Patcher.c ****             break;
- 304:../SEMS_Sources/Patcher.c ****         }
- 305:../SEMS_Sources/Patcher.c **** 
- 306:../SEMS_Sources/Patcher.c ****         /**
- 307:../SEMS_Sources/Patcher.c ****          * Pre-condition
- 308:../SEMS_Sources/Patcher.c ****          * Any data object can be converted to counter data object by changing metadata as mentione
- 309:../SEMS_Sources/Patcher.c ****          * - As precondition  write access should be always or LCSO < OPERATIONAL
- 310:../SEMS_Sources/Patcher.c ****          * - Write metadata as "0xD0, 0x01, 0x01" using #optiga_util_write_metadata
- 311:../SEMS_Sources/Patcher.c ****         */
- 312:../SEMS_Sources/Patcher.c **** 
- 313:../SEMS_Sources/Patcher.c ****         /**
- 314:../SEMS_Sources/Patcher.c ****          * Write default count and threshold value to counter data object (e.g. E120)
- 315:../SEMS_Sources/Patcher.c ****          * using optiga_util_write_data.
- 316:../SEMS_Sources/Patcher.c ****          *
- 317:../SEMS_Sources/Patcher.c ****          * Use Erase and Write (OPTIGA_UTIL_ERASE_AND_WRITE) option,
- 318:../SEMS_Sources/Patcher.c ****          * in order to correctly update the used length of the object.
- 319:../SEMS_Sources/Patcher.c ****          */
- 320:../SEMS_Sources/Patcher.c ****         optiga_counter_oid = 0xE120;
- 321:../SEMS_Sources/Patcher.c **** 
- 322:../SEMS_Sources/Patcher.c **** 
- 323:../SEMS_Sources/Patcher.c **** 
- 324:../SEMS_Sources/Patcher.c ****         START_PERFORMANCE_MEASUREMENT(time_taken);
- 339              	 .loc 1 324 0
- 340 0148 05A8     	 add r0,sp,#20
- 341              	.LVL41:
- 342 014a 0121     	 movs r1,#1
- 343 014c FFF7FEFF 	 bl example_performance_measurement
- 344              	.LVL42:
- 325:../SEMS_Sources/Patcher.c **** 
- 326:../SEMS_Sources/Patcher.c **** 
- 327:../SEMS_Sources/Patcher.c ****         // In this example, the counter is update by 5 and the final count would be 15
- 328:../SEMS_Sources/Patcher.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
- 345              	 .loc 1 328 0
- 346 0150 1D4D     	 ldr r5,.L41+12
- 347 0152 0123     	 movs r3,#1
- 329:../SEMS_Sources/Patcher.c ****         return_status = optiga_util_update_count(me,
- 348              	 .loc 1 329 0
- 349 0154 1A46     	 mov r2,r3
- 350 0156 3046     	 mov r0,r6
- 351 0158 4EF22011 	 movw r1,#57632
- 328:../SEMS_Sources/Patcher.c ****         return_status = optiga_util_update_count(me,
- 352              	 .loc 1 328 0
- 353 015c 2B80     	 strh r3,[r5]
- 354              	 .loc 1 329 0
- 355 015e FFF7FEFF 	 bl optiga_util_update_count
- 356              	.LVL43:
- 330:../SEMS_Sources/Patcher.c ****                                                  optiga_counter_oid,
- 331:../SEMS_Sources/Patcher.c **** 												 ticks);
- 332:../SEMS_Sources/Patcher.c **** 
- 333:../SEMS_Sources/Patcher.c **** 
- 334:../SEMS_Sources/Patcher.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
- 357              	 .loc 1 334 0
- 358 0162 28B1     	 cbz r0,.L14
- 359              	.LVL44:
- 335:../SEMS_Sources/Patcher.c **** 
- 336:../SEMS_Sources/Patcher.c ****         READ_PERFORMANCE_MEASUREMENT(time_taken);
- 337:../SEMS_Sources/Patcher.c **** 
- 338:../SEMS_Sources/Patcher.c ****         return_status = OPTIGA_LIB_SUCCESS;
- 339:../SEMS_Sources/Patcher.c ****     } while (FALSE);
- 340:../SEMS_Sources/Patcher.c ****     OPTIGA_EXAMPLE_LOG_STATUS(return_status);
- 341:../SEMS_Sources/Patcher.c **** 
- 342:../SEMS_Sources/Patcher.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 343:../SEMS_Sources/Patcher.c ****     /**
- 344:../SEMS_Sources/Patcher.c ****      * Close the application on OPTIGA after all the operations are executed
- 345:../SEMS_Sources/Patcher.c ****      * using optiga_util_close_application
- 346:../SEMS_Sources/Patcher.c ****      */
- 347:../SEMS_Sources/Patcher.c ****     example_optiga_deinit();
- 360              	 .loc 1 347 0
- 361 0164 FFF7FEFF 	 bl example_optiga_deinit
- 362              	.LVL45:
- 363              	.L19:
- 348:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 349:../SEMS_Sources/Patcher.c **** 
- 350:../SEMS_Sources/Patcher.c ****     OPTIGA_EXAMPLE_LOG_PERFORMANCE_VALUE(time_taken, return_status);
- 351:../SEMS_Sources/Patcher.c **** 
- 352:../SEMS_Sources/Patcher.c ****     if (me)
- 353:../SEMS_Sources/Patcher.c ****     {
- 354:../SEMS_Sources/Patcher.c ****         //Destroy the instance after the completion of usecase if not required.
- 355:../SEMS_Sources/Patcher.c ****         return_status = optiga_util_destroy(me);
- 364              	 .loc 1 355 0
- 365 0168 3046     	 mov r0,r6
- 366 016a FFF7FEFF 	 bl optiga_util_destroy
- 367              	.LVL46:
- 368 016e 69E7     	 b .L36
- 369              	.LVL47:
- 370              	.L14:
- 334:../SEMS_Sources/Patcher.c **** 
- 371              	 .loc 1 334 0
- 372 0170 2B88     	 ldrh r3,[r5]
- 373 0172 154A     	 ldr r2,.L41+12
- 374 0174 9BB2     	 uxth r3,r3
- 375 0176 012B     	 cmp r3,#1
- 376 0178 FAD0     	 beq .L14
- 377 017a 1188     	 ldrh r1,[r2]
- 378 017c 89B2     	 uxth r1,r1
- 379 017e B1B1     	 cbz r1,.L15
- 380 0180 1588     	 ldrh r5,[r2]
- 381 0182 ADB2     	 uxth r5,r5
- 382              	.LVL48:
- 347:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 383              	 .loc 1 347 0
- 384 0184 FFF7FEFF 	 bl example_optiga_deinit
- 385              	.LVL49:
- 350:../SEMS_Sources/Patcher.c **** 
- 386              	 .loc 1 350 0
- 387 0188 002D     	 cmp r5,#0
- 388 018a EDD1     	 bne .L19
- 389              	.LVL50:
- 390              	.L16:
- 391 018c 0F49     	 ldr r1,.L41+16
- 392 018e 059A     	 ldr r2,[sp,#20]
- 393 0190 0F48     	 ldr r0,.L41+20
- 394 0192 FFF7FEFF 	 bl sprintf
- 395              	.LVL51:
- 396 0196 E7E7     	 b .L19
- 397              	.LVL52:
- 398              	.L8:
- 399              	.LBE16:
- 400              	.LBE15:
- 401              	.LBB18:
- 402              	.LBB13:
- 262:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 403              	 .loc 1 262 0
- 404 0198 FFF7FEFF 	 bl example_optiga_deinit
- 405              	.LVL53:
- 406 019c 04AF     	 add r7,sp,#16
- 407              	.LVL54:
- 408 019e B6E7     	 b .L18
- 409              	.LVL55:
- 410              	.L39:
- 411              	.LBE13:
- 412              	.LBE18:
- 413              	.LBE20:
-  36:../SEMS_Sources/Patcher.c **** 
- 414              	 .loc 1 36 0
- 415 01a0 2C1C     	 adds r4,r5,#0
- 416 01a2 18BF     	 it ne
- 417 01a4 0124     	 movne r4,#1
- 418 01a6 86E7     	 b .L7
- 419              	.LVL56:
- 420              	.L12:
- 421              	.LBB21:
- 422              	.LBB19:
- 423              	.LBB17:
- 347:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 424              	 .loc 1 347 0
- 425 01a8 FFF7FEFF 	 bl example_optiga_deinit
- 426              	.LVL57:
- 427 01ac 4AE7     	 b .L36
- 428              	.LVL58:
- 429              	.L15:
- 336:../SEMS_Sources/Patcher.c **** 
- 430              	 .loc 1 336 0
- 431 01ae 05A8     	 add r0,sp,#20
- 432              	.LVL59:
- 433 01b0 FFF7FEFF 	 bl example_performance_measurement
- 434              	.LVL60:
- 347:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 435              	 .loc 1 347 0
- 436 01b4 FFF7FEFF 	 bl example_optiga_deinit
- 437              	.LVL61:
- 438 01b8 E8E7     	 b .L16
- 439              	.L42:
- 440 01ba 00BF     	 .align 2
- 441              	.L41:
- 442 01bc 00000000 	 .word logger_console
- 443 01c0 00000000 	 .word user_token
- 444 01c4 00000000 	 .word optiga_util_callback
- 445 01c8 00000000 	 .word .LANCHOR0
- 446 01cc 00000000 	 .word .LC1
- 447 01d0 00000000 	 .word performance_buffer_string
- 448              	.LBE17:
- 449              	.LBE19:
- 450              	.LBE21:
- 451              	 .cfi_endproc
- 452              	.LFE449:
- 454              	 .section .text.write_request,"ax",%progbits
- 455              	 .align 2
- 456              	 .global write_request
- 457              	 .thumb
- 458              	 .thumb_func
- 460              	write_request:
- 461              	.LFB450:
- 142:../SEMS_Sources/Patcher.c **** 	if(0 == is_secure_com)
- 462              	 .loc 1 142 0
- 463              	 .cfi_startproc
- 464              	 
- 465              	 
- 466              	.LVL62:
- 467 0000 2DE9F041 	 push {r4,r5,r6,r7,r8,lr}
- 468              	.LCFI8:
- 469              	 .cfi_def_cfa_offset 24
- 470              	 .cfi_offset 4,-24
- 471              	 .cfi_offset 5,-20
- 472              	 .cfi_offset 6,-16
- 473              	 .cfi_offset 7,-12
- 474              	 .cfi_offset 8,-8
- 475              	 .cfi_offset 14,-4
- 476 0004 0546     	 mov r5,r0
- 477 0006 9CB0     	 sub sp,sp,#112
- 478              	.LCFI9:
- 479              	 .cfi_def_cfa_offset 136
- 143:../SEMS_Sources/Patcher.c **** 	{
- 480              	 .loc 1 143 0
- 481 0008 0C46     	 mov r4,r1
- 482 000a 0029     	 cmp r1,#0
- 483 000c 6DD0     	 beq .L57
- 484              	.LBB26:
- 165:../SEMS_Sources/Patcher.c **** 		uint16_t optiga_key_oid = 0xF1E0;
- 485              	 .loc 1 165 0
- 486 000e 0024     	 movs r4,#0
- 487 0010 0126     	 movs r6,#1
- 488 0012 0423     	 movs r3,#4
- 489 0014 ADF80A30 	 strh r3,[sp,#10]
- 490 0018 1594     	 str r4,[sp,#84]
- 491 001a 1694     	 str r4,[sp,#88]
- 492 001c 1794     	 str r4,[sp,#92]
- 493 001e 1894     	 str r4,[sp,#96]
- 494 0020 1994     	 str r4,[sp,#100]
- 495 0022 1A94     	 str r4,[sp,#104]
- 496 0024 1B94     	 str r4,[sp,#108]
- 497 0026 8DF85060 	 strb r6,[sp,#80]
- 498 002a 8DF85160 	 strb r6,[sp,#81]
- 499 002e 8DF85260 	 strb r6,[sp,#82]
- 500 0032 8DF85360 	 strb r6,[sp,#83]
- 501              	.LVL63:
- 502              	.LBB27:
- 503              	.LBB28:
- 218:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 504              	 .loc 1 218 0
- 505 0036 FFF7FEFF 	 bl example_optiga_init
- 506              	.LVL64:
- 225:../SEMS_Sources/Patcher.c ****         if (NULL == me)
- 507              	 .loc 1 225 0
- 508 003a 2046     	 mov r0,r4
- 509 003c 2246     	 mov r2,r4
- 510 003e 3B49     	 ldr r1,.L58
- 511 0040 FFF7FEFF 	 bl optiga_util_create
- 512              	.LVL65:
- 226:../SEMS_Sources/Patcher.c ****         {
- 513              	 .loc 1 226 0
- 514 0044 8046     	 mov r8,r0
- 515 0046 0028     	 cmp r0,#0
- 516 0048 6DD0     	 beq .L46
- 240:../SEMS_Sources/Patcher.c **** 
- 517              	 .loc 1 240 0
- 518 004a 394F     	 ldr r7,.L58+4
- 244:../SEMS_Sources/Patcher.c ****                                               optiga_oid,
- 519              	 .loc 1 244 0
- 520 004c 0DF10A03 	 add r3,sp,#10
- 521              	.LVL66:
- 522 0050 0093     	 str r3,[sp]
- 523 0052 2246     	 mov r2,r4
- 524 0054 4EF22011 	 movw r1,#57632
- 525 0058 03AB     	 add r3,sp,#12
- 526              	.LVL67:
- 240:../SEMS_Sources/Patcher.c **** 
- 527              	 .loc 1 240 0
- 528 005a 3E80     	 strh r6,[r7]
- 244:../SEMS_Sources/Patcher.c ****                                               optiga_oid,
- 529              	 .loc 1 244 0
- 530 005c FFF7FEFF 	 bl optiga_util_read_data
- 531              	.LVL68:
- 250:../SEMS_Sources/Patcher.c **** 
- 532              	 .loc 1 250 0
- 533 0060 0028     	 cmp r0,#0
- 534 0062 37D0     	 beq .L48
- 535              	.LVL69:
- 536              	.L47:
- 262:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 537              	 .loc 1 262 0
- 538 0064 FFF7FEFF 	 bl example_optiga_deinit
- 539              	.LVL70:
- 269:../SEMS_Sources/Patcher.c ****     }
- 540              	 .loc 1 269 0
- 541 0068 4046     	 mov r0,r8
- 542 006a FFF7FEFF 	 bl optiga_util_destroy
- 543              	.LVL71:
- 544              	.L49:
- 545              	.LBE28:
- 546              	.LBE27:
- 174:../SEMS_Sources/Patcher.c **** 		send_user_token[1] = (user_token >> 16) & 0xFF;
- 547              	 .loc 1 174 0
- 548 006e 314B     	 ldr r3,.L58+8
- 181:../SEMS_Sources/Patcher.c **** 		memcpy(response + 16, send_user_token, 4);  // global
- 549              	 .loc 1 181 0
- 550 0070 2868     	 ldr r0,[r5]
- 174:../SEMS_Sources/Patcher.c **** 		send_user_token[1] = (user_token >> 16) & 0xFF;
- 551              	 .loc 1 174 0
- 552 0072 1E68     	 ldr r6,[r3]
- 553              	.LVL72:
- 181:../SEMS_Sources/Patcher.c **** 		memcpy(response + 16, send_user_token, 4);  // global
- 554              	 .loc 1 181 0
- 555 0074 6968     	 ldr r1,[r5,#4]
- 556 0076 AA68     	 ldr r2,[r5,#8]
- 557 0078 EB68     	 ldr r3,[r5,#12]
- 183:../SEMS_Sources/Patcher.c **** 
- 558              	 .loc 1 183 0
- 559 007a 039D     	 ldr r5,[sp,#12]
- 560              	.LVL73:
- 181:../SEMS_Sources/Patcher.c **** 		memcpy(response + 16, send_user_token, 4);  // global
- 561              	 .loc 1 181 0
- 562 007c 04AC     	 add r4,sp,#16
- 563 007e 0FC4     	 stmia r4!,{r0,r1,r2,r3}
- 174:../SEMS_Sources/Patcher.c **** 		send_user_token[1] = (user_token >> 16) & 0xFF;
- 564              	 .loc 1 174 0
- 565 0080 370E     	 lsrs r7,r6,#24
- 176:../SEMS_Sources/Patcher.c **** 		send_user_token[3] = (user_token >>  0) & 0xFF;
- 566              	 .loc 1 176 0
- 567 0082 330A     	 lsrs r3,r6,#8
- 186:../SEMS_Sources/Patcher.c **** 
- 568              	 .loc 1 186 0
- 569 0084 14A9     	 add r1,sp,#80
- 175:../SEMS_Sources/Patcher.c **** 		send_user_token[2] = (user_token >>  8) & 0xFF;
- 570              	 .loc 1 175 0
- 571 0086 340C     	 lsrs r4,r6,#16
- 186:../SEMS_Sources/Patcher.c **** 
- 572              	 .loc 1 186 0
- 573 0088 4FF2E010 	 movw r0,#61920
- 574 008c 2022     	 movs r2,#32
- 176:../SEMS_Sources/Patcher.c **** 		send_user_token[3] = (user_token >>  0) & 0xFF;
- 575              	 .loc 1 176 0
- 576 008e 8DF82230 	 strb r3,[sp,#34]
- 174:../SEMS_Sources/Patcher.c **** 		send_user_token[1] = (user_token >> 16) & 0xFF;
- 577              	 .loc 1 174 0
- 578 0092 8DF82070 	 strb r7,[sp,#32]
+ 169:../SEMS_Sources/Patcher.c **** 		// Encrypt ciphertext
+ 170:../SEMS_Sources/Patcher.c **** 		stream_enc(response, key, 24);
+ 372              	 .loc 1 170 0
+ 373 0070 02A8     	 add r0,sp,#8
+ 374 0072 12A9     	 add r1,sp,#72
+ 375 0074 1822     	 movs r2,#24
+ 376 0076 FFF7FEFF 	 bl stream_enc
+ 377              	.LVL44:
+ 171:../SEMS_Sources/Patcher.c **** 
+ 172:../SEMS_Sources/Patcher.c **** 		// Calculate Hash
+ 173:../SEMS_Sources/Patcher.c **** 		optiga_crypt_hash_data_wrapper(response, 24, calculated_digest); // SHA256(Ciphertext)
+ 378              	 .loc 1 173 0
+ 379 007a 02A8     	 add r0,sp,#8
+ 380 007c 0AAA     	 add r2,sp,#40
+ 381 007e 1821     	 movs r1,#24
+ 382 0080 FFF7FEFF 	 bl optiga_crypt_hash_data_wrapper
+ 383              	.LVL45:
+ 174:../SEMS_Sources/Patcher.c **** 
+ 175:../SEMS_Sources/Patcher.c **** 		// Pack the message
+ 176:../SEMS_Sources/Patcher.c **** 		memcpy(response + 24, calculated_digest + 24, 8);
+ 384              	 .loc 1 176 0
+ 385 0084 10AB     	 add r3,sp,#64
+ 386 0086 93E80300 	 ldmia r3,{r0,r1}
+ 387 008a 08AB     	 add r3,sp,#32
+ 388 008c 83E80300 	 stmia r3,{r0,r1}
  177:../SEMS_Sources/Patcher.c **** 
- 579              	 .loc 1 177 0
- 580 0096 8DF82360 	 strb r6,[sp,#35]
- 175:../SEMS_Sources/Patcher.c **** 		send_user_token[2] = (user_token >>  8) & 0xFF;
- 581              	 .loc 1 175 0
- 582 009a 8DF82140 	 strb r4,[sp,#33]
- 183:../SEMS_Sources/Patcher.c **** 
- 583              	 .loc 1 183 0
- 584 009e 0995     	 str r5,[sp,#36]
- 186:../SEMS_Sources/Patcher.c **** 
- 585              	 .loc 1 186 0
- 586 00a0 FFF7FEFF 	 bl optiga_util_read_shared_key
- 587              	.LVL74:
- 189:../SEMS_Sources/Patcher.c **** 
- 588              	 .loc 1 189 0
- 589 00a4 04A8     	 add r0,sp,#16
- 590 00a6 14A9     	 add r1,sp,#80
- 591 00a8 1822     	 movs r2,#24
- 592 00aa FFF7FEFF 	 bl stream_enc
- 593              	.LVL75:
- 192:../SEMS_Sources/Patcher.c **** 
- 594              	 .loc 1 192 0
- 595 00ae 04A8     	 add r0,sp,#16
- 596 00b0 0CAA     	 add r2,sp,#48
- 597 00b2 1821     	 movs r1,#24
- 598 00b4 FFF7FEFF 	 bl optiga_crypt_hash_data_wrapper
- 599              	.LVL76:
- 195:../SEMS_Sources/Patcher.c **** 
- 600              	 .loc 1 195 0
- 601 00b8 12AB     	 add r3,sp,#72
- 602 00ba 93E80300 	 ldmia r3,{r0,r1}
- 603 00be 0AAB     	 add r3,sp,#40
- 604 00c0 83E80300 	 stmia r3,{r0,r1}
- 197:../SEMS_Sources/Patcher.c **** 	}
- 605              	 .loc 1 197 0
- 606 00c4 04A8     	 add r0,sp,#16
- 607 00c6 2021     	 movs r1,#32
- 608 00c8 FFF7FEFF 	 bl optiga_lib_print_bytes
- 609              	.LVL77:
- 610              	.LBE26:
- 201:../SEMS_Sources/Patcher.c **** 
- 611              	 .loc 1 201 0
- 612 00cc 0120     	 movs r0,#1
- 613 00ce 1CB0     	 add sp,sp,#112
- 614              	.LCFI10:
- 615              	 .cfi_remember_state
- 616              	 .cfi_def_cfa_offset 24
- 617              	 
- 618 00d0 BDE8F081 	 pop {r4,r5,r6,r7,r8,pc}
- 619              	.LVL78:
- 620              	.L48:
- 621              	.LCFI11:
- 622              	 .cfi_restore_state
- 623              	.LBB33:
- 624              	.LBB31:
- 625              	.LBB29:
- 250:../SEMS_Sources/Patcher.c **** 
- 626              	 .loc 1 250 0
- 627 00d4 3B88     	 ldrh r3,[r7]
- 628 00d6 164A     	 ldr r2,.L58+4
- 629 00d8 9BB2     	 uxth r3,r3
- 630 00da 012B     	 cmp r3,#1
- 631 00dc FAD0     	 beq .L48
- 632 00de 1388     	 ldrh r3,[r2]
- 633 00e0 9BB2     	 uxth r3,r3
- 634 00e2 002B     	 cmp r3,#0
- 635 00e4 BED0     	 beq .L47
- 636 00e6 1388     	 ldrh r3,[r2]
- 637              	.LVL79:
- 638 00e8 BCE7     	 b .L47
- 639              	.LVL80:
- 640              	.L57:
- 641              	.LBE29:
- 642              	.LBE31:
- 643              	.LBE33:
- 644              	.LBB34:
- 149:../SEMS_Sources/Patcher.c **** 				send_user_token[1] = (user_token >> 16) & 0xFF;
- 645              	 .loc 1 149 0
- 646 00ea 124B     	 ldr r3,.L58+8
- 154:../SEMS_Sources/Patcher.c **** 		memcpy(response + 16, send_user_token, 4);
- 647              	 .loc 1 154 0
- 648 00ec 6968     	 ldr r1,[r5,#4]
- 649              	.LVL81:
- 149:../SEMS_Sources/Patcher.c **** 				send_user_token[1] = (user_token >> 16) & 0xFF;
- 650              	 .loc 1 149 0
- 651 00ee 1E68     	 ldr r6,[r3]
- 652              	.LVL82:
- 154:../SEMS_Sources/Patcher.c **** 		memcpy(response + 16, send_user_token, 4);
- 653              	 .loc 1 154 0
- 654 00f0 AA68     	 ldr r2,[r5,#8]
- 655 00f2 EB68     	 ldr r3,[r5,#12]
- 656 00f4 0068     	 ldr r0,[r0]
- 657              	.LVL83:
- 145:../SEMS_Sources/Patcher.c **** 		uint8_t send_user_token[4];
- 658              	 .loc 1 145 0
- 659 00f6 1994     	 str r4,[sp,#100]
- 154:../SEMS_Sources/Patcher.c **** 		memcpy(response + 16, send_user_token, 4);
- 660              	 .loc 1 154 0
- 661 00f8 14AD     	 add r5,sp,#80
- 662              	.LVL84:
- 145:../SEMS_Sources/Patcher.c **** 		uint8_t send_user_token[4];
- 663              	 .loc 1 145 0
- 664 00fa 1A94     	 str r4,[sp,#104]
- 665 00fc 1B94     	 str r4,[sp,#108]
- 154:../SEMS_Sources/Patcher.c **** 		memcpy(response + 16, send_user_token, 4);
- 666              	 .loc 1 154 0
- 667 00fe 0FC5     	 stmia r5!,{r0,r1,r2,r3}
- 149:../SEMS_Sources/Patcher.c **** 				send_user_token[1] = (user_token >> 16) & 0xFF;
- 668              	 .loc 1 149 0
- 669 0100 340E     	 lsrs r4,r6,#24
- 150:../SEMS_Sources/Patcher.c **** 				send_user_token[2] = (user_token >>  8) & 0xFF;
- 670              	 .loc 1 150 0
- 671 0102 320C     	 lsrs r2,r6,#16
- 157:../SEMS_Sources/Patcher.c **** 	}
- 672              	 .loc 1 157 0
- 673 0104 14A8     	 add r0,sp,#80
- 151:../SEMS_Sources/Patcher.c **** 				send_user_token[3] = (user_token >>  0) & 0xFF;
- 674              	 .loc 1 151 0
- 675 0106 330A     	 lsrs r3,r6,#8
- 157:../SEMS_Sources/Patcher.c **** 	}
- 676              	 .loc 1 157 0
- 677 0108 2021     	 movs r1,#32
- 149:../SEMS_Sources/Patcher.c **** 				send_user_token[1] = (user_token >> 16) & 0xFF;
- 678              	 .loc 1 149 0
- 679 010a 8DF86040 	 strb r4,[sp,#96]
- 152:../SEMS_Sources/Patcher.c **** 
- 680              	 .loc 1 152 0
- 681 010e 8DF86360 	 strb r6,[sp,#99]
- 150:../SEMS_Sources/Patcher.c **** 				send_user_token[2] = (user_token >>  8) & 0xFF;
- 682              	 .loc 1 150 0
- 683 0112 8DF86120 	 strb r2,[sp,#97]
- 151:../SEMS_Sources/Patcher.c **** 				send_user_token[3] = (user_token >>  0) & 0xFF;
- 684              	 .loc 1 151 0
- 685 0116 8DF86230 	 strb r3,[sp,#98]
- 157:../SEMS_Sources/Patcher.c **** 	}
- 686              	 .loc 1 157 0
- 687 011a FFF7FEFF 	 bl optiga_lib_print_bytes
- 688              	.LVL85:
- 689              	.LBE34:
- 201:../SEMS_Sources/Patcher.c **** 
- 690              	 .loc 1 201 0
- 691 011e 0120     	 movs r0,#1
- 692 0120 1CB0     	 add sp,sp,#112
- 693              	.LCFI12:
- 694              	 .cfi_remember_state
- 695              	 .cfi_def_cfa_offset 24
- 696              	 
- 697 0122 BDE8F081 	 pop {r4,r5,r6,r7,r8,pc}
- 698              	.LVL86:
- 699              	.L46:
- 700              	.LCFI13:
- 701              	 .cfi_restore_state
- 702              	.LBB35:
- 703              	.LBB32:
- 704              	.LBB30:
- 262:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 705              	 .loc 1 262 0
- 706 0126 FFF7FEFF 	 bl example_optiga_deinit
- 707              	.LVL87:
- 708 012a A0E7     	 b .L49
- 709              	.L59:
- 710              	 .align 2
- 711              	.L58:
- 712 012c 00000000 	 .word optiga_util_callback
- 713 0130 00000000 	 .word .LANCHOR0
- 714 0134 00000000 	 .word user_token
- 715              	.LBE30:
- 716              	.LBE32:
- 717              	.LBE35:
- 718              	 .cfi_endproc
- 719              	.LFE450:
- 721              	 .section .text.optiga_util_read_nonce,"ax",%progbits
- 722              	 .align 2
- 723              	 .global optiga_util_read_nonce
- 724              	 .thumb
- 725              	 .thumb_func
- 727              	optiga_util_read_nonce:
- 728              	.LFB451:
- 205:../SEMS_Sources/Patcher.c ****     uint16_t offset = 0x00;
- 729              	 .loc 1 205 0
- 730              	 .cfi_startproc
- 731              	 
- 732              	 
- 733              	.LVL88:
- 734 0000 F0B5     	 push {r4,r5,r6,r7,lr}
- 735              	.LCFI14:
- 736              	 .cfi_def_cfa_offset 20
- 737              	 .cfi_offset 4,-20
- 738              	 .cfi_offset 5,-16
- 739              	 .cfi_offset 6,-12
- 740              	 .cfi_offset 7,-8
- 741              	 .cfi_offset 14,-4
- 742 0002 85B0     	 sub sp,sp,#20
- 743              	.LCFI15:
- 744              	 .cfi_def_cfa_offset 40
- 205:../SEMS_Sources/Patcher.c ****     uint16_t offset = 0x00;
- 745              	 .loc 1 205 0
- 746 0004 0746     	 mov r7,r0
- 747 0006 0E46     	 mov r6,r1
- 748 0008 ADF80E20 	 strh r2,[sp,#14]
- 218:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 749              	 .loc 1 218 0
- 750 000c FFF7FEFF 	 bl example_optiga_init
- 751              	.LVL89:
- 225:../SEMS_Sources/Patcher.c ****         if (NULL == me)
- 752              	 .loc 1 225 0
- 753 0010 0020     	 movs r0,#0
- 754 0012 0246     	 mov r2,r0
- 755 0014 1349     	 ldr r1,.L71
- 756 0016 FFF7FEFF 	 bl optiga_util_create
- 757              	.LVL90:
- 226:../SEMS_Sources/Patcher.c ****         {
- 758              	 .loc 1 226 0
- 759 001a F0B1     	 cbz r0,.L61
- 244:../SEMS_Sources/Patcher.c ****                                               optiga_oid,
- 760              	 .loc 1 244 0
- 761 001c 0DF10E02 	 add r2,sp,#14
- 762              	.LVL91:
- 240:../SEMS_Sources/Patcher.c **** 
- 763              	 .loc 1 240 0
- 764 0020 114C     	 ldr r4,.L71+4
- 244:../SEMS_Sources/Patcher.c ****                                               optiga_oid,
- 765              	 .loc 1 244 0
- 766 0022 0092     	 str r2,[sp]
- 767 0024 3346     	 mov r3,r6
- 768 0026 3946     	 mov r1,r7
- 240:../SEMS_Sources/Patcher.c **** 
- 769              	 .loc 1 240 0
- 770 0028 0126     	 movs r6,#1
- 771              	.LVL92:
- 244:../SEMS_Sources/Patcher.c ****                                               optiga_oid,
- 772              	 .loc 1 244 0
- 773 002a 0022     	 movs r2,#0
- 774              	.LVL93:
- 775 002c 0546     	 mov r5,r0
- 240:../SEMS_Sources/Patcher.c **** 
- 776              	 .loc 1 240 0
- 777 002e 2680     	 strh r6,[r4]
- 244:../SEMS_Sources/Patcher.c ****                                               optiga_oid,
- 778              	 .loc 1 244 0
- 779 0030 FFF7FEFF 	 bl optiga_util_read_data
- 780              	.LVL94:
- 250:../SEMS_Sources/Patcher.c **** 
- 781              	 .loc 1 250 0
- 782 0034 30B1     	 cbz r0,.L63
- 783              	.LVL95:
- 784              	.L62:
- 262:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 785              	 .loc 1 262 0
- 786 0036 FFF7FEFF 	 bl example_optiga_deinit
- 787              	.LVL96:
- 269:../SEMS_Sources/Patcher.c ****     }
- 788              	 .loc 1 269 0
- 789 003a 2846     	 mov r0,r5
- 790 003c FFF7FEFF 	 bl optiga_util_destroy
- 791              	.LVL97:
- 271:../SEMS_Sources/Patcher.c **** 
- 792              	 .loc 1 271 0
- 793 0040 05B0     	 add sp,sp,#20
- 794              	.LCFI16:
- 795              	 .cfi_remember_state
- 796              	 .cfi_def_cfa_offset 20
- 797              	 
- 798 0042 F0BD     	 pop {r4,r5,r6,r7,pc}
- 799              	.LVL98:
- 800              	.L63:
- 801              	.LCFI17:
- 802              	 .cfi_restore_state
- 250:../SEMS_Sources/Patcher.c **** 
- 803              	 .loc 1 250 0 discriminator 1
- 804 0044 2388     	 ldrh r3,[r4]
- 805 0046 084A     	 ldr r2,.L71+4
- 806 0048 9BB2     	 uxth r3,r3
- 807 004a 012B     	 cmp r3,#1
- 808 004c FAD0     	 beq .L63
- 250:../SEMS_Sources/Patcher.c **** 
- 809              	 .loc 1 250 0 is_stmt 0 discriminator 2
- 810 004e 1388     	 ldrh r3,[r2]
- 811 0050 9BB2     	 uxth r3,r3
- 812 0052 002B     	 cmp r3,#0
- 813 0054 EFD0     	 beq .L62
- 250:../SEMS_Sources/Patcher.c **** 
- 814              	 .loc 1 250 0 discriminator 3
- 815 0056 1388     	 ldrh r3,[r2]
- 816              	.LVL99:
- 817 0058 EDE7     	 b .L62
- 818              	.LVL100:
- 819              	.L61:
- 262:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 820              	 .loc 1 262 0 is_stmt 1
- 821 005a FFF7FEFF 	 bl example_optiga_deinit
- 822              	.LVL101:
- 271:../SEMS_Sources/Patcher.c **** 
- 823              	 .loc 1 271 0
- 824 005e 05B0     	 add sp,sp,#20
- 825              	.LCFI18:
- 826              	 .cfi_def_cfa_offset 20
- 827              	 
- 828 0060 F0BD     	 pop {r4,r5,r6,r7,pc}
- 829              	.LVL102:
- 830              	.L72:
- 831 0062 00BF     	 .align 2
- 832              	.L71:
- 833 0064 00000000 	 .word optiga_util_callback
- 834 0068 00000000 	 .word .LANCHOR0
- 835              	 .cfi_endproc
- 836              	.LFE451:
- 838              	 .section .text.optiga_util_update_count_wrapper,"ax",%progbits
- 839              	 .align 2
- 840              	 .global optiga_util_update_count_wrapper
- 841              	 .thumb
- 842              	 .thumb_func
- 844              	optiga_util_update_count_wrapper:
- 845              	.LFB452:
- 278:../SEMS_Sources/Patcher.c ****     uint32_t time_taken = 0;
- 846              	 .loc 1 278 0
- 847              	 .cfi_startproc
- 848              	 
- 849              	 
- 850              	.LVL103:
- 851 0000 70B5     	 push {r4,r5,r6,lr}
- 852              	.LCFI19:
- 853              	 .cfi_def_cfa_offset 16
- 854              	 .cfi_offset 4,-16
- 855              	 .cfi_offset 5,-12
- 856              	 .cfi_offset 6,-8
- 857              	 .cfi_offset 14,-4
- 858 0002 82B0     	 sub sp,sp,#8
- 859              	.LCFI20:
- 860              	 .cfi_def_cfa_offset 24
- 279:../SEMS_Sources/Patcher.c **** 
- 861              	 .loc 1 279 0
- 862 0004 0024     	 movs r4,#0
- 278:../SEMS_Sources/Patcher.c ****     uint32_t time_taken = 0;
- 863              	 .loc 1 278 0
- 864 0006 0E46     	 mov r6,r1
- 279:../SEMS_Sources/Patcher.c **** 
- 865              	 .loc 1 279 0
- 866 0008 0194     	 str r4,[sp,#4]
- 867              	.LVL104:
- 293:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 868              	 .loc 1 293 0
- 869 000a FFF7FEFF 	 bl example_optiga_init
- 870              	.LVL105:
- 300:../SEMS_Sources/Patcher.c ****         if (NULL == me)
- 871              	 .loc 1 300 0
- 872 000e 2046     	 mov r0,r4
- 873 0010 2246     	 mov r2,r4
- 874 0012 1E49     	 ldr r1,.L88
- 875 0014 FFF7FEFF 	 bl optiga_util_create
- 876              	.LVL106:
- 301:../SEMS_Sources/Patcher.c ****         {
- 877              	 .loc 1 301 0
- 878 0018 0546     	 mov r5,r0
- 879 001a 40B3     	 cbz r0,.L74
- 880              	.LVL107:
- 324:../SEMS_Sources/Patcher.c **** 
- 881              	 .loc 1 324 0
- 882 001c 01A8     	 add r0,sp,#4
- 883              	.LVL108:
- 884 001e 0121     	 movs r1,#1
- 328:../SEMS_Sources/Patcher.c ****         return_status = optiga_util_update_count(me,
- 885              	 .loc 1 328 0
- 886 0020 1B4C     	 ldr r4,.L88+4
- 324:../SEMS_Sources/Patcher.c **** 
- 887              	 .loc 1 324 0
- 888 0022 FFF7FEFF 	 bl example_performance_measurement
- 889              	.LVL109:
- 328:../SEMS_Sources/Patcher.c ****         return_status = optiga_util_update_count(me,
- 890              	 .loc 1 328 0
- 891 0026 0123     	 movs r3,#1
- 329:../SEMS_Sources/Patcher.c ****                                                  optiga_counter_oid,
- 892              	 .loc 1 329 0
- 893 0028 3246     	 mov r2,r6
- 894 002a 2846     	 mov r0,r5
- 895 002c 4EF22011 	 movw r1,#57632
- 328:../SEMS_Sources/Patcher.c ****         return_status = optiga_util_update_count(me,
- 896              	 .loc 1 328 0
- 897 0030 2380     	 strh r3,[r4]
- 329:../SEMS_Sources/Patcher.c ****                                                  optiga_counter_oid,
- 898              	 .loc 1 329 0
- 899 0032 FFF7FEFF 	 bl optiga_util_update_count
- 900              	.LVL110:
- 334:../SEMS_Sources/Patcher.c **** 
- 901              	 .loc 1 334 0
- 902 0036 30B1     	 cbz r0,.L76
- 903              	.LVL111:
- 347:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 904              	 .loc 1 347 0
- 905 0038 FFF7FEFF 	 bl example_optiga_deinit
- 906              	.LVL112:
- 907              	.L80:
- 908              	 .loc 1 355 0
- 909 003c 2846     	 mov r0,r5
- 910 003e FFF7FEFF 	 bl optiga_util_destroy
- 911              	.LVL113:
- 356:../SEMS_Sources/Patcher.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
- 357:../SEMS_Sources/Patcher.c ****         {
- 358:../SEMS_Sources/Patcher.c ****             //lint --e{774} suppress This is a generic macro
- 359:../SEMS_Sources/Patcher.c ****             OPTIGA_EXAMPLE_LOG_STATUS(return_status);
- 360:../SEMS_Sources/Patcher.c ****         }
- 361:../SEMS_Sources/Patcher.c ****     }
- 362:../SEMS_Sources/Patcher.c **** }
- 912              	 .loc 1 362 0
- 913 0042 02B0     	 add sp,sp,#8
- 914              	.LCFI21:
- 915              	 .cfi_remember_state
- 916              	 .cfi_def_cfa_offset 16
- 917              	 
- 918 0044 70BD     	 pop {r4,r5,r6,pc}
- 919              	.LVL114:
- 920              	.L76:
- 921              	.LCFI22:
- 922              	 .cfi_restore_state
- 334:../SEMS_Sources/Patcher.c **** 
- 923              	 .loc 1 334 0 discriminator 1
- 924 0046 2388     	 ldrh r3,[r4]
- 925 0048 114A     	 ldr r2,.L88+4
- 926 004a 9BB2     	 uxth r3,r3
- 927 004c 012B     	 cmp r3,#1
- 928 004e FAD0     	 beq .L76
- 334:../SEMS_Sources/Patcher.c **** 
- 929              	 .loc 1 334 0 is_stmt 0 discriminator 2
- 930 0050 1188     	 ldrh r1,[r2]
- 931 0052 89B2     	 uxth r1,r1
- 932 0054 79B1     	 cbz r1,.L77
- 334:../SEMS_Sources/Patcher.c **** 
- 933              	 .loc 1 334 0 discriminator 3
- 934 0056 1488     	 ldrh r4,[r2]
- 935 0058 A4B2     	 uxth r4,r4
- 936              	.LVL115:
- 347:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 937              	 .loc 1 347 0 is_stmt 1 discriminator 3
- 938 005a FFF7FEFF 	 bl example_optiga_deinit
- 939              	.LVL116:
- 350:../SEMS_Sources/Patcher.c **** 
- 940              	 .loc 1 350 0 discriminator 3
- 941 005e 002C     	 cmp r4,#0
- 942 0060 ECD1     	 bne .L80
- 943              	.LVL117:
- 350:../SEMS_Sources/Patcher.c **** 
- 944              	 .loc 1 350 0 is_stmt 0 discriminator 1
- 945 0062 0C49     	 ldr r1,.L88+8
- 946 0064 019A     	 ldr r2,[sp,#4]
- 947 0066 0C48     	 ldr r0,.L88+12
- 948 0068 FFF7FEFF 	 bl sprintf
- 949              	.LVL118:
- 950 006c E6E7     	 b .L80
- 951              	.LVL119:
- 952              	.L74:
- 347:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 953              	 .loc 1 347 0 is_stmt 1
- 954 006e FFF7FEFF 	 bl example_optiga_deinit
- 955              	.LVL120:
- 956              	 .loc 1 362 0
- 957 0072 02B0     	 add sp,sp,#8
- 958              	.LCFI23:
- 959              	 .cfi_remember_state
- 960              	 .cfi_def_cfa_offset 16
- 961              	 
- 962 0074 70BD     	 pop {r4,r5,r6,pc}
- 963              	.LVL121:
- 964              	.L77:
- 965              	.LCFI24:
- 966              	 .cfi_restore_state
- 336:../SEMS_Sources/Patcher.c **** 
- 967              	 .loc 1 336 0
- 968 0076 01A8     	 add r0,sp,#4
- 969              	.LVL122:
- 970 0078 FFF7FEFF 	 bl example_performance_measurement
- 971              	.LVL123:
- 347:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 972              	 .loc 1 347 0
- 973 007c FFF7FEFF 	 bl example_optiga_deinit
- 974              	.LVL124:
- 350:../SEMS_Sources/Patcher.c **** 
- 975              	 .loc 1 350 0
- 976 0080 0449     	 ldr r1,.L88+8
- 977 0082 019A     	 ldr r2,[sp,#4]
- 978 0084 0448     	 ldr r0,.L88+12
- 979 0086 FFF7FEFF 	 bl sprintf
- 980              	.LVL125:
- 981 008a D7E7     	 b .L80
- 982              	.L89:
- 983              	 .align 2
- 984              	.L88:
- 985 008c 00000000 	 .word optiga_util_callback
- 986 0090 00000000 	 .word .LANCHOR0
- 987 0094 00000000 	 .word .LC1
- 988 0098 00000000 	 .word performance_buffer_string
- 989              	 .cfi_endproc
- 990              	.LFE452:
- 992              	 .section .text.optiga_util_reset_count,"ax",%progbits
- 993              	 .align 2
- 994              	 .global optiga_util_reset_count
- 995              	 .thumb
- 996              	 .thumb_func
- 998              	optiga_util_reset_count:
- 999              	.LFB453:
- 363:../SEMS_Sources/Patcher.c **** 
- 364:../SEMS_Sources/Patcher.c **** 
- 365:../SEMS_Sources/Patcher.c **** void optiga_util_reset_count(uint16_t optiga_counter_oid)
- 366:../SEMS_Sources/Patcher.c **** {
- 1000              	 .loc 1 366 0
- 1001              	 .cfi_startproc
- 1002              	 
- 1003              	 
- 1004              	.LVL126:
- 1005 0000 70B5     	 push {r4,r5,r6,lr}
- 1006              	.LCFI25:
- 1007              	 .cfi_def_cfa_offset 16
- 1008              	 .cfi_offset 4,-16
- 1009              	 .cfi_offset 5,-12
- 1010              	 .cfi_offset 6,-8
- 1011              	 .cfi_offset 14,-4
- 367:../SEMS_Sources/Patcher.c **** 	const uint8_t initial_counter_object_data [] =
- 1012              	 .loc 1 367 0
- 1013 0002 1F4B     	 ldr r3,.L103
- 366:../SEMS_Sources/Patcher.c **** 	const uint8_t initial_counter_object_data [] =
- 1014              	 .loc 1 366 0
- 1015 0004 84B0     	 sub sp,sp,#16
- 1016              	.LCFI26:
- 1017              	 .cfi_def_cfa_offset 32
- 1018              	 .loc 1 367 0
- 1019 0006 5968     	 ldr r1,[r3,#4]
- 366:../SEMS_Sources/Patcher.c **** 	const uint8_t initial_counter_object_data [] =
- 1020              	 .loc 1 366 0
- 1021 0008 0646     	 mov r6,r0
- 1022              	 .loc 1 367 0
- 1023 000a 1868     	 ldr r0,[r3]
- 1024              	.LVL127:
- 1025 000c 02AB     	 add r3,sp,#8
- 1026 000e 03C3     	 stmia r3!,{r0,r1}
- 1027              	.LVL128:
- 368:../SEMS_Sources/Patcher.c **** 	{
- 369:../SEMS_Sources/Patcher.c **** 	    // Initial counter value
- 370:../SEMS_Sources/Patcher.c **** 	    0x00, 0x00, 0x00, 0x02,
- 371:../SEMS_Sources/Patcher.c **** 	    // Maximum counter value
- 372:../SEMS_Sources/Patcher.c **** 	    0xFF, 0xFF, 0xFF, 0xFF,
- 373:../SEMS_Sources/Patcher.c **** 	};
- 374:../SEMS_Sources/Patcher.c ****     uint32_t time_taken = 0;
- 375:../SEMS_Sources/Patcher.c ****     uint8_t offset;
- 376:../SEMS_Sources/Patcher.c **** 
- 377:../SEMS_Sources/Patcher.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
- 378:../SEMS_Sources/Patcher.c ****     optiga_util_t * me = NULL;
- 379:../SEMS_Sources/Patcher.c **** 
- 380:../SEMS_Sources/Patcher.c ****     do
- 381:../SEMS_Sources/Patcher.c ****     {
- 382:../SEMS_Sources/Patcher.c **** 
- 383:../SEMS_Sources/Patcher.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 384:../SEMS_Sources/Patcher.c ****         /**
- 385:../SEMS_Sources/Patcher.c ****          * Open the application on OPTIGA which is a precondition to perform any other operations
- 386:../SEMS_Sources/Patcher.c ****          * using optiga_util_open_application
- 387:../SEMS_Sources/Patcher.c ****          */
- 388:../SEMS_Sources/Patcher.c ****         example_optiga_init();
- 1028              	 .loc 1 388 0
- 1029 0010 FFF7FEFF 	 bl example_optiga_init
- 1030              	.LVL129:
- 389:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 390:../SEMS_Sources/Patcher.c **** 
- 391:../SEMS_Sources/Patcher.c ****         OPTIGA_EXAMPLE_LOG_MESSAGE(__FUNCTION__);
- 392:../SEMS_Sources/Patcher.c ****         /**
- 393:../SEMS_Sources/Patcher.c ****          * 1. Create OPTIGA Util Instance
- 394:../SEMS_Sources/Patcher.c ****          */
- 395:../SEMS_Sources/Patcher.c ****         me = optiga_util_create(0, optiga_util_callback, NULL);
- 1031              	 .loc 1 395 0
- 1032 0014 0020     	 movs r0,#0
- 1033 0016 0246     	 mov r2,r0
- 1034 0018 1A49     	 ldr r1,.L103+4
- 1035 001a FFF7FEFF 	 bl optiga_util_create
- 1036              	.LVL130:
- 396:../SEMS_Sources/Patcher.c ****         if (NULL == me)
- 1037              	 .loc 1 396 0
- 1038 001e 20B3     	 cbz r0,.L91
- 1039              	.LVL131:
- 397:../SEMS_Sources/Patcher.c ****         {
- 398:../SEMS_Sources/Patcher.c ****             break;
- 399:../SEMS_Sources/Patcher.c ****         }
- 400:../SEMS_Sources/Patcher.c **** 
- 401:../SEMS_Sources/Patcher.c ****         /**
- 402:../SEMS_Sources/Patcher.c ****          * Pre-condition
- 403:../SEMS_Sources/Patcher.c ****          * Any data object can be converted to counter data object by changing metadata as mentione
- 404:../SEMS_Sources/Patcher.c ****          * - As precondition  write access should be always or LCSO < OPERATIONAL
- 405:../SEMS_Sources/Patcher.c ****          * - Write metadata as "0xD0, 0x01, 0x01" using #optiga_util_write_metadata
- 406:../SEMS_Sources/Patcher.c ****         */
- 407:../SEMS_Sources/Patcher.c **** 
- 408:../SEMS_Sources/Patcher.c ****         /**
- 409:../SEMS_Sources/Patcher.c ****          * Write default count and threshold value to counter data object (e.g. E120)
- 410:../SEMS_Sources/Patcher.c ****          * using optiga_util_write_data.
- 411:../SEMS_Sources/Patcher.c ****          *
- 412:../SEMS_Sources/Patcher.c ****          * Use Erase and Write (OPTIGA_UTIL_ERASE_AND_WRITE) option,
- 413:../SEMS_Sources/Patcher.c ****          * in order to correctly update the used length of the object.
- 414:../SEMS_Sources/Patcher.c ****          */
- 415:../SEMS_Sources/Patcher.c **** 
- 416:../SEMS_Sources/Patcher.c ****         offset = 0x00;
- 417:../SEMS_Sources/Patcher.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
- 418:../SEMS_Sources/Patcher.c **** 
- 419:../SEMS_Sources/Patcher.c **** 
- 420:../SEMS_Sources/Patcher.c ****         return_status = optiga_util_write_data(me,
- 1040              	 .loc 1 420 0
- 1041 0020 02AB     	 add r3,sp,#8
- 417:../SEMS_Sources/Patcher.c **** 
- 1042              	 .loc 1 417 0
- 1043 0022 194C     	 ldr r4,.L103+8
- 1044              	 .loc 1 420 0
- 1045 0024 0093     	 str r3,[sp]
- 1046 0026 3146     	 mov r1,r6
- 1047 0028 0823     	 movs r3,#8
- 417:../SEMS_Sources/Patcher.c **** 
- 1048              	 .loc 1 417 0
- 1049 002a 0126     	 movs r6,#1
- 1050              	 .loc 1 420 0
- 1051 002c 0193     	 str r3,[sp,#4]
- 1052 002e 4022     	 movs r2,#64
- 1053 0030 0023     	 movs r3,#0
- 417:../SEMS_Sources/Patcher.c **** 
- 1054              	 .loc 1 417 0
- 1055 0032 2680     	 strh r6,[r4]
- 1056 0034 0546     	 mov r5,r0
- 1057              	 .loc 1 420 0
- 1058 0036 FFF7FEFF 	 bl optiga_util_write_data
- 1059              	.LVL132:
- 421:../SEMS_Sources/Patcher.c ****                                                optiga_counter_oid,
- 422:../SEMS_Sources/Patcher.c ****                                                OPTIGA_UTIL_ERASE_AND_WRITE,
- 423:../SEMS_Sources/Patcher.c ****                                                offset,
- 424:../SEMS_Sources/Patcher.c ****                                                initial_counter_object_data,
- 425:../SEMS_Sources/Patcher.c ****                                                sizeof(initial_counter_object_data));
- 426:../SEMS_Sources/Patcher.c **** 
- 427:../SEMS_Sources/Patcher.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
- 1060              	 .loc 1 427 0
- 1061 003a 30B1     	 cbz r0,.L93
- 1062              	.LVL133:
- 428:../SEMS_Sources/Patcher.c **** 
- 429:../SEMS_Sources/Patcher.c **** 
- 430:../SEMS_Sources/Patcher.c ****         return_status = OPTIGA_LIB_SUCCESS;
- 431:../SEMS_Sources/Patcher.c ****     } while (FALSE);
- 432:../SEMS_Sources/Patcher.c ****     OPTIGA_EXAMPLE_LOG_STATUS(return_status);
- 433:../SEMS_Sources/Patcher.c **** 
- 434:../SEMS_Sources/Patcher.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 435:../SEMS_Sources/Patcher.c ****     /**
- 436:../SEMS_Sources/Patcher.c ****      * Close the application on OPTIGA after all the operations are executed
- 437:../SEMS_Sources/Patcher.c ****      * using optiga_util_close_application
- 438:../SEMS_Sources/Patcher.c ****      */
- 439:../SEMS_Sources/Patcher.c ****     example_optiga_deinit();
- 1063              	 .loc 1 439 0
- 1064 003c FFF7FEFF 	 bl example_optiga_deinit
- 1065              	.LVL134:
- 1066              	.L97:
- 440:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 441:../SEMS_Sources/Patcher.c **** 
- 442:../SEMS_Sources/Patcher.c ****     OPTIGA_EXAMPLE_LOG_PERFORMANCE_VALUE(time_taken, return_status);
- 443:../SEMS_Sources/Patcher.c **** 
- 444:../SEMS_Sources/Patcher.c ****     if (me)
- 445:../SEMS_Sources/Patcher.c ****     {
- 446:../SEMS_Sources/Patcher.c ****         //Destroy the instance after the completion of usecase if not required.
- 447:../SEMS_Sources/Patcher.c ****         return_status = optiga_util_destroy(me);
- 1067              	 .loc 1 447 0
- 1068 0040 2846     	 mov r0,r5
- 1069 0042 FFF7FEFF 	 bl optiga_util_destroy
- 1070              	.LVL135:
- 448:../SEMS_Sources/Patcher.c ****         if(OPTIGA_LIB_SUCCESS != return_status)
- 449:../SEMS_Sources/Patcher.c ****         {
- 450:../SEMS_Sources/Patcher.c **** 
- 451:../SEMS_Sources/Patcher.c ****         }
- 452:../SEMS_Sources/Patcher.c ****     }
- 453:../SEMS_Sources/Patcher.c **** }
- 1071              	 .loc 1 453 0
- 1072 0046 04B0     	 add sp,sp,#16
- 1073              	.LCFI27:
- 1074              	 .cfi_remember_state
- 1075              	 .cfi_def_cfa_offset 16
- 1076              	 
- 1077 0048 70BD     	 pop {r4,r5,r6,pc}
- 1078              	.LVL136:
- 1079              	.L93:
- 1080              	.LCFI28:
- 1081              	 .cfi_restore_state
- 427:../SEMS_Sources/Patcher.c **** 
- 1082              	 .loc 1 427 0 discriminator 1
- 1083 004a 2388     	 ldrh r3,[r4]
- 1084 004c 0E4A     	 ldr r2,.L103+8
- 1085 004e 9BB2     	 uxth r3,r3
- 1086 0050 012B     	 cmp r3,#1
- 1087 0052 FAD0     	 beq .L93
- 427:../SEMS_Sources/Patcher.c **** 
- 1088              	 .loc 1 427 0 is_stmt 0 discriminator 2
- 1089 0054 1388     	 ldrh r3,[r2]
- 1090 0056 9BB2     	 uxth r3,r3
- 1091 0058 5BB9     	 cbnz r3,.L102
- 1092              	.LVL137:
- 439:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 1093              	 .loc 1 439 0 is_stmt 1
- 1094 005a FFF7FEFF 	 bl example_optiga_deinit
- 1095              	.LVL138:
- 1096              	.L96:
- 442:../SEMS_Sources/Patcher.c **** 
- 1097              	 .loc 1 442 0 discriminator 1
- 1098 005e 0B49     	 ldr r1,.L103+12
- 1099 0060 0B48     	 ldr r0,.L103+16
- 1100 0062 0022     	 movs r2,#0
- 1101 0064 FFF7FEFF 	 bl sprintf
- 1102              	.LVL139:
- 1103 0068 EAE7     	 b .L97
- 1104              	.LVL140:
- 1105              	.L91:
- 439:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 1106              	 .loc 1 439 0
- 1107 006a FFF7FEFF 	 bl example_optiga_deinit
- 1108              	.LVL141:
- 1109              	 .loc 1 453 0
- 1110 006e 04B0     	 add sp,sp,#16
- 1111              	.LCFI29:
- 1112              	 .cfi_remember_state
- 1113              	 .cfi_def_cfa_offset 16
- 1114              	 
- 1115 0070 70BD     	 pop {r4,r5,r6,pc}
- 1116              	.LVL142:
- 1117              	.L102:
- 1118              	.LCFI30:
- 1119              	 .cfi_restore_state
- 427:../SEMS_Sources/Patcher.c **** 
- 1120              	 .loc 1 427 0 discriminator 3
- 1121 0072 1488     	 ldrh r4,[r2]
- 1122 0074 A4B2     	 uxth r4,r4
- 1123              	.LVL143:
- 439:../SEMS_Sources/Patcher.c **** #endif //OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
- 1124              	 .loc 1 439 0 discriminator 3
- 1125 0076 FFF7FEFF 	 bl example_optiga_deinit
- 1126              	.LVL144:
- 442:../SEMS_Sources/Patcher.c **** 
- 1127              	 .loc 1 442 0 discriminator 3
- 1128 007a 002C     	 cmp r4,#0
- 1129 007c EFD0     	 beq .L96
- 1130 007e DFE7     	 b .L97
- 1131              	.L104:
- 1132              	 .align 2
- 1133              	.L103:
- 1134 0080 00000000 	 .word .LANCHOR1
- 1135 0084 00000000 	 .word optiga_util_callback
- 1136 0088 00000000 	 .word .LANCHOR0
- 1137 008c 00000000 	 .word .LC1
- 1138 0090 00000000 	 .word performance_buffer_string
- 1139              	 .cfi_endproc
- 1140              	.LFE453:
- 1142              	 .section .rodata
- 1143              	 .align 2
- 1144              	 .set .LANCHOR1,.+0
- 1145              	.LC0:
- 1146 0000 00       	 .byte 0
- 1147 0001 00       	 .byte 0
- 1148 0002 00       	 .byte 0
- 1149 0003 02       	 .byte 2
- 1150 0004 FF       	 .byte -1
- 1151 0005 FF       	 .byte -1
- 1152 0006 FF       	 .byte -1
- 1153 0007 FF       	 .byte -1
- 1154              	 .section .rodata.str1.4,"aMS",%progbits,1
- 1155              	 .align 2
- 1156              	.LC1:
- 1157 0000 4578616D 	 .ascii "Example takes %d msec\000"
- 1157      706C6520 
- 1157      74616B65 
- 1157      73202564 
- 1157      206D7365 
- 1158 0016 0000     	 .section .bss.optiga_lib_status,"aw",%nobits
- 1159              	 .align 1
- 1160              	 .set .LANCHOR0,.+0
- 1163              	optiga_lib_status:
- 1164 0000 0000     	 .space 2
- 1165              	 .text
- 1166              	.Letext0:
- 1167              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h"
- 1168              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
- 1169              	 .file 4 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
- 1170              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
- 1171              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usic.h"
- 1172              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
- 1173              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
- 1174              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
- 1175              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_types.h"
- 1176              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_common.h"
- 1177              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/cmd/optiga_cmd.h"
- 1178              	 .file 13 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_util.h"
- 1179              	 .file 14 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal.h"
- 1180              	 .file 15 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal_logger.h"
- 1181              	 .file 16 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
- 1182              	 .file 17 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
- 1183              	 .file 18 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
- 1184              	 .file 19 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/include/optiga_example.h"
- 1185              	 .file 20 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdio.h"
- 1186              	 .file 21 "../SEMS_Sources/../SEMS_Headers/Hash.h"
- 1187              	 .file 22 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\string.h"
- 1188              	 .file 23 "../SEMS_Sources/../SEMS_Headers/SymEncrypt.h"
- 1189              	 .file 24 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_logger.h"
+ 178:../SEMS_Sources/Patcher.c **** 		optiga_lib_print_bytes(response, 32);
+ 389              	 .loc 1 178 0
+ 390 0090 02A8     	 add r0,sp,#8
+ 391 0092 2021     	 movs r1,#32
+ 392 0094 FFF7FEFF 	 bl optiga_lib_print_bytes
+ 393              	.LVL46:
+ 394              	.LBE6:
+ 179:../SEMS_Sources/Patcher.c **** 	}
+ 180:../SEMS_Sources/Patcher.c **** 
+ 181:../SEMS_Sources/Patcher.c **** 	return true;
+ 182:../SEMS_Sources/Patcher.c **** }
+ 395              	 .loc 1 182 0
+ 396 0098 0120     	 movs r0,#1
+ 397 009a 1BB0     	 add sp,sp,#108
+ 398              	.LCFI12:
+ 399              	 .cfi_remember_state
+ 400              	 .cfi_def_cfa_offset 20
+ 401              	 
+ 402 009c F0BD     	 pop {r4,r5,r6,r7,pc}
+ 403              	.LVL47:
+ 404              	.L23:
+ 405              	.LCFI13:
+ 406              	 .cfi_restore_state
+ 407              	.LBB7:
+ 130:../SEMS_Sources/Patcher.c **** 				send_user_token[1] = (user_token >> 16) & 0xFF;
+ 408              	 .loc 1 130 0
+ 409 009e 0E4B     	 ldr r3,.L24
+ 135:../SEMS_Sources/Patcher.c **** 		memcpy(response + 16, send_user_token, 4);
+ 410              	 .loc 1 135 0
+ 411 00a0 6168     	 ldr r1,[r4,#4]
+ 412              	.LVL48:
+ 130:../SEMS_Sources/Patcher.c **** 				send_user_token[1] = (user_token >> 16) & 0xFF;
+ 413              	 .loc 1 130 0
+ 414 00a2 1E68     	 ldr r6,[r3]
+ 415              	.LVL49:
+ 135:../SEMS_Sources/Patcher.c **** 		memcpy(response + 16, send_user_token, 4);
+ 416              	 .loc 1 135 0
+ 417 00a4 A268     	 ldr r2,[r4,#8]
+ 418 00a6 E368     	 ldr r3,[r4,#12]
+ 419 00a8 0068     	 ldr r0,[r0]
+ 420              	.LVL50:
+ 126:../SEMS_Sources/Patcher.c **** 		uint8_t send_user_token[4];
+ 421              	 .loc 1 126 0
+ 422 00aa 1795     	 str r5,[sp,#92]
+ 135:../SEMS_Sources/Patcher.c **** 		memcpy(response + 16, send_user_token, 4);
+ 423              	 .loc 1 135 0
+ 424 00ac 12AC     	 add r4,sp,#72
+ 425              	.LVL51:
+ 126:../SEMS_Sources/Patcher.c **** 		uint8_t send_user_token[4];
+ 426              	 .loc 1 126 0
+ 427 00ae 1895     	 str r5,[sp,#96]
+ 428 00b0 1995     	 str r5,[sp,#100]
+ 135:../SEMS_Sources/Patcher.c **** 		memcpy(response + 16, send_user_token, 4);
+ 429              	 .loc 1 135 0
+ 430 00b2 0FC4     	 stmia r4!,{r0,r1,r2,r3}
+ 130:../SEMS_Sources/Patcher.c **** 				send_user_token[1] = (user_token >> 16) & 0xFF;
+ 431              	 .loc 1 130 0
+ 432 00b4 350E     	 lsrs r5,r6,#24
+ 131:../SEMS_Sources/Patcher.c **** 				send_user_token[2] = (user_token >>  8) & 0xFF;
+ 433              	 .loc 1 131 0
+ 434 00b6 320C     	 lsrs r2,r6,#16
+ 138:../SEMS_Sources/Patcher.c **** 	}
+ 435              	 .loc 1 138 0
+ 436 00b8 12A8     	 add r0,sp,#72
+ 132:../SEMS_Sources/Patcher.c **** 				send_user_token[3] = (user_token >>  0) & 0xFF;
+ 437              	 .loc 1 132 0
+ 438 00ba 330A     	 lsrs r3,r6,#8
+ 138:../SEMS_Sources/Patcher.c **** 	}
+ 439              	 .loc 1 138 0
+ 440 00bc 2021     	 movs r1,#32
+ 130:../SEMS_Sources/Patcher.c **** 				send_user_token[1] = (user_token >> 16) & 0xFF;
+ 441              	 .loc 1 130 0
+ 442 00be 8DF85850 	 strb r5,[sp,#88]
+ 133:../SEMS_Sources/Patcher.c **** 
+ 443              	 .loc 1 133 0
+ 444 00c2 8DF85B60 	 strb r6,[sp,#91]
+ 131:../SEMS_Sources/Patcher.c **** 				send_user_token[2] = (user_token >>  8) & 0xFF;
+ 445              	 .loc 1 131 0
+ 446 00c6 8DF85920 	 strb r2,[sp,#89]
+ 132:../SEMS_Sources/Patcher.c **** 				send_user_token[3] = (user_token >>  0) & 0xFF;
+ 447              	 .loc 1 132 0
+ 448 00ca 8DF85A30 	 strb r3,[sp,#90]
+ 138:../SEMS_Sources/Patcher.c **** 	}
+ 449              	 .loc 1 138 0
+ 450 00ce FFF7FEFF 	 bl optiga_lib_print_bytes
+ 451              	.LVL52:
+ 452              	.LBE7:
+ 453              	 .loc 1 182 0
+ 454 00d2 0120     	 movs r0,#1
+ 455 00d4 1BB0     	 add sp,sp,#108
+ 456              	.LCFI14:
+ 457              	 .cfi_def_cfa_offset 20
+ 458              	 
+ 459 00d6 F0BD     	 pop {r4,r5,r6,r7,pc}
+ 460              	.LVL53:
+ 461              	.L25:
+ 462              	 .align 2
+ 463              	.L24:
+ 464 00d8 00000000 	 .word user_token
+ 465              	 .cfi_endproc
+ 466              	.LFE455:
+ 468              	 .text
+ 469              	.Letext0:
+ 470              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h"
+ 471              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 472              	 .file 4 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 473              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 474              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+ 475              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+ 476              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+ 477              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal.h"
+ 478              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal_logger.h"
+ 479              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+ 480              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+ 481              	 .file 13 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+ 482              	 .file 14 "../SEMS_Sources/../SEMS_Headers/Hash.h"
+ 483              	 .file 15 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/dave4/SEMS_Headers/Skey.h"
+ 484              	 .file 16 "../SEMS_Sources/../SEMS_Headers/SymEncrypt.h"
+ 485              	 .file 17 "../SEMS_Sources/../SEMS_Headers/Nonce.h"
+ 486              	 .file 18 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\string.h"
+ 487              	 .file 19 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_logger.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 Patcher.c
-    {standard input}:20     .text.optiga_util_callback:00000000 $t
-    {standard input}:24     .text.optiga_util_callback:00000000 optiga_util_callback
-    {standard input}:40     .text.optiga_util_callback:00000008 $d
-    {standard input}:45     .text.read_request:00000000 $t
-    {standard input}:50     .text.read_request:00000000 read_request
-    {standard input}:442    .text.read_request:000001bc $d
-    {standard input}:455    .text.write_request:00000000 $t
-    {standard input}:460    .text.write_request:00000000 write_request
-    {standard input}:712    .text.write_request:0000012c $d
-    {standard input}:722    .text.optiga_util_read_nonce:00000000 $t
-    {standard input}:727    .text.optiga_util_read_nonce:00000000 optiga_util_read_nonce
-    {standard input}:833    .text.optiga_util_read_nonce:00000064 $d
-    {standard input}:839    .text.optiga_util_update_count_wrapper:00000000 $t
-    {standard input}:844    .text.optiga_util_update_count_wrapper:00000000 optiga_util_update_count_wrapper
-    {standard input}:985    .text.optiga_util_update_count_wrapper:0000008c $d
-    {standard input}:993    .text.optiga_util_reset_count:00000000 $t
-    {standard input}:998    .text.optiga_util_reset_count:00000000 optiga_util_reset_count
-    {standard input}:1134   .text.optiga_util_reset_count:00000080 $d
-    {standard input}:1143   .rodata:00000000 $d
-    {standard input}:1155   .rodata.str1.4:00000000 $d
-    {standard input}:1159   .bss.optiga_lib_status:00000000 $d
-    {standard input}:1163   .bss.optiga_lib_status:00000000 optiga_lib_status
+    {standard input}:20     .text.read_request:00000000 $t
+    {standard input}:25     .text.read_request:00000000 read_request
+    {standard input}:270    .text.read_request:00000100 $d
+    {standard input}:277    .text.write_request:00000000 $t
+    {standard input}:282    .text.write_request:00000000 write_request
+    {standard input}:464    .text.write_request:000000d8 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
@@ -1824,16 +746,8 @@ optiga_crypt_hash_data_wrapper
 memcmp
 optiga_util_read_shared_key
 stream_enc
-example_optiga_init
-optiga_util_create
-optiga_util_read_data
-example_optiga_deinit
-optiga_util_destroy
-example_performance_measurement
-optiga_util_update_count
-sprintf
+optiga_util_read_nonce
+optiga_util_update_count_wrapper
 logger_console
 user_token
-performance_buffer_string
 optiga_lib_print_bytes
-optiga_util_write_data
