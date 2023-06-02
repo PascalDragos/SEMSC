@@ -9,7 +9,8 @@ typedef enum _req_type {
 	SEC_UNLOCK,
 	SEC_COM,
 	SEC_LOCK,
-	EXAMPLE
+	EXAMPLE,
+	UNKNOWN
 } req_type;
 
 req_type decode_req(uint8_t command[32]);

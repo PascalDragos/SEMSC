@@ -3172,20 +3172,7 @@ Discarded input sections
  .text          0x00000000        0x0 ./SEMS_Sources/Decoder.o
  .data          0x00000000        0x0 ./SEMS_Sources/Decoder.o
  .bss           0x00000000        0x0 ./SEMS_Sources/Decoder.o
- .text.decode_req
-                0x00000000       0x24 ./SEMS_Sources/Decoder.o
- .debug_info    0x00000000     0x16a8 ./SEMS_Sources/Decoder.o
- .debug_abbrev  0x00000000      0x242 ./SEMS_Sources/Decoder.o
- .debug_loc     0x00000000       0x97 ./SEMS_Sources/Decoder.o
- .debug_aranges
-                0x00000000       0x20 ./SEMS_Sources/Decoder.o
- .debug_ranges  0x00000000       0x10 ./SEMS_Sources/Decoder.o
- .debug_line    0x00000000      0x353 ./SEMS_Sources/Decoder.o
- .debug_str     0x00000000     0x13ed ./SEMS_Sources/Decoder.o
  .comment       0x00000000       0x71 ./SEMS_Sources/Decoder.o
- .debug_frame   0x00000000       0x20 ./SEMS_Sources/Decoder.o
- .ARM.attributes
-                0x00000000       0x37 ./SEMS_Sources/Decoder.o
  .text          0x00000000        0x0 ./SEMS_Sources/Hash.o
  .data          0x00000000        0x0 ./SEMS_Sources/Hash.o
  .bss           0x00000000        0x0 ./SEMS_Sources/Hash.o
@@ -3320,7 +3307,6 @@ Discarded input sections
  .debug_frame   0x00000000       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-stpcpy.o)
  .ARM.attributes
                 0x00000000       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-stpcpy.o)
- .text          0x00000000       0x14 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-strcmp.o)
  .data          0x00000000        0x0 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-strcmp.o)
  .bss           0x00000000        0x0 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-strcmp.o)
  .text          0x00000000        0x0 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-strcpy.o)
@@ -3584,7 +3570,7 @@ END GROUP
                 0x00005000                stack_size = DEFINED (stack_size)?stack_size:0x5000
                 0x00000040                no_init_size = 0x40
 
-.text           0x08000000     0xdecc load address 0x0c000000
+.text           0x08000000     0xdf44 load address 0x0c000000
                 0x08000000                sText = .
  *(.reset)
  .reset         0x08000000      0x29c ./lib/xmc/Startup/startup_XMC4800.o
@@ -4635,95 +4621,100 @@ END GROUP
  .text.optiga_util_create_wrapper
                 0x0800c690       0x20 ./SEMS_Sources/Constructor.o
                 0x0800c690                optiga_util_create_wrapper
+ .text.decode_req
+                0x0800c6b0       0x4c ./SEMS_Sources/Decoder.o
+                0x0800c6b0                decode_req
  .text.optiga_crypt_hash_data_wrapper
-                0x0800c6b0       0x5c ./SEMS_Sources/Hash.o
-                0x0800c6b0                optiga_crypt_hash_data_wrapper
+                0x0800c6fc       0x5c ./SEMS_Sources/Hash.o
+                0x0800c6fc                optiga_crypt_hash_data_wrapper
  .text.init_SEMS
-                0x0800c70c        0x4 ./SEMS_Sources/Init.o
-                0x0800c70c                init_SEMS
+                0x0800c758        0x4 ./SEMS_Sources/Init.o
+                0x0800c758                init_SEMS
  .text.my_optiga_shell_begin
-                0x0800c710      0x1ac ./SEMS_Sources/Main.o
-                0x0800c710                my_optiga_shell_begin
+                0x0800c75c      0x1a4 ./SEMS_Sources/Main.o
+                0x0800c75c                my_optiga_shell_begin
  .text.optiga_util_read_nonce
-                0x0800c8bc       0x60 ./SEMS_Sources/Nonce.o
-                0x0800c8bc                optiga_util_read_nonce
+                0x0800c900       0x60 ./SEMS_Sources/Nonce.o
+                0x0800c900                optiga_util_read_nonce
  .text.optiga_util_update_count_wrapper
-                0x0800c91c       0x60 ./SEMS_Sources/Nonce.o
-                0x0800c91c                optiga_util_update_count_wrapper
+                0x0800c960       0x60 ./SEMS_Sources/Nonce.o
+                0x0800c960                optiga_util_update_count_wrapper
  .text.read_request
-                0x0800c97c       0xd8 ./SEMS_Sources/Patcher.o
-                0x0800c97c                read_request
+                0x0800c9c0       0xd8 ./SEMS_Sources/Patcher.o
+                0x0800c9c0                read_request
  .text.write_request
-                0x0800ca54       0xb4 ./SEMS_Sources/Patcher.o
-                0x0800ca54                write_request
+                0x0800ca98       0xb4 ./SEMS_Sources/Patcher.o
+                0x0800ca98                write_request
  .text.optiga_crypt_rsa_encrypt_message_wrapper
-                0x0800cb08       0xac ./SEMS_Sources/RSA.o
-                0x0800cb08                optiga_crypt_rsa_encrypt_message_wrapper
+                0x0800cb4c       0xac ./SEMS_Sources/RSA.o
+                0x0800cb4c                optiga_crypt_rsa_encrypt_message_wrapper
  .text.optiga_crypt_rsa_verify_wrapper
-                0x0800cbb4       0xb0 ./SEMS_Sources/RSA.o
-                0x0800cbb4                optiga_crypt_rsa_verify_wrapper
+                0x0800cbf8       0xb0 ./SEMS_Sources/RSA.o
+                0x0800cbf8                optiga_crypt_rsa_verify_wrapper
  .text.optiga_crypt_random_wrapper
-                0x0800cc64       0x60 ./SEMS_Sources/Random.o
-                0x0800cc64                optiga_crypt_random_wrapper
+                0x0800cca8       0x60 ./SEMS_Sources/Random.o
+                0x0800cca8                optiga_crypt_random_wrapper
  .text.optiga_util_write_shared_key
-                0x0800ccc4       0x64 ./SEMS_Sources/Skey.o
-                0x0800ccc4                optiga_util_write_shared_key
+                0x0800cd08       0x64 ./SEMS_Sources/Skey.o
+                0x0800cd08                optiga_util_write_shared_key
  .text.optiga_util_read_shared_key
-                0x0800cd28       0x60 ./SEMS_Sources/Skey.o
-                0x0800cd28                optiga_util_read_shared_key
+                0x0800cd6c       0x60 ./SEMS_Sources/Skey.o
+                0x0800cd6c                optiga_util_read_shared_key
  .text.stream_enc
-                0x0800cd88       0xa0 ./SEMS_Sources/SymEncrypt.o
-                0x0800cd88                stream_enc
+                0x0800cdcc       0xa0 ./SEMS_Sources/SymEncrypt.o
+                0x0800cdcc                stream_enc
  .text.start_cooldown_timer
-                0x0800ce28       0x20 ./SEMS_Sources/Timer.o
-                0x0800ce28                start_cooldown_timer
+                0x0800ce6c       0x20 ./SEMS_Sources/Timer.o
+                0x0800ce6c                start_cooldown_timer
  .text.CCU80_3_IRQHandler
-                0x0800ce48       0x24 ./SEMS_Sources/Timer.o
-                0x0800ce48                CCU80_3_IRQHandler
+                0x0800ce8c       0x24 ./SEMS_Sources/Timer.o
+                0x0800ce8c                CCU80_3_IRQHandler
  .text.secure_unlock
-                0x0800ce6c       0x90 ./SEMS_Sources/Unlock.o
-                0x0800ce6c                secure_unlock
+                0x0800ceb0       0x90 ./SEMS_Sources/Unlock.o
+                0x0800ceb0                secure_unlock
  .text.startup.main
-                0x0800cefc       0x28 ./main_xmc4800_example.o
-                0x0800cefc                main
- .text          0x0800cf24       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_aeabi_uldivmod.o)
-                0x0800cf24                __aeabi_uldivmod
- .text          0x0800cf50       0x60 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(bpabi.o)
-                0x0800cf50                __gnu_ldivmod_helper
-                0x0800cf80                __gnu_uldivmod_helper
- .text          0x0800cfb0        0x4 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_dvmd_tls.o)
-                0x0800cfb0                __aeabi_idiv0
-                0x0800cfb0                __aeabi_ldiv0
- .text          0x0800cfb4      0x29c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_divdi3.o)
-                0x0800cfb4                __divdi3
- .text          0x0800d250      0x26c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_udivdi3.o)
-                0x0800d250                __udivdi3
- .text.calloc   0x0800d4bc       0x14 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-calloc.o)
-                0x0800d4bc                calloc
- .text.__errno  0x0800d4d0        0xc c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-errno.o)
-                0x0800d4d0                __errno
+                0x0800cf40       0x28 ./main_xmc4800_example.o
+                0x0800cf40                main
+ .text          0x0800cf68       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_aeabi_uldivmod.o)
+                0x0800cf68                __aeabi_uldivmod
+ .text          0x0800cf94       0x60 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(bpabi.o)
+                0x0800cf94                __gnu_ldivmod_helper
+                0x0800cfc4                __gnu_uldivmod_helper
+ .text          0x0800cff4        0x4 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_dvmd_tls.o)
+                0x0800cff4                __aeabi_idiv0
+                0x0800cff4                __aeabi_ldiv0
+ .text          0x0800cff8      0x29c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_divdi3.o)
+                0x0800cff8                __divdi3
+ .text          0x0800d294      0x26c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_udivdi3.o)
+                0x0800d294                __udivdi3
+ .text.calloc   0x0800d500       0x14 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-calloc.o)
+                0x0800d500                calloc
+ .text.__errno  0x0800d514        0xc c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-errno.o)
+                0x0800d514                __errno
  .text.__libc_init_array
-                0x0800d4dc       0x4c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-init.o)
-                0x0800d4dc                __libc_init_array
- .text.free     0x0800d528       0x10 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-malloc.o)
-                0x0800d528                free
- .text.memcmp   0x0800d538       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcmp.o)
-                0x0800d538                memcmp
- .text.memcpy   0x0800d558       0x16 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcpy.o)
-                0x0800d558                memcpy
- .text.memset   0x0800d56e       0x10 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memset.o)
-                0x0800d56e                memset
+                0x0800d520       0x4c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-init.o)
+                0x0800d520                __libc_init_array
+ .text.free     0x0800d56c       0x10 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-malloc.o)
+                0x0800d56c                free
+ .text.memcmp   0x0800d57c       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcmp.o)
+                0x0800d57c                memcmp
+ .text.memcpy   0x0800d59c       0x16 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcpy.o)
+                0x0800d59c                memcpy
+ .text.memset   0x0800d5b2       0x10 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memset.o)
+                0x0800d5b2                memset
  .text._calloc_r
-                0x0800d57e       0x1c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-callocr.o)
-                0x0800d57e                _calloc_r
- *fill*         0x0800d59a        0x2 
- .text._free_r  0x0800d59c       0x88 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-freer.o)
-                0x0800d59c                _free_r
+                0x0800d5c2       0x1c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-callocr.o)
+                0x0800d5c2                _calloc_r
+ *fill*         0x0800d5de        0x2 
+ .text._free_r  0x0800d5e0       0x88 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-freer.o)
+                0x0800d5e0                _free_r
  .text._malloc_r
-                0x0800d624       0xac c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-mallocr.o)
-                0x0800d624                _malloc_r
- .text._sbrk_r  0x0800d6d0       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-sbrkr.o)
-                0x0800d6d0                _sbrk_r
+                0x0800d668       0xac c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-mallocr.o)
+                0x0800d668                _malloc_r
+ .text._sbrk_r  0x0800d714       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-sbrkr.o)
+                0x0800d714                _sbrk_r
+ .text          0x0800d734       0x14 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-strcmp.o)
+                0x0800d734                strcmp
  *(.init)
  *(.fini)
  *crtbegin.o(.ctors)
@@ -4738,169 +4729,172 @@ END GROUP
  *(.dtors)
  *(.rodata .rodata.*)
  .rodata.CSWTCH.37
-                0x0800d6f0       0x28 ./lib/xmc/XMCLib/src/xmc_ccu4.o
+                0x0800d748       0x28 ./lib/xmc/XMCLib/src/xmc_ccu4.o
  .rodata.CSWTCH.38
-                0x0800d718       0x28 ./lib/xmc/XMCLib/src/xmc_ccu4.o
+                0x0800d770       0x28 ./lib/xmc/XMCLib/src/xmc_ccu4.o
  .rodata.CSWTCH.43
-                0x0800d740       0x28 ./lib/xmc/XMCLib/src/xmc_ccu8.o
+                0x0800d798       0x28 ./lib/xmc/XMCLib/src/xmc_ccu8.o
  .rodata.CSWTCH.44
-                0x0800d768       0x28 ./lib/xmc/XMCLib/src/xmc_ccu8.o
+                0x0800d7c0       0x28 ./lib/xmc/XMCLib/src/xmc_ccu8.o
  .rodata.Driver_USBD0
-                0x0800d790       0x40 ./lib/xmc/XMCLib/src/xmc_usbd.o
-                0x0800d790                Driver_USBD0
+                0x0800d7e8       0x40 ./lib/xmc/XMCLib/src/xmc_usbd.o
+                0x0800d7e8                Driver_USBD0
  .rodata.product_string
-                0x0800d7d0       0x68 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
-                0x0800d7d0                product_string
+                0x0800d828       0x68 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
+                0x0800d828                product_string
  .rodata.device_descriptor
-                0x0800d838       0x14 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
-                0x0800d838                device_descriptor
+                0x0800d890       0x14 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
+                0x0800d890                device_descriptor
  .rodata.language_string
-                0x0800d84c       0x68 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
-                0x0800d84c                language_string
+                0x0800d8a4       0x68 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
+                0x0800d8a4                language_string
  .rodata.manufacturer_string
-                0x0800d8b4       0x68 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
-                0x0800d8b4                manufacturer_string
+                0x0800d90c       0x68 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
+                0x0800d90c                manufacturer_string
  .rodata.CSWTCH.1
-                0x0800d91c        0xc ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
+                0x0800d974        0xc ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
  .rodata.CSWTCH.2
-                0x0800d928        0x8 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
+                0x0800d980        0x8 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
  .rodata.configuration_descriptor
-                0x0800d930       0x40 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
-                0x0800d930                configuration_descriptor
+                0x0800d988       0x40 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
+                0x0800d988                configuration_descriptor
  .rodata.cunit_logger_config
-                0x0800d970       0x30 ./lib/xmc/Dave/Generated/UART/uart_conf.o
-                0x0800d970                cunit_logger_config
+                0x0800d9c8       0x30 ./lib/xmc/Dave/Generated/UART/uart_conf.o
+                0x0800d9c8                cunit_logger_config
  .rodata.cunit_logger_channel_config
-                0x0800d9a0        0xc ./lib/xmc/Dave/Generated/UART/uart_conf.o
-                0x0800d9a0                cunit_logger_channel_config
+                0x0800d9f8        0xc ./lib/xmc/Dave/Generated/UART/uart_conf.o
+                0x0800d9f8                cunit_logger_channel_config
  .rodata.cunit_logger_tx_pin
-                0x0800d9ac        0xc ./lib/xmc/Dave/Generated/UART/uart_conf.o
-                0x0800d9ac                cunit_logger_tx_pin
+                0x0800da04        0xc ./lib/xmc/Dave/Generated/UART/uart_conf.o
+                0x0800da04                cunit_logger_tx_pin
  .rodata.cunit_logger_tx_pin_config
-                0x0800d9b8        0xc ./lib/xmc/Dave/Generated/UART/uart_conf.o
-                0x0800d9b8                cunit_logger_tx_pin_config
+                0x0800da10        0xc ./lib/xmc/Dave/Generated/UART/uart_conf.o
+                0x0800da10                cunit_logger_tx_pin_config
  .rodata.cunit_logger_rx_pin_config
-                0x0800d9c4        0xc ./lib/xmc/Dave/Generated/UART/uart_conf.o
-                0x0800d9c4                cunit_logger_rx_pin_config
+                0x0800da1c        0xc ./lib/xmc/Dave/Generated/UART/uart_conf.o
+                0x0800da1c                cunit_logger_rx_pin_config
  .rodata.scheduler_timer_intr
-                0x0800d9d0        0x4 ./lib/xmc/Dave/Generated/INTERRUPT/interrupt_conf.o
-                0x0800d9d0                scheduler_timer_intr
+                0x0800da28        0x4 ./lib/xmc/Dave/Generated/INTERRUPT/interrupt_conf.o
+                0x0800da28                scheduler_timer_intr
  .rodata.tick_timer_intr
-                0x0800d9d4        0x4 ./lib/xmc/Dave/Generated/INTERRUPT/interrupt_conf.o
-                0x0800d9d4                tick_timer_intr
+                0x0800da2c        0x4 ./lib/xmc/Dave/Generated/INTERRUPT/interrupt_conf.o
+                0x0800da2c                tick_timer_intr
  .rodata.INTERRUPT_0
-                0x0800d9d8        0x4 ./lib/xmc/Dave/Generated/INTERRUPT/interrupt_conf.o
-                0x0800d9d8                INTERRUPT_0
+                0x0800da30        0x4 ./lib/xmc/Dave/Generated/INTERRUPT/interrupt_conf.o
+                0x0800da30                INTERRUPT_0
  .rodata.i2c_master_0_sda_pin_config
-                0x0800d9dc        0xc ./lib/xmc/Dave/Generated/I2C_MASTER/i2c_master_conf.o
+                0x0800da34        0xc ./lib/xmc/Dave/Generated/I2C_MASTER/i2c_master_conf.o
  .rodata.i2c_master_0_scl_pin_config
-                0x0800d9e8        0xc ./lib/xmc/Dave/Generated/I2C_MASTER/i2c_master_conf.o
+                0x0800da40        0xc ./lib/xmc/Dave/Generated/I2C_MASTER/i2c_master_conf.o
  .rodata.i2c_master_0_config
-                0x0800d9f4       0x2c ./lib/xmc/Dave/Generated/I2C_MASTER/i2c_master_conf.o
-                0x0800d9f4                i2c_master_0_config
+                0x0800da4c       0x2c ./lib/xmc/Dave/Generated/I2C_MASTER/i2c_master_conf.o
+                0x0800da4c                i2c_master_0_config
  .rodata.i2c_master_0_channel_config
-                0x0800da20        0x8 ./lib/xmc/Dave/Generated/I2C_MASTER/i2c_master_conf.o
-                0x0800da20                i2c_master_0_channel_config
+                0x0800da78        0x8 ./lib/xmc/Dave/Generated/I2C_MASTER/i2c_master_conf.o
+                0x0800da78                i2c_master_0_channel_config
  .rodata.reset_pin
-                0x0800da28       0x14 ./lib/xmc/Dave/Generated/DIGITAL_IO/digital_io_conf.o
-                0x0800da28                reset_pin
+                0x0800da80       0x14 ./lib/xmc/Dave/Generated/DIGITAL_IO/digital_io_conf.o
+                0x0800da80                reset_pin
  .rodata.vdd_pin
-                0x0800da3c       0x14 ./lib/xmc/Dave/Generated/DIGITAL_IO/digital_io_conf.o
-                0x0800da3c                vdd_pin
- .rodata        0x0800da50       0x14 ./lib/xmc/Dave/Generated/CLOCK_XMC4/clock_xmc4_conf.o
+                0x0800da94       0x14 ./lib/xmc/Dave/Generated/DIGITAL_IO/digital_io_conf.o
+                0x0800da94                vdd_pin
+ .rodata        0x0800daa8       0x14 ./lib/xmc/Dave/Generated/CLOCK_XMC4/clock_xmc4_conf.o
  .rodata.str1.4
-                0x0800da64       0x11 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
+                0x0800dabc       0x11 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
                                  0x14 (size before relaxing)
- *fill*         0x0800da75        0x3 
+ *fill*         0x0800dacd        0x3 
  .rodata.g_pctr_states_table
-                0x0800da78       0x10 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
+                0x0800dad0       0x10 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
  .rodata.g_optiga_unique_application_identifier
-                0x0800da88       0x10 ./lib/optiga/cmd/optiga_cmd.o
-                0x0800da88                g_optiga_unique_application_identifier
+                0x0800dae0       0x10 ./lib/optiga/cmd/optiga_cmd.o
+                0x0800dae0                g_optiga_unique_application_identifier
  .rodata.aes_info
-                0x0800da98       0x18 ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800daf0       0x18 ./lib/externals/mbedtls/cipher_wrap.o
  .rodata.aes_192_ccm_info
-                0x0800dab0       0x1c ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800db08       0x1c ./lib/externals/mbedtls/cipher_wrap.o
  .rodata.mbedtls_cipher_definitions
-                0x0800dacc       0x38 ./lib/externals/mbedtls/cipher_wrap.o
-                0x0800dacc                mbedtls_cipher_definitions
+                0x0800db24       0x38 ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800db24                mbedtls_cipher_definitions
  .rodata.ccm_aes_info
-                0x0800db04       0x18 ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800db5c       0x18 ./lib/externals/mbedtls/cipher_wrap.o
  .rodata.aes_128_ccm_info
-                0x0800db1c       0x1c ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800db74       0x1c ./lib/externals/mbedtls/cipher_wrap.o
  .rodata.str1.4
-                0x0800db38       0x48 ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800db90       0x48 ./lib/externals/mbedtls/cipher_wrap.o
  .rodata.aes_256_ccm_info
-                0x0800db80       0x1c ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800dbd8       0x1c ./lib/externals/mbedtls/cipher_wrap.o
  .rodata.aes_192_ecb_info
-                0x0800db9c       0x1c ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800dbf4       0x1c ./lib/externals/mbedtls/cipher_wrap.o
  .rodata.aes_256_ecb_info
-                0x0800dbb8       0x1c ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800dc10       0x1c ./lib/externals/mbedtls/cipher_wrap.o
  .rodata.aes_128_ecb_info
-                0x0800dbd4       0x1c ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800dc2c       0x1c ./lib/externals/mbedtls/cipher_wrap.o
  .rodata.mbedtls_sha224_info
-                0x0800dbf0       0x30 ./lib/externals/mbedtls/md_wrap.o
-                0x0800dbf0                mbedtls_sha224_info
+                0x0800dc48       0x30 ./lib/externals/mbedtls/md_wrap.o
+                0x0800dc48                mbedtls_sha224_info
  .rodata.str1.4
-                0x0800dc20       0x10 ./lib/externals/mbedtls/md_wrap.o
+                0x0800dc78        0xf ./lib/externals/mbedtls/md_wrap.o
+                                 0x10 (size before relaxing)
+ *fill*         0x0800dc87        0x1 
  .rodata.mbedtls_sha256_info
-                0x0800dc30       0x30 ./lib/externals/mbedtls/md_wrap.o
-                0x0800dc30                mbedtls_sha256_info
- .rodata.K      0x0800dc60      0x100 ./lib/externals/mbedtls/sha256.o
+                0x0800dc88       0x30 ./lib/externals/mbedtls/md_wrap.o
+                0x0800dc88                mbedtls_sha256_info
+ .rodata.K      0x0800dcb8      0x100 ./lib/externals/mbedtls/sha256.o
  .rodata.platform_binding_shared_secret_metadata_final
-                0x0800dd60       0x1c ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
-                0x0800dd60                platform_binding_shared_secret_metadata_final
- .rodata        0x0800dd7c       0xc0 ./SEMS_Sources/Main.o
+                0x0800ddb8       0x1c ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
+                0x0800ddb8                platform_binding_shared_secret_metadata_final
+ .rodata.str1.4
+                0x0800ddd4       0x20 ./SEMS_Sources/Decoder.o
+ .rodata        0x0800ddf4       0xc0 ./SEMS_Sources/Main.o
  .rodata.rsa_public_key_exponent
-                0x0800de3c        0x4 ./SEMS_Sources/RSA.o
+                0x0800deb4        0x4 ./SEMS_Sources/RSA.o
  .rodata.rsa_public_key_modulus
-                0x0800de40       0x80 ./SEMS_Sources/RSA.o
- .rodata        0x0800dec0        0x8 ./SEMS_Sources/Unlock.o
+                0x0800deb8       0x80 ./SEMS_Sources/RSA.o
+ .rodata        0x0800df38        0x8 ./SEMS_Sources/Unlock.o
  .rodata.str1.1
-                0x0800dec8        0x2 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-impure.o)
+                0x0800df40        0x2 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-impure.o)
  *(.gnu.linkonce.r*)
  *(vtable)
-                0x0800decc                . = ALIGN (0x4)
- *fill*         0x0800deca        0x2 
+                0x0800df44                . = ALIGN (0x4)
+ *fill*         0x0800df42        0x2 
 
-.glue_7         0x0800decc        0x0 load address 0x0c00decc
+.glue_7         0x0800df44        0x0 load address 0x0c00df44
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x0800decc        0x0 load address 0x0c00decc
+.glue_7t        0x0800df44        0x0 load address 0x0c00df44
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x0800decc        0x0 load address 0x0c00decc
+.vfp11_veneer   0x0800df44        0x0 load address 0x0c00df44
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x0800decc        0x0 load address 0x0c00decc
+.v4_bx          0x0800df44        0x0 load address 0x0c00df44
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x0800decc        0x0 load address 0x0c00decc
+.iplt           0x0800df44        0x0 load address 0x0c00df44
  .iplt          0x00000000        0x0 ./lib/xmc/XMCLib/src/xmc4_eru.o
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
 
-.eh_frame       0x0800decc        0x0 load address 0x0c00decc
+.eh_frame       0x0800df44       0x28 load address 0x0c00df44
  *(.eh_frame)
- .eh_frame      0x0800decc        0x0 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-strcmp.o)
-                                 0x28 (size before relaxing)
+ .eh_frame      0x0800df44       0x28 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-strcmp.o)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0800decc                . = ALIGN (0x4)
-                0x0800decc                __exidx_start = .
+                0x0800df6c                . = ALIGN (0x4)
+                0x0800df6c                __exidx_start = .
 
-.ARM.exidx      0x0800decc        0x8 load address 0x0c00decc
+.ARM.exidx      0x0800df6c        0x8 load address 0x0c00df6c
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x0800decc        0x8 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_divdi3.o)
- .ARM.exidx     0x0800ded4        0x0 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_udivdi3.o)
+ .ARM.exidx     0x0800df6c        0x8 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_divdi3.o)
+ .ARM.exidx     0x0800df74        0x0 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_udivdi3.o)
                                   0x8 (size before relaxing)
-                0x0800ded4                __exidx_end = .
+                0x0800df74                __exidx_end = .
 
-.rel.dyn        0x0800ded4        0x0 load address 0x0c00ded4
+.rel.dyn        0x0800df74        0x0 load address 0x0c00df74
  .rel.iplt      0x00000000        0x0 ./lib/xmc/XMCLib/src/xmc4_eru.o
-                0x0800ded4                . = ALIGN (0x4)
+                0x0800df74                . = ALIGN (0x4)
 
 Stack           0x1ffe8000     0x5000
                 0x1ffe8000                __stack_start = .
@@ -4909,16 +4903,16 @@ Stack           0x1ffe8000     0x5000
                 0x1ffed000                __stack_end = .
                 0x1ffed000                __initial_sp = .
 
-.ram_code       0x1ffed000        0x0 load address 0x0c00ded4
+.ram_code       0x1ffed000        0x0 load address 0x0c00df74
                 0x1ffed000                . = ALIGN (0x4)
                 0x1ffed000                __ram_code_start = .
  *(.ram_code)
                 0x1ffed000                . = ALIGN (0x4)
                 0x1ffed000                __ram_code_end = .
-                0x0c00ded4                __ram_code_load = LOADADDR (.ram_code)
+                0x0c00df74                __ram_code_load = LOADADDR (.ram_code)
                 0x00000000                __ram_code_size = (__ram_code_end - __ram_code_start)
 
-.data           0x1ffed000      0x75c load address 0x0c00ded4
+.data           0x1ffed000      0x75c load address 0x0c00df74
                 0x1ffed000                . = ALIGN (0x4)
                 0x1ffed000                __data_start = .
  *(.data)
@@ -5022,15 +5016,15 @@ Stack           0x1ffe8000     0x5000
                 0x1ffed75c                PROVIDE (__fini_array_end, .)
                 0x1ffed75c                . = ALIGN (0x4)
                 0x1ffed75c                __data_end = .
-                0x0c00ded4                __data_load = LOADADDR (.data)
+                0x0c00df74                __data_load = LOADADDR (.data)
                 0x0000075c                __data_size = (__data_end - __data_start)
-                0x0000e630                __text_size = (((__exidx_end - sText) + __data_size) + __ram_code_size)
-                0x0800e630                eText = (sText + __text_size)
+                0x0000e6d0                __text_size = (((__exidx_end - sText) + __data_size) + __ram_code_size)
+                0x0800e6d0                eText = (sText + __text_size)
 
-.igot.plt       0x1ffed75c        0x0 load address 0x0c00e630
+.igot.plt       0x1ffed75c        0x0 load address 0x0c00e6d0
  .igot.plt      0x00000000        0x0 ./lib/xmc/XMCLib/src/xmc4_eru.o
 
-.bss            0x1ffed75c     0x30ac load address 0x0c00e630
+.bss            0x1ffed75c     0x30ac load address 0x0c00e6d0
                 0x1ffed75c                . = ALIGN (0x4)
                 0x1ffed75c                __bss_start = .
  *(.bss)
@@ -5192,7 +5186,7 @@ ETH_RAM         0x20000e00        0x0
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000     0x1e18
+.debug_aranges  0x00000000     0x1e38
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x28 ./lib/xmc/XMCLib/src/xmc4_gpio.o
@@ -5345,29 +5339,31 @@ ETH_RAM         0x20000e00        0x0
  .debug_aranges
                 0x00001c30       0x38 ./SEMS_Sources/Constructor.o
  .debug_aranges
-                0x00001c68       0x20 ./SEMS_Sources/Hash.o
+                0x00001c68       0x20 ./SEMS_Sources/Decoder.o
  .debug_aranges
-                0x00001c88       0x20 ./SEMS_Sources/Init.o
+                0x00001c88       0x20 ./SEMS_Sources/Hash.o
  .debug_aranges
-                0x00001ca8       0x20 ./SEMS_Sources/Main.o
+                0x00001ca8       0x20 ./SEMS_Sources/Init.o
  .debug_aranges
-                0x00001cc8       0x30 ./SEMS_Sources/Nonce.o
+                0x00001cc8       0x20 ./SEMS_Sources/Main.o
  .debug_aranges
-                0x00001cf8       0x28 ./SEMS_Sources/Patcher.o
+                0x00001ce8       0x30 ./SEMS_Sources/Nonce.o
  .debug_aranges
-                0x00001d20       0x28 ./SEMS_Sources/RSA.o
+                0x00001d18       0x28 ./SEMS_Sources/Patcher.o
  .debug_aranges
-                0x00001d48       0x20 ./SEMS_Sources/Random.o
+                0x00001d40       0x28 ./SEMS_Sources/RSA.o
  .debug_aranges
-                0x00001d68       0x28 ./SEMS_Sources/Skey.o
+                0x00001d68       0x20 ./SEMS_Sources/Random.o
  .debug_aranges
-                0x00001d90       0x20 ./SEMS_Sources/SymEncrypt.o
+                0x00001d88       0x28 ./SEMS_Sources/Skey.o
  .debug_aranges
-                0x00001db0       0x28 ./SEMS_Sources/Timer.o
+                0x00001db0       0x20 ./SEMS_Sources/SymEncrypt.o
  .debug_aranges
-                0x00001dd8       0x20 ./SEMS_Sources/Unlock.o
+                0x00001dd0       0x28 ./SEMS_Sources/Timer.o
  .debug_aranges
-                0x00001df8       0x20 ./main_xmc4800_example.o
+                0x00001df8       0x20 ./SEMS_Sources/Unlock.o
+ .debug_aranges
+                0x00001e18       0x20 ./main_xmc4800_example.o
 
 .debug_pubnames
  *(.debug_pubnames)
@@ -5375,7 +5371,7 @@ ETH_RAM         0x20000e00        0x0
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_info     0x00000000    0x76dd3
+.debug_info     0x00000000    0x78580
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x424 ./lib/xmc/XMCLib/src/xmc4_gpio.o
  .debug_info    0x00000424     0x2e0f ./lib/xmc/XMCLib/src/xmc4_scu.o
@@ -5452,20 +5448,21 @@ ETH_RAM         0x20000e00        0x0
  .debug_info    0x0005de09      0x3c1 ./examples/example_utilities.o
  .debug_info    0x0005e1ca     0x183c ./SEMS_Sources/Com.o
  .debug_info    0x0005fa06     0x22f1 ./SEMS_Sources/Constructor.o
- .debug_info    0x00061cf7     0x1fed ./SEMS_Sources/Hash.o
- .debug_info    0x00063ce4     0x1678 ./SEMS_Sources/Init.o
- .debug_info    0x0006535c     0x19a3 ./SEMS_Sources/Main.o
- .debug_info    0x00066cff     0x1c2b ./SEMS_Sources/Nonce.o
- .debug_info    0x0006892a     0x1b7f ./SEMS_Sources/Patcher.o
- .debug_info    0x0006a4a9     0x2372 ./SEMS_Sources/RSA.o
- .debug_info    0x0006c81b     0x1fcb ./SEMS_Sources/Random.o
- .debug_info    0x0006e7e6     0x1b3d ./SEMS_Sources/Skey.o
- .debug_info    0x00070323     0x169d ./SEMS_Sources/SymEncrypt.o
- .debug_info    0x000719c0     0x23ef ./SEMS_Sources/Timer.o
- .debug_info    0x00073daf     0x18ad ./SEMS_Sources/Unlock.o
- .debug_info    0x0007565c     0x1777 ./main_xmc4800_example.o
+ .debug_info    0x00061cf7     0x1734 ./SEMS_Sources/Decoder.o
+ .debug_info    0x0006342b     0x1fed ./SEMS_Sources/Hash.o
+ .debug_info    0x00065418     0x1678 ./SEMS_Sources/Init.o
+ .debug_info    0x00066a90     0x1a1c ./SEMS_Sources/Main.o
+ .debug_info    0x000684ac     0x1c2b ./SEMS_Sources/Nonce.o
+ .debug_info    0x0006a0d7     0x1b7f ./SEMS_Sources/Patcher.o
+ .debug_info    0x0006bc56     0x2372 ./SEMS_Sources/RSA.o
+ .debug_info    0x0006dfc8     0x1fcb ./SEMS_Sources/Random.o
+ .debug_info    0x0006ff93     0x1b3d ./SEMS_Sources/Skey.o
+ .debug_info    0x00071ad0     0x169d ./SEMS_Sources/SymEncrypt.o
+ .debug_info    0x0007316d     0x23ef ./SEMS_Sources/Timer.o
+ .debug_info    0x0007555c     0x18ad ./SEMS_Sources/Unlock.o
+ .debug_info    0x00076e09     0x1777 ./main_xmc4800_example.o
 
-.debug_abbrev   0x00000000     0xe09e
+.debug_abbrev   0x00000000     0xe308
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x119 ./lib/xmc/XMCLib/src/xmc4_gpio.o
  .debug_abbrev  0x00000119      0x435 ./lib/xmc/XMCLib/src/xmc4_scu.o
@@ -5542,20 +5539,21 @@ ETH_RAM         0x20000e00        0x0
  .debug_abbrev  0x0000b78b      0x140 ./examples/example_utilities.o
  .debug_abbrev  0x0000b8cb      0x28a ./SEMS_Sources/Com.o
  .debug_abbrev  0x0000bb55      0x2f4 ./SEMS_Sources/Constructor.o
- .debug_abbrev  0x0000be49      0x2fa ./SEMS_Sources/Hash.o
- .debug_abbrev  0x0000c143      0x241 ./SEMS_Sources/Init.o
- .debug_abbrev  0x0000c384      0x30d ./SEMS_Sources/Main.o
- .debug_abbrev  0x0000c691      0x340 ./SEMS_Sources/Nonce.o
- .debug_abbrev  0x0000c9d1      0x2fb ./SEMS_Sources/Patcher.o
- .debug_abbrev  0x0000cccc      0x34d ./SEMS_Sources/RSA.o
- .debug_abbrev  0x0000d019      0x2f9 ./SEMS_Sources/Random.o
- .debug_abbrev  0x0000d312      0x32c ./SEMS_Sources/Skey.o
- .debug_abbrev  0x0000d63e      0x240 ./SEMS_Sources/SymEncrypt.o
- .debug_abbrev  0x0000d87e      0x2a5 ./SEMS_Sources/Timer.o
- .debug_abbrev  0x0000db23      0x2c2 ./SEMS_Sources/Unlock.o
- .debug_abbrev  0x0000dde5      0x2b9 ./main_xmc4800_example.o
+ .debug_abbrev  0x0000be49      0x26a ./SEMS_Sources/Decoder.o
+ .debug_abbrev  0x0000c0b3      0x2fa ./SEMS_Sources/Hash.o
+ .debug_abbrev  0x0000c3ad      0x241 ./SEMS_Sources/Init.o
+ .debug_abbrev  0x0000c5ee      0x30d ./SEMS_Sources/Main.o
+ .debug_abbrev  0x0000c8fb      0x340 ./SEMS_Sources/Nonce.o
+ .debug_abbrev  0x0000cc3b      0x2fb ./SEMS_Sources/Patcher.o
+ .debug_abbrev  0x0000cf36      0x34d ./SEMS_Sources/RSA.o
+ .debug_abbrev  0x0000d283      0x2f9 ./SEMS_Sources/Random.o
+ .debug_abbrev  0x0000d57c      0x32c ./SEMS_Sources/Skey.o
+ .debug_abbrev  0x0000d8a8      0x240 ./SEMS_Sources/SymEncrypt.o
+ .debug_abbrev  0x0000dae8      0x2a5 ./SEMS_Sources/Timer.o
+ .debug_abbrev  0x0000dd8d      0x2c2 ./SEMS_Sources/Unlock.o
+ .debug_abbrev  0x0000e04f      0x2b9 ./main_xmc4800_example.o
 
-.debug_line     0x00000000    0x1c803
+.debug_line     0x00000000    0x1cb6d
  *(.debug_line)
  .debug_line    0x00000000      0x285 ./lib/xmc/XMCLib/src/xmc4_gpio.o
  .debug_line    0x00000285     0x1001 ./lib/xmc/XMCLib/src/xmc4_scu.o
@@ -5632,20 +5630,21 @@ ETH_RAM         0x20000e00        0x0
  .debug_line    0x00018393      0x3c4 ./examples/example_utilities.o
  .debug_line    0x00018757      0x3e8 ./SEMS_Sources/Com.o
  .debug_line    0x00018b3f      0x4ce ./SEMS_Sources/Constructor.o
- .debug_line    0x0001900d      0x4cc ./SEMS_Sources/Hash.o
- .debug_line    0x000194d9      0x33e ./SEMS_Sources/Init.o
- .debug_line    0x00019817      0x479 ./SEMS_Sources/Main.o
- .debug_line    0x00019c90      0x57d ./SEMS_Sources/Nonce.o
- .debug_line    0x0001a20d      0x5a8 ./SEMS_Sources/Patcher.o
- .debug_line    0x0001a7b5      0x54b ./SEMS_Sources/RSA.o
- .debug_line    0x0001ad00      0x4e4 ./SEMS_Sources/Random.o
- .debug_line    0x0001b1e4      0x530 ./SEMS_Sources/Skey.o
- .debug_line    0x0001b714      0x333 ./SEMS_Sources/SymEncrypt.o
- .debug_line    0x0001ba47      0x4b5 ./SEMS_Sources/Timer.o
- .debug_line    0x0001befc      0x45f ./SEMS_Sources/Unlock.o
- .debug_line    0x0001c35b      0x4a8 ./main_xmc4800_example.o
+ .debug_line    0x0001900d      0x35e ./SEMS_Sources/Decoder.o
+ .debug_line    0x0001936b      0x4cc ./SEMS_Sources/Hash.o
+ .debug_line    0x00019837      0x33e ./SEMS_Sources/Init.o
+ .debug_line    0x00019b75      0x485 ./SEMS_Sources/Main.o
+ .debug_line    0x00019ffa      0x57d ./SEMS_Sources/Nonce.o
+ .debug_line    0x0001a577      0x5a8 ./SEMS_Sources/Patcher.o
+ .debug_line    0x0001ab1f      0x54b ./SEMS_Sources/RSA.o
+ .debug_line    0x0001b06a      0x4e4 ./SEMS_Sources/Random.o
+ .debug_line    0x0001b54e      0x530 ./SEMS_Sources/Skey.o
+ .debug_line    0x0001ba7e      0x333 ./SEMS_Sources/SymEncrypt.o
+ .debug_line    0x0001bdb1      0x4b5 ./SEMS_Sources/Timer.o
+ .debug_line    0x0001c266      0x45f ./SEMS_Sources/Unlock.o
+ .debug_line    0x0001c6c5      0x4a8 ./main_xmc4800_example.o
 
-.debug_frame    0x00000000     0x6190
+.debug_frame    0x00000000     0x61bc
  *(.debug_frame)
  .debug_frame   0x00000000       0x50 ./lib/xmc/XMCLib/src/xmc4_gpio.o
  .debug_frame   0x00000050      0x840 ./lib/xmc/XMCLib/src/xmc4_scu.o
@@ -5711,36 +5710,37 @@ ETH_RAM         0x20000e00        0x0
  .debug_frame   0x00005900       0xb4 ./examples/example_utilities.o
  .debug_frame   0x000059b4       0x38 ./SEMS_Sources/Com.o
  .debug_frame   0x000059ec       0x68 ./SEMS_Sources/Constructor.o
- .debug_frame   0x00005a54       0x40 ./SEMS_Sources/Hash.o
- .debug_frame   0x00005a94       0x20 ./SEMS_Sources/Init.o
- .debug_frame   0x00005ab4       0x44 ./SEMS_Sources/Main.o
- .debug_frame   0x00005af8       0xc8 ./SEMS_Sources/Nonce.o
- .debug_frame   0x00005bc0       0x70 ./SEMS_Sources/Patcher.o
- .debug_frame   0x00005c30       0x84 ./SEMS_Sources/RSA.o
- .debug_frame   0x00005cb4       0x6c ./SEMS_Sources/Random.o
- .debug_frame   0x00005d20       0x90 ./SEMS_Sources/Skey.o
- .debug_frame   0x00005db0       0x40 ./SEMS_Sources/SymEncrypt.o
- .debug_frame   0x00005df0       0x40 ./SEMS_Sources/Timer.o
- .debug_frame   0x00005e30       0x40 ./SEMS_Sources/Unlock.o
- .debug_frame   0x00005e70       0x2c ./main_xmc4800_example.o
- .debug_frame   0x00005e9c       0x28 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x00005ec4       0x50 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(bpabi.o)
- .debug_frame   0x00005f14       0x34 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_divdi3.o)
- .debug_frame   0x00005f48       0x30 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_udivdi3.o)
- .debug_frame   0x00005f78       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-calloc.o)
- .debug_frame   0x00005f98       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-errno.o)
- .debug_frame   0x00005fb8       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-init.o)
- .debug_frame   0x00005fe4       0x30 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-malloc.o)
- .debug_frame   0x00006014       0x28 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcmp.o)
- .debug_frame   0x0000603c       0x28 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcpy.o)
- .debug_frame   0x00006064       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memset.o)
- .debug_frame   0x00006084       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-callocr.o)
- .debug_frame   0x000060b0       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-freer.o)
- .debug_frame   0x000060dc       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-mallocr.o)
- .debug_frame   0x00006108       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-sbrkr.o)
- .debug_frame   0x00006134       0x5c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-reent.o)
+ .debug_frame   0x00005a54       0x2c ./SEMS_Sources/Decoder.o
+ .debug_frame   0x00005a80       0x40 ./SEMS_Sources/Hash.o
+ .debug_frame   0x00005ac0       0x20 ./SEMS_Sources/Init.o
+ .debug_frame   0x00005ae0       0x44 ./SEMS_Sources/Main.o
+ .debug_frame   0x00005b24       0xc8 ./SEMS_Sources/Nonce.o
+ .debug_frame   0x00005bec       0x70 ./SEMS_Sources/Patcher.o
+ .debug_frame   0x00005c5c       0x84 ./SEMS_Sources/RSA.o
+ .debug_frame   0x00005ce0       0x6c ./SEMS_Sources/Random.o
+ .debug_frame   0x00005d4c       0x90 ./SEMS_Sources/Skey.o
+ .debug_frame   0x00005ddc       0x40 ./SEMS_Sources/SymEncrypt.o
+ .debug_frame   0x00005e1c       0x40 ./SEMS_Sources/Timer.o
+ .debug_frame   0x00005e5c       0x40 ./SEMS_Sources/Unlock.o
+ .debug_frame   0x00005e9c       0x2c ./main_xmc4800_example.o
+ .debug_frame   0x00005ec8       0x28 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x00005ef0       0x50 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(bpabi.o)
+ .debug_frame   0x00005f40       0x34 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_divdi3.o)
+ .debug_frame   0x00005f74       0x30 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_udivdi3.o)
+ .debug_frame   0x00005fa4       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-calloc.o)
+ .debug_frame   0x00005fc4       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x00005fe4       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-init.o)
+ .debug_frame   0x00006010       0x30 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-malloc.o)
+ .debug_frame   0x00006040       0x28 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcmp.o)
+ .debug_frame   0x00006068       0x28 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcpy.o)
+ .debug_frame   0x00006090       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memset.o)
+ .debug_frame   0x000060b0       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-callocr.o)
+ .debug_frame   0x000060dc       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-freer.o)
+ .debug_frame   0x00006108       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-mallocr.o)
+ .debug_frame   0x00006134       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-sbrkr.o)
+ .debug_frame   0x00006160       0x5c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-reent.o)
 
-.debug_str      0x00000000    0x16253
+.debug_str      0x00000000    0x162b6
  *(.debug_str)
  .debug_str     0x00000000      0x704 ./lib/xmc/XMCLib/src/xmc4_gpio.o
                                 0x770 (size before relaxing)
@@ -5890,32 +5890,34 @@ ETH_RAM         0x20000e00        0x0
                                0x149f (size before relaxing)
  .debug_str     0x00015dae       0x80 ./SEMS_Sources/Constructor.o
                                0x21dc (size before relaxing)
- .debug_str     0x00015e2e       0x52 ./SEMS_Sources/Hash.o
+ .debug_str     0x00015e2e       0x5b ./SEMS_Sources/Decoder.o
+                               0x13f3 (size before relaxing)
+ .debug_str     0x00015e89       0x52 ./SEMS_Sources/Hash.o
                                0x1dc4 (size before relaxing)
- .debug_str     0x00015e80       0x36 ./SEMS_Sources/Init.o
+ .debug_str     0x00015edb       0x36 ./SEMS_Sources/Init.o
                                0x13c3 (size before relaxing)
- .debug_str     0x00015eb6       0x74 ./SEMS_Sources/Main.o
-                               0x15e8 (size before relaxing)
- .debug_str     0x00015f2a       0x84 ./SEMS_Sources/Nonce.o
+ .debug_str     0x00015f11       0x7c ./SEMS_Sources/Main.o
+                               0x163a (size before relaxing)
+ .debug_str     0x00015f8d       0x84 ./SEMS_Sources/Nonce.o
                                0x1857 (size before relaxing)
- .debug_str     0x00015fae       0xef ./SEMS_Sources/Patcher.o
+ .debug_str     0x00016011       0xef ./SEMS_Sources/Patcher.o
                                0x15cb (size before relaxing)
- .debug_str     0x0001609d       0xb3 ./SEMS_Sources/RSA.o
+ .debug_str     0x00016100       0xb3 ./SEMS_Sources/RSA.o
                                0x2197 (size before relaxing)
- .debug_str     0x00016150       0x25 ./SEMS_Sources/Random.o
+ .debug_str     0x000161b3       0x25 ./SEMS_Sources/Random.o
                                0x1db5 (size before relaxing)
- .debug_str     0x00016175       0x26 ./SEMS_Sources/Skey.o
+ .debug_str     0x000161d8       0x26 ./SEMS_Sources/Skey.o
                                0x1800 (size before relaxing)
- .debug_str     0x0001619b       0x1d ./SEMS_Sources/SymEncrypt.o
+ .debug_str     0x000161fe       0x1d ./SEMS_Sources/SymEncrypt.o
                                0x13b5 (size before relaxing)
- .debug_str     0x000161b8       0x2b ./SEMS_Sources/Timer.o
+ .debug_str     0x0001621b       0x2b ./SEMS_Sources/Timer.o
                                0x1ccf (size before relaxing)
- .debug_str     0x000161e3       0x19 ./SEMS_Sources/Unlock.o
+ .debug_str     0x00016246       0x19 ./SEMS_Sources/Unlock.o
                                0x163b (size before relaxing)
- .debug_str     0x000161fc       0x57 ./main_xmc4800_example.o
+ .debug_str     0x0001625f       0x57 ./main_xmc4800_example.o
                                0x14f6 (size before relaxing)
 
-.debug_loc      0x00000000    0x34df5
+.debug_loc      0x00000000    0x34e8b
  *(.debug_loc)
  .debug_loc     0x00000000      0x141 ./lib/xmc/XMCLib/src/xmc4_gpio.o
  .debug_loc     0x00000141     0x1acd ./lib/xmc/XMCLib/src/xmc4_scu.o
@@ -5980,22 +5982,23 @@ ETH_RAM         0x20000e00        0x0
  .debug_loc     0x00033346      0x5a2 ./examples/example_utilities.o
  .debug_loc     0x000338e8       0x39 ./SEMS_Sources/Com.o
  .debug_loc     0x00033921       0x92 ./SEMS_Sources/Constructor.o
- .debug_loc     0x000339b3      0x129 ./SEMS_Sources/Hash.o
- .debug_loc     0x00033adc       0x8e ./SEMS_Sources/Main.o
- .debug_loc     0x00033b6a      0x382 ./SEMS_Sources/Nonce.o
- .debug_loc     0x00033eec      0x528 ./SEMS_Sources/Patcher.o
- .debug_loc     0x00034414      0x321 ./SEMS_Sources/RSA.o
- .debug_loc     0x00034735      0x167 ./SEMS_Sources/Random.o
- .debug_loc     0x0003489c      0x2ec ./SEMS_Sources/Skey.o
- .debug_loc     0x00034b88      0x158 ./SEMS_Sources/SymEncrypt.o
- .debug_loc     0x00034ce0       0x2c ./SEMS_Sources/Timer.o
- .debug_loc     0x00034d0c       0xab ./SEMS_Sources/Unlock.o
- .debug_loc     0x00034db7       0x3e ./main_xmc4800_example.o
+ .debug_loc     0x000339b3       0x4c ./SEMS_Sources/Decoder.o
+ .debug_loc     0x000339ff      0x129 ./SEMS_Sources/Hash.o
+ .debug_loc     0x00033b28       0xd8 ./SEMS_Sources/Main.o
+ .debug_loc     0x00033c00      0x382 ./SEMS_Sources/Nonce.o
+ .debug_loc     0x00033f82      0x528 ./SEMS_Sources/Patcher.o
+ .debug_loc     0x000344aa      0x321 ./SEMS_Sources/RSA.o
+ .debug_loc     0x000347cb      0x167 ./SEMS_Sources/Random.o
+ .debug_loc     0x00034932      0x2ec ./SEMS_Sources/Skey.o
+ .debug_loc     0x00034c1e      0x158 ./SEMS_Sources/SymEncrypt.o
+ .debug_loc     0x00034d76       0x2c ./SEMS_Sources/Timer.o
+ .debug_loc     0x00034da2       0xab ./SEMS_Sources/Unlock.o
+ .debug_loc     0x00034e4d       0x3e ./main_xmc4800_example.o
 
 .debug_macinfo
  *(.debug_macinfo)
 
-.debug_ranges   0x00000000     0x4db8
+.debug_ranges   0x00000000     0x4dc8
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x18 ./lib/xmc/XMCLib/src/xmc4_gpio.o
  .debug_ranges  0x00000018      0x770 ./lib/xmc/XMCLib/src/xmc4_scu.o
@@ -6061,18 +6064,19 @@ ETH_RAM         0x20000e00        0x0
  .debug_ranges  0x00004b70       0xb8 ./examples/example_utilities.o
  .debug_ranges  0x00004c28       0x10 ./SEMS_Sources/Com.o
  .debug_ranges  0x00004c38       0x28 ./SEMS_Sources/Constructor.o
- .debug_ranges  0x00004c60       0x10 ./SEMS_Sources/Hash.o
- .debug_ranges  0x00004c70       0x10 ./SEMS_Sources/Init.o
- .debug_ranges  0x00004c80       0x30 ./SEMS_Sources/Main.o
- .debug_ranges  0x00004cb0       0x38 ./SEMS_Sources/Nonce.o
- .debug_ranges  0x00004ce8       0x30 ./SEMS_Sources/Patcher.o
- .debug_ranges  0x00004d18       0x18 ./SEMS_Sources/RSA.o
- .debug_ranges  0x00004d30       0x10 ./SEMS_Sources/Random.o
- .debug_ranges  0x00004d40       0x18 ./SEMS_Sources/Skey.o
- .debug_ranges  0x00004d58       0x10 ./SEMS_Sources/SymEncrypt.o
- .debug_ranges  0x00004d68       0x18 ./SEMS_Sources/Timer.o
- .debug_ranges  0x00004d80       0x28 ./SEMS_Sources/Unlock.o
- .debug_ranges  0x00004da8       0x10 ./main_xmc4800_example.o
+ .debug_ranges  0x00004c60       0x10 ./SEMS_Sources/Decoder.o
+ .debug_ranges  0x00004c70       0x10 ./SEMS_Sources/Hash.o
+ .debug_ranges  0x00004c80       0x10 ./SEMS_Sources/Init.o
+ .debug_ranges  0x00004c90       0x30 ./SEMS_Sources/Main.o
+ .debug_ranges  0x00004cc0       0x38 ./SEMS_Sources/Nonce.o
+ .debug_ranges  0x00004cf8       0x30 ./SEMS_Sources/Patcher.o
+ .debug_ranges  0x00004d28       0x18 ./SEMS_Sources/RSA.o
+ .debug_ranges  0x00004d40       0x10 ./SEMS_Sources/Random.o
+ .debug_ranges  0x00004d50       0x18 ./SEMS_Sources/Skey.o
+ .debug_ranges  0x00004d68       0x10 ./SEMS_Sources/SymEncrypt.o
+ .debug_ranges  0x00004d78       0x18 ./SEMS_Sources/Timer.o
+ .debug_ranges  0x00004d90       0x28 ./SEMS_Sources/Unlock.o
+ .debug_ranges  0x00004db8       0x10 ./main_xmc4800_example.o
 
 .debug_weaknames
  *(.debug_weaknames)
@@ -6087,7 +6091,7 @@ ETH_RAM         0x20000e00        0x0
  *(.debug_varnames)
 
 .build_attributes
-                0x00000000     0x1623
+                0x00000000     0x165a
  *(.ARM.attributes)
  .ARM.attributes
                 0x00000000       0x37 ./lib/xmc/XMCLib/src/xmc4_gpio.o
@@ -6240,65 +6244,67 @@ ETH_RAM         0x20000e00        0x0
  .ARM.attributes
                 0x00000fd4       0x37 ./SEMS_Sources/Constructor.o
  .ARM.attributes
-                0x0000100b       0x37 ./SEMS_Sources/Hash.o
+                0x0000100b       0x37 ./SEMS_Sources/Decoder.o
  .ARM.attributes
-                0x00001042       0x37 ./SEMS_Sources/Init.o
+                0x00001042       0x37 ./SEMS_Sources/Hash.o
  .ARM.attributes
-                0x00001079       0x37 ./SEMS_Sources/Main.o
+                0x00001079       0x37 ./SEMS_Sources/Init.o
  .ARM.attributes
-                0x000010b0       0x37 ./SEMS_Sources/Nonce.o
+                0x000010b0       0x37 ./SEMS_Sources/Main.o
  .ARM.attributes
-                0x000010e7       0x37 ./SEMS_Sources/Patcher.o
+                0x000010e7       0x37 ./SEMS_Sources/Nonce.o
  .ARM.attributes
-                0x0000111e       0x37 ./SEMS_Sources/RSA.o
+                0x0000111e       0x37 ./SEMS_Sources/Patcher.o
  .ARM.attributes
-                0x00001155       0x37 ./SEMS_Sources/Random.o
+                0x00001155       0x37 ./SEMS_Sources/RSA.o
  .ARM.attributes
-                0x0000118c       0x37 ./SEMS_Sources/Skey.o
+                0x0000118c       0x37 ./SEMS_Sources/Random.o
  .ARM.attributes
-                0x000011c3       0x37 ./SEMS_Sources/SymEncrypt.o
+                0x000011c3       0x37 ./SEMS_Sources/Skey.o
  .ARM.attributes
-                0x000011fa       0x37 ./SEMS_Sources/Timer.o
+                0x000011fa       0x37 ./SEMS_Sources/SymEncrypt.o
  .ARM.attributes
-                0x00001231       0x37 ./SEMS_Sources/Unlock.o
+                0x00001231       0x37 ./SEMS_Sources/Timer.o
  .ARM.attributes
-                0x00001268       0x37 ./main_xmc4800_example.o
+                0x00001268       0x37 ./SEMS_Sources/Unlock.o
  .ARM.attributes
-                0x0000129f       0x22 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_aeabi_uldivmod.o)
+                0x0000129f       0x37 ./main_xmc4800_example.o
  .ARM.attributes
-                0x000012c1       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(bpabi.o)
+                0x000012d6       0x22 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_aeabi_uldivmod.o)
  .ARM.attributes
-                0x000012f3       0x22 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_dvmd_tls.o)
+                0x000012f8       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(bpabi.o)
  .ARM.attributes
-                0x00001315       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_divdi3.o)
+                0x0000132a       0x22 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_dvmd_tls.o)
  .ARM.attributes
-                0x00001347       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_udivdi3.o)
+                0x0000134c       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_divdi3.o)
  .ARM.attributes
-                0x00001379       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-calloc.o)
+                0x0000137e       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_udivdi3.o)
  .ARM.attributes
-                0x000013ab       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-errno.o)
+                0x000013b0       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-calloc.o)
  .ARM.attributes
-                0x000013dd       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-impure.o)
+                0x000013e2       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-errno.o)
  .ARM.attributes
-                0x0000140f       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-init.o)
+                0x00001414       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-impure.o)
  .ARM.attributes
-                0x00001441       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-malloc.o)
+                0x00001446       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-init.o)
  .ARM.attributes
-                0x00001473       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcmp.o)
+                0x00001478       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-malloc.o)
  .ARM.attributes
-                0x000014a5       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcpy.o)
+                0x000014aa       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcmp.o)
  .ARM.attributes
-                0x000014d7       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memset.o)
+                0x000014dc       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcpy.o)
  .ARM.attributes
-                0x00001509       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-callocr.o)
+                0x0000150e       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memset.o)
  .ARM.attributes
-                0x0000153b       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-freer.o)
+                0x00001540       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-callocr.o)
  .ARM.attributes
-                0x0000156d       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-mallocr.o)
+                0x00001572       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-freer.o)
  .ARM.attributes
-                0x0000159f       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-sbrkr.o)
+                0x000015a4       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-mallocr.o)
  .ARM.attributes
-                0x000015d1       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-strcmp.o)
+                0x000015d6       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-sbrkr.o)
  .ARM.attributes
-                0x000015f1       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-reent.o)
+                0x00001608       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-strcmp.o)
+ .ARM.attributes
+                0x00001628       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-reent.o)
 OUTPUT(xmc4800_optiga_example.elf elf32-littlearm)

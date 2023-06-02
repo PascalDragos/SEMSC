@@ -2,37 +2,32 @@
 
 req_type decode_req(uint8_t command[32])
 {
-	req_type response;
-
-	response = 5;
 	// Activate secure unlock
-	if(0 == strncmp((char *)command, "Unlock", 1))
+	if(0 == strcmp((char *)command, "Unlock"))
 	{
-		response = SEC_UNLOCK;
+		return SEC_UNLOCK;
 	}
 
 	// Activate secure communication
-	if(command[0] == 'C')
+	if(0 == strcmp((char *)command, "SecCom"))
 	{
-		response = SEC_COM;
-
+		return SEC_COM;
 	}
 
 	// Lock
-	if(command[0] == 'L')
+	if(0 == strcmp((char *)command, "Lock"))
 	{
-		response = SEC_LOCK;
+		return SEC_LOCK;
 
 	}
 
 	// Usual command
-	if(command[0] == 'A')
+	if(0 == strcmp((char *)command, "Command"))
 	{
-		response = EXAMPLE;
-
+		return EXAMPLE;
 	}
 
-	return response;
+	return UNKNOWN;
 }
 
 

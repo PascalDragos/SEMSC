@@ -55,7 +55,7 @@ void my_optiga_shell_begin(void)
 		// Wrapper for serial read
 		if(0u == read_request(command, sec_unlocked, sec_comm))
 		{
-
+			req_type req_rcv;
 			if(true == cooldowned)
 			{
 				uint8_t buff[32] = "Denied by cooldown.";
@@ -63,47 +63,40 @@ void my_optiga_shell_begin(void)
 				continue;
 			}
 
-
-			// Activate secure unlock
-			if(command[0] == 'U')
-			{
-
-				sec_unlocked = secure_unlock();
-				sec_comm = 0;  // reset sec_comm flag
-				continue;
-			}
-
-
-			// Activate secure communication
-			if(command[0] == 'C') // momentatn nu pot da 2 cereri de sec com
-			{
-				sec_comm = secure_communication();
-				continue;
-			}
-
-
-			// Lock
-			if(command[0] == 'L')
-			{
-				uint8_t buff[32] = {"Locked"};
-
-				sec_unlocked = 0;
-
-				write_request(buff, sec_comm);
-				continue;
-			}
-
-			// Usual command
-			if(command[0] == 'A')
-			{
-				uint8_t buff[32] = {"AABBCCDEFG"};
-				write_request(buff, sec_comm);
-				continue;
-			}
-
-			// Uknow request
-			uint8_t buff[32] = {"Unknown request"};
-			write_request(buff, sec_comm);
+			req_rcv = decode_req(command);
+			switch(req_rcv){
+				case SEC_UNLOCK:
+				{
+					sec_unlocked = secure_unlock();
+					sec_comm = 0;  // reset sec_comm flag
+					break;
+				}
+				case SEC_COM: // momentan nu pot da 2 cereri de sec com
+				{
+					sec_comm = secure_communication();
+					break;
+				}
+				case SEC_LOCK:
+				{
+					uint8_t buff[32] = "Locked";
+					sec_unlocked = 0;
+					write_request(buff, sec_comm);
+					break;
+				}
+				case EXAMPLE:
+				{
+					uint8_t buff[32] = "AABBCCDEFG";
+					write_request(buff, sec_comm);
+					break;
+				}
+				case UNKNOWN:
+				default: // Unknown request
+				{
+					uint8_t buff[32] = "Unknown request";
+					write_request(buff, sec_comm);
+					break;
+				}
+			}  // end-switch
 
 		}
 		else
