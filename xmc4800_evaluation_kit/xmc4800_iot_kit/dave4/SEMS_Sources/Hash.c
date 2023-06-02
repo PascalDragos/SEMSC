@@ -1,7 +1,6 @@
 #include "../SEMS_Headers/Hash.h"
 #include "../SEMS_Headers/Constructor.h"
 
-
 #include "../SEMS_Headers/Util.h"
 
 
@@ -35,14 +34,12 @@ void optiga_crypt_hash_data_wrapper(uint8_t data_to_hash[], uint8_t size_of_data
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
 
 
-        return_status = OPTIGA_LIB_SUCCESS;
-
     } while (FALSE);
 
     example_optiga_deinit();
 
-    if (me)
+    if (NULL != me)
     {
-        return_status = optiga_crypt_destroy(me);
+        optiga_crypt_destroy(me);
     }
 }

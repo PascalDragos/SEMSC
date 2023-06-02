@@ -20,7 +20,7 @@
 #include "../SEMS_Headers/Config.h"
 #include "../SEMS_Headers/Init.h"
 #include "../SEMS_Headers/Test.h"
-
+#include "../SEMS_Headers/Decoder.h"
 
 extern pal_logger_t logger_console;
 
@@ -47,20 +47,22 @@ void my_optiga_shell_begin(void)
 	}
 #endif
 
-	start_cooldown_timer();
+	init_SEMS();
 
 	while(true)
 	{
 
 		// Wrapper for serial read
-		if(0 == read_request(command, sec_unlocked, sec_comm))
+		if(0u == read_request(command, sec_unlocked, sec_comm))
 		{
+
 			if(true == cooldowned)
 			{
-				uint8_t buff[32] = {"Denied by cooldown."};
+				uint8_t buff[32] = "Denied by cooldown.";
 				optiga_lib_print_bytes(buff, 32);
 				continue;
 			}
+
 
 			// Activate secure unlock
 			if(command[0] == 'U')
@@ -102,29 +104,30 @@ void my_optiga_shell_begin(void)
 			// Uknow request
 			uint8_t buff[32] = {"Unknown request"};
 			write_request(buff, sec_comm);
+
 		}
 		else
 		{
 			// Req before unlock || invalid Token, Nonce, Hash
 
 			failed_req++;
-			if(cooldowned)
+			if(true == cooldowned)
 			{
-				uint8_t buff[32] = {"Denied by cooldown."};
+				uint8_t buff[32] = "Denied by cooldown.";
 				optiga_lib_print_bytes(buff, 32);
 			}
 			else
 			{
 				if(failed_req >= MAX_FAILED_REQ)
 				{
-					uint8_t buff[32] = {"Cooldown activated."};
+					uint8_t buff[32] = "Cooldown activated.";
 					optiga_lib_print_bytes(buff, 32);
 					cooldowned = true;
 				}
 				else
 				{
 					// Just a wrong request
-					uint8_t buff[32] = {"Request denied."};
+					uint8_t buff[32] = "Request denied.";
 					optiga_lib_print_bytes(buff, 32);
 				}
 			}

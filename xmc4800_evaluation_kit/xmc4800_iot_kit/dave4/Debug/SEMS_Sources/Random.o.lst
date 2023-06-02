@@ -108,9 +108,9 @@
   72 0024 FFF7FEFF 	 bl example_optiga_deinit
   73              	.LVL4:
   36:../SEMS_Sources/Random.c **** 
-  37:../SEMS_Sources/Random.c **** 	if (me)
+  37:../SEMS_Sources/Random.c **** 	if (NULL != me)
   38:../SEMS_Sources/Random.c **** 	{
-  39:../SEMS_Sources/Random.c **** 		return_status = optiga_crypt_destroy(me);
+  39:../SEMS_Sources/Random.c **** 		optiga_crypt_destroy(me);
   74              	 .loc 1 39 0
   75 0028 2846     	 mov r0,r5
   40:../SEMS_Sources/Random.c **** 	}

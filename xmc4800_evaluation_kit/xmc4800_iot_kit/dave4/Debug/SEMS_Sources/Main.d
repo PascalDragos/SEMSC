@@ -120,7 +120,8 @@ SEMS_Sources/Main.o SEMS_Sources/Main.d SEMS_Sources/Main.o: \
  ../SEMS_Sources/../SEMS_Headers/Patcher.h \
  ../SEMS_Sources/../SEMS_Headers/Config.h \
  ../SEMS_Sources/../SEMS_Headers/Init.h \
- ../SEMS_Sources/../SEMS_Headers/Test.h
+ ../SEMS_Sources/../SEMS_Headers/Test.h \
+ ../SEMS_Sources/../SEMS_Headers/Decoder.h
 
 D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/DAVE.h:
 
@@ -363,3 +364,5 @@ D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Gene
 ../SEMS_Sources/../SEMS_Headers/Init.h:
 
 ../SEMS_Sources/../SEMS_Headers/Test.h:
+
+../SEMS_Sources/../SEMS_Headers/Decoder.h:

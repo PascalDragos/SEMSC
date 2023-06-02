@@ -25,7 +25,7 @@
   26              	.LFB454:
   27              	 .file 1 "../SEMS_Sources/Timer.c"
    1:../SEMS_Sources/Timer.c **** #include "../SEMS_Headers/Timer.h"
-   2:../SEMS_Sources/Timer.c **** 
+   2:../SEMS_Sources/Timer.c **** #include "../SEMS_Headers/Config.h"
    3:../SEMS_Sources/Timer.c **** #include "../SEMS_Headers/Util.h"
    4:../SEMS_Sources/Timer.c **** 
    5:../SEMS_Sources/Timer.c **** 
@@ -71,7 +71,7 @@
   56 0016 00BF     	 .align 2
   57              	.L3:
   58 0018 00000000 	 .word TIMER_Cooldwon
-  59 001c 00CA9A3B 	 .word 1000000000
+  59 001c 00E1F505 	 .word 100000000
   60              	 .cfi_endproc
   61              	.LFE454:
   63              	 .section .text.CCU80_3_IRQHandler,"ax",%progbits
@@ -90,7 +90,7 @@
   73              	 
   74              	 
   75              	 
-  20:../SEMS_Sources/Timer.c **** 	if(failed_req > 0)
+  20:../SEMS_Sources/Timer.c **** 	if(failed_req > 0u)
   76              	 .loc 1 20 0
   77 0000 064B     	 ldr r3,.L12
   78 0002 1A78     	 ldrb r2,[r3]
@@ -105,7 +105,7 @@
   85              	.L6:
   23:../SEMS_Sources/Timer.c **** 	}
   24:../SEMS_Sources/Timer.c **** 
-  25:../SEMS_Sources/Timer.c **** 	if(failed_req == 0)
+  25:../SEMS_Sources/Timer.c **** 	if(failed_req == 0u)
   86              	 .loc 1 25 0
   87 000e 1B78     	 ldrb r3,[r3]
   88 0010 03F0FF02 	 and r2,r3,#255

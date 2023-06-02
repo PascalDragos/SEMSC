@@ -112,26 +112,24 @@
   76              	.LVL4:
   77              	.L3:
   36:../SEMS_Sources/Skey.c **** 
-  37:../SEMS_Sources/Skey.c ****         return_status = OPTIGA_LIB_SUCCESS;
+  37:../SEMS_Sources/Skey.c ****     } while (FALSE);
   38:../SEMS_Sources/Skey.c **** 
-  39:../SEMS_Sources/Skey.c ****     } while (FALSE);
-  40:../SEMS_Sources/Skey.c **** 
-  41:../SEMS_Sources/Skey.c **** 
-  42:../SEMS_Sources/Skey.c ****     example_optiga_deinit();
-  78              	 .loc 1 42 0
+  39:../SEMS_Sources/Skey.c **** 
+  40:../SEMS_Sources/Skey.c ****     example_optiga_deinit();
+  78              	 .loc 1 40 0
   79 0030 FFF7FEFF 	 bl example_optiga_deinit
   80              	.LVL5:
+  41:../SEMS_Sources/Skey.c **** 
+  42:../SEMS_Sources/Skey.c **** 
   43:../SEMS_Sources/Skey.c **** 
-  44:../SEMS_Sources/Skey.c **** 
-  45:../SEMS_Sources/Skey.c **** 
-  46:../SEMS_Sources/Skey.c ****     if (me)
-  47:../SEMS_Sources/Skey.c ****     {
-  48:../SEMS_Sources/Skey.c ****         return_status = optiga_util_destroy(me);
-  81              	 .loc 1 48 0
+  44:../SEMS_Sources/Skey.c ****     if (NULL != me)
+  45:../SEMS_Sources/Skey.c ****     {
+  46:../SEMS_Sources/Skey.c ****         optiga_util_destroy(me);
+  81              	 .loc 1 46 0
   82 0034 2846     	 mov r0,r5
-  49:../SEMS_Sources/Skey.c ****     }
-  50:../SEMS_Sources/Skey.c **** }
-  83              	 .loc 1 50 0
+  47:../SEMS_Sources/Skey.c ****     }
+  48:../SEMS_Sources/Skey.c **** }
+  83              	 .loc 1 48 0
   84 0036 02B0     	 add sp,sp,#8
   85              	.LCFI2:
   86              	 .cfi_remember_state
@@ -147,8 +145,8 @@
   96              	 .cfi_restore 4
   97              	 .cfi_def_cfa_offset 0
   98              	.LVL6:
-  48:../SEMS_Sources/Skey.c ****     }
-  99              	 .loc 1 48 0
+  46:../SEMS_Sources/Skey.c ****     }
+  99              	 .loc 1 46 0
  100 003c FFF7FEBF 	 b optiga_util_destroy
  101              	.LVL7:
  102              	.L4:
@@ -174,7 +172,7 @@
  119 0054 ECE7     	 b .L3
  120              	.LVL9:
  121              	.L2:
- 122              	 .loc 1 50 0 is_stmt 1
+ 122              	 .loc 1 48 0 is_stmt 1
  123 0056 02B0     	 add sp,sp,#8
  124              	.LCFI5:
  125              	 .cfi_def_cfa_offset 24
@@ -189,8 +187,8 @@
  134              	 .cfi_restore 4
  135              	 .cfi_def_cfa_offset 0
  136              	.LVL10:
-  42:../SEMS_Sources/Skey.c **** 
- 137              	 .loc 1 42 0
+  40:../SEMS_Sources/Skey.c **** 
+ 137              	 .loc 1 40 0
  138 005c FFF7FEBF 	 b example_optiga_deinit
  139              	.LVL11:
  140              	.L13:
@@ -206,11 +204,11 @@
  151              	 .thumb_func
  153              	optiga_util_read_shared_key:
  154              	.LFB455:
-  51:../SEMS_Sources/Skey.c **** 
-  52:../SEMS_Sources/Skey.c **** 
-  53:../SEMS_Sources/Skey.c **** void optiga_util_read_shared_key(uint16_t optiga_oid, uint8_t read_data_buffer[], uint16_t bytes_to
-  54:../SEMS_Sources/Skey.c **** {
- 155              	 .loc 1 54 0
+  49:../SEMS_Sources/Skey.c **** 
+  50:../SEMS_Sources/Skey.c **** 
+  51:../SEMS_Sources/Skey.c **** void optiga_util_read_shared_key(uint16_t optiga_oid, uint8_t read_data_buffer[], uint16_t bytes_to
+  52:../SEMS_Sources/Skey.c **** {
+ 155              	 .loc 1 52 0
  156              	 .cfi_startproc
  157              	 
  158              	 
@@ -226,88 +224,87 @@
  168 0002 85B0     	 sub sp,sp,#20
  169              	.LCFI8:
  170              	 .cfi_def_cfa_offset 40
- 171              	 .loc 1 54 0
+ 171              	 .loc 1 52 0
  172 0004 0746     	 mov r7,r0
  173 0006 0E46     	 mov r6,r1
  174 0008 ADF80E20 	 strh r2,[sp,#14]
-  55:../SEMS_Sources/Skey.c ****     uint16_t offset = 0x00;
-  56:../SEMS_Sources/Skey.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
-  57:../SEMS_Sources/Skey.c ****     optiga_util_t * me = NULL;
-  58:../SEMS_Sources/Skey.c **** 
-  59:../SEMS_Sources/Skey.c ****     do
-  60:../SEMS_Sources/Skey.c ****     {
-  61:../SEMS_Sources/Skey.c ****         example_optiga_init();
- 175              	 .loc 1 61 0
+  53:../SEMS_Sources/Skey.c ****     uint16_t offset = 0x00;
+  54:../SEMS_Sources/Skey.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+  55:../SEMS_Sources/Skey.c ****     optiga_util_t * me = NULL;
+  56:../SEMS_Sources/Skey.c **** 
+  57:../SEMS_Sources/Skey.c ****     do
+  58:../SEMS_Sources/Skey.c ****     {
+  59:../SEMS_Sources/Skey.c ****         example_optiga_init();
+ 175              	 .loc 1 59 0
  176 000c FFF7FEFF 	 bl example_optiga_init
  177              	.LVL13:
-  62:../SEMS_Sources/Skey.c **** 
-  63:../SEMS_Sources/Skey.c ****         me = optiga_util_create_wrapper();
- 178              	 .loc 1 63 0
+  60:../SEMS_Sources/Skey.c **** 
+  61:../SEMS_Sources/Skey.c ****         me = optiga_util_create_wrapper();
+ 178              	 .loc 1 61 0
  179 0010 FFF7FEFF 	 bl optiga_util_create_wrapper
  180              	.LVL14:
-  64:../SEMS_Sources/Skey.c ****         if (NULL == me)
- 181              	 .loc 1 64 0
+  62:../SEMS_Sources/Skey.c ****         if (NULL == me)
+ 181              	 .loc 1 62 0
  182 0014 F0B1     	 cbz r0,.L15
-  65:../SEMS_Sources/Skey.c ****         {
-  66:../SEMS_Sources/Skey.c ****             break;
-  67:../SEMS_Sources/Skey.c ****         }
+  63:../SEMS_Sources/Skey.c ****         {
+  64:../SEMS_Sources/Skey.c ****             break;
+  65:../SEMS_Sources/Skey.c ****         }
+  66:../SEMS_Sources/Skey.c **** 
+  67:../SEMS_Sources/Skey.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
   68:../SEMS_Sources/Skey.c **** 
-  69:../SEMS_Sources/Skey.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
-  70:../SEMS_Sources/Skey.c **** 
-  71:../SEMS_Sources/Skey.c ****         return_status = optiga_util_read_data(me,
- 183              	 .loc 1 71 0
+  69:../SEMS_Sources/Skey.c ****         return_status = optiga_util_read_data(me,
+ 183              	 .loc 1 69 0
  184 0016 0DF10E02 	 add r2,sp,#14
  185              	.LVL15:
-  69:../SEMS_Sources/Skey.c **** 
- 186              	 .loc 1 69 0
+  67:../SEMS_Sources/Skey.c **** 
+ 186              	 .loc 1 67 0
  187 001a 104C     	 ldr r4,.L25
- 188              	 .loc 1 71 0
+ 188              	 .loc 1 69 0
  189 001c 0092     	 str r2,[sp]
  190 001e 3346     	 mov r3,r6
  191 0020 3946     	 mov r1,r7
-  69:../SEMS_Sources/Skey.c **** 
- 192              	 .loc 1 69 0
+  67:../SEMS_Sources/Skey.c **** 
+ 192              	 .loc 1 67 0
  193 0022 0126     	 movs r6,#1
  194              	.LVL16:
- 195              	 .loc 1 71 0
+ 195              	 .loc 1 69 0
  196 0024 0022     	 movs r2,#0
  197              	.LVL17:
  198 0026 0546     	 mov r5,r0
-  69:../SEMS_Sources/Skey.c **** 
- 199              	 .loc 1 69 0
+  67:../SEMS_Sources/Skey.c **** 
+ 199              	 .loc 1 67 0
  200 0028 2680     	 strh r6,[r4]
- 201              	 .loc 1 71 0
+ 201              	 .loc 1 69 0
  202 002a FFF7FEFF 	 bl optiga_util_read_data
  203              	.LVL18:
-  72:../SEMS_Sources/Skey.c ****                                               optiga_oid,
-  73:../SEMS_Sources/Skey.c ****                                               offset,
-  74:../SEMS_Sources/Skey.c ****                                               read_data_buffer,
-  75:../SEMS_Sources/Skey.c ****                                               &bytes_to_read);
-  76:../SEMS_Sources/Skey.c **** 
-  77:../SEMS_Sources/Skey.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
- 204              	 .loc 1 77 0
+  70:../SEMS_Sources/Skey.c ****                                               optiga_oid,
+  71:../SEMS_Sources/Skey.c ****                                               offset,
+  72:../SEMS_Sources/Skey.c ****                                               read_data_buffer,
+  73:../SEMS_Sources/Skey.c ****                                               &bytes_to_read);
+  74:../SEMS_Sources/Skey.c **** 
+  75:../SEMS_Sources/Skey.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 204              	 .loc 1 75 0
  205 002e 30B1     	 cbz r0,.L17
  206              	.LVL19:
  207              	.L16:
+  76:../SEMS_Sources/Skey.c **** 
+  77:../SEMS_Sources/Skey.c ****     } while (FALSE);
   78:../SEMS_Sources/Skey.c **** 
-  79:../SEMS_Sources/Skey.c ****         return_status = OPTIGA_LIB_SUCCESS;
-  80:../SEMS_Sources/Skey.c ****     } while (FALSE);
-  81:../SEMS_Sources/Skey.c **** 
-  82:../SEMS_Sources/Skey.c ****     example_optiga_deinit();
- 208              	 .loc 1 82 0
+  79:../SEMS_Sources/Skey.c ****     example_optiga_deinit();
+ 208              	 .loc 1 79 0
  209 0030 FFF7FEFF 	 bl example_optiga_deinit
  210              	.LVL20:
-  83:../SEMS_Sources/Skey.c **** 
-  84:../SEMS_Sources/Skey.c ****     if (me)
-  85:../SEMS_Sources/Skey.c ****     {
-  86:../SEMS_Sources/Skey.c ****         return_status = optiga_util_destroy(me);
- 211              	 .loc 1 86 0
+  80:../SEMS_Sources/Skey.c **** 
+  81:../SEMS_Sources/Skey.c ****     if (NULL != me)
+  82:../SEMS_Sources/Skey.c ****     {
+  83:../SEMS_Sources/Skey.c ****         optiga_util_destroy(me);
+ 211              	 .loc 1 83 0
  212 0034 2846     	 mov r0,r5
  213 0036 FFF7FEFF 	 bl optiga_util_destroy
  214              	.LVL21:
-  87:../SEMS_Sources/Skey.c ****     }
-  88:../SEMS_Sources/Skey.c **** }
- 215              	 .loc 1 88 0
+  84:../SEMS_Sources/Skey.c ****     }
+  85:../SEMS_Sources/Skey.c **** }
+ 215              	 .loc 1 85 0
  216 003a 05B0     	 add sp,sp,#20
  217              	.LCFI9:
  218              	 .cfi_remember_state
@@ -318,31 +315,31 @@
  223              	.L17:
  224              	.LCFI10:
  225              	 .cfi_restore_state
-  77:../SEMS_Sources/Skey.c **** 
- 226              	 .loc 1 77 0 discriminator 1
+  75:../SEMS_Sources/Skey.c **** 
+ 226              	 .loc 1 75 0 discriminator 1
  227 003e 2388     	 ldrh r3,[r4]
  228 0040 064A     	 ldr r2,.L25
  229 0042 9BB2     	 uxth r3,r3
  230 0044 012B     	 cmp r3,#1
  231 0046 FAD0     	 beq .L17
-  77:../SEMS_Sources/Skey.c **** 
- 232              	 .loc 1 77 0 is_stmt 0 discriminator 2
+  75:../SEMS_Sources/Skey.c **** 
+ 232              	 .loc 1 75 0 is_stmt 0 discriminator 2
  233 0048 1388     	 ldrh r3,[r2]
  234 004a 9BB2     	 uxth r3,r3
  235 004c 002B     	 cmp r3,#0
  236 004e EFD0     	 beq .L16
-  77:../SEMS_Sources/Skey.c **** 
- 237              	 .loc 1 77 0 discriminator 3
+  75:../SEMS_Sources/Skey.c **** 
+ 237              	 .loc 1 75 0 discriminator 3
  238 0050 1388     	 ldrh r3,[r2]
  239              	.LVL23:
  240 0052 EDE7     	 b .L16
  241              	.LVL24:
  242              	.L15:
-  82:../SEMS_Sources/Skey.c **** 
- 243              	 .loc 1 82 0 is_stmt 1
+  79:../SEMS_Sources/Skey.c **** 
+ 243              	 .loc 1 79 0 is_stmt 1
  244 0054 FFF7FEFF 	 bl example_optiga_deinit
  245              	.LVL25:
- 246              	 .loc 1 88 0
+ 246              	 .loc 1 85 0
  247 0058 05B0     	 add sp,sp,#20
  248              	.LCFI11:
  249              	 .cfi_def_cfa_offset 20

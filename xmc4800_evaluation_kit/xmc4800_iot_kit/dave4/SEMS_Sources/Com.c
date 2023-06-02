@@ -17,17 +17,18 @@ extern void example_optiga_util_update_count(void);
 
 uint8_t secure_communication(void)
 {
-    uint8_t random_buf[32] = {0x01, 0x01, 0x01, 0x01};
-    uint8_t ciphertext[129] = {0x00};
+    uint8_t random_buf[32];
+    uint8_t ciphertext[129];
     uint16_t ciphertext_len = 128;
-    uint8_t nonce[4] = {0x01, 0x01, 0x01, 0x01};
+    uint8_t nonce[4];
+	uint16_t optiga_counter_oid = 0xE120u;
+	uint16_t optiga_key_oid = 0xF1E0u;
 
 
 	// Generate random number using Optiga for session key
 	optiga_crypt_random_wrapper(random_buf, 32);
 
 	// Get Nonce
-	uint16_t optiga_counter_oid = 0xE120;
 //	optiga_util_reset_count(optiga_counter_oid);
 	optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
 
@@ -35,11 +36,11 @@ uint8_t secure_communication(void)
 	// Encrypt the session key with RSA
 	uint8_t plaintext[32 + 4] = {0};
 	memcpy(plaintext, random_buf, 32);
-	memcpy(plaintext + 32, nonce, 4);
+	memcpy(&plaintext[32], nonce, 4);
 	optiga_crypt_rsa_encrypt_message_wrapper(plaintext, sizeof(plaintext), ciphertext, &ciphertext_len);
 
 	// Send session key to the App
-	if(ciphertext_len == 128)
+	if(ciphertext_len == 128u)
 	{
 		// Pana la 127 merge ok
 		optiga_lib_print_bytes(ciphertext, 129); // TODO: TREBUIE SA TRIMIT CU UNUL IN PLUS ALTFEL RAMAN BLOCAT
@@ -51,11 +52,10 @@ uint8_t secure_communication(void)
 	}
 
 	// Store session key
-	uint16_t optiga_key_oid = 0xF1E0;
 	optiga_util_write_shared_key(optiga_key_oid, random_buf, sizeof(random_buf));
 
 
-	// Reaqd session key, Testing
+	// Read session key, Testing
 //	uint8_t key[32] = {0x01, 0x01, 0x01, 0x01};
 //	optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));
 //	ciphertext_len = ciphertext_len; // BR

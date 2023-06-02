@@ -30,7 +30,7 @@
    5:../SEMS_Sources/Constructor.c **** volatile optiga_lib_status_t optiga_lib_status;
    6:../SEMS_Sources/Constructor.c **** 
    7:../SEMS_Sources/Constructor.c **** 
-   8:../SEMS_Sources/Constructor.c **** static void optiga_crypt_callback(void * context, optiga_lib_status_t return_status)
+   8:../SEMS_Sources/Constructor.c **** static void optiga_crypt_callback(void * const context, optiga_lib_status_t return_status)
    9:../SEMS_Sources/Constructor.c **** {
   27              	 .loc 1 9 0
   28              	 .cfi_startproc
@@ -62,7 +62,7 @@
   15:../SEMS_Sources/Constructor.c **** }
   16:../SEMS_Sources/Constructor.c **** 
   17:../SEMS_Sources/Constructor.c **** 
-  18:../SEMS_Sources/Constructor.c **** static void optiga_util_callback(void * context, optiga_lib_status_t return_status)
+  18:../SEMS_Sources/Constructor.c **** static void optiga_util_callback(void * const context, optiga_lib_status_t return_status)
   19:../SEMS_Sources/Constructor.c **** {
   51              	 .loc 1 19 0
   52              	 .cfi_startproc
@@ -96,7 +96,7 @@
   26:../SEMS_Sources/Constructor.c **** 
   27:../SEMS_Sources/Constructor.c **** 
   28:../SEMS_Sources/Constructor.c **** 
-  29:../SEMS_Sources/Constructor.c **** optiga_crypt_t * optiga_crypt_create_wrapper()
+  29:../SEMS_Sources/Constructor.c **** optiga_crypt_t * optiga_crypt_create_wrapper(void)
   30:../SEMS_Sources/Constructor.c **** {
   76              	 .loc 1 30 0
   77              	 .cfi_startproc
@@ -120,18 +120,18 @@
   92              	.LVL2:
   33:../SEMS_Sources/Constructor.c **** #if LIFECYCLE==PRODUCTION
   34:../SEMS_Sources/Constructor.c **** 	OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_FULL_PROTECTION);
-  93              	 .loc 1 34 0
+  35:../SEMS_Sources/Constructor.c **** #else
+  36:../SEMS_Sources/Constructor.c **** 	OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_NO_PROTECTION);
+  93              	 .loc 1 36 0
   94 000c 0121     	 movs r1,#1
   32:../SEMS_Sources/Constructor.c **** #if LIFECYCLE==PRODUCTION
   95              	 .loc 1 32 0
   96 000e 0446     	 mov r4,r0
   97              	.LVL3:
-  98              	 .loc 1 34 0
-  99 0010 0322     	 movs r2,#3
+  98              	 .loc 1 36 0
+  99 0010 0022     	 movs r2,#0
  100 0012 FFF7FEFF 	 bl optiga_crypt_set_comms_params
  101              	.LVL4:
-  35:../SEMS_Sources/Constructor.c **** #else
-  36:../SEMS_Sources/Constructor.c **** 	OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_NO_PROTECTION);
   37:../SEMS_Sources/Constructor.c **** #endif
   38:../SEMS_Sources/Constructor.c **** 
   39:../SEMS_Sources/Constructor.c **** 	return me;
@@ -155,7 +155,7 @@
  120              	.LFB457:
   41:../SEMS_Sources/Constructor.c **** 
   42:../SEMS_Sources/Constructor.c **** 
-  43:../SEMS_Sources/Constructor.c **** optiga_util_t * optiga_util_create_wrapper()
+  43:../SEMS_Sources/Constructor.c **** optiga_util_t * optiga_util_create_wrapper(void)
   44:../SEMS_Sources/Constructor.c **** {
  121              	 .loc 1 44 0
  122              	 .cfi_startproc
@@ -180,18 +180,18 @@
   47:../SEMS_Sources/Constructor.c **** 
   48:../SEMS_Sources/Constructor.c **** #if LIFECYCLE==PRODUCTION
   49:../SEMS_Sources/Constructor.c **** 	OPTIGA_UTIL_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_FULL_PROTECTION);
- 138              	 .loc 1 49 0
+  50:../SEMS_Sources/Constructor.c **** #else
+  51:../SEMS_Sources/Constructor.c **** 	OPTIGA_UTIL_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_NO_PROTECTION);
+ 138              	 .loc 1 51 0
  139 000c 0121     	 movs r1,#1
   46:../SEMS_Sources/Constructor.c **** 
  140              	 .loc 1 46 0
  141 000e 0446     	 mov r4,r0
  142              	.LVL7:
- 143              	 .loc 1 49 0
- 144 0010 0322     	 movs r2,#3
+ 143              	 .loc 1 51 0
+ 144 0010 0022     	 movs r2,#0
  145 0012 FFF7FEFF 	 bl optiga_util_set_comms_params
  146              	.LVL8:
-  50:../SEMS_Sources/Constructor.c **** #else
-  51:../SEMS_Sources/Constructor.c **** 	OPTIGA_UTIL_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_NO_PROTECTION);
   52:../SEMS_Sources/Constructor.c **** #endif
   53:../SEMS_Sources/Constructor.c **** 
   54:../SEMS_Sources/Constructor.c **** 	return me;

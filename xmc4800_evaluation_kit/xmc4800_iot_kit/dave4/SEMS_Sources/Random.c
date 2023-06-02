@@ -34,8 +34,8 @@ void optiga_crypt_random_wrapper(uint8_t random_buff[], uint8_t size)
 
 	example_optiga_deinit();
 
-	if (me)
+	if (NULL != me)
 	{
-		return_status = optiga_crypt_destroy(me);
+		optiga_crypt_destroy(me);
 	}
 }

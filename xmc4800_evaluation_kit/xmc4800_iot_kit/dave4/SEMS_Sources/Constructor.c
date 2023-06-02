@@ -5,7 +5,7 @@
 volatile optiga_lib_status_t optiga_lib_status;
 
 
-static void optiga_crypt_callback(void * context, optiga_lib_status_t return_status)
+static void optiga_crypt_callback(void * const context, optiga_lib_status_t return_status)
 {
     optiga_lib_status = return_status;
     if (NULL != context)
@@ -15,7 +15,7 @@ static void optiga_crypt_callback(void * context, optiga_lib_status_t return_sta
 }
 
 
-static void optiga_util_callback(void * context, optiga_lib_status_t return_status)
+static void optiga_util_callback(void * const context, optiga_lib_status_t return_status)
 {
     optiga_lib_status = return_status;
     if (NULL != context)
@@ -26,7 +26,7 @@ static void optiga_util_callback(void * context, optiga_lib_status_t return_stat
 
 
 
-optiga_crypt_t * optiga_crypt_create_wrapper()
+optiga_crypt_t * optiga_crypt_create_wrapper(void)
 {
 	optiga_crypt_t * me;
 	me = optiga_crypt_create(0, optiga_crypt_callback, NULL);
@@ -40,7 +40,7 @@ optiga_crypt_t * optiga_crypt_create_wrapper()
 }
 
 
-optiga_util_t * optiga_util_create_wrapper()
+optiga_util_t * optiga_util_create_wrapper(void)
 {
 	optiga_util_t * me;
 	me = optiga_util_create(0, optiga_util_callback, NULL);

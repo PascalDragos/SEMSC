@@ -1,5 +1,5 @@
 #ifndef NONCE_H_
-#define NONCE_H
+#define NONCE_H_
 
 
 #include "Dave.h"

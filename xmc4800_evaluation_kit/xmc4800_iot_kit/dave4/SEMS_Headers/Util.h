@@ -1,5 +1,5 @@
 #ifndef UTIL_H_
-#define UTIL_H
+#define UTIL_H_
 
 
 #include "optiga/optiga_crypt.h"
@@ -7,7 +7,7 @@
 #include "optiga_example.h"
 #include "optiga/pal/pal_logger.h"
 
-#include "../SEMS_Headers/Config.h"
+
 #include "../SEMS_Headers/Constructor.h"
 
 

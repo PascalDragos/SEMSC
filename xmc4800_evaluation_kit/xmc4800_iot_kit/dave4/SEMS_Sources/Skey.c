@@ -34,8 +34,6 @@ void optiga_util_write_shared_key(uint16_t optiga_oid, const uint8_t key[], uint
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
 
-        return_status = OPTIGA_LIB_SUCCESS;
-
     } while (FALSE);
 
 
@@ -43,9 +41,9 @@ void optiga_util_write_shared_key(uint16_t optiga_oid, const uint8_t key[], uint
 
 
 
-    if (me)
+    if (NULL != me)
     {
-        return_status = optiga_util_destroy(me);
+        optiga_util_destroy(me);
     }
 }
 
@@ -76,13 +74,12 @@ void optiga_util_read_shared_key(uint16_t optiga_oid, uint8_t read_data_buffer[]
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
 
-        return_status = OPTIGA_LIB_SUCCESS;
     } while (FALSE);
 
     example_optiga_deinit();
 
-    if (me)
+    if (NULL != me)
     {
-        return_status = optiga_util_destroy(me);
+        optiga_util_destroy(me);
     }
 }

@@ -29,7 +29,7 @@
    3:../SEMS_Sources/SymEncrypt.c **** #include "../SEMS_Headers/Util.h"
    4:../SEMS_Sources/SymEncrypt.c **** 
    5:../SEMS_Sources/SymEncrypt.c **** 
-   6:../SEMS_Sources/SymEncrypt.c **** void stream_enc(uint8_t r1[], uint8_t r2[], uint8_t len)
+   6:../SEMS_Sources/SymEncrypt.c **** void stream_enc(uint8_t r1[], const uint8_t r2[], uint8_t len)
    7:../SEMS_Sources/SymEncrypt.c **** {
   28              	 .loc 1 7 0
   29              	 .cfi_startproc
@@ -180,120 +180,21 @@
  161 009e 7047     	 bx lr
  162              	 .cfi_endproc
  163              	.LFE454:
- 165              	 .section .text.compare_bytes,"ax",%progbits
- 166              	 .align 2
- 167              	 .global compare_bytes
- 168              	 .thumb
- 169              	 .thumb_func
- 171              	compare_bytes:
- 172              	.LFB455:
-  12:../SEMS_Sources/SymEncrypt.c **** 
-  13:../SEMS_Sources/SymEncrypt.c ****     }
-  14:../SEMS_Sources/SymEncrypt.c **** }
-  15:../SEMS_Sources/SymEncrypt.c **** 
-  16:../SEMS_Sources/SymEncrypt.c **** 
-  17:../SEMS_Sources/SymEncrypt.c **** uint8_t compare_bytes(uint8_t a[], uint8_t b[], uint8_t len)
-  18:../SEMS_Sources/SymEncrypt.c **** {
- 173              	 .loc 1 18 0
- 174              	 .cfi_startproc
- 175              	 
- 176              	 
- 177              	 
- 178              	.LVL16:
-  19:../SEMS_Sources/SymEncrypt.c **** 	uint8_t is_equal = true;
-  20:../SEMS_Sources/SymEncrypt.c **** 	uint8_t i;
-  21:../SEMS_Sources/SymEncrypt.c **** 	for (i = 0; i < len; ++i)
- 179              	 .loc 1 21 0
- 180 0000 C2B1     	 cbz r2,.L32
-  18:../SEMS_Sources/SymEncrypt.c **** 	uint8_t is_equal = true;
- 181              	 .loc 1 18 0
- 182 0002 10B4     	 push {r4}
- 183              	.LCFI2:
- 184              	 .cfi_def_cfa_offset 4
- 185              	 .cfi_offset 4,-4
-  22:../SEMS_Sources/SymEncrypt.c **** 	{
-  23:../SEMS_Sources/SymEncrypt.c **** 		if(a[i] != b[i])
- 186              	 .loc 1 23 0
- 187 0004 0B78     	 ldrb r3,[r1]
- 188 0006 0478     	 ldrb r4,[r0]
- 189 0008 9C42     	 cmp r4,r3
- 190 000a 0FD1     	 bne .L34
- 191 000c 013A     	 subs r2,r2,#1
- 192              	.LVL17:
- 193 000e 50FA82F2 	 uxtab r2,r0,r2
- 194 0012 05E0     	 b .L30
- 195              	.LVL18:
- 196              	.L31:
- 197 0014 10F8014F 	 ldrb r4,[r0,#1]!
- 198              	.LVL19:
- 199 0018 11F8013F 	 ldrb r3,[r1,#1]!
- 200 001c 9C42     	 cmp r4,r3
- 201 001e 05D1     	 bne .L34
- 202              	.L30:
- 203              	.LVL20:
-  21:../SEMS_Sources/SymEncrypt.c **** 	{
- 204              	 .loc 1 21 0 discriminator 2
- 205 0020 9042     	 cmp r0,r2
- 206 0022 F7D1     	 bne .L31
-  19:../SEMS_Sources/SymEncrypt.c **** 	uint8_t i;
- 207              	 .loc 1 19 0
- 208 0024 0120     	 movs r0,#1
- 209              	.LVL21:
-  24:../SEMS_Sources/SymEncrypt.c **** 		{
-  25:../SEMS_Sources/SymEncrypt.c **** 			is_equal = false; // MISRA single exit
-  26:../SEMS_Sources/SymEncrypt.c **** 			break;
-  27:../SEMS_Sources/SymEncrypt.c **** 		}
-  28:../SEMS_Sources/SymEncrypt.c **** 	}
-  29:../SEMS_Sources/SymEncrypt.c **** 	return is_equal;
-  30:../SEMS_Sources/SymEncrypt.c **** }
- 210              	 .loc 1 30 0
- 211 0026 5DF8044B 	 ldr r4,[sp],#4
- 212              	.LCFI3:
- 213              	 .cfi_remember_state
- 214              	 .cfi_restore 4
- 215              	 .cfi_def_cfa_offset 0
- 216 002a 7047     	 bx lr
- 217              	.LVL22:
- 218              	.L34:
- 219              	.LCFI4:
- 220              	 .cfi_restore_state
-  25:../SEMS_Sources/SymEncrypt.c **** 			break;
- 221              	 .loc 1 25 0
- 222 002c 0020     	 movs r0,#0
- 223              	.LVL23:
- 224              	 .loc 1 30 0
- 225 002e 5DF8044B 	 ldr r4,[sp],#4
- 226              	.LCFI5:
- 227              	 .cfi_restore 4
- 228              	 .cfi_def_cfa_offset 0
- 229 0032 7047     	 bx lr
- 230              	.LVL24:
- 231              	.L32:
-  19:../SEMS_Sources/SymEncrypt.c **** 	uint8_t i;
- 232              	 .loc 1 19 0
- 233 0034 0120     	 movs r0,#1
- 234              	.LVL25:
- 235              	 .loc 1 30 0
- 236 0036 7047     	 bx lr
- 237              	 .cfi_endproc
- 238              	.LFE455:
- 240              	 .text
- 241              	.Letext0:
- 242              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
- 243              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
- 244              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
- 245              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
- 246              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
- 247              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
- 248              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
- 249              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
- 250              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+ 165              	 .text
+ 166              	.Letext0:
+ 167              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 168              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 169              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 170              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+ 171              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+ 172              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+ 173              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+ 174              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+ 175              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 SymEncrypt.c
     {standard input}:20     .text.stream_enc:00000000 $t
     {standard input}:25     .text.stream_enc:00000000 stream_enc
-    {standard input}:166    .text.compare_bytes:00000000 $t
-    {standard input}:171    .text.compare_bytes:00000000 compare_bytes
                      .debug_frame:00000010 $d
 
 NO UNDEFINED SYMBOLS

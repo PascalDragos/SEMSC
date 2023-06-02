@@ -108,8 +108,8 @@ SEMS_Sources/Init.o SEMS_Sources/Init.d SEMS_Sources/Init.o: \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_logger.h \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal_logger.h \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal.h \
- ../SEMS_Sources/../SEMS_Headers/../SEMS_Headers/Config.h \
- ../SEMS_Sources/../SEMS_Headers/../SEMS_Headers/Constructor.h
+ ../SEMS_Sources/../SEMS_Headers/../SEMS_Headers/Constructor.h \
+ ../SEMS_Sources/../SEMS_Headers/Timer.h
 
 ../SEMS_Sources/../SEMS_Headers/Init.h:
 
@@ -329,6 +329,6 @@ D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/op
 
 D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal.h:
 
-../SEMS_Sources/../SEMS_Headers/../SEMS_Headers/Config.h:
-
 ../SEMS_Sources/../SEMS_Headers/../SEMS_Headers/Constructor.h:
+
+../SEMS_Sources/../SEMS_Headers/Timer.h:

@@ -47,202 +47,151 @@
   29              	 .cfi_startproc
   30              	 
   31              	 
-  32 0000 2DE9F041 	 push {r4,r5,r6,r7,r8,lr}
+  32 0000 70B5     	 push {r4,r5,r6,lr}
   33              	.LCFI0:
-  34              	 .cfi_def_cfa_offset 24
-  35              	 .cfi_offset 4,-24
-  36              	 .cfi_offset 5,-20
-  37              	 .cfi_offset 6,-16
-  38              	 .cfi_offset 7,-12
-  39              	 .cfi_offset 8,-8
-  40              	 .cfi_offset 14,-4
-  20:../SEMS_Sources/Com.c ****     uint8_t random_buf[32] = {0x01, 0x01, 0x01, 0x01};
-  41              	 .loc 1 20 0
-  42 0004 0024     	 movs r4,#0
-  19:../SEMS_Sources/Com.c ****     uint8_t random_buf[32] = {0x01, 0x01, 0x01, 0x01};
-  43              	 .loc 1 19 0
-  44 0006 B4B0     	 sub sp,sp,#208
-  45              	.LCFI1:
-  46              	 .cfi_def_cfa_offset 232
-  21:../SEMS_Sources/Com.c ****     uint8_t ciphertext[129] = {0x00};
-  47              	 .loc 1 21 0
-  48 0008 4FF08108 	 mov r8,#129
-  20:../SEMS_Sources/Com.c ****     uint8_t random_buf[32] = {0x01, 0x01, 0x01, 0x01};
-  49              	 .loc 1 20 0
-  50 000c 0127     	 movs r7,#1
-  51              	 .loc 1 21 0
-  52 000e 4246     	 mov r2,r8
-  53 0010 2146     	 mov r1,r4
-  54 0012 13A8     	 add r0,sp,#76
-  20:../SEMS_Sources/Com.c ****     uint8_t random_buf[32] = {0x01, 0x01, 0x01, 0x01};
-  55              	 .loc 1 20 0
-  56 0014 0394     	 str r4,[sp,#12]
-  57 0016 0494     	 str r4,[sp,#16]
-  58 0018 0594     	 str r4,[sp,#20]
-  59 001a 0694     	 str r4,[sp,#24]
-  60 001c 0794     	 str r4,[sp,#28]
-  61 001e 0894     	 str r4,[sp,#32]
-  62 0020 0994     	 str r4,[sp,#36]
-  63 0022 8DF80870 	 strb r7,[sp,#8]
-  64 0026 8DF80970 	 strb r7,[sp,#9]
-  65 002a 8DF80A70 	 strb r7,[sp,#10]
-  66 002e 8DF80B70 	 strb r7,[sp,#11]
-  67              	 .loc 1 21 0
-  68 0032 FFF7FEFF 	 bl memset
-  69              	.LVL0:
+  34              	 .cfi_def_cfa_offset 16
+  35              	 .cfi_offset 4,-16
+  36              	 .cfi_offset 5,-12
+  37              	 .cfi_offset 6,-8
+  38              	 .cfi_offset 14,-4
+  39 0002 B4B0     	 sub sp,sp,#208
+  40              	.LCFI1:
+  41              	 .cfi_def_cfa_offset 224
+  20:../SEMS_Sources/Com.c ****     uint8_t random_buf[32];
+  21:../SEMS_Sources/Com.c ****     uint8_t ciphertext[129];
   22:../SEMS_Sources/Com.c ****     uint16_t ciphertext_len = 128;
-  23:../SEMS_Sources/Com.c ****     uint8_t nonce[4] = {0x01, 0x01, 0x01, 0x01};
-  70              	 .loc 1 23 0
-  71 0036 194B     	 ldr r3,.L3
-  72 0038 1868     	 ldr r0,[r3]
-  73 003a 0190     	 str r0,[sp,#4]
-  22:../SEMS_Sources/Com.c ****     uint16_t ciphertext_len = 128;
-  74              	 .loc 1 22 0
-  75 003c 8023     	 movs r3,#128
-  24:../SEMS_Sources/Com.c **** 
-  25:../SEMS_Sources/Com.c **** 
-  26:../SEMS_Sources/Com.c **** 	// Generate random number using Optiga for session key
-  27:../SEMS_Sources/Com.c **** 	optiga_crypt_random_wrapper(random_buf, 32);
-  76              	 .loc 1 27 0
-  77 003e 02A8     	 add r0,sp,#8
-  78 0040 2021     	 movs r1,#32
-  22:../SEMS_Sources/Com.c ****     uint16_t ciphertext_len = 128;
-  79              	 .loc 1 22 0
-  80 0042 ADF80230 	 strh r3,[sp,#2]
-  28:../SEMS_Sources/Com.c **** 
-  29:../SEMS_Sources/Com.c **** 	// Get Nonce
-  30:../SEMS_Sources/Com.c **** 	uint16_t optiga_counter_oid = 0xE120;
-  31:../SEMS_Sources/Com.c **** //	optiga_util_reset_count(optiga_counter_oid);
-  32:../SEMS_Sources/Com.c **** 	optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
-  33:../SEMS_Sources/Com.c **** 
-  34:../SEMS_Sources/Com.c **** 
-  35:../SEMS_Sources/Com.c **** 	// Encrypt the session key with RSA
-  36:../SEMS_Sources/Com.c **** 	uint8_t plaintext[32 + 4] = {0};
-  37:../SEMS_Sources/Com.c **** 	memcpy(plaintext, random_buf, 32);
-  81              	 .loc 1 37 0
-  82 0046 02AE     	 add r6,sp,#8
+  42              	 .loc 1 22 0
+  43 0004 8023     	 movs r3,#128
+  23:../SEMS_Sources/Com.c ****     uint8_t nonce[4];
+  24:../SEMS_Sources/Com.c **** 	uint16_t optiga_counter_oid = 0xE120u;
+  25:../SEMS_Sources/Com.c **** 	uint16_t optiga_key_oid = 0xF1E0u;
+  26:../SEMS_Sources/Com.c **** 
   27:../SEMS_Sources/Com.c **** 
-  83              	 .loc 1 27 0
-  84 0048 FFF7FEFF 	 bl optiga_crypt_random_wrapper
-  85              	.LVL1:
-  32:../SEMS_Sources/Com.c **** 
-  86              	 .loc 1 32 0
-  87 004c 01A9     	 add r1,sp,#4
-  88 004e 4EF22010 	 movw r0,#57632
-  89 0052 0422     	 movs r2,#4
-  90 0054 FFF7FEFF 	 bl optiga_util_read_nonce
-  91              	.LVL2:
-  92              	 .loc 1 37 0
-  93 0058 0FCE     	 ldmia r6!,{r0,r1,r2,r3}
-  94 005a 0AAD     	 add r5,sp,#40
-  36:../SEMS_Sources/Com.c **** 	memcpy(plaintext, random_buf, 32);
-  95              	 .loc 1 36 0
-  96 005c 0F94     	 str r4,[sp,#60]
-  97 005e 1094     	 str r4,[sp,#64]
-  98 0060 1194     	 str r4,[sp,#68]
-  99              	 .loc 1 37 0
- 100 0062 0FC5     	 stmia r5!,{r0,r1,r2,r3}
- 101 0064 96E80F00 	 ldmia r6,{r0,r1,r2,r3}
-  38:../SEMS_Sources/Com.c **** 	memcpy(plaintext + 32, nonce, 4);
- 102              	 .loc 1 38 0
- 103 0068 019C     	 ldr r4,[sp,#4]
-  37:../SEMS_Sources/Com.c **** 	memcpy(plaintext + 32, nonce, 4);
- 104              	 .loc 1 37 0
- 105 006a 85E80F00 	 stmia r5,{r0,r1,r2,r3}
-  39:../SEMS_Sources/Com.c **** 	optiga_crypt_rsa_encrypt_message_wrapper(plaintext, sizeof(plaintext), ciphertext, &ciphertext_len
- 106              	 .loc 1 39 0
- 107 006e 13AA     	 add r2,sp,#76
- 108 0070 0DF10203 	 add r3,sp,#2
- 109 0074 0AA8     	 add r0,sp,#40
- 110 0076 2421     	 movs r1,#36
-  38:../SEMS_Sources/Com.c **** 	memcpy(plaintext + 32, nonce, 4);
- 111              	 .loc 1 38 0
- 112 0078 1294     	 str r4,[sp,#72]
- 113              	 .loc 1 39 0
- 114 007a FFF7FEFF 	 bl optiga_crypt_rsa_encrypt_message_wrapper
- 115              	.LVL3:
-  40:../SEMS_Sources/Com.c **** 
-  41:../SEMS_Sources/Com.c **** 	// Send session key to the App
-  42:../SEMS_Sources/Com.c **** 	if(ciphertext_len == 128)
-  43:../SEMS_Sources/Com.c **** 	{
-  44:../SEMS_Sources/Com.c **** 		// Pana la 127 merge ok
-  45:../SEMS_Sources/Com.c **** 		optiga_lib_print_bytes(ciphertext, 129); // TODO: TREBUIE SA TRIMIT CU UNUL IN PLUS ALTFEL RAMAN 
- 116              	 .loc 1 45 0
- 117 007e 13A8     	 add r0,sp,#76
- 118 0080 4146     	 mov r1,r8
- 119 0082 FFF7FEFF 	 bl optiga_lib_print_bytes
- 120              	.LVL4:
-  46:../SEMS_Sources/Com.c **** 	}
-  47:../SEMS_Sources/Com.c **** 	else
-  48:../SEMS_Sources/Com.c **** 	{
-  49:../SEMS_Sources/Com.c **** 		// Sens 128 0s, encrypt nu a functionat
-  50:../SEMS_Sources/Com.c **** 		optiga_lib_print_bytes(ciphertext, 129);
-  51:../SEMS_Sources/Com.c **** 	}
-  52:../SEMS_Sources/Com.c **** 
-  53:../SEMS_Sources/Com.c **** 	// Store session key
-  54:../SEMS_Sources/Com.c **** 	uint16_t optiga_key_oid = 0xF1E0;
+  28:../SEMS_Sources/Com.c **** 	// Generate random number using Optiga for session key
+  29:../SEMS_Sources/Com.c **** 	optiga_crypt_random_wrapper(random_buf, 32);
+  44              	 .loc 1 29 0
+  45 0006 02A8     	 add r0,sp,#8
+  46 0008 2021     	 movs r1,#32
+  22:../SEMS_Sources/Com.c ****     uint8_t nonce[4];
+  47              	 .loc 1 22 0
+  48 000a ADF80230 	 strh r3,[sp,#2]
+  49              	.LVL0:
+  30:../SEMS_Sources/Com.c **** 
+  31:../SEMS_Sources/Com.c **** 	// Get Nonce
+  32:../SEMS_Sources/Com.c **** //	optiga_util_reset_count(optiga_counter_oid);
+  33:../SEMS_Sources/Com.c **** 	optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
+  34:../SEMS_Sources/Com.c **** 
+  35:../SEMS_Sources/Com.c **** 
+  36:../SEMS_Sources/Com.c **** 	// Encrypt the session key with RSA
+  37:../SEMS_Sources/Com.c **** 	uint8_t plaintext[32 + 4] = {0};
+  38:../SEMS_Sources/Com.c **** 	memcpy(plaintext, random_buf, 32);
+  50              	 .loc 1 38 0
+  51 000e 02AD     	 add r5,sp,#8
+  29:../SEMS_Sources/Com.c **** 
+  52              	 .loc 1 29 0
+  53 0010 FFF7FEFF 	 bl optiga_crypt_random_wrapper
+  54              	.LVL1:
+  33:../SEMS_Sources/Com.c **** 
+  55              	 .loc 1 33 0
+  56 0014 01A9     	 add r1,sp,#4
+  57 0016 4EF22010 	 movw r0,#57632
+  58 001a 0422     	 movs r2,#4
+  59 001c FFF7FEFF 	 bl optiga_util_read_nonce
+  60              	.LVL2:
+  61              	 .loc 1 38 0
+  62 0020 0FCD     	 ldmia r5!,{r0,r1,r2,r3}
+  37:../SEMS_Sources/Com.c **** 	memcpy(plaintext, random_buf, 32);
+  63              	 .loc 1 37 0
+  64 0022 0026     	 movs r6,#0
+  65              	 .loc 1 38 0
+  66 0024 0AAC     	 add r4,sp,#40
+  37:../SEMS_Sources/Com.c **** 	memcpy(plaintext, random_buf, 32);
+  67              	 .loc 1 37 0
+  68 0026 0F96     	 str r6,[sp,#60]
+  69 0028 1096     	 str r6,[sp,#64]
+  70 002a 1196     	 str r6,[sp,#68]
+  71              	 .loc 1 38 0
+  72 002c 0FC4     	 stmia r4!,{r0,r1,r2,r3}
+  73 002e 95E80F00 	 ldmia r5,{r0,r1,r2,r3}
+  74 0032 84E80F00 	 stmia r4,{r0,r1,r2,r3}
+  39:../SEMS_Sources/Com.c **** 	memcpy(&plaintext[32], nonce, 4);
+  75              	 .loc 1 39 0
+  76 0036 019B     	 ldr r3,[sp,#4]
+  77 0038 1293     	 str r3,[sp,#72]
+  40:../SEMS_Sources/Com.c **** 	optiga_crypt_rsa_encrypt_message_wrapper(plaintext, sizeof(plaintext), ciphertext, &ciphertext_len
+  78              	 .loc 1 40 0
+  79 003a 13AA     	 add r2,sp,#76
+  80 003c 0DF10203 	 add r3,sp,#2
+  81 0040 0AA8     	 add r0,sp,#40
+  82 0042 2421     	 movs r1,#36
+  83 0044 FFF7FEFF 	 bl optiga_crypt_rsa_encrypt_message_wrapper
+  84              	.LVL3:
+  41:../SEMS_Sources/Com.c **** 
+  42:../SEMS_Sources/Com.c **** 	// Send session key to the App
+  43:../SEMS_Sources/Com.c **** 	if(ciphertext_len == 128u)
+  44:../SEMS_Sources/Com.c **** 	{
+  45:../SEMS_Sources/Com.c **** 		// Pana la 127 merge ok
+  46:../SEMS_Sources/Com.c **** 		optiga_lib_print_bytes(ciphertext, 129); // TODO: TREBUIE SA TRIMIT CU UNUL IN PLUS ALTFEL RAMAN 
+  85              	 .loc 1 46 0
+  86 0048 13A8     	 add r0,sp,#76
+  87 004a 8121     	 movs r1,#129
+  88 004c FFF7FEFF 	 bl optiga_lib_print_bytes
+  89              	.LVL4:
+  47:../SEMS_Sources/Com.c **** 	}
+  48:../SEMS_Sources/Com.c **** 	else
+  49:../SEMS_Sources/Com.c **** 	{
+  50:../SEMS_Sources/Com.c **** 		// Sens 128 0s, encrypt nu a functionat
+  51:../SEMS_Sources/Com.c **** 		optiga_lib_print_bytes(ciphertext, 129);
+  52:../SEMS_Sources/Com.c **** 	}
+  53:../SEMS_Sources/Com.c **** 
+  54:../SEMS_Sources/Com.c **** 	// Store session key
   55:../SEMS_Sources/Com.c **** 	optiga_util_write_shared_key(optiga_key_oid, random_buf, sizeof(random_buf));
- 121              	 .loc 1 55 0
- 122 0086 02A9     	 add r1,sp,#8
- 123 0088 4FF2E010 	 movw r0,#61920
- 124 008c 2022     	 movs r2,#32
- 125 008e FFF7FEFF 	 bl optiga_util_write_shared_key
- 126              	.LVL5:
+  90              	 .loc 1 55 0
+  91 0050 02A9     	 add r1,sp,#8
+  92 0052 4FF2E010 	 movw r0,#61920
+  93 0056 2022     	 movs r2,#32
+  94 0058 FFF7FEFF 	 bl optiga_util_write_shared_key
+  95              	.LVL5:
   56:../SEMS_Sources/Com.c **** 
   57:../SEMS_Sources/Com.c **** 
-  58:../SEMS_Sources/Com.c **** 	// Reaqd session key, Testing
+  58:../SEMS_Sources/Com.c **** 	// Read session key, Testing
   59:../SEMS_Sources/Com.c **** //	uint8_t key[32] = {0x01, 0x01, 0x01, 0x01};
   60:../SEMS_Sources/Com.c **** //	optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));
   61:../SEMS_Sources/Com.c **** //	ciphertext_len = ciphertext_len; // BR
   62:../SEMS_Sources/Com.c **** 	return true;
   63:../SEMS_Sources/Com.c **** }
- 127              	 .loc 1 63 0
- 128 0092 3846     	 mov r0,r7
- 129 0094 34B0     	 add sp,sp,#208
- 130              	.LCFI2:
- 131              	 .cfi_def_cfa_offset 24
- 132              	 
- 133 0096 BDE8F081 	 pop {r4,r5,r6,r7,r8,pc}
- 134              	.L4:
- 135 009a 00BF     	 .align 2
- 136              	.L3:
- 137 009c 00000000 	 .word .LANCHOR0
- 138              	 .cfi_endproc
- 139              	.LFE454:
- 141              	 .section .rodata
- 142              	 .align 2
- 143              	 .set .LANCHOR0,.+0
- 144              	.LC0:
- 145 0000 01       	 .byte 1
- 146 0001 01       	 .byte 1
- 147 0002 01       	 .byte 1
- 148 0003 01       	 .byte 1
- 149              	 .text
- 150              	.Letext0:
- 151              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
- 152              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
- 153              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
- 154              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
- 155              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
- 156              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
- 157              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
- 158              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
- 159              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
- 160              	 .file 11 "../SEMS_Sources/../SEMS_Headers/Random.h"
- 161              	 .file 12 "../SEMS_Sources/../SEMS_Headers/Nonce.h"
- 162              	 .file 13 "../SEMS_Sources/../SEMS_Headers/RSA.h"
- 163              	 .file 14 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_logger.h"
- 164              	 .file 15 "../SEMS_Sources/../SEMS_Headers/Skey.h"
+  96              	 .loc 1 63 0
+  97 005c 0120     	 movs r0,#1
+  98 005e 34B0     	 add sp,sp,#208
+  99              	.LCFI2:
+ 100              	 .cfi_def_cfa_offset 16
+ 101              	 
+ 102 0060 70BD     	 pop {r4,r5,r6,pc}
+ 103              	 .cfi_endproc
+ 104              	.LFE454:
+ 106              	 .text
+ 107              	.Letext0:
+ 108              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 109              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 110              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 111              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+ 112              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+ 113              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+ 114              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+ 115              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+ 116              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+ 117              	 .file 11 "../SEMS_Sources/../SEMS_Headers/Random.h"
+ 118              	 .file 12 "../SEMS_Sources/../SEMS_Headers/Nonce.h"
+ 119              	 .file 13 "../SEMS_Sources/../SEMS_Headers/RSA.h"
+ 120              	 .file 14 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_logger.h"
+ 121              	 .file 15 "../SEMS_Sources/../SEMS_Headers/Skey.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 Com.c
     {standard input}:20     .text.secure_communication:00000000 $t
     {standard input}:25     .text.secure_communication:00000000 secure_communication
-    {standard input}:137    .text.secure_communication:0000009c $d
-    {standard input}:142    .rodata:00000000 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
-memset
 optiga_crypt_random_wrapper
 optiga_util_read_nonce
 optiga_crypt_rsa_encrypt_message_wrapper

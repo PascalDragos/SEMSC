@@ -27,13 +27,12 @@
    1:../SEMS_Sources/Hash.c **** #include "../SEMS_Headers/Hash.h"
    2:../SEMS_Sources/Hash.c **** #include "../SEMS_Headers/Constructor.h"
    3:../SEMS_Sources/Hash.c **** 
-   4:../SEMS_Sources/Hash.c **** 
-   5:../SEMS_Sources/Hash.c **** #include "../SEMS_Headers/Util.h"
+   4:../SEMS_Sources/Hash.c **** #include "../SEMS_Headers/Util.h"
+   5:../SEMS_Sources/Hash.c **** 
    6:../SEMS_Sources/Hash.c **** 
-   7:../SEMS_Sources/Hash.c **** 
-   8:../SEMS_Sources/Hash.c **** void optiga_crypt_hash_data_wrapper(uint8_t data_to_hash[], uint8_t size_of_data, uint8_t digest[])
-   9:../SEMS_Sources/Hash.c **** {
-  28              	 .loc 1 9 0
+   7:../SEMS_Sources/Hash.c **** void optiga_crypt_hash_data_wrapper(uint8_t data_to_hash[], uint8_t size_of_data, uint8_t digest[])
+   8:../SEMS_Sources/Hash.c **** {
+  28              	 .loc 1 8 0
   29              	 .cfi_startproc
   30              	 
   31              	 
@@ -46,55 +45,55 @@
   38              	 .cfi_offset 6,-12
   39              	 .cfi_offset 7,-8
   40              	 .cfi_offset 14,-4
-  10:../SEMS_Sources/Hash.c ****     optiga_crypt_t * me = NULL;
-  11:../SEMS_Sources/Hash.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
-  12:../SEMS_Sources/Hash.c ****     hash_data_from_host_t hash_data_host;
-  13:../SEMS_Sources/Hash.c **** 
-  14:../SEMS_Sources/Hash.c ****     hash_data_host.buffer = data_to_hash;
-  15:../SEMS_Sources/Hash.c ****     hash_data_host.length = size_of_data;
-  16:../SEMS_Sources/Hash.c ****     optiga_lib_status = OPTIGA_LIB_BUSY;
-  41              	 .loc 1 16 0
-  42 0002 154C     	 ldr r4,.L13
    9:../SEMS_Sources/Hash.c ****     optiga_crypt_t * me = NULL;
-  43              	 .loc 1 9 0
+  10:../SEMS_Sources/Hash.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+  11:../SEMS_Sources/Hash.c ****     hash_data_from_host_t hash_data_host;
+  12:../SEMS_Sources/Hash.c **** 
+  13:../SEMS_Sources/Hash.c ****     hash_data_host.buffer = data_to_hash;
+  14:../SEMS_Sources/Hash.c ****     hash_data_host.length = size_of_data;
+  15:../SEMS_Sources/Hash.c ****     optiga_lib_status = OPTIGA_LIB_BUSY;
+  41              	 .loc 1 15 0
+  42 0002 154C     	 ldr r4,.L13
+   8:../SEMS_Sources/Hash.c ****     optiga_crypt_t * me = NULL;
+  43              	 .loc 1 8 0
   44 0004 85B0     	 sub sp,sp,#20
   45              	.LCFI1:
   46              	 .cfi_def_cfa_offset 40
-  47              	 .loc 1 16 0
+  47              	 .loc 1 15 0
   48 0006 0125     	 movs r5,#1
-  14:../SEMS_Sources/Hash.c ****     hash_data_host.length = size_of_data;
-  49              	 .loc 1 14 0
+  13:../SEMS_Sources/Hash.c ****     hash_data_host.length = size_of_data;
+  49              	 .loc 1 13 0
   50 0008 0290     	 str r0,[sp,#8]
-   9:../SEMS_Sources/Hash.c ****     optiga_crypt_t * me = NULL;
-  51              	 .loc 1 9 0
+   8:../SEMS_Sources/Hash.c ****     optiga_crypt_t * me = NULL;
+  51              	 .loc 1 8 0
   52 000a 1746     	 mov r7,r2
-  15:../SEMS_Sources/Hash.c ****     optiga_lib_status = OPTIGA_LIB_BUSY;
-  53              	 .loc 1 15 0
+  14:../SEMS_Sources/Hash.c ****     optiga_lib_status = OPTIGA_LIB_BUSY;
+  53              	 .loc 1 14 0
   54 000c 0391     	 str r1,[sp,#12]
-  55              	 .loc 1 16 0
+  55              	 .loc 1 15 0
   56 000e 2580     	 strh r5,[r4]
-  17:../SEMS_Sources/Hash.c **** 
-  18:../SEMS_Sources/Hash.c ****     do
-  19:../SEMS_Sources/Hash.c ****     {
-  20:../SEMS_Sources/Hash.c ****         example_optiga_init();
-  57              	 .loc 1 20 0
+  16:../SEMS_Sources/Hash.c **** 
+  17:../SEMS_Sources/Hash.c ****     do
+  18:../SEMS_Sources/Hash.c ****     {
+  19:../SEMS_Sources/Hash.c ****         example_optiga_init();
+  57              	 .loc 1 19 0
   58 0010 FFF7FEFF 	 bl example_optiga_init
   59              	.LVL1:
-  21:../SEMS_Sources/Hash.c **** 
-  22:../SEMS_Sources/Hash.c ****         me = optiga_crypt_create_wrapper();
-  60              	 .loc 1 22 0
+  20:../SEMS_Sources/Hash.c **** 
+  21:../SEMS_Sources/Hash.c ****         me = optiga_crypt_create_wrapper();
+  60              	 .loc 1 21 0
   61 0014 FFF7FEFF 	 bl optiga_crypt_create_wrapper
   62              	.LVL2:
-  23:../SEMS_Sources/Hash.c **** 
-  24:../SEMS_Sources/Hash.c ****         if (NULL == me)
-  63              	 .loc 1 24 0
+  22:../SEMS_Sources/Hash.c **** 
+  23:../SEMS_Sources/Hash.c ****         if (NULL == me)
+  63              	 .loc 1 23 0
   64 0018 C8B1     	 cbz r0,.L2
-  25:../SEMS_Sources/Hash.c ****         {
-  26:../SEMS_Sources/Hash.c ****             break;
-  27:../SEMS_Sources/Hash.c ****         }
-  28:../SEMS_Sources/Hash.c **** 
-  29:../SEMS_Sources/Hash.c ****         return_status = optiga_crypt_hash(me,
-  65              	 .loc 1 29 0
+  24:../SEMS_Sources/Hash.c ****         {
+  25:../SEMS_Sources/Hash.c ****             break;
+  26:../SEMS_Sources/Hash.c ****         }
+  27:../SEMS_Sources/Hash.c **** 
+  28:../SEMS_Sources/Hash.c ****         return_status = optiga_crypt_hash(me,
+  65              	 .loc 1 28 0
   66 001a 0097     	 str r7,[sp]
   67 001c 2A46     	 mov r2,r5
   68 001e E221     	 movs r1,#226
@@ -102,37 +101,35 @@
   70 0022 0646     	 mov r6,r0
   71 0024 FFF7FEFF 	 bl optiga_crypt_hash
   72              	.LVL3:
-  30:../SEMS_Sources/Hash.c **** 										OPTIGA_HASH_TYPE_SHA_256,
-  31:../SEMS_Sources/Hash.c **** 										OPTIGA_CRYPT_HOST_DATA,
-  32:../SEMS_Sources/Hash.c **** 										&hash_data_host,
-  33:../SEMS_Sources/Hash.c **** 										digest);
-  34:../SEMS_Sources/Hash.c **** 
-  35:../SEMS_Sources/Hash.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
-  73              	 .loc 1 35 0
+  29:../SEMS_Sources/Hash.c **** 										OPTIGA_HASH_TYPE_SHA_256,
+  30:../SEMS_Sources/Hash.c **** 										OPTIGA_CRYPT_HOST_DATA,
+  31:../SEMS_Sources/Hash.c **** 										&hash_data_host,
+  32:../SEMS_Sources/Hash.c **** 										digest);
+  33:../SEMS_Sources/Hash.c **** 
+  34:../SEMS_Sources/Hash.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+  73              	 .loc 1 34 0
   74 0028 30B1     	 cbz r0,.L4
   75              	.LVL4:
   76              	.L3:
+  35:../SEMS_Sources/Hash.c **** 
   36:../SEMS_Sources/Hash.c **** 
-  37:../SEMS_Sources/Hash.c **** 
-  38:../SEMS_Sources/Hash.c ****         return_status = OPTIGA_LIB_SUCCESS;
-  39:../SEMS_Sources/Hash.c **** 
-  40:../SEMS_Sources/Hash.c ****     } while (FALSE);
-  41:../SEMS_Sources/Hash.c **** 
-  42:../SEMS_Sources/Hash.c ****     example_optiga_deinit();
-  77              	 .loc 1 42 0
+  37:../SEMS_Sources/Hash.c ****     } while (FALSE);
+  38:../SEMS_Sources/Hash.c **** 
+  39:../SEMS_Sources/Hash.c ****     example_optiga_deinit();
+  77              	 .loc 1 39 0
   78 002a FFF7FEFF 	 bl example_optiga_deinit
   79              	.LVL5:
-  43:../SEMS_Sources/Hash.c **** 
-  44:../SEMS_Sources/Hash.c ****     if (me)
-  45:../SEMS_Sources/Hash.c ****     {
-  46:../SEMS_Sources/Hash.c ****         return_status = optiga_crypt_destroy(me);
-  80              	 .loc 1 46 0
+  40:../SEMS_Sources/Hash.c **** 
+  41:../SEMS_Sources/Hash.c ****     if (NULL != me)
+  42:../SEMS_Sources/Hash.c ****     {
+  43:../SEMS_Sources/Hash.c ****         optiga_crypt_destroy(me);
+  80              	 .loc 1 43 0
   81 002e 3046     	 mov r0,r6
   82 0030 FFF7FEFF 	 bl optiga_crypt_destroy
   83              	.LVL6:
-  47:../SEMS_Sources/Hash.c ****     }
-  48:../SEMS_Sources/Hash.c **** }
-  84              	 .loc 1 48 0
+  44:../SEMS_Sources/Hash.c ****     }
+  45:../SEMS_Sources/Hash.c **** }
+  84              	 .loc 1 45 0
   85 0034 05B0     	 add sp,sp,#20
   86              	.LCFI2:
   87              	 .cfi_remember_state
@@ -143,31 +140,31 @@
   92              	.L4:
   93              	.LCFI3:
   94              	 .cfi_restore_state
-  35:../SEMS_Sources/Hash.c **** 
-  95              	 .loc 1 35 0 discriminator 1
+  34:../SEMS_Sources/Hash.c **** 
+  95              	 .loc 1 34 0 discriminator 1
   96 0038 2388     	 ldrh r3,[r4]
   97 003a 074A     	 ldr r2,.L13
   98 003c 9BB2     	 uxth r3,r3
   99 003e 012B     	 cmp r3,#1
  100 0040 FAD0     	 beq .L4
-  35:../SEMS_Sources/Hash.c **** 
- 101              	 .loc 1 35 0 is_stmt 0 discriminator 2
+  34:../SEMS_Sources/Hash.c **** 
+ 101              	 .loc 1 34 0 is_stmt 0 discriminator 2
  102 0042 1388     	 ldrh r3,[r2]
  103 0044 9BB2     	 uxth r3,r3
  104 0046 002B     	 cmp r3,#0
  105 0048 EFD0     	 beq .L3
-  35:../SEMS_Sources/Hash.c **** 
- 106              	 .loc 1 35 0 discriminator 3
+  34:../SEMS_Sources/Hash.c **** 
+ 106              	 .loc 1 34 0 discriminator 3
  107 004a 1388     	 ldrh r3,[r2]
  108              	.LVL8:
  109 004c EDE7     	 b .L3
  110              	.LVL9:
  111              	.L2:
-  42:../SEMS_Sources/Hash.c **** 
- 112              	 .loc 1 42 0 is_stmt 1
+  39:../SEMS_Sources/Hash.c **** 
+ 112              	 .loc 1 39 0 is_stmt 1
  113 004e FFF7FEFF 	 bl example_optiga_deinit
  114              	.LVL10:
- 115              	 .loc 1 48 0
+ 115              	 .loc 1 45 0
  116 0052 05B0     	 add sp,sp,#20
  117              	.LCFI4:
  118              	 .cfi_def_cfa_offset 20

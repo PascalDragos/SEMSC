@@ -94,6 +94,7 @@ SEMS_Sources/Timer.o SEMS_Sources/Timer.d SEMS_Sources/Timer.o: \
  d:\school\diseratie\sems\xmc4800_evaluation_kit\xmc4800_iot_kit\common\dave\generated\usbd\usbd.h \
  d:\school\diseratie\sems\xmc4800_evaluation_kit\xmc4800_iot_kit\common\dave\generated\usbd_vcom\usbd_vcom_conf.h \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD_VCOM/usbd_vcom_extern.h \
+ ../SEMS_Sources/../SEMS_Headers/Config.h \
  ../SEMS_Sources/../SEMS_Headers/Util.h \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_crypt.h \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/cmd/optiga_cmd.h \
@@ -107,7 +108,6 @@ SEMS_Sources/Timer.o SEMS_Sources/Timer.d SEMS_Sources/Timer.o: \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_logger.h \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal_logger.h \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal.h \
- ../SEMS_Sources/../SEMS_Headers/../SEMS_Headers/Config.h \
  ../SEMS_Sources/../SEMS_Headers/../SEMS_Headers/Constructor.h
 
 ../SEMS_Sources/../SEMS_Headers/Timer.h:
@@ -300,6 +300,8 @@ d:\school\diseratie\sems\xmc4800_evaluation_kit\xmc4800_iot_kit\common\dave\gene
 
 D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD_VCOM/usbd_vcom_extern.h:
 
+../SEMS_Sources/../SEMS_Headers/Config.h:
+
 ../SEMS_Sources/../SEMS_Headers/Util.h:
 
 D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_crypt.h:
@@ -325,7 +327,5 @@ D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/op
 D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal_logger.h:
 
 D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal.h:
-
-../SEMS_Sources/../SEMS_Headers/../SEMS_Headers/Config.h:
 
 ../SEMS_Sources/../SEMS_Headers/../SEMS_Headers/Constructor.h:

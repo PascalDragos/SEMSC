@@ -201,26 +201,25 @@
  111              	.LVL9:
  112              	.L3:
   86:../SEMS_Sources/RSA.c **** 
-  87:../SEMS_Sources/RSA.c ****         return_status = OPTIGA_LIB_SUCCESS;
-  88:../SEMS_Sources/RSA.c **** 
-  89:../SEMS_Sources/RSA.c ****     } while (FALSE);
-  90:../SEMS_Sources/RSA.c **** 
-  91:../SEMS_Sources/RSA.c ****     example_optiga_deinit();
- 113              	 .loc 1 91 0
+  87:../SEMS_Sources/RSA.c **** 
+  88:../SEMS_Sources/RSA.c ****     } while (FALSE);
+  89:../SEMS_Sources/RSA.c **** 
+  90:../SEMS_Sources/RSA.c ****     example_optiga_deinit();
+ 113              	 .loc 1 90 0
  114 0068 FFF7FEFF 	 bl example_optiga_deinit
  115              	.LVL10:
+  91:../SEMS_Sources/RSA.c **** 
   92:../SEMS_Sources/RSA.c **** 
-  93:../SEMS_Sources/RSA.c **** 
-  94:../SEMS_Sources/RSA.c ****     if (me)
-  95:../SEMS_Sources/RSA.c ****     {
-  96:../SEMS_Sources/RSA.c ****         return_status = optiga_crypt_destroy(me);
- 116              	 .loc 1 96 0
+  93:../SEMS_Sources/RSA.c ****     if (NULL != me)
+  94:../SEMS_Sources/RSA.c ****     {
+  95:../SEMS_Sources/RSA.c ****        optiga_crypt_destroy(me);
+ 116              	 .loc 1 95 0
  117 006c 2846     	 mov r0,r5
  118 006e FFF7FEFF 	 bl optiga_crypt_destroy
  119              	.LVL11:
-  97:../SEMS_Sources/RSA.c ****     }
-  98:../SEMS_Sources/RSA.c **** }
- 120              	 .loc 1 98 0
+  96:../SEMS_Sources/RSA.c ****     }
+  97:../SEMS_Sources/RSA.c **** }
+ 120              	 .loc 1 97 0
  121 0072 09B0     	 add sp,sp,#36
  122              	.LCFI2:
  123              	 .cfi_remember_state
@@ -251,11 +250,11 @@
  145 008c ECE7     	 b .L3
  146              	.LVL14:
  147              	.L2:
-  91:../SEMS_Sources/RSA.c **** 
- 148              	 .loc 1 91 0 is_stmt 1
+  90:../SEMS_Sources/RSA.c **** 
+ 148              	 .loc 1 90 0 is_stmt 1
  149 008e FFF7FEFF 	 bl example_optiga_deinit
  150              	.LVL15:
- 151              	 .loc 1 98 0
+ 151              	 .loc 1 97 0
  152 0092 09B0     	 add sp,sp,#36
  153              	.LCFI4:
  154              	 .cfi_def_cfa_offset 36
@@ -279,13 +278,13 @@
  173              	 .thumb_func
  175              	optiga_crypt_rsa_verify_wrapper:
  176              	.LFB455:
+  98:../SEMS_Sources/RSA.c **** 
   99:../SEMS_Sources/RSA.c **** 
  100:../SEMS_Sources/RSA.c **** 
  101:../SEMS_Sources/RSA.c **** 
- 102:../SEMS_Sources/RSA.c **** 
- 103:../SEMS_Sources/RSA.c **** uint8_t optiga_crypt_rsa_verify_wrapper(uint8_t message[], uint8_t message_length, uint8_t signatur
- 104:../SEMS_Sources/RSA.c **** {
- 177              	 .loc 1 104 0
+ 102:../SEMS_Sources/RSA.c **** uint8_t optiga_crypt_rsa_verify_wrapper(uint8_t message[], uint8_t message_length, uint8_t signatur
+ 103:../SEMS_Sources/RSA.c **** {
+ 177              	 .loc 1 103 0
  178              	 .cfi_startproc
  179              	 
  180              	 
@@ -299,41 +298,41 @@
  188              	 .cfi_offset 7,-12
  189              	 .cfi_offset 8,-8
  190              	 .cfi_offset 14,-4
- 105:../SEMS_Sources/RSA.c **** 	uint8_t succes = false;
- 106:../SEMS_Sources/RSA.c **** 	uint8_t hashed_digest[32];
- 107:../SEMS_Sources/RSA.c **** 
- 108:../SEMS_Sources/RSA.c **** 	optiga_crypt_hash_data_wrapper(message, message_length, hashed_digest);
- 109:../SEMS_Sources/RSA.c **** //	hashed_digest[5] = 5; Pentru a verifica ca si cazul negativ
- 110:../SEMS_Sources/RSA.c **** 
- 111:../SEMS_Sources/RSA.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
- 112:../SEMS_Sources/RSA.c ****     optiga_crypt_t * me = NULL;
+ 104:../SEMS_Sources/RSA.c **** 	uint8_t success = false;
+ 105:../SEMS_Sources/RSA.c **** 	uint8_t hashed_digest[32];
+ 106:../SEMS_Sources/RSA.c **** 
+ 107:../SEMS_Sources/RSA.c **** 	optiga_crypt_hash_data_wrapper(message, message_length, hashed_digest);
+ 108:../SEMS_Sources/RSA.c **** //	hashed_digest[5] = 5; Pentru a verifica ca si cazul negativ
+ 109:../SEMS_Sources/RSA.c **** 
+ 110:../SEMS_Sources/RSA.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+ 111:../SEMS_Sources/RSA.c ****     optiga_crypt_t * me = NULL;
+ 112:../SEMS_Sources/RSA.c **** 
  113:../SEMS_Sources/RSA.c **** 
- 114:../SEMS_Sources/RSA.c **** 
- 115:../SEMS_Sources/RSA.c ****     // Form rsa public key in bit string format
- 116:../SEMS_Sources/RSA.c ****     example_util_encode_rsa_public_key_in_bit_string_format(rsa_public_key_modulus,
- 191              	 .loc 1 116 0
+ 114:../SEMS_Sources/RSA.c ****     // Form rsa public key in bit string format
+ 115:../SEMS_Sources/RSA.c ****     example_util_encode_rsa_public_key_in_bit_string_format(rsa_public_key_modulus,
+ 191              	 .loc 1 115 0
  192 0004 254C     	 ldr r4,.L27
  193 0006 264D     	 ldr r5,.L27+4
- 104:../SEMS_Sources/RSA.c **** 	uint8_t succes = false;
- 194              	 .loc 1 104 0
+ 103:../SEMS_Sources/RSA.c **** 	uint8_t success = false;
+ 194              	 .loc 1 103 0
  195 0008 90B0     	 sub sp,sp,#64
  196              	.LCFI6:
  197              	 .cfi_def_cfa_offset 88
- 104:../SEMS_Sources/RSA.c **** 	uint8_t succes = false;
- 198              	 .loc 1 104 0
+ 103:../SEMS_Sources/RSA.c **** 	uint8_t success = false;
+ 198              	 .loc 1 103 0
  199 000a 1646     	 mov r6,r2
- 108:../SEMS_Sources/RSA.c **** //	hashed_digest[5] = 5; Pentru a verifica ca si cazul negativ
- 200              	 .loc 1 108 0
+ 107:../SEMS_Sources/RSA.c **** //	hashed_digest[5] = 5; Pentru a verifica ca si cazul negativ
+ 200              	 .loc 1 107 0
  201 000c 08AA     	 add r2,sp,#32
  202              	.LVL18:
- 104:../SEMS_Sources/RSA.c **** 	uint8_t succes = false;
- 203              	 .loc 1 104 0
+ 103:../SEMS_Sources/RSA.c **** 	uint8_t success = false;
+ 203              	 .loc 1 103 0
  204 000e 9846     	 mov r8,r3
- 108:../SEMS_Sources/RSA.c **** //	hashed_digest[5] = 5; Pentru a verifica ca si cazul negativ
- 205              	 .loc 1 108 0
+ 107:../SEMS_Sources/RSA.c **** //	hashed_digest[5] = 5; Pentru a verifica ca si cazul negativ
+ 205              	 .loc 1 107 0
  206 0010 FFF7FEFF 	 bl optiga_crypt_hash_data_wrapper
  207              	.LVL19:
- 208              	 .loc 1 116 0
+ 208              	 .loc 1 115 0
  209 0014 2348     	 ldr r0,.L27+8
  210 0016 244A     	 ldr r2,.L27+12
  211 0018 8021     	 movs r1,#128
@@ -341,59 +340,59 @@
  213 001c 8DE83000 	 stmia sp,{r4,r5}
  214 0020 FFF7FEFF 	 bl example_util_encode_rsa_public_key_in_bit_string_format
  215              	.LVL20:
- 117:../SEMS_Sources/RSA.c ****                                                        sizeof(rsa_public_key_modulus),
- 118:../SEMS_Sources/RSA.c ****                                                        rsa_public_key_exponent,
- 119:../SEMS_Sources/RSA.c ****                                                        sizeof(rsa_public_key_exponent),
- 120:../SEMS_Sources/RSA.c ****                                                        rsa_public_key,
- 121:../SEMS_Sources/RSA.c ****                                                        &rsa_public_key_length);
- 122:../SEMS_Sources/RSA.c **** 
- 123:../SEMS_Sources/RSA.c ****     public_key_from_host_t public_key_details =
- 216              	 .loc 1 123 0
+ 116:../SEMS_Sources/RSA.c ****                                                        sizeof(rsa_public_key_modulus),
+ 117:../SEMS_Sources/RSA.c ****                                                        rsa_public_key_exponent,
+ 118:../SEMS_Sources/RSA.c ****                                                        sizeof(rsa_public_key_exponent),
+ 119:../SEMS_Sources/RSA.c ****                                                        rsa_public_key,
+ 120:../SEMS_Sources/RSA.c ****                                                        &rsa_public_key_length);
+ 121:../SEMS_Sources/RSA.c **** 
+ 122:../SEMS_Sources/RSA.c ****     public_key_from_host_t public_key_details =
+ 216              	 .loc 1 122 0
  217 0024 2B88     	 ldrh r3,[r5]
  218 0026 ADF81C30 	 strh r3,[sp,#28]
  219 002a 4123     	 movs r3,#65
  220 002c 8DF81E30 	 strb r3,[sp,#30]
  221 0030 0694     	 str r4,[sp,#24]
- 124:../SEMS_Sources/RSA.c ****     {
- 125:../SEMS_Sources/RSA.c ****          rsa_public_key,
- 126:../SEMS_Sources/RSA.c ****          rsa_public_key_length,
- 127:../SEMS_Sources/RSA.c ****          (uint8_t)OPTIGA_RSA_KEY_1024_BIT_EXPONENTIAL
- 128:../SEMS_Sources/RSA.c ****     };
- 129:../SEMS_Sources/RSA.c **** 
- 130:../SEMS_Sources/RSA.c ****     do
- 131:../SEMS_Sources/RSA.c ****     {
- 132:../SEMS_Sources/RSA.c **** 
- 133:../SEMS_Sources/RSA.c ****         example_optiga_init();
- 222              	 .loc 1 133 0
+ 123:../SEMS_Sources/RSA.c ****     {
+ 124:../SEMS_Sources/RSA.c ****          rsa_public_key,
+ 125:../SEMS_Sources/RSA.c ****          rsa_public_key_length,
+ 126:../SEMS_Sources/RSA.c ****          (uint8_t)OPTIGA_RSA_KEY_1024_BIT_EXPONENTIAL
+ 127:../SEMS_Sources/RSA.c ****     };
+ 128:../SEMS_Sources/RSA.c **** 
+ 129:../SEMS_Sources/RSA.c ****     do
+ 130:../SEMS_Sources/RSA.c ****     {
+ 131:../SEMS_Sources/RSA.c **** 
+ 132:../SEMS_Sources/RSA.c ****         example_optiga_init();
+ 222              	 .loc 1 132 0
  223 0032 FFF7FEFF 	 bl example_optiga_init
  224              	.LVL21:
- 134:../SEMS_Sources/RSA.c **** 
- 135:../SEMS_Sources/RSA.c ****         me = optiga_crypt_create_wrapper();
- 225              	 .loc 1 135 0
+ 133:../SEMS_Sources/RSA.c **** 
+ 134:../SEMS_Sources/RSA.c ****         me = optiga_crypt_create_wrapper();
+ 225              	 .loc 1 134 0
  226 0036 FFF7FEFF 	 bl optiga_crypt_create_wrapper
  227              	.LVL22:
- 136:../SEMS_Sources/RSA.c ****         if (NULL == me)
- 228              	 .loc 1 136 0
+ 135:../SEMS_Sources/RSA.c ****         if (NULL == me)
+ 228              	 .loc 1 135 0
  229 003a 0746     	 mov r7,r0
  230 003c 20B3     	 cbz r0,.L16
- 137:../SEMS_Sources/RSA.c ****         {
- 138:../SEMS_Sources/RSA.c ****             break;
- 139:../SEMS_Sources/RSA.c ****         }
- 140:../SEMS_Sources/RSA.c **** 
- 141:../SEMS_Sources/RSA.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
- 231              	 .loc 1 141 0
+ 136:../SEMS_Sources/RSA.c ****         {
+ 137:../SEMS_Sources/RSA.c ****             break;
+ 138:../SEMS_Sources/RSA.c ****         }
+ 139:../SEMS_Sources/RSA.c **** 
+ 140:../SEMS_Sources/RSA.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+ 231              	 .loc 1 140 0
  232 003e 1B4C     	 ldr r4,.L27+16
+ 141:../SEMS_Sources/RSA.c **** 
  142:../SEMS_Sources/RSA.c **** 
- 143:../SEMS_Sources/RSA.c **** 
- 144:../SEMS_Sources/RSA.c ****         return_status = optiga_crypt_rsa_verify (me,
- 233              	 .loc 1 144 0
+ 143:../SEMS_Sources/RSA.c ****         return_status = optiga_crypt_rsa_verify (me,
+ 233              	 .loc 1 143 0
  234 0040 0096     	 str r6,[sp]
  235 0042 06AB     	 add r3,sp,#24
- 141:../SEMS_Sources/RSA.c **** 
- 236              	 .loc 1 141 0
+ 140:../SEMS_Sources/RSA.c **** 
+ 236              	 .loc 1 140 0
  237 0044 0126     	 movs r6,#1
  238              	.LVL23:
- 239              	 .loc 1 144 0
+ 239              	 .loc 1 143 0
  240 0046 0025     	 movs r5,#0
  241 0048 0393     	 str r3,[sp,#12]
  242 004a CDF80480 	 str r8,[sp,#4]
@@ -402,56 +401,60 @@
  245 0052 08AA     	 add r2,sp,#32
  246 0054 3146     	 mov r1,r6
  247 0056 2023     	 movs r3,#32
- 141:../SEMS_Sources/RSA.c **** 
- 248              	 .loc 1 141 0
+ 140:../SEMS_Sources/RSA.c **** 
+ 248              	 .loc 1 140 0
  249 0058 2680     	 strh r6,[r4]
- 250              	 .loc 1 144 0
+ 250              	 .loc 1 143 0
  251 005a FFF7FEFF 	 bl optiga_crypt_rsa_verify
  252              	.LVL24:
- 145:../SEMS_Sources/RSA.c ****                                                  OPTIGA_RSASSA_PKCS1_V15_SHA256,
- 146:../SEMS_Sources/RSA.c **** 												 hashed_digest,
- 147:../SEMS_Sources/RSA.c ****                                                  sizeof(hashed_digest),
- 148:../SEMS_Sources/RSA.c **** 												 signature,
- 149:../SEMS_Sources/RSA.c **** 												 signature_length,
- 150:../SEMS_Sources/RSA.c ****                                                  OPTIGA_CRYPT_HOST_DATA,
- 151:../SEMS_Sources/RSA.c ****                                                  &public_key_details,
- 152:../SEMS_Sources/RSA.c ****                                                  0x0000);
- 153:../SEMS_Sources/RSA.c **** 
- 154:../SEMS_Sources/RSA.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
- 253              	 .loc 1 154 0
+ 144:../SEMS_Sources/RSA.c ****                                                  OPTIGA_RSASSA_PKCS1_V15_SHA256,
+ 145:../SEMS_Sources/RSA.c **** 												 hashed_digest,
+ 146:../SEMS_Sources/RSA.c ****                                                  sizeof(hashed_digest),
+ 147:../SEMS_Sources/RSA.c **** 												 signature,
+ 148:../SEMS_Sources/RSA.c **** 												 signature_length,
+ 149:../SEMS_Sources/RSA.c ****                                                  OPTIGA_CRYPT_HOST_DATA,
+ 150:../SEMS_Sources/RSA.c ****                                                  &public_key_details,
+ 151:../SEMS_Sources/RSA.c ****                                                  0x0000);
+ 152:../SEMS_Sources/RSA.c **** 
+ 153:../SEMS_Sources/RSA.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+ 253              	 .loc 1 153 0
  254 005e 48B1     	 cbz r0,.L18
  255              	.L26:
  256              	.LVL25:
- 105:../SEMS_Sources/RSA.c **** 	uint8_t hashed_digest[32];
- 257              	 .loc 1 105 0 discriminator 3
+ 104:../SEMS_Sources/RSA.c **** 	uint8_t hashed_digest[32];
+ 257              	 .loc 1 104 0 discriminator 3
  258 0060 0024     	 movs r4,#0
  259              	.L17:
  260              	.LVL26:
- 155:../SEMS_Sources/RSA.c **** 
- 156:../SEMS_Sources/RSA.c ****         // 0 -> succes
- 157:../SEMS_Sources/RSA.c ****         // 082c -> failed
- 158:../SEMS_Sources/RSA.c ****         succes = !return_status;
- 159:../SEMS_Sources/RSA.c **** 
- 160:../SEMS_Sources/RSA.c ****         return_status = OPTIGA_LIB_SUCCESS;
- 161:../SEMS_Sources/RSA.c ****     } while (FALSE);
- 162:../SEMS_Sources/RSA.c **** 
- 163:../SEMS_Sources/RSA.c ****     example_optiga_deinit();
- 261              	 .loc 1 163 0
+ 154:../SEMS_Sources/RSA.c **** 
+ 155:../SEMS_Sources/RSA.c ****         /* RSA verify result
+ 156:../SEMS_Sources/RSA.c ****          * 0x0000 -> signature match
+ 157:../SEMS_Sources/RSA.c ****          * 0x082c -> signature doesn't match
+ 158:../SEMS_Sources/RSA.c ****          */
+ 159:../SEMS_Sources/RSA.c ****         if(0 == return_status)
+ 160:../SEMS_Sources/RSA.c ****         {
+ 161:../SEMS_Sources/RSA.c ****         	success = true;
+ 162:../SEMS_Sources/RSA.c ****         }
+ 163:../SEMS_Sources/RSA.c **** 
+ 164:../SEMS_Sources/RSA.c ****     } while (FALSE);
+ 165:../SEMS_Sources/RSA.c **** 
+ 166:../SEMS_Sources/RSA.c ****     example_optiga_deinit();
+ 261              	 .loc 1 166 0
  262 0062 FFF7FEFF 	 bl example_optiga_deinit
  263              	.LVL27:
- 164:../SEMS_Sources/RSA.c **** 
- 165:../SEMS_Sources/RSA.c ****     if (me)
- 166:../SEMS_Sources/RSA.c ****     {
- 167:../SEMS_Sources/RSA.c ****          return_status = optiga_crypt_destroy(me);
- 264              	 .loc 1 167 0
+ 167:../SEMS_Sources/RSA.c **** 
+ 168:../SEMS_Sources/RSA.c ****     if (NULL != me)
+ 169:../SEMS_Sources/RSA.c ****     {
+ 170:../SEMS_Sources/RSA.c ****          optiga_crypt_destroy(me);
+ 264              	 .loc 1 170 0
  265 0066 3846     	 mov r0,r7
  266 0068 FFF7FEFF 	 bl optiga_crypt_destroy
  267              	.LVL28:
- 168:../SEMS_Sources/RSA.c ****     }
- 169:../SEMS_Sources/RSA.c **** 
- 170:../SEMS_Sources/RSA.c ****     return succes;
- 171:../SEMS_Sources/RSA.c **** }
- 268              	 .loc 1 171 0
+ 171:../SEMS_Sources/RSA.c ****     }
+ 172:../SEMS_Sources/RSA.c **** 
+ 173:../SEMS_Sources/RSA.c ****     return success;
+ 174:../SEMS_Sources/RSA.c **** }
+ 268              	 .loc 1 174 0
  269 006c 2046     	 mov r0,r4
  270 006e 10B0     	 add sp,sp,#64
  271              	.LCFI7:
@@ -463,32 +466,32 @@
  277              	.L18:
  278              	.LCFI8:
  279              	 .cfi_restore_state
- 154:../SEMS_Sources/RSA.c **** 
- 280              	 .loc 1 154 0 discriminator 1
+ 153:../SEMS_Sources/RSA.c **** 
+ 280              	 .loc 1 153 0 discriminator 1
  281 0074 2388     	 ldrh r3,[r4]
  282 0076 0D4A     	 ldr r2,.L27+16
  283 0078 9BB2     	 uxth r3,r3
  284 007a 012B     	 cmp r3,#1
  285 007c FAD0     	 beq .L18
- 154:../SEMS_Sources/RSA.c **** 
- 286              	 .loc 1 154 0 is_stmt 0 discriminator 2
+ 153:../SEMS_Sources/RSA.c **** 
+ 286              	 .loc 1 153 0 is_stmt 0 discriminator 2
  287 007e 1388     	 ldrh r3,[r2]
  288 0080 9BB2     	 uxth r3,r3
  289 0082 43B1     	 cbz r3,.L21
- 154:../SEMS_Sources/RSA.c **** 
- 290              	 .loc 1 154 0 discriminator 3
+ 153:../SEMS_Sources/RSA.c **** 
+ 290              	 .loc 1 153 0 discriminator 3
  291 0084 1388     	 ldrh r3,[r2]
  292 0086 EBE7     	 b .L26
  293              	.LVL30:
  294              	.L16:
- 163:../SEMS_Sources/RSA.c **** 
- 295              	 .loc 1 163 0 is_stmt 1
+ 166:../SEMS_Sources/RSA.c **** 
+ 295              	 .loc 1 166 0 is_stmt 1
  296 0088 FFF7FEFF 	 bl example_optiga_deinit
  297              	.LVL31:
- 105:../SEMS_Sources/RSA.c **** 	uint8_t hashed_digest[32];
- 298              	 .loc 1 105 0
+ 104:../SEMS_Sources/RSA.c **** 	uint8_t hashed_digest[32];
+ 298              	 .loc 1 104 0
  299 008c 3C46     	 mov r4,r7
- 300              	 .loc 1 171 0
+ 300              	 .loc 1 174 0
  301 008e 2046     	 mov r0,r4
  302 0090 10B0     	 add sp,sp,#64
  303              	.LCFI9:
@@ -500,8 +503,8 @@
  309              	.L21:
  310              	.LCFI10:
  311              	 .cfi_restore_state
- 158:../SEMS_Sources/RSA.c **** 
- 312              	 .loc 1 158 0
+ 161:../SEMS_Sources/RSA.c ****         }
+ 312              	 .loc 1 161 0
  313 0096 0124     	 movs r4,#1
  314 0098 E3E7     	 b .L17
  315              	.L28:
@@ -685,8 +688,8 @@
  498              	 .file 14 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
  499              	 .file 15 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
  500              	 .file 16 "../SEMS_Sources/../SEMS_Headers/Util.h"
- 501              	 .file 17 "../SEMS_Sources/../SEMS_Headers/Constructor.h"
- 502              	 .file 18 "../SEMS_Sources/../SEMS_Headers/Hash.h"
+ 501              	 .file 17 "../SEMS_Sources/../SEMS_Headers/Hash.h"
+ 502              	 .file 18 "../SEMS_Sources/../SEMS_Headers/Constructor.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 RSA.c
     {standard input}:20     .text.optiga_crypt_rsa_encrypt_message_wrapper:00000000 $t

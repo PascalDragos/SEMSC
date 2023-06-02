@@ -8,7 +8,6 @@ void optiga_util_read_nonce(uint16_t optiga_oid, uint8_t read_data_buffer[], uin
     uint16_t offset = 0x00;
     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
     optiga_util_t * me = NULL;
-
     do
     {
         example_optiga_init();
@@ -31,15 +30,13 @@ void optiga_util_read_nonce(uint16_t optiga_oid, uint8_t read_data_buffer[], uin
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
 
-
-        return_status = OPTIGA_LIB_SUCCESS;
     } while (FALSE);
 
     example_optiga_deinit();
 
-    if (me)
+    if (NULL != me)
     {
-        return_status = optiga_util_destroy(me);
+        optiga_util_destroy(me);
     }
 }
 
@@ -68,15 +65,14 @@ void optiga_util_update_count_wrapper(uint16_t optiga_counter_oid, uint8_t ticks
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
 
-        return_status = OPTIGA_LIB_SUCCESS;
     } while (FALSE);
 
     example_optiga_deinit();
 
 
-    if (me)
+    if (NULL != me)
     {
-    	return_status = optiga_util_destroy(me);
+    	optiga_util_destroy(me);
 
     }
 }
@@ -91,14 +87,14 @@ void optiga_util_reset_count(uint16_t optiga_counter_oid)
 	    // Maximum counter value
 	    0xFF, 0xFF, 0xFF, 0xFF,
 	};
-    uint8_t offset;
+
 
     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
     optiga_util_t * me = NULL;
 
     do
     {
-
+    	uint8_t offset = 0x00;
         example_optiga_init();
 
         me = optiga_util_create_wrapper();
@@ -107,7 +103,6 @@ void optiga_util_reset_count(uint16_t optiga_counter_oid)
             break;
         }
 
-        offset = 0x00;
         optiga_lib_status = OPTIGA_LIB_BUSY;
 
 
@@ -120,14 +115,12 @@ void optiga_util_reset_count(uint16_t optiga_counter_oid)
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
 
-
-        return_status = OPTIGA_LIB_SUCCESS;
     } while (FALSE);
 
     example_optiga_deinit();
 
-    if (me)
+    if (NULL != me)
     {
-    	return_status = optiga_util_destroy(me);
+    	optiga_util_destroy(me);
     }
 }

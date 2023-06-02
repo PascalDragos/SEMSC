@@ -1,5 +1,5 @@
 #include "../SEMS_Headers/Timer.h"
-
+#include "../SEMS_Headers/Config.h"
 #include "../SEMS_Headers/Util.h"
 
 
@@ -17,12 +17,12 @@ void start_cooldown_timer(void)
 
 void TimerInterval_ISR(void)
 {
-	if(failed_req > 0)
+	if(failed_req > 0u)
 	{
 		failed_req--;
 	}
 
-	if(failed_req == 0)
+	if(failed_req == 0u)
 	{
 		cooldowned = false;
 	}

@@ -4,13 +4,13 @@
 
 #include "Dave.h"
 
-#define DEVELOPMENT 0
-#define PRODUCTION 1
-#define TESTING 2
+#define DEVELOPMENT (0u)
+#define PRODUCTION (1u)
+#define TESTING (2u)
 
-#define LIFECYCLE PRODUCTION
+#define LIFECYCLE DEVELOPMENT
 
-#define TIMEOUT_IN_SECONDS (10u)
-#define MAX_FAILED_REQ (1)
+#define TIMEOUT_IN_SECONDS (1u)
+#define MAX_FAILED_REQ (1u)
 
 #endif

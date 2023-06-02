@@ -84,16 +84,15 @@ void optiga_crypt_rsa_encrypt_message_wrapper(uint8_t message[], uint8_t message
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
 
-        return_status = OPTIGA_LIB_SUCCESS;
 
     } while (FALSE);
 
     example_optiga_deinit();
 
 
-    if (me)
+    if (NULL != me)
     {
-        return_status = optiga_crypt_destroy(me);
+       optiga_crypt_destroy(me);
     }
 }
 
@@ -102,7 +101,7 @@ void optiga_crypt_rsa_encrypt_message_wrapper(uint8_t message[], uint8_t message
 
 uint8_t optiga_crypt_rsa_verify_wrapper(uint8_t message[], uint8_t message_length, uint8_t signature[], uint16_t signature_length)
 {
-	uint8_t succes = false;
+	uint8_t success = false;
 	uint8_t hashed_digest[32];
 
 	optiga_crypt_hash_data_wrapper(message, message_length, hashed_digest);
@@ -153,21 +152,25 @@ uint8_t optiga_crypt_rsa_verify_wrapper(uint8_t message[], uint8_t message_lengt
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
 
-        // 0 -> succes
-        // 082c -> failed
-        succes = !return_status;
+        /* RSA verify result
+         * 0x0000 -> signature match
+         * 0x082c -> signature doesn't match
+         */
+        if(0 == return_status)
+        {
+        	success = true;
+        }
 
-        return_status = OPTIGA_LIB_SUCCESS;
     } while (FALSE);
 
     example_optiga_deinit();
 
-    if (me)
+    if (NULL != me)
     {
-         return_status = optiga_crypt_destroy(me);
+         optiga_crypt_destroy(me);
     }
 
-    return succes;
+    return success;
 }
 
 

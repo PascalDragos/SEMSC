@@ -27,35 +27,39 @@
    1:../SEMS_Sources/Init.c **** #include "../SEMS_Headers/Init.h"
    2:../SEMS_Sources/Init.c **** #include "../SEMS_Headers/Constructor.h"
    3:../SEMS_Sources/Init.c **** 
-   4:../SEMS_Sources/Init.c **** 
-   5:../SEMS_Sources/Init.c **** #include "../SEMS_Headers/Util.h"
+   4:../SEMS_Sources/Init.c **** #include "../SEMS_Headers/Util.h"
+   5:../SEMS_Sources/Init.c **** #include "../SEMS_Headers/Timer.h"
    6:../SEMS_Sources/Init.c **** 
-   7:../SEMS_Sources/Init.c **** 
-   8:../SEMS_Sources/Init.c **** void init_SEMS(void)
-   9:../SEMS_Sources/Init.c **** {
-  28              	 .loc 1 9 0
+   7:../SEMS_Sources/Init.c **** void init_SEMS(void)
+   8:../SEMS_Sources/Init.c **** {
+  28              	 .loc 1 8 0
   29              	 .cfi_startproc
   30              	 
   31              	 
   32              	 
-  33 0000 7047     	 bx lr
-  34              	 .cfi_endproc
-  35              	.LFE454:
-  37 0002 00BF     	 .text
-  38              	.Letext0:
-  39              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
-  40              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
-  41              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
-  42              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
-  43              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
-  44              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
-  45              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
-  46              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
-  47              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+   9:../SEMS_Sources/Init.c **** 	start_cooldown_timer();
+  33              	 .loc 1 9 0
+  34 0000 FFF7FEBF 	 b start_cooldown_timer
+  35              	.LVL0:
+  36              	 .cfi_endproc
+  37              	.LFE454:
+  39              	 .text
+  40              	.Letext0:
+  41              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+  42              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+  43              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+  44              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+  45              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+  46              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+  47              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+  48              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+  49              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+  50              	 .file 11 "../SEMS_Sources/../SEMS_Headers/Timer.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 Init.c
     {standard input}:20     .text.init_SEMS:00000000 $t
     {standard input}:25     .text.init_SEMS:00000000 init_SEMS
                      .debug_frame:00000010 $d
 
-NO UNDEFINED SYMBOLS
+UNDEFINED SYMBOLS
+start_cooldown_timer

@@ -6,6 +6,7 @@
 C_SRCS += \
 ../SEMS_Sources/Com.c \
 ../SEMS_Sources/Constructor.c \
+../SEMS_Sources/Decoder.c \
 ../SEMS_Sources/Hash.c \
 ../SEMS_Sources/Init.c \
 ../SEMS_Sources/Main.c \
@@ -22,6 +23,7 @@ C_SRCS += \
 OBJS += \
 ./SEMS_Sources/Com.o \
 ./SEMS_Sources/Constructor.o \
+./SEMS_Sources/Decoder.o \
 ./SEMS_Sources/Hash.o \
 ./SEMS_Sources/Init.o \
 ./SEMS_Sources/Main.o \
@@ -38,6 +40,7 @@ OBJS += \
 C_DEPS += \
 ./SEMS_Sources/Com.d \
 ./SEMS_Sources/Constructor.d \
+./SEMS_Sources/Decoder.d \
 ./SEMS_Sources/Hash.d \
 ./SEMS_Sources/Init.d \
 ./SEMS_Sources/Main.d \
