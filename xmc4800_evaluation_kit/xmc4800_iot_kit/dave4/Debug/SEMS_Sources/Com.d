@@ -113,7 +113,8 @@ SEMS_Sources/Com.o SEMS_Sources/Com.d SEMS_Sources/Com.o: \
  ../SEMS_Sources/../SEMS_Headers/Random.h \
  ../SEMS_Sources/../SEMS_Headers/Patcher.h \
  ../SEMS_Sources/../SEMS_Headers/Nonce.h \
- ../SEMS_Sources/../SEMS_Headers/Skey.h
+ ../SEMS_Sources/../SEMS_Headers/Skey.h \
+ ../SEMS_Sources/../SEMS_Headers/Config.h
 
 ../SEMS_Sources/../SEMS_Headers/Com.h:
 
@@ -344,3 +345,5 @@ D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/op
 ../SEMS_Sources/../SEMS_Headers/Nonce.h:
 
 ../SEMS_Sources/../SEMS_Headers/Skey.h:
+
+../SEMS_Sources/../SEMS_Headers/Config.h:

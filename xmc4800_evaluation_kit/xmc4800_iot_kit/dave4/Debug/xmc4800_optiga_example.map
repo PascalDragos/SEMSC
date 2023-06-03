@@ -3215,17 +3215,19 @@ Discarded input sections
  .text          0x00000000        0x0 ./SEMS_Sources/Test.o
  .data          0x00000000        0x0 ./SEMS_Sources/Test.o
  .bss           0x00000000        0x0 ./SEMS_Sources/Test.o
- .text.testing  0x00000000       0x7c ./SEMS_Sources/Test.o
- .debug_info    0x00000000     0x16e4 ./SEMS_Sources/Test.o
- .debug_abbrev  0x00000000      0x268 ./SEMS_Sources/Test.o
- .debug_loc     0x00000000       0x6d ./SEMS_Sources/Test.o
+ .text.testing  0x00000000       0x60 ./SEMS_Sources/Test.o
+ .text.testing0
+                0x00000000       0x7c ./SEMS_Sources/Test.o
+ .debug_info    0x00000000     0x1796 ./SEMS_Sources/Test.o
+ .debug_abbrev  0x00000000      0x297 ./SEMS_Sources/Test.o
+ .debug_loc     0x00000000       0xa6 ./SEMS_Sources/Test.o
  .debug_aranges
-                0x00000000       0x20 ./SEMS_Sources/Test.o
- .debug_ranges  0x00000000       0x10 ./SEMS_Sources/Test.o
- .debug_line    0x00000000      0x34e ./SEMS_Sources/Test.o
- .debug_str     0x00000000     0x13df ./SEMS_Sources/Test.o
+                0x00000000       0x28 ./SEMS_Sources/Test.o
+ .debug_ranges  0x00000000       0x18 ./SEMS_Sources/Test.o
+ .debug_line    0x00000000      0x374 ./SEMS_Sources/Test.o
+ .debug_str     0x00000000     0x1426 ./SEMS_Sources/Test.o
  .comment       0x00000000       0x71 ./SEMS_Sources/Test.o
- .debug_frame   0x00000000       0x40 ./SEMS_Sources/Test.o
+ .debug_frame   0x00000000       0x68 ./SEMS_Sources/Test.o
  .ARM.attributes
                 0x00000000       0x37 ./SEMS_Sources/Test.o
  .text          0x00000000        0x0 ./SEMS_Sources/Timer.o
@@ -5553,7 +5555,7 @@ ETH_RAM         0x20000e00        0x0
  .debug_abbrev  0x0000dd8d      0x2c2 ./SEMS_Sources/Unlock.o
  .debug_abbrev  0x0000e04f      0x2b9 ./main_xmc4800_example.o
 
-.debug_line     0x00000000    0x1cb6d
+.debug_line     0x00000000    0x1cb69
  *(.debug_line)
  .debug_line    0x00000000      0x285 ./lib/xmc/XMCLib/src/xmc4_gpio.o
  .debug_line    0x00000285     0x1001 ./lib/xmc/XMCLib/src/xmc4_scu.o
@@ -5633,16 +5635,16 @@ ETH_RAM         0x20000e00        0x0
  .debug_line    0x0001900d      0x35e ./SEMS_Sources/Decoder.o
  .debug_line    0x0001936b      0x4cc ./SEMS_Sources/Hash.o
  .debug_line    0x00019837      0x33e ./SEMS_Sources/Init.o
- .debug_line    0x00019b75      0x485 ./SEMS_Sources/Main.o
- .debug_line    0x00019ffa      0x57d ./SEMS_Sources/Nonce.o
- .debug_line    0x0001a577      0x5a8 ./SEMS_Sources/Patcher.o
- .debug_line    0x0001ab1f      0x54b ./SEMS_Sources/RSA.o
- .debug_line    0x0001b06a      0x4e4 ./SEMS_Sources/Random.o
- .debug_line    0x0001b54e      0x530 ./SEMS_Sources/Skey.o
- .debug_line    0x0001ba7e      0x333 ./SEMS_Sources/SymEncrypt.o
- .debug_line    0x0001bdb1      0x4b5 ./SEMS_Sources/Timer.o
- .debug_line    0x0001c266      0x45f ./SEMS_Sources/Unlock.o
- .debug_line    0x0001c6c5      0x4a8 ./main_xmc4800_example.o
+ .debug_line    0x00019b75      0x481 ./SEMS_Sources/Main.o
+ .debug_line    0x00019ff6      0x57d ./SEMS_Sources/Nonce.o
+ .debug_line    0x0001a573      0x5a8 ./SEMS_Sources/Patcher.o
+ .debug_line    0x0001ab1b      0x54b ./SEMS_Sources/RSA.o
+ .debug_line    0x0001b066      0x4e4 ./SEMS_Sources/Random.o
+ .debug_line    0x0001b54a      0x530 ./SEMS_Sources/Skey.o
+ .debug_line    0x0001ba7a      0x333 ./SEMS_Sources/SymEncrypt.o
+ .debug_line    0x0001bdad      0x4b5 ./SEMS_Sources/Timer.o
+ .debug_line    0x0001c262      0x45f ./SEMS_Sources/Unlock.o
+ .debug_line    0x0001c6c1      0x4a8 ./main_xmc4800_example.o
 
 .debug_frame    0x00000000     0x61bc
  *(.debug_frame)

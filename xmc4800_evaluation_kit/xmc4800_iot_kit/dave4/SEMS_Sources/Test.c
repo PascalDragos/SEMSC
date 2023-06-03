@@ -21,11 +21,24 @@
 #include "../SEMS_Headers/Config.h"
 #include "../SEMS_Headers/Init.h"
 #include "../SEMS_Headers/Test.h"
-
+#include "../SEMS_Headers/Skey.h"
 #include "../SEMS_Headers/Util.h"
 
 
 void testing(void)
+{
+
+	uint8_t key[32] = {0x01, 0x02, 0x03, 0x04};
+	uint8_t key2[32] = {0x09};
+	optiga_util_write_shared_key(OPTIGA_SESKEY_OID, key, sizeof(key));
+
+	optiga_util_read_shared_key(OPTIGA_SESKEY_OID, key2, sizeof(key2));
+
+	key[3] = key[3];
+}
+
+
+void testing0(void)
 {
 	uint8_t i = 0;
 	uint8_t data_to_hash[32] = {0};

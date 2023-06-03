@@ -8,9 +8,15 @@
 #define PRODUCTION (1u)
 #define TESTING (2u)
 
-#define LIFECYCLE DEVELOPMENT
+#define LIFECYCLE PRODUCTION
 
 #define TIMEOUT_IN_SECONDS (1u)
 #define MAX_FAILED_REQ (1u)
+
+
+#define OPTIGA_SESKEY_OID (0xF1D6u)
+// #define OPTIGA_KEY_OID (0xF1E0u)
+
+#define OPTIGA_NONCE_OID (0xE120u)
 
 #endif

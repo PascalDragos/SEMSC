@@ -8,7 +8,6 @@
 #include "optiga_example.h"
 #include "optiga/pal/pal_logger.h"
 
-
 #include "../SEMS_Headers/Timer.h"
 #include "../SEMS_Headers/Random.h"
 #include "../SEMS_Headers/RSA.h"
@@ -25,7 +24,6 @@
 extern pal_logger_t logger_console;
 
 
-
 volatile uint8_t failed_req = 0;
 volatile uint8_t cooldowned = false;
 
@@ -35,9 +33,9 @@ void my_optiga_shell_begin(void)
 
 	uint8_t sec_unlocked = false;
 	uint8_t sec_comm = false;
+	uint8_t command[32];  // Toate comenzile au 32 de bytes
 
-	// Toate comenzile au 32 de bytes
-	uint8_t command[32];
+	init_SEMS();
 
 #if LIFECYCLE==TESTING
 	uint8_t is_testing = true;
@@ -47,7 +45,6 @@ void my_optiga_shell_begin(void)
 	}
 #endif
 
-	init_SEMS();
 
 	while(true)
 	{
@@ -55,6 +52,7 @@ void my_optiga_shell_begin(void)
 		// Wrapper for serial read
 		if(0u == read_request(command, sec_unlocked, sec_comm))
 		{
+			// Valid request
 			req_type req_rcv;
 			if(true == cooldowned)
 			{
@@ -64,6 +62,7 @@ void my_optiga_shell_begin(void)
 			}
 
 			req_rcv = decode_req(command);
+
 			switch(req_rcv){
 				case SEC_UNLOCK:
 				{
@@ -85,12 +84,12 @@ void my_optiga_shell_begin(void)
 				}
 				case EXAMPLE:
 				{
-					uint8_t buff[32] = "AABBCCDEFG";
+					uint8_t buff[32] = "Command response";
 					write_request(buff, sec_comm);
 					break;
 				}
 				case UNKNOWN:
-				default: // Unknown request
+				default:
 				{
 					uint8_t buff[32] = "Unknown request";
 					write_request(buff, sec_comm);
@@ -126,7 +125,6 @@ void my_optiga_shell_begin(void)
 			}
 
 		}
-
 	}
 }
 

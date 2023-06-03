@@ -25,17 +25,17 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  10 .debug_abbrev 0000e308  00000000  00000000  00097b18  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_line   0001cb6d  00000000  00000000  000a5e20  2**0
+ 11 .debug_line   0001cb69  00000000  00000000  000a5e20  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_frame  000061bc  00000000  00000000  000c2990  2**2
+ 12 .debug_frame  000061bc  00000000  00000000  000c298c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_str    000162b6  00000000  00000000  000c8b4c  2**0
+ 13 .debug_str    000162b6  00000000  00000000  000c8b48  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_loc    00034e8b  00000000  00000000  000dee02  2**0
+ 14 .debug_loc    00034e8b  00000000  00000000  000dedfe  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_ranges 00004dc8  00000000  00000000  00113c8d  2**0
+ 15 .debug_ranges 00004dc8  00000000  00000000  00113c89  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .build_attributes 0000165a  00000000  00000000  00118a55  2**0
+ 16 .build_attributes 0000165a  00000000  00000000  00118a51  2**0
                   CONTENTS, READONLY
 
 Disassembly of section .text:
@@ -54294,8 +54294,8 @@ uint8_t secure_communication(void)
     uint8_t ciphertext[129];
     uint16_t ciphertext_len = 128;
  800c5f8:	2380      	movs	r3, #128	; 0x80
-	uint16_t optiga_counter_oid = 0xE120u;
-	uint16_t optiga_key_oid = 0xF1E0u;
+	uint16_t optiga_counter_oid = OPTIGA_NONCE_OID;
+	uint16_t optiga_key_oid = OPTIGA_SESKEY_OID;
 
 
 	// Generate random number using Optiga for session key
@@ -54316,8 +54316,8 @@ uint8_t secure_communication(void)
 	uint8_t plaintext[32 + 4] = {0};
 	memcpy(plaintext, random_buf, 32);
  800c602:	ad02      	add	r5, sp, #8
-	uint16_t optiga_counter_oid = 0xE120u;
-	uint16_t optiga_key_oid = 0xF1E0u;
+	uint16_t optiga_counter_oid = OPTIGA_NONCE_OID;
+	uint16_t optiga_key_oid = OPTIGA_SESKEY_OID;
 
 
 	// Generate random number using Optiga for session key
@@ -54384,7 +54384,7 @@ uint8_t secure_communication(void)
 	// Store session key
 	optiga_util_write_shared_key(optiga_key_oid, random_buf, sizeof(random_buf));
  800c644:	a902      	add	r1, sp, #8
- 800c646:	f24f 10e0 	movw	r0, #61920	; 0xf1e0
+ 800c646:	f24f 10d6 	movw	r0, #61910	; 0xf1d6
  800c64a:	2220      	movs	r2, #32
  800c64c:	f000 fb5c 	bl	800cd08 <optiga_util_write_shared_key>
 	// Read session key, Testing
@@ -54446,8 +54446,6 @@ optiga_crypt_t * optiga_crypt_create_wrapper(void)
  800c678:	f7f8 ffbe 	bl	80055f8 <optiga_crypt_create>
 #if LIFECYCLE==PRODUCTION
 	OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_FULL_PROTECTION);
-#else
-	OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_NO_PROTECTION);
  800c67c:	2101      	movs	r1, #1
 
 
@@ -54458,10 +54456,10 @@ optiga_crypt_t * optiga_crypt_create_wrapper(void)
  800c67e:	4604      	mov	r4, r0
 #if LIFECYCLE==PRODUCTION
 	OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_FULL_PROTECTION);
+ 800c680:	2203      	movs	r2, #3
+ 800c682:	f7f8 ffad 	bl	80055e0 <optiga_crypt_set_comms_params>
 #else
 	OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_NO_PROTECTION);
- 800c680:	2200      	movs	r2, #0
- 800c682:	f7f8 ffad 	bl	80055e0 <optiga_crypt_set_comms_params>
 #endif
 
 	return me;
@@ -54494,8 +54492,6 @@ optiga_util_t * optiga_util_create_wrapper(void)
 
 #if LIFECYCLE==PRODUCTION
 	OPTIGA_UTIL_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_FULL_PROTECTION);
-#else
-	OPTIGA_UTIL_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_NO_PROTECTION);
  800c69c:	2101      	movs	r1, #1
 
 
@@ -54507,10 +54503,10 @@ optiga_util_t * optiga_util_create_wrapper(void)
 
 #if LIFECYCLE==PRODUCTION
 	OPTIGA_UTIL_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_FULL_PROTECTION);
+ 800c6a0:	2203      	movs	r2, #3
+ 800c6a2:	f7f8 fd57 	bl	8005154 <optiga_util_set_comms_params>
 #else
 	OPTIGA_UTIL_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_NO_PROTECTION);
- 800c6a0:	2200      	movs	r2, #0
- 800c6a2:	f7f8 fd57 	bl	8005154 <optiga_util_set_comms_params>
 #endif
 
 	return me;
@@ -54750,12 +54746,12 @@ void my_optiga_shell_begin(void)
 {
  800c75c:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
  800c760:	b091      	sub	sp, #68	; 0x44
- 800c762:	f8df 918c 	ldr.w	r9, [pc, #396]	; 800c8f0 <my_optiga_shell_begin+0x194>
- 800c766:	f8df 818c 	ldr.w	r8, [pc, #396]	; 800c8f4 <my_optiga_shell_begin+0x198>
-	{
-		testing();
-	}
-#endif
+ 800c762:	f8df 9188 	ldr.w	r9, [pc, #392]	; 800c8ec <my_optiga_shell_begin+0x190>
+ 800c766:	f8df 8188 	ldr.w	r8, [pc, #392]	; 800c8f0 <my_optiga_shell_begin+0x194>
+
+	uint8_t sec_unlocked = false;
+	uint8_t sec_comm = false;
+	uint8_t command[32];  // Toate comenzile au 32 de bytes
 
 	init_SEMS();
  800c76a:	f7ff fff5 	bl	800c758 <init_SEMS>
@@ -54801,6 +54797,7 @@ void my_optiga_shell_begin(void)
  800c782:	4605      	mov	r5, r0
  800c784:	bb40      	cbnz	r0, 800c7d8 <my_optiga_shell_begin+0x7c>
 		{
+			// Valid request
 			req_type req_rcv;
 			if(true == cooldowned)
  800c786:	f899 3000 	ldrb.w	r3, [r9]
@@ -54814,6 +54811,7 @@ void my_optiga_shell_begin(void)
 			req_rcv = decode_req(command);
  800c78e:	4668      	mov	r0, sp
  800c790:	f7ff ff8e 	bl	800c6b0 <decode_req>
+
 			switch(req_rcv){
  800c794:	2803      	cmp	r0, #3
  800c796:	f200 8082 	bhi.w	800c89e <my_optiga_shell_begin+0x142>
@@ -54825,17 +54823,16 @@ void my_optiga_shell_begin(void)
 				}
 				case EXAMPLE:
 				{
-					uint8_t buff[32] = "AABBCCDEFG";
- 800c7a2:	4b4f      	ldr	r3, [pc, #316]	; (800c8e0 <my_optiga_shell_begin+0x184>)
- 800c7a4:	e893 0007 	ldmia.w	r3, {r0, r1, r2}
- 800c7a8:	4623      	mov	r3, r4
- 800c7aa:	c303      	stmia	r3!, {r0, r1}
- 800c7ac:	f823 2b02 	strh.w	r2, [r3], #2
- 800c7b0:	0c15      	lsrs	r5, r2, #16
- 800c7b2:	2100      	movs	r1, #0
- 800c7b4:	2215      	movs	r2, #21
- 800c7b6:	f10d 002b 	add.w	r0, sp, #43	; 0x2b
- 800c7ba:	701d      	strb	r5, [r3, #0]
+					uint8_t buff[32] = "Command response";
+ 800c7a2:	f8df e150 	ldr.w	lr, [pc, #336]	; 800c8f4 <my_optiga_shell_begin+0x198>
+ 800c7a6:	e8be 000f 	ldmia.w	lr!, {r0, r1, r2, r3}
+ 800c7aa:	4625      	mov	r5, r4
+ 800c7ac:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+ 800c7ae:	f8de 3000 	ldr.w	r3, [lr]
+ 800c7b2:	702b      	strb	r3, [r5, #0]
+ 800c7b4:	220f      	movs	r2, #15
+ 800c7b6:	2100      	movs	r1, #0
+ 800c7b8:	f10d 0031 	add.w	r0, sp, #49	; 0x31
  800c7bc:	f000 fef9 	bl	800d5b2 <memset>
 					write_request(buff, sec_comm);
  800c7c0:	4631      	mov	r1, r6
@@ -54917,7 +54914,7 @@ void my_optiga_shell_begin(void)
 				case SEC_LOCK:
 				{
 					uint8_t buff[32] = "Locked";
- 800c820:	4b30      	ldr	r3, [pc, #192]	; (800c8e4 <my_optiga_shell_begin+0x188>)
+ 800c820:	4b2f      	ldr	r3, [pc, #188]	; (800c8e0 <my_optiga_shell_begin+0x184>)
  800c822:	e893 0003 	ldmia.w	r3, {r0, r1}
  800c826:	2219      	movs	r2, #25
  800c828:	0c0b      	lsrs	r3, r1, #16
@@ -54959,8 +54956,8 @@ void my_optiga_shell_begin(void)
  800c850:	4606      	mov	r6, r0
 					break;
  800c852:	e791      	b.n	800c778 <my_optiga_shell_begin+0x1c>
-
 			req_rcv = decode_req(command);
+
 			switch(req_rcv){
 				case SEC_UNLOCK:
 				{
@@ -54968,8 +54965,8 @@ void my_optiga_shell_begin(void)
  800c854:	f000 fb2c 	bl	800ceb0 <secure_unlock>
 					sec_comm = 0;  // reset sec_comm flag
  800c858:	2600      	movs	r6, #0
-
 			req_rcv = decode_req(command);
+
 			switch(req_rcv){
 				case SEC_UNLOCK:
 				{
@@ -54984,7 +54981,7 @@ void my_optiga_shell_begin(void)
 				{
 					// Just a wrong request
 					uint8_t buff[32] = "Request denied.";
- 800c85e:	4b22      	ldr	r3, [pc, #136]	; (800c8e8 <my_optiga_shell_begin+0x18c>)
+ 800c85e:	4b21      	ldr	r3, [pc, #132]	; (800c8e4 <my_optiga_shell_begin+0x188>)
  800c860:	950c      	str	r5, [sp, #48]	; 0x30
  800c862:	cb0f      	ldmia	r3, {r0, r1, r2, r3}
  800c864:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
@@ -55003,8 +55000,8 @@ void my_optiga_shell_begin(void)
 					optiga_lib_print_bytes(buff, 32);
  800c872:	f7fb f979 	bl	8007b68 <optiga_lib_print_bytes>
  800c876:	e77f      	b.n	800c778 <my_optiga_shell_begin+0x1c>
-		if(0u == read_request(command, sec_unlocked, sec_comm))
 		{
+			// Valid request
 			req_type req_rcv;
 			if(true == cooldowned)
 			{
@@ -55019,8 +55016,8 @@ void my_optiga_shell_begin(void)
 				optiga_lib_print_bytes(buff, 32);
  800c88e:	4620      	mov	r0, r4
  800c890:	2120      	movs	r1, #32
-		if(0u == read_request(command, sec_unlocked, sec_comm))
 		{
+			// Valid request
 			req_type req_rcv;
 			if(true == cooldowned)
 			{
@@ -55033,10 +55030,10 @@ void my_optiga_shell_begin(void)
 					break;
 				}
 				case UNKNOWN:
-				default: // Unknown request
+				default:
 				{
 					uint8_t buff[32] = "Unknown request";
- 800c89e:	4b13      	ldr	r3, [pc, #76]	; (800c8ec <my_optiga_shell_begin+0x190>)
+ 800c89e:	4b12      	ldr	r3, [pc, #72]	; (800c8e8 <my_optiga_shell_begin+0x18c>)
  800c8a0:	cb0f      	ldmia	r3, {r0, r1, r2, r3}
  800c8a2:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
  800c8a6:	2300      	movs	r3, #0
@@ -55046,7 +55043,7 @@ void my_optiga_shell_begin(void)
 					break;
 				}
 				case UNKNOWN:
-				default: // Unknown request
+				default:
 				{
 					uint8_t buff[32] = "Unknown request";
  800c8ac:	930c      	str	r3, [sp, #48]	; 0x30
@@ -55092,12 +55089,12 @@ void my_optiga_shell_begin(void)
  800c8d8:	f7fb f946 	bl	8007b68 <optiga_lib_print_bytes>
  800c8dc:	e74c      	b.n	800c778 <my_optiga_shell_begin+0x1c>
  800c8de:	bf00      	nop
- 800c8e0:	0800de34 	.word	0x0800de34
- 800c8e4:	0800de14 	.word	0x0800de14
- 800c8e8:	0800de94 	.word	0x0800de94
- 800c8ec:	0800de54 	.word	0x0800de54
- 800c8f0:	1fff00cb 	.word	0x1fff00cb
- 800c8f4:	1fff00ca 	.word	0x1fff00ca
+ 800c8e0:	0800de14 	.word	0x0800de14
+ 800c8e4:	0800de94 	.word	0x0800de94
+ 800c8e8:	0800de54 	.word	0x0800de54
+ 800c8ec:	1fff00cb 	.word	0x1fff00cb
+ 800c8f0:	1fff00ca 	.word	0x1fff00ca
+ 800c8f4:	0800de34 	.word	0x0800de34
  800c8f8:	0800de74 	.word	0x0800de74
  800c8fc:	0800ddf4 	.word	0x0800ddf4
 
@@ -55491,7 +55488,7 @@ uint8_t read_request(uint8_t command[], uint8_t is_secure_unlock, uint8_t is_sec
 
 				// Retrive Session Key
 				optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));  // sesion key from Secure Comm activation
- 800ca1c:	f24f 10e0 	movw	r0, #61920	; 0xf1e0
+ 800ca1c:	f24f 10d6 	movw	r0, #61910	; 0xf1d6
  800ca20:	f000 f9a4 	bl	800cd6c <optiga_util_read_shared_key>
 
 				// Decrypt ciphertext
@@ -55648,7 +55645,7 @@ uint8_t write_request(uint8_t msg[], uint8_t is_secure_com)
 	if(0u == is_secure_com)
  800ca9e:	2900      	cmp	r1, #0
  800caa0:	d037      	beq.n	800cb12 <write_request+0x7a>
-		uint16_t optiga_counter_oid = 0xE120u;
+		uint16_t optiga_counter_oid = OPTIGA_NONCE_OID;
 
 
 
@@ -55725,7 +55722,7 @@ uint8_t write_request(uint8_t msg[], uint8_t is_secure_com)
 
 		// Retrive Session Key
 		optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));  // sesion key from Secure Comm activation
- 800cac8:	f24f 10e0 	movw	r0, #61920	; 0xf1e0
+ 800cac8:	f24f 10d6 	movw	r0, #61910	; 0xf1d6
  800cacc:	2220      	movs	r2, #32
 		// Read nonce
 		optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
@@ -58069,7 +58066,7 @@ int main(void)
 	...
  800de14:	6f4c 6b63 6465 0000 0000 0000 0000 0000     Locked..........
 	...
- 800de34:	4141 4242 4343 4544 4746 0000 0000 0000     AABBCCDEFG......
+ 800de34:	6f43 6d6d 6e61 2064 6572 7073 6e6f 6573     Command response
 	...
  800de54:	6e55 6e6b 776f 206e 6572 7571 7365 0074     Unknown request.
 	...

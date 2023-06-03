@@ -8,7 +8,7 @@
 #include "../SEMS_Headers/Patcher.h"
 #include "../SEMS_Headers/Nonce.h"
 #include "../SEMS_Headers/Skey.h"
-
+#include "../SEMS_Headers/Config.h"
 
 extern pal_logger_t logger_console;
 
@@ -21,8 +21,8 @@ uint8_t secure_communication(void)
     uint8_t ciphertext[129];
     uint16_t ciphertext_len = 128;
     uint8_t nonce[4];
-	uint16_t optiga_counter_oid = 0xE120u;
-	uint16_t optiga_key_oid = 0xF1E0u;
+	uint16_t optiga_counter_oid = OPTIGA_NONCE_OID;
+	uint16_t optiga_key_oid = OPTIGA_SESKEY_OID;
 
 
 	// Generate random number using Optiga for session key

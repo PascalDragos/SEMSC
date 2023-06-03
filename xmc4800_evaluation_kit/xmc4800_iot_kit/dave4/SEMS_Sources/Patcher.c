@@ -5,7 +5,7 @@
 #include "../SEMS_Headers/SymEncrypt.h"
 #include "../SEMS_Headers/Hash.h"
 #include "../SEMS_Headers/Nonce.h"
-
+#include "../SEMS_Headers/Config.h"
 
 
 extern pal_logger_t logger_console;
@@ -51,8 +51,8 @@ uint8_t read_request(uint8_t command[], uint8_t is_secure_unlock, uint8_t is_sec
 				uint32_t received_user_token;
 				uint8_t *received_user_nonce_start;
 				uint8_t nonce[4];
-				uint16_t optiga_key_oid = 0xF1E0u;
-				uint16_t optiga_counter_oid = 0xE120u;
+				uint16_t optiga_key_oid = OPTIGA_SESKEY_OID;
+				uint16_t optiga_counter_oid = OPTIGA_NONCE_OID;
 
 				// Extract Hash
 				received_digest_start = command + 24u;  // last 8 bytes of the SHA256(Ciphertext)
@@ -144,8 +144,8 @@ uint8_t write_request(uint8_t msg[], uint8_t is_secure_com)
 		uint8_t send_user_token[4];
 		uint8_t calculated_digest[32];
 		uint8_t key[32];
-		uint16_t optiga_key_oid = 0xF1E0u;
-		uint16_t optiga_counter_oid = 0xE120u;
+		uint16_t optiga_key_oid = OPTIGA_SESKEY_OID;
+		uint16_t optiga_counter_oid = OPTIGA_NONCE_OID;
 
 
 

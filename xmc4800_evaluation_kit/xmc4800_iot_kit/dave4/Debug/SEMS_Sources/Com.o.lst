@@ -34,7 +34,7 @@
    8:../SEMS_Sources/Com.c **** #include "../SEMS_Headers/Patcher.h"
    9:../SEMS_Sources/Com.c **** #include "../SEMS_Headers/Nonce.h"
   10:../SEMS_Sources/Com.c **** #include "../SEMS_Headers/Skey.h"
-  11:../SEMS_Sources/Com.c **** 
+  11:../SEMS_Sources/Com.c **** #include "../SEMS_Headers/Config.h"
   12:../SEMS_Sources/Com.c **** 
   13:../SEMS_Sources/Com.c **** extern pal_logger_t logger_console;
   14:../SEMS_Sources/Com.c **** 
@@ -63,8 +63,8 @@
   42              	 .loc 1 22 0
   43 0004 8023     	 movs r3,#128
   23:../SEMS_Sources/Com.c ****     uint8_t nonce[4];
-  24:../SEMS_Sources/Com.c **** 	uint16_t optiga_counter_oid = 0xE120u;
-  25:../SEMS_Sources/Com.c **** 	uint16_t optiga_key_oid = 0xF1E0u;
+  24:../SEMS_Sources/Com.c **** 	uint16_t optiga_counter_oid = OPTIGA_NONCE_OID;
+  25:../SEMS_Sources/Com.c **** 	uint16_t optiga_key_oid = OPTIGA_SESKEY_OID;
   26:../SEMS_Sources/Com.c **** 
   27:../SEMS_Sources/Com.c **** 
   28:../SEMS_Sources/Com.c **** 	// Generate random number using Optiga for session key
@@ -148,7 +148,7 @@
   55:../SEMS_Sources/Com.c **** 	optiga_util_write_shared_key(optiga_key_oid, random_buf, sizeof(random_buf));
   90              	 .loc 1 55 0
   91 0050 02A9     	 add r1,sp,#8
-  92 0052 4FF2E010 	 movw r0,#61920
+  92 0052 4FF2D610 	 movw r0,#61910
   93 0056 2022     	 movs r2,#32
   94 0058 FFF7FEFF 	 bl optiga_util_write_shared_key
   95              	.LVL5:

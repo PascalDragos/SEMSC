@@ -31,7 +31,7 @@
    5:../SEMS_Sources/Patcher.c **** #include "../SEMS_Headers/SymEncrypt.h"
    6:../SEMS_Sources/Patcher.c **** #include "../SEMS_Headers/Hash.h"
    7:../SEMS_Sources/Patcher.c **** #include "../SEMS_Headers/Nonce.h"
-   8:../SEMS_Sources/Patcher.c **** 
+   8:../SEMS_Sources/Patcher.c **** #include "../SEMS_Headers/Config.h"
    9:../SEMS_Sources/Patcher.c **** 
   10:../SEMS_Sources/Patcher.c **** 
   11:../SEMS_Sources/Patcher.c **** extern pal_logger_t logger_console;
@@ -154,8 +154,8 @@
   51:../SEMS_Sources/Patcher.c **** 				uint32_t received_user_token;
   52:../SEMS_Sources/Patcher.c **** 				uint8_t *received_user_nonce_start;
   53:../SEMS_Sources/Patcher.c **** 				uint8_t nonce[4];
-  54:../SEMS_Sources/Patcher.c **** 				uint16_t optiga_key_oid = 0xF1E0u;
-  55:../SEMS_Sources/Patcher.c **** 				uint16_t optiga_counter_oid = 0xE120u;
+  54:../SEMS_Sources/Patcher.c **** 				uint16_t optiga_key_oid = OPTIGA_SESKEY_OID;
+  55:../SEMS_Sources/Patcher.c **** 				uint16_t optiga_counter_oid = OPTIGA_NONCE_OID;
   56:../SEMS_Sources/Patcher.c **** 
   57:../SEMS_Sources/Patcher.c **** 				// Extract Hash
   58:../SEMS_Sources/Patcher.c **** 				received_digest_start = command + 24u;  // last 8 bytes of the SHA256(Ciphertext)
@@ -255,7 +255,7 @@
  127              	.LVL14:
   70:../SEMS_Sources/Patcher.c **** 
  128              	 .loc 1 70 0
- 129 005c 4FF2E010 	 movw r0,#61920
+ 129 005c 4FF2D610 	 movw r0,#61910
  130              	.LVL15:
  131 0060 FFF7FEFF 	 bl optiga_util_read_shared_key
  132              	.LVL16:
@@ -433,8 +433,8 @@
  144:../SEMS_Sources/Patcher.c **** 		uint8_t send_user_token[4];
  145:../SEMS_Sources/Patcher.c **** 		uint8_t calculated_digest[32];
  146:../SEMS_Sources/Patcher.c **** 		uint8_t key[32];
- 147:../SEMS_Sources/Patcher.c **** 		uint16_t optiga_key_oid = 0xF1E0u;
- 148:../SEMS_Sources/Patcher.c **** 		uint16_t optiga_counter_oid = 0xE120u;
+ 147:../SEMS_Sources/Patcher.c **** 		uint16_t optiga_key_oid = OPTIGA_SESKEY_OID;
+ 148:../SEMS_Sources/Patcher.c **** 		uint16_t optiga_counter_oid = OPTIGA_NONCE_OID;
  149:../SEMS_Sources/Patcher.c **** 
  150:../SEMS_Sources/Patcher.c **** 
  151:../SEMS_Sources/Patcher.c **** 
@@ -493,7 +493,7 @@
  290              	 .loc 1 156 0
  291 002e 2C0C     	 lsrs r4,r5,#16
  292              	 .loc 1 167 0
- 293 0030 4FF2E010 	 movw r0,#61920
+ 293 0030 4FF2D610 	 movw r0,#61910
  294 0034 2022     	 movs r2,#32
  157:../SEMS_Sources/Patcher.c **** 		send_user_token[3] = (user_token >>  0u) & 0xFFu;
  295              	 .loc 1 157 0

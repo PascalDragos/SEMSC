@@ -112,7 +112,8 @@ SEMS_Sources/Patcher.o SEMS_Sources/Patcher.d SEMS_Sources/Patcher.o: \
  ../SEMS_Sources/../SEMS_Headers/../SEMS_Headers/Constructor.h \
  ../SEMS_Sources/../SEMS_Headers/SymEncrypt.h \
  ../SEMS_Sources/../SEMS_Headers/Hash.h \
- ../SEMS_Sources/../SEMS_Headers/Nonce.h
+ ../SEMS_Sources/../SEMS_Headers/Nonce.h \
+ ../SEMS_Sources/../SEMS_Headers/Config.h
 
 D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/dave4/SEMS_Headers/Skey.h:
 
@@ -339,3 +340,5 @@ D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/op
 ../SEMS_Sources/../SEMS_Headers/Hash.h:
 
 ../SEMS_Sources/../SEMS_Headers/Nonce.h:
+
+../SEMS_Sources/../SEMS_Headers/Config.h:
