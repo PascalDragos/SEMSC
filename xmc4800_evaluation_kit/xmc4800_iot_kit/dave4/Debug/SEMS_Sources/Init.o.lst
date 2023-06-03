@@ -36,25 +36,42 @@
   29              	 .cfi_startproc
   30              	 
   31              	 
-  32              	 
-   9:../SEMS_Sources/Init.c **** 	start_cooldown_timer();
-  33              	 .loc 1 9 0
-  34 0000 FFF7FEBF 	 b start_cooldown_timer
-  35              	.LVL0:
-  36              	 .cfi_endproc
-  37              	.LFE454:
-  39              	 .text
-  40              	.Letext0:
-  41              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
-  42              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
-  43              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
-  44              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
-  45              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
-  46              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
-  47              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
-  48              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
-  49              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
-  50              	 .file 11 "../SEMS_Sources/../SEMS_Headers/Timer.h"
+  32 0000 08B5     	 push {r3,lr}
+  33              	.LCFI0:
+  34              	 .cfi_def_cfa_offset 8
+  35              	 .cfi_offset 3,-8
+  36              	 .cfi_offset 14,-4
+   9:../SEMS_Sources/Init.c **** 	example_optiga_init_true();
+  37              	 .loc 1 9 0
+  38 0002 FFF7FEFF 	 bl example_optiga_init_true
+  39              	.LVL0:
+  10:../SEMS_Sources/Init.c **** 	start_cooldown_timer();
+  11:../SEMS_Sources/Init.c **** }
+  40              	 .loc 1 11 0
+  41 0006 BDE80840 	 pop {r3,lr}
+  42              	.LCFI1:
+  43              	 .cfi_restore 14
+  44              	 .cfi_restore 3
+  45              	 .cfi_def_cfa_offset 0
+  10:../SEMS_Sources/Init.c **** 	start_cooldown_timer();
+  46              	 .loc 1 10 0
+  47 000a FFF7FEBF 	 b start_cooldown_timer
+  48              	.LVL1:
+  49              	 .cfi_endproc
+  50              	.LFE454:
+  52 000e 00BF     	 .text
+  53              	.Letext0:
+  54              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+  55              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+  56              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+  57              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+  58              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+  59              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+  60              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+  61              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+  62              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+  63              	 .file 11 "../SEMS_Sources/../SEMS_Headers/Util.h"
+  64              	 .file 12 "../SEMS_Sources/../SEMS_Headers/Timer.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 Init.c
     {standard input}:20     .text.init_SEMS:00000000 $t
@@ -62,4 +79,5 @@ DEFINED SYMBOLS
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
+example_optiga_init_true
 start_cooldown_timer

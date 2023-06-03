@@ -6,5 +6,6 @@
 
 void init_SEMS(void)
 {
+	example_optiga_init_true();
 	start_cooldown_timer();
 }

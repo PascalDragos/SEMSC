@@ -13,7 +13,7 @@
 
 extern void example_optiga_init(void);
 extern void example_optiga_deinit(void);
-
+extern void example_optiga_init_true(void);
 
 extern volatile optiga_lib_status_t optiga_lib_status;
 
