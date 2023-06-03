@@ -16,12 +16,12 @@
   16              	 .text
   17              	.Ltext0:
   18              	 .cfi_sections .debug_frame
-  19              	 .section .text.testing,"ax",%progbits
+  19              	 .section .text.test_write_read,"ax",%progbits
   20              	 .align 2
-  21              	 .global testing
+  21              	 .global test_write_read
   22              	 .thumb
   23              	 .thumb_func
-  25              	testing:
+  25              	test_write_read:
   26              	.LFB454:
   27              	 .file 1 "../SEMS_Sources/Test.c"
    1:../SEMS_Sources/Test.c **** #include <DAVE.h>
@@ -51,225 +51,429 @@
   25:../SEMS_Sources/Test.c **** #include "../SEMS_Headers/Util.h"
   26:../SEMS_Sources/Test.c **** 
   27:../SEMS_Sources/Test.c **** 
-  28:../SEMS_Sources/Test.c **** void testing(void)
-  29:../SEMS_Sources/Test.c **** {
-  28              	 .loc 1 29 0
+  28:../SEMS_Sources/Test.c **** 
+  29:../SEMS_Sources/Test.c **** uint8_t test_write_read(void)
+  30:../SEMS_Sources/Test.c **** {
+  28              	 .loc 1 30 0
   29              	 .cfi_startproc
   30              	 
   31              	 
-  32 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+  32 0000 2DE9F043 	 push {r4,r5,r6,r7,r8,r9,lr}
   33              	.LCFI0:
-  34              	 .cfi_def_cfa_offset 20
-  35              	 .cfi_offset 4,-20
-  36              	 .cfi_offset 5,-16
-  37              	 .cfi_offset 6,-12
-  38              	 .cfi_offset 7,-8
-  39              	 .cfi_offset 14,-4
-  40 0002 91B0     	 sub sp,sp,#68
-  41              	.LCFI1:
-  42              	 .cfi_def_cfa_offset 88
-  30:../SEMS_Sources/Test.c **** 
-  31:../SEMS_Sources/Test.c **** 	uint8_t key[32] = {0x01, 0x02, 0x03, 0x04};
-  43              	 .loc 1 31 0
-  44 0004 0023     	 movs r3,#0
-  45 0006 4FF0010E 	 mov lr,#1
-  32:../SEMS_Sources/Test.c **** 	uint8_t key2[32] = {0x09};
-  33:../SEMS_Sources/Test.c **** 	optiga_util_write_shared_key(OPTIGA_SESKEY_OID, key, sizeof(key));
-  46              	 .loc 1 33 0
-  47 000a 6946     	 mov r1,sp
-  31:../SEMS_Sources/Test.c **** 	uint8_t key2[32] = {0x09};
-  48              	 .loc 1 31 0
-  49 000c 0227     	 movs r7,#2
-  50 000e 0326     	 movs r6,#3
-  51 0010 0425     	 movs r5,#4
-  32:../SEMS_Sources/Test.c **** 	uint8_t key2[32] = {0x09};
-  52              	 .loc 1 32 0
-  53 0012 0924     	 movs r4,#9
-  54              	 .loc 1 33 0
-  55 0014 4FF2D610 	 movw r0,#61910
-  56 0018 2022     	 movs r2,#32
-  32:../SEMS_Sources/Test.c **** 	uint8_t key2[32] = {0x09};
-  57              	 .loc 1 32 0
-  58 001a 0893     	 str r3,[sp,#32]
-  31:../SEMS_Sources/Test.c **** 	uint8_t key2[32] = {0x09};
-  59              	 .loc 1 31 0
-  60 001c 0193     	 str r3,[sp,#4]
-  61 001e 0293     	 str r3,[sp,#8]
-  62 0020 0393     	 str r3,[sp,#12]
-  63 0022 0493     	 str r3,[sp,#16]
-  64 0024 0593     	 str r3,[sp,#20]
-  65 0026 0693     	 str r3,[sp,#24]
-  66 0028 0793     	 str r3,[sp,#28]
-  32:../SEMS_Sources/Test.c **** 	uint8_t key2[32] = {0x09};
-  67              	 .loc 1 32 0
-  68 002a 0993     	 str r3,[sp,#36]
-  69 002c 0A93     	 str r3,[sp,#40]
-  70 002e 0B93     	 str r3,[sp,#44]
-  71 0030 0C93     	 str r3,[sp,#48]
-  72 0032 0D93     	 str r3,[sp,#52]
-  73 0034 0E93     	 str r3,[sp,#56]
-  74 0036 0F93     	 str r3,[sp,#60]
-  31:../SEMS_Sources/Test.c **** 	uint8_t key2[32] = {0x09};
-  75              	 .loc 1 31 0
-  76 0038 8DF800E0 	 strb lr,[sp]
-  77 003c 8DF80170 	 strb r7,[sp,#1]
-  78 0040 8DF80260 	 strb r6,[sp,#2]
-  79 0044 8DF80350 	 strb r5,[sp,#3]
-  32:../SEMS_Sources/Test.c **** 	uint8_t key2[32] = {0x09};
-  80              	 .loc 1 32 0
-  81 0048 8DF82040 	 strb r4,[sp,#32]
-  82              	 .loc 1 33 0
-  83 004c FFF7FEFF 	 bl optiga_util_write_shared_key
-  84              	.LVL0:
-  34:../SEMS_Sources/Test.c **** 
-  35:../SEMS_Sources/Test.c **** 	optiga_util_read_shared_key(OPTIGA_SESKEY_OID, key2, sizeof(key2));
-  85              	 .loc 1 35 0
-  86 0050 4FF2D610 	 movw r0,#61910
-  87 0054 08A9     	 add r1,sp,#32
-  88 0056 2022     	 movs r2,#32
-  89 0058 FFF7FEFF 	 bl optiga_util_read_shared_key
-  90              	.LVL1:
-  36:../SEMS_Sources/Test.c **** 
-  37:../SEMS_Sources/Test.c **** 	key[3] = key[3];
-  38:../SEMS_Sources/Test.c **** }
-  91              	 .loc 1 38 0
-  92 005c 11B0     	 add sp,sp,#68
-  93              	.LCFI2:
-  94              	 .cfi_def_cfa_offset 20
-  95              	 
-  96 005e F0BD     	 pop {r4,r5,r6,r7,pc}
-  97              	 .cfi_endproc
-  98              	.LFE454:
- 100              	 .section .text.testing0,"ax",%progbits
- 101              	 .align 2
- 102              	 .global testing0
- 103              	 .thumb
- 104              	 .thumb_func
- 106              	testing0:
- 107              	.LFB455:
-  39:../SEMS_Sources/Test.c **** 
+  34              	 .cfi_def_cfa_offset 28
+  35              	 .cfi_offset 4,-28
+  36              	 .cfi_offset 5,-24
+  37              	 .cfi_offset 6,-20
+  38              	 .cfi_offset 7,-16
+  39              	 .cfi_offset 8,-12
+  40              	 .cfi_offset 9,-8
+  41              	 .cfi_offset 14,-4
+  42 0004 93B0     	 sub sp,sp,#76
+  43              	.LCFI1:
+  44              	 .cfi_def_cfa_offset 104
+  31:../SEMS_Sources/Test.c **** 	uint8_t passed = true;
+  45              	 .loc 1 31 0
+  46 0006 0122     	 movs r2,#1
+  32:../SEMS_Sources/Test.c **** 	uint8_t key_written[32] = {0};
+  47              	 .loc 1 32 0
+  48 0008 0023     	 movs r3,#0
+  33:../SEMS_Sources/Test.c **** 	uint8_t key_read[32] = {0};
+  34:../SEMS_Sources/Test.c **** 	uint8_t i = 0;
+  35:../SEMS_Sources/Test.c **** 
+  36:../SEMS_Sources/Test.c **** 	for(i = 0u; i < sizeof(key_written); i++)
+  37:../SEMS_Sources/Test.c **** 	{
+  38:../SEMS_Sources/Test.c **** 		key_written[i] = i;
+  49              	 .loc 1 38 0
+  50 000a DFF8A0C0 	 ldr ip,.L8+16
+  51 000e DFF8A0E0 	 ldr lr,.L8+20
+  52 0012 224C     	 ldr r4,.L8
+  31:../SEMS_Sources/Test.c **** 	uint8_t key_written[32] = {0};
+  53              	 .loc 1 31 0
+  54 0014 8DF80720 	 strb r2,[sp,#7]
+  39:../SEMS_Sources/Test.c **** 	}
   40:../SEMS_Sources/Test.c **** 
-  41:../SEMS_Sources/Test.c **** void testing0(void)
-  42:../SEMS_Sources/Test.c **** {
- 108              	 .loc 1 42 0
- 109              	 .cfi_startproc
- 110              	 
- 111              	 
- 112              	.LVL2:
- 113 0000 2DE9F043 	 push {r4,r5,r6,r7,r8,r9,lr}
- 114              	.LCFI3:
- 115              	 .cfi_def_cfa_offset 28
- 116              	 .cfi_offset 4,-28
- 117              	 .cfi_offset 5,-24
- 118              	 .cfi_offset 6,-20
- 119              	 .cfi_offset 7,-16
- 120              	 .cfi_offset 8,-12
- 121              	 .cfi_offset 9,-8
- 122              	 .cfi_offset 14,-4
-  43:../SEMS_Sources/Test.c **** 	uint8_t i = 0;
-  44:../SEMS_Sources/Test.c **** 	uint8_t data_to_hash[32] = {0};
-  45:../SEMS_Sources/Test.c **** 	uint8_t digest[32] = {0};
-  46:../SEMS_Sources/Test.c **** 	uint8_t res;
-  47:../SEMS_Sources/Test.c **** 	for(i = 0; i < sizeof(data_to_hash); ++i)
-  48:../SEMS_Sources/Test.c **** 	{
-  49:../SEMS_Sources/Test.c **** 		data_to_hash[i] = i;
-  50:../SEMS_Sources/Test.c **** 	}
-  51:../SEMS_Sources/Test.c **** 	optiga_crypt_hash_data_wrapper(data_to_hash, sizeof(data_to_hash), digest);
- 123              	 .loc 1 51 0
- 124 0004 2021     	 movs r1,#32
-  42:../SEMS_Sources/Test.c **** 	uint8_t i = 0;
- 125              	 .loc 1 42 0
- 126 0006 91B0     	 sub sp,sp,#68
- 127              	.LCFI4:
- 128              	 .cfi_def_cfa_offset 96
-  44:../SEMS_Sources/Test.c **** 	uint8_t digest[32] = {0};
- 129              	 .loc 1 44 0
- 130 0008 0023     	 movs r3,#0
-  49:../SEMS_Sources/Test.c **** 	}
- 131              	 .loc 1 49 0
- 132 000a DFF860C0 	 ldr ip,.L5+16
- 133 000e DFF860E0 	 ldr lr,.L5+20
- 134 0012 DFF86090 	 ldr r9,.L5+24
- 135 0016 DFF86080 	 ldr r8,.L5+28
- 136 001a 104F     	 ldr r7,.L5
- 137 001c 104E     	 ldr r6,.L5+4
- 138 001e 114D     	 ldr r5,.L5+8
- 139 0020 114C     	 ldr r4,.L5+12
-  45:../SEMS_Sources/Test.c **** 	uint8_t res;
- 140              	 .loc 1 45 0
- 141 0022 0893     	 str r3,[sp,#32]
- 142              	 .loc 1 51 0
- 143 0024 6846     	 mov r0,sp
- 144 0026 0DEB0102 	 add r2,sp,r1
-  45:../SEMS_Sources/Test.c **** 	uint8_t res;
- 145              	 .loc 1 45 0
- 146 002a 0993     	 str r3,[sp,#36]
- 147 002c 0A93     	 str r3,[sp,#40]
- 148 002e 0B93     	 str r3,[sp,#44]
- 149 0030 0C93     	 str r3,[sp,#48]
- 150 0032 0D93     	 str r3,[sp,#52]
- 151 0034 0E93     	 str r3,[sp,#56]
- 152 0036 0F93     	 str r3,[sp,#60]
- 153              	.LVL3:
-  49:../SEMS_Sources/Test.c **** 	}
- 154              	 .loc 1 49 0
- 155 0038 CDF80090 	 str r9,[sp]
- 156 003c CDF80480 	 str r8,[sp,#4]
- 157 0040 CDF808C0 	 str ip,[sp,#8]
- 158 0044 CDF80CE0 	 str lr,[sp,#12]
- 159 0048 0497     	 str r7,[sp,#16]
- 160 004a 0596     	 str r6,[sp,#20]
- 161 004c 0695     	 str r5,[sp,#24]
- 162 004e 0794     	 str r4,[sp,#28]
- 163              	 .loc 1 51 0
- 164 0050 FFF7FEFF 	 bl optiga_crypt_hash_data_wrapper
- 165              	.LVL4:
-  52:../SEMS_Sources/Test.c **** 	res = digest[1];
-  53:../SEMS_Sources/Test.c **** 	digest[1] = res;
-  54:../SEMS_Sources/Test.c **** }
- 166              	 .loc 1 54 0
- 167 0054 11B0     	 add sp,sp,#68
- 168              	.LCFI5:
- 169              	 .cfi_def_cfa_offset 28
- 170              	 
- 171 0056 BDE8F083 	 pop {r4,r5,r6,r7,r8,r9,pc}
- 172              	.LVL5:
- 173              	.L6:
- 174 005a 00BF     	 .align 2
- 175              	.L5:
- 176 005c 10111213 	 .word 319951120
- 177 0060 14151617 	 .word 387323156
- 178 0064 18191A1B 	 .word 454695192
- 179 0068 1C1D1E1F 	 .word 522067228
- 180 006c 08090A0B 	 .word 185207048
- 181 0070 0C0D0E0F 	 .word 252579084
- 182 0074 00010203 	 .word 50462976
- 183 0078 04050607 	 .word 117835012
- 184              	 .cfi_endproc
- 185              	.LFE455:
- 187              	 .text
- 188              	.Letext0:
- 189              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
- 190              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
- 191              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
- 192              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
- 193              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
- 194              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
- 195              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
- 196              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
- 197              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
- 198              	 .file 11 "../SEMS_Sources/../SEMS_Headers/Skey.h"
- 199              	 .file 12 "../SEMS_Sources/../SEMS_Headers/Hash.h"
+  41:../SEMS_Sources/Test.c **** 	// Write key
+  42:../SEMS_Sources/Test.c **** 	optiga_util_write_shared_key(OPTIGA_SESKEY_OID, key_written, sizeof(key_written));
+  55              	 .loc 1 42 0
+  56 0018 4FF2D610 	 movw r0,#61910
+  57 001c 02A9     	 add r1,sp,#8
+  58 001e 2022     	 movs r2,#32
+  38:../SEMS_Sources/Test.c **** 	}
+  59              	 .loc 1 38 0
+  60 0020 DFF89090 	 ldr r9,.L8+24
+  61 0024 DFF89080 	 ldr r8,.L8+28
+  62 0028 1D4F     	 ldr r7,.L8+4
+  63 002a 1E4E     	 ldr r6,.L8+8
+  64 002c 1E4D     	 ldr r5,.L8+12
+  33:../SEMS_Sources/Test.c **** 	uint8_t i = 0;
+  65              	 .loc 1 33 0
+  66 002e 0A93     	 str r3,[sp,#40]
+  67 0030 0B93     	 str r3,[sp,#44]
+  68 0032 0C93     	 str r3,[sp,#48]
+  69 0034 0D93     	 str r3,[sp,#52]
+  70 0036 0E93     	 str r3,[sp,#56]
+  71 0038 0F93     	 str r3,[sp,#60]
+  72 003a 1093     	 str r3,[sp,#64]
+  73 003c 1193     	 str r3,[sp,#68]
+  38:../SEMS_Sources/Test.c **** 	}
+  74              	 .loc 1 38 0
+  75 003e CDF810C0 	 str ip,[sp,#16]
+  76 0042 CDF814E0 	 str lr,[sp,#20]
+  77 0046 0994     	 str r4,[sp,#36]
+  78 0048 CDF80890 	 str r9,[sp,#8]
+  79 004c CDF80C80 	 str r8,[sp,#12]
+  80 0050 0697     	 str r7,[sp,#24]
+  81 0052 0796     	 str r6,[sp,#28]
+  82 0054 0895     	 str r5,[sp,#32]
+  83              	.LVL0:
+  84              	 .loc 1 42 0
+  85 0056 FFF7FEFF 	 bl optiga_util_write_shared_key
+  86              	.LVL1:
+  43:../SEMS_Sources/Test.c **** 	// Read key
+  44:../SEMS_Sources/Test.c **** 	optiga_util_read_shared_key(OPTIGA_SESKEY_OID, key_read, sizeof(key_read));
+  87              	 .loc 1 44 0
+  88 005a 2022     	 movs r2,#32
+  89 005c 4FF2D610 	 movw r0,#61910
+  90 0060 0AA9     	 add r1,sp,#40
+  91 0062 FFF7FEFF 	 bl optiga_util_read_shared_key
+  92              	.LVL2:
+  93 0066 0DF12702 	 add r2,sp,#39
+  94 006a 0DF10703 	 add r3,sp,#7
+  95 006e 1446     	 mov r4,r2
+  96 0070 01E0     	 b .L4
+  97              	.LVL3:
+  98              	.L2:
+  45:../SEMS_Sources/Test.c **** 
+  46:../SEMS_Sources/Test.c **** 	for(i = 0; i < sizeof(key_written); i++)
+  99              	 .loc 1 46 0 discriminator 2
+ 100 0072 A342     	 cmp r3,r4
+ 101 0074 08D0     	 beq .L3
+ 102              	.LVL4:
+ 103              	.L4:
+  47:../SEMS_Sources/Test.c **** 	{
+  48:../SEMS_Sources/Test.c **** 		if(key_written[i] != key_read[i])
+ 104              	 .loc 1 48 0
+ 105 0076 13F8010F 	 ldrb r0,[r3,#1]!
+ 106              	.LVL5:
+ 107 007a 12F8011F 	 ldrb r1,[r2,#1]!
+ 108 007e 8842     	 cmp r0,r1
+ 109 0080 F7D0     	 beq .L2
+  49:../SEMS_Sources/Test.c **** 		{
+  50:../SEMS_Sources/Test.c **** 			passed = false;
+ 110              	 .loc 1 50 0
+ 111 0082 0023     	 movs r3,#0
+ 112              	.LVL6:
+ 113 0084 8DF80730 	 strb r3,[sp,#7]
+ 114              	.L3:
+  51:../SEMS_Sources/Test.c **** 			break;
+  52:../SEMS_Sources/Test.c **** 		}
+  53:../SEMS_Sources/Test.c **** 	}
+  54:../SEMS_Sources/Test.c **** 	optiga_lib_print_bytes(&passed, 1);
+ 115              	 .loc 1 54 0
+ 116 0088 0DF10700 	 add r0,sp,#7
+ 117 008c 0121     	 movs r1,#1
+ 118 008e FFF7FEFF 	 bl optiga_lib_print_bytes
+ 119              	.LVL7:
+  55:../SEMS_Sources/Test.c **** 
+  56:../SEMS_Sources/Test.c **** 	return passed;
+  57:../SEMS_Sources/Test.c **** }
+ 120              	 .loc 1 57 0
+ 121 0092 9DF80700 	 ldrb r0,[sp,#7]
+ 122 0096 13B0     	 add sp,sp,#76
+ 123              	.LCFI2:
+ 124              	 .cfi_def_cfa_offset 28
+ 125              	 
+ 126 0098 BDE8F083 	 pop {r4,r5,r6,r7,r8,r9,pc}
+ 127              	.L9:
+ 128              	 .align 2
+ 129              	.L8:
+ 130 009c 1C1D1E1F 	 .word 522067228
+ 131 00a0 10111213 	 .word 319951120
+ 132 00a4 14151617 	 .word 387323156
+ 133 00a8 18191A1B 	 .word 454695192
+ 134 00ac 08090A0B 	 .word 185207048
+ 135 00b0 0C0D0E0F 	 .word 252579084
+ 136 00b4 00010203 	 .word 50462976
+ 137 00b8 04050607 	 .word 117835012
+ 138              	 .cfi_endproc
+ 139              	.LFE454:
+ 141              	 .section .text.testing0,"ax",%progbits
+ 142              	 .align 2
+ 143              	 .global testing0
+ 144              	 .thumb
+ 145              	 .thumb_func
+ 147              	testing0:
+ 148              	.LFB455:
+  58:../SEMS_Sources/Test.c **** 
+  59:../SEMS_Sources/Test.c **** 
+  60:../SEMS_Sources/Test.c **** void testing0(void)
+  61:../SEMS_Sources/Test.c **** {
+ 149              	 .loc 1 61 0
+ 150              	 .cfi_startproc
+ 151              	 
+ 152              	 
+ 153              	.LVL8:
+ 154 0000 2DE9F043 	 push {r4,r5,r6,r7,r8,r9,lr}
+ 155              	.LCFI3:
+ 156              	 .cfi_def_cfa_offset 28
+ 157              	 .cfi_offset 4,-28
+ 158              	 .cfi_offset 5,-24
+ 159              	 .cfi_offset 6,-20
+ 160              	 .cfi_offset 7,-16
+ 161              	 .cfi_offset 8,-12
+ 162              	 .cfi_offset 9,-8
+ 163              	 .cfi_offset 14,-4
+  62:../SEMS_Sources/Test.c **** 	uint8_t i = 0;
+  63:../SEMS_Sources/Test.c **** 	uint8_t data_to_hash[32] = {0};
+  64:../SEMS_Sources/Test.c **** 	uint8_t digest[32] = {0};
+  65:../SEMS_Sources/Test.c **** 	uint8_t res;
+  66:../SEMS_Sources/Test.c **** 	for(i = 0; i < sizeof(data_to_hash); ++i)
+  67:../SEMS_Sources/Test.c **** 	{
+  68:../SEMS_Sources/Test.c **** 		data_to_hash[i] = i;
+  69:../SEMS_Sources/Test.c **** 	}
+  70:../SEMS_Sources/Test.c **** 	optiga_crypt_hash_data_wrapper(data_to_hash, sizeof(data_to_hash), digest);
+ 164              	 .loc 1 70 0
+ 165 0004 2021     	 movs r1,#32
+  61:../SEMS_Sources/Test.c **** 	uint8_t i = 0;
+ 166              	 .loc 1 61 0
+ 167 0006 91B0     	 sub sp,sp,#68
+ 168              	.LCFI4:
+ 169              	 .cfi_def_cfa_offset 96
+  63:../SEMS_Sources/Test.c **** 	uint8_t digest[32] = {0};
+ 170              	 .loc 1 63 0
+ 171 0008 0023     	 movs r3,#0
+  68:../SEMS_Sources/Test.c **** 	}
+ 172              	 .loc 1 68 0
+ 173 000a DFF860C0 	 ldr ip,.L12+16
+ 174 000e DFF860E0 	 ldr lr,.L12+20
+ 175 0012 DFF86090 	 ldr r9,.L12+24
+ 176 0016 DFF86080 	 ldr r8,.L12+28
+ 177 001a 104F     	 ldr r7,.L12
+ 178 001c 104E     	 ldr r6,.L12+4
+ 179 001e 114D     	 ldr r5,.L12+8
+ 180 0020 114C     	 ldr r4,.L12+12
+  64:../SEMS_Sources/Test.c **** 	uint8_t res;
+ 181              	 .loc 1 64 0
+ 182 0022 0893     	 str r3,[sp,#32]
+ 183              	 .loc 1 70 0
+ 184 0024 6846     	 mov r0,sp
+ 185 0026 0DEB0102 	 add r2,sp,r1
+  64:../SEMS_Sources/Test.c **** 	uint8_t res;
+ 186              	 .loc 1 64 0
+ 187 002a 0993     	 str r3,[sp,#36]
+ 188 002c 0A93     	 str r3,[sp,#40]
+ 189 002e 0B93     	 str r3,[sp,#44]
+ 190 0030 0C93     	 str r3,[sp,#48]
+ 191 0032 0D93     	 str r3,[sp,#52]
+ 192 0034 0E93     	 str r3,[sp,#56]
+ 193 0036 0F93     	 str r3,[sp,#60]
+ 194              	.LVL9:
+  68:../SEMS_Sources/Test.c **** 	}
+ 195              	 .loc 1 68 0
+ 196 0038 CDF80090 	 str r9,[sp]
+ 197 003c CDF80480 	 str r8,[sp,#4]
+ 198 0040 CDF808C0 	 str ip,[sp,#8]
+ 199 0044 CDF80CE0 	 str lr,[sp,#12]
+ 200 0048 0497     	 str r7,[sp,#16]
+ 201 004a 0596     	 str r6,[sp,#20]
+ 202 004c 0695     	 str r5,[sp,#24]
+ 203 004e 0794     	 str r4,[sp,#28]
+ 204              	 .loc 1 70 0
+ 205 0050 FFF7FEFF 	 bl optiga_crypt_hash_data_wrapper
+ 206              	.LVL10:
+  71:../SEMS_Sources/Test.c **** 	res = digest[1];
+  72:../SEMS_Sources/Test.c **** 	digest[1] = res;
+  73:../SEMS_Sources/Test.c **** }
+ 207              	 .loc 1 73 0
+ 208 0054 11B0     	 add sp,sp,#68
+ 209              	.LCFI5:
+ 210              	 .cfi_def_cfa_offset 28
+ 211              	 
+ 212 0056 BDE8F083 	 pop {r4,r5,r6,r7,r8,r9,pc}
+ 213              	.LVL11:
+ 214              	.L13:
+ 215 005a 00BF     	 .align 2
+ 216              	.L12:
+ 217 005c 10111213 	 .word 319951120
+ 218 0060 14151617 	 .word 387323156
+ 219 0064 18191A1B 	 .word 454695192
+ 220 0068 1C1D1E1F 	 .word 522067228
+ 221 006c 08090A0B 	 .word 185207048
+ 222 0070 0C0D0E0F 	 .word 252579084
+ 223 0074 00010203 	 .word 50462976
+ 224 0078 04050607 	 .word 117835012
+ 225              	 .cfi_endproc
+ 226              	.LFE455:
+ 228              	 .section .text.test,"ax",%progbits
+ 229              	 .align 2
+ 230              	 .global test
+ 231              	 .thumb
+ 232              	 .thumb_func
+ 234              	test:
+ 235              	.LFB456:
+  74:../SEMS_Sources/Test.c **** 
+  75:../SEMS_Sources/Test.c **** void test(void)
+  76:../SEMS_Sources/Test.c **** {
+ 236              	 .loc 1 76 0
+ 237              	 .cfi_startproc
+ 238              	 
+ 239              	 
+ 240 0000 2DE9F043 	 push {r4,r5,r6,r7,r8,r9,lr}
+ 241              	.LCFI6:
+ 242              	 .cfi_def_cfa_offset 28
+ 243              	 .cfi_offset 4,-28
+ 244              	 .cfi_offset 5,-24
+ 245              	 .cfi_offset 6,-20
+ 246              	 .cfi_offset 7,-16
+ 247              	 .cfi_offset 8,-12
+ 248              	 .cfi_offset 9,-8
+ 249              	 .cfi_offset 14,-4
+ 250 0004 93B0     	 sub sp,sp,#76
+ 251              	.LCFI7:
+ 252              	 .cfi_def_cfa_offset 104
+ 253              	.LBB4:
+ 254              	.LBB5:
+  31:../SEMS_Sources/Test.c **** 	uint8_t key_written[32] = {0};
+ 255              	 .loc 1 31 0
+ 256 0006 0122     	 movs r2,#1
+  32:../SEMS_Sources/Test.c **** 	uint8_t key_read[32] = {0};
+ 257              	 .loc 1 32 0
+ 258 0008 0023     	 movs r3,#0
+  38:../SEMS_Sources/Test.c **** 	}
+ 259              	 .loc 1 38 0
+ 260 000a DFF89CC0 	 ldr ip,.L20+16
+ 261 000e DFF89CE0 	 ldr lr,.L20+20
+ 262 0012 214C     	 ldr r4,.L20
+  31:../SEMS_Sources/Test.c **** 	uint8_t key_written[32] = {0};
+ 263              	 .loc 1 31 0
+ 264 0014 8DF80720 	 strb r2,[sp,#7]
+  42:../SEMS_Sources/Test.c **** 	// Read key
+ 265              	 .loc 1 42 0
+ 266 0018 4FF2D610 	 movw r0,#61910
+ 267 001c 02A9     	 add r1,sp,#8
+ 268 001e 2022     	 movs r2,#32
+  38:../SEMS_Sources/Test.c **** 	}
+ 269              	 .loc 1 38 0
+ 270 0020 DFF88C90 	 ldr r9,.L20+24
+ 271 0024 DFF88C80 	 ldr r8,.L20+28
+ 272 0028 1C4F     	 ldr r7,.L20+4
+ 273 002a 1D4E     	 ldr r6,.L20+8
+ 274 002c 1D4D     	 ldr r5,.L20+12
+  33:../SEMS_Sources/Test.c **** 	uint8_t i = 0;
+ 275              	 .loc 1 33 0
+ 276 002e 0A93     	 str r3,[sp,#40]
+ 277 0030 0B93     	 str r3,[sp,#44]
+ 278 0032 0C93     	 str r3,[sp,#48]
+ 279 0034 0D93     	 str r3,[sp,#52]
+ 280 0036 0E93     	 str r3,[sp,#56]
+ 281 0038 0F93     	 str r3,[sp,#60]
+ 282 003a 1093     	 str r3,[sp,#64]
+ 283 003c 1193     	 str r3,[sp,#68]
+  38:../SEMS_Sources/Test.c **** 	}
+ 284              	 .loc 1 38 0
+ 285 003e CDF810C0 	 str ip,[sp,#16]
+ 286 0042 CDF814E0 	 str lr,[sp,#20]
+ 287 0046 0994     	 str r4,[sp,#36]
+ 288 0048 CDF80890 	 str r9,[sp,#8]
+ 289 004c CDF80C80 	 str r8,[sp,#12]
+ 290 0050 0697     	 str r7,[sp,#24]
+ 291 0052 0796     	 str r6,[sp,#28]
+ 292 0054 0895     	 str r5,[sp,#32]
+ 293              	.LVL12:
+  42:../SEMS_Sources/Test.c **** 	// Read key
+ 294              	 .loc 1 42 0
+ 295 0056 FFF7FEFF 	 bl optiga_util_write_shared_key
+ 296              	.LVL13:
+  44:../SEMS_Sources/Test.c **** 
+ 297              	 .loc 1 44 0
+ 298 005a 2022     	 movs r2,#32
+ 299 005c 4FF2D610 	 movw r0,#61910
+ 300 0060 0AA9     	 add r1,sp,#40
+ 301 0062 FFF7FEFF 	 bl optiga_util_read_shared_key
+ 302              	.LVL14:
+ 303 0066 0DF12702 	 add r2,sp,#39
+ 304 006a 0DF10703 	 add r3,sp,#7
+ 305 006e 1446     	 mov r4,r2
+ 306 0070 01E0     	 b .L17
+ 307              	.LVL15:
+ 308              	.L15:
+  46:../SEMS_Sources/Test.c **** 	{
+ 309              	 .loc 1 46 0
+ 310 0072 A342     	 cmp r3,r4
+ 311 0074 08D0     	 beq .L16
+ 312              	.LVL16:
+ 313              	.L17:
+  48:../SEMS_Sources/Test.c **** 		{
+ 314              	 .loc 1 48 0
+ 315 0076 13F8010F 	 ldrb r0,[r3,#1]!
+ 316              	.LVL17:
+ 317 007a 12F8011F 	 ldrb r1,[r2,#1]!
+ 318 007e 8842     	 cmp r0,r1
+ 319 0080 F7D0     	 beq .L15
+  50:../SEMS_Sources/Test.c **** 			break;
+ 320              	 .loc 1 50 0
+ 321 0082 0023     	 movs r3,#0
+ 322              	.LVL18:
+ 323 0084 8DF80730 	 strb r3,[sp,#7]
+ 324              	.L16:
+  54:../SEMS_Sources/Test.c **** 
+ 325              	 .loc 1 54 0
+ 326 0088 0DF10700 	 add r0,sp,#7
+ 327 008c 0121     	 movs r1,#1
+ 328 008e FFF7FEFF 	 bl optiga_lib_print_bytes
+ 329              	.LVL19:
+ 330              	.LBE5:
+ 331              	.LBE4:
+  77:../SEMS_Sources/Test.c **** 	test_write_read();
+  78:../SEMS_Sources/Test.c **** }
+ 332              	 .loc 1 78 0
+ 333 0092 13B0     	 add sp,sp,#76
+ 334              	.LCFI8:
+ 335              	 .cfi_def_cfa_offset 28
+ 336              	 
+ 337 0094 BDE8F083 	 pop {r4,r5,r6,r7,r8,r9,pc}
+ 338              	.L21:
+ 339              	 .align 2
+ 340              	.L20:
+ 341 0098 1C1D1E1F 	 .word 522067228
+ 342 009c 10111213 	 .word 319951120
+ 343 00a0 14151617 	 .word 387323156
+ 344 00a4 18191A1B 	 .word 454695192
+ 345 00a8 08090A0B 	 .word 185207048
+ 346 00ac 0C0D0E0F 	 .word 252579084
+ 347 00b0 00010203 	 .word 50462976
+ 348 00b4 04050607 	 .word 117835012
+ 349              	 .cfi_endproc
+ 350              	.LFE456:
+ 352              	 .text
+ 353              	.Letext0:
+ 354              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 355              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 356              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 357              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+ 358              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+ 359              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+ 360              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+ 361              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+ 362              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+ 363              	 .file 11 "../SEMS_Sources/../SEMS_Headers/Skey.h"
+ 364              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_logger.h"
+ 365              	 .file 13 "../SEMS_Sources/../SEMS_Headers/Hash.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 Test.c
-    {standard input}:20     .text.testing:00000000 $t
-    {standard input}:25     .text.testing:00000000 testing
-    {standard input}:101    .text.testing0:00000000 $t
-    {standard input}:106    .text.testing0:00000000 testing0
-    {standard input}:176    .text.testing0:0000005c $d
+    {standard input}:20     .text.test_write_read:00000000 $t
+    {standard input}:25     .text.test_write_read:00000000 test_write_read
+    {standard input}:130    .text.test_write_read:0000009c $d
+    {standard input}:142    .text.testing0:00000000 $t
+    {standard input}:147    .text.testing0:00000000 testing0
+    {standard input}:217    .text.testing0:0000005c $d
+    {standard input}:229    .text.test:00000000 $t
+    {standard input}:234    .text.test:00000000 test
+    {standard input}:341    .text.test:00000098 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
 optiga_util_write_shared_key
 optiga_util_read_shared_key
+optiga_lib_print_bytes
 optiga_crypt_hash_data_wrapper

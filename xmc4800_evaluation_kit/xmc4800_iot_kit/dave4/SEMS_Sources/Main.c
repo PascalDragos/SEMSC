@@ -41,7 +41,7 @@ void my_optiga_shell_begin(void)
 	uint8_t is_testing = true;
 	while(is_testing)
 	{
-		testing();
+		test_write_read();
 	}
 #endif
 

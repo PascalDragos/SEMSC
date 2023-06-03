@@ -25,16 +25,35 @@
 #include "../SEMS_Headers/Util.h"
 
 
-void testing(void)
+
+uint8_t test_write_read(void)
 {
+	uint8_t passed = true;
+	uint8_t key_written[32] = {0};
+	uint8_t key_read[32] = {0};
+	uint8_t i = 0;
 
-	uint8_t key[32] = {0x01, 0x02, 0x03, 0x04};
-	uint8_t key2[32] = {0x09};
-	optiga_util_write_shared_key(OPTIGA_SESKEY_OID, key, sizeof(key));
+	for(i = 0u; i < sizeof(key_written); i++)
+	{
+		key_written[i] = i;
+	}
 
-	optiga_util_read_shared_key(OPTIGA_SESKEY_OID, key2, sizeof(key2));
+	// Write key
+	optiga_util_write_shared_key(OPTIGA_SESKEY_OID, key_written, sizeof(key_written));
+	// Read key
+	optiga_util_read_shared_key(OPTIGA_SESKEY_OID, key_read, sizeof(key_read));
 
-	key[3] = key[3];
+	for(i = 0; i < sizeof(key_written); i++)
+	{
+		if(key_written[i] != key_read[i])
+		{
+			passed = false;
+			break;
+		}
+	}
+	optiga_lib_print_bytes(&passed, 1);
+
+	return passed;
 }
 
 
@@ -52,3 +71,9 @@ void testing0(void)
 	res = digest[1];
 	digest[1] = res;
 }
+
+void test(void)
+{
+	test_write_read();
+}
+

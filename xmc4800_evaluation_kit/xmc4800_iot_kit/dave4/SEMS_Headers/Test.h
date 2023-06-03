@@ -4,6 +4,7 @@
 
 #include "Dave.h"
 
-void testing(void);
+void test(void);
+uint8_t test_write_read(void);
 
 #endif

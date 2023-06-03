@@ -3223,19 +3223,21 @@ Discarded input sections
  .text          0x00000000        0x0 ./SEMS_Sources/Test.o
  .data          0x00000000        0x0 ./SEMS_Sources/Test.o
  .bss           0x00000000        0x0 ./SEMS_Sources/Test.o
- .text.testing  0x00000000       0x60 ./SEMS_Sources/Test.o
+ .text.test_write_read
+                0x00000000       0xbc ./SEMS_Sources/Test.o
  .text.testing0
                 0x00000000       0x7c ./SEMS_Sources/Test.o
- .debug_info    0x00000000     0x1796 ./SEMS_Sources/Test.o
- .debug_abbrev  0x00000000      0x297 ./SEMS_Sources/Test.o
- .debug_loc     0x00000000       0xa6 ./SEMS_Sources/Test.o
+ .text.test     0x00000000       0xb8 ./SEMS_Sources/Test.o
+ .debug_info    0x00000000     0x18ba ./SEMS_Sources/Test.o
+ .debug_abbrev  0x00000000      0x2f3 ./SEMS_Sources/Test.o
+ .debug_loc     0x00000000      0x129 ./SEMS_Sources/Test.o
  .debug_aranges
-                0x00000000       0x28 ./SEMS_Sources/Test.o
- .debug_ranges  0x00000000       0x18 ./SEMS_Sources/Test.o
- .debug_line    0x00000000      0x374 ./SEMS_Sources/Test.o
- .debug_str     0x00000000     0x1426 ./SEMS_Sources/Test.o
+                0x00000000       0x30 ./SEMS_Sources/Test.o
+ .debug_ranges  0x00000000       0x20 ./SEMS_Sources/Test.o
+ .debug_line    0x00000000      0x418 ./SEMS_Sources/Test.o
+ .debug_str     0x00000000     0x1461 ./SEMS_Sources/Test.o
  .comment       0x00000000       0x71 ./SEMS_Sources/Test.o
- .debug_frame   0x00000000       0x68 ./SEMS_Sources/Test.o
+ .debug_frame   0x00000000       0xa0 ./SEMS_Sources/Test.o
  .ARM.attributes
                 0x00000000       0x37 ./SEMS_Sources/Test.o
  .text          0x00000000        0x0 ./SEMS_Sources/Timer.o

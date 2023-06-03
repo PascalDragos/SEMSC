@@ -95,7 +95,7 @@
   41:../SEMS_Sources/Main.c **** 	uint8_t is_testing = true;
   42:../SEMS_Sources/Main.c **** 	while(is_testing)
   43:../SEMS_Sources/Main.c **** 	{
-  44:../SEMS_Sources/Main.c **** 		testing();
+  44:../SEMS_Sources/Main.c **** 		test_write_read();
   45:../SEMS_Sources/Main.c **** 	}
   46:../SEMS_Sources/Main.c **** #endif
   47:../SEMS_Sources/Main.c **** 
