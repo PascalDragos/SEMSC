@@ -2992,20 +2992,45 @@ Discarded input sections
  .data          0x00000000        0x0 ./SEMS_Sources/Test.o
  .bss           0x00000000        0x0 ./SEMS_Sources/Test.o
  .text.test_write_read
-                0x00000000       0xbc ./SEMS_Sources/Test.o
- .text.testing0
+                0x00000000       0x88 ./SEMS_Sources/Test.o
+ .text.test_time_write_read
+                0x00000000       0xf0 ./SEMS_Sources/Test.o
+ .text.test_time_read_session_key
+                0x00000000       0x84 ./SEMS_Sources/Test.o
+ .text.test_time_write_session_key
+                0x00000000       0x84 ./SEMS_Sources/Test.o
+ .text.test_time_random_generate
                 0x00000000       0x7c ./SEMS_Sources/Test.o
- .text.test     0x00000000       0xb8 ./SEMS_Sources/Test.o
- .debug_info    0x00000000     0x18ba ./SEMS_Sources/Test.o
- .debug_abbrev  0x00000000      0x2f3 ./SEMS_Sources/Test.o
- .debug_loc     0x00000000      0x129 ./SEMS_Sources/Test.o
+ .text.test_time_hash
+                0x00000000       0x90 ./SEMS_Sources/Test.o
+ .text.test_time_stream_encrypt
+                0x00000000       0x90 ./SEMS_Sources/Test.o
+ .text.test_time_rsa_verify
+                0x00000000       0x88 ./SEMS_Sources/Test.o
+ .text.test_time_rsa_encrypt
+                0x00000000       0x98 ./SEMS_Sources/Test.o
+ .text.test_time_read_nonce
+                0x00000000       0x78 ./SEMS_Sources/Test.o
+ .text.test_time_update_nonce
+                0x00000000       0x70 ./SEMS_Sources/Test.o
+ .text.test_time_init
+                0x00000000       0x64 ./SEMS_Sources/Test.o
+ .text.test_time
+                0x00000000       0x90 ./SEMS_Sources/Test.o
+ .text.testing0
+                0x00000000       0x44 ./SEMS_Sources/Test.o
+ .bss.n_times   0x00000000        0x4 ./SEMS_Sources/Test.o
+ .bss.one_time  0x00000000        0x4 ./SEMS_Sources/Test.o
+ .debug_info    0x00000000     0x28c0 ./SEMS_Sources/Test.o
+ .debug_abbrev  0x00000000      0x3ef ./SEMS_Sources/Test.o
+ .debug_loc     0x00000000      0x784 ./SEMS_Sources/Test.o
  .debug_aranges
-                0x00000000       0x30 ./SEMS_Sources/Test.o
- .debug_ranges  0x00000000       0x20 ./SEMS_Sources/Test.o
- .debug_line    0x00000000      0x418 ./SEMS_Sources/Test.o
- .debug_str     0x00000000     0x1461 ./SEMS_Sources/Test.o
+                0x00000000       0x88 ./SEMS_Sources/Test.o
+ .debug_ranges  0x00000000       0x78 ./SEMS_Sources/Test.o
+ .debug_line    0x00000000      0x788 ./SEMS_Sources/Test.o
+ .debug_str     0x00000000     0x1804 ./SEMS_Sources/Test.o
  .comment       0x00000000       0x71 ./SEMS_Sources/Test.o
- .debug_frame   0x00000000       0xa0 ./SEMS_Sources/Test.o
+ .debug_frame   0x00000000      0x210 ./SEMS_Sources/Test.o
  .ARM.attributes
                 0x00000000       0x37 ./SEMS_Sources/Test.o
  .text          0x00000000        0x0 ./SEMS_Sources/Timer.o
