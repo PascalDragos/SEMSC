@@ -6315,4 +6315,4 @@ ETH_RAM         0x20000e00        0x0
                 0x00001608       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-strcmp.o)
  .ARM.attributes
                 0x00001628       0x32 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-reent.o)
-OUTPUT(xmc4800_optiga_example.elf elf32-littlearm)
+OUTPUT(SEMS.elf elf32-littlearm)

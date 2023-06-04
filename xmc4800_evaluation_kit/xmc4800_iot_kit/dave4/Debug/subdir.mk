@@ -10,7 +10,7 @@ OBJS += \
 ./main_xmc4800_example.o 
 
 C_DEPS += \
-./main_xmc4800_example.d 
+./main.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

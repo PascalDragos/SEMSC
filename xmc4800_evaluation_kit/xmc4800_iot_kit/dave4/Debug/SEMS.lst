@@ -1,5 +1,5 @@
 
-xmc4800_optiga_example.elf:     file format elf32-littlearm
+SEMS.elf:     file format elf32-littlearm
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
