@@ -21,7 +21,7 @@
   21              	 .thumb
   22              	 .thumb_func
   24              	optiga_crypt_callback:
-  25              	.LFB6:
+  25              	.LFB1:
   26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/example_optiga_crypt_rsa_sign.c"
    1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_sign.c **** /**
    2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_sign.c **** * \copyright
@@ -94,14 +94,14 @@
   39              	.L2:
   40 0008 00000000 	 .word .LANCHOR0
   41              	 .cfi_endproc
-  42              	.LFE6:
+  42              	.LFE1:
   44              	 .section .text.example_optiga_crypt_rsa_sign,"ax",%progbits
   45              	 .align 2
   46              	 .global example_optiga_crypt_rsa_sign
   47              	 .thumb
   48              	 .thumb_func
   50              	example_optiga_crypt_rsa_sign:
-  51              	.LFB7:
+  51              	.LFB2:
   57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_sign.c ****     if (NULL != context)
   58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_sign.c ****     {
   59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_sign.c ****         // callback to upper layer here
@@ -364,7 +364,7 @@
  199 00ac 00000000 	 .word .LC0
  200 00b0 00000000 	 .word performance_buffer_string
  201              	 .cfi_endproc
- 202              	.LFE7:
+ 202              	.LFE2:
  204              	 .section .rodata.digest,"a",%progbits
  205              	 .align 2
  206              	 .set .LANCHOR1,.+0

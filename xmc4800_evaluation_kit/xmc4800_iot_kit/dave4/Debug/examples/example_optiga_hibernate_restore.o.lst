@@ -21,7 +21,7 @@
   21              	 .thumb
   22              	 .thumb_func
   24              	optiga_lib_callback:
-  25              	.LFB6:
+  25              	.LFB1:
   26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases/example_optiga_hibernate_restore.c"
    1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** /**
    2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c **** * \copyright
@@ -94,14 +94,14 @@
   39              	.L2:
   40 0008 00000000 	 .word .LANCHOR0
   41              	 .cfi_endproc
-  42              	.LFE6:
+  42              	.LFE1:
   44              	 .section .text.example_optiga_util_hibernate_restore,"ax",%progbits
   45              	 .align 2
   46              	 .global example_optiga_util_hibernate_restore
   47              	 .thumb
   48              	 .thumb_func
   50              	example_optiga_util_hibernate_restore:
-  51              	.LFB7:
+  51              	.LFB2:
   57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     if (NULL != context)
   58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****     {
   59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/usecases\example_optiga_hibernate_restore.c ****         // callback to upper layer here
@@ -808,7 +808,7 @@
  463 0214 00000000 	 .word .LANCHOR0
  464 0218 00000000 	 .word .LANCHOR1
  465              	 .cfi_endproc
- 466              	.LFE7:
+ 466              	.LFE2:
  468              	 .section .rodata.digest,"a",%progbits
  469              	 .align 2
  470              	 .set .LANCHOR1,.+0

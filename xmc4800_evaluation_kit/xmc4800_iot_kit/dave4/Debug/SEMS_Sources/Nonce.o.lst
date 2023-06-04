@@ -22,7 +22,7 @@
   22              	 .thumb
   23              	 .thumb_func
   25              	optiga_util_read_nonce:
-  26              	.LFB454:
+  26              	.LFB449:
   27              	 .file 1 "../SEMS_Sources/Nonce.c"
    1:../SEMS_Sources/Nonce.c **** #include "../SEMS_Headers/Nonce.h"
    2:../SEMS_Sources/Nonce.c **** 
@@ -175,14 +175,14 @@
  128              	.L13:
  129 005c 00000000 	 .word optiga_lib_status
  130              	 .cfi_endproc
- 131              	.LFE454:
+ 131              	.LFE449:
  133              	 .section .text.optiga_util_update_count_wrapper,"ax",%progbits
  134              	 .align 2
  135              	 .global optiga_util_update_count_wrapper
  136              	 .thumb
  137              	 .thumb_func
  139              	optiga_util_update_count_wrapper:
- 140              	.LFB455:
+ 140              	.LFB450:
   42:../SEMS_Sources/Nonce.c **** 
   43:../SEMS_Sources/Nonce.c **** 
   44:../SEMS_Sources/Nonce.c **** void optiga_util_update_count_wrapper(uint16_t optiga_counter_oid, uint8_t ticks)
@@ -347,14 +347,14 @@
  256              	.L25:
  257 005c 00000000 	 .word optiga_lib_status
  258              	 .cfi_endproc
- 259              	.LFE455:
+ 259              	.LFE450:
  261              	 .section .text.optiga_util_reset_count,"ax",%progbits
  262              	 .align 2
  263              	 .global optiga_util_reset_count
  264              	 .thumb
  265              	 .thumb_func
  267              	optiga_util_reset_count:
- 268              	.LFB456:
+ 268              	.LFB451:
   79:../SEMS_Sources/Nonce.c **** 
   80:../SEMS_Sources/Nonce.c **** 
   81:../SEMS_Sources/Nonce.c **** void optiga_util_reset_count(uint16_t optiga_counter_oid)
@@ -526,7 +526,7 @@
  380 0064 00000000 	 .word .LANCHOR0
  381 0068 00000000 	 .word optiga_lib_status
  382              	 .cfi_endproc
- 383              	.LFE456:
+ 383              	.LFE451:
  385              	 .section .rodata
  386              	 .align 2
  387              	 .set .LANCHOR0,.+0

@@ -1966,71 +1966,33 @@ Discarded input sections
  .data          0x00000000        0x0 ./lib/optiga/crypt/optiga_crypt.o
  .bss           0x00000000        0x0 ./lib/optiga/crypt/optiga_crypt.o
  .text.optiga_crypt_hash_start
-                0x00000000       0x84 ./lib/optiga/crypt/optiga_crypt.o
+                0x00000000       0x7c ./lib/optiga/crypt/optiga_crypt.o
  .text.optiga_crypt_hash_update
-                0x00000000       0xa4 ./lib/optiga/crypt/optiga_crypt.o
+                0x00000000       0xa0 ./lib/optiga/crypt/optiga_crypt.o
  .text.optiga_crypt_hash_finalize
-                0x00000000       0x90 ./lib/optiga/crypt/optiga_crypt.o
+                0x00000000       0x88 ./lib/optiga/crypt/optiga_crypt.o
  .text.optiga_crypt_ecc_generate_keypair
-                0x00000000       0x9c ./lib/optiga/crypt/optiga_crypt.o
+                0x00000000       0x98 ./lib/optiga/crypt/optiga_crypt.o
  .text.optiga_crypt_ecdsa_sign
-                0x00000000       0x94 ./lib/optiga/crypt/optiga_crypt.o
+                0x00000000       0x8c ./lib/optiga/crypt/optiga_crypt.o
  .text.optiga_crypt_ecdsa_verify
-                0x00000000       0xa4 ./lib/optiga/crypt/optiga_crypt.o
+                0x00000000       0xa0 ./lib/optiga/crypt/optiga_crypt.o
  .text.optiga_crypt_ecdh
-                0x00000000       0x90 ./lib/optiga/crypt/optiga_crypt.o
+                0x00000000       0x8c ./lib/optiga/crypt/optiga_crypt.o
  .text.optiga_crypt_tls_prf
-                0x00000000       0xec ./lib/optiga/crypt/optiga_crypt.o
+                0x00000000       0xe0 ./lib/optiga/crypt/optiga_crypt.o
  .text.optiga_crypt_rsa_generate_keypair
-                0x00000000       0x9c ./lib/optiga/crypt/optiga_crypt.o
+                0x00000000       0x98 ./lib/optiga/crypt/optiga_crypt.o
  .text.optiga_crypt_rsa_sign
-                0x00000000       0x98 ./lib/optiga/crypt/optiga_crypt.o
+                0x00000000       0x94 ./lib/optiga/crypt/optiga_crypt.o
  .text.optiga_crypt_rsa_encrypt_session
-                0x00000000       0x98 ./lib/optiga/crypt/optiga_crypt.o
+                0x00000000       0x94 ./lib/optiga/crypt/optiga_crypt.o
  .text.optiga_crypt_rsa_decrypt_and_export
-                0x00000000       0xa8 ./lib/optiga/crypt/optiga_crypt.o
+                0x00000000       0xa4 ./lib/optiga/crypt/optiga_crypt.o
  .text.optiga_crypt_rsa_decrypt_and_store
                 0x00000000       0x94 ./lib/optiga/crypt/optiga_crypt.o
  .text.optiga_crypt_rsa_generate_pre_master_secret
-                0x00000000       0x90 ./lib/optiga/crypt/optiga_crypt.o
- .text.optiga_crypt_symmetric_encrypt
-                0x00000000       0xd8 ./lib/optiga/crypt/optiga_crypt.o
- .text.optiga_crypt_symmetric_encrypt_start
-                0x00000000       0xe4 ./lib/optiga/crypt/optiga_crypt.o
- .text.optiga_crypt_symmetric_encrypt_continue
                 0x00000000       0x8c ./lib/optiga/crypt/optiga_crypt.o
- .text.optiga_crypt_symmetric_encrypt_final
-                0x00000000       0x84 ./lib/optiga/crypt/optiga_crypt.o
- .text.optiga_crypt_symmetric_encrypt_ecb
-                0x00000000       0xc4 ./lib/optiga/crypt/optiga_crypt.o
- .text.optiga_crypt_symmetric_decrypt
-                0x00000000       0xd8 ./lib/optiga/crypt/optiga_crypt.o
- .text.optiga_crypt_symmetric_decrypt_ecb
-                0x00000000       0xc4 ./lib/optiga/crypt/optiga_crypt.o
- .text.optiga_crypt_symmetric_decrypt_start
-                0x00000000       0xdc ./lib/optiga/crypt/optiga_crypt.o
- .text.optiga_crypt_symmetric_decrypt_continue
-                0x00000000       0x84 ./lib/optiga/crypt/optiga_crypt.o
- .text.optiga_crypt_symmetric_decrypt_final
-                0x00000000       0x84 ./lib/optiga/crypt/optiga_crypt.o
- .text.optiga_crypt_hmac
-                0x00000000       0xcc ./lib/optiga/crypt/optiga_crypt.o
- .text.optiga_crypt_hmac_start
-                0x00000000       0xbc ./lib/optiga/crypt/optiga_crypt.o
- .text.optiga_crypt_hmac_update
-                0x00000000       0x80 ./lib/optiga/crypt/optiga_crypt.o
- .text.optiga_crypt_hmac_finalize
-                0x00000000       0x88 ./lib/optiga/crypt/optiga_crypt.o
- .text.optiga_crypt_hkdf
-                0x00000000       0xe4 ./lib/optiga/crypt/optiga_crypt.o
- .text.optiga_crypt_symmetric_generate_key
-                0x00000000       0x88 ./lib/optiga/crypt/optiga_crypt.o
- .text.optiga_crypt_generate_auth_code
-                0x00000000       0x94 ./lib/optiga/crypt/optiga_crypt.o
- .text.optiga_crypt_hmac_verify
-                0x00000000       0xc4 ./lib/optiga/crypt/optiga_crypt.o
- .text.optiga_crypt_clear_auto_state
-                0x00000000       0xa8 ./lib/optiga/crypt/optiga_crypt.o
  .comment       0x00000000       0x71 ./lib/optiga/crypt/optiga_crypt.o
  .text          0x00000000        0x0 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
  .data          0x00000000        0x0 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
@@ -2109,13 +2071,9 @@ Discarded input sections
  .text.optiga_cmd_set_object_protected_handler
                 0x00000000       0xa4 ./lib/optiga/cmd/optiga_cmd.o
  .text.optiga_cmd_gen_keypair_handler
-                0x00000000      0x148 ./lib/optiga/cmd/optiga_cmd.o
+                0x00000000      0x160 ./lib/optiga/cmd/optiga_cmd.o
  .text.optiga_cmd_decrypt_asym_handler
                 0x00000000      0x180 ./lib/optiga/cmd/optiga_cmd.o
- .text.optiga_cmd_enc_dec_sym_handler
-                0x00000000      0x4bc ./lib/optiga/cmd/optiga_cmd.o
- .text.optiga_cmd_gen_symkey_handler
-                0x00000000       0xc0 ./lib/optiga/cmd/optiga_cmd.o
  .text.optiga_cmd_close_application_handler
                 0x00000000       0x78 ./lib/optiga/cmd/optiga_cmd.o
  .text.optiga_cmd_request_session
@@ -2138,16 +2096,8 @@ Discarded input sections
                 0x00000000       0x4c ./lib/optiga/cmd/optiga_cmd.o
  .text.optiga_cmd_decrypt_asym
                 0x00000000       0x38 ./lib/optiga/cmd/optiga_cmd.o
- .text.optiga_cmd_encrypt_sym
-                0x00000000       0xe8 ./lib/optiga/cmd/optiga_cmd.o
- .text.optiga_cmd_decrypt_sym
-                0x00000000       0xc0 ./lib/optiga/cmd/optiga_cmd.o
  .text.optiga_cmd_set_object_protected
                 0x00000000       0xbc ./lib/optiga/cmd/optiga_cmd.o
- .text.optiga_cmd_gen_symkey
-                0x00000000       0x28 ./lib/optiga/cmd/optiga_cmd.o
- .rodata.CSWTCH.125
-                0x00000000       0x80 ./lib/optiga/cmd/optiga_cmd.o
  .comment       0x00000000       0x71 ./lib/optiga/cmd/optiga_cmd.o
  .text          0x00000000        0x0 ./lib/externals/mbedtls/aes.o
  .data          0x00000000        0x0 ./lib/externals/mbedtls/aes.o
@@ -2267,38 +2217,13 @@ Discarded input sections
  .text          0x00000000        0x0 ./examples/example_optiga_crypt_clear_auto_state.o
  .data          0x00000000        0x0 ./examples/example_optiga_crypt_clear_auto_state.o
  .bss           0x00000000        0x0 ./examples/example_optiga_crypt_clear_auto_state.o
- .text.optiga_lib_callback
-                0x00000000        0xc ./examples/example_optiga_crypt_clear_auto_state.o
- .text.example_optiga_crypt_clear_auto_state
-                0x00000000      0x1fc ./examples/example_optiga_crypt_clear_auto_state.o
- .rodata.user_secret
-                0x00000000       0x40 ./examples/example_optiga_crypt_clear_auto_state.o
- .bss.random_data
-                0x00000000       0x20 ./examples/example_optiga_crypt_clear_auto_state.o
- .rodata.secret_oid_metadata
-                0x00000000        0x8 ./examples/example_optiga_crypt_clear_auto_state.o
- .bss.hmac_buffer
-                0x00000000       0x20 ./examples/example_optiga_crypt_clear_auto_state.o
- .bss.arbitrary_data
-                0x00000000       0x10 ./examples/example_optiga_crypt_clear_auto_state.o
- .rodata.str1.4
-                0x00000000       0x18 ./examples/example_optiga_crypt_clear_auto_state.o
- .bss.input_data_buffer
-                0x00000000       0x64 ./examples/example_optiga_crypt_clear_auto_state.o
- .rodata.optional_data
-                0x00000000       0x10 ./examples/example_optiga_crypt_clear_auto_state.o
- .bss.optiga_lib_status
-                0x00000000        0x2 ./examples/example_optiga_crypt_clear_auto_state.o
- .debug_info    0x00000000     0x12dc ./examples/example_optiga_crypt_clear_auto_state.o
- .debug_abbrev  0x00000000      0x21c ./examples/example_optiga_crypt_clear_auto_state.o
- .debug_loc     0x00000000      0x180 ./examples/example_optiga_crypt_clear_auto_state.o
+ .debug_info    0x00000000       0x80 ./examples/example_optiga_crypt_clear_auto_state.o
+ .debug_abbrev  0x00000000       0x26 ./examples/example_optiga_crypt_clear_auto_state.o
  .debug_aranges
-                0x00000000       0x28 ./examples/example_optiga_crypt_clear_auto_state.o
- .debug_ranges  0x00000000       0x18 ./examples/example_optiga_crypt_clear_auto_state.o
- .debug_line    0x00000000      0x487 ./examples/example_optiga_crypt_clear_auto_state.o
- .debug_str     0x00000000     0x1172 ./examples/example_optiga_crypt_clear_auto_state.o
+                0x00000000       0x18 ./examples/example_optiga_crypt_clear_auto_state.o
+ .debug_line    0x00000000       0x1d ./examples/example_optiga_crypt_clear_auto_state.o
+ .debug_str     0x00000000      0x23b ./examples/example_optiga_crypt_clear_auto_state.o
  .comment       0x00000000       0x71 ./examples/example_optiga_crypt_clear_auto_state.o
- .debug_frame   0x00000000       0x58 ./examples/example_optiga_crypt_clear_auto_state.o
  .ARM.attributes
                 0x00000000       0x37 ./examples/example_optiga_crypt_clear_auto_state.o
  .text          0x00000000        0x0 ./examples/example_optiga_crypt_ecc_generate_keypair.o
@@ -2316,14 +2241,14 @@ Discarded input sections
                 0x00000000       0x18 ./examples/example_optiga_crypt_ecc_generate_keypair.o
  .bss.optiga_lib_status
                 0x00000000        0x2 ./examples/example_optiga_crypt_ecc_generate_keypair.o
- .debug_info    0x00000000      0xfb4 ./examples/example_optiga_crypt_ecc_generate_keypair.o
+ .debug_info    0x00000000      0xe10 ./examples/example_optiga_crypt_ecc_generate_keypair.o
  .debug_abbrev  0x00000000      0x21e ./examples/example_optiga_crypt_ecc_generate_keypair.o
  .debug_loc     0x00000000      0x18a ./examples/example_optiga_crypt_ecc_generate_keypair.o
  .debug_aranges
                 0x00000000       0x30 ./examples/example_optiga_crypt_ecc_generate_keypair.o
  .debug_ranges  0x00000000       0x20 ./examples/example_optiga_crypt_ecc_generate_keypair.o
  .debug_line    0x00000000      0x3e4 ./examples/example_optiga_crypt_ecc_generate_keypair.o
- .debug_str     0x00000000     0x1140 ./examples/example_optiga_crypt_ecc_generate_keypair.o
+ .debug_str     0x00000000      0xee3 ./examples/example_optiga_crypt_ecc_generate_keypair.o
  .comment       0x00000000       0x71 ./examples/example_optiga_crypt_ecc_generate_keypair.o
  .debug_frame   0x00000000       0x70 ./examples/example_optiga_crypt_ecc_generate_keypair.o
  .ARM.attributes
@@ -2343,14 +2268,14 @@ Discarded input sections
                 0x00000000        0x8 ./examples/example_optiga_crypt_ecdh.o
  .bss.optiga_lib_status
                 0x00000000        0x2 ./examples/example_optiga_crypt_ecdh.o
- .debug_info    0x00000000      0xd5d ./examples/example_optiga_crypt_ecdh.o
+ .debug_info    0x00000000      0xbb9 ./examples/example_optiga_crypt_ecdh.o
  .debug_abbrev  0x00000000      0x21c ./examples/example_optiga_crypt_ecdh.o
  .debug_loc     0x00000000      0x10c ./examples/example_optiga_crypt_ecdh.o
  .debug_aranges
                 0x00000000       0x28 ./examples/example_optiga_crypt_ecdh.o
  .debug_ranges  0x00000000       0x18 ./examples/example_optiga_crypt_ecdh.o
  .debug_line    0x00000000      0x3b0 ./examples/example_optiga_crypt_ecdh.o
- .debug_str     0x00000000      0xe48 ./examples/example_optiga_crypt_ecdh.o
+ .debug_str     0x00000000      0xbeb ./examples/example_optiga_crypt_ecdh.o
  .comment       0x00000000       0x71 ./examples/example_optiga_crypt_ecdh.o
  .debug_frame   0x00000000       0x58 ./examples/example_optiga_crypt_ecdh.o
  .ARM.attributes
@@ -2368,14 +2293,14 @@ Discarded input sections
                 0x00000000       0x18 ./examples/example_optiga_crypt_ecdsa_sign.o
  .bss.optiga_lib_status
                 0x00000000        0x2 ./examples/example_optiga_crypt_ecdsa_sign.o
- .debug_info    0x00000000      0xbc9 ./examples/example_optiga_crypt_ecdsa_sign.o
+ .debug_info    0x00000000      0xa3d ./examples/example_optiga_crypt_ecdsa_sign.o
  .debug_abbrev  0x00000000      0x227 ./examples/example_optiga_crypt_ecdsa_sign.o
  .debug_loc     0x00000000       0xeb ./examples/example_optiga_crypt_ecdsa_sign.o
  .debug_aranges
                 0x00000000       0x28 ./examples/example_optiga_crypt_ecdsa_sign.o
  .debug_ranges  0x00000000       0x18 ./examples/example_optiga_crypt_ecdsa_sign.o
  .debug_line    0x00000000      0x39e ./examples/example_optiga_crypt_ecdsa_sign.o
- .debug_str     0x00000000      0xc9d ./examples/example_optiga_crypt_ecdsa_sign.o
+ .debug_str     0x00000000      0xac8 ./examples/example_optiga_crypt_ecdsa_sign.o
  .comment       0x00000000       0x71 ./examples/example_optiga_crypt_ecdsa_sign.o
  .debug_frame   0x00000000       0x50 ./examples/example_optiga_crypt_ecdsa_sign.o
  .ARM.attributes
@@ -2401,14 +2326,14 @@ Discarded input sections
                 0x00000000       0x48 ./examples/example_optiga_crypt_ecdsa_verify.o
  .bss.optiga_lib_status
                 0x00000000        0x2 ./examples/example_optiga_crypt_ecdsa_verify.o
- .debug_info    0x00000000      0xcaa ./examples/example_optiga_crypt_ecdsa_verify.o
+ .debug_info    0x00000000      0xb06 ./examples/example_optiga_crypt_ecdsa_verify.o
  .debug_abbrev  0x00000000      0x238 ./examples/example_optiga_crypt_ecdsa_verify.o
  .debug_loc     0x00000000       0xe8 ./examples/example_optiga_crypt_ecdsa_verify.o
  .debug_aranges
                 0x00000000       0x28 ./examples/example_optiga_crypt_ecdsa_verify.o
  .debug_ranges  0x00000000       0x18 ./examples/example_optiga_crypt_ecdsa_verify.o
  .debug_line    0x00000000      0x3a5 ./examples/example_optiga_crypt_ecdsa_verify.o
- .debug_str     0x00000000      0xdfd ./examples/example_optiga_crypt_ecdsa_verify.o
+ .debug_str     0x00000000      0xba0 ./examples/example_optiga_crypt_ecdsa_verify.o
  .comment       0x00000000       0x71 ./examples/example_optiga_crypt_ecdsa_verify.o
  .debug_frame   0x00000000       0x50 ./examples/example_optiga_crypt_ecdsa_verify.o
  .ARM.attributes
@@ -2426,14 +2351,14 @@ Discarded input sections
                 0x00000000       0x3c ./examples/example_optiga_crypt_hash.o
  .bss.optiga_lib_status
                 0x00000000        0x2 ./examples/example_optiga_crypt_hash.o
- .debug_info    0x00000000      0xe0e ./examples/example_optiga_crypt_hash.o
+ .debug_info    0x00000000      0xc82 ./examples/example_optiga_crypt_hash.o
  .debug_abbrev  0x00000000      0x227 ./examples/example_optiga_crypt_hash.o
  .debug_loc     0x00000000      0x202 ./examples/example_optiga_crypt_hash.o
  .debug_aranges
                 0x00000000       0x30 ./examples/example_optiga_crypt_hash.o
  .debug_ranges  0x00000000       0x20 ./examples/example_optiga_crypt_hash.o
  .debug_line    0x00000000      0x41e ./examples/example_optiga_crypt_hash.o
- .debug_str     0x00000000      0xda4 ./examples/example_optiga_crypt_hash.o
+ .debug_str     0x00000000      0xbcf ./examples/example_optiga_crypt_hash.o
  .comment       0x00000000       0x71 ./examples/example_optiga_crypt_hash.o
  .debug_frame   0x00000000       0x84 ./examples/example_optiga_crypt_hash.o
  .ARM.attributes
@@ -2441,56 +2366,25 @@ Discarded input sections
  .text          0x00000000        0x0 ./examples/example_optiga_crypt_hkdf.o
  .data          0x00000000        0x0 ./examples/example_optiga_crypt_hkdf.o
  .bss           0x00000000        0x0 ./examples/example_optiga_crypt_hkdf.o
- .text.optiga_lib_callback
-                0x00000000        0xc ./examples/example_optiga_crypt_hkdf.o
- .text.example_optiga_crypt_hkdf
-                0x00000000      0x19c ./examples/example_optiga_crypt_hkdf.o
- .rodata.secret_to_be_written
-                0x00000000       0x20 ./examples/example_optiga_crypt_hkdf.o
- .rodata.metadata
-                0x00000000        0x8 ./examples/example_optiga_crypt_hkdf.o
- .rodata.default_metadata
-                0x00000000        0x8 ./examples/example_optiga_crypt_hkdf.o
- .rodata.str1.4
-                0x00000000       0x18 ./examples/example_optiga_crypt_hkdf.o
- .rodata.info   0x00000000       0x10 ./examples/example_optiga_crypt_hkdf.o
- .rodata.salt   0x00000000       0x20 ./examples/example_optiga_crypt_hkdf.o
- .bss.optiga_lib_status
-                0x00000000        0x2 ./examples/example_optiga_crypt_hkdf.o
- .debug_info    0x00000000     0x10b3 ./examples/example_optiga_crypt_hkdf.o
- .debug_abbrev  0x00000000      0x22b ./examples/example_optiga_crypt_hkdf.o
- .debug_loc     0x00000000      0x186 ./examples/example_optiga_crypt_hkdf.o
+ .debug_info    0x00000000       0x80 ./examples/example_optiga_crypt_hkdf.o
+ .debug_abbrev  0x00000000       0x26 ./examples/example_optiga_crypt_hkdf.o
  .debug_aranges
-                0x00000000       0x28 ./examples/example_optiga_crypt_hkdf.o
- .debug_ranges  0x00000000       0x18 ./examples/example_optiga_crypt_hkdf.o
- .debug_line    0x00000000      0x3f8 ./examples/example_optiga_crypt_hkdf.o
- .debug_str     0x00000000     0x1049 ./examples/example_optiga_crypt_hkdf.o
+                0x00000000       0x18 ./examples/example_optiga_crypt_hkdf.o
+ .debug_line    0x00000000       0x1d ./examples/example_optiga_crypt_hkdf.o
+ .debug_str     0x00000000      0x22f ./examples/example_optiga_crypt_hkdf.o
  .comment       0x00000000       0x71 ./examples/example_optiga_crypt_hkdf.o
- .debug_frame   0x00000000       0x58 ./examples/example_optiga_crypt_hkdf.o
  .ARM.attributes
                 0x00000000       0x37 ./examples/example_optiga_crypt_hkdf.o
  .text          0x00000000        0x0 ./examples/example_optiga_crypt_hmac.o
  .data          0x00000000        0x0 ./examples/example_optiga_crypt_hmac.o
  .bss           0x00000000        0x0 ./examples/example_optiga_crypt_hmac.o
- .text.optiga_util_crypt_callback
-                0x00000000        0xc ./examples/example_optiga_crypt_hmac.o
- .text.example_optiga_crypt_hmac
-                0x00000000      0x1c4 ./examples/example_optiga_crypt_hmac.o
- .rodata        0x00000000       0x48 ./examples/example_optiga_crypt_hmac.o
- .rodata.str1.4
-                0x00000000       0x18 ./examples/example_optiga_crypt_hmac.o
- .bss.optiga_lib_status
-                0x00000000        0x2 ./examples/example_optiga_crypt_hmac.o
- .debug_info    0x00000000     0x10f6 ./examples/example_optiga_crypt_hmac.o
- .debug_abbrev  0x00000000      0x292 ./examples/example_optiga_crypt_hmac.o
- .debug_loc     0x00000000      0x1ed ./examples/example_optiga_crypt_hmac.o
+ .debug_info    0x00000000       0x80 ./examples/example_optiga_crypt_hmac.o
+ .debug_abbrev  0x00000000       0x26 ./examples/example_optiga_crypt_hmac.o
  .debug_aranges
-                0x00000000       0x28 ./examples/example_optiga_crypt_hmac.o
- .debug_ranges  0x00000000       0x30 ./examples/example_optiga_crypt_hmac.o
- .debug_line    0x00000000      0x3f7 ./examples/example_optiga_crypt_hmac.o
- .debug_str     0x00000000     0x10e8 ./examples/example_optiga_crypt_hmac.o
+                0x00000000       0x18 ./examples/example_optiga_crypt_hmac.o
+ .debug_line    0x00000000       0x1d ./examples/example_optiga_crypt_hmac.o
+ .debug_str     0x00000000      0x22f ./examples/example_optiga_crypt_hmac.o
  .comment       0x00000000       0x71 ./examples/example_optiga_crypt_hmac.o
- .debug_frame   0x00000000       0x58 ./examples/example_optiga_crypt_hmac.o
  .ARM.attributes
                 0x00000000       0x37 ./examples/example_optiga_crypt_hmac.o
  .text          0x00000000        0x0 ./examples/example_optiga_crypt_random.o
@@ -2504,14 +2398,14 @@ Discarded input sections
                 0x00000000       0x18 ./examples/example_optiga_crypt_random.o
  .bss.optiga_lib_status
                 0x00000000        0x2 ./examples/example_optiga_crypt_random.o
- .debug_info    0x00000000      0xba5 ./examples/example_optiga_crypt_random.o
+ .debug_info    0x00000000      0xa19 ./examples/example_optiga_crypt_random.o
  .debug_abbrev  0x00000000      0x212 ./examples/example_optiga_crypt_random.o
  .debug_loc     0x00000000       0xe8 ./examples/example_optiga_crypt_random.o
  .debug_aranges
                 0x00000000       0x28 ./examples/example_optiga_crypt_random.o
  .debug_ranges  0x00000000       0x18 ./examples/example_optiga_crypt_random.o
  .debug_line    0x00000000      0x396 ./examples/example_optiga_crypt_random.o
- .debug_str     0x00000000      0xcdf ./examples/example_optiga_crypt_random.o
+ .debug_str     0x00000000      0xb0a ./examples/example_optiga_crypt_random.o
  .comment       0x00000000       0x71 ./examples/example_optiga_crypt_random.o
  .debug_frame   0x00000000       0x50 ./examples/example_optiga_crypt_random.o
  .ARM.attributes
@@ -2530,14 +2424,14 @@ Discarded input sections
                 0x00000000       0x44 ./examples/example_optiga_crypt_rsa_decrypt.o
  .bss.optiga_lib_status
                 0x00000000        0x2 ./examples/example_optiga_crypt_rsa_decrypt.o
- .debug_info    0x00000000     0x10f0 ./examples/example_optiga_crypt_rsa_decrypt.o
+ .debug_info    0x00000000      0xf64 ./examples/example_optiga_crypt_rsa_decrypt.o
  .debug_abbrev  0x00000000      0x22b ./examples/example_optiga_crypt_rsa_decrypt.o
  .debug_loc     0x00000000      0x239 ./examples/example_optiga_crypt_rsa_decrypt.o
  .debug_aranges
                 0x00000000       0x30 ./examples/example_optiga_crypt_rsa_decrypt.o
  .debug_ranges  0x00000000       0x20 ./examples/example_optiga_crypt_rsa_decrypt.o
  .debug_line    0x00000000      0x492 ./examples/example_optiga_crypt_rsa_decrypt.o
- .debug_str     0x00000000      0xf50 ./examples/example_optiga_crypt_rsa_decrypt.o
+ .debug_str     0x00000000      0xd7b ./examples/example_optiga_crypt_rsa_decrypt.o
  .comment       0x00000000       0x71 ./examples/example_optiga_crypt_rsa_decrypt.o
  .debug_frame   0x00000000       0x9c ./examples/example_optiga_crypt_rsa_decrypt.o
  .ARM.attributes
@@ -2563,14 +2457,14 @@ Discarded input sections
                 0x00000000        0x2 ./examples/example_optiga_crypt_rsa_encrypt_message.o
  .rodata.rsa_public_key_modulus
                 0x00000000       0x80 ./examples/example_optiga_crypt_rsa_encrypt_message.o
- .debug_info    0x00000000      0xd35 ./examples/example_optiga_crypt_rsa_encrypt_message.o
+ .debug_info    0x00000000      0xba9 ./examples/example_optiga_crypt_rsa_encrypt_message.o
  .debug_abbrev  0x00000000      0x238 ./examples/example_optiga_crypt_rsa_encrypt_message.o
  .debug_loc     0x00000000      0x10b ./examples/example_optiga_crypt_rsa_encrypt_message.o
  .debug_aranges
                 0x00000000       0x28 ./examples/example_optiga_crypt_rsa_encrypt_message.o
  .debug_ranges  0x00000000       0x18 ./examples/example_optiga_crypt_rsa_encrypt_message.o
  .debug_line    0x00000000      0x3b1 ./examples/example_optiga_crypt_rsa_encrypt_message.o
- .debug_str     0x00000000      0xe1f ./examples/example_optiga_crypt_rsa_encrypt_message.o
+ .debug_str     0x00000000      0xc4a ./examples/example_optiga_crypt_rsa_encrypt_message.o
  .comment       0x00000000       0x71 ./examples/example_optiga_crypt_rsa_encrypt_message.o
  .debug_frame   0x00000000       0x5c ./examples/example_optiga_crypt_rsa_encrypt_message.o
  .ARM.attributes
@@ -2587,14 +2481,14 @@ Discarded input sections
                 0x00000000       0x18 ./examples/example_optiga_crypt_rsa_encrypt_session.o
  .bss.optiga_lib_status
                 0x00000000        0x2 ./examples/example_optiga_crypt_rsa_encrypt_session.o
- .debug_info    0x00000000      0xdc2 ./examples/example_optiga_crypt_rsa_encrypt_session.o
+ .debug_info    0x00000000      0xc36 ./examples/example_optiga_crypt_rsa_encrypt_session.o
  .debug_abbrev  0x00000000      0x22b ./examples/example_optiga_crypt_rsa_encrypt_session.o
  .debug_loc     0x00000000      0x117 ./examples/example_optiga_crypt_rsa_encrypt_session.o
  .debug_aranges
                 0x00000000       0x28 ./examples/example_optiga_crypt_rsa_encrypt_session.o
  .debug_ranges  0x00000000       0x18 ./examples/example_optiga_crypt_rsa_encrypt_session.o
  .debug_line    0x00000000      0x3e2 ./examples/example_optiga_crypt_rsa_encrypt_session.o
- .debug_str     0x00000000      0xe97 ./examples/example_optiga_crypt_rsa_encrypt_session.o
+ .debug_str     0x00000000      0xcc2 ./examples/example_optiga_crypt_rsa_encrypt_session.o
  .comment       0x00000000       0x71 ./examples/example_optiga_crypt_rsa_encrypt_session.o
  .debug_frame   0x00000000       0x5c ./examples/example_optiga_crypt_rsa_encrypt_session.o
  .ARM.attributes
@@ -2614,14 +2508,14 @@ Discarded input sections
                 0x00000000       0x18 ./examples/example_optiga_crypt_rsa_generate_keypair.o
  .bss.optiga_lib_status
                 0x00000000        0x2 ./examples/example_optiga_crypt_rsa_generate_keypair.o
- .debug_info    0x00000000      0xfb7 ./examples/example_optiga_crypt_rsa_generate_keypair.o
+ .debug_info    0x00000000      0xe2b ./examples/example_optiga_crypt_rsa_generate_keypair.o
  .debug_abbrev  0x00000000      0x21e ./examples/example_optiga_crypt_rsa_generate_keypair.o
  .debug_loc     0x00000000      0x174 ./examples/example_optiga_crypt_rsa_generate_keypair.o
  .debug_aranges
                 0x00000000       0x30 ./examples/example_optiga_crypt_rsa_generate_keypair.o
  .debug_ranges  0x00000000       0x20 ./examples/example_optiga_crypt_rsa_generate_keypair.o
  .debug_line    0x00000000      0x3ec ./examples/example_optiga_crypt_rsa_generate_keypair.o
- .debug_str     0x00000000     0x10ce ./examples/example_optiga_crypt_rsa_generate_keypair.o
+ .debug_str     0x00000000      0xef9 ./examples/example_optiga_crypt_rsa_generate_keypair.o
  .comment       0x00000000       0x71 ./examples/example_optiga_crypt_rsa_generate_keypair.o
  .debug_frame   0x00000000       0x6c ./examples/example_optiga_crypt_rsa_generate_keypair.o
  .ARM.attributes
@@ -2639,14 +2533,14 @@ Discarded input sections
                 0x00000000       0x18 ./examples/example_optiga_crypt_rsa_sign.o
  .bss.optiga_lib_status
                 0x00000000        0x2 ./examples/example_optiga_crypt_rsa_sign.o
- .debug_info    0x00000000      0xc1c ./examples/example_optiga_crypt_rsa_sign.o
+ .debug_info    0x00000000      0xa8a ./examples/example_optiga_crypt_rsa_sign.o
  .debug_abbrev  0x00000000      0x227 ./examples/example_optiga_crypt_rsa_sign.o
  .debug_loc     0x00000000       0xeb ./examples/example_optiga_crypt_rsa_sign.o
  .debug_aranges
                 0x00000000       0x28 ./examples/example_optiga_crypt_rsa_sign.o
  .debug_ranges  0x00000000       0x18 ./examples/example_optiga_crypt_rsa_sign.o
  .debug_line    0x00000000      0x39d ./examples/example_optiga_crypt_rsa_sign.o
- .debug_str     0x00000000      0xd2e ./examples/example_optiga_crypt_rsa_sign.o
+ .debug_str     0x00000000      0xb3a ./examples/example_optiga_crypt_rsa_sign.o
  .comment       0x00000000       0x71 ./examples/example_optiga_crypt_rsa_sign.o
  .debug_frame   0x00000000       0x54 ./examples/example_optiga_crypt_rsa_sign.o
  .ARM.attributes
@@ -2674,14 +2568,14 @@ Discarded input sections
                 0x00000000        0x2 ./examples/example_optiga_crypt_rsa_verify.o
  .rodata.rsa_public_key_modulus
                 0x00000000       0x80 ./examples/example_optiga_crypt_rsa_verify.o
- .debug_info    0x00000000      0xd1a ./examples/example_optiga_crypt_rsa_verify.o
+ .debug_info    0x00000000      0xb88 ./examples/example_optiga_crypt_rsa_verify.o
  .debug_abbrev  0x00000000      0x227 ./examples/example_optiga_crypt_rsa_verify.o
  .debug_loc     0x00000000       0xeb ./examples/example_optiga_crypt_rsa_verify.o
  .debug_aranges
                 0x00000000       0x28 ./examples/example_optiga_crypt_rsa_verify.o
  .debug_ranges  0x00000000       0x18 ./examples/example_optiga_crypt_rsa_verify.o
  .debug_line    0x00000000      0x3a2 ./examples/example_optiga_crypt_rsa_verify.o
- .debug_str     0x00000000      0xe2f ./examples/example_optiga_crypt_rsa_verify.o
+ .debug_str     0x00000000      0xc3b ./examples/example_optiga_crypt_rsa_verify.o
  .comment       0x00000000       0x71 ./examples/example_optiga_crypt_rsa_verify.o
  .debug_frame   0x00000000       0x54 ./examples/example_optiga_crypt_rsa_verify.o
  .ARM.attributes
@@ -2689,82 +2583,37 @@ Discarded input sections
  .text          0x00000000        0x0 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
  .data          0x00000000        0x0 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
  .bss           0x00000000        0x0 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
- .text.optiga_util_crypt_callback
-                0x00000000        0xc ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
- .text.example_optiga_crypt_symmetric_encrypt_decrypt_cbc
-                0x00000000      0x2b4 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
- .text.example_optiga_crypt_symmetric_encrypt_cbcmac
-                0x00000000       0xe0 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
- .rodata        0x00000000       0x30 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
- .rodata.str1.4
-                0x00000000       0x18 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
- .bss.optiga_lib_status
-                0x00000000        0x2 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
- .debug_info    0x00000000     0x1129 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
- .debug_abbrev  0x00000000      0x290 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
- .debug_loc     0x00000000      0x25a ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
+ .debug_info    0x00000000       0x80 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
+ .debug_abbrev  0x00000000       0x26 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
  .debug_aranges
-                0x00000000       0x30 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
- .debug_ranges  0x00000000       0x20 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
- .debug_line    0x00000000      0x520 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
- .debug_str     0x00000000     0x1088 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
+                0x00000000       0x18 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
+ .debug_line    0x00000000       0x1d ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
+ .debug_str     0x00000000      0x244 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
  .comment       0x00000000       0x71 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
- .debug_frame   0x00000000       0x8c ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
  .ARM.attributes
                 0x00000000       0x37 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt.o
  .text          0x00000000        0x0 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
  .data          0x00000000        0x0 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
  .bss           0x00000000        0x0 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
- .text.optiga_util_crypt_callback
-                0x00000000        0xc ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
- .text.example_optiga_crypt_symmetric_encrypt_decrypt_ecb
-                0x00000000      0x134 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
- .rodata        0x00000000       0x10 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
- .rodata.str1.4
-                0x00000000       0x18 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
- .bss.optiga_lib_status
-                0x00000000        0x2 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
- .debug_info    0x00000000      0xca1 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
- .debug_abbrev  0x00000000      0x23e ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
- .debug_loc     0x00000000      0x117 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
+ .debug_info    0x00000000       0x80 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
+ .debug_abbrev  0x00000000       0x26 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
  .debug_aranges
-                0x00000000       0x28 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
- .debug_ranges  0x00000000       0x18 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
- .debug_line    0x00000000      0x44e ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
- .debug_str     0x00000000      0xd86 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
+                0x00000000       0x18 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
+ .debug_line    0x00000000       0x1d ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
+ .debug_str     0x00000000      0x248 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
  .comment       0x00000000       0x71 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
- .debug_frame   0x00000000       0x58 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
  .ARM.attributes
                 0x00000000       0x37 ./examples/example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
  .text          0x00000000        0x0 ./examples/example_optiga_crypt_symmetric_generate_key.o
  .data          0x00000000        0x0 ./examples/example_optiga_crypt_symmetric_generate_key.o
  .bss           0x00000000        0x0 ./examples/example_optiga_crypt_symmetric_generate_key.o
- .text.optiga_crypt_callback
-                0x00000000        0xc ./examples/example_optiga_crypt_symmetric_generate_key.o
- .text.optiga_util_callback
-                0x00000000        0xc ./examples/example_optiga_crypt_symmetric_generate_key.o
- .text.generate_symmetric_key
-                0x00000000      0x10c ./examples/example_optiga_crypt_symmetric_generate_key.o
- .text.example_optiga_crypt_symmetric_generate_key
-                0x00000000      0x130 ./examples/example_optiga_crypt_symmetric_generate_key.o
- .bss.time_taken_to_generate_key
-                0x00000000        0x4 ./examples/example_optiga_crypt_symmetric_generate_key.o
- .rodata.str1.4
-                0x00000000       0x18 ./examples/example_optiga_crypt_symmetric_generate_key.o
- .rodata.E200_metadata
-                0x00000000        0x8 ./examples/example_optiga_crypt_symmetric_generate_key.o
- .bss.optiga_lib_status
-                0x00000000        0x2 ./examples/example_optiga_crypt_symmetric_generate_key.o
- .debug_info    0x00000000     0x1209 ./examples/example_optiga_crypt_symmetric_generate_key.o
- .debug_abbrev  0x00000000      0x287 ./examples/example_optiga_crypt_symmetric_generate_key.o
- .debug_loc     0x00000000      0x34d ./examples/example_optiga_crypt_symmetric_generate_key.o
+ .debug_info    0x00000000       0x80 ./examples/example_optiga_crypt_symmetric_generate_key.o
+ .debug_abbrev  0x00000000       0x26 ./examples/example_optiga_crypt_symmetric_generate_key.o
  .debug_aranges
-                0x00000000       0x38 ./examples/example_optiga_crypt_symmetric_generate_key.o
- .debug_ranges  0x00000000       0x48 ./examples/example_optiga_crypt_symmetric_generate_key.o
- .debug_line    0x00000000      0x444 ./examples/example_optiga_crypt_symmetric_generate_key.o
- .debug_str     0x00000000     0x1153 ./examples/example_optiga_crypt_symmetric_generate_key.o
+                0x00000000       0x18 ./examples/example_optiga_crypt_symmetric_generate_key.o
+ .debug_line    0x00000000       0x1d ./examples/example_optiga_crypt_symmetric_generate_key.o
+ .debug_str     0x00000000      0x241 ./examples/example_optiga_crypt_symmetric_generate_key.o
  .comment       0x00000000       0x71 ./examples/example_optiga_crypt_symmetric_generate_key.o
- .debug_frame   0x00000000       0xa8 ./examples/example_optiga_crypt_symmetric_generate_key.o
  .ARM.attributes
                 0x00000000       0x37 ./examples/example_optiga_crypt_symmetric_generate_key.o
  .text          0x00000000        0x0 ./examples/example_optiga_crypt_tls_prf_sha256.o
@@ -2787,14 +2636,14 @@ Discarded input sections
                 0x00000000       0x18 ./examples/example_optiga_crypt_tls_prf_sha256.o
  .bss.optiga_lib_status
                 0x00000000        0x2 ./examples/example_optiga_crypt_tls_prf_sha256.o
- .debug_info    0x00000000     0x1190 ./examples/example_optiga_crypt_tls_prf_sha256.o
+ .debug_info    0x00000000      0xff8 ./examples/example_optiga_crypt_tls_prf_sha256.o
  .debug_abbrev  0x00000000      0x27d ./examples/example_optiga_crypt_tls_prf_sha256.o
  .debug_loc     0x00000000      0x27b ./examples/example_optiga_crypt_tls_prf_sha256.o
  .debug_aranges
                 0x00000000       0x28 ./examples/example_optiga_crypt_tls_prf_sha256.o
  .debug_ranges  0x00000000       0x18 ./examples/example_optiga_crypt_tls_prf_sha256.o
  .debug_line    0x00000000      0x40b ./examples/example_optiga_crypt_tls_prf_sha256.o
- .debug_str     0x00000000     0x10b0 ./examples/example_optiga_crypt_tls_prf_sha256.o
+ .debug_str     0x00000000      0xea9 ./examples/example_optiga_crypt_tls_prf_sha256.o
  .comment       0x00000000       0x71 ./examples/example_optiga_crypt_tls_prf_sha256.o
  .debug_frame   0x00000000       0x58 ./examples/example_optiga_crypt_tls_prf_sha256.o
  .ARM.attributes
@@ -2810,14 +2659,14 @@ Discarded input sections
                 0x00000000       0x20 ./examples/example_optiga_hibernate_restore.o
  .bss.optiga_lib_status
                 0x00000000        0x2 ./examples/example_optiga_hibernate_restore.o
- .debug_info    0x00000000     0x1138 ./examples/example_optiga_hibernate_restore.o
+ .debug_info    0x00000000      0xf94 ./examples/example_optiga_hibernate_restore.o
  .debug_abbrev  0x00000000      0x204 ./examples/example_optiga_hibernate_restore.o
  .debug_loc     0x00000000      0x1a7 ./examples/example_optiga_hibernate_restore.o
  .debug_aranges
                 0x00000000       0x28 ./examples/example_optiga_hibernate_restore.o
  .debug_ranges  0x00000000       0x18 ./examples/example_optiga_hibernate_restore.o
  .debug_line    0x00000000      0x4cc ./examples/example_optiga_hibernate_restore.o
- .debug_str     0x00000000     0x11d1 ./examples/example_optiga_hibernate_restore.o
+ .debug_str     0x00000000      0xf74 ./examples/example_optiga_hibernate_restore.o
  .comment       0x00000000       0x71 ./examples/example_optiga_hibernate_restore.o
  .debug_frame   0x00000000       0x5c ./examples/example_optiga_hibernate_restore.o
  .ARM.attributes
@@ -2825,46 +2674,13 @@ Discarded input sections
  .text          0x00000000        0x0 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
  .data          0x00000000        0x0 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
  .bss           0x00000000        0x0 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .text.optiga_lib_callback
-                0x00000000        0xc ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .text.CalcHMAC
-                0x00000000       0x40 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .text.example_optiga_hmac_verify_with_authorization_reference
-                0x00000000      0x310 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .rodata.user_secret
-                0x00000000       0x40 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .bss.random_data
-                0x00000000       0x20 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .rodata.secret_oid_metadata
-                0x00000000        0x8 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .bss.hmac_buffer
-                0x00000000       0x20 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .rodata.arbitrary_oid_metadata_default
-                0x00000000        0x8 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .rodata.str1.4
-                0x00000000       0x18 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .rodata.read_oid_data
-                0x00000000       0x20 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .bss.input_data_buffer
-                0x00000000       0x40 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .rodata.optional_data
-                0x00000000       0x10 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .rodata.arbitrary_data
-                0x00000000       0x10 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .bss.optiga_lib_status
-                0x00000000        0x2 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .rodata.arbitrary_oid_metadata
-                0x00000000        0x8 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .debug_info    0x00000000     0x1772 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .debug_abbrev  0x00000000      0x309 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .debug_loc     0x00000000      0x452 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
+ .debug_info    0x00000000       0x80 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
+ .debug_abbrev  0x00000000       0x26 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
  .debug_aranges
-                0x00000000       0x30 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .debug_ranges  0x00000000       0x70 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .debug_line    0x00000000      0x60c ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .debug_str     0x00000000     0x1386 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
+                0x00000000       0x18 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
+ .debug_line    0x00000000       0x1d ./examples/example_optiga_hmac_verify_with_authorization_reference.o
+ .debug_str     0x00000000      0x256 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
  .comment       0x00000000       0x71 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
- .debug_frame   0x00000000       0x9c ./examples/example_optiga_hmac_verify_with_authorization_reference.o
  .ARM.attributes
                 0x00000000       0x37 ./examples/example_optiga_hmac_verify_with_authorization_reference.o
  .text          0x00000000        0x0 ./examples/example_optiga_init_deinit.o
@@ -2879,81 +2695,49 @@ Discarded input sections
  .text.optiga_util_callback
                 0x00000000        0xc ./examples/example_optiga_util_protected_update.o
  .text.example_optiga_util_protected_update
-                0x00000000      0x23c ./examples/example_optiga_util_protected_update.o
- .data.confidentiality_oid_metadata
-                0x00000000        0x8 ./examples/example_optiga_util_protected_update.o
- .rodata.manifest_ecc_key
-                0x00000000       0xec ./examples/example_optiga_util_protected_update.o
- .data.data_aes_key_configuration
-                0x00000000       0x1c ./examples/example_optiga_util_protected_update.o
- .rodata.trust_anchor
-                0x00000000      0x25c ./examples/example_optiga_util_protected_update.o
- .rodata.reset_version_tag_metadata
-                0x00000000        0x8 ./examples/example_optiga_util_protected_update.o
- .rodata.int_final_fragment_array
-                0x00000000       0x34 ./examples/example_optiga_util_protected_update.o
- .rodata.manifest_metadata
-                0x00000000       0xec ./examples/example_optiga_util_protected_update.o
- .rodata.manifest_rsa_key
-                0x00000000       0xec ./examples/example_optiga_util_protected_update.o
- .rodata.optiga_protected_update_data_set
-                0x00000000       0x78 ./examples/example_optiga_util_protected_update.o
- .data.data_ecc_key_configuration
-                0x00000000       0x1c ./examples/example_optiga_util_protected_update.o
- .rodata.rsa_key_final_fragment_array
-                0x00000000      0x118 ./examples/example_optiga_util_protected_update.o
- .rodata.manifest_int_conf
-                0x00000000       0xec ./examples/example_optiga_util_protected_update.o
- .rodata.int_conf_continue_fragment_array
-                0x00000000      0x280 ./examples/example_optiga_util_protected_update.o
- .data.data_confidentiality_configuration
-                0x00000000       0x1c ./examples/example_optiga_util_protected_update.o
- .rodata.target_oid_metadata_with_confidentiality
-                0x00000000        0xc ./examples/example_optiga_util_protected_update.o
- .rodata.str1.4
-                0x00000000       0xcc ./examples/example_optiga_util_protected_update.o
+                0x00000000      0x214 ./examples/example_optiga_util_protected_update.o
  .rodata.shared_secret
                 0x00000000       0x40 ./examples/example_optiga_util_protected_update.o
- .rodata.int_continue_fragment_array
-                0x00000000      0x280 ./examples/example_optiga_util_protected_update.o
- .data.data_integrity_configuration
-                0x00000000       0x1c ./examples/example_optiga_util_protected_update.o
- .rodata.target_oid_metadata
-                0x00000000        0x8 ./examples/example_optiga_util_protected_update.o
- .rodata.ecc_key_final_fragment_array
-                0x00000000       0x70 ./examples/example_optiga_util_protected_update.o
- .rodata.manifest_aes_key
-                0x00000000       0xec ./examples/example_optiga_util_protected_update.o
- .rodata.aes_key_final_fragment_array
-                0x00000000       0x1c ./examples/example_optiga_util_protected_update.o
+ .rodata.optiga_protected_update_data_set
+                0x00000000       0x14 ./examples/example_optiga_util_protected_update.o
+ .rodata.int_final_fragment_array
+                0x00000000       0x34 ./examples/example_optiga_util_protected_update.o
  .data.trust_anchor_metadata
                 0x00000000        0x8 ./examples/example_optiga_util_protected_update.o
- .rodata.target_key_oid_metadata
-                0x00000000       0x10 ./examples/example_optiga_util_protected_update.o
- .rodata.manifest_int
-                0x00000000       0x8c ./examples/example_optiga_util_protected_update.o
- .data.metadata_update_configuration
-                0x00000000       0x1c ./examples/example_optiga_util_protected_update.o
  .rodata.target_oid_metadata_for_secure_metadata_update
                 0x00000000       0x10 ./examples/example_optiga_util_protected_update.o
- .rodata.int_conf_final_fragment_array
-                0x00000000       0xe0 ./examples/example_optiga_util_protected_update.o
- .data.data_rsa_key_configuration
+ .data.data_integrity_configuration
                 0x00000000       0x1c ./examples/example_optiga_util_protected_update.o
- .rodata.metadata_final_fragment_array
-                0x00000000       0x18 ./examples/example_optiga_util_protected_update.o
+ .data.confidentiality_oid_metadata
+                0x00000000        0x8 ./examples/example_optiga_util_protected_update.o
+ .rodata.manifest_int
+                0x00000000       0x8c ./examples/example_optiga_util_protected_update.o
+ .rodata.target_key_oid_metadata
+                0x00000000       0x10 ./examples/example_optiga_util_protected_update.o
+ .rodata.target_oid_metadata_with_confidentiality
+                0x00000000        0xc ./examples/example_optiga_util_protected_update.o
+ .rodata.int_continue_fragment_array
+                0x00000000      0x280 ./examples/example_optiga_util_protected_update.o
+ .rodata.str1.4
+                0x00000000       0x38 ./examples/example_optiga_util_protected_update.o
+ .rodata.target_oid_metadata
+                0x00000000        0x8 ./examples/example_optiga_util_protected_update.o
+ .rodata.trust_anchor
+                0x00000000      0x25c ./examples/example_optiga_util_protected_update.o
  .bss.optiga_lib_status
                 0x00000000        0x2 ./examples/example_optiga_util_protected_update.o
- .debug_info    0x00000000      0xe64 ./examples/example_optiga_util_protected_update.o
- .debug_abbrev  0x00000000      0x2d8 ./examples/example_optiga_util_protected_update.o
- .debug_loc     0x00000000      0x3f1 ./examples/example_optiga_util_protected_update.o
+ .rodata.reset_version_tag_metadata
+                0x00000000        0x8 ./examples/example_optiga_util_protected_update.o
+ .debug_info    0x00000000      0xc8e ./examples/example_optiga_util_protected_update.o
+ .debug_abbrev  0x00000000      0x2e7 ./examples/example_optiga_util_protected_update.o
+ .debug_loc     0x00000000      0x3e5 ./examples/example_optiga_util_protected_update.o
  .debug_aranges
                 0x00000000       0x28 ./examples/example_optiga_util_protected_update.o
- .debug_ranges  0x00000000       0x48 ./examples/example_optiga_util_protected_update.o
- .debug_line    0x00000000      0x567 ./examples/example_optiga_util_protected_update.o
- .debug_str     0x00000000      0xc74 ./examples/example_optiga_util_protected_update.o
+ .debug_ranges  0x00000000       0x30 ./examples/example_optiga_util_protected_update.o
+ .debug_line    0x00000000      0x4b0 ./examples/example_optiga_util_protected_update.o
+ .debug_str     0x00000000      0xad7 ./examples/example_optiga_util_protected_update.o
  .comment       0x00000000       0x71 ./examples/example_optiga_util_protected_update.o
- .debug_frame   0x00000000       0x60 ./examples/example_optiga_util_protected_update.o
+ .debug_frame   0x00000000       0x54 ./examples/example_optiga_util_protected_update.o
  .ARM.attributes
                 0x00000000       0x37 ./examples/example_optiga_util_protected_update.o
  .text          0x00000000        0x0 ./examples/example_optiga_util_read_data.o
@@ -3076,22 +2860,6 @@ Discarded input sections
  .bss           0x00000000        0x0 ./examples/optiga_shell.o
  .text.optiga_util_callback
                 0x00000000        0xc ./examples/optiga_shell.o
- .text.optiga_shell_crypt_hmac_verify_with_authorization_reference
-                0x00000000       0x88 ./examples/optiga_shell.o
- .text.optiga_shell_crypt_clear_auto_state
-                0x00000000       0x94 ./examples/optiga_shell.o
- .text.optiga_shell_crypt_symmetric_generate_key
-                0x00000000       0x50 ./examples/optiga_shell.o
- .text.optiga_shell_crypt_hkdf
-                0x00000000       0x6c ./examples/optiga_shell.o
- .text.optiga_shell_crypt_hmac
-                0x00000000       0x5c ./examples/optiga_shell.o
- .text.optiga_shell_crypt_symmetric_encrypt_cbcmac
-                0x00000000       0x5c ./examples/optiga_shell.o
- .text.optiga_shell_crypt_symmetric_encrypt_decrypt_cbc
-                0x00000000       0x6c ./examples/optiga_shell.o
- .text.optiga_shell_crypt_symmetric_encrypt_decrypt_ecb
-                0x00000000       0x6c ./examples/optiga_shell.o
  .text.optiga_shell_crypt_rsa_decrypt_and_export
                 0x00000000       0x78 ./examples/optiga_shell.o
  .text.optiga_shell_crypt_rsa_decrypt_and_store
@@ -3143,7 +2911,7 @@ Discarded input sections
  .text.optiga_shell_show_usage
                 0x00000000       0x50 ./examples/optiga_shell.o
  .text.optiga_shell_selftest
-                0x00000000      0xa84 ./examples/optiga_shell.o
+                0x00000000      0x76c ./examples/optiga_shell.o
  .text.run_example
                 0x00000000       0x1c ./examples/optiga_shell.o
  .text.optiga_shell_begin
@@ -3151,22 +2919,22 @@ Discarded input sections
  .text.optiga_shell_wait_for_user
                 0x00000000       0x48 ./examples/optiga_shell.o
  .data.optiga_cmds
-                0x00000000      0x198 ./examples/optiga_shell.o
+                0x00000000      0x138 ./examples/optiga_shell.o
  .rodata.str1.4
-                0x00000000     0x2120 ./examples/optiga_shell.o
+                0x00000000     0x18b0 ./examples/optiga_shell.o
  .bss.me_util   0x00000000        0x4 ./examples/optiga_shell.o
  .bss.optiga_lib_status
                 0x00000000        0x2 ./examples/optiga_shell.o
- .debug_info    0x00000000     0x680c ./examples/optiga_shell.o
+ .debug_info    0x00000000     0x54b8 ./examples/optiga_shell.o
  .debug_abbrev  0x00000000      0x526 ./examples/optiga_shell.o
- .debug_loc     0x00000000      0xcda ./examples/optiga_shell.o
+ .debug_loc     0x00000000      0xab9 ./examples/optiga_shell.o
  .debug_aranges
-                0x00000000      0x148 ./examples/optiga_shell.o
- .debug_ranges  0x00000000      0x210 ./examples/optiga_shell.o
- .debug_line    0x00000000      0xe50 ./examples/optiga_shell.o
- .debug_str     0x00000000     0x26b1 ./examples/optiga_shell.o
+                0x00000000      0x108 ./examples/optiga_shell.o
+ .debug_ranges  0x00000000      0x1d0 ./examples/optiga_shell.o
+ .debug_line    0x00000000      0xd1d ./examples/optiga_shell.o
+ .debug_str     0x00000000     0x2417 ./examples/optiga_shell.o
  .comment       0x00000000       0x71 ./examples/optiga_shell.o
- .debug_frame   0x00000000      0x664 ./examples/optiga_shell.o
+ .debug_frame   0x00000000      0x504 ./examples/optiga_shell.o
  .ARM.attributes
                 0x00000000       0x37 ./examples/optiga_shell.o
  .text          0x00000000        0x0 ./SEMS_Sources/Com.o
@@ -3582,7 +3350,7 @@ END GROUP
                 0x00005000                stack_size = DEFINED (stack_size)?stack_size:0x5000
                 0x00000040                no_init_size = 0x40
 
-.text           0x08000000     0xde08 load address 0x0c000000
+.text           0x08000000     0xddf4 load address 0x0c000000
                 0x08000000                sText = .
  *(.reset)
  .reset         0x08000000      0x29c ./lib/xmc/Startup/startup_XMC4800.o
@@ -4275,453 +4043,453 @@ END GROUP
                 0x0800556c       0x18 ./lib/optiga/crypt/optiga_crypt.o
                 0x0800556c                optiga_crypt_set_comms_params
  .text.optiga_crypt_create
-                0x08005584       0x54 ./lib/optiga/crypt/optiga_crypt.o
+                0x08005584       0x50 ./lib/optiga/crypt/optiga_crypt.o
                 0x08005584                optiga_crypt_create
  .text.optiga_crypt_destroy
-                0x080055d8       0x30 ./lib/optiga/crypt/optiga_crypt.o
-                0x080055d8                optiga_crypt_destroy
+                0x080055d4       0x30 ./lib/optiga/crypt/optiga_crypt.o
+                0x080055d4                optiga_crypt_destroy
  .text.optiga_crypt_random
-                0x08005608       0x88 ./lib/optiga/crypt/optiga_crypt.o
-                0x08005608                optiga_crypt_random
+                0x08005604       0x84 ./lib/optiga/crypt/optiga_crypt.o
+                0x08005604                optiga_crypt_random
  .text.optiga_crypt_hash
-                0x08005690       0x9c ./lib/optiga/crypt/optiga_crypt.o
-                0x08005690                optiga_crypt_hash
+                0x08005688       0x98 ./lib/optiga/crypt/optiga_crypt.o
+                0x08005688                optiga_crypt_hash
  .text.optiga_crypt_rsa_verify
-                0x0800572c       0xa8 ./lib/optiga/crypt/optiga_crypt.o
-                0x0800572c                optiga_crypt_rsa_verify
+                0x08005720       0xa4 ./lib/optiga/crypt/optiga_crypt.o
+                0x08005720                optiga_crypt_rsa_verify
  .text.optiga_crypt_rsa_encrypt_message
-                0x080057d4       0x9c ./lib/optiga/crypt/optiga_crypt.o
-                0x080057d4                optiga_crypt_rsa_encrypt_message
+                0x080057c4       0x98 ./lib/optiga/crypt/optiga_crypt.o
+                0x080057c4                optiga_crypt_rsa_encrypt_message
  .text.ifx_i2c_tl_event_handler
-                0x08005870       0x28 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
-                0x08005870                ifx_i2c_tl_event_handler
+                0x0800585c       0x28 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
+                0x0800585c                ifx_i2c_tl_event_handler
  .text.ifx_i2c_init
-                0x08005898       0xa8 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
+                0x08005884       0xa8 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
  .text.ifx_i2c_prl_close_event_handler
-                0x08005940       0x44 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
+                0x0800592c       0x44 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
  .text.ifx_i2c_open
-                0x08005984       0x5c ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
-                0x08005984                ifx_i2c_open
+                0x08005970       0x5c ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
+                0x08005970                ifx_i2c_open
  .text.ifx_i2c_transceive
-                0x080059e0       0x3c ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
-                0x080059e0                ifx_i2c_transceive
+                0x080059cc       0x3c ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
+                0x080059cc                ifx_i2c_transceive
  .text.ifx_i2c_close
-                0x08005a1c       0x4c ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
-                0x08005a1c                ifx_i2c_close
+                0x08005a08       0x4c ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
+                0x08005a08                ifx_i2c_close
  .text.ifx_i2c_pl_event_handler
-                0x08005a68      0x584 ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
+                0x08005a54      0x584 ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
  .text.ifx_i2c_dl_init
-                0x08005fec       0x48 ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
-                0x08005fec                ifx_i2c_dl_init
+                0x08005fd8       0x48 ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
+                0x08005fd8                ifx_i2c_dl_init
  .text.ifx_i2c_dl_send_frame
-                0x08006034       0xb4 ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
-                0x08006034                ifx_i2c_dl_send_frame
+                0x08006020       0xb4 ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
+                0x08006020                ifx_i2c_dl_send_frame
  .text.ifx_i2c_dl_receive_frame
-                0x080060e8       0x3c ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
-                0x080060e8                ifx_i2c_dl_receive_frame
+                0x080060d4       0x3c ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
+                0x080060d4                ifx_i2c_dl_receive_frame
  .text.ifx_i2c_pl_status_poll_callback
-                0x08006124       0x30 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
+                0x08006110       0x30 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
  .text.ifx_i2c_pal_poll_callback
-                0x08006154       0x28 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
+                0x08006140       0x28 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
  .text.ifx_i2c_pl_negotiation_event_handler
-                0x0800617c      0x2a8 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
+                0x08006168      0x2a8 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
  .text.ifx_i2c_pl_pal_event_handler
-                0x08006424       0x54 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
+                0x08006410       0x54 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
  .text.ifx_i2c_pl_soft_reset
-                0x08006478       0xe4 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
+                0x08006464       0xe4 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
  .text.ifx_i2c_pl_guard_time_callback
-                0x0800655c      0x188 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
+                0x08006548      0x188 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
  .text.ifx_i2c_pl_init
-                0x080066e4       0x70 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
-                0x080066e4                ifx_i2c_pl_init
+                0x080066d0       0x70 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
+                0x080066d0                ifx_i2c_pl_init
  .text.ifx_i2c_pl_send_frame
-                0x08006754       0x74 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
-                0x08006754                ifx_i2c_pl_send_frame
+                0x08006740       0x74 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
+                0x08006740                ifx_i2c_pl_send_frame
  .text.ifx_i2c_pl_receive_frame
-                0x080067c8       0x58 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
-                0x080067c8                ifx_i2c_pl_receive_frame
+                0x080067b4       0x58 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
+                0x080067b4                ifx_i2c_pl_receive_frame
  .text.ifx_i2c_prl_event_handler
-                0x08006820      0xc30 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
+                0x0800680c      0xc30 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
  .text.ifx_i2c_prl_init
-                0x08007450       0x54 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
-                0x08007450                ifx_i2c_prl_init
+                0x0800743c       0x54 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
+                0x0800743c                ifx_i2c_prl_init
  .text.ifx_i2c_prl_close
-                0x080074a4       0x54 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
-                0x080074a4                ifx_i2c_prl_close
+                0x08007490       0x54 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
+                0x08007490                ifx_i2c_prl_close
  .text.ifx_i2c_prl_transceive
-                0x080074f8       0x84 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
-                0x080074f8                ifx_i2c_prl_transceive
+                0x080074e4       0x84 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
+                0x080074e4                ifx_i2c_prl_transceive
  .text.ifx_i2c_dl_event_handler
-                0x0800757c      0x354 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
+                0x08007568      0x354 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
  .text.ifx_i2c_tl_init
-                0x080078d0       0x34 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
-                0x080078d0                ifx_i2c_tl_init
+                0x080078bc       0x34 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
+                0x080078bc                ifx_i2c_tl_init
  .text.ifx_i2c_tl_transceive
-                0x08007904       0x94 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
-                0x08007904                ifx_i2c_tl_transceive
+                0x080078f0       0x94 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
+                0x080078f0                ifx_i2c_tl_transceive
  .text.ifx_i2c_event_handler
-                0x08007998       0x10 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
+                0x08007984       0x10 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
  .text.optiga_comms_create
-                0x080079a8       0x2c ./lib/optiga/comms/optiga_comms_ifx_i2c.o
-                0x080079a8                optiga_comms_create
+                0x08007994       0x2c ./lib/optiga/comms/optiga_comms_ifx_i2c.o
+                0x08007994                optiga_comms_create
  .text.optiga_comms_set_callback_context
-                0x080079d4        0x8 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
-                0x080079d4                optiga_comms_set_callback_context
+                0x080079c0        0x8 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
+                0x080079c0                optiga_comms_set_callback_context
  .text.optiga_comms_open
-                0x080079dc       0x40 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
-                0x080079dc                optiga_comms_open
+                0x080079c8       0x40 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
+                0x080079c8                optiga_comms_open
  .text.optiga_comms_transceive
-                0x08007a1c       0x58 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
-                0x08007a1c                optiga_comms_transceive
+                0x08007a08       0x58 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
+                0x08007a08                optiga_comms_transceive
  .text.optiga_comms_close
-                0x08007a74       0x38 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
-                0x08007a74                optiga_comms_close
+                0x08007a60       0x38 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
+                0x08007a60                optiga_comms_close
  .text.optiga_common_set_uint16
-                0x08007aac        0x8 ./lib/optiga/common/optiga_lib_common.o
-                0x08007aac                optiga_common_set_uint16
+                0x08007a98        0x8 ./lib/optiga/common/optiga_lib_common.o
+                0x08007a98                optiga_common_set_uint16
  .text.optiga_common_set_uint32
-                0x08007ab4       0x18 ./lib/optiga/common/optiga_lib_common.o
-                0x08007ab4                optiga_common_set_uint32
+                0x08007aa0       0x18 ./lib/optiga/common/optiga_lib_common.o
+                0x08007aa0                optiga_common_set_uint32
  .text.optiga_common_get_uint32
-                0x08007acc       0x18 ./lib/optiga/common/optiga_lib_common.o
-                0x08007acc                optiga_common_get_uint32
+                0x08007ab8       0x18 ./lib/optiga/common/optiga_lib_common.o
+                0x08007ab8                optiga_common_get_uint32
  .text.optiga_common_get_uint16
-                0x08007ae4       0x10 ./lib/optiga/common/optiga_lib_common.o
-                0x08007ae4                optiga_common_get_uint16
+                0x08007ad0       0x10 ./lib/optiga/common/optiga_lib_common.o
+                0x08007ad0                optiga_common_get_uint16
  .text.optiga_lib_print_bytes
-                0x08007af4       0x10 ./lib/optiga/common/optiga_lib_logger.o
-                0x08007af4                optiga_lib_print_bytes
+                0x08007ae0       0x10 ./lib/optiga/common/optiga_lib_logger.o
+                0x08007ae0                optiga_lib_print_bytes
  .text.optiga_cmd_queue_scheduler
-                0x08007b04      0x33c ./lib/optiga/cmd/optiga_cmd.o
+                0x08007af0      0x33c ./lib/optiga/cmd/optiga_cmd.o
  .text.optiga_cmd_get_data_object_handler
-                0x08007e40      0x114 ./lib/optiga/cmd/optiga_cmd.o
+                0x08007e2c      0x114 ./lib/optiga/cmd/optiga_cmd.o
  .text.optiga_cmd_set_data_object_handler
-                0x08007f54       0xc0 ./lib/optiga/cmd/optiga_cmd.o
+                0x08007f40       0xc0 ./lib/optiga/cmd/optiga_cmd.o
  .text.optiga_cmd_get_random_handler
-                0x08008014       0xd0 ./lib/optiga/cmd/optiga_cmd.o
+                0x08008000       0xd0 ./lib/optiga/cmd/optiga_cmd.o
  .text.optiga_cmd_verify_sign_handler
-                0x080080e4      0x17c ./lib/optiga/cmd/optiga_cmd.o
+                0x080080d0      0x17c ./lib/optiga/cmd/optiga_cmd.o
  .text.optiga_cmd_encrypt_asym_handler
-                0x08008260      0x1dc ./lib/optiga/cmd/optiga_cmd.o
+                0x0800824c      0x1dc ./lib/optiga/cmd/optiga_cmd.o
  .text.optiga_cmd_calc_hash_handler
-                0x0800843c      0x220 ./lib/optiga/cmd/optiga_cmd.o
+                0x08008428      0x220 ./lib/optiga/cmd/optiga_cmd.o
  .text.optiga_cmd_open_application_handler
-                0x0800865c       0xf8 ./lib/optiga/cmd/optiga_cmd.o
+                0x08008648       0xf8 ./lib/optiga/cmd/optiga_cmd.o
  .text.optiga_cmd_execute_process_response
-                0x08008754      0x2a0 ./lib/optiga/cmd/optiga_cmd.o
+                0x08008740      0x2a0 ./lib/optiga/cmd/optiga_cmd.o
  .text.optiga_cmd_execute_prepare_command
-                0x080089f4      0x1e8 ./lib/optiga/cmd/optiga_cmd.o
+                0x080089e0      0x1e8 ./lib/optiga/cmd/optiga_cmd.o
  .text.optiga_cmd_execute_comms_close
-                0x08008bdc      0x170 ./lib/optiga/cmd/optiga_cmd.o
+                0x08008bc8      0x170 ./lib/optiga/cmd/optiga_cmd.o
  .text.optiga_cmd_execute_handler
-                0x08008d4c      0x1d4 ./lib/optiga/cmd/optiga_cmd.o
- .text.optiga_cmd_execute_handler.constprop.13
-                0x08008f20      0x194 ./lib/optiga/cmd/optiga_cmd.o
+                0x08008d38      0x1d4 ./lib/optiga/cmd/optiga_cmd.o
+ .text.optiga_cmd_execute_handler.constprop.12
+                0x08008f0c      0x194 ./lib/optiga/cmd/optiga_cmd.o
  .text.optiga_cmd_event_trigger_execute
-                0x080090b4        0x4 ./lib/optiga/cmd/optiga_cmd.o
+                0x080090a0        0x4 ./lib/optiga/cmd/optiga_cmd.o
  .text.optiga_cmd_set_shielded_connection_option
-                0x080090b8       0x18 ./lib/optiga/cmd/optiga_cmd.o
-                0x080090b8                optiga_cmd_set_shielded_connection_option
+                0x080090a4       0x18 ./lib/optiga/cmd/optiga_cmd.o
+                0x080090a4                optiga_cmd_set_shielded_connection_option
  .text.optiga_cmd_create
-                0x080090d0      0x13c ./lib/optiga/cmd/optiga_cmd.o
-                0x080090d0                optiga_cmd_create
+                0x080090bc      0x13c ./lib/optiga/cmd/optiga_cmd.o
+                0x080090bc                optiga_cmd_create
  .text.optiga_cmd_destroy
-                0x0800920c       0x4c ./lib/optiga/cmd/optiga_cmd.o
-                0x0800920c                optiga_cmd_destroy
+                0x080091f8       0x4c ./lib/optiga/cmd/optiga_cmd.o
+                0x080091f8                optiga_cmd_destroy
  .text.optiga_cmd_open_application
-                0x08009258       0x24 ./lib/optiga/cmd/optiga_cmd.o
-                0x08009258                optiga_cmd_open_application
+                0x08009244       0x24 ./lib/optiga/cmd/optiga_cmd.o
+                0x08009244                optiga_cmd_open_application
  .text.optiga_cmd_get_data_object
-                0x0800927c       0x28 ./lib/optiga/cmd/optiga_cmd.o
-                0x0800927c                optiga_cmd_get_data_object
+                0x08009268       0x28 ./lib/optiga/cmd/optiga_cmd.o
+                0x08009268                optiga_cmd_get_data_object
  .text.optiga_cmd_set_data_object
-                0x080092a4       0x28 ./lib/optiga/cmd/optiga_cmd.o
-                0x080092a4                optiga_cmd_set_data_object
+                0x08009290       0x28 ./lib/optiga/cmd/optiga_cmd.o
+                0x08009290                optiga_cmd_set_data_object
  .text.optiga_cmd_get_random
-                0x080092cc       0x30 ./lib/optiga/cmd/optiga_cmd.o
-                0x080092cc                optiga_cmd_get_random
+                0x080092b8       0x30 ./lib/optiga/cmd/optiga_cmd.o
+                0x080092b8                optiga_cmd_get_random
  .text.optiga_cmd_verify_sign
-                0x080092fc       0x28 ./lib/optiga/cmd/optiga_cmd.o
-                0x080092fc                optiga_cmd_verify_sign
+                0x080092e8       0x28 ./lib/optiga/cmd/optiga_cmd.o
+                0x080092e8                optiga_cmd_verify_sign
  .text.optiga_cmd_encrypt_asym
-                0x08009324       0x3c ./lib/optiga/cmd/optiga_cmd.o
-                0x08009324                optiga_cmd_encrypt_asym
+                0x08009310       0x3c ./lib/optiga/cmd/optiga_cmd.o
+                0x08009310                optiga_cmd_encrypt_asym
  .text.optiga_cmd_calc_hash
-                0x08009360       0x2c ./lib/optiga/cmd/optiga_cmd.o
-                0x08009360                optiga_cmd_calc_hash
+                0x0800934c       0x2c ./lib/optiga/cmd/optiga_cmd.o
+                0x0800934c                optiga_cmd_calc_hash
  .text.aes_gen_tables
-                0x0800938c      0x260 ./lib/externals/mbedtls/aes.o
+                0x08009378      0x260 ./lib/externals/mbedtls/aes.o
  .text.mbedtls_aes_init
-                0x080095ec        0xc ./lib/externals/mbedtls/aes.o
-                0x080095ec                mbedtls_aes_init
+                0x080095d8        0xc ./lib/externals/mbedtls/aes.o
+                0x080095d8                mbedtls_aes_init
  .text.mbedtls_aes_free
-                0x080095f8        0xc ./lib/externals/mbedtls/aes.o
-                0x080095f8                mbedtls_aes_free
+                0x080095e4        0xc ./lib/externals/mbedtls/aes.o
+                0x080095e4                mbedtls_aes_free
  .text.mbedtls_aes_setkey_enc
-                0x08009604      0x254 ./lib/externals/mbedtls/aes.o
-                0x08009604                mbedtls_aes_setkey_enc
+                0x080095f0      0x254 ./lib/externals/mbedtls/aes.o
+                0x080095f0                mbedtls_aes_setkey_enc
  .text.mbedtls_aes_setkey_dec
-                0x08009858      0x19c ./lib/externals/mbedtls/aes.o
-                0x08009858                mbedtls_aes_setkey_dec
+                0x08009844      0x19c ./lib/externals/mbedtls/aes.o
+                0x08009844                mbedtls_aes_setkey_dec
  .text.mbedtls_internal_aes_encrypt
-                0x080099f4      0x50c ./lib/externals/mbedtls/aes.o
-                0x080099f4                mbedtls_internal_aes_encrypt
+                0x080099e0      0x50c ./lib/externals/mbedtls/aes.o
+                0x080099e0                mbedtls_internal_aes_encrypt
  .text.mbedtls_internal_aes_decrypt
-                0x08009f00      0x4f0 ./lib/externals/mbedtls/aes.o
-                0x08009f00                mbedtls_internal_aes_decrypt
+                0x08009eec      0x4f0 ./lib/externals/mbedtls/aes.o
+                0x08009eec                mbedtls_internal_aes_decrypt
  .text.mbedtls_aes_crypt_ecb
-                0x0800a3f0       0x10 ./lib/externals/mbedtls/aes.o
-                0x0800a3f0                mbedtls_aes_crypt_ecb
+                0x0800a3dc       0x10 ./lib/externals/mbedtls/aes.o
+                0x0800a3dc                mbedtls_aes_crypt_ecb
  .text.ccm_auth_crypt.constprop.0
-                0x0800a400      0x58c ./lib/externals/mbedtls/ccm.o
+                0x0800a3ec      0x58c ./lib/externals/mbedtls/ccm.o
  .text.ccm_auth_crypt.constprop.1
-                0x0800a98c      0x560 ./lib/externals/mbedtls/ccm.o
+                0x0800a978      0x560 ./lib/externals/mbedtls/ccm.o
  .text.mbedtls_ccm_init
-                0x0800aeec        0x8 ./lib/externals/mbedtls/ccm.o
-                0x0800aeec                mbedtls_ccm_init
+                0x0800aed8        0x8 ./lib/externals/mbedtls/ccm.o
+                0x0800aed8                mbedtls_ccm_init
  .text.mbedtls_ccm_setkey
-                0x0800aef4       0x4c ./lib/externals/mbedtls/ccm.o
-                0x0800aef4                mbedtls_ccm_setkey
+                0x0800aee0       0x4c ./lib/externals/mbedtls/ccm.o
+                0x0800aee0                mbedtls_ccm_setkey
  .text.mbedtls_ccm_free
-                0x0800af40       0x18 ./lib/externals/mbedtls/ccm.o
-                0x0800af40                mbedtls_ccm_free
+                0x0800af2c       0x18 ./lib/externals/mbedtls/ccm.o
+                0x0800af2c                mbedtls_ccm_free
  .text.mbedtls_ccm_encrypt_and_tag
-                0x0800af58       0x18 ./lib/externals/mbedtls/ccm.o
-                0x0800af58                mbedtls_ccm_encrypt_and_tag
+                0x0800af44       0x18 ./lib/externals/mbedtls/ccm.o
+                0x0800af44                mbedtls_ccm_encrypt_and_tag
  .text.mbedtls_ccm_auth_decrypt
-                0x0800af70       0x64 ./lib/externals/mbedtls/ccm.o
-                0x0800af70                mbedtls_ccm_auth_decrypt
+                0x0800af5c       0x64 ./lib/externals/mbedtls/ccm.o
+                0x0800af5c                mbedtls_ccm_auth_decrypt
  .text.mbedtls_cipher_info_from_values
-                0x0800afd4       0x2c ./lib/externals/mbedtls/cipher.o
-                0x0800afd4                mbedtls_cipher_info_from_values
+                0x0800afc0       0x2c ./lib/externals/mbedtls/cipher.o
+                0x0800afc0                mbedtls_cipher_info_from_values
  .text.mbedtls_cipher_free
-                0x0800b000       0x20 ./lib/externals/mbedtls/cipher.o
-                0x0800b000                mbedtls_cipher_free
+                0x0800afec       0x20 ./lib/externals/mbedtls/cipher.o
+                0x0800afec                mbedtls_cipher_free
  .text.mbedtls_cipher_setup
-                0x0800b020       0x30 ./lib/externals/mbedtls/cipher.o
-                0x0800b020                mbedtls_cipher_setup
+                0x0800b00c       0x30 ./lib/externals/mbedtls/cipher.o
+                0x0800b00c                mbedtls_cipher_setup
  .text.mbedtls_cipher_setkey
-                0x0800b050       0x44 ./lib/externals/mbedtls/cipher.o
-                0x0800b050                mbedtls_cipher_setkey
+                0x0800b03c       0x44 ./lib/externals/mbedtls/cipher.o
+                0x0800b03c                mbedtls_cipher_setkey
  .text.mbedtls_cipher_update
-                0x0800b094       0x68 ./lib/externals/mbedtls/cipher.o
-                0x0800b094                mbedtls_cipher_update
+                0x0800b080       0x68 ./lib/externals/mbedtls/cipher.o
+                0x0800b080                mbedtls_cipher_update
  .text.ccm_ctx_free
-                0x0800b0fc       0x14 ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800b0e8       0x14 ./lib/externals/mbedtls/cipher_wrap.o
  .text.ccm_ctx_alloc
-                0x0800b110       0x18 ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800b0fc       0x18 ./lib/externals/mbedtls/cipher_wrap.o
  .text.ccm_aes_setkey_wrap
-                0x0800b128        0xc ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800b114        0xc ./lib/externals/mbedtls/cipher_wrap.o
  .text.aes_ctx_free
-                0x0800b134       0x14 ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800b120       0x14 ./lib/externals/mbedtls/cipher_wrap.o
  .text.aes_ctx_alloc
-                0x0800b148       0x18 ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800b134       0x18 ./lib/externals/mbedtls/cipher_wrap.o
  .text.aes_setkey_dec_wrap
-                0x0800b160        0x4 ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800b14c        0x4 ./lib/externals/mbedtls/cipher_wrap.o
  .text.aes_setkey_enc_wrap
-                0x0800b164        0x4 ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800b150        0x4 ./lib/externals/mbedtls/cipher_wrap.o
  .text.aes_crypt_ecb_wrap
-                0x0800b168        0x4 ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800b154        0x4 ./lib/externals/mbedtls/cipher_wrap.o
  .text.mbedtls_md_info_from_type
-                0x0800b16c       0x1c ./lib/externals/mbedtls/md.o
-                0x0800b16c                mbedtls_md_info_from_type
+                0x0800b158       0x1c ./lib/externals/mbedtls/md.o
+                0x0800b158                mbedtls_md_info_from_type
  .text.mbedtls_md_init
-                0x0800b188       0x34 ./lib/externals/mbedtls/md.o
-                0x0800b188                mbedtls_md_init
+                0x0800b174       0x34 ./lib/externals/mbedtls/md.o
+                0x0800b174                mbedtls_md_init
  .text.mbedtls_md_free
-                0x0800b1bc       0x34 ./lib/externals/mbedtls/md.o
-                0x0800b1bc                mbedtls_md_free
+                0x0800b1a8       0x34 ./lib/externals/mbedtls/md.o
+                0x0800b1a8                mbedtls_md_free
  .text.mbedtls_md_setup
-                0x0800b1f0       0x48 ./lib/externals/mbedtls/md.o
-                0x0800b1f0                mbedtls_md_setup
+                0x0800b1dc       0x48 ./lib/externals/mbedtls/md.o
+                0x0800b1dc                mbedtls_md_setup
  .text.mbedtls_md_hmac_starts
-                0x0800b238      0x1f0 ./lib/externals/mbedtls/md.o
-                0x0800b238                mbedtls_md_hmac_starts
+                0x0800b224      0x1f0 ./lib/externals/mbedtls/md.o
+                0x0800b224                mbedtls_md_hmac_starts
  .text.mbedtls_md_hmac_update
-                0x0800b428       0x28 ./lib/externals/mbedtls/md.o
-                0x0800b428                mbedtls_md_hmac_update
+                0x0800b414       0x28 ./lib/externals/mbedtls/md.o
+                0x0800b414                mbedtls_md_hmac_update
  .text.mbedtls_md_hmac_finish
-                0x0800b450       0x70 ./lib/externals/mbedtls/md.o
-                0x0800b450                mbedtls_md_hmac_finish
+                0x0800b43c       0x70 ./lib/externals/mbedtls/md.o
+                0x0800b43c                mbedtls_md_hmac_finish
  .text.mbedtls_md_hmac_reset
-                0x0800b4c0       0x38 ./lib/externals/mbedtls/md.o
-                0x0800b4c0                mbedtls_md_hmac_reset
+                0x0800b4ac       0x38 ./lib/externals/mbedtls/md.o
+                0x0800b4ac                mbedtls_md_hmac_reset
  .text.sha224_process_wrap
-                0x0800b4f8        0x4 ./lib/externals/mbedtls/md_wrap.o
+                0x0800b4e4        0x4 ./lib/externals/mbedtls/md_wrap.o
  .text.sha224_clone_wrap
-                0x0800b4fc        0x4 ./lib/externals/mbedtls/md_wrap.o
+                0x0800b4e8        0x4 ./lib/externals/mbedtls/md_wrap.o
  .text.sha224_ctx_free
-                0x0800b500       0x14 ./lib/externals/mbedtls/md_wrap.o
+                0x0800b4ec       0x14 ./lib/externals/mbedtls/md_wrap.o
  .text.sha224_ctx_alloc
-                0x0800b514       0x18 ./lib/externals/mbedtls/md_wrap.o
+                0x0800b500       0x18 ./lib/externals/mbedtls/md_wrap.o
  .text.sha224_wrap
-                0x0800b52c        0x8 ./lib/externals/mbedtls/md_wrap.o
+                0x0800b518        0x8 ./lib/externals/mbedtls/md_wrap.o
  .text.sha256_wrap
-                0x0800b534        0x8 ./lib/externals/mbedtls/md_wrap.o
+                0x0800b520        0x8 ./lib/externals/mbedtls/md_wrap.o
  .text.sha224_finish_wrap
-                0x0800b53c        0x4 ./lib/externals/mbedtls/md_wrap.o
+                0x0800b528        0x4 ./lib/externals/mbedtls/md_wrap.o
  .text.sha224_update_wrap
-                0x0800b540        0x4 ./lib/externals/mbedtls/md_wrap.o
+                0x0800b52c        0x4 ./lib/externals/mbedtls/md_wrap.o
  .text.sha224_starts_wrap
-                0x0800b544        0x8 ./lib/externals/mbedtls/md_wrap.o
+                0x0800b530        0x8 ./lib/externals/mbedtls/md_wrap.o
  .text.sha256_starts_wrap
-                0x0800b54c        0x8 ./lib/externals/mbedtls/md_wrap.o
+                0x0800b538        0x8 ./lib/externals/mbedtls/md_wrap.o
  .text.mbedtls_platform_zeroize
-                0x0800b554       0x10 ./lib/externals/mbedtls/platform_util.o
-                0x0800b554                mbedtls_platform_zeroize
+                0x0800b540       0x10 ./lib/externals/mbedtls/platform_util.o
+                0x0800b540                mbedtls_platform_zeroize
  .text.mbedtls_sha256_init
-                0x0800b564        0x8 ./lib/externals/mbedtls/sha256.o
-                0x0800b564                mbedtls_sha256_init
+                0x0800b550        0x8 ./lib/externals/mbedtls/sha256.o
+                0x0800b550                mbedtls_sha256_init
  .text.mbedtls_sha256_free
-                0x0800b56c        0xc ./lib/externals/mbedtls/sha256.o
-                0x0800b56c                mbedtls_sha256_free
+                0x0800b558        0xc ./lib/externals/mbedtls/sha256.o
+                0x0800b558                mbedtls_sha256_free
  .text.mbedtls_sha256_clone
-                0x0800b578        0xc ./lib/externals/mbedtls/sha256.o
-                0x0800b578                mbedtls_sha256_clone
+                0x0800b564        0xc ./lib/externals/mbedtls/sha256.o
+                0x0800b564                mbedtls_sha256_clone
  .text.mbedtls_sha256_starts_ret
-                0x0800b584       0x90 ./lib/externals/mbedtls/sha256.o
-                0x0800b584                mbedtls_sha256_starts_ret
+                0x0800b570       0x90 ./lib/externals/mbedtls/sha256.o
+                0x0800b570                mbedtls_sha256_starts_ret
  .text.mbedtls_internal_sha256_process
-                0x0800b614      0x820 ./lib/externals/mbedtls/sha256.o
-                0x0800b614                mbedtls_internal_sha256_process
+                0x0800b600      0x820 ./lib/externals/mbedtls/sha256.o
+                0x0800b600                mbedtls_internal_sha256_process
  .text.mbedtls_sha256_update_ret
-                0x0800be34       0x8c ./lib/externals/mbedtls/sha256.o
-                0x0800be34                mbedtls_sha256_update_ret
+                0x0800be20       0x8c ./lib/externals/mbedtls/sha256.o
+                0x0800be20                mbedtls_sha256_update_ret
  .text.mbedtls_sha256_finish_ret
-                0x0800bec0      0x148 ./lib/externals/mbedtls/sha256.o
-                0x0800bec0                mbedtls_sha256_finish_ret
+                0x0800beac      0x148 ./lib/externals/mbedtls/sha256.o
+                0x0800beac                mbedtls_sha256_finish_ret
  .text.mbedtls_sha256_ret
-                0x0800c008       0xf0 ./lib/externals/mbedtls/sha256.o
-                0x0800c008                mbedtls_sha256_ret
+                0x0800bff4       0xf0 ./lib/externals/mbedtls/sha256.o
+                0x0800bff4                mbedtls_sha256_ret
  .text.optiga_lib_callback
-                0x0800c0f8        0xc ./examples/example_optiga_init_deinit.o
+                0x0800c0e4        0xc ./examples/example_optiga_init_deinit.o
  .text.example_optiga_init
-                0x0800c104        0x4 ./examples/example_optiga_init_deinit.o
-                0x0800c104                example_optiga_init
+                0x0800c0f0        0x4 ./examples/example_optiga_init_deinit.o
+                0x0800c0f0                example_optiga_init
  .text.example_optiga_init_true
-                0x0800c108       0x60 ./examples/example_optiga_init_deinit.o
-                0x0800c108                example_optiga_init_true
+                0x0800c0f4       0x60 ./examples/example_optiga_init_deinit.o
+                0x0800c0f4                example_optiga_init_true
  .text.example_optiga_deinit
-                0x0800c168        0x4 ./examples/example_optiga_init_deinit.o
-                0x0800c168                example_optiga_deinit
+                0x0800c154        0x4 ./examples/example_optiga_init_deinit.o
+                0x0800c154                example_optiga_deinit
  .text.optiga_lib_callback
-                0x0800c16c        0xc ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
+                0x0800c158        0xc ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
  .text.pair_host_and_optiga_using_pre_shared_secret
-                0x0800c178      0x178 ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
-                0x0800c178                pair_host_and_optiga_using_pre_shared_secret
+                0x0800c164      0x178 ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
+                0x0800c164                pair_host_and_optiga_using_pre_shared_secret
  .text.example_util_encode_rsa_public_key_in_bit_string_format
-                0x0800c2f0      0x19c ./examples/example_utilities.o
-                0x0800c2f0                example_util_encode_rsa_public_key_in_bit_string_format
+                0x0800c2dc      0x19c ./examples/example_utilities.o
+                0x0800c2dc                example_util_encode_rsa_public_key_in_bit_string_format
  .text.example_performance_measurement
-                0x0800c48c       0x20 ./examples/example_utilities.o
-                0x0800c48c                example_performance_measurement
+                0x0800c478       0x20 ./examples/example_utilities.o
+                0x0800c478                example_performance_measurement
  .text.secure_communication
-                0x0800c4ac       0x64 ./SEMS_Sources/Com.o
-                0x0800c4ac                secure_communication
+                0x0800c498       0x64 ./SEMS_Sources/Com.o
+                0x0800c498                secure_communication
  .text.optiga_crypt_callback
-                0x0800c510        0xc ./SEMS_Sources/Constructor.o
+                0x0800c4fc        0xc ./SEMS_Sources/Constructor.o
  .text.optiga_util_callback
-                0x0800c51c        0xc ./SEMS_Sources/Constructor.o
+                0x0800c508        0xc ./SEMS_Sources/Constructor.o
  .text.optiga_crypt_create_wrapper
-                0x0800c528       0x20 ./SEMS_Sources/Constructor.o
-                0x0800c528                optiga_crypt_create_wrapper
+                0x0800c514       0x20 ./SEMS_Sources/Constructor.o
+                0x0800c514                optiga_crypt_create_wrapper
  .text.optiga_util_create_wrapper
-                0x0800c548       0x20 ./SEMS_Sources/Constructor.o
-                0x0800c548                optiga_util_create_wrapper
+                0x0800c534       0x20 ./SEMS_Sources/Constructor.o
+                0x0800c534                optiga_util_create_wrapper
  .text.decode_req
-                0x0800c568       0x4c ./SEMS_Sources/Decoder.o
-                0x0800c568                decode_req
+                0x0800c554       0x4c ./SEMS_Sources/Decoder.o
+                0x0800c554                decode_req
  .text.optiga_crypt_hash_data_wrapper
-                0x0800c5b4       0x5c ./SEMS_Sources/Hash.o
-                0x0800c5b4                optiga_crypt_hash_data_wrapper
+                0x0800c5a0       0x5c ./SEMS_Sources/Hash.o
+                0x0800c5a0                optiga_crypt_hash_data_wrapper
  .text.init_SEMS
-                0x0800c610       0x10 ./SEMS_Sources/Init.o
-                0x0800c610                init_SEMS
+                0x0800c5fc       0x10 ./SEMS_Sources/Init.o
+                0x0800c5fc                init_SEMS
  .text.my_optiga_shell_begin
-                0x0800c620      0x1a4 ./SEMS_Sources/Main.o
-                0x0800c620                my_optiga_shell_begin
+                0x0800c60c      0x1a4 ./SEMS_Sources/Main.o
+                0x0800c60c                my_optiga_shell_begin
  .text.optiga_util_read_nonce
-                0x0800c7c4       0x60 ./SEMS_Sources/Nonce.o
-                0x0800c7c4                optiga_util_read_nonce
+                0x0800c7b0       0x60 ./SEMS_Sources/Nonce.o
+                0x0800c7b0                optiga_util_read_nonce
  .text.optiga_util_update_count_wrapper
-                0x0800c824       0x60 ./SEMS_Sources/Nonce.o
-                0x0800c824                optiga_util_update_count_wrapper
+                0x0800c810       0x60 ./SEMS_Sources/Nonce.o
+                0x0800c810                optiga_util_update_count_wrapper
  .text.read_request
-                0x0800c884       0xd8 ./SEMS_Sources/Patcher.o
-                0x0800c884                read_request
+                0x0800c870       0xd8 ./SEMS_Sources/Patcher.o
+                0x0800c870                read_request
  .text.write_request
-                0x0800c95c       0xb4 ./SEMS_Sources/Patcher.o
-                0x0800c95c                write_request
+                0x0800c948       0xb4 ./SEMS_Sources/Patcher.o
+                0x0800c948                write_request
  .text.optiga_crypt_rsa_encrypt_message_wrapper
-                0x0800ca10       0xac ./SEMS_Sources/RSA.o
-                0x0800ca10                optiga_crypt_rsa_encrypt_message_wrapper
+                0x0800c9fc       0xac ./SEMS_Sources/RSA.o
+                0x0800c9fc                optiga_crypt_rsa_encrypt_message_wrapper
  .text.optiga_crypt_rsa_verify_wrapper
-                0x0800cabc       0xb0 ./SEMS_Sources/RSA.o
-                0x0800cabc                optiga_crypt_rsa_verify_wrapper
+                0x0800caa8       0xb0 ./SEMS_Sources/RSA.o
+                0x0800caa8                optiga_crypt_rsa_verify_wrapper
  .text.optiga_crypt_random_wrapper
-                0x0800cb6c       0x60 ./SEMS_Sources/Random.o
-                0x0800cb6c                optiga_crypt_random_wrapper
+                0x0800cb58       0x60 ./SEMS_Sources/Random.o
+                0x0800cb58                optiga_crypt_random_wrapper
  .text.optiga_util_write_shared_key
-                0x0800cbcc       0x64 ./SEMS_Sources/Skey.o
-                0x0800cbcc                optiga_util_write_shared_key
+                0x0800cbb8       0x64 ./SEMS_Sources/Skey.o
+                0x0800cbb8                optiga_util_write_shared_key
  .text.optiga_util_read_shared_key
-                0x0800cc30       0x60 ./SEMS_Sources/Skey.o
-                0x0800cc30                optiga_util_read_shared_key
+                0x0800cc1c       0x60 ./SEMS_Sources/Skey.o
+                0x0800cc1c                optiga_util_read_shared_key
  .text.stream_enc
-                0x0800cc90       0xa0 ./SEMS_Sources/SymEncrypt.o
-                0x0800cc90                stream_enc
+                0x0800cc7c       0xa0 ./SEMS_Sources/SymEncrypt.o
+                0x0800cc7c                stream_enc
  .text.start_cooldown_timer
-                0x0800cd30       0x20 ./SEMS_Sources/Timer.o
-                0x0800cd30                start_cooldown_timer
+                0x0800cd1c       0x20 ./SEMS_Sources/Timer.o
+                0x0800cd1c                start_cooldown_timer
  .text.CCU80_3_IRQHandler
-                0x0800cd50       0x24 ./SEMS_Sources/Timer.o
-                0x0800cd50                CCU80_3_IRQHandler
+                0x0800cd3c       0x24 ./SEMS_Sources/Timer.o
+                0x0800cd3c                CCU80_3_IRQHandler
  .text.secure_unlock
-                0x0800cd74       0x90 ./SEMS_Sources/Unlock.o
-                0x0800cd74                secure_unlock
+                0x0800cd60       0x90 ./SEMS_Sources/Unlock.o
+                0x0800cd60                secure_unlock
  .text.startup.main
-                0x0800ce04       0x28 ./main_xmc4800_example.o
-                0x0800ce04                main
- .text          0x0800ce2c       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_aeabi_uldivmod.o)
-                0x0800ce2c                __aeabi_uldivmod
- .text          0x0800ce58       0x60 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(bpabi.o)
-                0x0800ce58                __gnu_ldivmod_helper
-                0x0800ce88                __gnu_uldivmod_helper
- .text          0x0800ceb8        0x4 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_dvmd_tls.o)
-                0x0800ceb8                __aeabi_idiv0
-                0x0800ceb8                __aeabi_ldiv0
- .text          0x0800cebc      0x29c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_divdi3.o)
-                0x0800cebc                __divdi3
- .text          0x0800d158      0x26c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_udivdi3.o)
-                0x0800d158                __udivdi3
- .text.calloc   0x0800d3c4       0x14 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-calloc.o)
-                0x0800d3c4                calloc
- .text.__errno  0x0800d3d8        0xc c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-errno.o)
-                0x0800d3d8                __errno
+                0x0800cdf0       0x28 ./main_xmc4800_example.o
+                0x0800cdf0                main
+ .text          0x0800ce18       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_aeabi_uldivmod.o)
+                0x0800ce18                __aeabi_uldivmod
+ .text          0x0800ce44       0x60 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(bpabi.o)
+                0x0800ce44                __gnu_ldivmod_helper
+                0x0800ce74                __gnu_uldivmod_helper
+ .text          0x0800cea4        0x4 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_dvmd_tls.o)
+                0x0800cea4                __aeabi_idiv0
+                0x0800cea4                __aeabi_ldiv0
+ .text          0x0800cea8      0x29c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_divdi3.o)
+                0x0800cea8                __divdi3
+ .text          0x0800d144      0x26c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_udivdi3.o)
+                0x0800d144                __udivdi3
+ .text.calloc   0x0800d3b0       0x14 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-calloc.o)
+                0x0800d3b0                calloc
+ .text.__errno  0x0800d3c4        0xc c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-errno.o)
+                0x0800d3c4                __errno
  .text.__libc_init_array
-                0x0800d3e4       0x4c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-init.o)
-                0x0800d3e4                __libc_init_array
- .text.free     0x0800d430       0x10 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-malloc.o)
-                0x0800d430                free
- .text.memcmp   0x0800d440       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcmp.o)
-                0x0800d440                memcmp
- .text.memcpy   0x0800d460       0x16 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcpy.o)
-                0x0800d460                memcpy
- .text.memset   0x0800d476       0x10 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memset.o)
-                0x0800d476                memset
+                0x0800d3d0       0x4c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-init.o)
+                0x0800d3d0                __libc_init_array
+ .text.free     0x0800d41c       0x10 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-malloc.o)
+                0x0800d41c                free
+ .text.memcmp   0x0800d42c       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcmp.o)
+                0x0800d42c                memcmp
+ .text.memcpy   0x0800d44c       0x16 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcpy.o)
+                0x0800d44c                memcpy
+ .text.memset   0x0800d462       0x10 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memset.o)
+                0x0800d462                memset
  .text._calloc_r
-                0x0800d486       0x1c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-callocr.o)
-                0x0800d486                _calloc_r
- *fill*         0x0800d4a2        0x2 
- .text._free_r  0x0800d4a4       0x88 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-freer.o)
-                0x0800d4a4                _free_r
+                0x0800d472       0x1c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-callocr.o)
+                0x0800d472                _calloc_r
+ *fill*         0x0800d48e        0x2 
+ .text._free_r  0x0800d490       0x88 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-freer.o)
+                0x0800d490                _free_r
  .text._malloc_r
-                0x0800d52c       0xac c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-mallocr.o)
-                0x0800d52c                _malloc_r
- .text._sbrk_r  0x0800d5d8       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-sbrkr.o)
-                0x0800d5d8                _sbrk_r
- .text          0x0800d5f8       0x14 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-strcmp.o)
-                0x0800d5f8                strcmp
+                0x0800d518       0xac c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-mallocr.o)
+                0x0800d518                _malloc_r
+ .text._sbrk_r  0x0800d5c4       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-sbrkr.o)
+                0x0800d5c4                _sbrk_r
+ .text          0x0800d5e4       0x14 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-strcmp.o)
+                0x0800d5e4                strcmp
  *(.init)
  *(.fini)
  *crtbegin.o(.ctors)
@@ -4736,172 +4504,172 @@ END GROUP
  *(.dtors)
  *(.rodata .rodata.*)
  .rodata.CSWTCH.37
-                0x0800d60c       0x28 ./lib/xmc/XMCLib/src/xmc_ccu4.o
+                0x0800d5f8       0x28 ./lib/xmc/XMCLib/src/xmc_ccu4.o
  .rodata.CSWTCH.38
-                0x0800d634       0x28 ./lib/xmc/XMCLib/src/xmc_ccu4.o
+                0x0800d620       0x28 ./lib/xmc/XMCLib/src/xmc_ccu4.o
  .rodata.CSWTCH.43
-                0x0800d65c       0x28 ./lib/xmc/XMCLib/src/xmc_ccu8.o
+                0x0800d648       0x28 ./lib/xmc/XMCLib/src/xmc_ccu8.o
  .rodata.CSWTCH.44
-                0x0800d684       0x28 ./lib/xmc/XMCLib/src/xmc_ccu8.o
+                0x0800d670       0x28 ./lib/xmc/XMCLib/src/xmc_ccu8.o
  .rodata.Driver_USBD0
-                0x0800d6ac       0x40 ./lib/xmc/XMCLib/src/xmc_usbd.o
-                0x0800d6ac                Driver_USBD0
+                0x0800d698       0x40 ./lib/xmc/XMCLib/src/xmc_usbd.o
+                0x0800d698                Driver_USBD0
  .rodata.product_string
-                0x0800d6ec       0x68 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
-                0x0800d6ec                product_string
+                0x0800d6d8       0x68 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
+                0x0800d6d8                product_string
  .rodata.device_descriptor
-                0x0800d754       0x14 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
-                0x0800d754                device_descriptor
+                0x0800d740       0x14 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
+                0x0800d740                device_descriptor
  .rodata.language_string
-                0x0800d768       0x68 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
-                0x0800d768                language_string
+                0x0800d754       0x68 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
+                0x0800d754                language_string
  .rodata.manufacturer_string
-                0x0800d7d0       0x68 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
-                0x0800d7d0                manufacturer_string
+                0x0800d7bc       0x68 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
+                0x0800d7bc                manufacturer_string
  .rodata.CSWTCH.1
-                0x0800d838        0xc ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
+                0x0800d824        0xc ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
  .rodata.CSWTCH.2
-                0x0800d844        0x8 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
+                0x0800d830        0x8 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
  .rodata.configuration_descriptor
-                0x0800d84c       0x40 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
-                0x0800d84c                configuration_descriptor
+                0x0800d838       0x40 ./lib/xmc/Dave/Generated/USBD_VCOM/virtual_com/descriptors.o
+                0x0800d838                configuration_descriptor
  .rodata.cunit_logger_config
-                0x0800d88c       0x30 ./lib/xmc/Dave/Generated/UART/uart_conf.o
-                0x0800d88c                cunit_logger_config
+                0x0800d878       0x30 ./lib/xmc/Dave/Generated/UART/uart_conf.o
+                0x0800d878                cunit_logger_config
  .rodata.cunit_logger_channel_config
-                0x0800d8bc        0xc ./lib/xmc/Dave/Generated/UART/uart_conf.o
-                0x0800d8bc                cunit_logger_channel_config
+                0x0800d8a8        0xc ./lib/xmc/Dave/Generated/UART/uart_conf.o
+                0x0800d8a8                cunit_logger_channel_config
  .rodata.cunit_logger_tx_pin
-                0x0800d8c8        0xc ./lib/xmc/Dave/Generated/UART/uart_conf.o
-                0x0800d8c8                cunit_logger_tx_pin
+                0x0800d8b4        0xc ./lib/xmc/Dave/Generated/UART/uart_conf.o
+                0x0800d8b4                cunit_logger_tx_pin
  .rodata.cunit_logger_tx_pin_config
-                0x0800d8d4        0xc ./lib/xmc/Dave/Generated/UART/uart_conf.o
-                0x0800d8d4                cunit_logger_tx_pin_config
+                0x0800d8c0        0xc ./lib/xmc/Dave/Generated/UART/uart_conf.o
+                0x0800d8c0                cunit_logger_tx_pin_config
  .rodata.cunit_logger_rx_pin_config
-                0x0800d8e0        0xc ./lib/xmc/Dave/Generated/UART/uart_conf.o
-                0x0800d8e0                cunit_logger_rx_pin_config
+                0x0800d8cc        0xc ./lib/xmc/Dave/Generated/UART/uart_conf.o
+                0x0800d8cc                cunit_logger_rx_pin_config
  .rodata.scheduler_timer_intr
-                0x0800d8ec        0x4 ./lib/xmc/Dave/Generated/INTERRUPT/interrupt_conf.o
-                0x0800d8ec                scheduler_timer_intr
+                0x0800d8d8        0x4 ./lib/xmc/Dave/Generated/INTERRUPT/interrupt_conf.o
+                0x0800d8d8                scheduler_timer_intr
  .rodata.tick_timer_intr
-                0x0800d8f0        0x4 ./lib/xmc/Dave/Generated/INTERRUPT/interrupt_conf.o
-                0x0800d8f0                tick_timer_intr
+                0x0800d8dc        0x4 ./lib/xmc/Dave/Generated/INTERRUPT/interrupt_conf.o
+                0x0800d8dc                tick_timer_intr
  .rodata.INTERRUPT_0
-                0x0800d8f4        0x4 ./lib/xmc/Dave/Generated/INTERRUPT/interrupt_conf.o
-                0x0800d8f4                INTERRUPT_0
+                0x0800d8e0        0x4 ./lib/xmc/Dave/Generated/INTERRUPT/interrupt_conf.o
+                0x0800d8e0                INTERRUPT_0
  .rodata.i2c_master_0_sda_pin_config
-                0x0800d8f8        0xc ./lib/xmc/Dave/Generated/I2C_MASTER/i2c_master_conf.o
+                0x0800d8e4        0xc ./lib/xmc/Dave/Generated/I2C_MASTER/i2c_master_conf.o
  .rodata.i2c_master_0_scl_pin_config
-                0x0800d904        0xc ./lib/xmc/Dave/Generated/I2C_MASTER/i2c_master_conf.o
+                0x0800d8f0        0xc ./lib/xmc/Dave/Generated/I2C_MASTER/i2c_master_conf.o
  .rodata.i2c_master_0_config
-                0x0800d910       0x2c ./lib/xmc/Dave/Generated/I2C_MASTER/i2c_master_conf.o
-                0x0800d910                i2c_master_0_config
+                0x0800d8fc       0x2c ./lib/xmc/Dave/Generated/I2C_MASTER/i2c_master_conf.o
+                0x0800d8fc                i2c_master_0_config
  .rodata.i2c_master_0_channel_config
-                0x0800d93c        0x8 ./lib/xmc/Dave/Generated/I2C_MASTER/i2c_master_conf.o
-                0x0800d93c                i2c_master_0_channel_config
+                0x0800d928        0x8 ./lib/xmc/Dave/Generated/I2C_MASTER/i2c_master_conf.o
+                0x0800d928                i2c_master_0_channel_config
  .rodata.reset_pin
-                0x0800d944       0x14 ./lib/xmc/Dave/Generated/DIGITAL_IO/digital_io_conf.o
-                0x0800d944                reset_pin
+                0x0800d930       0x14 ./lib/xmc/Dave/Generated/DIGITAL_IO/digital_io_conf.o
+                0x0800d930                reset_pin
  .rodata.vdd_pin
-                0x0800d958       0x14 ./lib/xmc/Dave/Generated/DIGITAL_IO/digital_io_conf.o
-                0x0800d958                vdd_pin
- .rodata        0x0800d96c       0x14 ./lib/xmc/Dave/Generated/CLOCK_XMC4/clock_xmc4_conf.o
+                0x0800d944       0x14 ./lib/xmc/Dave/Generated/DIGITAL_IO/digital_io_conf.o
+                0x0800d944                vdd_pin
+ .rodata        0x0800d958       0x14 ./lib/xmc/Dave/Generated/CLOCK_XMC4/clock_xmc4_conf.o
  .rodata.str1.4
-                0x0800d980       0x11 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
+                0x0800d96c       0x11 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
                                  0x14 (size before relaxing)
- *fill*         0x0800d991        0x3 
+ *fill*         0x0800d97d        0x3 
  .rodata.g_pctr_states_table
-                0x0800d994       0x10 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
+                0x0800d980       0x10 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
  .rodata.g_optiga_unique_application_identifier
-                0x0800d9a4       0x10 ./lib/optiga/cmd/optiga_cmd.o
-                0x0800d9a4                g_optiga_unique_application_identifier
+                0x0800d990       0x10 ./lib/optiga/cmd/optiga_cmd.o
+                0x0800d990                g_optiga_unique_application_identifier
  .rodata.aes_info
-                0x0800d9b4       0x18 ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800d9a0       0x18 ./lib/externals/mbedtls/cipher_wrap.o
  .rodata.aes_192_ccm_info
-                0x0800d9cc       0x1c ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800d9b8       0x1c ./lib/externals/mbedtls/cipher_wrap.o
  .rodata.mbedtls_cipher_definitions
-                0x0800d9e8       0x38 ./lib/externals/mbedtls/cipher_wrap.o
-                0x0800d9e8                mbedtls_cipher_definitions
+                0x0800d9d4       0x38 ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800d9d4                mbedtls_cipher_definitions
  .rodata.ccm_aes_info
-                0x0800da20       0x18 ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800da0c       0x18 ./lib/externals/mbedtls/cipher_wrap.o
  .rodata.aes_128_ccm_info
-                0x0800da38       0x1c ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800da24       0x1c ./lib/externals/mbedtls/cipher_wrap.o
  .rodata.str1.4
-                0x0800da54       0x48 ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800da40       0x48 ./lib/externals/mbedtls/cipher_wrap.o
  .rodata.aes_256_ccm_info
-                0x0800da9c       0x1c ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800da88       0x1c ./lib/externals/mbedtls/cipher_wrap.o
  .rodata.aes_192_ecb_info
-                0x0800dab8       0x1c ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800daa4       0x1c ./lib/externals/mbedtls/cipher_wrap.o
  .rodata.aes_256_ecb_info
-                0x0800dad4       0x1c ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800dac0       0x1c ./lib/externals/mbedtls/cipher_wrap.o
  .rodata.aes_128_ecb_info
-                0x0800daf0       0x1c ./lib/externals/mbedtls/cipher_wrap.o
+                0x0800dadc       0x1c ./lib/externals/mbedtls/cipher_wrap.o
  .rodata.mbedtls_sha224_info
-                0x0800db0c       0x30 ./lib/externals/mbedtls/md_wrap.o
-                0x0800db0c                mbedtls_sha224_info
+                0x0800daf8       0x30 ./lib/externals/mbedtls/md_wrap.o
+                0x0800daf8                mbedtls_sha224_info
  .rodata.str1.4
-                0x0800db3c        0xf ./lib/externals/mbedtls/md_wrap.o
+                0x0800db28        0xf ./lib/externals/mbedtls/md_wrap.o
                                  0x10 (size before relaxing)
- *fill*         0x0800db4b        0x1 
+ *fill*         0x0800db37        0x1 
  .rodata.mbedtls_sha256_info
-                0x0800db4c       0x30 ./lib/externals/mbedtls/md_wrap.o
-                0x0800db4c                mbedtls_sha256_info
- .rodata.K      0x0800db7c      0x100 ./lib/externals/mbedtls/sha256.o
+                0x0800db38       0x30 ./lib/externals/mbedtls/md_wrap.o
+                0x0800db38                mbedtls_sha256_info
+ .rodata.K      0x0800db68      0x100 ./lib/externals/mbedtls/sha256.o
  .rodata.platform_binding_shared_secret_metadata_final
-                0x0800dc7c       0x1c ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
-                0x0800dc7c                platform_binding_shared_secret_metadata_final
+                0x0800dc68       0x1c ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
+                0x0800dc68                platform_binding_shared_secret_metadata_final
  .rodata.str1.4
-                0x0800dc98       0x20 ./SEMS_Sources/Decoder.o
- .rodata        0x0800dcb8       0xc0 ./SEMS_Sources/Main.o
+                0x0800dc84       0x20 ./SEMS_Sources/Decoder.o
+ .rodata        0x0800dca4       0xc0 ./SEMS_Sources/Main.o
  .rodata.rsa_public_key_exponent
-                0x0800dd78        0x4 ./SEMS_Sources/RSA.o
+                0x0800dd64        0x4 ./SEMS_Sources/RSA.o
  .rodata.rsa_public_key_modulus
-                0x0800dd7c       0x80 ./SEMS_Sources/RSA.o
- .rodata        0x0800ddfc        0x8 ./SEMS_Sources/Unlock.o
+                0x0800dd68       0x80 ./SEMS_Sources/RSA.o
+ .rodata        0x0800dde8        0x8 ./SEMS_Sources/Unlock.o
  .rodata.str1.1
-                0x0800de04        0x2 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-impure.o)
+                0x0800ddf0        0x2 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-impure.o)
  *(.gnu.linkonce.r*)
  *(vtable)
-                0x0800de08                . = ALIGN (0x4)
- *fill*         0x0800de06        0x2 
+                0x0800ddf4                . = ALIGN (0x4)
+ *fill*         0x0800ddf2        0x2 
 
-.glue_7         0x0800de08        0x0 load address 0x0c00de08
+.glue_7         0x0800ddf4        0x0 load address 0x0c00ddf4
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x0800de08        0x0 load address 0x0c00de08
+.glue_7t        0x0800ddf4        0x0 load address 0x0c00ddf4
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x0800de08        0x0 load address 0x0c00de08
+.vfp11_veneer   0x0800ddf4        0x0 load address 0x0c00ddf4
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x0800de08        0x0 load address 0x0c00de08
+.v4_bx          0x0800ddf4        0x0 load address 0x0c00ddf4
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x0800de08        0x0 load address 0x0c00de08
+.iplt           0x0800ddf4        0x0 load address 0x0c00ddf4
  .iplt          0x00000000        0x0 ./lib/xmc/XMCLib/src/xmc4_eru.o
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
 
-.eh_frame       0x0800de08       0x28 load address 0x0c00de08
+.eh_frame       0x0800ddf4       0x28 load address 0x0c00ddf4
  *(.eh_frame)
- .eh_frame      0x0800de08       0x28 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-strcmp.o)
+ .eh_frame      0x0800ddf4       0x28 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-strcmp.o)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0800de30                . = ALIGN (0x4)
-                0x0800de30                __exidx_start = .
+                0x0800de1c                . = ALIGN (0x4)
+                0x0800de1c                __exidx_start = .
 
-.ARM.exidx      0x0800de30        0x8 load address 0x0c00de30
+.ARM.exidx      0x0800de1c        0x8 load address 0x0c00de1c
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x0800de30        0x8 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_divdi3.o)
- .ARM.exidx     0x0800de38        0x0 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_udivdi3.o)
+ .ARM.exidx     0x0800de1c        0x8 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_divdi3.o)
+ .ARM.exidx     0x0800de24        0x0 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_udivdi3.o)
                                   0x8 (size before relaxing)
-                0x0800de38                __exidx_end = .
+                0x0800de24                __exidx_end = .
 
-.rel.dyn        0x0800de38        0x0 load address 0x0c00de38
+.rel.dyn        0x0800de24        0x0 load address 0x0c00de24
  .rel.iplt      0x00000000        0x0 ./lib/xmc/XMCLib/src/xmc4_eru.o
-                0x0800de38                . = ALIGN (0x4)
+                0x0800de24                . = ALIGN (0x4)
 
 Stack           0x1ffe8000     0x5000
                 0x1ffe8000                __stack_start = .
@@ -4910,16 +4678,16 @@ Stack           0x1ffe8000     0x5000
                 0x1ffed000                __stack_end = .
                 0x1ffed000                __initial_sp = .
 
-.ram_code       0x1ffed000        0x0 load address 0x0c00de38
+.ram_code       0x1ffed000        0x0 load address 0x0c00de24
                 0x1ffed000                . = ALIGN (0x4)
                 0x1ffed000                __ram_code_start = .
  *(.ram_code)
                 0x1ffed000                . = ALIGN (0x4)
                 0x1ffed000                __ram_code_end = .
-                0x0c00de38                __ram_code_load = LOADADDR (.ram_code)
+                0x0c00de24                __ram_code_load = LOADADDR (.ram_code)
                 0x00000000                __ram_code_size = (__ram_code_end - __ram_code_start)
 
-.data           0x1ffed000      0x75c load address 0x0c00de38
+.data           0x1ffed000      0x75c load address 0x0c00de24
                 0x1ffed000                . = ALIGN (0x4)
                 0x1ffed000                __data_start = .
  *(.data)
@@ -5023,15 +4791,15 @@ Stack           0x1ffe8000     0x5000
                 0x1ffed75c                PROVIDE (__fini_array_end, .)
                 0x1ffed75c                . = ALIGN (0x4)
                 0x1ffed75c                __data_end = .
-                0x0c00de38                __data_load = LOADADDR (.data)
+                0x0c00de24                __data_load = LOADADDR (.data)
                 0x0000075c                __data_size = (__data_end - __data_start)
-                0x0000e594                __text_size = (((__exidx_end - sText) + __data_size) + __ram_code_size)
-                0x0800e594                eText = (sText + __text_size)
+                0x0000e580                __text_size = (((__exidx_end - sText) + __data_size) + __ram_code_size)
+                0x0800e580                eText = (sText + __text_size)
 
-.igot.plt       0x1ffed75c        0x0 load address 0x0c00e594
+.igot.plt       0x1ffed75c        0x0 load address 0x0c00e580
  .igot.plt      0x00000000        0x0 ./lib/xmc/XMCLib/src/xmc4_eru.o
 
-.bss            0x1ffed75c     0x30ac load address 0x0c00e594
+.bss            0x1ffed75c     0x30ac load address 0x0c00e580
                 0x1ffed75c                . = ALIGN (0x4)
                 0x1ffed75c                __bss_start = .
  *(.bss)
@@ -5083,7 +4851,7 @@ Stack           0x1ffe8000     0x5000
  .bss.me_util_instance
                 0x1fff00bc        0x4 ./examples/example_optiga_init_deinit.o
                 0x1fff00bc                me_util_instance
- .bss.host_optiga_pairing_completed.6003
+ .bss.host_optiga_pairing_completed.5936
                 0x1fff00c0        0x1 ./examples/example_optiga_init_deinit.o
  *fill*         0x1fff00c1        0x1 
  .bss.optiga_lib_status
@@ -5193,7 +4961,7 @@ ETH_RAM         0x20000e00        0x0
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000     0x1e48
+.debug_aranges  0x00000000     0x1d88
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x28 ./lib/xmc/XMCLib/src/xmc4_gpio.o
@@ -5298,79 +5066,79 @@ ETH_RAM         0x20000e00        0x0
  .debug_aranges
                 0x00001228       0x88 ./lib/optiga/util/optiga_util.o
  .debug_aranges
-                0x000012b0      0x160 ./lib/optiga/crypt/optiga_crypt.o
+                0x000012b0       0xc8 ./lib/optiga/crypt/optiga_crypt.o
  .debug_aranges
-                0x00001410       0x58 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
+                0x00001378       0x58 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
  .debug_aranges
-                0x00001468       0x18 ./lib/optiga/comms/ifx_i2c/ifx_i2c_config.o
+                0x000013d0       0x18 ./lib/optiga/comms/ifx_i2c/ifx_i2c_config.o
  .debug_aranges
-                0x00001480       0x38 ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
+                0x000013e8       0x38 ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
  .debug_aranges
-                0x000014b8       0x70 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
+                0x00001420       0x70 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
  .debug_aranges
-                0x00001528       0x38 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
+                0x00001490       0x38 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
  .debug_aranges
-                0x00001560       0x30 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
+                0x000014c8       0x30 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
  .debug_aranges
-                0x00001590       0x60 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
+                0x000014f8       0x60 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
  .debug_aranges
-                0x000015f0       0x38 ./lib/optiga/common/optiga_lib_common.o
+                0x00001558       0x38 ./lib/optiga/common/optiga_lib_common.o
  .debug_aranges
-                0x00001628       0x48 ./lib/optiga/common/optiga_lib_logger.o
+                0x00001590       0x48 ./lib/optiga/common/optiga_lib_logger.o
  .debug_aranges
-                0x00001670      0x190 ./lib/optiga/cmd/optiga_cmd.o
+                0x000015d8      0x168 ./lib/optiga/cmd/optiga_cmd.o
  .debug_aranges
-                0x00001800       0x68 ./lib/externals/mbedtls/aes.o
+                0x00001740       0x68 ./lib/externals/mbedtls/aes.o
  .debug_aranges
-                0x00001868       0x60 ./lib/externals/mbedtls/ccm.o
+                0x000017a8       0x60 ./lib/externals/mbedtls/ccm.o
  .debug_aranges
-                0x000018c8       0x90 ./lib/externals/mbedtls/cipher.o
+                0x00001808       0x90 ./lib/externals/mbedtls/cipher.o
  .debug_aranges
-                0x00001958       0x58 ./lib/externals/mbedtls/cipher_wrap.o
+                0x00001898       0x58 ./lib/externals/mbedtls/cipher_wrap.o
  .debug_aranges
-                0x000019b0       0xc0 ./lib/externals/mbedtls/md.o
+                0x000018f0       0xc0 ./lib/externals/mbedtls/md.o
  .debug_aranges
-                0x00001a70       0x68 ./lib/externals/mbedtls/md_wrap.o
+                0x000019b0       0x68 ./lib/externals/mbedtls/md_wrap.o
  .debug_aranges
-                0x00001ad8       0x20 ./lib/externals/mbedtls/platform_util.o
+                0x00001a18       0x20 ./lib/externals/mbedtls/platform_util.o
  .debug_aranges
-                0x00001af8       0x80 ./lib/externals/mbedtls/sha256.o
+                0x00001a38       0x80 ./lib/externals/mbedtls/sha256.o
  .debug_aranges
-                0x00001b78       0x40 ./examples/example_optiga_init_deinit.o
+                0x00001ab8       0x40 ./examples/example_optiga_init_deinit.o
  .debug_aranges
-                0x00001bb8       0x30 ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
+                0x00001af8       0x30 ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
  .debug_aranges
-                0x00001be8       0x38 ./examples/example_utilities.o
+                0x00001b28       0x38 ./examples/example_utilities.o
  .debug_aranges
-                0x00001c20       0x20 ./SEMS_Sources/Com.o
+                0x00001b60       0x20 ./SEMS_Sources/Com.o
  .debug_aranges
-                0x00001c40       0x38 ./SEMS_Sources/Constructor.o
+                0x00001b80       0x38 ./SEMS_Sources/Constructor.o
  .debug_aranges
-                0x00001c78       0x20 ./SEMS_Sources/Decoder.o
+                0x00001bb8       0x20 ./SEMS_Sources/Decoder.o
  .debug_aranges
-                0x00001c98       0x20 ./SEMS_Sources/Hash.o
+                0x00001bd8       0x20 ./SEMS_Sources/Hash.o
  .debug_aranges
-                0x00001cb8       0x20 ./SEMS_Sources/Init.o
+                0x00001bf8       0x20 ./SEMS_Sources/Init.o
  .debug_aranges
-                0x00001cd8       0x20 ./SEMS_Sources/Main.o
+                0x00001c18       0x20 ./SEMS_Sources/Main.o
  .debug_aranges
-                0x00001cf8       0x30 ./SEMS_Sources/Nonce.o
+                0x00001c38       0x30 ./SEMS_Sources/Nonce.o
  .debug_aranges
-                0x00001d28       0x28 ./SEMS_Sources/Patcher.o
+                0x00001c68       0x28 ./SEMS_Sources/Patcher.o
  .debug_aranges
-                0x00001d50       0x28 ./SEMS_Sources/RSA.o
+                0x00001c90       0x28 ./SEMS_Sources/RSA.o
  .debug_aranges
-                0x00001d78       0x20 ./SEMS_Sources/Random.o
+                0x00001cb8       0x20 ./SEMS_Sources/Random.o
  .debug_aranges
-                0x00001d98       0x28 ./SEMS_Sources/Skey.o
+                0x00001cd8       0x28 ./SEMS_Sources/Skey.o
  .debug_aranges
-                0x00001dc0       0x20 ./SEMS_Sources/SymEncrypt.o
+                0x00001d00       0x20 ./SEMS_Sources/SymEncrypt.o
  .debug_aranges
-                0x00001de0       0x28 ./SEMS_Sources/Timer.o
+                0x00001d20       0x28 ./SEMS_Sources/Timer.o
  .debug_aranges
-                0x00001e08       0x20 ./SEMS_Sources/Unlock.o
+                0x00001d48       0x20 ./SEMS_Sources/Unlock.o
  .debug_aranges
-                0x00001e28       0x20 ./main_xmc4800_example.o
+                0x00001d68       0x20 ./main_xmc4800_example.o
 
 .debug_pubnames
  *(.debug_pubnames)
@@ -5378,7 +5146,7 @@ ETH_RAM         0x20000e00        0x0
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_info     0x00000000    0x785be
+.debug_info     0x00000000    0x74069
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x424 ./lib/xmc/XMCLib/src/xmc4_gpio.o
  .debug_info    0x00000424     0x2e0f ./lib/xmc/XMCLib/src/xmc4_scu.o
@@ -5431,45 +5199,45 @@ ETH_RAM         0x20000e00        0x0
  .debug_info    0x0003dbd1     0x187c ./lib/pal/pal_os_memory.o
  .debug_info    0x0003f44d     0x24f0 ./lib/pal/pal_os_timer.o
  .debug_info    0x0004193d     0x13b1 ./lib/optiga/util/optiga_util.o
- .debug_info    0x00042cee     0x6092 ./lib/optiga/crypt/optiga_crypt.o
- .debug_info    0x00048d80      0xfb3 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
- .debug_info    0x00049d33      0x989 ./lib/optiga/comms/ifx_i2c/ifx_i2c_config.o
- .debug_info    0x0004a6bc     0x13d9 ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
- .debug_info    0x0004ba95     0x185c ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
- .debug_info    0x0004d2f1     0x1a6f ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
- .debug_info    0x0004ed60      0xfb3 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
- .debug_info    0x0004fd13      0xe51 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
- .debug_info    0x00050b64      0x1ba ./lib/optiga/common/optiga_lib_common.o
- .debug_info    0x00050d1e      0xaef ./lib/optiga/common/optiga_lib_logger.o
- .debug_info    0x0005180d     0x5415 ./lib/optiga/cmd/optiga_cmd.o
- .debug_info    0x00056c22      0x864 ./lib/externals/mbedtls/aes.o
- .debug_info    0x00057486     0x14a4 ./lib/externals/mbedtls/ccm.o
- .debug_info    0x0005892a      0xfea ./lib/externals/mbedtls/cipher.o
- .debug_info    0x00059914      0xb26 ./lib/externals/mbedtls/cipher_wrap.o
- .debug_info    0x0005a43a      0xd12 ./lib/externals/mbedtls/md.o
- .debug_info    0x0005b14c      0x7e7 ./lib/externals/mbedtls/md_wrap.o
- .debug_info    0x0005b933      0x118 ./lib/externals/mbedtls/platform_util.o
- .debug_info    0x0005ba4b      0xd7f ./lib/externals/mbedtls/sha256.o
- .debug_info    0x0005c7ca      0x530 ./examples/example_optiga_init_deinit.o
- .debug_info    0x0005ccfa     0x1139 ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
- .debug_info    0x0005de33      0x3c1 ./examples/example_utilities.o
- .debug_info    0x0005e1f4     0x183c ./SEMS_Sources/Com.o
- .debug_info    0x0005fa30     0x22f1 ./SEMS_Sources/Constructor.o
- .debug_info    0x00061d21     0x1734 ./SEMS_Sources/Decoder.o
- .debug_info    0x00063455     0x1fed ./SEMS_Sources/Hash.o
- .debug_info    0x00065442     0x168c ./SEMS_Sources/Init.o
- .debug_info    0x00066ace     0x1a1c ./SEMS_Sources/Main.o
- .debug_info    0x000684ea     0x1c2b ./SEMS_Sources/Nonce.o
- .debug_info    0x0006a115     0x1b7f ./SEMS_Sources/Patcher.o
- .debug_info    0x0006bc94     0x2372 ./SEMS_Sources/RSA.o
- .debug_info    0x0006e006     0x1fcb ./SEMS_Sources/Random.o
- .debug_info    0x0006ffd1     0x1b3d ./SEMS_Sources/Skey.o
- .debug_info    0x00071b0e     0x169d ./SEMS_Sources/SymEncrypt.o
- .debug_info    0x000731ab     0x23ef ./SEMS_Sources/Timer.o
- .debug_info    0x0007559a     0x18ad ./SEMS_Sources/Unlock.o
- .debug_info    0x00076e47     0x1777 ./main_xmc4800_example.o
+ .debug_info    0x00042cee     0x2e3e ./lib/optiga/crypt/optiga_crypt.o
+ .debug_info    0x00045b2c      0xfb3 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
+ .debug_info    0x00046adf      0x989 ./lib/optiga/comms/ifx_i2c/ifx_i2c_config.o
+ .debug_info    0x00047468     0x13d9 ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
+ .debug_info    0x00048841     0x185c ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
+ .debug_info    0x0004a09d     0x1a6f ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
+ .debug_info    0x0004bb0c      0xfb3 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
+ .debug_info    0x0004cabf      0xe51 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
+ .debug_info    0x0004d910      0x1ba ./lib/optiga/common/optiga_lib_common.o
+ .debug_info    0x0004daca      0xaef ./lib/optiga/common/optiga_lib_logger.o
+ .debug_info    0x0004e5b9     0x48ee ./lib/optiga/cmd/optiga_cmd.o
+ .debug_info    0x00052ea7      0x864 ./lib/externals/mbedtls/aes.o
+ .debug_info    0x0005370b     0x14a4 ./lib/externals/mbedtls/ccm.o
+ .debug_info    0x00054baf      0xfea ./lib/externals/mbedtls/cipher.o
+ .debug_info    0x00055b99      0xb26 ./lib/externals/mbedtls/cipher_wrap.o
+ .debug_info    0x000566bf      0xd12 ./lib/externals/mbedtls/md.o
+ .debug_info    0x000573d1      0x7e7 ./lib/externals/mbedtls/md_wrap.o
+ .debug_info    0x00057bb8      0x118 ./lib/externals/mbedtls/platform_util.o
+ .debug_info    0x00057cd0      0xd7f ./lib/externals/mbedtls/sha256.o
+ .debug_info    0x00058a4f      0x530 ./examples/example_optiga_init_deinit.o
+ .debug_info    0x00058f7f      0xfad ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
+ .debug_info    0x00059f2c      0x3c1 ./examples/example_utilities.o
+ .debug_info    0x0005a2ed     0x183c ./SEMS_Sources/Com.o
+ .debug_info    0x0005bb29     0x215f ./SEMS_Sources/Constructor.o
+ .debug_info    0x0005dc88     0x1734 ./SEMS_Sources/Decoder.o
+ .debug_info    0x0005f3bc     0x1e5b ./SEMS_Sources/Hash.o
+ .debug_info    0x00061217     0x168c ./SEMS_Sources/Init.o
+ .debug_info    0x000628a3     0x1a1c ./SEMS_Sources/Main.o
+ .debug_info    0x000642bf     0x1c2b ./SEMS_Sources/Nonce.o
+ .debug_info    0x00065eea     0x1b7f ./SEMS_Sources/Patcher.o
+ .debug_info    0x00067a69     0x21da ./SEMS_Sources/RSA.o
+ .debug_info    0x00069c43     0x1e39 ./SEMS_Sources/Random.o
+ .debug_info    0x0006ba7c     0x1b3d ./SEMS_Sources/Skey.o
+ .debug_info    0x0006d5b9     0x169d ./SEMS_Sources/SymEncrypt.o
+ .debug_info    0x0006ec56     0x23ef ./SEMS_Sources/Timer.o
+ .debug_info    0x00071045     0x18ad ./SEMS_Sources/Unlock.o
+ .debug_info    0x000728f2     0x1777 ./main_xmc4800_example.o
 
-.debug_abbrev   0x00000000     0xe32b
+.debug_abbrev   0x00000000     0xe2e8
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x119 ./lib/xmc/XMCLib/src/xmc4_gpio.o
  .debug_abbrev  0x00000119      0x435 ./lib/xmc/XMCLib/src/xmc4_scu.o
@@ -5522,45 +5290,45 @@ ETH_RAM         0x20000e00        0x0
  .debug_abbrev  0x0000775f      0x2bc ./lib/pal/pal_os_memory.o
  .debug_abbrev  0x00007a1b      0x335 ./lib/pal/pal_os_timer.o
  .debug_abbrev  0x00007d50      0x382 ./lib/optiga/util/optiga_util.o
- .debug_abbrev  0x000080d2      0x37f ./lib/optiga/crypt/optiga_crypt.o
- .debug_abbrev  0x00008451      0x288 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
- .debug_abbrev  0x000086d9      0x10d ./lib/optiga/comms/ifx_i2c/ifx_i2c_config.o
- .debug_abbrev  0x000087e6      0x2e7 ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
- .debug_abbrev  0x00008acd      0x3a4 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
- .debug_abbrev  0x00008e71      0x2c3 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
- .debug_abbrev  0x00009134      0x29a ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
- .debug_abbrev  0x000093ce      0x285 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
- .debug_abbrev  0x00009653       0xde ./lib/optiga/common/optiga_lib_common.o
- .debug_abbrev  0x00009731      0x26c ./lib/optiga/common/optiga_lib_logger.o
- .debug_abbrev  0x0000999d      0x450 ./lib/optiga/cmd/optiga_cmd.o
- .debug_abbrev  0x00009ded      0x207 ./lib/externals/mbedtls/aes.o
- .debug_abbrev  0x00009ff4      0x330 ./lib/externals/mbedtls/ccm.o
- .debug_abbrev  0x0000a324      0x417 ./lib/externals/mbedtls/cipher.o
- .debug_abbrev  0x0000a73b      0x26c ./lib/externals/mbedtls/cipher_wrap.o
- .debug_abbrev  0x0000a9a7      0x3e2 ./lib/externals/mbedtls/md.o
- .debug_abbrev  0x0000ad89      0x1ce ./lib/externals/mbedtls/md_wrap.o
- .debug_abbrev  0x0000af57       0xb9 ./lib/externals/mbedtls/platform_util.o
- .debug_abbrev  0x0000b010      0x343 ./lib/externals/mbedtls/sha256.o
- .debug_abbrev  0x0000b353      0x1ee ./examples/example_optiga_init_deinit.o
- .debug_abbrev  0x0000b541      0x262 ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
- .debug_abbrev  0x0000b7a3      0x140 ./examples/example_utilities.o
- .debug_abbrev  0x0000b8e3      0x28a ./SEMS_Sources/Com.o
- .debug_abbrev  0x0000bb6d      0x2f4 ./SEMS_Sources/Constructor.o
- .debug_abbrev  0x0000be61      0x26a ./SEMS_Sources/Decoder.o
- .debug_abbrev  0x0000c0cb      0x2fa ./SEMS_Sources/Hash.o
- .debug_abbrev  0x0000c3c5      0x24c ./SEMS_Sources/Init.o
- .debug_abbrev  0x0000c611      0x30d ./SEMS_Sources/Main.o
- .debug_abbrev  0x0000c91e      0x340 ./SEMS_Sources/Nonce.o
- .debug_abbrev  0x0000cc5e      0x2fb ./SEMS_Sources/Patcher.o
- .debug_abbrev  0x0000cf59      0x34d ./SEMS_Sources/RSA.o
- .debug_abbrev  0x0000d2a6      0x2f9 ./SEMS_Sources/Random.o
- .debug_abbrev  0x0000d59f      0x32c ./SEMS_Sources/Skey.o
- .debug_abbrev  0x0000d8cb      0x240 ./SEMS_Sources/SymEncrypt.o
- .debug_abbrev  0x0000db0b      0x2a5 ./SEMS_Sources/Timer.o
- .debug_abbrev  0x0000ddb0      0x2c2 ./SEMS_Sources/Unlock.o
- .debug_abbrev  0x0000e072      0x2b9 ./main_xmc4800_example.o
+ .debug_abbrev  0x000080d2      0x33c ./lib/optiga/crypt/optiga_crypt.o
+ .debug_abbrev  0x0000840e      0x288 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
+ .debug_abbrev  0x00008696      0x10d ./lib/optiga/comms/ifx_i2c/ifx_i2c_config.o
+ .debug_abbrev  0x000087a3      0x2e7 ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
+ .debug_abbrev  0x00008a8a      0x3a4 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
+ .debug_abbrev  0x00008e2e      0x2c3 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
+ .debug_abbrev  0x000090f1      0x29a ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
+ .debug_abbrev  0x0000938b      0x285 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
+ .debug_abbrev  0x00009610       0xde ./lib/optiga/common/optiga_lib_common.o
+ .debug_abbrev  0x000096ee      0x26c ./lib/optiga/common/optiga_lib_logger.o
+ .debug_abbrev  0x0000995a      0x450 ./lib/optiga/cmd/optiga_cmd.o
+ .debug_abbrev  0x00009daa      0x207 ./lib/externals/mbedtls/aes.o
+ .debug_abbrev  0x00009fb1      0x330 ./lib/externals/mbedtls/ccm.o
+ .debug_abbrev  0x0000a2e1      0x417 ./lib/externals/mbedtls/cipher.o
+ .debug_abbrev  0x0000a6f8      0x26c ./lib/externals/mbedtls/cipher_wrap.o
+ .debug_abbrev  0x0000a964      0x3e2 ./lib/externals/mbedtls/md.o
+ .debug_abbrev  0x0000ad46      0x1ce ./lib/externals/mbedtls/md_wrap.o
+ .debug_abbrev  0x0000af14       0xb9 ./lib/externals/mbedtls/platform_util.o
+ .debug_abbrev  0x0000afcd      0x343 ./lib/externals/mbedtls/sha256.o
+ .debug_abbrev  0x0000b310      0x1ee ./examples/example_optiga_init_deinit.o
+ .debug_abbrev  0x0000b4fe      0x262 ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
+ .debug_abbrev  0x0000b760      0x140 ./examples/example_utilities.o
+ .debug_abbrev  0x0000b8a0      0x28a ./SEMS_Sources/Com.o
+ .debug_abbrev  0x0000bb2a      0x2f4 ./SEMS_Sources/Constructor.o
+ .debug_abbrev  0x0000be1e      0x26a ./SEMS_Sources/Decoder.o
+ .debug_abbrev  0x0000c088      0x2fa ./SEMS_Sources/Hash.o
+ .debug_abbrev  0x0000c382      0x24c ./SEMS_Sources/Init.o
+ .debug_abbrev  0x0000c5ce      0x30d ./SEMS_Sources/Main.o
+ .debug_abbrev  0x0000c8db      0x340 ./SEMS_Sources/Nonce.o
+ .debug_abbrev  0x0000cc1b      0x2fb ./SEMS_Sources/Patcher.o
+ .debug_abbrev  0x0000cf16      0x34d ./SEMS_Sources/RSA.o
+ .debug_abbrev  0x0000d263      0x2f9 ./SEMS_Sources/Random.o
+ .debug_abbrev  0x0000d55c      0x32c ./SEMS_Sources/Skey.o
+ .debug_abbrev  0x0000d888      0x240 ./SEMS_Sources/SymEncrypt.o
+ .debug_abbrev  0x0000dac8      0x2a5 ./SEMS_Sources/Timer.o
+ .debug_abbrev  0x0000dd6d      0x2c2 ./SEMS_Sources/Unlock.o
+ .debug_abbrev  0x0000e02f      0x2b9 ./main_xmc4800_example.o
 
-.debug_line     0x00000000    0x1cb97
+.debug_line     0x00000000    0x1beeb
  *(.debug_line)
  .debug_line    0x00000000      0x285 ./lib/xmc/XMCLib/src/xmc4_gpio.o
  .debug_line    0x00000285     0x1001 ./lib/xmc/XMCLib/src/xmc4_scu.o
@@ -5613,45 +5381,45 @@ ETH_RAM         0x20000e00        0x0
  .debug_line    0x0000efe6      0x422 ./lib/pal/pal_os_memory.o
  .debug_line    0x0000f408      0x5af ./lib/pal/pal_os_timer.o
  .debug_line    0x0000f9b7      0x69f ./lib/optiga/util/optiga_util.o
- .debug_line    0x00010056     0x1266 ./lib/optiga/crypt/optiga_crypt.o
- .debug_line    0x000112bc      0x451 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
- .debug_line    0x0001170d      0x2ca ./lib/optiga/comms/ifx_i2c/ifx_i2c_config.o
- .debug_line    0x000119d7      0x632 ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
- .debug_line    0x00012009      0x70f ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
- .debug_line    0x00012718      0x7bf ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
- .debug_line    0x00012ed7      0x4b6 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
- .debug_line    0x0001338d      0x453 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
- .debug_line    0x000137e0      0x1a5 ./lib/optiga/common/optiga_lib_common.o
- .debug_line    0x00013985      0x478 ./lib/optiga/common/optiga_lib_logger.o
- .debug_line    0x00013dfd     0x1916 ./lib/optiga/cmd/optiga_cmd.o
- .debug_line    0x00015713      0x899 ./lib/externals/mbedtls/aes.o
- .debug_line    0x00015fac      0x3e9 ./lib/externals/mbedtls/ccm.o
- .debug_line    0x00016395      0x463 ./lib/externals/mbedtls/cipher.o
- .debug_line    0x000167f8      0x305 ./lib/externals/mbedtls/cipher_wrap.o
- .debug_line    0x00016afd      0x502 ./lib/externals/mbedtls/md.o
- .debug_line    0x00016fff      0x30d ./lib/externals/mbedtls/md_wrap.o
- .debug_line    0x0001730c      0x10d ./lib/externals/mbedtls/platform_util.o
- .debug_line    0x00017419      0x799 ./lib/externals/mbedtls/sha256.o
- .debug_line    0x00017bb2      0x34b ./examples/example_optiga_init_deinit.o
- .debug_line    0x00017efd      0x4b8 ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
- .debug_line    0x000183b5      0x3c4 ./examples/example_utilities.o
- .debug_line    0x00018779      0x3e8 ./SEMS_Sources/Com.o
- .debug_line    0x00018b61      0x4ce ./SEMS_Sources/Constructor.o
- .debug_line    0x0001902f      0x35e ./SEMS_Sources/Decoder.o
- .debug_line    0x0001938d      0x4cc ./SEMS_Sources/Hash.o
- .debug_line    0x00019859      0x34a ./SEMS_Sources/Init.o
- .debug_line    0x00019ba3      0x481 ./SEMS_Sources/Main.o
- .debug_line    0x0001a024      0x57d ./SEMS_Sources/Nonce.o
- .debug_line    0x0001a5a1      0x5a8 ./SEMS_Sources/Patcher.o
- .debug_line    0x0001ab49      0x54b ./SEMS_Sources/RSA.o
- .debug_line    0x0001b094      0x4e4 ./SEMS_Sources/Random.o
- .debug_line    0x0001b578      0x530 ./SEMS_Sources/Skey.o
- .debug_line    0x0001baa8      0x333 ./SEMS_Sources/SymEncrypt.o
- .debug_line    0x0001bddb      0x4b5 ./SEMS_Sources/Timer.o
- .debug_line    0x0001c290      0x45f ./SEMS_Sources/Unlock.o
- .debug_line    0x0001c6ef      0x4a8 ./main_xmc4800_example.o
+ .debug_line    0x00010056      0x998 ./lib/optiga/crypt/optiga_crypt.o
+ .debug_line    0x000109ee      0x451 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
+ .debug_line    0x00010e3f      0x2ca ./lib/optiga/comms/ifx_i2c/ifx_i2c_config.o
+ .debug_line    0x00011109      0x632 ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
+ .debug_line    0x0001173b      0x70f ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
+ .debug_line    0x00011e4a      0x7bf ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
+ .debug_line    0x00012609      0x4b6 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
+ .debug_line    0x00012abf      0x453 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
+ .debug_line    0x00012f12      0x1a5 ./lib/optiga/common/optiga_lib_common.o
+ .debug_line    0x000130b7      0x478 ./lib/optiga/common/optiga_lib_logger.o
+ .debug_line    0x0001352f     0x1538 ./lib/optiga/cmd/optiga_cmd.o
+ .debug_line    0x00014a67      0x899 ./lib/externals/mbedtls/aes.o
+ .debug_line    0x00015300      0x3e9 ./lib/externals/mbedtls/ccm.o
+ .debug_line    0x000156e9      0x463 ./lib/externals/mbedtls/cipher.o
+ .debug_line    0x00015b4c      0x305 ./lib/externals/mbedtls/cipher_wrap.o
+ .debug_line    0x00015e51      0x502 ./lib/externals/mbedtls/md.o
+ .debug_line    0x00016353      0x30d ./lib/externals/mbedtls/md_wrap.o
+ .debug_line    0x00016660      0x10d ./lib/externals/mbedtls/platform_util.o
+ .debug_line    0x0001676d      0x799 ./lib/externals/mbedtls/sha256.o
+ .debug_line    0x00016f06      0x34b ./examples/example_optiga_init_deinit.o
+ .debug_line    0x00017251      0x4b8 ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
+ .debug_line    0x00017709      0x3c4 ./examples/example_utilities.o
+ .debug_line    0x00017acd      0x3e8 ./SEMS_Sources/Com.o
+ .debug_line    0x00017eb5      0x4ce ./SEMS_Sources/Constructor.o
+ .debug_line    0x00018383      0x35e ./SEMS_Sources/Decoder.o
+ .debug_line    0x000186e1      0x4cc ./SEMS_Sources/Hash.o
+ .debug_line    0x00018bad      0x34a ./SEMS_Sources/Init.o
+ .debug_line    0x00018ef7      0x481 ./SEMS_Sources/Main.o
+ .debug_line    0x00019378      0x57d ./SEMS_Sources/Nonce.o
+ .debug_line    0x000198f5      0x5a8 ./SEMS_Sources/Patcher.o
+ .debug_line    0x00019e9d      0x54b ./SEMS_Sources/RSA.o
+ .debug_line    0x0001a3e8      0x4e4 ./SEMS_Sources/Random.o
+ .debug_line    0x0001a8cc      0x530 ./SEMS_Sources/Skey.o
+ .debug_line    0x0001adfc      0x333 ./SEMS_Sources/SymEncrypt.o
+ .debug_line    0x0001b12f      0x4b5 ./SEMS_Sources/Timer.o
+ .debug_line    0x0001b5e4      0x45f ./SEMS_Sources/Unlock.o
+ .debug_line    0x0001ba43      0x4a8 ./main_xmc4800_example.o
 
-.debug_frame    0x00000000     0x61ec
+.debug_frame    0x00000000     0x5bd4
  *(.debug_frame)
  .debug_frame   0x00000000       0x50 ./lib/xmc/XMCLib/src/xmc4_gpio.o
  .debug_frame   0x00000050      0x840 ./lib/xmc/XMCLib/src/xmc4_scu.o
@@ -5694,60 +5462,60 @@ ETH_RAM         0x20000e00        0x0
  .debug_frame   0x00002c38       0x60 ./lib/pal/pal_os_memory.o
  .debug_frame   0x00002c98       0x7c ./lib/pal/pal_os_timer.o
  .debug_frame   0x00002d14      0x318 ./lib/optiga/util/optiga_util.o
- .debug_frame   0x0000302c      0xa78 ./lib/optiga/crypt/optiga_crypt.o
- .debug_frame   0x00003aa4      0x138 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
- .debug_frame   0x00003bdc      0x168 ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
- .debug_frame   0x00003d44      0x2c8 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
- .debug_frame   0x0000400c       0xd4 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
- .debug_frame   0x000040e0       0xe0 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
- .debug_frame   0x000041c0      0x11c ./lib/optiga/comms/optiga_comms_ifx_i2c.o
- .debug_frame   0x000042dc       0x5c ./lib/optiga/common/optiga_lib_common.o
- .debug_frame   0x00004338       0xf0 ./lib/optiga/common/optiga_lib_logger.o
- .debug_frame   0x00004428      0x7e8 ./lib/optiga/cmd/optiga_cmd.o
- .debug_frame   0x00004c10      0x184 ./lib/externals/mbedtls/aes.o
- .debug_frame   0x00004d94      0x1bc ./lib/externals/mbedtls/ccm.o
- .debug_frame   0x00004f50      0x244 ./lib/externals/mbedtls/cipher.o
- .debug_frame   0x00005194       0xc8 ./lib/externals/mbedtls/cipher_wrap.o
- .debug_frame   0x0000525c      0x2e0 ./lib/externals/mbedtls/md.o
- .debug_frame   0x0000553c       0xcc ./lib/externals/mbedtls/md_wrap.o
- .debug_frame   0x00005608       0x20 ./lib/externals/mbedtls/platform_util.o
- .debug_frame   0x00005628      0x1fc ./lib/externals/mbedtls/sha256.o
- .debug_frame   0x00005824       0x7c ./examples/example_optiga_init_deinit.o
- .debug_frame   0x000058a0       0x80 ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
- .debug_frame   0x00005920       0xb4 ./examples/example_utilities.o
- .debug_frame   0x000059d4       0x38 ./SEMS_Sources/Com.o
- .debug_frame   0x00005a0c       0x68 ./SEMS_Sources/Constructor.o
- .debug_frame   0x00005a74       0x2c ./SEMS_Sources/Decoder.o
- .debug_frame   0x00005aa0       0x40 ./SEMS_Sources/Hash.o
- .debug_frame   0x00005ae0       0x30 ./SEMS_Sources/Init.o
- .debug_frame   0x00005b10       0x44 ./SEMS_Sources/Main.o
- .debug_frame   0x00005b54       0xc8 ./SEMS_Sources/Nonce.o
- .debug_frame   0x00005c1c       0x70 ./SEMS_Sources/Patcher.o
- .debug_frame   0x00005c8c       0x84 ./SEMS_Sources/RSA.o
- .debug_frame   0x00005d10       0x6c ./SEMS_Sources/Random.o
- .debug_frame   0x00005d7c       0x90 ./SEMS_Sources/Skey.o
- .debug_frame   0x00005e0c       0x40 ./SEMS_Sources/SymEncrypt.o
- .debug_frame   0x00005e4c       0x40 ./SEMS_Sources/Timer.o
- .debug_frame   0x00005e8c       0x40 ./SEMS_Sources/Unlock.o
- .debug_frame   0x00005ecc       0x2c ./main_xmc4800_example.o
- .debug_frame   0x00005ef8       0x28 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x00005f20       0x50 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(bpabi.o)
- .debug_frame   0x00005f70       0x34 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_divdi3.o)
- .debug_frame   0x00005fa4       0x30 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_udivdi3.o)
- .debug_frame   0x00005fd4       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-calloc.o)
- .debug_frame   0x00005ff4       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-errno.o)
- .debug_frame   0x00006014       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-init.o)
- .debug_frame   0x00006040       0x30 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-malloc.o)
- .debug_frame   0x00006070       0x28 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcmp.o)
- .debug_frame   0x00006098       0x28 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcpy.o)
- .debug_frame   0x000060c0       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memset.o)
- .debug_frame   0x000060e0       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-callocr.o)
- .debug_frame   0x0000610c       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-freer.o)
- .debug_frame   0x00006138       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-mallocr.o)
- .debug_frame   0x00006164       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-sbrkr.o)
- .debug_frame   0x00006190       0x5c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-reent.o)
+ .debug_frame   0x0000302c      0x554 ./lib/optiga/crypt/optiga_crypt.o
+ .debug_frame   0x00003580      0x138 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
+ .debug_frame   0x000036b8      0x168 ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
+ .debug_frame   0x00003820      0x2c8 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
+ .debug_frame   0x00003ae8       0xd4 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
+ .debug_frame   0x00003bbc       0xe0 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
+ .debug_frame   0x00003c9c      0x11c ./lib/optiga/comms/optiga_comms_ifx_i2c.o
+ .debug_frame   0x00003db8       0x5c ./lib/optiga/common/optiga_lib_common.o
+ .debug_frame   0x00003e14       0xf0 ./lib/optiga/common/optiga_lib_logger.o
+ .debug_frame   0x00003f04      0x6f4 ./lib/optiga/cmd/optiga_cmd.o
+ .debug_frame   0x000045f8      0x184 ./lib/externals/mbedtls/aes.o
+ .debug_frame   0x0000477c      0x1bc ./lib/externals/mbedtls/ccm.o
+ .debug_frame   0x00004938      0x244 ./lib/externals/mbedtls/cipher.o
+ .debug_frame   0x00004b7c       0xc8 ./lib/externals/mbedtls/cipher_wrap.o
+ .debug_frame   0x00004c44      0x2e0 ./lib/externals/mbedtls/md.o
+ .debug_frame   0x00004f24       0xcc ./lib/externals/mbedtls/md_wrap.o
+ .debug_frame   0x00004ff0       0x20 ./lib/externals/mbedtls/platform_util.o
+ .debug_frame   0x00005010      0x1fc ./lib/externals/mbedtls/sha256.o
+ .debug_frame   0x0000520c       0x7c ./examples/example_optiga_init_deinit.o
+ .debug_frame   0x00005288       0x80 ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
+ .debug_frame   0x00005308       0xb4 ./examples/example_utilities.o
+ .debug_frame   0x000053bc       0x38 ./SEMS_Sources/Com.o
+ .debug_frame   0x000053f4       0x68 ./SEMS_Sources/Constructor.o
+ .debug_frame   0x0000545c       0x2c ./SEMS_Sources/Decoder.o
+ .debug_frame   0x00005488       0x40 ./SEMS_Sources/Hash.o
+ .debug_frame   0x000054c8       0x30 ./SEMS_Sources/Init.o
+ .debug_frame   0x000054f8       0x44 ./SEMS_Sources/Main.o
+ .debug_frame   0x0000553c       0xc8 ./SEMS_Sources/Nonce.o
+ .debug_frame   0x00005604       0x70 ./SEMS_Sources/Patcher.o
+ .debug_frame   0x00005674       0x84 ./SEMS_Sources/RSA.o
+ .debug_frame   0x000056f8       0x6c ./SEMS_Sources/Random.o
+ .debug_frame   0x00005764       0x90 ./SEMS_Sources/Skey.o
+ .debug_frame   0x000057f4       0x40 ./SEMS_Sources/SymEncrypt.o
+ .debug_frame   0x00005834       0x40 ./SEMS_Sources/Timer.o
+ .debug_frame   0x00005874       0x40 ./SEMS_Sources/Unlock.o
+ .debug_frame   0x000058b4       0x2c ./main_xmc4800_example.o
+ .debug_frame   0x000058e0       0x28 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x00005908       0x50 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(bpabi.o)
+ .debug_frame   0x00005958       0x34 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_divdi3.o)
+ .debug_frame   0x0000598c       0x30 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a(_udivdi3.o)
+ .debug_frame   0x000059bc       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-calloc.o)
+ .debug_frame   0x000059dc       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x000059fc       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-init.o)
+ .debug_frame   0x00005a28       0x30 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-malloc.o)
+ .debug_frame   0x00005a58       0x28 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcmp.o)
+ .debug_frame   0x00005a80       0x28 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memcpy.o)
+ .debug_frame   0x00005aa8       0x20 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-memset.o)
+ .debug_frame   0x00005ac8       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-callocr.o)
+ .debug_frame   0x00005af4       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-freer.o)
+ .debug_frame   0x00005b20       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-nano-mallocr.o)
+ .debug_frame   0x00005b4c       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-sbrkr.o)
+ .debug_frame   0x00005b78       0x5c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-reent.o)
 
-.debug_str      0x00000000    0x162ea
+.debug_str      0x00000000    0x15a1f
  *(.debug_str)
  .debug_str     0x00000000      0x704 ./lib/xmc/XMCLib/src/xmc4_gpio.o
                                 0x770 (size before relaxing)
@@ -5849,82 +5617,82 @@ ETH_RAM         0x20000e00        0x0
                                0x1f48 (size before relaxing)
  .debug_str     0x00010c70      0x68f ./lib/optiga/util/optiga_util.o
                                 0x997 (size before relaxing)
- .debug_str     0x000112ff     0x14b7 ./lib/optiga/crypt/optiga_crypt.o
-                               0x1af9 (size before relaxing)
- .debug_str     0x000127b6      0x7a6 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
+ .debug_str     0x000112ff      0xd13 ./lib/optiga/crypt/optiga_crypt.o
+                               0x128d (size before relaxing)
+ .debug_str     0x00012012      0x7b8 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
                                 0xc73 (size before relaxing)
- .debug_str     0x00012f5c       0x77 ./lib/optiga/comms/ifx_i2c/ifx_i2c_config.o
+ .debug_str     0x000127ca       0x77 ./lib/optiga/comms/ifx_i2c/ifx_i2c_config.o
                                 0xa08 (size before relaxing)
- .debug_str     0x00012fd3      0x202 ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
+ .debug_str     0x00012841      0x202 ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
                                 0xbf2 (size before relaxing)
- .debug_str     0x000131d5      0x290 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
+ .debug_str     0x00012a43      0x290 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
                                 0xdde (size before relaxing)
- .debug_str     0x00013465      0x23f ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
+ .debug_str     0x00012cd3      0x248 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
                                 0xcc0 (size before relaxing)
- .debug_str     0x000136a4      0x1a3 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
+ .debug_str     0x00012f1b      0x1a3 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
                                 0xbe9 (size before relaxing)
- .debug_str     0x00013847      0x1ad ./lib/optiga/comms/optiga_comms_ifx_i2c.o
+ .debug_str     0x000130be      0x1ad ./lib/optiga/comms/optiga_comms_ifx_i2c.o
                                 0xc58 (size before relaxing)
- .debug_str     0x000139f4       0xba ./lib/optiga/common/optiga_lib_common.o
+ .debug_str     0x0001326b       0xba ./lib/optiga/common/optiga_lib_common.o
                                 0x312 (size before relaxing)
- .debug_str     0x00013aae      0x295 ./lib/optiga/common/optiga_lib_logger.o
+ .debug_str     0x00013325      0x295 ./lib/optiga/common/optiga_lib_logger.o
                                 0x593 (size before relaxing)
- .debug_str     0x00013d43      0xfb4 ./lib/optiga/cmd/optiga_cmd.o
-                               0x2440 (size before relaxing)
- .debug_str     0x00014cf7      0x183 ./lib/externals/mbedtls/aes.o
+ .debug_str     0x000135ba      0xe72 ./lib/optiga/cmd/optiga_cmd.o
+                               0x1f27 (size before relaxing)
+ .debug_str     0x0001442c      0x183 ./lib/externals/mbedtls/aes.o
                                 0x36e (size before relaxing)
- .debug_str     0x00014e7a      0x15b ./lib/externals/mbedtls/ccm.o
+ .debug_str     0x000145af      0x15b ./lib/externals/mbedtls/ccm.o
                                 0xedf (size before relaxing)
- .debug_str     0x00014fd5      0x269 ./lib/externals/mbedtls/cipher.o
+ .debug_str     0x0001470a      0x269 ./lib/externals/mbedtls/cipher.o
                                0x1080 (size before relaxing)
- .debug_str     0x0001523e      0x15f ./lib/externals/mbedtls/cipher_wrap.o
+ .debug_str     0x00014973      0x15f ./lib/externals/mbedtls/cipher_wrap.o
                                 0xfff (size before relaxing)
- .debug_str     0x0001539d      0x1fa ./lib/externals/mbedtls/md.o
+ .debug_str     0x00014ad2      0x1fa ./lib/externals/mbedtls/md.o
                                 0x5df (size before relaxing)
- .debug_str     0x00015597      0x1ef ./lib/externals/mbedtls/md_wrap.o
+ .debug_str     0x00014ccc      0x1ef ./lib/externals/mbedtls/md_wrap.o
                                 0x566 (size before relaxing)
- .debug_str     0x00015786       0x75 ./lib/externals/mbedtls/platform_util.o
+ .debug_str     0x00014ebb       0x75 ./lib/externals/mbedtls/platform_util.o
                                 0x24c (size before relaxing)
- .debug_str     0x000157fb       0xd5 ./lib/externals/mbedtls/sha256.o
+ .debug_str     0x00014f30       0xd5 ./lib/externals/mbedtls/sha256.o
                                 0x3a1 (size before relaxing)
- .debug_str     0x000158d0      0x11f ./examples/example_optiga_init_deinit.o
+ .debug_str     0x00015005      0x11f ./examples/example_optiga_init_deinit.o
                                 0x707 (size before relaxing)
- .debug_str     0x000159ef      0x19f ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
-                               0x1149 (size before relaxing)
- .debug_str     0x00015b8e      0x172 ./examples/example_utilities.o
+ .debug_str     0x00015124      0x19f ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
+                                0xf74 (size before relaxing)
+ .debug_str     0x000152c3      0x172 ./examples/example_utilities.o
                                 0x451 (size before relaxing)
- .debug_str     0x00015d00       0xe2 ./SEMS_Sources/Com.o
+ .debug_str     0x00015435       0xe2 ./SEMS_Sources/Com.o
                                0x149f (size before relaxing)
- .debug_str     0x00015de2       0x80 ./SEMS_Sources/Constructor.o
-                               0x21dc (size before relaxing)
- .debug_str     0x00015e62       0x5b ./SEMS_Sources/Decoder.o
+ .debug_str     0x00015517       0x80 ./SEMS_Sources/Constructor.o
+                               0x2007 (size before relaxing)
+ .debug_str     0x00015597       0x5b ./SEMS_Sources/Decoder.o
                                0x13f3 (size before relaxing)
- .debug_str     0x00015ebd       0x52 ./SEMS_Sources/Hash.o
-                               0x1dc4 (size before relaxing)
- .debug_str     0x00015f0f       0x36 ./SEMS_Sources/Init.o
+ .debug_str     0x000155f2       0x52 ./SEMS_Sources/Hash.o
+                               0x1bef (size before relaxing)
+ .debug_str     0x00015644       0x36 ./SEMS_Sources/Init.o
                                0x13dc (size before relaxing)
- .debug_str     0x00015f45       0x7c ./SEMS_Sources/Main.o
+ .debug_str     0x0001567a       0x7c ./SEMS_Sources/Main.o
                                0x163a (size before relaxing)
- .debug_str     0x00015fc1       0x84 ./SEMS_Sources/Nonce.o
+ .debug_str     0x000156f6       0x84 ./SEMS_Sources/Nonce.o
                                0x1857 (size before relaxing)
- .debug_str     0x00016045       0xef ./SEMS_Sources/Patcher.o
+ .debug_str     0x0001577a       0xef ./SEMS_Sources/Patcher.o
                                0x15cb (size before relaxing)
- .debug_str     0x00016134       0xb3 ./SEMS_Sources/RSA.o
-                               0x2197 (size before relaxing)
- .debug_str     0x000161e7       0x25 ./SEMS_Sources/Random.o
-                               0x1db5 (size before relaxing)
- .debug_str     0x0001620c       0x26 ./SEMS_Sources/Skey.o
+ .debug_str     0x00015869       0xb3 ./SEMS_Sources/RSA.o
+                               0x1fa3 (size before relaxing)
+ .debug_str     0x0001591c       0x25 ./SEMS_Sources/Random.o
+                               0x1be0 (size before relaxing)
+ .debug_str     0x00015941       0x26 ./SEMS_Sources/Skey.o
                                0x1800 (size before relaxing)
- .debug_str     0x00016232       0x1d ./SEMS_Sources/SymEncrypt.o
+ .debug_str     0x00015967       0x1d ./SEMS_Sources/SymEncrypt.o
                                0x13b5 (size before relaxing)
- .debug_str     0x0001624f       0x2b ./SEMS_Sources/Timer.o
+ .debug_str     0x00015984       0x2b ./SEMS_Sources/Timer.o
                                0x1ccf (size before relaxing)
- .debug_str     0x0001627a       0x19 ./SEMS_Sources/Unlock.o
+ .debug_str     0x000159af       0x19 ./SEMS_Sources/Unlock.o
                                0x163b (size before relaxing)
- .debug_str     0x00016293       0x57 ./main_xmc4800_example.o
+ .debug_str     0x000159c8       0x57 ./main_xmc4800_example.o
                                0x14f6 (size before relaxing)
 
-.debug_loc      0x00000000    0x34eb7
+.debug_loc      0x00000000    0x2e18d
  *(.debug_loc)
  .debug_loc     0x00000000      0x141 ./lib/xmc/XMCLib/src/xmc4_gpio.o
  .debug_loc     0x00000141     0x1acd ./lib/xmc/XMCLib/src/xmc4_scu.o
@@ -5966,47 +5734,47 @@ ETH_RAM         0x20000e00        0x0
  .debug_loc     0x00010900      0x14a ./lib/pal/pal_os_memory.o
  .debug_loc     0x00010a4a       0x4f ./lib/pal/pal_os_timer.o
  .debug_loc     0x00010a99     0x19e8 ./lib/optiga/util/optiga_util.o
- .debug_loc     0x00012481     0x94cd ./lib/optiga/crypt/optiga_crypt.o
- .debug_loc     0x0001b94e      0x811 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
- .debug_loc     0x0001c15f     0x12bb ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
- .debug_loc     0x0001d41a     0x1a47 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
- .debug_loc     0x0001ee61      0xcb0 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
- .debug_loc     0x0001fb11      0x749 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
- .debug_loc     0x0002025a      0x5b9 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
- .debug_loc     0x00020813      0x187 ./lib/optiga/common/optiga_lib_common.o
- .debug_loc     0x0002099a      0x6f2 ./lib/optiga/common/optiga_lib_logger.o
- .debug_loc     0x0002108c     0xa880 ./lib/optiga/cmd/optiga_cmd.o
- .debug_loc     0x0002b90c     0x188f ./lib/externals/mbedtls/aes.o
- .debug_loc     0x0002d19b     0x1895 ./lib/externals/mbedtls/ccm.o
- .debug_loc     0x0002ea30     0x1236 ./lib/externals/mbedtls/cipher.o
- .debug_loc     0x0002fc66      0x305 ./lib/externals/mbedtls/cipher_wrap.o
- .debug_loc     0x0002ff6b     0x100f ./lib/externals/mbedtls/md.o
- .debug_loc     0x00030f7a      0x2d2 ./lib/externals/mbedtls/md_wrap.o
- .debug_loc     0x0003124c       0x4d ./lib/externals/mbedtls/platform_util.o
- .debug_loc     0x00031299     0x1e12 ./lib/externals/mbedtls/sha256.o
- .debug_loc     0x000330ab       0xb6 ./examples/example_optiga_init_deinit.o
- .debug_loc     0x00033161      0x1e5 ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
- .debug_loc     0x00033346      0x5a2 ./examples/example_utilities.o
- .debug_loc     0x000338e8       0x39 ./SEMS_Sources/Com.o
- .debug_loc     0x00033921       0x92 ./SEMS_Sources/Constructor.o
- .debug_loc     0x000339b3       0x4c ./SEMS_Sources/Decoder.o
- .debug_loc     0x000339ff      0x129 ./SEMS_Sources/Hash.o
- .debug_loc     0x00033b28       0x2c ./SEMS_Sources/Init.o
- .debug_loc     0x00033b54       0xd8 ./SEMS_Sources/Main.o
- .debug_loc     0x00033c2c      0x382 ./SEMS_Sources/Nonce.o
- .debug_loc     0x00033fae      0x528 ./SEMS_Sources/Patcher.o
- .debug_loc     0x000344d6      0x321 ./SEMS_Sources/RSA.o
- .debug_loc     0x000347f7      0x167 ./SEMS_Sources/Random.o
- .debug_loc     0x0003495e      0x2ec ./SEMS_Sources/Skey.o
- .debug_loc     0x00034c4a      0x158 ./SEMS_Sources/SymEncrypt.o
- .debug_loc     0x00034da2       0x2c ./SEMS_Sources/Timer.o
- .debug_loc     0x00034dce       0xab ./SEMS_Sources/Unlock.o
- .debug_loc     0x00034e79       0x3e ./main_xmc4800_example.o
+ .debug_loc     0x00012481     0x3d9f ./lib/optiga/crypt/optiga_crypt.o
+ .debug_loc     0x00016220      0x811 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
+ .debug_loc     0x00016a31     0x12bb ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
+ .debug_loc     0x00017cec     0x1a47 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
+ .debug_loc     0x00019733      0xcb0 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
+ .debug_loc     0x0001a3e3      0x749 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
+ .debug_loc     0x0001ab2c      0x5b9 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
+ .debug_loc     0x0001b0e5      0x187 ./lib/optiga/common/optiga_lib_common.o
+ .debug_loc     0x0001b26c      0x6f2 ./lib/optiga/common/optiga_lib_logger.o
+ .debug_loc     0x0001b95e     0x9284 ./lib/optiga/cmd/optiga_cmd.o
+ .debug_loc     0x00024be2     0x188f ./lib/externals/mbedtls/aes.o
+ .debug_loc     0x00026471     0x1895 ./lib/externals/mbedtls/ccm.o
+ .debug_loc     0x00027d06     0x1236 ./lib/externals/mbedtls/cipher.o
+ .debug_loc     0x00028f3c      0x305 ./lib/externals/mbedtls/cipher_wrap.o
+ .debug_loc     0x00029241     0x100f ./lib/externals/mbedtls/md.o
+ .debug_loc     0x0002a250      0x2d2 ./lib/externals/mbedtls/md_wrap.o
+ .debug_loc     0x0002a522       0x4d ./lib/externals/mbedtls/platform_util.o
+ .debug_loc     0x0002a56f     0x1e12 ./lib/externals/mbedtls/sha256.o
+ .debug_loc     0x0002c381       0xb6 ./examples/example_optiga_init_deinit.o
+ .debug_loc     0x0002c437      0x1e5 ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
+ .debug_loc     0x0002c61c      0x5a2 ./examples/example_utilities.o
+ .debug_loc     0x0002cbbe       0x39 ./SEMS_Sources/Com.o
+ .debug_loc     0x0002cbf7       0x92 ./SEMS_Sources/Constructor.o
+ .debug_loc     0x0002cc89       0x4c ./SEMS_Sources/Decoder.o
+ .debug_loc     0x0002ccd5      0x129 ./SEMS_Sources/Hash.o
+ .debug_loc     0x0002cdfe       0x2c ./SEMS_Sources/Init.o
+ .debug_loc     0x0002ce2a       0xd8 ./SEMS_Sources/Main.o
+ .debug_loc     0x0002cf02      0x382 ./SEMS_Sources/Nonce.o
+ .debug_loc     0x0002d284      0x528 ./SEMS_Sources/Patcher.o
+ .debug_loc     0x0002d7ac      0x321 ./SEMS_Sources/RSA.o
+ .debug_loc     0x0002dacd      0x167 ./SEMS_Sources/Random.o
+ .debug_loc     0x0002dc34      0x2ec ./SEMS_Sources/Skey.o
+ .debug_loc     0x0002df20      0x158 ./SEMS_Sources/SymEncrypt.o
+ .debug_loc     0x0002e078       0x2c ./SEMS_Sources/Timer.o
+ .debug_loc     0x0002e0a4       0xab ./SEMS_Sources/Unlock.o
+ .debug_loc     0x0002e14f       0x3e ./main_xmc4800_example.o
 
 .debug_macinfo
  *(.debug_macinfo)
 
-.debug_ranges   0x00000000     0x4dd8
+.debug_ranges   0x00000000     0x4898
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x18 ./lib/xmc/XMCLib/src/xmc4_gpio.o
  .debug_ranges  0x00000018      0x770 ./lib/xmc/XMCLib/src/xmc4_scu.o
@@ -6049,42 +5817,42 @@ ETH_RAM         0x20000e00        0x0
  .debug_ranges  0x00002a10       0x30 ./lib/pal/pal_os_memory.o
  .debug_ranges  0x00002a40       0x38 ./lib/pal/pal_os_timer.o
  .debug_ranges  0x00002a78      0x1b8 ./lib/optiga/util/optiga_util.o
- .debug_ranges  0x00002c30      0x710 ./lib/optiga/crypt/optiga_crypt.o
- .debug_ranges  0x00003340       0x80 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
- .debug_ranges  0x000033c0      0x1e0 ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
- .debug_ranges  0x000035a0      0x300 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
- .debug_ranges  0x000038a0      0x230 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
- .debug_ranges  0x00003ad0      0x110 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
- .debug_ranges  0x00003be0       0xc0 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
- .debug_ranges  0x00003ca0       0x28 ./lib/optiga/common/optiga_lib_common.o
- .debug_ranges  0x00003cc8      0x110 ./lib/optiga/common/optiga_lib_logger.o
- .debug_ranges  0x00003dd8      0x858 ./lib/optiga/cmd/optiga_cmd.o
- .debug_ranges  0x00004630       0x58 ./lib/externals/mbedtls/aes.o
- .debug_ranges  0x00004688       0x68 ./lib/externals/mbedtls/ccm.o
- .debug_ranges  0x000046f0       0xf0 ./lib/externals/mbedtls/cipher.o
- .debug_ranges  0x000047e0       0x48 ./lib/externals/mbedtls/cipher_wrap.o
- .debug_ranges  0x00004828      0x120 ./lib/externals/mbedtls/md.o
- .debug_ranges  0x00004948       0x58 ./lib/externals/mbedtls/md_wrap.o
- .debug_ranges  0x000049a0       0x10 ./lib/externals/mbedtls/platform_util.o
- .debug_ranges  0x000049b0      0x180 ./lib/externals/mbedtls/sha256.o
- .debug_ranges  0x00004b30       0x30 ./examples/example_optiga_init_deinit.o
- .debug_ranges  0x00004b60       0x20 ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
- .debug_ranges  0x00004b80       0xb8 ./examples/example_utilities.o
- .debug_ranges  0x00004c38       0x10 ./SEMS_Sources/Com.o
- .debug_ranges  0x00004c48       0x28 ./SEMS_Sources/Constructor.o
- .debug_ranges  0x00004c70       0x10 ./SEMS_Sources/Decoder.o
- .debug_ranges  0x00004c80       0x10 ./SEMS_Sources/Hash.o
- .debug_ranges  0x00004c90       0x10 ./SEMS_Sources/Init.o
- .debug_ranges  0x00004ca0       0x30 ./SEMS_Sources/Main.o
- .debug_ranges  0x00004cd0       0x38 ./SEMS_Sources/Nonce.o
- .debug_ranges  0x00004d08       0x30 ./SEMS_Sources/Patcher.o
- .debug_ranges  0x00004d38       0x18 ./SEMS_Sources/RSA.o
- .debug_ranges  0x00004d50       0x10 ./SEMS_Sources/Random.o
- .debug_ranges  0x00004d60       0x18 ./SEMS_Sources/Skey.o
- .debug_ranges  0x00004d78       0x10 ./SEMS_Sources/SymEncrypt.o
- .debug_ranges  0x00004d88       0x18 ./SEMS_Sources/Timer.o
- .debug_ranges  0x00004da0       0x28 ./SEMS_Sources/Unlock.o
- .debug_ranges  0x00004dc8       0x10 ./main_xmc4800_example.o
+ .debug_ranges  0x00002c30      0x360 ./lib/optiga/crypt/optiga_crypt.o
+ .debug_ranges  0x00002f90       0x80 ./lib/optiga/comms/ifx_i2c/ifx_i2c.o
+ .debug_ranges  0x00003010      0x1e0 ./lib/optiga/comms/ifx_i2c/ifx_i2c_data_link_layer.o
+ .debug_ranges  0x000031f0      0x300 ./lib/optiga/comms/ifx_i2c/ifx_i2c_physical_layer.o
+ .debug_ranges  0x000034f0      0x230 ./lib/optiga/comms/ifx_i2c/ifx_i2c_presentation_layer.o
+ .debug_ranges  0x00003720      0x110 ./lib/optiga/comms/ifx_i2c/ifx_i2c_transport_layer.o
+ .debug_ranges  0x00003830       0xc0 ./lib/optiga/comms/optiga_comms_ifx_i2c.o
+ .debug_ranges  0x000038f0       0x28 ./lib/optiga/common/optiga_lib_common.o
+ .debug_ranges  0x00003918      0x110 ./lib/optiga/common/optiga_lib_logger.o
+ .debug_ranges  0x00003a28      0x6c8 ./lib/optiga/cmd/optiga_cmd.o
+ .debug_ranges  0x000040f0       0x58 ./lib/externals/mbedtls/aes.o
+ .debug_ranges  0x00004148       0x68 ./lib/externals/mbedtls/ccm.o
+ .debug_ranges  0x000041b0       0xf0 ./lib/externals/mbedtls/cipher.o
+ .debug_ranges  0x000042a0       0x48 ./lib/externals/mbedtls/cipher_wrap.o
+ .debug_ranges  0x000042e8      0x120 ./lib/externals/mbedtls/md.o
+ .debug_ranges  0x00004408       0x58 ./lib/externals/mbedtls/md_wrap.o
+ .debug_ranges  0x00004460       0x10 ./lib/externals/mbedtls/platform_util.o
+ .debug_ranges  0x00004470      0x180 ./lib/externals/mbedtls/sha256.o
+ .debug_ranges  0x000045f0       0x30 ./examples/example_optiga_init_deinit.o
+ .debug_ranges  0x00004620       0x20 ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
+ .debug_ranges  0x00004640       0xb8 ./examples/example_utilities.o
+ .debug_ranges  0x000046f8       0x10 ./SEMS_Sources/Com.o
+ .debug_ranges  0x00004708       0x28 ./SEMS_Sources/Constructor.o
+ .debug_ranges  0x00004730       0x10 ./SEMS_Sources/Decoder.o
+ .debug_ranges  0x00004740       0x10 ./SEMS_Sources/Hash.o
+ .debug_ranges  0x00004750       0x10 ./SEMS_Sources/Init.o
+ .debug_ranges  0x00004760       0x30 ./SEMS_Sources/Main.o
+ .debug_ranges  0x00004790       0x38 ./SEMS_Sources/Nonce.o
+ .debug_ranges  0x000047c8       0x30 ./SEMS_Sources/Patcher.o
+ .debug_ranges  0x000047f8       0x18 ./SEMS_Sources/RSA.o
+ .debug_ranges  0x00004810       0x10 ./SEMS_Sources/Random.o
+ .debug_ranges  0x00004820       0x18 ./SEMS_Sources/Skey.o
+ .debug_ranges  0x00004838       0x10 ./SEMS_Sources/SymEncrypt.o
+ .debug_ranges  0x00004848       0x18 ./SEMS_Sources/Timer.o
+ .debug_ranges  0x00004860       0x28 ./SEMS_Sources/Unlock.o
+ .debug_ranges  0x00004888       0x10 ./main_xmc4800_example.o
 
 .debug_weaknames
  *(.debug_weaknames)

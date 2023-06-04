@@ -22,7 +22,7 @@
   22              	 .thumb
   23              	 .thumb_func
   25              	stream_enc:
-  26              	.LFB454:
+  26              	.LFB449:
   27              	 .file 1 "../SEMS_Sources/SymEncrypt.c"
    1:../SEMS_Sources/SymEncrypt.c **** #include "../SEMS_Headers/SymEncrypt.h"
    2:../SEMS_Sources/SymEncrypt.c **** 
@@ -179,7 +179,7 @@
  160              	 .cfi_restore 14
  161 009e 7047     	 bx lr
  162              	 .cfi_endproc
- 163              	.LFE454:
+ 163              	.LFE449:
  165              	 .text
  166              	.Letext0:
  167              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"

@@ -22,7 +22,7 @@
   22              	 .thumb
   23              	 .thumb_func
   25              	optiga_crypt_rsa_encrypt_message_wrapper:
-  26              	.LFB454:
+  26              	.LFB449:
   27              	 .file 1 "../SEMS_Sources/RSA.c"
    1:../SEMS_Sources/RSA.c **** #include "../SEMS_Headers/RSA.h"
    2:../SEMS_Sources/RSA.c **** #include "../SEMS_Headers/Hash.h"
@@ -270,14 +270,14 @@
  164 00a4 00000000 	 .word .LANCHOR1
  165 00a8 00000000 	 .word optiga_lib_status
  166              	 .cfi_endproc
- 167              	.LFE454:
+ 167              	.LFE449:
  169              	 .section .text.optiga_crypt_rsa_verify_wrapper,"ax",%progbits
  170              	 .align 2
  171              	 .global optiga_crypt_rsa_verify_wrapper
  172              	 .thumb
  173              	 .thumb_func
  175              	optiga_crypt_rsa_verify_wrapper:
- 176              	.LFB455:
+ 176              	.LFB450:
   98:../SEMS_Sources/RSA.c **** 
   99:../SEMS_Sources/RSA.c **** 
  100:../SEMS_Sources/RSA.c **** 
@@ -516,7 +516,7 @@
  321 00a8 00000000 	 .word .LANCHOR1
  322 00ac 00000000 	 .word optiga_lib_status
  323              	 .cfi_endproc
- 324              	.LFE455:
+ 324              	.LFE450:
  326              	 .section .bss.rsa_public_key,"aw",%nobits
  327              	 .align 2
  328              	 .set .LANCHOR2,.+0

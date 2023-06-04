@@ -21,7 +21,7 @@
   21              	 .thumb
   22              	 .thumb_func
   24              	optiga_crypt_callback:
-  25              	.LFB6:
+  25              	.LFB1:
   26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/example_optiga_crypt_hash.c"
    1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hash.c **** /**
    2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hash.c **** * \copyright
@@ -95,14 +95,14 @@
   39              	.L2:
   40 0008 00000000 	 .word .LANCHOR0
   41              	 .cfi_endproc
-  42              	.LFE6:
+  42              	.LFE1:
   44              	 .section .text.example_optiga_crypt_hash,"ax",%progbits
   45              	 .align 2
   46              	 .global example_optiga_crypt_hash
   47              	 .thumb
   48              	 .thumb_func
   50              	example_optiga_crypt_hash:
-  51              	.LFB7:
+  51              	.LFB2:
   58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hash.c ****     if (NULL != context)
   59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hash.c ****     {
   60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hash.c ****         // callback to upper layer here
@@ -489,14 +489,14 @@
  275 0108 00000000 	 .word .LC1
  276 010c 00000000 	 .word performance_buffer_string
  277              	 .cfi_endproc
- 278              	.LFE7:
+ 278              	.LFE2:
  280              	 .section .text.example_optiga_crypt_hash_data,"ax",%progbits
  281              	 .align 2
  282              	 .global example_optiga_crypt_hash_data
  283              	 .thumb
  284              	 .thumb_func
  286              	example_optiga_crypt_hash_data:
- 287              	.LFB8:
+ 287              	.LFB3:
  186:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hash.c **** 
  187:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hash.c **** /**
  188:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_hash.c ****  * The below example demonstrates the generation of digest using
@@ -759,7 +759,7 @@
  449 00b4 00000000 	 .word .LC1
  450 00b8 00000000 	 .word performance_buffer_string
  451              	 .cfi_endproc
- 452              	.LFE8:
+ 452              	.LFE3:
  454              	 .section .rodata.str1.4,"aMS",%progbits,1
  455              	 .align 2
  456              	.LC1:

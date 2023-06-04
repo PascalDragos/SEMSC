@@ -22,7 +22,7 @@
   22              	 .thumb
   23              	 .thumb_func
   25              	my_optiga_shell_begin:
-  26              	.LFB454:
+  26              	.LFB449:
   27              	 .file 1 "../SEMS_Sources/Main.c"
    1:../SEMS_Sources/Main.c **** #include <DAVE.h>
    2:../SEMS_Sources/Main.c **** #include "optiga/optiga_crypt.h"
@@ -474,7 +474,7 @@
  313 019c 80000000 	 .word .LANCHOR1+128
  314 01a0 00000000 	 .word .LANCHOR1
  315              	 .cfi_endproc
- 316              	.LFE454:
+ 316              	.LFE449:
  318              	 .global cooldowned
  319              	 .global failed_req
  320              	 .section .rodata

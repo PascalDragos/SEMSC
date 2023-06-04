@@ -21,7 +21,7 @@
   21              	 .thumb
   22              	 .thumb_func
   24              	optiga_crypt_callback:
-  25              	.LFB6:
+  25              	.LFB1:
   26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/example_optiga_crypt_rsa_decrypt.c"
    1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_decrypt.c **** /**
    2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_decrypt.c **** * \copyright
@@ -94,14 +94,14 @@
   39              	.L2:
   40 0008 00000000 	 .word .LANCHOR0
   41              	 .cfi_endproc
-  42              	.LFE6:
+  42              	.LFE1:
   44              	 .section .text.example_optiga_crypt_rsa_decrypt_and_export,"ax",%progbits
   45              	 .align 2
   46              	 .global example_optiga_crypt_rsa_decrypt_and_export
   47              	 .thumb
   48              	 .thumb_func
   50              	example_optiga_crypt_rsa_decrypt_and_export:
-  51              	.LFB7:
+  51              	.LFB2:
   57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_decrypt.c ****     if (NULL != context)
   58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_decrypt.c ****     {
   59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_decrypt.c ****         // callback to upper layer here
@@ -579,14 +579,14 @@
  336 0184 00000000 	 .word .LC2
  337 0188 00000000 	 .word performance_buffer_string
  338              	 .cfi_endproc
- 339              	.LFE7:
+ 339              	.LFE2:
  341              	 .section .text.example_optiga_crypt_rsa_decrypt_and_store,"ax",%progbits
  342              	 .align 2
  343              	 .global example_optiga_crypt_rsa_decrypt_and_store
  344              	 .thumb
  345              	 .thumb_func
  347              	example_optiga_crypt_rsa_decrypt_and_store:
- 348              	.LFB8:
+ 348              	.LFB3:
  198:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_decrypt.c **** 
  199:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_decrypt.c **** /**
  200:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_decrypt.c ****  * The below example demonstrates RSA decryption
@@ -1088,7 +1088,7 @@
  648 019c 00000000 	 .word .LC2
  649 01a0 00000000 	 .word performance_buffer_string
  650              	 .cfi_endproc
- 651              	.LFE8:
+ 651              	.LFE3:
  653              	 .section .rodata
  654              	 .align 2
  655              	 .set .LANCHOR1,.+0

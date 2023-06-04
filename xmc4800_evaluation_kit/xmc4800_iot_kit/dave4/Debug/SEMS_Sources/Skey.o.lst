@@ -22,7 +22,7 @@
   22              	 .thumb
   23              	 .thumb_func
   25              	optiga_util_write_shared_key:
-  26              	.LFB454:
+  26              	.LFB449:
   27              	 .file 1 "../SEMS_Sources/Skey.c"
    1:../SEMS_Sources/Skey.c **** #include <SEMS_Headers/Skey.h>
    2:../SEMS_Sources/Skey.c **** 
@@ -196,14 +196,14 @@
  142              	.L12:
  143 0060 00000000 	 .word optiga_lib_status
  144              	 .cfi_endproc
- 145              	.LFE454:
+ 145              	.LFE449:
  147              	 .section .text.optiga_util_read_shared_key,"ax",%progbits
  148              	 .align 2
  149              	 .global optiga_util_read_shared_key
  150              	 .thumb
  151              	 .thumb_func
  153              	optiga_util_read_shared_key:
- 154              	.LFB455:
+ 154              	.LFB450:
   49:../SEMS_Sources/Skey.c **** 
   50:../SEMS_Sources/Skey.c **** 
   51:../SEMS_Sources/Skey.c **** void optiga_util_read_shared_key(uint16_t optiga_oid, uint8_t read_data_buffer[], uint16_t bytes_to
@@ -351,7 +351,7 @@
  255              	.L25:
  256 005c 00000000 	 .word optiga_lib_status
  257              	 .cfi_endproc
- 258              	.LFE455:
+ 258              	.LFE450:
  260              	 .text
  261              	.Letext0:
  262              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"

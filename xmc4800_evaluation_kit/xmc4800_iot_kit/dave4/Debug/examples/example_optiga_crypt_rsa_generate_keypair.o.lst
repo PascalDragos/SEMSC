@@ -21,7 +21,7 @@
   21              	 .thumb
   22              	 .thumb_func
   24              	optiga_crypt_callback:
-  25              	.LFB6:
+  25              	.LFB1:
   26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/example_optiga_crypt_rsa_generate_keypair.c"
    1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** /**
    2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c **** * \copyright
@@ -94,13 +94,13 @@
   39              	.L2:
   40 0008 00000000 	 .word .LANCHOR0
   41              	 .cfi_endproc
-  42              	.LFE6:
+  42              	.LFE1:
   44              	 .section .text.optiga_util_callback,"ax",%progbits
   45              	 .align 2
   46              	 .thumb
   47              	 .thumb_func
   49              	optiga_util_callback:
-  50              	.LFB7:
+  50              	.LFB2:
   57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     if (NULL != context)
   58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     {
   59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         // callback to upper layer here
@@ -126,14 +126,14 @@
   63              	.L5:
   64 0008 00000000 	 .word .LANCHOR0
   65              	 .cfi_endproc
-  66              	.LFE7:
+  66              	.LFE2:
   68              	 .section .text.example_optiga_crypt_rsa_generate_keypair,"ax",%progbits
   69              	 .align 2
   70              	 .global example_optiga_crypt_rsa_generate_keypair
   71              	 .thumb
   72              	 .thumb_func
   74              	example_optiga_crypt_rsa_generate_keypair:
-  75              	.LFB8:
+  75              	.LFB3:
   67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     if (NULL != context)
   68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****     {
   69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_rsa_generate_keypair.c ****         // callback to upper layer here
@@ -505,7 +505,7 @@
  286 00f4 00000000 	 .word .LC0
  287 00f8 00000000 	 .word performance_buffer_string
  288              	 .cfi_endproc
- 289              	.LFE8:
+ 289              	.LFE3:
  291              	 .global E0FC_metadata
  292              	 .section .rodata.E0FC_metadata,"a",%progbits
  293              	 .align 2

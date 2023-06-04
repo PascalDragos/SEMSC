@@ -21,7 +21,7 @@
   21              	 .thumb
   22              	 .thumb_func
   24              	optiga_lib_callback:
-  25              	.LFB6:
+  25              	.LFB1:
   26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/example_optiga_crypt_tls_prf_sha256.c"
    1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** /**
    2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c **** * \copyright
@@ -116,14 +116,14 @@
   39              	.L2:
   40 0008 00000000 	 .word .LANCHOR0
   41              	 .cfi_endproc
-  42              	.LFE6:
+  42              	.LFE1:
   44              	 .section .text.example_optiga_crypt_tls_prf_sha256,"ax",%progbits
   45              	 .align 2
   46              	 .global example_optiga_crypt_tls_prf_sha256
   47              	 .thumb
   48              	 .thumb_func
   50              	example_optiga_crypt_tls_prf_sha256:
-  51              	.LFB7:
+  51              	.LFB2:
   79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     if (NULL != context)
   80:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****     {
   81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_tls_prf_sha256.c ****         // callback to upper layer here
@@ -1362,7 +1362,7 @@
  360 0194 00000000 	 .word .LANCHOR3
  361 0198 00000000 	 .word .LANCHOR5
  362              	 .cfi_endproc
- 363              	.LFE7:
+ 363              	.LFE2:
  365              	 .section .rodata.random_seed,"a",%progbits
  366              	 .align 2
  367              	 .set .LANCHOR4,.+0

@@ -22,7 +22,7 @@
   22              	 .thumb
   23              	 .thumb_func
   25              	test_write_read:
-  26              	.LFB454:
+  26              	.LFB449:
   27              	 .file 1 "../SEMS_Sources/Test.c"
    1:../SEMS_Sources/Test.c **** #include <DAVE.h>
    2:../SEMS_Sources/Test.c **** #include "optiga/optiga_crypt.h"
@@ -196,14 +196,14 @@
  136 00b4 00010203 	 .word 50462976
  137 00b8 04050607 	 .word 117835012
  138              	 .cfi_endproc
- 139              	.LFE454:
+ 139              	.LFE449:
  141              	 .section .text.testing0,"ax",%progbits
  142              	 .align 2
  143              	 .global testing0
  144              	 .thumb
  145              	 .thumb_func
  147              	testing0:
- 148              	.LFB455:
+ 148              	.LFB450:
   58:../SEMS_Sources/Test.c **** 
   59:../SEMS_Sources/Test.c **** 
   60:../SEMS_Sources/Test.c **** void testing0(void)
@@ -303,14 +303,14 @@
  223 0074 00010203 	 .word 50462976
  224 0078 04050607 	 .word 117835012
  225              	 .cfi_endproc
- 226              	.LFE455:
+ 226              	.LFE450:
  228              	 .section .text.test,"ax",%progbits
  229              	 .align 2
  230              	 .global test
  231              	 .thumb
  232              	 .thumb_func
  234              	test:
- 235              	.LFB456:
+ 235              	.LFB451:
   74:../SEMS_Sources/Test.c **** 
   75:../SEMS_Sources/Test.c **** void test(void)
   76:../SEMS_Sources/Test.c **** {
@@ -444,7 +444,7 @@
  347 00b0 00010203 	 .word 50462976
  348 00b4 04050607 	 .word 117835012
  349              	 .cfi_endproc
- 350              	.LFE456:
+ 350              	.LFE451:
  352              	 .text
  353              	.Letext0:
  354              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"

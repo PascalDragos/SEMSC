@@ -382,9 +382,9 @@
  247              	 .set .LANCHOR1,.+0
  250              	me_util_instance:
  251 0000 00000000 	 .space 4
- 252              	 .section .bss.host_optiga_pairing_completed.6003,"aw",%nobits
+ 252              	 .section .bss.host_optiga_pairing_completed.5936,"aw",%nobits
  253              	 .set .LANCHOR2,.+0
- 256              	host_optiga_pairing_completed.6003:
+ 256              	host_optiga_pairing_completed.5936:
  257 0000 00       	 .space 1
  258              	 .section .bss.optiga_lib_status,"aw",%nobits
  259              	 .align 1
@@ -416,8 +416,8 @@ DEFINED SYMBOLS
     {standard input}:239    .text.example_optiga_deinit_true:00000034 $d
     {standard input}:250    .bss.me_util_instance:00000000 me_util_instance
     {standard input}:246    .bss.me_util_instance:00000000 $d
-    {standard input}:256    .bss.host_optiga_pairing_completed.6003:00000000 host_optiga_pairing_completed.6003
-    {standard input}:257    .bss.host_optiga_pairing_completed.6003:00000000 $d
+    {standard input}:256    .bss.host_optiga_pairing_completed.5936:00000000 host_optiga_pairing_completed.5936
+    {standard input}:257    .bss.host_optiga_pairing_completed.5936:00000000 $d
     {standard input}:259    .bss.optiga_lib_status:00000000 $d
     {standard input}:263    .bss.optiga_lib_status:00000000 optiga_lib_status
                      .debug_frame:00000010 $d

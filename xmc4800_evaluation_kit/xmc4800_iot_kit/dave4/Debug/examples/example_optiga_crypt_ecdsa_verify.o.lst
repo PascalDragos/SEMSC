@@ -21,7 +21,7 @@
   21              	 .thumb
   22              	 .thumb_func
   24              	optiga_crypt_callback:
-  25              	.LFB6:
+  25              	.LFB1:
   26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/example_optiga_crypt_ecdsa_verify.c"
    1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_verify.c **** /**
    2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_verify.c **** * \copyright
@@ -98,14 +98,14 @@
   39              	.L2:
   40 0008 00000000 	 .word .LANCHOR0
   41              	 .cfi_endproc
-  42              	.LFE6:
+  42              	.LFE1:
   44              	 .section .text.example_optiga_crypt_ecdsa_verify,"ax",%progbits
   45              	 .align 2
   46              	 .global example_optiga_crypt_ecdsa_verify
   47              	 .thumb
   48              	 .thumb_func
   50              	example_optiga_crypt_ecdsa_verify:
-  51              	.LFB7:
+  51              	.LFB2:
   61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_verify.c ****     if (NULL != context)
   62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_verify.c ****     {
   63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga\example_optiga_crypt_ecdsa_verify.c ****         // callback to upper layer here
@@ -430,7 +430,7 @@
  219 00d0 00000000 	 .word .LC0
  220 00d4 00000000 	 .word performance_buffer_string
  221              	 .cfi_endproc
- 222              	.LFE7:
+ 222              	.LFE2:
  224              	 .global ecc_public_key_length
  225              	 .global ecc_public_key
  226              	 .section .bss.ecc_public_key_length,"aw",%nobits

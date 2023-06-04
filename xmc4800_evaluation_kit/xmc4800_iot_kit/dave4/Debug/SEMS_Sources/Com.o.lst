@@ -22,7 +22,7 @@
   22              	 .thumb
   23              	 .thumb_func
   25              	secure_communication:
-  26              	.LFB454:
+  26              	.LFB449:
   27              	 .file 1 "../SEMS_Sources/Com.c"
    1:../SEMS_Sources/Com.c **** #include "../SEMS_Headers/Com.h"
    2:../SEMS_Sources/Com.c **** 
@@ -168,7 +168,7 @@
  101              	 
  102 0060 70BD     	 pop {r4,r5,r6,pc}
  103              	 .cfi_endproc
- 104              	.LFE454:
+ 104              	.LFE449:
  106              	 .text
  107              	.Letext0:
  108              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
