@@ -71,7 +71,7 @@
   45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** #include "optiga_example.h"
   46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** #include "optiga/pal/pal_logger.h"
   47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
-  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** #include "SEMS_Headers/Main.h"
+  48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** #include "SEMS_Headers/Terminal.h"
   49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** 
   50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** extern void optiga_shell_wait_for_user(void);
   51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** extern void optiga_shell_begin(void);
@@ -176,7 +176,7 @@
   87              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
   88              	 .file 13 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
   89              	 .file 14 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal_os_timer.h"
-  90              	 .file 15 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/dave4/SEMS_Headers/Main.h"
+  90              	 .file 15 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/dave4/SEMS_Headers/Terminal.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 main_xmc4800_example.c
     {standard input}:20     .text.startup.main:00000000 $t

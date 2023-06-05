@@ -45,7 +45,7 @@
 #include "optiga_example.h"
 #include "optiga/pal/pal_logger.h"
 
-#include "SEMS_Headers/Main.h"
+#include "SEMS_Headers/Terminal.h"
 
 extern void optiga_shell_wait_for_user(void);
 extern void optiga_shell_begin(void);

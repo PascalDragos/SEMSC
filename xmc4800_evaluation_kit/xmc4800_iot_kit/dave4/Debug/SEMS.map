@@ -2957,10 +2957,6 @@ Discarded input sections
  .data          0x00000000        0x0 ./SEMS_Sources/Init.o
  .bss           0x00000000        0x0 ./SEMS_Sources/Init.o
  .comment       0x00000000       0x71 ./SEMS_Sources/Init.o
- .text          0x00000000        0x0 ./SEMS_Sources/Main.o
- .data          0x00000000        0x0 ./SEMS_Sources/Main.o
- .bss           0x00000000        0x0 ./SEMS_Sources/Main.o
- .comment       0x00000000       0x71 ./SEMS_Sources/Main.o
  .text          0x00000000        0x0 ./SEMS_Sources/Nonce.o
  .data          0x00000000        0x0 ./SEMS_Sources/Nonce.o
  .bss           0x00000000        0x0 ./SEMS_Sources/Nonce.o
@@ -2988,6 +2984,10 @@ Discarded input sections
  .data          0x00000000        0x0 ./SEMS_Sources/SymEncrypt.o
  .bss           0x00000000        0x0 ./SEMS_Sources/SymEncrypt.o
  .comment       0x00000000       0x71 ./SEMS_Sources/SymEncrypt.o
+ .text          0x00000000        0x0 ./SEMS_Sources/Terminal.o
+ .data          0x00000000        0x0 ./SEMS_Sources/Terminal.o
+ .bss           0x00000000        0x0 ./SEMS_Sources/Terminal.o
+ .comment       0x00000000       0x71 ./SEMS_Sources/Terminal.o
  .text          0x00000000        0x0 ./SEMS_Sources/Test.o
  .data          0x00000000        0x0 ./SEMS_Sources/Test.o
  .bss           0x00000000        0x0 ./SEMS_Sources/Test.o
@@ -3345,13 +3345,13 @@ LOAD ./SEMS_Sources/Constructor.o
 LOAD ./SEMS_Sources/Decoder.o
 LOAD ./SEMS_Sources/Hash.o
 LOAD ./SEMS_Sources/Init.o
-LOAD ./SEMS_Sources/Main.o
 LOAD ./SEMS_Sources/Nonce.o
 LOAD ./SEMS_Sources/Patcher.o
 LOAD ./SEMS_Sources/RSA.o
 LOAD ./SEMS_Sources/Random.o
 LOAD ./SEMS_Sources/Skey.o
 LOAD ./SEMS_Sources/SymEncrypt.o
+LOAD ./SEMS_Sources/Terminal.o
 LOAD ./SEMS_Sources/Test.o
 LOAD ./SEMS_Sources/Timer.o
 LOAD ./SEMS_Sources/Unlock.o
@@ -4430,39 +4430,39 @@ END GROUP
  .text.init_SEMS
                 0x0800c5fc       0x10 ./SEMS_Sources/Init.o
                 0x0800c5fc                init_SEMS
- .text.my_optiga_shell_begin
-                0x0800c60c      0x1a4 ./SEMS_Sources/Main.o
-                0x0800c60c                my_optiga_shell_begin
  .text.optiga_util_read_nonce
-                0x0800c7b0       0x60 ./SEMS_Sources/Nonce.o
-                0x0800c7b0                optiga_util_read_nonce
+                0x0800c60c       0x60 ./SEMS_Sources/Nonce.o
+                0x0800c60c                optiga_util_read_nonce
  .text.optiga_util_update_count_wrapper
-                0x0800c810       0x60 ./SEMS_Sources/Nonce.o
-                0x0800c810                optiga_util_update_count_wrapper
+                0x0800c66c       0x60 ./SEMS_Sources/Nonce.o
+                0x0800c66c                optiga_util_update_count_wrapper
  .text.read_request
-                0x0800c870       0xd8 ./SEMS_Sources/Patcher.o
-                0x0800c870                read_request
+                0x0800c6cc       0xd8 ./SEMS_Sources/Patcher.o
+                0x0800c6cc                read_request
  .text.write_request
-                0x0800c948       0xb4 ./SEMS_Sources/Patcher.o
-                0x0800c948                write_request
+                0x0800c7a4       0xb4 ./SEMS_Sources/Patcher.o
+                0x0800c7a4                write_request
  .text.optiga_crypt_rsa_encrypt_message_wrapper
-                0x0800c9fc       0xac ./SEMS_Sources/RSA.o
-                0x0800c9fc                optiga_crypt_rsa_encrypt_message_wrapper
+                0x0800c858       0xac ./SEMS_Sources/RSA.o
+                0x0800c858                optiga_crypt_rsa_encrypt_message_wrapper
  .text.optiga_crypt_rsa_verify_wrapper
-                0x0800caa8       0xb0 ./SEMS_Sources/RSA.o
-                0x0800caa8                optiga_crypt_rsa_verify_wrapper
+                0x0800c904       0xb0 ./SEMS_Sources/RSA.o
+                0x0800c904                optiga_crypt_rsa_verify_wrapper
  .text.optiga_crypt_random_wrapper
-                0x0800cb58       0x60 ./SEMS_Sources/Random.o
-                0x0800cb58                optiga_crypt_random_wrapper
+                0x0800c9b4       0x60 ./SEMS_Sources/Random.o
+                0x0800c9b4                optiga_crypt_random_wrapper
  .text.optiga_util_write_shared_key
-                0x0800cbb8       0x64 ./SEMS_Sources/Skey.o
-                0x0800cbb8                optiga_util_write_shared_key
+                0x0800ca14       0x64 ./SEMS_Sources/Skey.o
+                0x0800ca14                optiga_util_write_shared_key
  .text.optiga_util_read_shared_key
-                0x0800cc1c       0x60 ./SEMS_Sources/Skey.o
-                0x0800cc1c                optiga_util_read_shared_key
+                0x0800ca78       0x60 ./SEMS_Sources/Skey.o
+                0x0800ca78                optiga_util_read_shared_key
  .text.stream_enc
-                0x0800cc7c       0xa0 ./SEMS_Sources/SymEncrypt.o
-                0x0800cc7c                stream_enc
+                0x0800cad8       0xa0 ./SEMS_Sources/SymEncrypt.o
+                0x0800cad8                stream_enc
+ .text.my_optiga_shell_begin
+                0x0800cb78      0x1a4 ./SEMS_Sources/Terminal.o
+                0x0800cb78                my_optiga_shell_begin
  .text.start_cooldown_timer
                 0x0800cd1c       0x20 ./SEMS_Sources/Timer.o
                 0x0800cd1c                start_cooldown_timer
@@ -4645,11 +4645,11 @@ END GROUP
                 0x0800dc68                platform_binding_shared_secret_metadata_final
  .rodata.str1.4
                 0x0800dc84       0x20 ./SEMS_Sources/Decoder.o
- .rodata        0x0800dca4       0xc0 ./SEMS_Sources/Main.o
  .rodata.rsa_public_key_exponent
-                0x0800dd64        0x4 ./SEMS_Sources/RSA.o
+                0x0800dca4        0x4 ./SEMS_Sources/RSA.o
  .rodata.rsa_public_key_modulus
-                0x0800dd68       0x80 ./SEMS_Sources/RSA.o
+                0x0800dca8       0x80 ./SEMS_Sources/RSA.o
+ .rodata        0x0800dd28       0xc0 ./SEMS_Sources/Terminal.o
  .rodata        0x0800dde8        0x8 ./SEMS_Sources/Unlock.o
  .rodata.str1.1
                 0x0800ddf0        0x2 c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-impure.o)
@@ -4886,17 +4886,17 @@ Stack           0x1ffe8000     0x5000
                 0x1fff00c4                time_taken_for_pairing
  .bss.optiga_lib_status
                 0x1fff00c8        0x2 ./examples/example_pair_host_and_optiga_using_pre_shared_secret.o
- .bss.failed_req
-                0x1fff00ca        0x1 ./SEMS_Sources/Main.o
-                0x1fff00ca                failed_req
- .bss.cooldowned
-                0x1fff00cb        0x1 ./SEMS_Sources/Main.o
-                0x1fff00cb                cooldowned
+ *fill*         0x1fff00ca        0x2 
  .bss.rsa_public_key
                 0x1fff00cc       0x98 ./SEMS_Sources/RSA.o
  .bss.rsa_public_key_length
                 0x1fff0164        0x2 ./SEMS_Sources/RSA.o
- *fill*         0x1fff0166        0x2 
+ .bss.failed_req
+                0x1fff0166        0x1 ./SEMS_Sources/Terminal.o
+                0x1fff0166                failed_req
+ .bss.cooldowned
+                0x1fff0167        0x1 ./SEMS_Sources/Terminal.o
+                0x1fff0167                cooldowned
  .bss.user_token
                 0x1fff0168        0x4 ./SEMS_Sources/Unlock.o
                 0x1fff0168                user_token
@@ -5145,19 +5145,19 @@ ETH_RAM         0x20000e00        0x0
  .debug_aranges
                 0x00001bf8       0x20 ./SEMS_Sources/Init.o
  .debug_aranges
-                0x00001c18       0x20 ./SEMS_Sources/Main.o
+                0x00001c18       0x30 ./SEMS_Sources/Nonce.o
  .debug_aranges
-                0x00001c38       0x30 ./SEMS_Sources/Nonce.o
+                0x00001c48       0x28 ./SEMS_Sources/Patcher.o
  .debug_aranges
-                0x00001c68       0x28 ./SEMS_Sources/Patcher.o
+                0x00001c70       0x28 ./SEMS_Sources/RSA.o
  .debug_aranges
-                0x00001c90       0x28 ./SEMS_Sources/RSA.o
+                0x00001c98       0x20 ./SEMS_Sources/Random.o
  .debug_aranges
-                0x00001cb8       0x20 ./SEMS_Sources/Random.o
+                0x00001cb8       0x28 ./SEMS_Sources/Skey.o
  .debug_aranges
-                0x00001cd8       0x28 ./SEMS_Sources/Skey.o
+                0x00001ce0       0x20 ./SEMS_Sources/SymEncrypt.o
  .debug_aranges
-                0x00001d00       0x20 ./SEMS_Sources/SymEncrypt.o
+                0x00001d00       0x20 ./SEMS_Sources/Terminal.o
  .debug_aranges
                 0x00001d20       0x28 ./SEMS_Sources/Timer.o
  .debug_aranges
@@ -5251,13 +5251,13 @@ ETH_RAM         0x20000e00        0x0
  .debug_info    0x0005dc88     0x1734 ./SEMS_Sources/Decoder.o
  .debug_info    0x0005f3bc     0x1e5b ./SEMS_Sources/Hash.o
  .debug_info    0x00061217     0x168c ./SEMS_Sources/Init.o
- .debug_info    0x000628a3     0x1a1c ./SEMS_Sources/Main.o
- .debug_info    0x000642bf     0x1c2b ./SEMS_Sources/Nonce.o
- .debug_info    0x00065eea     0x1b7f ./SEMS_Sources/Patcher.o
- .debug_info    0x00067a69     0x21da ./SEMS_Sources/RSA.o
- .debug_info    0x00069c43     0x1e39 ./SEMS_Sources/Random.o
- .debug_info    0x0006ba7c     0x1b3d ./SEMS_Sources/Skey.o
- .debug_info    0x0006d5b9     0x169d ./SEMS_Sources/SymEncrypt.o
+ .debug_info    0x000628a3     0x1c2b ./SEMS_Sources/Nonce.o
+ .debug_info    0x000644ce     0x1b7f ./SEMS_Sources/Patcher.o
+ .debug_info    0x0006604d     0x21da ./SEMS_Sources/RSA.o
+ .debug_info    0x00068227     0x1e39 ./SEMS_Sources/Random.o
+ .debug_info    0x0006a060     0x1b3d ./SEMS_Sources/Skey.o
+ .debug_info    0x0006bb9d     0x169d ./SEMS_Sources/SymEncrypt.o
+ .debug_info    0x0006d23a     0x1a1c ./SEMS_Sources/Terminal.o
  .debug_info    0x0006ec56     0x23ef ./SEMS_Sources/Timer.o
  .debug_info    0x00071045     0x18ad ./SEMS_Sources/Unlock.o
  .debug_info    0x000728f2     0x1777 ./main_xmc4800_example.o
@@ -5342,18 +5342,18 @@ ETH_RAM         0x20000e00        0x0
  .debug_abbrev  0x0000be1e      0x26a ./SEMS_Sources/Decoder.o
  .debug_abbrev  0x0000c088      0x2fa ./SEMS_Sources/Hash.o
  .debug_abbrev  0x0000c382      0x24c ./SEMS_Sources/Init.o
- .debug_abbrev  0x0000c5ce      0x30d ./SEMS_Sources/Main.o
- .debug_abbrev  0x0000c8db      0x340 ./SEMS_Sources/Nonce.o
- .debug_abbrev  0x0000cc1b      0x2fb ./SEMS_Sources/Patcher.o
- .debug_abbrev  0x0000cf16      0x34d ./SEMS_Sources/RSA.o
- .debug_abbrev  0x0000d263      0x2f9 ./SEMS_Sources/Random.o
- .debug_abbrev  0x0000d55c      0x32c ./SEMS_Sources/Skey.o
- .debug_abbrev  0x0000d888      0x240 ./SEMS_Sources/SymEncrypt.o
+ .debug_abbrev  0x0000c5ce      0x340 ./SEMS_Sources/Nonce.o
+ .debug_abbrev  0x0000c90e      0x2fb ./SEMS_Sources/Patcher.o
+ .debug_abbrev  0x0000cc09      0x34d ./SEMS_Sources/RSA.o
+ .debug_abbrev  0x0000cf56      0x2f9 ./SEMS_Sources/Random.o
+ .debug_abbrev  0x0000d24f      0x32c ./SEMS_Sources/Skey.o
+ .debug_abbrev  0x0000d57b      0x240 ./SEMS_Sources/SymEncrypt.o
+ .debug_abbrev  0x0000d7bb      0x30d ./SEMS_Sources/Terminal.o
  .debug_abbrev  0x0000dac8      0x2a5 ./SEMS_Sources/Timer.o
  .debug_abbrev  0x0000dd6d      0x2c2 ./SEMS_Sources/Unlock.o
  .debug_abbrev  0x0000e02f      0x2b9 ./main_xmc4800_example.o
 
-.debug_line     0x00000000    0x1beeb
+.debug_line     0x00000000    0x1bef3
  *(.debug_line)
  .debug_line    0x00000000      0x285 ./lib/xmc/XMCLib/src/xmc4_gpio.o
  .debug_line    0x00000285     0x1001 ./lib/xmc/XMCLib/src/xmc4_scu.o
@@ -5433,16 +5433,16 @@ ETH_RAM         0x20000e00        0x0
  .debug_line    0x00018383      0x35e ./SEMS_Sources/Decoder.o
  .debug_line    0x000186e1      0x4cc ./SEMS_Sources/Hash.o
  .debug_line    0x00018bad      0x34a ./SEMS_Sources/Init.o
- .debug_line    0x00018ef7      0x481 ./SEMS_Sources/Main.o
- .debug_line    0x00019378      0x57d ./SEMS_Sources/Nonce.o
- .debug_line    0x000198f5      0x5a8 ./SEMS_Sources/Patcher.o
- .debug_line    0x00019e9d      0x54b ./SEMS_Sources/RSA.o
- .debug_line    0x0001a3e8      0x4e4 ./SEMS_Sources/Random.o
- .debug_line    0x0001a8cc      0x530 ./SEMS_Sources/Skey.o
- .debug_line    0x0001adfc      0x333 ./SEMS_Sources/SymEncrypt.o
- .debug_line    0x0001b12f      0x4b5 ./SEMS_Sources/Timer.o
- .debug_line    0x0001b5e4      0x45f ./SEMS_Sources/Unlock.o
- .debug_line    0x0001ba43      0x4a8 ./main_xmc4800_example.o
+ .debug_line    0x00018ef7      0x57d ./SEMS_Sources/Nonce.o
+ .debug_line    0x00019474      0x5a8 ./SEMS_Sources/Patcher.o
+ .debug_line    0x00019a1c      0x54b ./SEMS_Sources/RSA.o
+ .debug_line    0x00019f67      0x4e4 ./SEMS_Sources/Random.o
+ .debug_line    0x0001a44b      0x530 ./SEMS_Sources/Skey.o
+ .debug_line    0x0001a97b      0x333 ./SEMS_Sources/SymEncrypt.o
+ .debug_line    0x0001acae      0x485 ./SEMS_Sources/Terminal.o
+ .debug_line    0x0001b133      0x4b5 ./SEMS_Sources/Timer.o
+ .debug_line    0x0001b5e8      0x45f ./SEMS_Sources/Unlock.o
+ .debug_line    0x0001ba47      0x4ac ./main_xmc4800_example.o
 
 .debug_frame    0x00000000     0x5bd4
  *(.debug_frame)
@@ -5513,13 +5513,13 @@ ETH_RAM         0x20000e00        0x0
  .debug_frame   0x0000545c       0x2c ./SEMS_Sources/Decoder.o
  .debug_frame   0x00005488       0x40 ./SEMS_Sources/Hash.o
  .debug_frame   0x000054c8       0x30 ./SEMS_Sources/Init.o
- .debug_frame   0x000054f8       0x44 ./SEMS_Sources/Main.o
- .debug_frame   0x0000553c       0xc8 ./SEMS_Sources/Nonce.o
- .debug_frame   0x00005604       0x70 ./SEMS_Sources/Patcher.o
- .debug_frame   0x00005674       0x84 ./SEMS_Sources/RSA.o
- .debug_frame   0x000056f8       0x6c ./SEMS_Sources/Random.o
- .debug_frame   0x00005764       0x90 ./SEMS_Sources/Skey.o
- .debug_frame   0x000057f4       0x40 ./SEMS_Sources/SymEncrypt.o
+ .debug_frame   0x000054f8       0xc8 ./SEMS_Sources/Nonce.o
+ .debug_frame   0x000055c0       0x70 ./SEMS_Sources/Patcher.o
+ .debug_frame   0x00005630       0x84 ./SEMS_Sources/RSA.o
+ .debug_frame   0x000056b4       0x6c ./SEMS_Sources/Random.o
+ .debug_frame   0x00005720       0x90 ./SEMS_Sources/Skey.o
+ .debug_frame   0x000057b0       0x40 ./SEMS_Sources/SymEncrypt.o
+ .debug_frame   0x000057f0       0x44 ./SEMS_Sources/Terminal.o
  .debug_frame   0x00005834       0x40 ./SEMS_Sources/Timer.o
  .debug_frame   0x00005874       0x40 ./SEMS_Sources/Unlock.o
  .debug_frame   0x000058b4       0x2c ./main_xmc4800_example.o
@@ -5540,7 +5540,7 @@ ETH_RAM         0x20000e00        0x0
  .debug_frame   0x00005b4c       0x2c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-sbrkr.o)
  .debug_frame   0x00005b78       0x5c c:/infineon/tools/dave ide/4.5.0.202105191637/eclipse/arm-gcc-49/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg_nano.a(lib_a-reent.o)
 
-.debug_str      0x00000000    0x15a1f
+.debug_str      0x00000000    0x15a23
  *(.debug_str)
  .debug_str     0x00000000      0x704 ./lib/xmc/XMCLib/src/xmc4_gpio.o
                                 0x770 (size before relaxing)
@@ -5696,25 +5696,25 @@ ETH_RAM         0x20000e00        0x0
                                0x1bef (size before relaxing)
  .debug_str     0x00015644       0x36 ./SEMS_Sources/Init.o
                                0x13dc (size before relaxing)
- .debug_str     0x0001567a       0x7c ./SEMS_Sources/Main.o
-                               0x163a (size before relaxing)
- .debug_str     0x000156f6       0x84 ./SEMS_Sources/Nonce.o
+ .debug_str     0x0001567a       0x84 ./SEMS_Sources/Nonce.o
                                0x1857 (size before relaxing)
- .debug_str     0x0001577a       0xef ./SEMS_Sources/Patcher.o
+ .debug_str     0x000156fe      0x10a ./SEMS_Sources/Patcher.o
                                0x15cb (size before relaxing)
- .debug_str     0x00015869       0xb3 ./SEMS_Sources/RSA.o
+ .debug_str     0x00015808       0xb3 ./SEMS_Sources/RSA.o
                                0x1fa3 (size before relaxing)
- .debug_str     0x0001591c       0x25 ./SEMS_Sources/Random.o
+ .debug_str     0x000158bb       0x25 ./SEMS_Sources/Random.o
                                0x1be0 (size before relaxing)
- .debug_str     0x00015941       0x26 ./SEMS_Sources/Skey.o
+ .debug_str     0x000158e0       0x26 ./SEMS_Sources/Skey.o
                                0x1800 (size before relaxing)
- .debug_str     0x00015967       0x1d ./SEMS_Sources/SymEncrypt.o
+ .debug_str     0x00015906       0x1d ./SEMS_Sources/SymEncrypt.o
                                0x13b5 (size before relaxing)
- .debug_str     0x00015984       0x2b ./SEMS_Sources/Timer.o
+ .debug_str     0x00015923       0x65 ./SEMS_Sources/Terminal.o
+                               0x163e (size before relaxing)
+ .debug_str     0x00015988       0x2b ./SEMS_Sources/Timer.o
                                0x1ccf (size before relaxing)
- .debug_str     0x000159af       0x19 ./SEMS_Sources/Unlock.o
+ .debug_str     0x000159b3       0x19 ./SEMS_Sources/Unlock.o
                                0x163b (size before relaxing)
- .debug_str     0x000159c8       0x57 ./main_xmc4800_example.o
+ .debug_str     0x000159cc       0x57 ./main_xmc4800_example.o
                                0x14f6 (size before relaxing)
 
 .debug_loc      0x00000000    0x2e18d
@@ -5785,13 +5785,13 @@ ETH_RAM         0x20000e00        0x0
  .debug_loc     0x0002cc89       0x4c ./SEMS_Sources/Decoder.o
  .debug_loc     0x0002ccd5      0x129 ./SEMS_Sources/Hash.o
  .debug_loc     0x0002cdfe       0x2c ./SEMS_Sources/Init.o
- .debug_loc     0x0002ce2a       0xd8 ./SEMS_Sources/Main.o
- .debug_loc     0x0002cf02      0x382 ./SEMS_Sources/Nonce.o
- .debug_loc     0x0002d284      0x528 ./SEMS_Sources/Patcher.o
- .debug_loc     0x0002d7ac      0x321 ./SEMS_Sources/RSA.o
- .debug_loc     0x0002dacd      0x167 ./SEMS_Sources/Random.o
- .debug_loc     0x0002dc34      0x2ec ./SEMS_Sources/Skey.o
- .debug_loc     0x0002df20      0x158 ./SEMS_Sources/SymEncrypt.o
+ .debug_loc     0x0002ce2a      0x382 ./SEMS_Sources/Nonce.o
+ .debug_loc     0x0002d1ac      0x528 ./SEMS_Sources/Patcher.o
+ .debug_loc     0x0002d6d4      0x321 ./SEMS_Sources/RSA.o
+ .debug_loc     0x0002d9f5      0x167 ./SEMS_Sources/Random.o
+ .debug_loc     0x0002db5c      0x2ec ./SEMS_Sources/Skey.o
+ .debug_loc     0x0002de48      0x158 ./SEMS_Sources/SymEncrypt.o
+ .debug_loc     0x0002dfa0       0xd8 ./SEMS_Sources/Terminal.o
  .debug_loc     0x0002e078       0x2c ./SEMS_Sources/Timer.o
  .debug_loc     0x0002e0a4       0xab ./SEMS_Sources/Unlock.o
  .debug_loc     0x0002e14f       0x3e ./main_xmc4800_example.o
@@ -5868,13 +5868,13 @@ ETH_RAM         0x20000e00        0x0
  .debug_ranges  0x00004730       0x10 ./SEMS_Sources/Decoder.o
  .debug_ranges  0x00004740       0x10 ./SEMS_Sources/Hash.o
  .debug_ranges  0x00004750       0x10 ./SEMS_Sources/Init.o
- .debug_ranges  0x00004760       0x30 ./SEMS_Sources/Main.o
- .debug_ranges  0x00004790       0x38 ./SEMS_Sources/Nonce.o
- .debug_ranges  0x000047c8       0x30 ./SEMS_Sources/Patcher.o
- .debug_ranges  0x000047f8       0x18 ./SEMS_Sources/RSA.o
- .debug_ranges  0x00004810       0x10 ./SEMS_Sources/Random.o
- .debug_ranges  0x00004820       0x18 ./SEMS_Sources/Skey.o
- .debug_ranges  0x00004838       0x10 ./SEMS_Sources/SymEncrypt.o
+ .debug_ranges  0x00004760       0x38 ./SEMS_Sources/Nonce.o
+ .debug_ranges  0x00004798       0x30 ./SEMS_Sources/Patcher.o
+ .debug_ranges  0x000047c8       0x18 ./SEMS_Sources/RSA.o
+ .debug_ranges  0x000047e0       0x10 ./SEMS_Sources/Random.o
+ .debug_ranges  0x000047f0       0x18 ./SEMS_Sources/Skey.o
+ .debug_ranges  0x00004808       0x10 ./SEMS_Sources/SymEncrypt.o
+ .debug_ranges  0x00004818       0x30 ./SEMS_Sources/Terminal.o
  .debug_ranges  0x00004848       0x18 ./SEMS_Sources/Timer.o
  .debug_ranges  0x00004860       0x28 ./SEMS_Sources/Unlock.o
  .debug_ranges  0x00004888       0x10 ./main_xmc4800_example.o
@@ -6051,19 +6051,19 @@ ETH_RAM         0x20000e00        0x0
  .ARM.attributes
                 0x00001079       0x37 ./SEMS_Sources/Init.o
  .ARM.attributes
-                0x000010b0       0x37 ./SEMS_Sources/Main.o
+                0x000010b0       0x37 ./SEMS_Sources/Nonce.o
  .ARM.attributes
-                0x000010e7       0x37 ./SEMS_Sources/Nonce.o
+                0x000010e7       0x37 ./SEMS_Sources/Patcher.o
  .ARM.attributes
-                0x0000111e       0x37 ./SEMS_Sources/Patcher.o
+                0x0000111e       0x37 ./SEMS_Sources/RSA.o
  .ARM.attributes
-                0x00001155       0x37 ./SEMS_Sources/RSA.o
+                0x00001155       0x37 ./SEMS_Sources/Random.o
  .ARM.attributes
-                0x0000118c       0x37 ./SEMS_Sources/Random.o
+                0x0000118c       0x37 ./SEMS_Sources/Skey.o
  .ARM.attributes
-                0x000011c3       0x37 ./SEMS_Sources/Skey.o
+                0x000011c3       0x37 ./SEMS_Sources/SymEncrypt.o
  .ARM.attributes
-                0x000011fa       0x37 ./SEMS_Sources/SymEncrypt.o
+                0x000011fa       0x37 ./SEMS_Sources/Terminal.o
  .ARM.attributes
                 0x00001231       0x37 ./SEMS_Sources/Timer.o
  .ARM.attributes

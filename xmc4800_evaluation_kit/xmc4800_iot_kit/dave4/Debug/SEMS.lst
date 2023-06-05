@@ -25,17 +25,17 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  10 .debug_abbrev 0000e2e8  00000000  00000000  00093551  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_line   0001beeb  00000000  00000000  000a1839  2**0
+ 11 .debug_line   0001bef3  00000000  00000000  000a1839  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_frame  00005bd4  00000000  00000000  000bd724  2**2
+ 12 .debug_frame  00005bd4  00000000  00000000  000bd72c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_str    00015a1f  00000000  00000000  000c32f8  2**0
+ 13 .debug_str    00015a23  00000000  00000000  000c3300  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_loc    0002e18d  00000000  00000000  000d8d17  2**0
+ 14 .debug_loc    0002e18d  00000000  00000000  000d8d23  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_ranges 00004898  00000000  00000000  00106ea4  2**0
+ 15 .debug_ranges 00004898  00000000  00000000  00106eb0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .build_attributes 0000165a  00000000  00000000  0010b73c  2**0
+ 16 .build_attributes 0000165a  00000000  00000000  0010b748  2**0
                   CONTENTS, READONLY
 
 Disassembly of section .text:
@@ -53862,7 +53862,7 @@ uint8_t secure_communication(void)
 
 	// Generate random number using Optiga for session key
 	optiga_crypt_random_wrapper(random_buf, 32);
- 800c4a8:	f000 fb56 	bl	800cb58 <optiga_crypt_random_wrapper>
+ 800c4a8:	f000 fa84 	bl	800c9b4 <optiga_crypt_random_wrapper>
 
 	// Get Nonce
 //	optiga_util_reset_count(optiga_counter_oid);
@@ -53870,7 +53870,7 @@ uint8_t secure_communication(void)
  800c4ac:	a901      	add	r1, sp, #4
  800c4ae:	f24e 1020 	movw	r0, #57632	; 0xe120
  800c4b2:	2204      	movs	r2, #4
- 800c4b4:	f000 f97c 	bl	800c7b0 <optiga_util_read_nonce>
+ 800c4b4:	f000 f8aa 	bl	800c60c <optiga_util_read_nonce>
 
 
 	// Encrypt the session key with RSA
@@ -53907,7 +53907,7 @@ uint8_t secure_communication(void)
  800c4d4:	f10d 0302 	add.w	r3, sp, #2
  800c4d8:	a80a      	add	r0, sp, #40	; 0x28
  800c4da:	2124      	movs	r1, #36	; 0x24
- 800c4dc:	f000 fa8e 	bl	800c9fc <optiga_crypt_rsa_encrypt_message_wrapper>
+ 800c4dc:	f000 f9bc 	bl	800c858 <optiga_crypt_rsa_encrypt_message_wrapper>
 
 	// Send session key to the App
 	if(ciphertext_len == 128u)
@@ -53926,7 +53926,7 @@ uint8_t secure_communication(void)
  800c4e8:	a902      	add	r1, sp, #8
  800c4ea:	f24f 10d6 	movw	r0, #61910	; 0xf1d6
  800c4ee:	2220      	movs	r2, #32
- 800c4f0:	f000 fb62 	bl	800cbb8 <optiga_util_write_shared_key>
+ 800c4f0:	f000 fa90 	bl	800ca14 <optiga_util_write_shared_key>
 	// Read session key, Testing
 //	uint8_t key[32] = {0x01, 0x01, 0x01, 0x01};
 //	optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));
@@ -54290,2066 +54290,2066 @@ void init_SEMS(void)
  800c606:	f000 bb89 	b.w	800cd1c <start_cooldown_timer>
  800c60a:	bf00      	nop
 
-0800c60c <my_optiga_shell_begin>:
-volatile uint8_t failed_req = 0;
-volatile uint8_t cooldowned = false;
-
-
-void my_optiga_shell_begin(void)
-{
- 800c60c:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
- 800c610:	b091      	sub	sp, #68	; 0x44
- 800c612:	f8df 9188 	ldr.w	r9, [pc, #392]	; 800c79c <my_optiga_shell_begin+0x190>
- 800c616:	f8df 8188 	ldr.w	r8, [pc, #392]	; 800c7a0 <my_optiga_shell_begin+0x194>
-
-	uint8_t sec_unlocked = false;
-	uint8_t sec_comm = false;
-	uint8_t command[32];  // Toate comenzile au 32 de bytes
-
-	init_SEMS();
- 800c61a:	f7ff ffef 	bl	800c5fc <init_SEMS>
-
-void my_optiga_shell_begin(void)
-{
-
-	uint8_t sec_unlocked = false;
-	uint8_t sec_comm = false;
- 800c61e:	2600      	movs	r6, #0
-		else
-		{
-			// Req before unlock || invalid Token, Nonce, Hash
-
-			failed_req++;
-			if(true == cooldowned)
- 800c620:	46cb      	mov	fp, r9
-		}
-		else
-		{
-			// Req before unlock || invalid Token, Nonce, Hash
-
-			failed_req++;
- 800c622:	46c2      	mov	sl, r8
-
-
-void my_optiga_shell_begin(void)
-{
-
-	uint8_t sec_unlocked = false;
- 800c624:	4637      	mov	r7, r6
- 800c626:	ac08      	add	r4, sp, #32
-
-	while(true)
-	{
-
-		// Wrapper for serial read
-		if(0u == read_request(command, sec_unlocked, sec_comm))
- 800c628:	4668      	mov	r0, sp
- 800c62a:	4639      	mov	r1, r7
- 800c62c:	4632      	mov	r2, r6
- 800c62e:	f000 f91f 	bl	800c870 <read_request>
- 800c632:	4605      	mov	r5, r0
- 800c634:	bb40      	cbnz	r0, 800c688 <my_optiga_shell_begin+0x7c>
-		{
-			// Valid request
-			req_type req_rcv;
-			if(true == cooldowned)
- 800c636:	f899 3000 	ldrb.w	r3, [r9]
- 800c63a:	2b01      	cmp	r3, #1
- 800c63c:	d074      	beq.n	800c728 <my_optiga_shell_begin+0x11c>
-				uint8_t buff[32] = "Denied by cooldown.";
-				optiga_lib_print_bytes(buff, 32);
-				continue;
-			}
-
-			req_rcv = decode_req(command);
- 800c63e:	4668      	mov	r0, sp
- 800c640:	f7ff ff88 	bl	800c554 <decode_req>
-
-			switch(req_rcv){
- 800c644:	2803      	cmp	r0, #3
- 800c646:	f200 8082 	bhi.w	800c74e <my_optiga_shell_begin+0x142>
- 800c64a:	e8df f000 	tbb	[pc, r0]
- 800c64e:	575b      	.short	0x575b
- 800c650:	0241      	.short	0x0241
-					write_request(buff, sec_comm);
-					break;
-				}
-				case EXAMPLE:
-				{
-					uint8_t buff[32] = "Command response";
- 800c652:	f8df e150 	ldr.w	lr, [pc, #336]	; 800c7a4 <my_optiga_shell_begin+0x198>
- 800c656:	e8be 000f 	ldmia.w	lr!, {r0, r1, r2, r3}
- 800c65a:	4625      	mov	r5, r4
- 800c65c:	c50f      	stmia	r5!, {r0, r1, r2, r3}
- 800c65e:	f8de 3000 	ldr.w	r3, [lr]
- 800c662:	702b      	strb	r3, [r5, #0]
- 800c664:	220f      	movs	r2, #15
- 800c666:	2100      	movs	r1, #0
- 800c668:	f10d 0031 	add.w	r0, sp, #49	; 0x31
- 800c66c:	f000 fef9 	bl	800d462 <memset>
-					write_request(buff, sec_comm);
- 800c670:	4631      	mov	r1, r6
- 800c672:	4620      	mov	r0, r4
- 800c674:	f000 f968 	bl	800c948 <write_request>
-
-	while(true)
-	{
-
-		// Wrapper for serial read
-		if(0u == read_request(command, sec_unlocked, sec_comm))
- 800c678:	4668      	mov	r0, sp
- 800c67a:	4639      	mov	r1, r7
- 800c67c:	4632      	mov	r2, r6
- 800c67e:	f000 f8f7 	bl	800c870 <read_request>
- 800c682:	4605      	mov	r5, r0
- 800c684:	2800      	cmp	r0, #0
- 800c686:	d0d6      	beq.n	800c636 <my_optiga_shell_begin+0x2a>
-		}
-		else
-		{
-			// Req before unlock || invalid Token, Nonce, Hash
-
-			failed_req++;
- 800c688:	f898 3000 	ldrb.w	r3, [r8]
- 800c68c:	3301      	adds	r3, #1
- 800c68e:	b2db      	uxtb	r3, r3
- 800c690:	f888 3000 	strb.w	r3, [r8]
-			if(true == cooldowned)
- 800c694:	f899 3000 	ldrb.w	r3, [r9]
- 800c698:	2b01      	cmp	r3, #1
- 800c69a:	d066      	beq.n	800c76a <my_optiga_shell_begin+0x15e>
-				uint8_t buff[32] = "Denied by cooldown.";
-				optiga_lib_print_bytes(buff, 32);
-			}
-			else
-			{
-				if(failed_req >= MAX_FAILED_REQ)
- 800c69c:	f89a 3000 	ldrb.w	r3, [sl]
- 800c6a0:	f003 05ff 	and.w	r5, r3, #255	; 0xff
- 800c6a4:	b39b      	cbz	r3, 800c70e <my_optiga_shell_begin+0x102>
-				{
-					uint8_t buff[32] = "Cooldown activated.";
- 800c6a6:	f8df e100 	ldr.w	lr, [pc, #256]	; 800c7a8 <my_optiga_shell_begin+0x19c>
- 800c6aa:	e8be 000f 	ldmia.w	lr!, {r0, r1, r2, r3}
- 800c6ae:	4625      	mov	r5, r4
- 800c6b0:	c50f      	stmia	r5!, {r0, r1, r2, r3}
- 800c6b2:	f8de 3000 	ldr.w	r3, [lr]
- 800c6b6:	602b      	str	r3, [r5, #0]
-					optiga_lib_print_bytes(buff, 32);
- 800c6b8:	4620      	mov	r0, r4
-			}
-			else
-			{
-				if(failed_req >= MAX_FAILED_REQ)
-				{
-					uint8_t buff[32] = "Cooldown activated.";
- 800c6ba:	2300      	movs	r3, #0
-					optiga_lib_print_bytes(buff, 32);
- 800c6bc:	2120      	movs	r1, #32
-			}
-			else
-			{
-				if(failed_req >= MAX_FAILED_REQ)
-				{
-					uint8_t buff[32] = "Cooldown activated.";
- 800c6be:	930d      	str	r3, [sp, #52]	; 0x34
- 800c6c0:	930e      	str	r3, [sp, #56]	; 0x38
- 800c6c2:	930f      	str	r3, [sp, #60]	; 0x3c
-					optiga_lib_print_bytes(buff, 32);
- 800c6c4:	f7fb fa0c 	bl	8007ae0 <optiga_lib_print_bytes>
-					cooldowned = true;
- 800c6c8:	2301      	movs	r3, #1
- 800c6ca:	f88b 3000 	strb.w	r3, [fp]
- 800c6ce:	e7ab      	b.n	800c628 <my_optiga_shell_begin+0x1c>
-					sec_comm = secure_communication();
-					break;
-				}
-				case SEC_LOCK:
-				{
-					uint8_t buff[32] = "Locked";
- 800c6d0:	4b2f      	ldr	r3, [pc, #188]	; (800c790 <my_optiga_shell_begin+0x184>)
- 800c6d2:	e893 0003 	ldmia.w	r3, {r0, r1}
- 800c6d6:	2219      	movs	r2, #25
- 800c6d8:	0c0b      	lsrs	r3, r1, #16
- 800c6da:	6020      	str	r0, [r4, #0]
- 800c6dc:	f8ad 1024 	strh.w	r1, [sp, #36]	; 0x24
- 800c6e0:	f10d 0027 	add.w	r0, sp, #39	; 0x27
- 800c6e4:	2100      	movs	r1, #0
-					sec_unlocked = 0;
-					write_request(buff, sec_comm);
- 800c6e6:	ac08      	add	r4, sp, #32
-					sec_comm = secure_communication();
-					break;
-				}
-				case SEC_LOCK:
-				{
-					uint8_t buff[32] = "Locked";
- 800c6e8:	f88d 3026 	strb.w	r3, [sp, #38]	; 0x26
- 800c6ec:	f000 feb9 	bl	800d462 <memset>
-					sec_unlocked = 0;
-					write_request(buff, sec_comm);
- 800c6f0:	4620      	mov	r0, r4
- 800c6f2:	4631      	mov	r1, r6
- 800c6f4:	f000 f928 	bl	800c948 <write_request>
-					break;
-				}
-				case SEC_LOCK:
-				{
-					uint8_t buff[32] = "Locked";
-					sec_unlocked = 0;
- 800c6f8:	2700      	movs	r7, #0
- 800c6fa:	e795      	b.n	800c628 <my_optiga_shell_begin+0x1c>
-					sec_comm = 0;  // reset sec_comm flag
-					break;
-				}
-				case SEC_COM: // momentan nu pot da 2 cereri de sec com
-				{
-					sec_comm = secure_communication();
- 800c6fc:	f7ff fecc 	bl	800c498 <secure_communication>
- 800c700:	4606      	mov	r6, r0
-					break;
- 800c702:	e791      	b.n	800c628 <my_optiga_shell_begin+0x1c>
-			req_rcv = decode_req(command);
-
-			switch(req_rcv){
-				case SEC_UNLOCK:
-				{
-					sec_unlocked = secure_unlock();
- 800c704:	f000 fb2c 	bl	800cd60 <secure_unlock>
-					sec_comm = 0;  // reset sec_comm flag
- 800c708:	2600      	movs	r6, #0
-			req_rcv = decode_req(command);
-
-			switch(req_rcv){
-				case SEC_UNLOCK:
-				{
-					sec_unlocked = secure_unlock();
- 800c70a:	4607      	mov	r7, r0
-					sec_comm = 0;  // reset sec_comm flag
-					break;
- 800c70c:	e78c      	b.n	800c628 <my_optiga_shell_begin+0x1c>
-					cooldowned = true;
-				}
-				else
-				{
-					// Just a wrong request
-					uint8_t buff[32] = "Request denied.";
- 800c70e:	4b21      	ldr	r3, [pc, #132]	; (800c794 <my_optiga_shell_begin+0x188>)
- 800c710:	950c      	str	r5, [sp, #48]	; 0x30
- 800c712:	cb0f      	ldmia	r3, {r0, r1, r2, r3}
- 800c714:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
-					optiga_lib_print_bytes(buff, 32);
- 800c718:	4620      	mov	r0, r4
- 800c71a:	2120      	movs	r1, #32
-					cooldowned = true;
-				}
-				else
-				{
-					// Just a wrong request
-					uint8_t buff[32] = "Request denied.";
- 800c71c:	950d      	str	r5, [sp, #52]	; 0x34
- 800c71e:	950e      	str	r5, [sp, #56]	; 0x38
- 800c720:	950f      	str	r5, [sp, #60]	; 0x3c
-					optiga_lib_print_bytes(buff, 32);
- 800c722:	f7fb f9dd 	bl	8007ae0 <optiga_lib_print_bytes>
- 800c726:	e77f      	b.n	800c628 <my_optiga_shell_begin+0x1c>
-		{
-			// Valid request
-			req_type req_rcv;
-			if(true == cooldowned)
-			{
-				uint8_t buff[32] = "Denied by cooldown.";
- 800c728:	f8df c080 	ldr.w	ip, [pc, #128]	; 800c7ac <my_optiga_shell_begin+0x1a0>
- 800c72c:	900d      	str	r0, [sp, #52]	; 0x34
- 800c72e:	e8bc 000f 	ldmia.w	ip!, {r0, r1, r2, r3}
- 800c732:	46a6      	mov	lr, r4
- 800c734:	e8ae 000f 	stmia.w	lr!, {r0, r1, r2, r3}
- 800c738:	f8dc 3000 	ldr.w	r3, [ip]
- 800c73c:	950e      	str	r5, [sp, #56]	; 0x38
-				optiga_lib_print_bytes(buff, 32);
- 800c73e:	4620      	mov	r0, r4
- 800c740:	2120      	movs	r1, #32
-		{
-			// Valid request
-			req_type req_rcv;
-			if(true == cooldowned)
-			{
-				uint8_t buff[32] = "Denied by cooldown.";
- 800c742:	950f      	str	r5, [sp, #60]	; 0x3c
- 800c744:	f8ce 3000 	str.w	r3, [lr]
-				optiga_lib_print_bytes(buff, 32);
- 800c748:	f7fb f9ca 	bl	8007ae0 <optiga_lib_print_bytes>
- 800c74c:	e76c      	b.n	800c628 <my_optiga_shell_begin+0x1c>
-					break;
-				}
-				case UNKNOWN:
-				default:
-				{
-					uint8_t buff[32] = "Unknown request";
- 800c74e:	4b12      	ldr	r3, [pc, #72]	; (800c798 <my_optiga_shell_begin+0x18c>)
- 800c750:	cb0f      	ldmia	r3, {r0, r1, r2, r3}
- 800c752:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
- 800c756:	2300      	movs	r3, #0
-					write_request(buff, sec_comm);
- 800c758:	4620      	mov	r0, r4
- 800c75a:	4631      	mov	r1, r6
-					break;
-				}
-				case UNKNOWN:
-				default:
-				{
-					uint8_t buff[32] = "Unknown request";
- 800c75c:	930c      	str	r3, [sp, #48]	; 0x30
- 800c75e:	930d      	str	r3, [sp, #52]	; 0x34
- 800c760:	930e      	str	r3, [sp, #56]	; 0x38
- 800c762:	930f      	str	r3, [sp, #60]	; 0x3c
-					write_request(buff, sec_comm);
- 800c764:	f000 f8f0 	bl	800c948 <write_request>
- 800c768:	e75e      	b.n	800c628 <my_optiga_shell_begin+0x1c>
-			// Req before unlock || invalid Token, Nonce, Hash
-
-			failed_req++;
-			if(true == cooldowned)
-			{
-				uint8_t buff[32] = "Denied by cooldown.";
- 800c76a:	f8df e040 	ldr.w	lr, [pc, #64]	; 800c7ac <my_optiga_shell_begin+0x1a0>
- 800c76e:	e8be 000f 	ldmia.w	lr!, {r0, r1, r2, r3}
- 800c772:	4625      	mov	r5, r4
- 800c774:	c50f      	stmia	r5!, {r0, r1, r2, r3}
- 800c776:	f8de 3000 	ldr.w	r3, [lr]
- 800c77a:	602b      	str	r3, [r5, #0]
-				optiga_lib_print_bytes(buff, 32);
- 800c77c:	4620      	mov	r0, r4
-			// Req before unlock || invalid Token, Nonce, Hash
-
-			failed_req++;
-			if(true == cooldowned)
-			{
-				uint8_t buff[32] = "Denied by cooldown.";
- 800c77e:	2300      	movs	r3, #0
-				optiga_lib_print_bytes(buff, 32);
- 800c780:	2120      	movs	r1, #32
-			// Req before unlock || invalid Token, Nonce, Hash
-
-			failed_req++;
-			if(true == cooldowned)
-			{
-				uint8_t buff[32] = "Denied by cooldown.";
- 800c782:	930d      	str	r3, [sp, #52]	; 0x34
- 800c784:	930e      	str	r3, [sp, #56]	; 0x38
- 800c786:	930f      	str	r3, [sp, #60]	; 0x3c
-				optiga_lib_print_bytes(buff, 32);
- 800c788:	f7fb f9aa 	bl	8007ae0 <optiga_lib_print_bytes>
- 800c78c:	e74c      	b.n	800c628 <my_optiga_shell_begin+0x1c>
- 800c78e:	bf00      	nop
- 800c790:	0800dcc4 	.word	0x0800dcc4
- 800c794:	0800dd44 	.word	0x0800dd44
- 800c798:	0800dd04 	.word	0x0800dd04
- 800c79c:	1fff00cb 	.word	0x1fff00cb
- 800c7a0:	1fff00ca 	.word	0x1fff00ca
- 800c7a4:	0800dce4 	.word	0x0800dce4
- 800c7a8:	0800dd24 	.word	0x0800dd24
- 800c7ac:	0800dca4 	.word	0x0800dca4
-
-0800c7b0 <optiga_util_read_nonce>:
+0800c60c <optiga_util_read_nonce>:
 
 #include "../SEMS_Headers/Util.h"
 
 
 void optiga_util_read_nonce(uint16_t optiga_oid, uint8_t read_data_buffer[], uint16_t bytes_to_read)
 {
- 800c7b0:	b5f0      	push	{r4, r5, r6, r7, lr}
- 800c7b2:	b085      	sub	sp, #20
- 800c7b4:	4607      	mov	r7, r0
- 800c7b6:	460e      	mov	r6, r1
- 800c7b8:	f8ad 200e 	strh.w	r2, [sp, #14]
+ 800c60c:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 800c60e:	b085      	sub	sp, #20
+ 800c610:	4607      	mov	r7, r0
+ 800c612:	460e      	mov	r6, r1
+ 800c614:	f8ad 200e 	strh.w	r2, [sp, #14]
     uint16_t offset = 0x00;
     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
     optiga_util_t * me = NULL;
     do
     {
         example_optiga_init();
- 800c7bc:	f7ff fc98 	bl	800c0f0 <example_optiga_init>
+ 800c618:	f7ff fd6a 	bl	800c0f0 <example_optiga_init>
 
         me = optiga_util_create_wrapper();
- 800c7c0:	f7ff feb8 	bl	800c534 <optiga_util_create_wrapper>
+ 800c61c:	f7ff ff8a 	bl	800c534 <optiga_util_create_wrapper>
         if (NULL == me)
- 800c7c4:	b1f0      	cbz	r0, 800c804 <optiga_util_read_nonce+0x54>
+ 800c620:	b1f0      	cbz	r0, 800c660 <optiga_util_read_nonce+0x54>
 
         optiga_lib_status = OPTIGA_LIB_BUSY;
 
 
 
         return_status = optiga_util_read_data(me,
- 800c7c6:	f10d 020e 	add.w	r2, sp, #14
-        if (NULL == me)
-        {
-            break;
-        }
-
-        optiga_lib_status = OPTIGA_LIB_BUSY;
- 800c7ca:	4c10      	ldr	r4, [pc, #64]	; (800c80c <optiga_util_read_nonce+0x5c>)
-
-
-
-        return_status = optiga_util_read_data(me,
- 800c7cc:	9200      	str	r2, [sp, #0]
- 800c7ce:	4633      	mov	r3, r6
- 800c7d0:	4639      	mov	r1, r7
+ 800c622:	f10d 020e 	add.w	r2, sp, #14
         if (NULL == me)
         {
             break;
         }
 
         optiga_lib_status = OPTIGA_LIB_BUSY;
- 800c7d2:	2601      	movs	r6, #1
+ 800c626:	4c10      	ldr	r4, [pc, #64]	; (800c668 <optiga_util_read_nonce+0x5c>)
 
 
 
         return_status = optiga_util_read_data(me,
- 800c7d4:	2200      	movs	r2, #0
- 800c7d6:	4605      	mov	r5, r0
+ 800c628:	9200      	str	r2, [sp, #0]
+ 800c62a:	4633      	mov	r3, r6
+ 800c62c:	4639      	mov	r1, r7
         if (NULL == me)
         {
             break;
         }
 
         optiga_lib_status = OPTIGA_LIB_BUSY;
- 800c7d8:	8026      	strh	r6, [r4, #0]
+ 800c62e:	2601      	movs	r6, #1
 
 
 
         return_status = optiga_util_read_data(me,
- 800c7da:	f7f8 fd41 	bl	8005260 <optiga_util_read_data>
+ 800c630:	2200      	movs	r2, #0
+ 800c632:	4605      	mov	r5, r0
+        if (NULL == me)
+        {
+            break;
+        }
+
+        optiga_lib_status = OPTIGA_LIB_BUSY;
+ 800c634:	8026      	strh	r6, [r4, #0]
+
+
+
+        return_status = optiga_util_read_data(me,
+ 800c636:	f7f8 fe13 	bl	8005260 <optiga_util_read_data>
                                               optiga_oid,
                                               offset,
                                               read_data_buffer,
                                               &bytes_to_read);
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
- 800c7de:	b130      	cbz	r0, 800c7ee <optiga_util_read_nonce+0x3e>
+ 800c63a:	b130      	cbz	r0, 800c64a <optiga_util_read_nonce+0x3e>
 
     } while (FALSE);
 
     example_optiga_deinit();
- 800c7e0:	f7ff fcb8 	bl	800c154 <example_optiga_deinit>
+ 800c63c:	f7ff fd8a 	bl	800c154 <example_optiga_deinit>
 
     if (NULL != me)
     {
         optiga_util_destroy(me);
- 800c7e4:	4628      	mov	r0, r5
- 800c7e6:	f7f8 fce9 	bl	80051bc <optiga_util_destroy>
+ 800c640:	4628      	mov	r0, r5
+ 800c642:	f7f8 fdbb 	bl	80051bc <optiga_util_destroy>
     }
 }
- 800c7ea:	b005      	add	sp, #20
- 800c7ec:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 800c646:	b005      	add	sp, #20
+ 800c648:	bdf0      	pop	{r4, r5, r6, r7, pc}
                                               optiga_oid,
                                               offset,
                                               read_data_buffer,
                                               &bytes_to_read);
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
- 800c7ee:	8823      	ldrh	r3, [r4, #0]
- 800c7f0:	4a06      	ldr	r2, [pc, #24]	; (800c80c <optiga_util_read_nonce+0x5c>)
- 800c7f2:	b29b      	uxth	r3, r3
- 800c7f4:	2b01      	cmp	r3, #1
- 800c7f6:	d0fa      	beq.n	800c7ee <optiga_util_read_nonce+0x3e>
- 800c7f8:	8813      	ldrh	r3, [r2, #0]
- 800c7fa:	b29b      	uxth	r3, r3
- 800c7fc:	2b00      	cmp	r3, #0
- 800c7fe:	d0ef      	beq.n	800c7e0 <optiga_util_read_nonce+0x30>
- 800c800:	8813      	ldrh	r3, [r2, #0]
- 800c802:	e7ed      	b.n	800c7e0 <optiga_util_read_nonce+0x30>
+ 800c64a:	8823      	ldrh	r3, [r4, #0]
+ 800c64c:	4a06      	ldr	r2, [pc, #24]	; (800c668 <optiga_util_read_nonce+0x5c>)
+ 800c64e:	b29b      	uxth	r3, r3
+ 800c650:	2b01      	cmp	r3, #1
+ 800c652:	d0fa      	beq.n	800c64a <optiga_util_read_nonce+0x3e>
+ 800c654:	8813      	ldrh	r3, [r2, #0]
+ 800c656:	b29b      	uxth	r3, r3
+ 800c658:	2b00      	cmp	r3, #0
+ 800c65a:	d0ef      	beq.n	800c63c <optiga_util_read_nonce+0x30>
+ 800c65c:	8813      	ldrh	r3, [r2, #0]
+ 800c65e:	e7ed      	b.n	800c63c <optiga_util_read_nonce+0x30>
 
     } while (FALSE);
 
     example_optiga_deinit();
- 800c804:	f7ff fca6 	bl	800c154 <example_optiga_deinit>
+ 800c660:	f7ff fd78 	bl	800c154 <example_optiga_deinit>
 
     if (NULL != me)
     {
         optiga_util_destroy(me);
     }
 }
- 800c808:	b005      	add	sp, #20
- 800c80a:	bdf0      	pop	{r4, r5, r6, r7, pc}
- 800c80c:	1fff0802 	.word	0x1fff0802
+ 800c664:	b005      	add	sp, #20
+ 800c666:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 800c668:	1fff0802 	.word	0x1fff0802
 
-0800c810 <optiga_util_update_count_wrapper>:
+0800c66c <optiga_util_update_count_wrapper>:
 
 
 void optiga_util_update_count_wrapper(uint16_t optiga_counter_oid, uint8_t ticks)
 {
- 800c810:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 800c812:	4607      	mov	r7, r0
- 800c814:	460e      	mov	r6, r1
+ 800c66c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 800c66e:	4607      	mov	r7, r0
+ 800c670:	460e      	mov	r6, r1
     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
     optiga_util_t * me = NULL;
 
     do
     {
         example_optiga_init();
- 800c816:	f7ff fc6b 	bl	800c0f0 <example_optiga_init>
+ 800c672:	f7ff fd3d 	bl	800c0f0 <example_optiga_init>
 
         me = optiga_util_create_wrapper();
- 800c81a:	f7ff fe8b 	bl	800c534 <optiga_util_create_wrapper>
+ 800c676:	f7ff ff5d 	bl	800c534 <optiga_util_create_wrapper>
         if (NULL == me)
- 800c81e:	b300      	cbz	r0, 800c862 <optiga_util_update_count_wrapper+0x52>
+ 800c67a:	b300      	cbz	r0, 800c6be <optiga_util_update_count_wrapper+0x52>
         {
             break;
         }
 
         optiga_lib_status = OPTIGA_LIB_BUSY;
- 800c820:	4c12      	ldr	r4, [pc, #72]	; (800c86c <optiga_util_update_count_wrapper+0x5c>)
- 800c822:	2301      	movs	r3, #1
+ 800c67c:	4c12      	ldr	r4, [pc, #72]	; (800c6c8 <optiga_util_update_count_wrapper+0x5c>)
+ 800c67e:	2301      	movs	r3, #1
         return_status = optiga_util_update_count(me,
- 800c824:	4639      	mov	r1, r7
- 800c826:	4632      	mov	r2, r6
- 800c828:	4605      	mov	r5, r0
+ 800c680:	4639      	mov	r1, r7
+ 800c682:	4632      	mov	r2, r6
+ 800c684:	4605      	mov	r5, r0
         if (NULL == me)
         {
             break;
         }
 
         optiga_lib_status = OPTIGA_LIB_BUSY;
- 800c82a:	8023      	strh	r3, [r4, #0]
+ 800c686:	8023      	strh	r3, [r4, #0]
         return_status = optiga_util_update_count(me,
- 800c82c:	f7f8 fe50 	bl	80054d0 <optiga_util_update_count>
+ 800c688:	f7f8 ff22 	bl	80054d0 <optiga_util_update_count>
                                                  optiga_counter_oid,
 												 ticks);
 
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
- 800c830:	b130      	cbz	r0, 800c840 <optiga_util_update_count_wrapper+0x30>
+ 800c68c:	b130      	cbz	r0, 800c69c <optiga_util_update_count_wrapper+0x30>
 
     } while (FALSE);
 
     example_optiga_deinit();
- 800c832:	f7ff fc8f 	bl	800c154 <example_optiga_deinit>
+ 800c68e:	f7ff fd61 	bl	800c154 <example_optiga_deinit>
 
 
     if (NULL != me)
     {
     	optiga_util_destroy(me);
- 800c836:	4628      	mov	r0, r5
+ 800c692:	4628      	mov	r0, r5
 
     }
 }
- 800c838:	e8bd 40f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, lr}
+ 800c694:	e8bd 40f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, lr}
     example_optiga_deinit();
 
 
     if (NULL != me)
     {
     	optiga_util_destroy(me);
- 800c83c:	f7f8 bcbe 	b.w	80051bc <optiga_util_destroy>
+ 800c698:	f7f8 bd90 	b.w	80051bc <optiga_util_destroy>
         return_status = optiga_util_update_count(me,
                                                  optiga_counter_oid,
 												 ticks);
 
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
- 800c840:	8823      	ldrh	r3, [r4, #0]
- 800c842:	4a0a      	ldr	r2, [pc, #40]	; (800c86c <optiga_util_update_count_wrapper+0x5c>)
- 800c844:	b29b      	uxth	r3, r3
- 800c846:	2b01      	cmp	r3, #1
- 800c848:	d0fa      	beq.n	800c840 <optiga_util_update_count_wrapper+0x30>
- 800c84a:	8813      	ldrh	r3, [r2, #0]
- 800c84c:	b29b      	uxth	r3, r3
- 800c84e:	2b00      	cmp	r3, #0
- 800c850:	d0ef      	beq.n	800c832 <optiga_util_update_count_wrapper+0x22>
- 800c852:	8813      	ldrh	r3, [r2, #0]
+ 800c69c:	8823      	ldrh	r3, [r4, #0]
+ 800c69e:	4a0a      	ldr	r2, [pc, #40]	; (800c6c8 <optiga_util_update_count_wrapper+0x5c>)
+ 800c6a0:	b29b      	uxth	r3, r3
+ 800c6a2:	2b01      	cmp	r3, #1
+ 800c6a4:	d0fa      	beq.n	800c69c <optiga_util_update_count_wrapper+0x30>
+ 800c6a6:	8813      	ldrh	r3, [r2, #0]
+ 800c6a8:	b29b      	uxth	r3, r3
+ 800c6aa:	2b00      	cmp	r3, #0
+ 800c6ac:	d0ef      	beq.n	800c68e <optiga_util_update_count_wrapper+0x22>
+ 800c6ae:	8813      	ldrh	r3, [r2, #0]
 
     } while (FALSE);
 
     example_optiga_deinit();
- 800c854:	f7ff fc7e 	bl	800c154 <example_optiga_deinit>
+ 800c6b0:	f7ff fd50 	bl	800c154 <example_optiga_deinit>
 
 
     if (NULL != me)
     {
     	optiga_util_destroy(me);
- 800c858:	4628      	mov	r0, r5
+ 800c6b4:	4628      	mov	r0, r5
 
     }
 }
- 800c85a:	e8bd 40f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, lr}
+ 800c6b6:	e8bd 40f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, lr}
     example_optiga_deinit();
 
 
     if (NULL != me)
     {
     	optiga_util_destroy(me);
- 800c85e:	f7f8 bcad 	b.w	80051bc <optiga_util_destroy>
+ 800c6ba:	f7f8 bd7f 	b.w	80051bc <optiga_util_destroy>
 
     }
 }
- 800c862:	e8bd 40f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, lr}
+ 800c6be:	e8bd 40f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, lr}
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
 
     } while (FALSE);
 
     example_optiga_deinit();
- 800c866:	f7ff bc75 	b.w	800c154 <example_optiga_deinit>
- 800c86a:	bf00      	nop
- 800c86c:	1fff0802 	.word	0x1fff0802
+ 800c6c2:	f7ff bd47 	b.w	800c154 <example_optiga_deinit>
+ 800c6c6:	bf00      	nop
+ 800c6c8:	1fff0802 	.word	0x1fff0802
 
-0800c870 <read_request>:
+0800c6cc <read_request>:
 extern pal_logger_t logger_console;
 extern uint32_t user_token;
 
 
 uint8_t read_request(uint8_t command[], uint8_t is_secure_unlock, uint8_t is_secure_com)
 {
- 800c870:	b570      	push	{r4, r5, r6, lr}
+ 800c6cc:	b570      	push	{r4, r5, r6, lr}
 	uint8_t is_invalid_req = false;
 
 
 	if (0u == pal_logger_read(&logger_console, command, 32))
- 800c872:	4601      	mov	r1, r0
+ 800c6ce:	4601      	mov	r1, r0
 extern pal_logger_t logger_console;
 extern uint32_t user_token;
 
 
 uint8_t read_request(uint8_t command[], uint8_t is_secure_unlock, uint8_t is_secure_com)
 {
- 800c874:	b092      	sub	sp, #72	; 0x48
- 800c876:	4605      	mov	r5, r0
- 800c878:	4614      	mov	r4, r2
+ 800c6d0:	b092      	sub	sp, #72	; 0x48
+ 800c6d2:	4605      	mov	r5, r0
+ 800c6d4:	4614      	mov	r4, r2
 	uint8_t is_invalid_req = false;
 
 
 	if (0u == pal_logger_read(&logger_console, command, 32))
- 800c87a:	4831      	ldr	r0, [pc, #196]	; (800c940 <read_request+0xd0>)
- 800c87c:	2220      	movs	r2, #32
- 800c87e:	f7f8 fb5b 	bl	8004f38 <pal_logger_read>
- 800c882:	2800      	cmp	r0, #0
- 800c884:	d146      	bne.n	800c914 <read_request+0xa4>
+ 800c6d6:	4831      	ldr	r0, [pc, #196]	; (800c79c <read_request+0xd0>)
+ 800c6d8:	2220      	movs	r2, #32
+ 800c6da:	f7f8 fc2d 	bl	8004f38 <pal_logger_read>
+ 800c6de:	2800      	cmp	r0, #0
+ 800c6e0:	d146      	bne.n	800c770 <read_request+0xa4>
 	{
 		if('U' == command[0])
- 800c886:	782b      	ldrb	r3, [r5, #0]
- 800c888:	2b55      	cmp	r3, #85	; 0x55
- 800c88a:	d00f      	beq.n	800c8ac <read_request+0x3c>
+ 800c6e2:	782b      	ldrb	r3, [r5, #0]
+ 800c6e4:	2b55      	cmp	r3, #85	; 0x55
+ 800c6e6:	d00f      	beq.n	800c708 <read_request+0x3c>
 			// nothing to do, sec unlock will be called
 
 		}
 		else
 		{
 			if (0u == is_secure_com)
- 800c88c:	b984      	cbnz	r4, 800c8b0 <read_request+0x40>
+ 800c6e8:	b984      	cbnz	r4, 800c70c <read_request+0x40>
 			{
 				uint8_t *received_user_token_start;
 				uint32_t received_user_token;
 				received_user_token_start = command + 16u;
 				received_user_token = (received_user_token_start[0] << 24u)+
 							 (received_user_token_start[1] << 16u)+
- 800c88e:	7c69      	ldrb	r1, [r5, #17]
+ 800c6ea:	7c69      	ldrb	r1, [r5, #17]
 			if (0u == is_secure_com)
 			{
 				uint8_t *received_user_token_start;
 				uint32_t received_user_token;
 				received_user_token_start = command + 16u;
 				received_user_token = (received_user_token_start[0] << 24u)+
- 800c890:	7c2b      	ldrb	r3, [r5, #16]
+ 800c6ec:	7c2b      	ldrb	r3, [r5, #16]
 							 (received_user_token_start[1] << 16u)+
 							 (received_user_token_start[2] <<  8u)+
- 800c892:	7cac      	ldrb	r4, [r5, #18]
+ 800c6ee:	7cac      	ldrb	r4, [r5, #18]
 							 (received_user_token_start[3] <<  0u);
 
 				if(received_user_token != user_token)
- 800c894:	482b      	ldr	r0, [pc, #172]	; (800c944 <read_request+0xd4>)
+ 800c6f0:	482b      	ldr	r0, [pc, #172]	; (800c7a0 <read_request+0xd4>)
 				uint32_t received_user_token;
 				received_user_token_start = command + 16u;
 				received_user_token = (received_user_token_start[0] << 24u)+
 							 (received_user_token_start[1] << 16u)+
 							 (received_user_token_start[2] <<  8u)+
 							 (received_user_token_start[3] <<  0u);
- 800c896:	7cea      	ldrb	r2, [r5, #19]
+ 800c6f2:	7cea      	ldrb	r2, [r5, #19]
 
 				if(received_user_token != user_token)
- 800c898:	6800      	ldr	r0, [r0, #0]
+ 800c6f4:	6800      	ldr	r0, [r0, #0]
 			{
 				uint8_t *received_user_token_start;
 				uint32_t received_user_token;
 				received_user_token_start = command + 16u;
 				received_user_token = (received_user_token_start[0] << 24u)+
 							 (received_user_token_start[1] << 16u)+
- 800c89a:	0409      	lsls	r1, r1, #16
+ 800c6f6:	0409      	lsls	r1, r1, #16
 			if (0u == is_secure_com)
 			{
 				uint8_t *received_user_token_start;
 				uint32_t received_user_token;
 				received_user_token_start = command + 16u;
 				received_user_token = (received_user_token_start[0] << 24u)+
- 800c89c:	eb01 6303 	add.w	r3, r1, r3, lsl #24
+ 800c6f8:	eb01 6303 	add.w	r3, r1, r3, lsl #24
 							 (received_user_token_start[1] << 16u)+
- 800c8a0:	eb03 2304 	add.w	r3, r3, r4, lsl #8
+ 800c6fc:	eb03 2304 	add.w	r3, r3, r4, lsl #8
 							 (received_user_token_start[2] <<  8u)+
- 800c8a4:	4413      	add	r3, r2
+ 800c700:	4413      	add	r3, r2
 							 (received_user_token_start[3] <<  0u);
 
 				if(received_user_token != user_token)
 				{
 					is_invalid_req = true;
- 800c8a6:	1a18      	subs	r0, r3, r0
- 800c8a8:	bf18      	it	ne
- 800c8aa:	2001      	movne	r0, #1
+ 800c702:	1a18      	subs	r0, r3, r0
+ 800c704:	bf18      	it	ne
+ 800c706:	2001      	movne	r0, #1
 	else
 	{
 		is_invalid_req = true;
 	}
 	return is_invalid_req;
 }
- 800c8ac:	b012      	add	sp, #72	; 0x48
- 800c8ae:	bd70      	pop	{r4, r5, r6, pc}
+ 800c708:	b012      	add	sp, #72	; 0x48
+ 800c70a:	bd70      	pop	{r4, r5, r6, pc}
 
 				// Extract Hash
 				received_digest_start = command + 24u;  // last 8 bytes of the SHA256(Ciphertext)
 
 				// Calculate Hash
 				optiga_crypt_hash_data_wrapper(command, 24u, calculated_digest); // SHA256(Ciphertext)
- 800c8b0:	4628      	mov	r0, r5
- 800c8b2:	2118      	movs	r1, #24
- 800c8b4:	aa0a      	add	r2, sp, #40	; 0x28
- 800c8b6:	f7ff fe73 	bl	800c5a0 <optiga_crypt_hash_data_wrapper>
+ 800c70c:	4628      	mov	r0, r5
+ 800c70e:	2118      	movs	r1, #24
+ 800c710:	aa0a      	add	r2, sp, #40	; 0x28
+ 800c712:	f7ff ff45 	bl	800c5a0 <optiga_crypt_hash_data_wrapper>
 
 				// Compare digests
 				if(0 != memcmp(received_digest_start, calculated_digest + 24u, 8u))  // compare 8 bytes
- 800c8ba:	a910      	add	r1, sp, #64	; 0x40
- 800c8bc:	2208      	movs	r2, #8
- 800c8be:	f105 0018 	add.w	r0, r5, #24
- 800c8c2:	f000 fdb3 	bl	800d42c <memcmp>
+ 800c716:	a910      	add	r1, sp, #64	; 0x40
+ 800c718:	2208      	movs	r2, #8
+ 800c71a:	f105 0018 	add.w	r0, r5, #24
+ 800c71e:	f000 fe85 	bl	800d42c <memcmp>
 				{
 					is_invalid_req = true;
 				}
 
 				// Retrive Session Key
 				optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));  // sesion key from Secure Comm activation
- 800c8c6:	a902      	add	r1, sp, #8
- 800c8c8:	2220      	movs	r2, #32
+ 800c722:	a902      	add	r1, sp, #8
+ 800c724:	2220      	movs	r2, #32
 
 				// Calculate Hash
 				optiga_crypt_hash_data_wrapper(command, 24u, calculated_digest); // SHA256(Ciphertext)
 
 				// Compare digests
 				if(0 != memcmp(received_digest_start, calculated_digest + 24u, 8u))  // compare 8 bytes
- 800c8ca:	4604      	mov	r4, r0
+ 800c726:	4604      	mov	r4, r0
 				{
 					is_invalid_req = true;
 				}
 
 				// Retrive Session Key
 				optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));  // sesion key from Secure Comm activation
- 800c8cc:	f24f 10d6 	movw	r0, #61910	; 0xf1d6
- 800c8d0:	f000 f9a4 	bl	800cc1c <optiga_util_read_shared_key>
+ 800c728:	f24f 10d6 	movw	r0, #61910	; 0xf1d6
+ 800c72c:	f000 f9a4 	bl	800ca78 <optiga_util_read_shared_key>
 
 				// Decrypt ciphertext
 				stream_enc(command, key, 24u);
- 800c8d4:	4628      	mov	r0, r5
- 800c8d6:	a902      	add	r1, sp, #8
- 800c8d8:	2218      	movs	r2, #24
- 800c8da:	f000 f9cf 	bl	800cc7c <stream_enc>
+ 800c730:	4628      	mov	r0, r5
+ 800c732:	a902      	add	r1, sp, #8
+ 800c734:	2218      	movs	r2, #24
+ 800c736:	f000 f9cf 	bl	800cad8 <stream_enc>
 
 				// Extract Token
 
 				received_user_token_start = command + 16u;
 				received_user_token = (received_user_token_start[0] << 24u)+
 							 (received_user_token_start[1] << 16u)+
- 800c8de:	7c6a      	ldrb	r2, [r5, #17]
+ 800c73a:	7c6a      	ldrb	r2, [r5, #17]
 				stream_enc(command, key, 24u);
 
 				// Extract Token
 
 				received_user_token_start = command + 16u;
 				received_user_token = (received_user_token_start[0] << 24u)+
- 800c8e0:	7c2b      	ldrb	r3, [r5, #16]
+ 800c73c:	7c2b      	ldrb	r3, [r5, #16]
 							 (received_user_token_start[1] << 16u)+
 							 (received_user_token_start[2] <<  8u)+
- 800c8e2:	7cae      	ldrb	r6, [r5, #18]
+ 800c73e:	7cae      	ldrb	r6, [r5, #18]
 							 (received_user_token_start[3] <<  0u);
 
 				if(received_user_token != user_token)
- 800c8e4:	4817      	ldr	r0, [pc, #92]	; (800c944 <read_request+0xd4>)
+ 800c740:	4817      	ldr	r0, [pc, #92]	; (800c7a0 <read_request+0xd4>)
 
 				received_user_token_start = command + 16u;
 				received_user_token = (received_user_token_start[0] << 24u)+
 							 (received_user_token_start[1] << 16u)+
 							 (received_user_token_start[2] <<  8u)+
 							 (received_user_token_start[3] <<  0u);
- 800c8e6:	7ce9      	ldrb	r1, [r5, #19]
+ 800c742:	7ce9      	ldrb	r1, [r5, #19]
 
 				if(received_user_token != user_token)
- 800c8e8:	6800      	ldr	r0, [r0, #0]
+ 800c744:	6800      	ldr	r0, [r0, #0]
 
 				// Extract Token
 
 				received_user_token_start = command + 16u;
 				received_user_token = (received_user_token_start[0] << 24u)+
 							 (received_user_token_start[1] << 16u)+
- 800c8ea:	0412      	lsls	r2, r2, #16
+ 800c746:	0412      	lsls	r2, r2, #16
 				stream_enc(command, key, 24u);
 
 				// Extract Token
 
 				received_user_token_start = command + 16u;
 				received_user_token = (received_user_token_start[0] << 24u)+
- 800c8ec:	eb02 6203 	add.w	r2, r2, r3, lsl #24
+ 800c748:	eb02 6203 	add.w	r2, r2, r3, lsl #24
 							 (received_user_token_start[1] << 16u)+
- 800c8f0:	eb02 2306 	add.w	r3, r2, r6, lsl #8
+ 800c74c:	eb02 2306 	add.w	r3, r2, r6, lsl #8
 							 (received_user_token_start[2] <<  8u)+
- 800c8f4:	440b      	add	r3, r1
+ 800c750:	440b      	add	r3, r1
 							 (received_user_token_start[3] <<  0u);
 
 				if(received_user_token != user_token)
- 800c8f6:	4283      	cmp	r3, r0
+ 800c752:	4283      	cmp	r3, r0
 				// Extract Nonce
 				received_user_nonce_start = command + 20u;
 
 
 				// Read Nonce from Optiga
 				optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
- 800c8f8:	a901      	add	r1, sp, #4
- 800c8fa:	f24e 1020 	movw	r0, #57632	; 0xe120
- 800c8fe:	f04f 0204 	mov.w	r2, #4
+ 800c754:	a901      	add	r1, sp, #4
+ 800c756:	f24e 1020 	movw	r0, #57632	; 0xe120
+ 800c75a:	f04f 0204 	mov.w	r2, #4
 				received_user_token = (received_user_token_start[0] << 24u)+
 							 (received_user_token_start[1] << 16u)+
 							 (received_user_token_start[2] <<  8u)+
 							 (received_user_token_start[3] <<  0u);
 
 				if(received_user_token != user_token)
- 800c902:	d00a      	beq.n	800c91a <read_request+0xaa>
+ 800c75e:	d00a      	beq.n	800c776 <read_request+0xaa>
 				// Extract Nonce
 				received_user_nonce_start = command + 20u;
 
 
 				// Read Nonce from Optiga
 				optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
- 800c904:	f7ff ff54 	bl	800c7b0 <optiga_util_read_nonce>
+ 800c760:	f7ff ff54 	bl	800c60c <optiga_util_read_nonce>
 
 				// Compare Nonces
 				// recv_nonced trebuie sa fie mai mare decat nonce
 				// daca e mai mare sau egal, invalid
 				if(0 >= memcmp(received_user_nonce_start, nonce, sizeof(nonce)))
- 800c908:	a901      	add	r1, sp, #4
- 800c90a:	f105 0014 	add.w	r0, r5, #20
- 800c90e:	2204      	movs	r2, #4
- 800c910:	f000 fd8c 	bl	800d42c <memcmp>
+ 800c764:	a901      	add	r1, sp, #4
+ 800c766:	f105 0014 	add.w	r0, r5, #20
+ 800c76a:	2204      	movs	r2, #4
+ 800c76c:	f000 fe5e 	bl	800d42c <memcmp>
 							 (received_user_token_start[2] <<  8u)+
 							 (received_user_token_start[3] <<  0u);
 
 				if(received_user_token != user_token)
 				{
 					is_invalid_req = true;
- 800c914:	2001      	movs	r0, #1
+ 800c770:	2001      	movs	r0, #1
 	else
 	{
 		is_invalid_req = true;
 	}
 	return is_invalid_req;
 }
- 800c916:	b012      	add	sp, #72	; 0x48
- 800c918:	bd70      	pop	{r4, r5, r6, pc}
+ 800c772:	b012      	add	sp, #72	; 0x48
+ 800c774:	bd70      	pop	{r4, r5, r6, pc}
 				// Extract Nonce
 				received_user_nonce_start = command + 20u;
 
 
 				// Read Nonce from Optiga
 				optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
- 800c91a:	f7ff ff49 	bl	800c7b0 <optiga_util_read_nonce>
+ 800c776:	f7ff ff49 	bl	800c60c <optiga_util_read_nonce>
 
 				// Compare Nonces
 				// recv_nonced trebuie sa fie mai mare decat nonce
 				// daca e mai mare sau egal, invalid
 				if(0 >= memcmp(received_user_nonce_start, nonce, sizeof(nonce)))
- 800c91e:	a901      	add	r1, sp, #4
- 800c920:	f105 0014 	add.w	r0, r5, #20
- 800c924:	2204      	movs	r2, #4
- 800c926:	f000 fd81 	bl	800d42c <memcmp>
- 800c92a:	2800      	cmp	r0, #0
- 800c92c:	ddf2      	ble.n	800c914 <read_request+0xa4>
+ 800c77a:	a901      	add	r1, sp, #4
+ 800c77c:	f105 0014 	add.w	r0, r5, #20
+ 800c780:	2204      	movs	r2, #4
+ 800c782:	f000 fe53 	bl	800d42c <memcmp>
+ 800c786:	2800      	cmp	r0, #0
+ 800c788:	ddf2      	ble.n	800c770 <read_request+0xa4>
 				{
 					is_invalid_req = true;
 				}
 
 				if(false == is_invalid_req)
- 800c92e:	2c00      	cmp	r4, #0
- 800c930:	d1f0      	bne.n	800c914 <read_request+0xa4>
+ 800c78a:	2c00      	cmp	r4, #0
+ 800c78c:	d1f0      	bne.n	800c770 <read_request+0xa4>
 				{
 					optiga_util_update_count_wrapper(optiga_counter_oid, 1u);
- 800c932:	f24e 1020 	movw	r0, #57632	; 0xe120
- 800c936:	2101      	movs	r1, #1
- 800c938:	f7ff ff6a 	bl	800c810 <optiga_util_update_count_wrapper>
- 800c93c:	4620      	mov	r0, r4
- 800c93e:	e7b5      	b.n	800c8ac <read_request+0x3c>
- 800c940:	1ffed1b4 	.word	0x1ffed1b4
- 800c944:	1fff0168 	.word	0x1fff0168
+ 800c78e:	f24e 1020 	movw	r0, #57632	; 0xe120
+ 800c792:	2101      	movs	r1, #1
+ 800c794:	f7ff ff6a 	bl	800c66c <optiga_util_update_count_wrapper>
+ 800c798:	4620      	mov	r0, r4
+ 800c79a:	e7b5      	b.n	800c708 <read_request+0x3c>
+ 800c79c:	1ffed1b4 	.word	0x1ffed1b4
+ 800c7a0:	1fff0168 	.word	0x1fff0168
 
-0800c948 <write_request>:
+0800c7a4 <write_request>:
 
 
 
 
 uint8_t write_request(uint8_t msg[], uint8_t is_secure_com)
 {
- 800c948:	b5f0      	push	{r4, r5, r6, r7, lr}
- 800c94a:	4604      	mov	r4, r0
- 800c94c:	b09b      	sub	sp, #108	; 0x6c
+ 800c7a4:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 800c7a6:	4604      	mov	r4, r0
+ 800c7a8:	b09b      	sub	sp, #108	; 0x6c
 	if(0u == is_secure_com)
- 800c94e:	2900      	cmp	r1, #0
- 800c950:	d037      	beq.n	800c9c2 <write_request+0x7a>
+ 800c7aa:	2900      	cmp	r1, #0
+ 800c7ac:	d037      	beq.n	800c81e <write_request+0x7a>
 		uint16_t optiga_counter_oid = OPTIGA_NONCE_OID;
 
 
 
 		// Read nonce
 		optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
- 800c952:	a901      	add	r1, sp, #4
- 800c954:	f24e 1020 	movw	r0, #57632	; 0xe120
- 800c958:	2204      	movs	r2, #4
- 800c95a:	f7ff ff29 	bl	800c7b0 <optiga_util_read_nonce>
+ 800c7ae:	a901      	add	r1, sp, #4
+ 800c7b0:	f24e 1020 	movw	r0, #57632	; 0xe120
+ 800c7b4:	2204      	movs	r2, #4
+ 800c7b6:	f7ff ff29 	bl	800c60c <optiga_util_read_nonce>
 
 		send_user_token[0] = (user_token >> 24u) & 0xFFu;
- 800c95e:	4b26      	ldr	r3, [pc, #152]	; (800c9f8 <write_request+0xb0>)
+ 800c7ba:	4b26      	ldr	r3, [pc, #152]	; (800c854 <write_request+0xb0>)
 		send_user_token[2] = (user_token >>  8u) & 0xFFu;
 		send_user_token[3] = (user_token >>  0u) & 0xFFu;
 
 
 		// First Pack
 		memcpy(response, msg, 16u);
- 800c960:	6820      	ldr	r0, [r4, #0]
+ 800c7bc:	6820      	ldr	r0, [r4, #0]
 
 
 		// Read nonce
 		optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
 
 		send_user_token[0] = (user_token >> 24u) & 0xFFu;
- 800c962:	681d      	ldr	r5, [r3, #0]
+ 800c7be:	681d      	ldr	r5, [r3, #0]
 		send_user_token[2] = (user_token >>  8u) & 0xFFu;
 		send_user_token[3] = (user_token >>  0u) & 0xFFu;
 
 
 		// First Pack
 		memcpy(response, msg, 16u);
- 800c964:	6861      	ldr	r1, [r4, #4]
- 800c966:	68a2      	ldr	r2, [r4, #8]
- 800c968:	68e3      	ldr	r3, [r4, #12]
+ 800c7c0:	6861      	ldr	r1, [r4, #4]
+ 800c7c2:	68a2      	ldr	r2, [r4, #8]
+ 800c7c4:	68e3      	ldr	r3, [r4, #12]
 		memcpy(response + 16u, send_user_token, 4u);  // global
 		memcpy(response + 20u, nonce, 4u);
- 800c96a:	9e01      	ldr	r6, [sp, #4]
+ 800c7c6:	9e01      	ldr	r6, [sp, #4]
 		send_user_token[2] = (user_token >>  8u) & 0xFFu;
 		send_user_token[3] = (user_token >>  0u) & 0xFFu;
 
 
 		// First Pack
 		memcpy(response, msg, 16u);
- 800c96c:	ac02      	add	r4, sp, #8
- 800c96e:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+ 800c7c8:	ac02      	add	r4, sp, #8
+ 800c7ca:	c40f      	stmia	r4!, {r0, r1, r2, r3}
 
 
 		// Read nonce
 		optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
 
 		send_user_token[0] = (user_token >> 24u) & 0xFFu;
- 800c970:	0e2f      	lsrs	r7, r5, #24
+ 800c7cc:	0e2f      	lsrs	r7, r5, #24
 		send_user_token[1] = (user_token >> 16u) & 0xFFu;
 		send_user_token[2] = (user_token >>  8u) & 0xFFu;
- 800c972:	0a2b      	lsrs	r3, r5, #8
-		memcpy(response, msg, 16u);
-		memcpy(response + 16u, send_user_token, 4u);  // global
-		memcpy(response + 20u, nonce, 4u);
-
-		// Retrive Session Key
-		optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));  // sesion key from Secure Comm activation
- 800c974:	a912      	add	r1, sp, #72	; 0x48
-
-		// Read nonce
-		optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
-
-		send_user_token[0] = (user_token >> 24u) & 0xFFu;
-		send_user_token[1] = (user_token >> 16u) & 0xFFu;
- 800c976:	0c2c      	lsrs	r4, r5, #16
+ 800c7ce:	0a2b      	lsrs	r3, r5, #8
 		memcpy(response, msg, 16u);
 		memcpy(response + 16u, send_user_token, 4u);  // global
 		memcpy(response + 20u, nonce, 4u);
 
 		// Retrive Session Key
 		optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));  // sesion key from Secure Comm activation
- 800c978:	f24f 10d6 	movw	r0, #61910	; 0xf1d6
- 800c97c:	2220      	movs	r2, #32
+ 800c7d0:	a912      	add	r1, sp, #72	; 0x48
+
+		// Read nonce
+		optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
+
+		send_user_token[0] = (user_token >> 24u) & 0xFFu;
+		send_user_token[1] = (user_token >> 16u) & 0xFFu;
+ 800c7d2:	0c2c      	lsrs	r4, r5, #16
+		memcpy(response, msg, 16u);
+		memcpy(response + 16u, send_user_token, 4u);  // global
+		memcpy(response + 20u, nonce, 4u);
+
+		// Retrive Session Key
+		optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));  // sesion key from Secure Comm activation
+ 800c7d4:	f24f 10d6 	movw	r0, #61910	; 0xf1d6
+ 800c7d8:	2220      	movs	r2, #32
 		// Read nonce
 		optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
 
 		send_user_token[0] = (user_token >> 24u) & 0xFFu;
 		send_user_token[1] = (user_token >> 16u) & 0xFFu;
 		send_user_token[2] = (user_token >>  8u) & 0xFFu;
- 800c97e:	f88d 301a 	strb.w	r3, [sp, #26]
+ 800c7da:	f88d 301a 	strb.w	r3, [sp, #26]
 
 
 		// Read nonce
 		optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
 
 		send_user_token[0] = (user_token >> 24u) & 0xFFu;
- 800c982:	f88d 7018 	strb.w	r7, [sp, #24]
+ 800c7de:	f88d 7018 	strb.w	r7, [sp, #24]
 		send_user_token[1] = (user_token >> 16u) & 0xFFu;
 		send_user_token[2] = (user_token >>  8u) & 0xFFu;
 		send_user_token[3] = (user_token >>  0u) & 0xFFu;
- 800c986:	f88d 501b 	strb.w	r5, [sp, #27]
+ 800c7e2:	f88d 501b 	strb.w	r5, [sp, #27]
 
 		// Read nonce
 		optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
 
 		send_user_token[0] = (user_token >> 24u) & 0xFFu;
 		send_user_token[1] = (user_token >> 16u) & 0xFFu;
- 800c98a:	f88d 4019 	strb.w	r4, [sp, #25]
+ 800c7e6:	f88d 4019 	strb.w	r4, [sp, #25]
 
 
 		// First Pack
 		memcpy(response, msg, 16u);
 		memcpy(response + 16u, send_user_token, 4u);  // global
 		memcpy(response + 20u, nonce, 4u);
- 800c98e:	9607      	str	r6, [sp, #28]
+ 800c7ea:	9607      	str	r6, [sp, #28]
 
 		// Retrive Session Key
 		optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));  // sesion key from Secure Comm activation
- 800c990:	f000 f944 	bl	800cc1c <optiga_util_read_shared_key>
+ 800c7ec:	f000 f944 	bl	800ca78 <optiga_util_read_shared_key>
 
 		// Encrypt ciphertext
 		stream_enc(response, key, 24u);
- 800c994:	a802      	add	r0, sp, #8
- 800c996:	a912      	add	r1, sp, #72	; 0x48
- 800c998:	2218      	movs	r2, #24
- 800c99a:	f000 f96f 	bl	800cc7c <stream_enc>
+ 800c7f0:	a802      	add	r0, sp, #8
+ 800c7f2:	a912      	add	r1, sp, #72	; 0x48
+ 800c7f4:	2218      	movs	r2, #24
+ 800c7f6:	f000 f96f 	bl	800cad8 <stream_enc>
 
 		// Calculate Hash
 		optiga_crypt_hash_data_wrapper(response, 24u, calculated_digest); // SHA256(Ciphertext)
- 800c99e:	a802      	add	r0, sp, #8
- 800c9a0:	aa0a      	add	r2, sp, #40	; 0x28
- 800c9a2:	2118      	movs	r1, #24
- 800c9a4:	f7ff fdfc 	bl	800c5a0 <optiga_crypt_hash_data_wrapper>
+ 800c7fa:	a802      	add	r0, sp, #8
+ 800c7fc:	aa0a      	add	r2, sp, #40	; 0x28
+ 800c7fe:	2118      	movs	r1, #24
+ 800c800:	f7ff fece 	bl	800c5a0 <optiga_crypt_hash_data_wrapper>
 
 		// Pack the message
 		memcpy(response + 24u, calculated_digest + 24u, 8u);
- 800c9a8:	ab10      	add	r3, sp, #64	; 0x40
- 800c9aa:	e893 0003 	ldmia.w	r3, {r0, r1}
- 800c9ae:	ab08      	add	r3, sp, #32
- 800c9b0:	e883 0003 	stmia.w	r3, {r0, r1}
+ 800c804:	ab10      	add	r3, sp, #64	; 0x40
+ 800c806:	e893 0003 	ldmia.w	r3, {r0, r1}
+ 800c80a:	ab08      	add	r3, sp, #32
+ 800c80c:	e883 0003 	stmia.w	r3, {r0, r1}
 
 		optiga_lib_print_bytes(response, 32u);
- 800c9b4:	a802      	add	r0, sp, #8
- 800c9b6:	2120      	movs	r1, #32
- 800c9b8:	f7fb f892 	bl	8007ae0 <optiga_lib_print_bytes>
+ 800c810:	a802      	add	r0, sp, #8
+ 800c812:	2120      	movs	r1, #32
+ 800c814:	f7fb f964 	bl	8007ae0 <optiga_lib_print_bytes>
 	}
 
 	return true;
 }
- 800c9bc:	2001      	movs	r0, #1
- 800c9be:	b01b      	add	sp, #108	; 0x6c
- 800c9c0:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 800c818:	2001      	movs	r0, #1
+ 800c81a:	b01b      	add	sp, #108	; 0x6c
+ 800c81c:	bdf0      	pop	{r4, r5, r6, r7, pc}
 	{
 		uint8_t response[32];
 		uint8_t send_user_token[4];
 
 
 		send_user_token[0] = (user_token >> 24u) & 0xFFu;
- 800c9c2:	4b0d      	ldr	r3, [pc, #52]	; (800c9f8 <write_request+0xb0>)
+ 800c81e:	4b0d      	ldr	r3, [pc, #52]	; (800c854 <write_request+0xb0>)
 				send_user_token[1] = (user_token >> 16u) & 0xFFu;
 				send_user_token[2] = (user_token >>  8u) & 0xFFu;
 				send_user_token[3] = (user_token >>  0u) & 0xFFu;
 
 		memcpy(response, msg, 16u);
- 800c9c4:	6861      	ldr	r1, [r4, #4]
+ 800c820:	6861      	ldr	r1, [r4, #4]
 	{
 		uint8_t response[32];
 		uint8_t send_user_token[4];
 
 
 		send_user_token[0] = (user_token >> 24u) & 0xFFu;
- 800c9c6:	681d      	ldr	r5, [r3, #0]
+ 800c822:	681d      	ldr	r5, [r3, #0]
 				send_user_token[1] = (user_token >> 16u) & 0xFFu;
 				send_user_token[2] = (user_token >>  8u) & 0xFFu;
 				send_user_token[3] = (user_token >>  0u) & 0xFFu;
 
 		memcpy(response, msg, 16u);
- 800c9c8:	68a2      	ldr	r2, [r4, #8]
- 800c9ca:	68e3      	ldr	r3, [r4, #12]
- 800c9cc:	6800      	ldr	r0, [r0, #0]
- 800c9ce:	ac12      	add	r4, sp, #72	; 0x48
- 800c9d0:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+ 800c824:	68a2      	ldr	r2, [r4, #8]
+ 800c826:	68e3      	ldr	r3, [r4, #12]
+ 800c828:	6800      	ldr	r0, [r0, #0]
+ 800c82a:	ac12      	add	r4, sp, #72	; 0x48
+ 800c82c:	c40f      	stmia	r4!, {r0, r1, r2, r3}
 	{
 		uint8_t response[32];
 		uint8_t send_user_token[4];
 
 
 		send_user_token[0] = (user_token >> 24u) & 0xFFu;
- 800c9d2:	0e2e      	lsrs	r6, r5, #24
+ 800c82e:	0e2e      	lsrs	r6, r5, #24
 				send_user_token[1] = (user_token >> 16u) & 0xFFu;
- 800c9d4:	0c2a      	lsrs	r2, r5, #16
+ 800c830:	0c2a      	lsrs	r2, r5, #16
 				send_user_token[3] = (user_token >>  0u) & 0xFFu;
 
 		memcpy(response, msg, 16u);
 		memcpy(response + 16u, send_user_token, 4u);
 
 		optiga_lib_print_bytes(response, 32u);
- 800c9d6:	a812      	add	r0, sp, #72	; 0x48
+ 800c832:	a812      	add	r0, sp, #72	; 0x48
 		uint8_t send_user_token[4];
 
 
 		send_user_token[0] = (user_token >> 24u) & 0xFFu;
 				send_user_token[1] = (user_token >> 16u) & 0xFFu;
 				send_user_token[2] = (user_token >>  8u) & 0xFFu;
- 800c9d8:	0a2b      	lsrs	r3, r5, #8
+ 800c834:	0a2b      	lsrs	r3, r5, #8
 				send_user_token[3] = (user_token >>  0u) & 0xFFu;
 
 		memcpy(response, msg, 16u);
 		memcpy(response + 16u, send_user_token, 4u);
 
 		optiga_lib_print_bytes(response, 32u);
- 800c9da:	2120      	movs	r1, #32
+ 800c836:	2120      	movs	r1, #32
 	{
 		uint8_t response[32];
 		uint8_t send_user_token[4];
 
 
 		send_user_token[0] = (user_token >> 24u) & 0xFFu;
- 800c9dc:	f88d 6058 	strb.w	r6, [sp, #88]	; 0x58
+ 800c838:	f88d 6058 	strb.w	r6, [sp, #88]	; 0x58
 				send_user_token[1] = (user_token >> 16u) & 0xFFu;
 				send_user_token[2] = (user_token >>  8u) & 0xFFu;
 				send_user_token[3] = (user_token >>  0u) & 0xFFu;
- 800c9e0:	f88d 505b 	strb.w	r5, [sp, #91]	; 0x5b
+ 800c83c:	f88d 505b 	strb.w	r5, [sp, #91]	; 0x5b
 		uint8_t response[32];
 		uint8_t send_user_token[4];
 
 
 		send_user_token[0] = (user_token >> 24u) & 0xFFu;
 				send_user_token[1] = (user_token >> 16u) & 0xFFu;
- 800c9e4:	f88d 2059 	strb.w	r2, [sp, #89]	; 0x59
+ 800c840:	f88d 2059 	strb.w	r2, [sp, #89]	; 0x59
 				send_user_token[2] = (user_token >>  8u) & 0xFFu;
- 800c9e8:	f88d 305a 	strb.w	r3, [sp, #90]	; 0x5a
+ 800c844:	f88d 305a 	strb.w	r3, [sp, #90]	; 0x5a
 				send_user_token[3] = (user_token >>  0u) & 0xFFu;
 
 		memcpy(response, msg, 16u);
 		memcpy(response + 16u, send_user_token, 4u);
 
 		optiga_lib_print_bytes(response, 32u);
- 800c9ec:	f7fb f878 	bl	8007ae0 <optiga_lib_print_bytes>
+ 800c848:	f7fb f94a 	bl	8007ae0 <optiga_lib_print_bytes>
 
 		optiga_lib_print_bytes(response, 32u);
 	}
 
 	return true;
 }
- 800c9f0:	2001      	movs	r0, #1
- 800c9f2:	b01b      	add	sp, #108	; 0x6c
- 800c9f4:	bdf0      	pop	{r4, r5, r6, r7, pc}
- 800c9f6:	bf00      	nop
- 800c9f8:	1fff0168 	.word	0x1fff0168
+ 800c84c:	2001      	movs	r0, #1
+ 800c84e:	b01b      	add	sp, #108	; 0x6c
+ 800c850:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 800c852:	bf00      	nop
+ 800c854:	1fff0168 	.word	0x1fff0168
 
-0800c9fc <optiga_crypt_rsa_encrypt_message_wrapper>:
+0800c858 <optiga_crypt_rsa_encrypt_message_wrapper>:
 static uint8_t rsa_public_key[150] = {0x00};
 static uint16_t rsa_public_key_length = 0;
 
 
 void optiga_crypt_rsa_encrypt_message_wrapper(uint8_t message[], uint8_t message_length, uint8_t encrypted_message[], uint16_t* encrypted_message_length)
 {
- 800c9fc:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
- 800ca00:	b089      	sub	sp, #36	; 0x24
+ 800c858:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 800c85c:	b089      	sub	sp, #36	; 0x24
     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
 
     optiga_rsa_encryption_scheme_t encryption_scheme;
     public_key_from_host_t public_key_from_host;
 
     example_util_encode_rsa_public_key_in_bit_string_format(rsa_public_key_modulus,
- 800ca02:	4d24      	ldr	r5, [pc, #144]	; (800ca94 <optiga_crypt_rsa_encrypt_message_wrapper+0x98>)
- 800ca04:	4e24      	ldr	r6, [pc, #144]	; (800ca98 <optiga_crypt_rsa_encrypt_message_wrapper+0x9c>)
- 800ca06:	9500      	str	r5, [sp, #0]
+ 800c85e:	4d24      	ldr	r5, [pc, #144]	; (800c8f0 <optiga_crypt_rsa_encrypt_message_wrapper+0x98>)
+ 800c860:	4e24      	ldr	r6, [pc, #144]	; (800c8f4 <optiga_crypt_rsa_encrypt_message_wrapper+0x9c>)
+ 800c862:	9500      	str	r5, [sp, #0]
 static uint8_t rsa_public_key[150] = {0x00};
 static uint16_t rsa_public_key_length = 0;
 
 
 void optiga_crypt_rsa_encrypt_message_wrapper(uint8_t message[], uint8_t message_length, uint8_t encrypted_message[], uint16_t* encrypted_message_length)
 {
- 800ca08:	4680      	mov	r8, r0
- 800ca0a:	460f      	mov	r7, r1
+ 800c864:	4680      	mov	r8, r0
+ 800c866:	460f      	mov	r7, r1
     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
 
     optiga_rsa_encryption_scheme_t encryption_scheme;
     public_key_from_host_t public_key_from_host;
 
     example_util_encode_rsa_public_key_in_bit_string_format(rsa_public_key_modulus,
- 800ca0c:	4823      	ldr	r0, [pc, #140]	; (800ca9c <optiga_crypt_rsa_encrypt_message_wrapper+0xa0>)
- 800ca0e:	9601      	str	r6, [sp, #4]
- 800ca10:	2180      	movs	r1, #128	; 0x80
+ 800c868:	4823      	ldr	r0, [pc, #140]	; (800c8f8 <optiga_crypt_rsa_encrypt_message_wrapper+0xa0>)
+ 800c86a:	9601      	str	r6, [sp, #4]
+ 800c86c:	2180      	movs	r1, #128	; 0x80
 static uint8_t rsa_public_key[150] = {0x00};
 static uint16_t rsa_public_key_length = 0;
 
 
 void optiga_crypt_rsa_encrypt_message_wrapper(uint8_t message[], uint8_t message_length, uint8_t encrypted_message[], uint16_t* encrypted_message_length)
 {
- 800ca12:	4692      	mov	sl, r2
- 800ca14:	4699      	mov	r9, r3
+ 800c86e:	4692      	mov	sl, r2
+ 800c870:	4699      	mov	r9, r3
     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
 
     optiga_rsa_encryption_scheme_t encryption_scheme;
     public_key_from_host_t public_key_from_host;
 
     example_util_encode_rsa_public_key_in_bit_string_format(rsa_public_key_modulus,
- 800ca16:	4a22      	ldr	r2, [pc, #136]	; (800caa0 <optiga_crypt_rsa_encrypt_message_wrapper+0xa4>)
+ 800c872:	4a22      	ldr	r2, [pc, #136]	; (800c8fc <optiga_crypt_rsa_encrypt_message_wrapper+0xa4>)
 
 	encryption_scheme = OPTIGA_RSAES_PKCS1_V15;
 	public_key_from_host.public_key = rsa_public_key;
 	public_key_from_host.length = rsa_public_key_length;
 	public_key_from_host.key_type = (uint8_t)OPTIGA_RSA_KEY_1024_BIT_EXPONENTIAL;
 	optiga_lib_status = OPTIGA_LIB_BUSY;
- 800ca18:	4c22      	ldr	r4, [pc, #136]	; (800caa4 <optiga_crypt_rsa_encrypt_message_wrapper+0xa8>)
+ 800c874:	4c22      	ldr	r4, [pc, #136]	; (800c900 <optiga_crypt_rsa_encrypt_message_wrapper+0xa8>)
     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
 
     optiga_rsa_encryption_scheme_t encryption_scheme;
     public_key_from_host_t public_key_from_host;
 
     example_util_encode_rsa_public_key_in_bit_string_format(rsa_public_key_modulus,
- 800ca1a:	2304      	movs	r3, #4
- 800ca1c:	f7ff fc5e 	bl	800c2dc <example_util_encode_rsa_public_key_in_bit_string_format>
+ 800c876:	2304      	movs	r3, #4
+ 800c878:	f7ff fd30 	bl	800c2dc <example_util_encode_rsa_public_key_in_bit_string_format>
                                                                rsa_public_key,
                                                                &rsa_public_key_length);
 
 	encryption_scheme = OPTIGA_RSAES_PKCS1_V15;
 	public_key_from_host.public_key = rsa_public_key;
 	public_key_from_host.length = rsa_public_key_length;
- 800ca20:	8833      	ldrh	r3, [r6, #0]
- 800ca22:	f8ad 301c 	strh.w	r3, [sp, #28]
+ 800c87c:	8833      	ldrh	r3, [r6, #0]
+ 800c87e:	f8ad 301c 	strh.w	r3, [sp, #28]
 	public_key_from_host.key_type = (uint8_t)OPTIGA_RSA_KEY_1024_BIT_EXPONENTIAL;
 	optiga_lib_status = OPTIGA_LIB_BUSY;
- 800ca26:	f04f 0b01 	mov.w	fp, #1
+ 800c882:	f04f 0b01 	mov.w	fp, #1
                                                                &rsa_public_key_length);
 
 	encryption_scheme = OPTIGA_RSAES_PKCS1_V15;
 	public_key_from_host.public_key = rsa_public_key;
 	public_key_from_host.length = rsa_public_key_length;
 	public_key_from_host.key_type = (uint8_t)OPTIGA_RSA_KEY_1024_BIT_EXPONENTIAL;
- 800ca2a:	2341      	movs	r3, #65	; 0x41
- 800ca2c:	f88d 301e 	strb.w	r3, [sp, #30]
+ 800c886:	2341      	movs	r3, #65	; 0x41
+ 800c888:	f88d 301e 	strb.w	r3, [sp, #30]
                                                                sizeof(rsa_public_key_exponent),
                                                                rsa_public_key,
                                                                &rsa_public_key_length);
 
 	encryption_scheme = OPTIGA_RSAES_PKCS1_V15;
 	public_key_from_host.public_key = rsa_public_key;
- 800ca30:	9506      	str	r5, [sp, #24]
+ 800c88c:	9506      	str	r5, [sp, #24]
 	public_key_from_host.length = rsa_public_key_length;
 	public_key_from_host.key_type = (uint8_t)OPTIGA_RSA_KEY_1024_BIT_EXPONENTIAL;
 	optiga_lib_status = OPTIGA_LIB_BUSY;
- 800ca32:	f8a4 b000 	strh.w	fp, [r4]
+ 800c88e:	f8a4 b000 	strh.w	fp, [r4]
 
 
     do
     {
         example_optiga_init();
- 800ca36:	f7ff fb5b 	bl	800c0f0 <example_optiga_init>
+ 800c892:	f7ff fc2d 	bl	800c0f0 <example_optiga_init>
 
         me = optiga_crypt_create_wrapper();
- 800ca3a:	f7ff fd6b 	bl	800c514 <optiga_crypt_create_wrapper>
+ 800c896:	f7ff fe3d 	bl	800c514 <optiga_crypt_create_wrapper>
         if (NULL == me)
- 800ca3e:	b320      	cbz	r0, 800ca8a <optiga_crypt_rsa_encrypt_message_wrapper+0x8e>
+ 800c89a:	b320      	cbz	r0, 800c8e6 <optiga_crypt_rsa_encrypt_message_wrapper+0x8e>
         {
             break;
         }
 
         return_status = optiga_crypt_rsa_encrypt_message(me,
- 800ca40:	2100      	movs	r1, #0
- 800ca42:	ae06      	add	r6, sp, #24
- 800ca44:	9100      	str	r1, [sp, #0]
- 800ca46:	9101      	str	r1, [sp, #4]
- 800ca48:	f8cd b008 	str.w	fp, [sp, #8]
- 800ca4c:	f8cd a010 	str.w	sl, [sp, #16]
- 800ca50:	f8cd 9014 	str.w	r9, [sp, #20]
- 800ca54:	4642      	mov	r2, r8
- 800ca56:	463b      	mov	r3, r7
- 800ca58:	9603      	str	r6, [sp, #12]
- 800ca5a:	2111      	movs	r1, #17
- 800ca5c:	4605      	mov	r5, r0
- 800ca5e:	f7f8 feb1 	bl	80057c4 <optiga_crypt_rsa_encrypt_message>
+ 800c89c:	2100      	movs	r1, #0
+ 800c89e:	ae06      	add	r6, sp, #24
+ 800c8a0:	9100      	str	r1, [sp, #0]
+ 800c8a2:	9101      	str	r1, [sp, #4]
+ 800c8a4:	f8cd b008 	str.w	fp, [sp, #8]
+ 800c8a8:	f8cd a010 	str.w	sl, [sp, #16]
+ 800c8ac:	f8cd 9014 	str.w	r9, [sp, #20]
+ 800c8b0:	4642      	mov	r2, r8
+ 800c8b2:	463b      	mov	r3, r7
+ 800c8b4:	9603      	str	r6, [sp, #12]
+ 800c8b6:	2111      	movs	r1, #17
+ 800c8b8:	4605      	mov	r5, r0
+ 800c8ba:	f7f8 ff83 	bl	80057c4 <optiga_crypt_rsa_encrypt_message>
                                                             OPTIGA_CRYPT_HOST_DATA,
                                                             &public_key_from_host,
                                                             encrypted_message,
                                                             encrypted_message_length);
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
- 800ca62:	b138      	cbz	r0, 800ca74 <optiga_crypt_rsa_encrypt_message_wrapper+0x78>
+ 800c8be:	b138      	cbz	r0, 800c8d0 <optiga_crypt_rsa_encrypt_message_wrapper+0x78>
 
 
     } while (FALSE);
 
     example_optiga_deinit();
- 800ca64:	f7ff fb76 	bl	800c154 <example_optiga_deinit>
+ 800c8c0:	f7ff fc48 	bl	800c154 <example_optiga_deinit>
 
 
     if (NULL != me)
     {
        optiga_crypt_destroy(me);
- 800ca68:	4628      	mov	r0, r5
- 800ca6a:	f7f8 fdb3 	bl	80055d4 <optiga_crypt_destroy>
+ 800c8c4:	4628      	mov	r0, r5
+ 800c8c6:	f7f8 fe85 	bl	80055d4 <optiga_crypt_destroy>
     }
 }
- 800ca6e:	b009      	add	sp, #36	; 0x24
- 800ca70:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 800c8ca:	b009      	add	sp, #36	; 0x24
+ 800c8cc:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
                                                             OPTIGA_CRYPT_HOST_DATA,
                                                             &public_key_from_host,
                                                             encrypted_message,
                                                             encrypted_message_length);
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
- 800ca74:	8823      	ldrh	r3, [r4, #0]
- 800ca76:	4a0b      	ldr	r2, [pc, #44]	; (800caa4 <optiga_crypt_rsa_encrypt_message_wrapper+0xa8>)
- 800ca78:	b29b      	uxth	r3, r3
- 800ca7a:	2b01      	cmp	r3, #1
- 800ca7c:	d0fa      	beq.n	800ca74 <optiga_crypt_rsa_encrypt_message_wrapper+0x78>
- 800ca7e:	8813      	ldrh	r3, [r2, #0]
- 800ca80:	b29b      	uxth	r3, r3
- 800ca82:	2b00      	cmp	r3, #0
- 800ca84:	d0ee      	beq.n	800ca64 <optiga_crypt_rsa_encrypt_message_wrapper+0x68>
- 800ca86:	8813      	ldrh	r3, [r2, #0]
- 800ca88:	e7ec      	b.n	800ca64 <optiga_crypt_rsa_encrypt_message_wrapper+0x68>
+ 800c8d0:	8823      	ldrh	r3, [r4, #0]
+ 800c8d2:	4a0b      	ldr	r2, [pc, #44]	; (800c900 <optiga_crypt_rsa_encrypt_message_wrapper+0xa8>)
+ 800c8d4:	b29b      	uxth	r3, r3
+ 800c8d6:	2b01      	cmp	r3, #1
+ 800c8d8:	d0fa      	beq.n	800c8d0 <optiga_crypt_rsa_encrypt_message_wrapper+0x78>
+ 800c8da:	8813      	ldrh	r3, [r2, #0]
+ 800c8dc:	b29b      	uxth	r3, r3
+ 800c8de:	2b00      	cmp	r3, #0
+ 800c8e0:	d0ee      	beq.n	800c8c0 <optiga_crypt_rsa_encrypt_message_wrapper+0x68>
+ 800c8e2:	8813      	ldrh	r3, [r2, #0]
+ 800c8e4:	e7ec      	b.n	800c8c0 <optiga_crypt_rsa_encrypt_message_wrapper+0x68>
 
 
     } while (FALSE);
 
     example_optiga_deinit();
- 800ca8a:	f7ff fb63 	bl	800c154 <example_optiga_deinit>
+ 800c8e6:	f7ff fc35 	bl	800c154 <example_optiga_deinit>
 
     if (NULL != me)
     {
        optiga_crypt_destroy(me);
     }
 }
- 800ca8e:	b009      	add	sp, #36	; 0x24
- 800ca90:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
- 800ca94:	1fff00cc 	.word	0x1fff00cc
- 800ca98:	1fff0164 	.word	0x1fff0164
- 800ca9c:	0800dd68 	.word	0x0800dd68
- 800caa0:	0800dd64 	.word	0x0800dd64
- 800caa4:	1fff0802 	.word	0x1fff0802
+ 800c8ea:	b009      	add	sp, #36	; 0x24
+ 800c8ec:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 800c8f0:	1fff00cc 	.word	0x1fff00cc
+ 800c8f4:	1fff0164 	.word	0x1fff0164
+ 800c8f8:	0800dca8 	.word	0x0800dca8
+ 800c8fc:	0800dca4 	.word	0x0800dca4
+ 800c900:	1fff0802 	.word	0x1fff0802
 
-0800caa8 <optiga_crypt_rsa_verify_wrapper>:
+0800c904 <optiga_crypt_rsa_verify_wrapper>:
 
 
 
 
 uint8_t optiga_crypt_rsa_verify_wrapper(uint8_t message[], uint8_t message_length, uint8_t signature[], uint16_t signature_length)
 {
- 800caa8:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+ 800c904:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
     optiga_crypt_t * me = NULL;
 
 
     // Form rsa public key in bit string format
     example_util_encode_rsa_public_key_in_bit_string_format(rsa_public_key_modulus,
- 800caac:	4c25      	ldr	r4, [pc, #148]	; (800cb44 <optiga_crypt_rsa_verify_wrapper+0x9c>)
- 800caae:	4d26      	ldr	r5, [pc, #152]	; (800cb48 <optiga_crypt_rsa_verify_wrapper+0xa0>)
+ 800c908:	4c25      	ldr	r4, [pc, #148]	; (800c9a0 <optiga_crypt_rsa_verify_wrapper+0x9c>)
+ 800c90a:	4d26      	ldr	r5, [pc, #152]	; (800c9a4 <optiga_crypt_rsa_verify_wrapper+0xa0>)
 
 
 
 
 uint8_t optiga_crypt_rsa_verify_wrapper(uint8_t message[], uint8_t message_length, uint8_t signature[], uint16_t signature_length)
 {
- 800cab0:	b090      	sub	sp, #64	; 0x40
- 800cab2:	4616      	mov	r6, r2
+ 800c90c:	b090      	sub	sp, #64	; 0x40
+ 800c90e:	4616      	mov	r6, r2
 	uint8_t success = false;
 	uint8_t hashed_digest[32];
 
 	optiga_crypt_hash_data_wrapper(message, message_length, hashed_digest);
- 800cab4:	aa08      	add	r2, sp, #32
+ 800c910:	aa08      	add	r2, sp, #32
 
 
 
 
 uint8_t optiga_crypt_rsa_verify_wrapper(uint8_t message[], uint8_t message_length, uint8_t signature[], uint16_t signature_length)
 {
- 800cab6:	4698      	mov	r8, r3
+ 800c912:	4698      	mov	r8, r3
 	uint8_t success = false;
 	uint8_t hashed_digest[32];
 
 	optiga_crypt_hash_data_wrapper(message, message_length, hashed_digest);
- 800cab8:	f7ff fd72 	bl	800c5a0 <optiga_crypt_hash_data_wrapper>
+ 800c914:	f7ff fe44 	bl	800c5a0 <optiga_crypt_hash_data_wrapper>
     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
     optiga_crypt_t * me = NULL;
 
 
     // Form rsa public key in bit string format
     example_util_encode_rsa_public_key_in_bit_string_format(rsa_public_key_modulus,
- 800cabc:	4823      	ldr	r0, [pc, #140]	; (800cb4c <optiga_crypt_rsa_verify_wrapper+0xa4>)
- 800cabe:	4a24      	ldr	r2, [pc, #144]	; (800cb50 <optiga_crypt_rsa_verify_wrapper+0xa8>)
- 800cac0:	2180      	movs	r1, #128	; 0x80
- 800cac2:	2304      	movs	r3, #4
- 800cac4:	e88d 0030 	stmia.w	sp, {r4, r5}
- 800cac8:	f7ff fc08 	bl	800c2dc <example_util_encode_rsa_public_key_in_bit_string_format>
+ 800c918:	4823      	ldr	r0, [pc, #140]	; (800c9a8 <optiga_crypt_rsa_verify_wrapper+0xa4>)
+ 800c91a:	4a24      	ldr	r2, [pc, #144]	; (800c9ac <optiga_crypt_rsa_verify_wrapper+0xa8>)
+ 800c91c:	2180      	movs	r1, #128	; 0x80
+ 800c91e:	2304      	movs	r3, #4
+ 800c920:	e88d 0030 	stmia.w	sp, {r4, r5}
+ 800c924:	f7ff fcda 	bl	800c2dc <example_util_encode_rsa_public_key_in_bit_string_format>
                                                        rsa_public_key_exponent,
                                                        sizeof(rsa_public_key_exponent),
                                                        rsa_public_key,
                                                        &rsa_public_key_length);
 
     public_key_from_host_t public_key_details =
- 800cacc:	882b      	ldrh	r3, [r5, #0]
- 800cace:	f8ad 301c 	strh.w	r3, [sp, #28]
- 800cad2:	2341      	movs	r3, #65	; 0x41
- 800cad4:	f88d 301e 	strb.w	r3, [sp, #30]
- 800cad8:	9406      	str	r4, [sp, #24]
+ 800c928:	882b      	ldrh	r3, [r5, #0]
+ 800c92a:	f8ad 301c 	strh.w	r3, [sp, #28]
+ 800c92e:	2341      	movs	r3, #65	; 0x41
+ 800c930:	f88d 301e 	strb.w	r3, [sp, #30]
+ 800c934:	9406      	str	r4, [sp, #24]
     };
 
     do
     {
 
         example_optiga_init();
- 800cada:	f7ff fb09 	bl	800c0f0 <example_optiga_init>
+ 800c936:	f7ff fbdb 	bl	800c0f0 <example_optiga_init>
 
         me = optiga_crypt_create_wrapper();
- 800cade:	f7ff fd19 	bl	800c514 <optiga_crypt_create_wrapper>
+ 800c93a:	f7ff fdeb 	bl	800c514 <optiga_crypt_create_wrapper>
         if (NULL == me)
- 800cae2:	4607      	mov	r7, r0
- 800cae4:	b320      	cbz	r0, 800cb30 <optiga_crypt_rsa_verify_wrapper+0x88>
+ 800c93e:	4607      	mov	r7, r0
+ 800c940:	b320      	cbz	r0, 800c98c <optiga_crypt_rsa_verify_wrapper+0x88>
         {
             break;
         }
 
         optiga_lib_status = OPTIGA_LIB_BUSY;
- 800cae6:	4c1b      	ldr	r4, [pc, #108]	; (800cb54 <optiga_crypt_rsa_verify_wrapper+0xac>)
+ 800c942:	4c1b      	ldr	r4, [pc, #108]	; (800c9b0 <optiga_crypt_rsa_verify_wrapper+0xac>)
 
 
         return_status = optiga_crypt_rsa_verify (me,
- 800cae8:	9600      	str	r6, [sp, #0]
- 800caea:	ab06      	add	r3, sp, #24
-        if (NULL == me)
-        {
-            break;
-        }
-
-        optiga_lib_status = OPTIGA_LIB_BUSY;
- 800caec:	2601      	movs	r6, #1
-
-
-        return_status = optiga_crypt_rsa_verify (me,
- 800caee:	2500      	movs	r5, #0
- 800caf0:	9303      	str	r3, [sp, #12]
- 800caf2:	f8cd 8004 	str.w	r8, [sp, #4]
- 800caf6:	9602      	str	r6, [sp, #8]
- 800caf8:	9504      	str	r5, [sp, #16]
- 800cafa:	aa08      	add	r2, sp, #32
- 800cafc:	4631      	mov	r1, r6
- 800cafe:	2320      	movs	r3, #32
+ 800c944:	9600      	str	r6, [sp, #0]
+ 800c946:	ab06      	add	r3, sp, #24
         if (NULL == me)
         {
             break;
         }
 
         optiga_lib_status = OPTIGA_LIB_BUSY;
- 800cb00:	8026      	strh	r6, [r4, #0]
+ 800c948:	2601      	movs	r6, #1
 
 
         return_status = optiga_crypt_rsa_verify (me,
- 800cb02:	f7f8 fe0d 	bl	8005720 <optiga_crypt_rsa_verify>
+ 800c94a:	2500      	movs	r5, #0
+ 800c94c:	9303      	str	r3, [sp, #12]
+ 800c94e:	f8cd 8004 	str.w	r8, [sp, #4]
+ 800c952:	9602      	str	r6, [sp, #8]
+ 800c954:	9504      	str	r5, [sp, #16]
+ 800c956:	aa08      	add	r2, sp, #32
+ 800c958:	4631      	mov	r1, r6
+ 800c95a:	2320      	movs	r3, #32
+        if (NULL == me)
+        {
+            break;
+        }
+
+        optiga_lib_status = OPTIGA_LIB_BUSY;
+ 800c95c:	8026      	strh	r6, [r4, #0]
+
+
+        return_status = optiga_crypt_rsa_verify (me,
+ 800c95e:	f7f8 fedf 	bl	8005720 <optiga_crypt_rsa_verify>
 												 signature_length,
                                                  OPTIGA_CRYPT_HOST_DATA,
                                                  &public_key_details,
                                                  0x0000);
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
- 800cb06:	b148      	cbz	r0, 800cb1c <optiga_crypt_rsa_verify_wrapper+0x74>
+ 800c962:	b148      	cbz	r0, 800c978 <optiga_crypt_rsa_verify_wrapper+0x74>
 
 
 
 uint8_t optiga_crypt_rsa_verify_wrapper(uint8_t message[], uint8_t message_length, uint8_t signature[], uint16_t signature_length)
 {
 	uint8_t success = false;
- 800cb08:	2400      	movs	r4, #0
+ 800c964:	2400      	movs	r4, #0
         	success = true;
         }
 
     } while (FALSE);
 
     example_optiga_deinit();
- 800cb0a:	f7ff fb23 	bl	800c154 <example_optiga_deinit>
+ 800c966:	f7ff fbf5 	bl	800c154 <example_optiga_deinit>
 
     if (NULL != me)
     {
          optiga_crypt_destroy(me);
- 800cb0e:	4638      	mov	r0, r7
- 800cb10:	f7f8 fd60 	bl	80055d4 <optiga_crypt_destroy>
+ 800c96a:	4638      	mov	r0, r7
+ 800c96c:	f7f8 fe32 	bl	80055d4 <optiga_crypt_destroy>
     }
 
     return success;
 }
- 800cb14:	4620      	mov	r0, r4
- 800cb16:	b010      	add	sp, #64	; 0x40
- 800cb18:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+ 800c970:	4620      	mov	r0, r4
+ 800c972:	b010      	add	sp, #64	; 0x40
+ 800c974:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
 												 signature_length,
                                                  OPTIGA_CRYPT_HOST_DATA,
                                                  &public_key_details,
                                                  0x0000);
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
- 800cb1c:	8823      	ldrh	r3, [r4, #0]
- 800cb1e:	4a0d      	ldr	r2, [pc, #52]	; (800cb54 <optiga_crypt_rsa_verify_wrapper+0xac>)
- 800cb20:	b29b      	uxth	r3, r3
- 800cb22:	2b01      	cmp	r3, #1
- 800cb24:	d0fa      	beq.n	800cb1c <optiga_crypt_rsa_verify_wrapper+0x74>
- 800cb26:	8813      	ldrh	r3, [r2, #0]
- 800cb28:	b29b      	uxth	r3, r3
- 800cb2a:	b143      	cbz	r3, 800cb3e <optiga_crypt_rsa_verify_wrapper+0x96>
- 800cb2c:	8813      	ldrh	r3, [r2, #0]
- 800cb2e:	e7eb      	b.n	800cb08 <optiga_crypt_rsa_verify_wrapper+0x60>
+ 800c978:	8823      	ldrh	r3, [r4, #0]
+ 800c97a:	4a0d      	ldr	r2, [pc, #52]	; (800c9b0 <optiga_crypt_rsa_verify_wrapper+0xac>)
+ 800c97c:	b29b      	uxth	r3, r3
+ 800c97e:	2b01      	cmp	r3, #1
+ 800c980:	d0fa      	beq.n	800c978 <optiga_crypt_rsa_verify_wrapper+0x74>
+ 800c982:	8813      	ldrh	r3, [r2, #0]
+ 800c984:	b29b      	uxth	r3, r3
+ 800c986:	b143      	cbz	r3, 800c99a <optiga_crypt_rsa_verify_wrapper+0x96>
+ 800c988:	8813      	ldrh	r3, [r2, #0]
+ 800c98a:	e7eb      	b.n	800c964 <optiga_crypt_rsa_verify_wrapper+0x60>
         	success = true;
         }
 
     } while (FALSE);
 
     example_optiga_deinit();
- 800cb30:	f7ff fb10 	bl	800c154 <example_optiga_deinit>
+ 800c98c:	f7ff fbe2 	bl	800c154 <example_optiga_deinit>
 
 
 
 uint8_t optiga_crypt_rsa_verify_wrapper(uint8_t message[], uint8_t message_length, uint8_t signature[], uint16_t signature_length)
 {
 	uint8_t success = false;
- 800cb34:	463c      	mov	r4, r7
+ 800c990:	463c      	mov	r4, r7
     {
          optiga_crypt_destroy(me);
     }
 
     return success;
 }
- 800cb36:	4620      	mov	r0, r4
- 800cb38:	b010      	add	sp, #64	; 0x40
- 800cb3a:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+ 800c992:	4620      	mov	r0, r4
+ 800c994:	b010      	add	sp, #64	; 0x40
+ 800c996:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
          * 0x0000 -> signature match
          * 0x082c -> signature doesn't match
          */
         if(0 == return_status)
         {
         	success = true;
- 800cb3e:	2401      	movs	r4, #1
- 800cb40:	e7e3      	b.n	800cb0a <optiga_crypt_rsa_verify_wrapper+0x62>
- 800cb42:	bf00      	nop
- 800cb44:	1fff00cc 	.word	0x1fff00cc
- 800cb48:	1fff0164 	.word	0x1fff0164
- 800cb4c:	0800dd68 	.word	0x0800dd68
- 800cb50:	0800dd64 	.word	0x0800dd64
- 800cb54:	1fff0802 	.word	0x1fff0802
+ 800c99a:	2401      	movs	r4, #1
+ 800c99c:	e7e3      	b.n	800c966 <optiga_crypt_rsa_verify_wrapper+0x62>
+ 800c99e:	bf00      	nop
+ 800c9a0:	1fff00cc 	.word	0x1fff00cc
+ 800c9a4:	1fff0164 	.word	0x1fff0164
+ 800c9a8:	0800dca8 	.word	0x0800dca8
+ 800c9ac:	0800dca4 	.word	0x0800dca4
+ 800c9b0:	1fff0802 	.word	0x1fff0802
 
-0800cb58 <optiga_crypt_random_wrapper>:
+0800c9b4 <optiga_crypt_random_wrapper>:
 
 
 
 
 void optiga_crypt_random_wrapper(uint8_t random_buff[], uint8_t size)
 {
- 800cb58:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 800cb5a:	4607      	mov	r7, r0
- 800cb5c:	460e      	mov	r6, r1
+ 800c9b4:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 800c9b6:	4607      	mov	r7, r0
+ 800c9b8:	460e      	mov	r6, r1
 	optiga_crypt_t * me = NULL;
 	optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
 
 	do
 	{
 		example_optiga_init();
- 800cb5e:	f7ff fac7 	bl	800c0f0 <example_optiga_init>
+ 800c9ba:	f7ff fb99 	bl	800c0f0 <example_optiga_init>
 
 		me = optiga_crypt_create_wrapper();
- 800cb62:	f7ff fcd7 	bl	800c514 <optiga_crypt_create_wrapper>
+ 800c9be:	f7ff fda9 	bl	800c514 <optiga_crypt_create_wrapper>
 		if (NULL == me)
- 800cb66:	b308      	cbz	r0, 800cbac <optiga_crypt_random_wrapper+0x54>
+ 800c9c2:	b308      	cbz	r0, 800ca08 <optiga_crypt_random_wrapper+0x54>
 		{
 			break;
 		}
 
 		optiga_lib_status = OPTIGA_LIB_BUSY;
- 800cb68:	4c12      	ldr	r4, [pc, #72]	; (800cbb4 <optiga_crypt_random_wrapper+0x5c>)
+ 800c9c4:	4c12      	ldr	r4, [pc, #72]	; (800ca10 <optiga_crypt_random_wrapper+0x5c>)
 		return_status = optiga_crypt_random(me,
- 800cb6a:	4633      	mov	r3, r6
- 800cb6c:	463a      	mov	r2, r7
-		if (NULL == me)
-		{
-			break;
-		}
-
-		optiga_lib_status = OPTIGA_LIB_BUSY;
- 800cb6e:	2601      	movs	r6, #1
-		return_status = optiga_crypt_random(me,
- 800cb70:	2100      	movs	r1, #0
- 800cb72:	4605      	mov	r5, r0
+ 800c9c6:	4633      	mov	r3, r6
+ 800c9c8:	463a      	mov	r2, r7
 		if (NULL == me)
 		{
 			break;
 		}
 
 		optiga_lib_status = OPTIGA_LIB_BUSY;
- 800cb74:	8026      	strh	r6, [r4, #0]
+ 800c9ca:	2601      	movs	r6, #1
 		return_status = optiga_crypt_random(me,
- 800cb76:	f7f8 fd45 	bl	8005604 <optiga_crypt_random>
+ 800c9cc:	2100      	movs	r1, #0
+ 800c9ce:	4605      	mov	r5, r0
+		if (NULL == me)
+		{
+			break;
+		}
+
+		optiga_lib_status = OPTIGA_LIB_BUSY;
+ 800c9d0:	8026      	strh	r6, [r4, #0]
+		return_status = optiga_crypt_random(me,
+ 800c9d2:	f7f8 fe17 	bl	8005604 <optiga_crypt_random>
 											OPTIGA_RNG_TYPE_TRNG,
 											random_buff,
 											size);
 
 		WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
- 800cb7a:	b130      	cbz	r0, 800cb8a <optiga_crypt_random_wrapper+0x32>
+ 800c9d6:	b130      	cbz	r0, 800c9e6 <optiga_crypt_random_wrapper+0x32>
 
 	} while (FALSE);
 
 	example_optiga_deinit();
- 800cb7c:	f7ff faea 	bl	800c154 <example_optiga_deinit>
+ 800c9d8:	f7ff fbbc 	bl	800c154 <example_optiga_deinit>
 
 	if (NULL != me)
 	{
 		optiga_crypt_destroy(me);
- 800cb80:	4628      	mov	r0, r5
+ 800c9dc:	4628      	mov	r0, r5
 	}
 }
- 800cb82:	e8bd 40f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, lr}
+ 800c9de:	e8bd 40f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, lr}
 
 	example_optiga_deinit();
 
 	if (NULL != me)
 	{
 		optiga_crypt_destroy(me);
- 800cb86:	f7f8 bd25 	b.w	80055d4 <optiga_crypt_destroy>
+ 800c9e2:	f7f8 bdf7 	b.w	80055d4 <optiga_crypt_destroy>
 		return_status = optiga_crypt_random(me,
 											OPTIGA_RNG_TYPE_TRNG,
 											random_buff,
 											size);
 
 		WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
- 800cb8a:	8823      	ldrh	r3, [r4, #0]
- 800cb8c:	4a09      	ldr	r2, [pc, #36]	; (800cbb4 <optiga_crypt_random_wrapper+0x5c>)
- 800cb8e:	b29b      	uxth	r3, r3
- 800cb90:	2b01      	cmp	r3, #1
- 800cb92:	d0fa      	beq.n	800cb8a <optiga_crypt_random_wrapper+0x32>
- 800cb94:	8813      	ldrh	r3, [r2, #0]
- 800cb96:	b29b      	uxth	r3, r3
- 800cb98:	2b00      	cmp	r3, #0
- 800cb9a:	d0ef      	beq.n	800cb7c <optiga_crypt_random_wrapper+0x24>
- 800cb9c:	8813      	ldrh	r3, [r2, #0]
+ 800c9e6:	8823      	ldrh	r3, [r4, #0]
+ 800c9e8:	4a09      	ldr	r2, [pc, #36]	; (800ca10 <optiga_crypt_random_wrapper+0x5c>)
+ 800c9ea:	b29b      	uxth	r3, r3
+ 800c9ec:	2b01      	cmp	r3, #1
+ 800c9ee:	d0fa      	beq.n	800c9e6 <optiga_crypt_random_wrapper+0x32>
+ 800c9f0:	8813      	ldrh	r3, [r2, #0]
+ 800c9f2:	b29b      	uxth	r3, r3
+ 800c9f4:	2b00      	cmp	r3, #0
+ 800c9f6:	d0ef      	beq.n	800c9d8 <optiga_crypt_random_wrapper+0x24>
+ 800c9f8:	8813      	ldrh	r3, [r2, #0]
 
 	} while (FALSE);
 
 	example_optiga_deinit();
- 800cb9e:	f7ff fad9 	bl	800c154 <example_optiga_deinit>
+ 800c9fa:	f7ff fbab 	bl	800c154 <example_optiga_deinit>
 
 	if (NULL != me)
 	{
 		optiga_crypt_destroy(me);
- 800cba2:	4628      	mov	r0, r5
+ 800c9fe:	4628      	mov	r0, r5
 	}
 }
- 800cba4:	e8bd 40f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, lr}
+ 800ca00:	e8bd 40f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, lr}
 
 	example_optiga_deinit();
 
 	if (NULL != me)
 	{
 		optiga_crypt_destroy(me);
- 800cba8:	f7f8 bd14 	b.w	80055d4 <optiga_crypt_destroy>
+ 800ca04:	f7f8 bde6 	b.w	80055d4 <optiga_crypt_destroy>
 	}
 }
- 800cbac:	e8bd 40f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, lr}
+ 800ca08:	e8bd 40f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, lr}
 
 		WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
 
 	} while (FALSE);
 
 	example_optiga_deinit();
- 800cbb0:	f7ff bad0 	b.w	800c154 <example_optiga_deinit>
- 800cbb4:	1fff0802 	.word	0x1fff0802
+ 800ca0c:	f7ff bba2 	b.w	800c154 <example_optiga_deinit>
+ 800ca10:	1fff0802 	.word	0x1fff0802
 
-0800cbb8 <optiga_util_write_shared_key>:
+0800ca14 <optiga_util_write_shared_key>:
 #include "../SEMS_Headers/Constructor.h"
 
 
 
 void optiga_util_write_shared_key(uint16_t optiga_oid, const uint8_t key[], uint16_t bytes_to_write)
 {
- 800cbb8:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
- 800cbbc:	b082      	sub	sp, #8
- 800cbbe:	4606      	mov	r6, r0
- 800cbc0:	4688      	mov	r8, r1
- 800cbc2:	4617      	mov	r7, r2
+ 800ca14:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+ 800ca18:	b082      	sub	sp, #8
+ 800ca1a:	4606      	mov	r6, r0
+ 800ca1c:	4688      	mov	r8, r1
+ 800ca1e:	4617      	mov	r7, r2
     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
     optiga_util_t * me = NULL;
 
     do
     {
         example_optiga_init();
- 800cbc4:	f7ff fa94 	bl	800c0f0 <example_optiga_init>
+ 800ca20:	f7ff fb66 	bl	800c0f0 <example_optiga_init>
 
 
         me = optiga_util_create_wrapper();
- 800cbc8:	f7ff fcb4 	bl	800c534 <optiga_util_create_wrapper>
+ 800ca24:	f7ff fd86 	bl	800c534 <optiga_util_create_wrapper>
         if (NULL == me)
- 800cbcc:	b1f8      	cbz	r0, 800cc0e <optiga_util_write_shared_key+0x56>
+ 800ca28:	b1f8      	cbz	r0, 800ca6a <optiga_util_write_shared_key+0x56>
         {
             break;
         }
 
         optiga_lib_status = OPTIGA_LIB_BUSY;
- 800cbce:	4c12      	ldr	r4, [pc, #72]	; (800cc18 <optiga_util_write_shared_key+0x60>)
+ 800ca2a:	4c12      	ldr	r4, [pc, #72]	; (800ca74 <optiga_util_write_shared_key+0x60>)
 
         return_status = optiga_util_write_data(me,
- 800cbd0:	f8cd 8000 	str.w	r8, [sp]
- 800cbd4:	4631      	mov	r1, r6
- 800cbd6:	9701      	str	r7, [sp, #4]
-        if (NULL == me)
-        {
-            break;
-        }
-
-        optiga_lib_status = OPTIGA_LIB_BUSY;
- 800cbd8:	2601      	movs	r6, #1
-
-        return_status = optiga_util_write_data(me,
- 800cbda:	2240      	movs	r2, #64	; 0x40
- 800cbdc:	2300      	movs	r3, #0
- 800cbde:	4605      	mov	r5, r0
+ 800ca2c:	f8cd 8000 	str.w	r8, [sp]
+ 800ca30:	4631      	mov	r1, r6
+ 800ca32:	9701      	str	r7, [sp, #4]
         if (NULL == me)
         {
             break;
         }
 
         optiga_lib_status = OPTIGA_LIB_BUSY;
- 800cbe0:	8026      	strh	r6, [r4, #0]
+ 800ca34:	2601      	movs	r6, #1
 
         return_status = optiga_util_write_data(me,
- 800cbe2:	f7f8 fbd7 	bl	8005394 <optiga_util_write_data>
+ 800ca36:	2240      	movs	r2, #64	; 0x40
+ 800ca38:	2300      	movs	r3, #0
+ 800ca3a:	4605      	mov	r5, r0
+        if (NULL == me)
+        {
+            break;
+        }
+
+        optiga_lib_status = OPTIGA_LIB_BUSY;
+ 800ca3c:	8026      	strh	r6, [r4, #0]
+
+        return_status = optiga_util_write_data(me,
+ 800ca3e:	f7f8 fca9 	bl	8005394 <optiga_util_write_data>
                                                OPTIGA_UTIL_ERASE_AND_WRITE,
                                                offset,
                                                key,
 											   bytes_to_write);
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
- 800cbe6:	b138      	cbz	r0, 800cbf8 <optiga_util_write_shared_key+0x40>
+ 800ca42:	b138      	cbz	r0, 800ca54 <optiga_util_write_shared_key+0x40>
 
     } while (FALSE);
 
 
     example_optiga_deinit();
- 800cbe8:	f7ff fab4 	bl	800c154 <example_optiga_deinit>
+ 800ca44:	f7ff fb86 	bl	800c154 <example_optiga_deinit>
 
 
 
     if (NULL != me)
     {
         optiga_util_destroy(me);
- 800cbec:	4628      	mov	r0, r5
+ 800ca48:	4628      	mov	r0, r5
     }
 }
- 800cbee:	b002      	add	sp, #8
- 800cbf0:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+ 800ca4a:	b002      	add	sp, #8
+ 800ca4c:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
 
 
 
     if (NULL != me)
     {
         optiga_util_destroy(me);
- 800cbf4:	f7f8 bae2 	b.w	80051bc <optiga_util_destroy>
+ 800ca50:	f7f8 bbb4 	b.w	80051bc <optiga_util_destroy>
                                                OPTIGA_UTIL_ERASE_AND_WRITE,
                                                offset,
                                                key,
 											   bytes_to_write);
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
- 800cbf8:	8823      	ldrh	r3, [r4, #0]
- 800cbfa:	4a07      	ldr	r2, [pc, #28]	; (800cc18 <optiga_util_write_shared_key+0x60>)
- 800cbfc:	b29b      	uxth	r3, r3
- 800cbfe:	2b01      	cmp	r3, #1
- 800cc00:	d0fa      	beq.n	800cbf8 <optiga_util_write_shared_key+0x40>
- 800cc02:	8813      	ldrh	r3, [r2, #0]
- 800cc04:	b29b      	uxth	r3, r3
- 800cc06:	2b00      	cmp	r3, #0
- 800cc08:	d0ee      	beq.n	800cbe8 <optiga_util_write_shared_key+0x30>
- 800cc0a:	8813      	ldrh	r3, [r2, #0]
- 800cc0c:	e7ec      	b.n	800cbe8 <optiga_util_write_shared_key+0x30>
+ 800ca54:	8823      	ldrh	r3, [r4, #0]
+ 800ca56:	4a07      	ldr	r2, [pc, #28]	; (800ca74 <optiga_util_write_shared_key+0x60>)
+ 800ca58:	b29b      	uxth	r3, r3
+ 800ca5a:	2b01      	cmp	r3, #1
+ 800ca5c:	d0fa      	beq.n	800ca54 <optiga_util_write_shared_key+0x40>
+ 800ca5e:	8813      	ldrh	r3, [r2, #0]
+ 800ca60:	b29b      	uxth	r3, r3
+ 800ca62:	2b00      	cmp	r3, #0
+ 800ca64:	d0ee      	beq.n	800ca44 <optiga_util_write_shared_key+0x30>
+ 800ca66:	8813      	ldrh	r3, [r2, #0]
+ 800ca68:	e7ec      	b.n	800ca44 <optiga_util_write_shared_key+0x30>
 
     if (NULL != me)
     {
         optiga_util_destroy(me);
     }
 }
- 800cc0e:	b002      	add	sp, #8
- 800cc10:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+ 800ca6a:	b002      	add	sp, #8
+ 800ca6c:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
 
     } while (FALSE);
 
 
     example_optiga_deinit();
- 800cc14:	f7ff ba9e 	b.w	800c154 <example_optiga_deinit>
- 800cc18:	1fff0802 	.word	0x1fff0802
+ 800ca70:	f7ff bb70 	b.w	800c154 <example_optiga_deinit>
+ 800ca74:	1fff0802 	.word	0x1fff0802
 
-0800cc1c <optiga_util_read_shared_key>:
+0800ca78 <optiga_util_read_shared_key>:
     }
 }
 
 
 void optiga_util_read_shared_key(uint16_t optiga_oid, uint8_t read_data_buffer[], uint16_t bytes_to_read)
 {
- 800cc1c:	b5f0      	push	{r4, r5, r6, r7, lr}
- 800cc1e:	b085      	sub	sp, #20
- 800cc20:	4607      	mov	r7, r0
- 800cc22:	460e      	mov	r6, r1
- 800cc24:	f8ad 200e 	strh.w	r2, [sp, #14]
+ 800ca78:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 800ca7a:	b085      	sub	sp, #20
+ 800ca7c:	4607      	mov	r7, r0
+ 800ca7e:	460e      	mov	r6, r1
+ 800ca80:	f8ad 200e 	strh.w	r2, [sp, #14]
     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
     optiga_util_t * me = NULL;
 
     do
     {
         example_optiga_init();
- 800cc28:	f7ff fa62 	bl	800c0f0 <example_optiga_init>
+ 800ca84:	f7ff fb34 	bl	800c0f0 <example_optiga_init>
 
         me = optiga_util_create_wrapper();
- 800cc2c:	f7ff fc82 	bl	800c534 <optiga_util_create_wrapper>
+ 800ca88:	f7ff fd54 	bl	800c534 <optiga_util_create_wrapper>
         if (NULL == me)
- 800cc30:	b1f0      	cbz	r0, 800cc70 <optiga_util_read_shared_key+0x54>
+ 800ca8c:	b1f0      	cbz	r0, 800cacc <optiga_util_read_shared_key+0x54>
             break;
         }
 
         optiga_lib_status = OPTIGA_LIB_BUSY;
 
         return_status = optiga_util_read_data(me,
- 800cc32:	f10d 020e 	add.w	r2, sp, #14
-        if (NULL == me)
-        {
-            break;
-        }
-
-        optiga_lib_status = OPTIGA_LIB_BUSY;
- 800cc36:	4c10      	ldr	r4, [pc, #64]	; (800cc78 <optiga_util_read_shared_key+0x5c>)
-
-        return_status = optiga_util_read_data(me,
- 800cc38:	9200      	str	r2, [sp, #0]
- 800cc3a:	4633      	mov	r3, r6
- 800cc3c:	4639      	mov	r1, r7
+ 800ca8e:	f10d 020e 	add.w	r2, sp, #14
         if (NULL == me)
         {
             break;
         }
 
         optiga_lib_status = OPTIGA_LIB_BUSY;
- 800cc3e:	2601      	movs	r6, #1
+ 800ca92:	4c10      	ldr	r4, [pc, #64]	; (800cad4 <optiga_util_read_shared_key+0x5c>)
 
         return_status = optiga_util_read_data(me,
- 800cc40:	2200      	movs	r2, #0
- 800cc42:	4605      	mov	r5, r0
+ 800ca94:	9200      	str	r2, [sp, #0]
+ 800ca96:	4633      	mov	r3, r6
+ 800ca98:	4639      	mov	r1, r7
         if (NULL == me)
         {
             break;
         }
 
         optiga_lib_status = OPTIGA_LIB_BUSY;
- 800cc44:	8026      	strh	r6, [r4, #0]
+ 800ca9a:	2601      	movs	r6, #1
 
         return_status = optiga_util_read_data(me,
- 800cc46:	f7f8 fb0b 	bl	8005260 <optiga_util_read_data>
+ 800ca9c:	2200      	movs	r2, #0
+ 800ca9e:	4605      	mov	r5, r0
+        if (NULL == me)
+        {
+            break;
+        }
+
+        optiga_lib_status = OPTIGA_LIB_BUSY;
+ 800caa0:	8026      	strh	r6, [r4, #0]
+
+        return_status = optiga_util_read_data(me,
+ 800caa2:	f7f8 fbdd 	bl	8005260 <optiga_util_read_data>
                                               optiga_oid,
                                               offset,
                                               read_data_buffer,
                                               &bytes_to_read);
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
- 800cc4a:	b130      	cbz	r0, 800cc5a <optiga_util_read_shared_key+0x3e>
+ 800caa6:	b130      	cbz	r0, 800cab6 <optiga_util_read_shared_key+0x3e>
 
     } while (FALSE);
 
     example_optiga_deinit();
- 800cc4c:	f7ff fa82 	bl	800c154 <example_optiga_deinit>
+ 800caa8:	f7ff fb54 	bl	800c154 <example_optiga_deinit>
 
     if (NULL != me)
     {
         optiga_util_destroy(me);
- 800cc50:	4628      	mov	r0, r5
- 800cc52:	f7f8 fab3 	bl	80051bc <optiga_util_destroy>
+ 800caac:	4628      	mov	r0, r5
+ 800caae:	f7f8 fb85 	bl	80051bc <optiga_util_destroy>
     }
 }
- 800cc56:	b005      	add	sp, #20
- 800cc58:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 800cab2:	b005      	add	sp, #20
+ 800cab4:	bdf0      	pop	{r4, r5, r6, r7, pc}
                                               optiga_oid,
                                               offset,
                                               read_data_buffer,
                                               &bytes_to_read);
 
         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
- 800cc5a:	8823      	ldrh	r3, [r4, #0]
- 800cc5c:	4a06      	ldr	r2, [pc, #24]	; (800cc78 <optiga_util_read_shared_key+0x5c>)
- 800cc5e:	b29b      	uxth	r3, r3
- 800cc60:	2b01      	cmp	r3, #1
- 800cc62:	d0fa      	beq.n	800cc5a <optiga_util_read_shared_key+0x3e>
- 800cc64:	8813      	ldrh	r3, [r2, #0]
- 800cc66:	b29b      	uxth	r3, r3
- 800cc68:	2b00      	cmp	r3, #0
- 800cc6a:	d0ef      	beq.n	800cc4c <optiga_util_read_shared_key+0x30>
- 800cc6c:	8813      	ldrh	r3, [r2, #0]
- 800cc6e:	e7ed      	b.n	800cc4c <optiga_util_read_shared_key+0x30>
+ 800cab6:	8823      	ldrh	r3, [r4, #0]
+ 800cab8:	4a06      	ldr	r2, [pc, #24]	; (800cad4 <optiga_util_read_shared_key+0x5c>)
+ 800caba:	b29b      	uxth	r3, r3
+ 800cabc:	2b01      	cmp	r3, #1
+ 800cabe:	d0fa      	beq.n	800cab6 <optiga_util_read_shared_key+0x3e>
+ 800cac0:	8813      	ldrh	r3, [r2, #0]
+ 800cac2:	b29b      	uxth	r3, r3
+ 800cac4:	2b00      	cmp	r3, #0
+ 800cac6:	d0ef      	beq.n	800caa8 <optiga_util_read_shared_key+0x30>
+ 800cac8:	8813      	ldrh	r3, [r2, #0]
+ 800caca:	e7ed      	b.n	800caa8 <optiga_util_read_shared_key+0x30>
 
     } while (FALSE);
 
     example_optiga_deinit();
- 800cc70:	f7ff fa70 	bl	800c154 <example_optiga_deinit>
+ 800cacc:	f7ff fb42 	bl	800c154 <example_optiga_deinit>
 
     if (NULL != me)
     {
         optiga_util_destroy(me);
     }
 }
- 800cc74:	b005      	add	sp, #20
- 800cc76:	bdf0      	pop	{r4, r5, r6, r7, pc}
- 800cc78:	1fff0802 	.word	0x1fff0802
+ 800cad0:	b005      	add	sp, #20
+ 800cad2:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 800cad4:	1fff0802 	.word	0x1fff0802
 
-0800cc7c <stream_enc>:
+0800cad8 <stream_enc>:
 
 
 void stream_enc(uint8_t r1[], const uint8_t r2[], uint8_t len)
 {
     unsigned int i;
     for (i = 0; i < len; ++i)
- 800cc7c:	2a00      	cmp	r2, #0
- 800cc7e:	d04c      	beq.n	800cd1a <stream_enc+0x9e>
- 800cc80:	1d03      	adds	r3, r0, #4
+ 800cad8:	2a00      	cmp	r2, #0
+ 800cada:	d04c      	beq.n	800cb76 <stream_enc+0x9e>
+ 800cadc:	1d03      	adds	r3, r0, #4
 
 #include "../SEMS_Headers/Util.h"
 
 
 void stream_enc(uint8_t r1[], const uint8_t r2[], uint8_t len)
 {
- 800cc82:	b5f0      	push	{r4, r5, r6, r7, lr}
- 800cc84:	1d0c      	adds	r4, r1, #4
- 800cc86:	42a0      	cmp	r0, r4
- 800cc88:	bf38      	it	cc
- 800cc8a:	4299      	cmpcc	r1, r3
- 800cc8c:	bf2c      	ite	cs
- 800cc8e:	2301      	movcs	r3, #1
- 800cc90:	2300      	movcc	r3, #0
- 800cc92:	2a06      	cmp	r2, #6
- 800cc94:	bf94      	ite	ls
- 800cc96:	2300      	movls	r3, #0
- 800cc98:	f003 0301 	andhi.w	r3, r3, #1
- 800cc9c:	b383      	cbz	r3, 800cd00 <stream_enc+0x84>
- 800cc9e:	ea41 0300 	orr.w	r3, r1, r0
- 800cca2:	079b      	lsls	r3, r3, #30
- 800cca4:	d12c      	bne.n	800cd00 <stream_enc+0x84>
- 800cca6:	1f14      	subs	r4, r2, #4
- 800cca8:	08a4      	lsrs	r4, r4, #2
- 800ccaa:	1e55      	subs	r5, r2, #1
- 800ccac:	3401      	adds	r4, #1
- 800ccae:	2d02      	cmp	r5, #2
- 800ccb0:	ea4f 0384 	mov.w	r3, r4, lsl #2
- 800ccb4:	d922      	bls.n	800ccfc <stream_enc+0x80>
- 800ccb6:	f1a1 0c04 	sub.w	ip, r1, #4
+ 800cade:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 800cae0:	1d0c      	adds	r4, r1, #4
+ 800cae2:	42a0      	cmp	r0, r4
+ 800cae4:	bf38      	it	cc
+ 800cae6:	4299      	cmpcc	r1, r3
+ 800cae8:	bf2c      	ite	cs
+ 800caea:	2301      	movcs	r3, #1
+ 800caec:	2300      	movcc	r3, #0
+ 800caee:	2a06      	cmp	r2, #6
+ 800caf0:	bf94      	ite	ls
+ 800caf2:	2300      	movls	r3, #0
+ 800caf4:	f003 0301 	andhi.w	r3, r3, #1
+ 800caf8:	b383      	cbz	r3, 800cb5c <stream_enc+0x84>
+ 800cafa:	ea41 0300 	orr.w	r3, r1, r0
+ 800cafe:	079b      	lsls	r3, r3, #30
+ 800cb00:	d12c      	bne.n	800cb5c <stream_enc+0x84>
+ 800cb02:	1f14      	subs	r4, r2, #4
+ 800cb04:	08a4      	lsrs	r4, r4, #2
+ 800cb06:	1e55      	subs	r5, r2, #1
+ 800cb08:	3401      	adds	r4, #1
+ 800cb0a:	2d02      	cmp	r5, #2
+ 800cb0c:	ea4f 0384 	mov.w	r3, r4, lsl #2
+ 800cb10:	d922      	bls.n	800cb58 <stream_enc+0x80>
+ 800cb12:	f1a1 0c04 	sub.w	ip, r1, #4
     unsigned int i;
     for (i = 0; i < len; ++i)
- 800ccba:	4686      	mov	lr, r0
- 800ccbc:	2600      	movs	r6, #0
+ 800cb16:	4686      	mov	lr, r0
+ 800cb18:	2600      	movs	r6, #0
     {
         r1[i] = r1[i] ^ r2[i];
- 800ccbe:	f8de 7000 	ldr.w	r7, [lr]
- 800ccc2:	f85c 5f04 	ldr.w	r5, [ip, #4]!
- 800ccc6:	3601      	adds	r6, #1
- 800ccc8:	407d      	eors	r5, r7
- 800ccca:	42a6      	cmp	r6, r4
- 800cccc:	f84e 5b04 	str.w	r5, [lr], #4
- 800ccd0:	d3f5      	bcc.n	800ccbe <stream_enc+0x42>
- 800ccd2:	429a      	cmp	r2, r3
- 800ccd4:	d01f      	beq.n	800cd16 <stream_enc+0x9a>
- 800ccd6:	5cce      	ldrb	r6, [r1, r3]
- 800ccd8:	5cc5      	ldrb	r5, [r0, r3]
+ 800cb1a:	f8de 7000 	ldr.w	r7, [lr]
+ 800cb1e:	f85c 5f04 	ldr.w	r5, [ip, #4]!
+ 800cb22:	3601      	adds	r6, #1
+ 800cb24:	407d      	eors	r5, r7
+ 800cb26:	42a6      	cmp	r6, r4
+ 800cb28:	f84e 5b04 	str.w	r5, [lr], #4
+ 800cb2c:	d3f5      	bcc.n	800cb1a <stream_enc+0x42>
+ 800cb2e:	429a      	cmp	r2, r3
+ 800cb30:	d01f      	beq.n	800cb72 <stream_enc+0x9a>
+ 800cb32:	5cce      	ldrb	r6, [r1, r3]
+ 800cb34:	5cc5      	ldrb	r5, [r0, r3]
 
 
 void stream_enc(uint8_t r1[], const uint8_t r2[], uint8_t len)
 {
     unsigned int i;
     for (i = 0; i < len; ++i)
- 800ccda:	1c5c      	adds	r4, r3, #1
+ 800cb36:	1c5c      	adds	r4, r3, #1
     {
         r1[i] = r1[i] ^ r2[i];
- 800ccdc:	4075      	eors	r5, r6
+ 800cb38:	4075      	eors	r5, r6
 
 
 void stream_enc(uint8_t r1[], const uint8_t r2[], uint8_t len)
 {
     unsigned int i;
     for (i = 0; i < len; ++i)
- 800ccde:	4294      	cmp	r4, r2
+ 800cb3a:	4294      	cmp	r4, r2
     {
         r1[i] = r1[i] ^ r2[i];
- 800cce0:	54c5      	strb	r5, [r0, r3]
+ 800cb3c:	54c5      	strb	r5, [r0, r3]
 
 
 void stream_enc(uint8_t r1[], const uint8_t r2[], uint8_t len)
 {
     unsigned int i;
     for (i = 0; i < len; ++i)
- 800cce2:	d217      	bcs.n	800cd14 <stream_enc+0x98>
+ 800cb3e:	d217      	bcs.n	800cb70 <stream_enc+0x98>
     {
         r1[i] = r1[i] ^ r2[i];
- 800cce4:	5d0e      	ldrb	r6, [r1, r4]
- 800cce6:	5d05      	ldrb	r5, [r0, r4]
+ 800cb40:	5d0e      	ldrb	r6, [r1, r4]
+ 800cb42:	5d05      	ldrb	r5, [r0, r4]
 
 
 void stream_enc(uint8_t r1[], const uint8_t r2[], uint8_t len)
 {
     unsigned int i;
     for (i = 0; i < len; ++i)
- 800cce8:	3302      	adds	r3, #2
+ 800cb44:	3302      	adds	r3, #2
     {
         r1[i] = r1[i] ^ r2[i];
- 800ccea:	4075      	eors	r5, r6
+ 800cb46:	4075      	eors	r5, r6
 
 
 void stream_enc(uint8_t r1[], const uint8_t r2[], uint8_t len)
 {
     unsigned int i;
     for (i = 0; i < len; ++i)
- 800ccec:	429a      	cmp	r2, r3
+ 800cb48:	429a      	cmp	r2, r3
     {
         r1[i] = r1[i] ^ r2[i];
- 800ccee:	5505      	strb	r5, [r0, r4]
+ 800cb4a:	5505      	strb	r5, [r0, r4]
 
 
 void stream_enc(uint8_t r1[], const uint8_t r2[], uint8_t len)
 {
     unsigned int i;
     for (i = 0; i < len; ++i)
- 800ccf0:	d912      	bls.n	800cd18 <stream_enc+0x9c>
+ 800cb4c:	d912      	bls.n	800cb74 <stream_enc+0x9c>
     {
         r1[i] = r1[i] ^ r2[i];
- 800ccf2:	5cc9      	ldrb	r1, [r1, r3]
- 800ccf4:	5cc2      	ldrb	r2, [r0, r3]
- 800ccf6:	404a      	eors	r2, r1
- 800ccf8:	54c2      	strb	r2, [r0, r3]
- 800ccfa:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 800cb4e:	5cc9      	ldrb	r1, [r1, r3]
+ 800cb50:	5cc2      	ldrb	r2, [r0, r3]
+ 800cb52:	404a      	eors	r2, r1
+ 800cb54:	54c2      	strb	r2, [r0, r3]
+ 800cb56:	bdf0      	pop	{r4, r5, r6, r7, pc}
 
 
 void stream_enc(uint8_t r1[], const uint8_t r2[], uint8_t len)
 {
     unsigned int i;
     for (i = 0; i < len; ++i)
- 800ccfc:	2300      	movs	r3, #0
- 800ccfe:	e7ea      	b.n	800ccd6 <stream_enc+0x5a>
- 800cd00:	4402      	add	r2, r0
- 800cd02:	3901      	subs	r1, #1
+ 800cb58:	2300      	movs	r3, #0
+ 800cb5a:	e7ea      	b.n	800cb32 <stream_enc+0x5a>
+ 800cb5c:	4402      	add	r2, r0
+ 800cb5e:	3901      	subs	r1, #1
     {
         r1[i] = r1[i] ^ r2[i];
- 800cd04:	7804      	ldrb	r4, [r0, #0]
- 800cd06:	f811 3f01 	ldrb.w	r3, [r1, #1]!
- 800cd0a:	4063      	eors	r3, r4
- 800cd0c:	f800 3b01 	strb.w	r3, [r0], #1
+ 800cb60:	7804      	ldrb	r4, [r0, #0]
+ 800cb62:	f811 3f01 	ldrb.w	r3, [r1, #1]!
+ 800cb66:	4063      	eors	r3, r4
+ 800cb68:	f800 3b01 	strb.w	r3, [r0], #1
 
 
 void stream_enc(uint8_t r1[], const uint8_t r2[], uint8_t len)
 {
     unsigned int i;
     for (i = 0; i < len; ++i)
- 800cd10:	4290      	cmp	r0, r2
- 800cd12:	d1f7      	bne.n	800cd04 <stream_enc+0x88>
- 800cd14:	bdf0      	pop	{r4, r5, r6, r7, pc}
- 800cd16:	bdf0      	pop	{r4, r5, r6, r7, pc}
- 800cd18:	bdf0      	pop	{r4, r5, r6, r7, pc}
- 800cd1a:	4770      	bx	lr
+ 800cb6c:	4290      	cmp	r0, r2
+ 800cb6e:	d1f7      	bne.n	800cb60 <stream_enc+0x88>
+ 800cb70:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 800cb72:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 800cb74:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 800cb76:	4770      	bx	lr
+
+0800cb78 <my_optiga_shell_begin>:
+volatile uint8_t failed_req = 0;
+volatile uint8_t cooldowned = false;
+
+
+void my_optiga_shell_begin(void)
+{
+ 800cb78:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 800cb7c:	b091      	sub	sp, #68	; 0x44
+ 800cb7e:	f8df 9188 	ldr.w	r9, [pc, #392]	; 800cd08 <my_optiga_shell_begin+0x190>
+ 800cb82:	f8df 8188 	ldr.w	r8, [pc, #392]	; 800cd0c <my_optiga_shell_begin+0x194>
+
+	uint8_t sec_unlocked = false;
+	uint8_t sec_comm = false;
+	uint8_t command[32];  // Toate comenzile au 32 de bytes
+
+	init_SEMS();
+ 800cb86:	f7ff fd39 	bl	800c5fc <init_SEMS>
+
+void my_optiga_shell_begin(void)
+{
+
+	uint8_t sec_unlocked = false;
+	uint8_t sec_comm = false;
+ 800cb8a:	2600      	movs	r6, #0
+		else
+		{
+			// Req before unlock || invalid Token, Nonce, Hash
+
+			failed_req++;
+			if(true == cooldowned)
+ 800cb8c:	46cb      	mov	fp, r9
+		}
+		else
+		{
+			// Req before unlock || invalid Token, Nonce, Hash
+
+			failed_req++;
+ 800cb8e:	46c2      	mov	sl, r8
+
+
+void my_optiga_shell_begin(void)
+{
+
+	uint8_t sec_unlocked = false;
+ 800cb90:	4637      	mov	r7, r6
+ 800cb92:	ac08      	add	r4, sp, #32
+
+	while(true)
+	{
+
+		// Wrapper for serial read
+		if(0u == read_request(command, sec_unlocked, sec_comm))
+ 800cb94:	4668      	mov	r0, sp
+ 800cb96:	4639      	mov	r1, r7
+ 800cb98:	4632      	mov	r2, r6
+ 800cb9a:	f7ff fd97 	bl	800c6cc <read_request>
+ 800cb9e:	4605      	mov	r5, r0
+ 800cba0:	bb40      	cbnz	r0, 800cbf4 <my_optiga_shell_begin+0x7c>
+		{
+			// Valid request
+			req_type req_rcv;
+			if(true == cooldowned)
+ 800cba2:	f899 3000 	ldrb.w	r3, [r9]
+ 800cba6:	2b01      	cmp	r3, #1
+ 800cba8:	d074      	beq.n	800cc94 <my_optiga_shell_begin+0x11c>
+				uint8_t buff[32] = "Denied by cooldown.";
+				optiga_lib_print_bytes(buff, 32);
+				continue;
+			}
+
+			req_rcv = decode_req(command);
+ 800cbaa:	4668      	mov	r0, sp
+ 800cbac:	f7ff fcd2 	bl	800c554 <decode_req>
+
+			switch(req_rcv){
+ 800cbb0:	2803      	cmp	r0, #3
+ 800cbb2:	f200 8082 	bhi.w	800ccba <my_optiga_shell_begin+0x142>
+ 800cbb6:	e8df f000 	tbb	[pc, r0]
+ 800cbba:	575b      	.short	0x575b
+ 800cbbc:	0241      	.short	0x0241
+					write_request(buff, sec_comm);
+					break;
+				}
+				case EXAMPLE:
+				{
+					uint8_t buff[32] = "Command response";
+ 800cbbe:	f8df e150 	ldr.w	lr, [pc, #336]	; 800cd10 <my_optiga_shell_begin+0x198>
+ 800cbc2:	e8be 000f 	ldmia.w	lr!, {r0, r1, r2, r3}
+ 800cbc6:	4625      	mov	r5, r4
+ 800cbc8:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+ 800cbca:	f8de 3000 	ldr.w	r3, [lr]
+ 800cbce:	702b      	strb	r3, [r5, #0]
+ 800cbd0:	220f      	movs	r2, #15
+ 800cbd2:	2100      	movs	r1, #0
+ 800cbd4:	f10d 0031 	add.w	r0, sp, #49	; 0x31
+ 800cbd8:	f000 fc43 	bl	800d462 <memset>
+					write_request(buff, sec_comm);
+ 800cbdc:	4631      	mov	r1, r6
+ 800cbde:	4620      	mov	r0, r4
+ 800cbe0:	f7ff fde0 	bl	800c7a4 <write_request>
+
+	while(true)
+	{
+
+		// Wrapper for serial read
+		if(0u == read_request(command, sec_unlocked, sec_comm))
+ 800cbe4:	4668      	mov	r0, sp
+ 800cbe6:	4639      	mov	r1, r7
+ 800cbe8:	4632      	mov	r2, r6
+ 800cbea:	f7ff fd6f 	bl	800c6cc <read_request>
+ 800cbee:	4605      	mov	r5, r0
+ 800cbf0:	2800      	cmp	r0, #0
+ 800cbf2:	d0d6      	beq.n	800cba2 <my_optiga_shell_begin+0x2a>
+		}
+		else
+		{
+			// Req before unlock || invalid Token, Nonce, Hash
+
+			failed_req++;
+ 800cbf4:	f898 3000 	ldrb.w	r3, [r8]
+ 800cbf8:	3301      	adds	r3, #1
+ 800cbfa:	b2db      	uxtb	r3, r3
+ 800cbfc:	f888 3000 	strb.w	r3, [r8]
+			if(true == cooldowned)
+ 800cc00:	f899 3000 	ldrb.w	r3, [r9]
+ 800cc04:	2b01      	cmp	r3, #1
+ 800cc06:	d066      	beq.n	800ccd6 <my_optiga_shell_begin+0x15e>
+				uint8_t buff[32] = "Denied by cooldown.";
+				optiga_lib_print_bytes(buff, 32);
+			}
+			else
+			{
+				if(failed_req >= MAX_FAILED_REQ)
+ 800cc08:	f89a 3000 	ldrb.w	r3, [sl]
+ 800cc0c:	f003 05ff 	and.w	r5, r3, #255	; 0xff
+ 800cc10:	b39b      	cbz	r3, 800cc7a <my_optiga_shell_begin+0x102>
+				{
+					uint8_t buff[32] = "Cooldown activated.";
+ 800cc12:	f8df e100 	ldr.w	lr, [pc, #256]	; 800cd14 <my_optiga_shell_begin+0x19c>
+ 800cc16:	e8be 000f 	ldmia.w	lr!, {r0, r1, r2, r3}
+ 800cc1a:	4625      	mov	r5, r4
+ 800cc1c:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+ 800cc1e:	f8de 3000 	ldr.w	r3, [lr]
+ 800cc22:	602b      	str	r3, [r5, #0]
+					optiga_lib_print_bytes(buff, 32);
+ 800cc24:	4620      	mov	r0, r4
+			}
+			else
+			{
+				if(failed_req >= MAX_FAILED_REQ)
+				{
+					uint8_t buff[32] = "Cooldown activated.";
+ 800cc26:	2300      	movs	r3, #0
+					optiga_lib_print_bytes(buff, 32);
+ 800cc28:	2120      	movs	r1, #32
+			}
+			else
+			{
+				if(failed_req >= MAX_FAILED_REQ)
+				{
+					uint8_t buff[32] = "Cooldown activated.";
+ 800cc2a:	930d      	str	r3, [sp, #52]	; 0x34
+ 800cc2c:	930e      	str	r3, [sp, #56]	; 0x38
+ 800cc2e:	930f      	str	r3, [sp, #60]	; 0x3c
+					optiga_lib_print_bytes(buff, 32);
+ 800cc30:	f7fa ff56 	bl	8007ae0 <optiga_lib_print_bytes>
+					cooldowned = true;
+ 800cc34:	2301      	movs	r3, #1
+ 800cc36:	f88b 3000 	strb.w	r3, [fp]
+ 800cc3a:	e7ab      	b.n	800cb94 <my_optiga_shell_begin+0x1c>
+					sec_comm = secure_communication();
+					break;
+				}
+				case SEC_LOCK:
+				{
+					uint8_t buff[32] = "Locked";
+ 800cc3c:	4b2f      	ldr	r3, [pc, #188]	; (800ccfc <my_optiga_shell_begin+0x184>)
+ 800cc3e:	e893 0003 	ldmia.w	r3, {r0, r1}
+ 800cc42:	2219      	movs	r2, #25
+ 800cc44:	0c0b      	lsrs	r3, r1, #16
+ 800cc46:	6020      	str	r0, [r4, #0]
+ 800cc48:	f8ad 1024 	strh.w	r1, [sp, #36]	; 0x24
+ 800cc4c:	f10d 0027 	add.w	r0, sp, #39	; 0x27
+ 800cc50:	2100      	movs	r1, #0
+					sec_unlocked = 0;
+					write_request(buff, sec_comm);
+ 800cc52:	ac08      	add	r4, sp, #32
+					sec_comm = secure_communication();
+					break;
+				}
+				case SEC_LOCK:
+				{
+					uint8_t buff[32] = "Locked";
+ 800cc54:	f88d 3026 	strb.w	r3, [sp, #38]	; 0x26
+ 800cc58:	f000 fc03 	bl	800d462 <memset>
+					sec_unlocked = 0;
+					write_request(buff, sec_comm);
+ 800cc5c:	4620      	mov	r0, r4
+ 800cc5e:	4631      	mov	r1, r6
+ 800cc60:	f7ff fda0 	bl	800c7a4 <write_request>
+					break;
+				}
+				case SEC_LOCK:
+				{
+					uint8_t buff[32] = "Locked";
+					sec_unlocked = 0;
+ 800cc64:	2700      	movs	r7, #0
+ 800cc66:	e795      	b.n	800cb94 <my_optiga_shell_begin+0x1c>
+					sec_comm = 0;  // reset sec_comm flag
+					break;
+				}
+				case SEC_COM: // momentan nu pot da 2 cereri de sec com
+				{
+					sec_comm = secure_communication();
+ 800cc68:	f7ff fc16 	bl	800c498 <secure_communication>
+ 800cc6c:	4606      	mov	r6, r0
+					break;
+ 800cc6e:	e791      	b.n	800cb94 <my_optiga_shell_begin+0x1c>
+			req_rcv = decode_req(command);
+
+			switch(req_rcv){
+				case SEC_UNLOCK:
+				{
+					sec_unlocked = secure_unlock();
+ 800cc70:	f000 f876 	bl	800cd60 <secure_unlock>
+					sec_comm = 0;  // reset sec_comm flag
+ 800cc74:	2600      	movs	r6, #0
+			req_rcv = decode_req(command);
+
+			switch(req_rcv){
+				case SEC_UNLOCK:
+				{
+					sec_unlocked = secure_unlock();
+ 800cc76:	4607      	mov	r7, r0
+					sec_comm = 0;  // reset sec_comm flag
+					break;
+ 800cc78:	e78c      	b.n	800cb94 <my_optiga_shell_begin+0x1c>
+					cooldowned = true;
+				}
+				else
+				{
+					// Just a wrong request
+					uint8_t buff[32] = "Request denied.";
+ 800cc7a:	4b21      	ldr	r3, [pc, #132]	; (800cd00 <my_optiga_shell_begin+0x188>)
+ 800cc7c:	950c      	str	r5, [sp, #48]	; 0x30
+ 800cc7e:	cb0f      	ldmia	r3, {r0, r1, r2, r3}
+ 800cc80:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
+					optiga_lib_print_bytes(buff, 32);
+ 800cc84:	4620      	mov	r0, r4
+ 800cc86:	2120      	movs	r1, #32
+					cooldowned = true;
+				}
+				else
+				{
+					// Just a wrong request
+					uint8_t buff[32] = "Request denied.";
+ 800cc88:	950d      	str	r5, [sp, #52]	; 0x34
+ 800cc8a:	950e      	str	r5, [sp, #56]	; 0x38
+ 800cc8c:	950f      	str	r5, [sp, #60]	; 0x3c
+					optiga_lib_print_bytes(buff, 32);
+ 800cc8e:	f7fa ff27 	bl	8007ae0 <optiga_lib_print_bytes>
+ 800cc92:	e77f      	b.n	800cb94 <my_optiga_shell_begin+0x1c>
+		{
+			// Valid request
+			req_type req_rcv;
+			if(true == cooldowned)
+			{
+				uint8_t buff[32] = "Denied by cooldown.";
+ 800cc94:	f8df c080 	ldr.w	ip, [pc, #128]	; 800cd18 <my_optiga_shell_begin+0x1a0>
+ 800cc98:	900d      	str	r0, [sp, #52]	; 0x34
+ 800cc9a:	e8bc 000f 	ldmia.w	ip!, {r0, r1, r2, r3}
+ 800cc9e:	46a6      	mov	lr, r4
+ 800cca0:	e8ae 000f 	stmia.w	lr!, {r0, r1, r2, r3}
+ 800cca4:	f8dc 3000 	ldr.w	r3, [ip]
+ 800cca8:	950e      	str	r5, [sp, #56]	; 0x38
+				optiga_lib_print_bytes(buff, 32);
+ 800ccaa:	4620      	mov	r0, r4
+ 800ccac:	2120      	movs	r1, #32
+		{
+			// Valid request
+			req_type req_rcv;
+			if(true == cooldowned)
+			{
+				uint8_t buff[32] = "Denied by cooldown.";
+ 800ccae:	950f      	str	r5, [sp, #60]	; 0x3c
+ 800ccb0:	f8ce 3000 	str.w	r3, [lr]
+				optiga_lib_print_bytes(buff, 32);
+ 800ccb4:	f7fa ff14 	bl	8007ae0 <optiga_lib_print_bytes>
+ 800ccb8:	e76c      	b.n	800cb94 <my_optiga_shell_begin+0x1c>
+					break;
+				}
+				case UNKNOWN:
+				default:
+				{
+					uint8_t buff[32] = "Unknown request";
+ 800ccba:	4b12      	ldr	r3, [pc, #72]	; (800cd04 <my_optiga_shell_begin+0x18c>)
+ 800ccbc:	cb0f      	ldmia	r3, {r0, r1, r2, r3}
+ 800ccbe:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
+ 800ccc2:	2300      	movs	r3, #0
+					write_request(buff, sec_comm);
+ 800ccc4:	4620      	mov	r0, r4
+ 800ccc6:	4631      	mov	r1, r6
+					break;
+				}
+				case UNKNOWN:
+				default:
+				{
+					uint8_t buff[32] = "Unknown request";
+ 800ccc8:	930c      	str	r3, [sp, #48]	; 0x30
+ 800ccca:	930d      	str	r3, [sp, #52]	; 0x34
+ 800cccc:	930e      	str	r3, [sp, #56]	; 0x38
+ 800ccce:	930f      	str	r3, [sp, #60]	; 0x3c
+					write_request(buff, sec_comm);
+ 800ccd0:	f7ff fd68 	bl	800c7a4 <write_request>
+ 800ccd4:	e75e      	b.n	800cb94 <my_optiga_shell_begin+0x1c>
+			// Req before unlock || invalid Token, Nonce, Hash
+
+			failed_req++;
+			if(true == cooldowned)
+			{
+				uint8_t buff[32] = "Denied by cooldown.";
+ 800ccd6:	f8df e040 	ldr.w	lr, [pc, #64]	; 800cd18 <my_optiga_shell_begin+0x1a0>
+ 800ccda:	e8be 000f 	ldmia.w	lr!, {r0, r1, r2, r3}
+ 800ccde:	4625      	mov	r5, r4
+ 800cce0:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+ 800cce2:	f8de 3000 	ldr.w	r3, [lr]
+ 800cce6:	602b      	str	r3, [r5, #0]
+				optiga_lib_print_bytes(buff, 32);
+ 800cce8:	4620      	mov	r0, r4
+			// Req before unlock || invalid Token, Nonce, Hash
+
+			failed_req++;
+			if(true == cooldowned)
+			{
+				uint8_t buff[32] = "Denied by cooldown.";
+ 800ccea:	2300      	movs	r3, #0
+				optiga_lib_print_bytes(buff, 32);
+ 800ccec:	2120      	movs	r1, #32
+			// Req before unlock || invalid Token, Nonce, Hash
+
+			failed_req++;
+			if(true == cooldowned)
+			{
+				uint8_t buff[32] = "Denied by cooldown.";
+ 800ccee:	930d      	str	r3, [sp, #52]	; 0x34
+ 800ccf0:	930e      	str	r3, [sp, #56]	; 0x38
+ 800ccf2:	930f      	str	r3, [sp, #60]	; 0x3c
+				optiga_lib_print_bytes(buff, 32);
+ 800ccf4:	f7fa fef4 	bl	8007ae0 <optiga_lib_print_bytes>
+ 800ccf8:	e74c      	b.n	800cb94 <my_optiga_shell_begin+0x1c>
+ 800ccfa:	bf00      	nop
+ 800ccfc:	0800dd48 	.word	0x0800dd48
+ 800cd00:	0800ddc8 	.word	0x0800ddc8
+ 800cd04:	0800dd88 	.word	0x0800dd88
+ 800cd08:	1fff0167 	.word	0x1fff0167
+ 800cd0c:	1fff0166 	.word	0x1fff0166
+ 800cd10:	0800dd68 	.word	0x0800dd68
+ 800cd14:	0800dda8 	.word	0x0800dda8
+ 800cd18:	0800dd28 	.word	0x0800dd28
 
 0800cd1c <start_cooldown_timer>:
 extern volatile uint8_t failed_req;
@@ -56407,8 +56407,8 @@ void TimerInterval_ISR(void)
  800cd52:	4b02      	ldr	r3, [pc, #8]	; (800cd5c <CCU80_3_IRQHandler+0x20>)
  800cd54:	701a      	strb	r2, [r3, #0]
  800cd56:	4770      	bx	lr
- 800cd58:	1fff00ca 	.word	0x1fff00ca
- 800cd5c:	1fff00cb 	.word	0x1fff00cb
+ 800cd58:	1fff0166 	.word	0x1fff0166
+ 800cd5c:	1fff0167 	.word	0x1fff0167
 
 0800cd60 <secure_unlock>:
 
@@ -56427,7 +56427,7 @@ uint8_t secure_unlock(void)
 	optiga_crypt_random_wrapper(random_buf, 32u);
  800cd64:	a802      	add	r0, sp, #8
  800cd66:	2120      	movs	r1, #32
- 800cd68:	f7ff fef6 	bl	800cb58 <optiga_crypt_random_wrapper>
+ 800cd68:	f7ff fe24 	bl	800c9b4 <optiga_crypt_random_wrapper>
 
 	// Send seed to App
 	optiga_lib_print_bytes(random_buf, 32u);
@@ -56476,7 +56476,7 @@ uint8_t secure_unlock(void)
  800cd96:	a802      	add	r0, sp, #8
  800cd98:	2120      	movs	r1, #32
  800cd9a:	2380      	movs	r3, #128	; 0x80
- 800cd9c:	f7ff fe84 	bl	800caa8 <optiga_crypt_rsa_verify_wrapper>
+ 800cd9c:	f7ff fdb2 	bl	800c904 <optiga_crypt_rsa_verify_wrapper>
 		if(success)
  800cda0:	4604      	mov	r4, r0
  800cda2:	b930      	cbnz	r0, 800cdb2 <secure_unlock+0x52>
@@ -56513,7 +56513,7 @@ uint8_t secure_unlock(void)
  800cdb8:	f88d 4000 	strb.w	r4, [sp]
 			// Generate random number using Optiga
 			optiga_crypt_random_wrapper(response + 1, 8u);  // nu pot genera doar 6
- 800cdbc:	f7ff fecc 	bl	800cb58 <optiga_crypt_random_wrapper>
+ 800cdbc:	f7ff fdfa 	bl	800c9b4 <optiga_crypt_random_wrapper>
 
 			// Adauga intr-o structura
 			user_token = (response[1] << 24u)+
@@ -56614,7 +56614,7 @@ int main(void)
  800ce08:	2064      	movs	r0, #100	; 0x64
  800ce0a:	f7f8 f993 	bl	8005134 <pal_os_timer_delay_in_milliseconds>
         my_optiga_shell_begin();
- 800ce0e:	f7ff fbfd 	bl	800c60c <my_optiga_shell_begin>
+ 800ce0e:	f7ff feb3 	bl	800cb78 <my_optiga_shell_begin>
  800ce12:	e7f6      	b.n	800ce02 <main+0x12>
  800ce14:	1ffed1b4 	.word	0x1ffed1b4
 
@@ -57614,30 +57614,30 @@ int main(void)
  800dc68:	1720 01c0 d001 e107 07fc 20fe 40e1 03d1      .......... .@..
  800dc78:	fce1 d307 0001 01e8 0022 0000 6e55 6f6c     ........"...Unlo
  800dc88:	6b63 0000 6553 4363 6d6f 0000 6f4c 6b63     ck..SecCom..Lock
- 800dc98:	0000 0000 6f43 6d6d 6e61 0064 6544 696e     ....Command.Deni
- 800dca8:	6465 6220 2079 6f63 6c6f 6f64 6e77 002e     ed by cooldown..
-	...
- 800dcc4:	6f4c 6b63 6465 0000 0000 0000 0000 0000     Locked..........
-	...
- 800dce4:	6f43 6d6d 6e61 2064 6572 7073 6e6f 6573     Command response
-	...
- 800dd04:	6e55 6e6b 776f 206e 6572 7571 7365 0074     Unknown request.
-	...
- 800dd24:	6f43 6c6f 6f64 6e77 6120 7463 7669 7461     Cooldown activat
- 800dd34:	6465 002e 0000 0000 0000 0000 0000 0000     ed..............
- 800dd44:	6552 7571 7365 2074 6564 696e 6465 002e     Request denied..
-	...
+ 800dc98:	0000 0000 6f43 6d6d 6e61 0064               ....Command.
 
-0800dd64 <rsa_public_key_exponent>:
- 800dd64:	0100 0100                                   ....
+0800dca4 <rsa_public_key_exponent>:
+ 800dca4:	0100 0100                                   ....
 
-0800dd68 <rsa_public_key_modulus>:
- 800dd68:	79d6 5278 1cfd 0166 6a20 7f4a 5424 c2f1     .yxR..f. jJ.$T..
- 800dd78:	eb86 c51a c2ff 29eb 2ae6 3e8f f1ff 6292     .......).*.>...b
- 800dd88:	20fd 8ceb a3cc 4e13 2815 e31d 1a0a 857b     . .....N.(....{.
- 800dd98:	c416 69ea 756f 4360 8562 3c2b 4ab1 dfbf     ...iou`Cb.+<.J..
- 800dda8:	33b5 6f00 f74d 3487 4ab9 07f3 84d6 4a3e     .3.oM..4.J....>J
- 800ddb8:	169b 39dd 32fa aa7f 6a13 0ddb 4269 f416     ...9.2...j..iB..
- 800ddc8:	ef63 a4d4 0eb2 d61e 1129 afff 72ac 3ef6     c.......)....r.>
- 800ddd8:	db4c bc0d 0962 f6e7 44d7 1b10 b956 2142     L...b....D..V.B!
+0800dca8 <rsa_public_key_modulus>:
+ 800dca8:	79d6 5278 1cfd 0166 6a20 7f4a 5424 c2f1     .yxR..f. jJ.$T..
+ 800dcb8:	eb86 c51a c2ff 29eb 2ae6 3e8f f1ff 6292     .......).*.>...b
+ 800dcc8:	20fd 8ceb a3cc 4e13 2815 e31d 1a0a 857b     . .....N.(....{.
+ 800dcd8:	c416 69ea 756f 4360 8562 3c2b 4ab1 dfbf     ...iou`Cb.+<.J..
+ 800dce8:	33b5 6f00 f74d 3487 4ab9 07f3 84d6 4a3e     .3.oM..4.J....>J
+ 800dcf8:	169b 39dd 32fa aa7f 6a13 0ddb 4269 f416     ...9.2...j..iB..
+ 800dd08:	ef63 a4d4 0eb2 d61e 1129 afff 72ac 3ef6     c.......)....r.>
+ 800dd18:	db4c bc0d 0962 f6e7 44d7 1b10 b956 2142     L...b....D..V.B!
+ 800dd28:	6544 696e 6465 6220 2079 6f63 6c6f 6f64     Denied by cooldo
+ 800dd38:	6e77 002e 0000 0000 0000 0000 0000 0000     wn..............
+ 800dd48:	6f4c 6b63 6465 0000 0000 0000 0000 0000     Locked..........
+	...
+ 800dd68:	6f43 6d6d 6e61 2064 6572 7073 6e6f 6573     Command response
+	...
+ 800dd88:	6e55 6e6b 776f 206e 6572 7571 7365 0074     Unknown request.
+	...
+ 800dda8:	6f43 6c6f 6f64 6e77 6120 7463 7669 7461     Cooldown activat
+ 800ddb8:	6465 002e 0000 0000 0000 0000 0000 0000     ed..............
+ 800ddc8:	6552 7571 7365 2074 6564 696e 6465 002e     Request denied..
+	...
  800dde8:	0100 0302 0004 0000 0043 0000               ........C...

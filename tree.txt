@@ -1,0 +1,1717 @@
+Folder PATH listing
+Volume serial number is E83A-B8CB
+D:.
+³   .gitignore
+³   .project
+³   tree.txt
+³   
+ÃÄÄÄpsoc62_secure_development_kit
+³       mtb-example-optiga-mqtt-client-demo.hex
+³       README.md
+³       
+ÀÄÄÄxmc4800_evaluation_kit
+    ÃÄÄÄoptiga-trust-m
+    ³   ÃÄÄÄcertificates
+    ³   ³       Infineon OPTIGA(TM) Trust M CA 300.crt
+    ³   ³       Infineon OPTIGA(TM) Trust M CA 300.pem
+    ³   ³       OPTIGA_Trust_M_Infineon_Test_CA.crt
+    ³   ³       OPTIGA_Trust_M_Infineon_Test_CA.pem
+    ³   ³       
+    ³   ÃÄÄÄdocuments
+    ³   ³       Infineon_I2C_Protocol_v2.03.pdf
+    ³   ³       License.pdf
+    ³   ³       OPTIGA_Trust_M_Datasheet_v3.10.pdf
+    ³   ³       OPTIGA_Trust_M_Getting_Started_Guide_v3.10.pdf
+    ³   ³       OPTIGA_Trust_M_Host_Library_Documentation.chm
+    ³   ³       OPTIGA_Trust_M_Keys_And_Certificates_v3.10.pdf
+    ³   ³       OPTIGA_Trust_M_Release_Notes_v3.00.pdf
+    ³   ³       OPTIGA_Trust_M_Solution_Reference_Manual_v3.15.pdf
+    ³   ³       README.md
+    ³   ³       
+    ³   ÃÄÄÄexamples
+    ³   ³   ³   optiga_shell.c
+    ³   ³   ³   README.md
+    ³   ³   ³   
+    ³   ³   ÃÄÄÄmbedtls_port
+    ³   ³   ³   ³   README.md
+    ³   ³   ³   ³   trustm_ecdh.c
+    ³   ³   ³   ³   trustm_ecdsa.c
+    ³   ³   ³   ³   trustm_random.c
+    ³   ³   ³   ³   trustm_rsa.c
+    ³   ³   ³   ³   
+    ³   ³   ³   ÃÄÄÄexample
+    ³   ³   ³   ³       mbedtls_trustm_ecc_extended_example.c
+    ³   ³   ³   ³       mbedtls_trustm_rsa_example.c
+    ³   ³   ³   ³       
+    ³   ³   ³   ÀÄÄÄinclude
+    ³   ³   ³           rsa_alt.h
+    ³   ³   ³           
+    ³   ³   ÃÄÄÄoptiga
+    ³   ³   ³   ³   example_optiga_crypt_clear_auto_state.c
+    ³   ³   ³   ³   example_optiga_crypt_ecc_generate_keypair.c
+    ³   ³   ³   ³   example_optiga_crypt_ecdh.c
+    ³   ³   ³   ³   example_optiga_crypt_ecdsa_sign.c
+    ³   ³   ³   ³   example_optiga_crypt_ecdsa_verify.c
+    ³   ³   ³   ³   example_optiga_crypt_hash.c
+    ³   ³   ³   ³   example_optiga_crypt_hkdf.c
+    ³   ³   ³   ³   example_optiga_crypt_hmac.c
+    ³   ³   ³   ³   example_optiga_crypt_random.c
+    ³   ³   ³   ³   example_optiga_crypt_rsa_decrypt.c
+    ³   ³   ³   ³   example_optiga_crypt_rsa_encrypt_message.c
+    ³   ³   ³   ³   example_optiga_crypt_rsa_encrypt_session.c
+    ³   ³   ³   ³   example_optiga_crypt_rsa_generate_keypair.c
+    ³   ³   ³   ³   example_optiga_crypt_rsa_sign.c
+    ³   ³   ³   ³   example_optiga_crypt_rsa_verify.c
+    ³   ³   ³   ³   example_optiga_crypt_symmetric_encrypt_decrypt.c
+    ³   ³   ³   ³   example_optiga_crypt_symmetric_encrypt_decrypt_ecb.c
+    ³   ³   ³   ³   example_optiga_crypt_symmetric_generate_key.c
+    ³   ³   ³   ³   example_optiga_crypt_tls_prf_sha256.c
+    ³   ³   ³   ³   example_optiga_init_deinit.c
+    ³   ³   ³   ³   example_optiga_util_protected_update.c
+    ³   ³   ³   ³   example_optiga_util_read_data.c
+    ³   ³   ³   ³   example_optiga_util_update_count.c
+    ³   ³   ³   ³   example_optiga_util_write_data.c
+    ³   ³   ³   ³   example_utilities.c
+    ³   ³   ³   ³   
+    ³   ³   ³   ÃÄÄÄinclude
+    ³   ³   ³   ³       optiga_example.h
+    ³   ³   ³   ³       
+    ³   ³   ³   ÃÄÄÄprotected_update_data_set
+    ³   ³   ³   ³       aes_key_object_confidentiality.h
+    ³   ³   ³   ³       data_object.h
+    ³   ³   ³   ³       data_object_confidentiality.h
+    ³   ³   ³   ³       ecc_key_object_confidentiality.h
+    ³   ³   ³   ³       example_optiga_util_protected_update.h
+    ³   ³   ³   ³       metadata_object_confidentiality.h
+    ³   ³   ³   ³       rsa_key_object_confidentiality.h
+    ³   ³   ³   ³       
+    ³   ³   ³   ÀÄÄÄusecases
+    ³   ³   ³           example_optiga_hibernate_restore.c
+    ³   ³   ³           example_optiga_hmac_verify_with_authorization_reference.c
+    ³   ³   ³           example_pair_host_and_optiga_using_pre_shared_secret.c
+    ³   ³   ³           example_read_coprocessor_id.c
+    ³   ³   ³           
+    ³   ³   ÃÄÄÄtools
+    ³   ³   ³   ÀÄÄÄprotected_update_data_set
+    ³   ³   ³       ³   readme.txt
+    ³   ³   ³       ³   
+    ³   ³   ³       ÃÄÄÄcddl
+    ³   ³   ³       ³       OPTIGA_Trust_M_V1_manifest.cddl
+    ³   ³   ³       ³       OPTIGA_Trust_M_V1_signature.cddl
+    ³   ³   ³       ³       OPTIGA_Trust_M_V3_manifest.cddl
+    ³   ³   ³       ³       OPTIGA_Trust_M_V3_signature.cddl
+    ³   ³   ³       ³       ReadMe.md
+    ³   ³   ³       ³       
+    ³   ³   ³       ÃÄÄÄinclude
+    ³   ³   ³       ³   ³   cbor.h
+    ³   ³   ³       ³   ³   common_utilites.h
+    ³   ³   ³       ³   ³   protected_update_data_set.h
+    ³   ³   ³       ³   ³   protected_update_data_set_version.h
+    ³   ³   ³       ³   ³   user_input_parser.h
+    ³   ³   ³       ³   ³   
+    ³   ³   ³       ³   ÀÄÄÄpal
+    ³   ³   ³       ³           pal_crypt.h
+    ³   ³   ³       ³           pal_file_system.h
+    ³   ³   ³       ³           pal_logger.h
+    ³   ³   ³       ³           pal_os_memory.h
+    ³   ³   ³       ³           
+    ³   ³   ³       ÃÄÄÄpal
+    ³   ³   ³       ³       pal_crypt_mbedtls.c
+    ³   ³   ³       ³       pal_file_system.c
+    ³   ³   ³       ³       pal_logger.c
+    ³   ³   ³       ³       pal_os_memory.c
+    ³   ³   ³       ³       
+    ³   ³   ³       ÃÄÄÄsamples
+    ³   ³   ³       ³   ³   gen_data_update_data_set.bat
+    ³   ³   ³       ³   ³   gen_key_update_data_set.bat
+    ³   ³   ³       ³   ³   gen_metadata_update_data_set.bat
+    ³   ³   ³       ³   ³   
+    ³   ³   ³       ³   ÃÄÄÄconfidentiality
+    ³   ³   ³       ³   ³       secret.txt
+    ³   ³   ³       ³   ³       
+    ³   ³   ³       ³   ÃÄÄÄintegrity
+    ³   ³   ³       ³   ³       sample_ecc_brainpool_256_priv.pem
+    ³   ³   ³       ³   ³       sample_ecc_brainpool_384_priv.pem
+    ³   ³   ³       ³   ³       sample_ecc_brainpool_512_priv.pem
+    ³   ³   ³       ³   ³       sample_ec_256_cert.txt
+    ³   ³   ³       ³   ³       sample_ec_256_priv.pem
+    ³   ³   ³       ³   ³       sample_ec_384_cert.txt
+    ³   ³   ³       ³   ³       sample_ec_384_priv.pem
+    ³   ³   ³       ³   ³       sample_ec_521_cert.txt
+    ³   ³   ³       ³   ³       sample_ec_521_priv.pem
+    ³   ³   ³       ³   ³       sample_ec_bp_256_cert.txt
+    ³   ³   ³       ³   ³       sample_ec_bp_384_cert.txt
+    ³   ³   ³       ³   ³       sample_ec_bp_512_cert.txt
+    ³   ³   ³       ³   ³       sample_rsa_1024_cert.txt
+    ³   ³   ³       ³   ³       sample_rsa_1024_priv.pem
+    ³   ³   ³       ³   ³       sample_rsa_2048_cert.txt
+    ³   ³   ³       ³   ³       sample_rsa_2048_priv.pem
+    ³   ³   ³       ³   ³       
+    ³   ³   ³       ³   ÀÄÄÄpayload
+    ³   ³   ³       ³       ÃÄÄÄdata
+    ³   ³   ³       ³       ³       ascii_data.txt
+    ³   ³   ³       ³       ³       hex_data.txt
+    ³   ³   ³       ³       ³       
+    ³   ³   ³       ³       ÃÄÄÄkey
+    ³   ³   ³       ³       ³       aes_key_128.txt
+    ³   ³   ³       ³       ³       aes_key_192.txt
+    ³   ³   ³       ³       ³       aes_key_256.txt
+    ³   ³   ³       ³       ³       ecc_brainpool_p256r1_test.pem
+    ³   ³   ³       ³       ³       ecc_brainpool_p384r1_test.pem
+    ³   ³   ³       ³       ³       ecc_brainpool_p512r1_test.pem
+    ³   ³   ³       ³       ³       ecc_secp256r1_test.pem
+    ³   ³   ³       ³       ³       ecc_secp384r1_test.pem
+    ³   ³   ³       ³       ³       ecc_secp521r1_test.pem
+    ³   ³   ³       ³       ³       rsa_1024_test.pem
+    ³   ³   ³       ³       ³       rsa_2048_test.pem
+    ³   ³   ³       ³       ³       
+    ³   ³   ³       ³       ÀÄÄÄmetadata
+    ³   ³   ³       ³               metadata.txt
+    ³   ³   ³       ³               
+    ³   ³   ³       ÃÄÄÄsrc
+    ³   ³   ³       ³       cbor.c
+    ³   ³   ³       ³       common_utilities.c
+    ³   ³   ³       ³       protected_update_data_set.c
+    ³   ³   ³       ³       user_input_parser.c
+    ³   ³   ³       ³       
+    ³   ³   ³       ÀÄÄÄvisual_studio
+    ³   ³   ³               main.c
+    ³   ³   ³               protected_update_data_set.sln
+    ³   ³   ³               protected_update_data_set.vcxproj
+    ³   ³   ³               protected_update_data_set.vcxproj.filters
+    ³   ³   ³               
+    ³   ³   ÃÄÄÄupgrade
+    ³   ³   ÀÄÄÄutilities
+    ³   ³       ³   ecdsa_utils.c
+    ³   ³       ³   optiga_trust.c
+    ³   ³       ³   pkcs11_trustm.c
+    ³   ³       ³   trustm_chipinfo.c
+    ³   ³       ³   
+    ³   ³       ÃÄÄÄauthenticate_chip
+    ³   ³       ³       example_authenticate_chip.c
+    ³   ³       ³       pal_crypt.h
+    ³   ³       ³       pal_crypt_mbedtls.c
+    ³   ³       ³       
+    ³   ³       ÀÄÄÄinclude
+    ³   ³               ecdsa_utils.h
+    ³   ³               optiga_trust.h
+    ³   ³               pkcs11.h
+    ³   ³               pkcs11f.h
+    ³   ³               pkcs11t.h
+    ³   ³               pkcs11_optiga_trustm.h
+    ³   ³               trustm_chipinfo.h
+    ³   ³               
+    ³   ÃÄÄÄexternals
+    ³   ³   ÀÄÄÄmbedtls
+    ³   ³       ³   apache-2.0.txt
+    ³   ³       ³   LICENSE
+    ³   ³       ³   
+    ³   ³       ÃÄÄÄinclude
+    ³   ³       ³   ³   CMakeLists.txt
+    ³   ³       ³   ³   
+    ³   ³       ³   ÀÄÄÄmbedtls
+    ³   ³       ³           aes.h
+    ³   ³       ³           aesni.h
+    ³   ³       ³           arc4.h
+    ³   ³       ³           aria.h
+    ³   ³       ³           asn1.h
+    ³   ³       ³           asn1write.h
+    ³   ³       ³           base64.h
+    ³   ³       ³           bignum.h
+    ³   ³       ³           blowfish.h
+    ³   ³       ³           bn_mul.h
+    ³   ³       ³           camellia.h
+    ³   ³       ³           ccm.h
+    ³   ³       ³           certs.h
+    ³   ³       ³           chacha20.h
+    ³   ³       ³           chachapoly.h
+    ³   ³       ³           check_config.h
+    ³   ³       ³           cipher.h
+    ³   ³       ³           cipher_internal.h
+    ³   ³       ³           cmac.h
+    ³   ³       ³           compat-1.3.h
+    ³   ³       ³           config.h
+    ³   ³       ³           ctr_drbg.h
+    ³   ³       ³           debug.h
+    ³   ³       ³           des.h
+    ³   ³       ³           dhm.h
+    ³   ³       ³           ecdh.h
+    ³   ³       ³           ecdsa.h
+    ³   ³       ³           ecjpake.h
+    ³   ³       ³           ecp.h
+    ³   ³       ³           ecp_internal.h
+    ³   ³       ³           entropy.h
+    ³   ³       ³           entropy_poll.h
+    ³   ³       ³           error.h
+    ³   ³       ³           gcm.h
+    ³   ³       ³           havege.h
+    ³   ³       ³           hkdf.h
+    ³   ³       ³           hmac_drbg.h
+    ³   ³       ³           md.h
+    ³   ³       ³           md2.h
+    ³   ³       ³           md4.h
+    ³   ³       ³           md5.h
+    ³   ³       ³           md_internal.h
+    ³   ³       ³           memory_buffer_alloc.h
+    ³   ³       ³           net.h
+    ³   ³       ³           net_sockets.h
+    ³   ³       ³           nist_kw.h
+    ³   ³       ³           oid.h
+    ³   ³       ³           padlock.h
+    ³   ³       ³           pem.h
+    ³   ³       ³           pk.h
+    ³   ³       ³           pkcs11.h
+    ³   ³       ³           pkcs12.h
+    ³   ³       ³           pkcs5.h
+    ³   ³       ³           pk_internal.h
+    ³   ³       ³           platform.h
+    ³   ³       ³           platform_time.h
+    ³   ³       ³           platform_util.h
+    ³   ³       ³           poly1305.h
+    ³   ³       ³           ripemd160.h
+    ³   ³       ³           rsa.h
+    ³   ³       ³           rsa_internal.h
+    ³   ³       ³           sha1.h
+    ³   ³       ³           sha256.h
+    ³   ³       ³           sha512.h
+    ³   ³       ³           ssl.h
+    ³   ³       ³           ssl_cache.h
+    ³   ³       ³           ssl_ciphersuites.h
+    ³   ³       ³           ssl_cookie.h
+    ³   ³       ³           ssl_internal.h
+    ³   ³       ³           ssl_ticket.h
+    ³   ³       ³           threading.h
+    ³   ³       ³           timing.h
+    ³   ³       ³           version.h
+    ³   ³       ³           x509.h
+    ³   ³       ³           x509_crl.h
+    ³   ³       ³           x509_crt.h
+    ³   ³       ³           x509_csr.h
+    ³   ³       ³           xtea.h
+    ³   ³       ³           
+    ³   ³       ÀÄÄÄlibrary
+    ³   ³               aes.c
+    ³   ³               aesni.c
+    ³   ³               arc4.c
+    ³   ³               aria.c
+    ³   ³               asn1parse.c
+    ³   ³               asn1write.c
+    ³   ³               base64.c
+    ³   ³               bignum.c
+    ³   ³               blowfish.c
+    ³   ³               camellia.c
+    ³   ³               ccm.c
+    ³   ³               certs.c
+    ³   ³               chacha20.c
+    ³   ³               chachapoly.c
+    ³   ³               cipher.c
+    ³   ³               cipher_wrap.c
+    ³   ³               cmac.c
+    ³   ³               CMakeLists.txt
+    ³   ³               ctr_drbg.c
+    ³   ³               debug.c
+    ³   ³               des.c
+    ³   ³               dhm.c
+    ³   ³               ecdh.c
+    ³   ³               ecdsa.c
+    ³   ³               ecjpake.c
+    ³   ³               ecp.c
+    ³   ³               ecp_curves.c
+    ³   ³               entropy.c
+    ³   ³               entropy_poll.c
+    ³   ³               error.c
+    ³   ³               gcm.c
+    ³   ³               havege.c
+    ³   ³               hkdf.c
+    ³   ³               hmac_drbg.c
+    ³   ³               Makefile
+    ³   ³               md.c
+    ³   ³               md2.c
+    ³   ³               md4.c
+    ³   ³               md5.c
+    ³   ³               md_wrap.c
+    ³   ³               memory_buffer_alloc.c
+    ³   ³               net_sockets.c
+    ³   ³               nist_kw.c
+    ³   ³               oid.c
+    ³   ³               padlock.c
+    ³   ³               pem.c
+    ³   ³               pk.c
+    ³   ³               pkcs11.c
+    ³   ³               pkcs12.c
+    ³   ³               pkcs5.c
+    ³   ³               pkparse.c
+    ³   ³               pkwrite.c
+    ³   ³               pk_wrap.c
+    ³   ³               platform.c
+    ³   ³               platform_util.c
+    ³   ³               poly1305.c
+    ³   ³               ripemd160.c
+    ³   ³               rsa.c
+    ³   ³               rsa_internal.c
+    ³   ³               sha1.c
+    ³   ³               sha256.c
+    ³   ³               sha512.c
+    ³   ³               ssl_cache.c
+    ³   ³               ssl_ciphersuites.c
+    ³   ³               ssl_cli.c
+    ³   ³               ssl_cookie.c
+    ³   ³               ssl_srv.c
+    ³   ³               ssl_ticket.c
+    ³   ³               ssl_tls.c
+    ³   ³               threading.c
+    ³   ³               timing.c
+    ³   ³               version.c
+    ³   ³               version_features.c
+    ³   ³               x509.c
+    ³   ³               x509write_crt.c
+    ³   ³               x509write_csr.c
+    ³   ³               x509_create.c
+    ³   ³               x509_crl.c
+    ³   ³               x509_crt.c
+    ³   ³               x509_csr.c
+    ³   ³               xtea.c
+    ³   ³               
+    ³   ÃÄÄÄoptiga
+    ³   ³   ÃÄÄÄcmd
+    ³   ³   ³       optiga_cmd.c
+    ³   ³   ³       
+    ³   ³   ÃÄÄÄcommon
+    ³   ³   ³       optiga_lib_common.c
+    ³   ³   ³       optiga_lib_logger.c
+    ³   ³   ³       
+    ³   ³   ÃÄÄÄcomms
+    ³   ³   ³   ³   optiga_comms_ifx_i2c.c
+    ³   ³   ³   ³   
+    ³   ³   ³   ÀÄÄÄifx_i2c
+    ³   ³   ³           ifx_i2c.c
+    ³   ³   ³           ifx_i2c_config.c
+    ³   ³   ³           ifx_i2c_data_link_layer.c
+    ³   ³   ³           ifx_i2c_physical_layer.c
+    ³   ³   ³           ifx_i2c_presentation_layer.c
+    ³   ³   ³           ifx_i2c_transport_layer.c
+    ³   ³   ³           
+    ³   ³   ÃÄÄÄcrypt
+    ³   ³   ³       optiga_crypt.c
+    ³   ³   ³       
+    ³   ³   ÃÄÄÄinclude
+    ³   ³   ³   ÀÄÄÄoptiga
+    ³   ³   ³       ³   optiga_crypt.h
+    ³   ³   ³       ³   optiga_lib_config.h
+    ³   ³   ³       ³   optiga_lib_config_m_v1.h
+    ³   ³   ³       ³   optiga_lib_config_m_v3.h
+    ³   ³   ³       ³   optiga_lib_version.h
+    ³   ³   ³       ³   optiga_util.h
+    ³   ³   ³       ³   
+    ³   ³   ³       ÃÄÄÄcmd
+    ³   ³   ³       ³       optiga_cmd.h
+    ³   ³   ³       ³       
+    ³   ³   ³       ÃÄÄÄcommon
+    ³   ³   ³       ³       optiga_lib_common.h
+    ³   ³   ³       ³       optiga_lib_common_internal.h
+    ³   ³   ³       ³       optiga_lib_logger.h
+    ³   ³   ³       ³       optiga_lib_return_codes.h
+    ³   ³   ³       ³       optiga_lib_types.h
+    ³   ³   ³       ³       
+    ³   ³   ³       ÃÄÄÄcomms
+    ³   ³   ³       ³       optiga_comms.h
+    ³   ³   ³       ³       
+    ³   ³   ³       ÃÄÄÄifx_i2c
+    ³   ³   ³       ³       ifx_i2c.h
+    ³   ³   ³       ³       ifx_i2c_config.h
+    ³   ³   ³       ³       ifx_i2c_data_link_layer.h
+    ³   ³   ³       ³       ifx_i2c_physical_layer.h
+    ³   ³   ³       ³       ifx_i2c_presentation_layer.h
+    ³   ³   ³       ³       ifx_i2c_transport_layer.h
+    ³   ³   ³       ³       
+    ³   ³   ³       ÀÄÄÄpal
+    ³   ³   ³               pal.h
+    ³   ³   ³               pal_crypt.h
+    ³   ³   ³               pal_gpio.h
+    ³   ³   ³               pal_i2c.h
+    ³   ³   ³               pal_ifx_i2c_config.h
+    ³   ³   ³               pal_logger.h
+    ³   ³   ³               pal_os_datastore.h
+    ³   ³   ³               pal_os_event.h
+    ³   ³   ³               pal_os_lock.h
+    ³   ³   ³               pal_os_memory.h
+    ³   ³   ³               pal_os_timer.h
+    ³   ³   ³               
+    ³   ³   ÀÄÄÄutil
+    ³   ³           optiga_util.c
+    ³   ³           
+    ³   ÀÄÄÄpal
+    ³       ³   pal_crypt_mbedtls.c
+    ³       ³   pal_crypt_openssl.c
+    ³       ³   pal_crypt_wolfssl.c
+    ³       ³   README.md
+    ³       ³   
+    ³       ÃÄÄÄesp32_freertos
+    ³       ³       pal.c
+    ³       ³       pal_gpio.c
+    ³       ³       pal_i2c.c
+    ³       ³       pal_ifx_i2c_config.c
+    ³       ³       pal_logger.c
+    ³       ³       pal_os_datastore.c
+    ³       ³       pal_os_event.c
+    ³       ³       pal_os_lock.c
+    ³       ³       pal_os_memory.c
+    ³       ³       pal_os_timer.c
+    ³       ³       
+    ³       ÃÄÄÄlibusb
+    ³       ³   ³   optiga_comms_ifx_i2c_usb.c
+    ³       ³   ³   pal.c
+    ³       ³   ³   pal_common.c
+    ³       ³   ³   pal_gpio.c
+    ³       ³   ³   pal_i2c.c
+    ³       ³   ³   pal_ifx_usb_config.c
+    ³       ³   ³   pal_logger.c
+    ³       ³   ³   pal_os_datastore.c
+    ³       ³   ³   pal_os_event.c
+    ³       ³   ³   pal_os_lock.c
+    ³       ³   ³   pal_os_memory.c
+    ³       ³   ³   pal_os_timer.c
+    ³       ³   ³   
+    ³       ³   ÀÄÄÄinclude
+    ³       ³           90-optigatrust.rules
+    ³       ³           libusb.h
+    ³       ³           pal_common.h
+    ³       ³           pal_usb.h
+    ³       ³           
+    ³       ÃÄÄÄlinux
+    ³       ³   ³   pal.c
+    ³       ³   ³   pal_gpio.c
+    ³       ³   ³   pal_i2c.c
+    ³       ³   ³   pal_linux.h
+    ³       ³   ³   pal_logger.c
+    ³       ³   ³   pal_os_datastore.c
+    ³       ³   ³   pal_os_event.c
+    ³       ³   ³   pal_os_lock.c
+    ³       ³   ³   pal_os_memory.c
+    ³       ³   ³   pal_os_timer.c
+    ³       ³   ³   
+    ³       ³   ÀÄÄÄtarget
+    ³       ³       ÃÄÄÄrpi3
+    ³       ³       ³       pal_ifx_i2c_config.c
+    ³       ³       ³       
+    ³       ³       ÀÄÄÄultra96
+    ³       ³               pal_ifx_i2c_config.c
+    ³       ³               
+    ³       ÃÄÄÄNEW_PAL_TEMPLATE
+    ³       ³       pal.c
+    ³       ³       pal_gpio.c
+    ³       ³       pal_i2c.c
+    ³       ³       pal_ifx_i2c_config.c
+    ³       ³       pal_logger.c
+    ³       ³       pal_os_datastore.c
+    ³       ³       pal_os_event.c
+    ³       ³       pal_os_lock.c
+    ³       ³       pal_os_timer.c
+    ³       ³       README.md
+    ³       ³       
+    ³       ÃÄÄÄxmc4800
+    ³       ³       pal.c
+    ³       ³       pal_gpio.c
+    ³       ³       pal_i2c.c
+    ³       ³       pal_ifx_i2c_config.c
+    ³       ³       pal_logger.c
+    ³       ³       pal_os_datastore.c
+    ³       ³       pal_os_event.c
+    ³       ³       pal_os_lock.c
+    ³       ³       pal_os_memory.c
+    ³       ³       pal_os_timer.c
+    ³       ³       
+    ³       ÀÄÄÄxmc4800_freertos
+    ³               pal.c
+    ³               pal_gpio.c
+    ³               pal_i2c.c
+    ³               pal_ifx_i2c_config.c
+    ³               pal_os_datastore.c
+    ³               pal_os_event.c
+    ³               pal_os_lock.c
+    ³               pal_os_timer.c
+    ³               
+    ÀÄÄÄxmc4800_iot_kit
+        ³   main_xmc4800_example.c
+        ³   
+        ÃÄÄÄcommon
+        ³   ³   .cproject
+        ³   ³   .project
+        ³   ³   linker_script.ld
+        ³   ³   main.c
+        ³   ³   
+        ³   ÃÄÄÄ.settings
+        ³   ³       com.dave.mbs.xc800.prefs
+        ³   ³       language.settings.xml
+        ³   ³       
+        ³   ÃÄÄÄDave
+        ³   ³   ³   .dconfig
+        ³   ³   ³   
+        ³   ³   ÃÄÄÄGenerated
+        ³   ³   ³   ³   Config.xml
+        ³   ³   ³   ³   DAVE.c
+        ³   ³   ³   ³   DAVE.h
+        ³   ³   ³   ³   DAVE_Common.h
+        ³   ³   ³   ³   
+        ³   ³   ³   ÃÄÄÄCLOCK_XMC4
+        ³   ³   ³   ³       clock_xmc4.c
+        ³   ³   ³   ³       clock_xmc4.h
+        ³   ³   ³   ³       clock_xmc4_conf.c
+        ³   ³   ³   ³       clock_xmc4_conf.h
+        ³   ³   ³   ³       clock_xmc4_extern.h
+        ³   ³   ³   ³       
+        ³   ³   ³   ÃÄÄÄCPU_CTRL_XMC4
+        ³   ³   ³   ³       cpu_ctrl_xmc4.c
+        ³   ³   ³   ³       cpu_ctrl_xmc4.h
+        ³   ³   ³   ³       cpu_ctrl_xmc4_conf.c
+        ³   ³   ³   ³       cpu_ctrl_xmc4_conf.h
+        ³   ³   ³   ³       cpu_ctrl_xmc4_extern.h
+        ³   ³   ³   ³       
+        ³   ³   ³   ÃÄÄÄDIGITAL_IO
+        ³   ³   ³   ³       digital_io.c
+        ³   ³   ³   ³       digital_io.h
+        ³   ³   ³   ³       digital_io_conf.c
+        ³   ³   ³   ³       digital_io_conf.h
+        ³   ³   ³   ³       digital_io_extern.h
+        ³   ³   ³   ³       
+        ³   ³   ³   ÃÄÄÄGLOBAL_CCU4
+        ³   ³   ³   ³       global_ccu4.c
+        ³   ³   ³   ³       global_ccu4.h
+        ³   ³   ³   ³       global_ccu4_conf.c
+        ³   ³   ³   ³       global_ccu4_conf.h
+        ³   ³   ³   ³       global_ccu4_extern.h
+        ³   ³   ³   ³       
+        ³   ³   ³   ÃÄÄÄGLOBAL_CCU8
+        ³   ³   ³   ³       global_ccu8.c
+        ³   ³   ³   ³       global_ccu8.h
+        ³   ³   ³   ³       global_ccu8_conf.c
+        ³   ³   ³   ³       global_ccu8_conf.h
+        ³   ³   ³   ³       global_ccu8_extern.h
+        ³   ³   ³   ³       
+        ³   ³   ³   ÃÄÄÄI2C_MASTER
+        ³   ³   ³   ³       i2c_master.c
+        ³   ³   ³   ³       i2c_master.h
+        ³   ³   ³   ³       i2c_master_conf.c
+        ³   ³   ³   ³       i2c_master_conf.h
+        ³   ³   ³   ³       i2c_master_extern.h
+        ³   ³   ³   ³       
+        ³   ³   ³   ÃÄÄÄINTERRUPT
+        ³   ³   ³   ³       interrupt.c
+        ³   ³   ³   ³       interrupt.h
+        ³   ³   ³   ³       interrupt_conf.c
+        ³   ³   ³   ³       interrupt_conf.h
+        ³   ³   ³   ³       interrupt_extern.h
+        ³   ³   ³   ³       
+        ³   ³   ³   ÃÄÄÄTIMER
+        ³   ³   ³   ³       timer.c
+        ³   ³   ³   ³       timer.h
+        ³   ³   ³   ³       timer_conf.c
+        ³   ³   ³   ³       timer_conf.h
+        ³   ³   ³   ³       timer_extern.h
+        ³   ³   ³   ³       
+        ³   ³   ³   ÃÄÄÄUART
+        ³   ³   ³   ³       uart.c
+        ³   ³   ³   ³       uart.h
+        ³   ³   ³   ³       uart_conf.c
+        ³   ³   ³   ³       uart_conf.h
+        ³   ³   ³   ³       uart_extern.h
+        ³   ³   ³   ³       
+        ³   ³   ³   ÃÄÄÄUSBD
+        ³   ³   ³   ³   ³   usbd.c
+        ³   ³   ³   ³   ³   usbd.h
+        ³   ³   ³   ³   ³   usbd_conf.c
+        ³   ³   ³   ³   ³   usbd_conf.h
+        ³   ³   ³   ³   ³   usbd_extern.h
+        ³   ³   ³   ³   ³   
+        ³   ³   ³   ³   ÀÄÄÄusb
+        ³   ³   ³   ³       ÃÄÄÄcommon
+        ³   ³   ³   ³       ³       attributes.h
+        ³   ³   ³   ³       ³       common.h
+        ³   ³   ³   ³       ³       compiler_specific.h
+        ³   ³   ³   ³       ³       endianness.h
+        ³   ³   ³   ³       ³       
+        ³   ³   ³   ³       ÀÄÄÄcore
+        ³   ³   ³   ³           ³   device.h
+        ³   ³   ³   ³           ³   endpoint.h
+        ³   ³   ³   ³           ³   endpoint_stream.h
+        ³   ³   ³   ³           ³   events.h
+        ³   ³   ³   ³           ³   std_descriptors.h
+        ³   ³   ³   ³           ³   std_request_type.h
+        ³   ³   ³   ³           ³   usb_controller.h
+        ³   ³   ³   ³           ³   usb_mode.h
+        ³   ³   ³   ³           ³   usb_task.c
+        ³   ³   ³   ³           ³   usb_task.h
+        ³   ³   ³   ³           ³   
+        ³   ³   ³   ³           ÀÄÄÄxmc4000
+        ³   ³   ³   ³                   usbd_device_xmc4000.h
+        ³   ³   ³   ³                   usbd_endpoint_stream_xmc4000.c
+        ³   ³   ³   ³                   usbd_endpoint_stream_xmc4000.h
+        ³   ³   ³   ³                   usbd_endpoint_xmc4000.c
+        ³   ³   ³   ³                   usbd_endpoint_xmc4000.h
+        ³   ³   ³   ³                   
+        ³   ³   ³   ÀÄÄÄUSBD_VCOM
+        ³   ³   ³       ³   usbd_vcom.c
+        ³   ³   ³       ³   usbd_vcom.h
+        ³   ³   ³       ³   usbd_vcom_conf.c
+        ³   ³   ³       ³   usbd_vcom_conf.h
+        ³   ³   ³       ³   usbd_vcom_extern.h
+        ³   ³   ³       ³   
+        ³   ³   ³       ÃÄÄÄclass_driver
+        ³   ³   ³       ³   ³   cdc_class.h
+        ³   ³   ³       ³   ³   
+        ³   ³   ³       ³   ÃÄÄÄcommon
+        ³   ³   ³       ³   ³       cdc_class_common.h
+        ³   ³   ³       ³   ³       
+        ³   ³   ³       ³   ÀÄÄÄdevice
+        ³   ³   ³       ³           cdc_class_device.c
+        ³   ³   ³       ³           cdc_class_device.h
+        ³   ³   ³       ³           
+        ³   ³   ³       ÃÄÄÄinf
+        ³   ³   ³       ³       driver.inf
+        ³   ³   ³       ³       vcom.cat
+        ³   ³   ³       ³       
+        ³   ³   ³       ÀÄÄÄvirtual_com
+        ³   ³   ³               descriptors.c
+        ³   ³   ³               descriptors.h
+        ³   ³   ³               
+        ³   ³   ÀÄÄÄModel
+        ³   ³       ³   hw_ProjDiagram.dep
+        ³   ³       ³   ModelConfigData.data
+        ³   ³       ³   ProjDiagram.dep
+        ³   ³       ³   projectData.bin
+        ³   ³       ³   RestoreDB.data
+        ³   ³       ³   
+        ³   ³       ÃÄÄÄAPPS
+        ³   ³       ³   ÃÄÄÄCLOCK_XMC4
+        ³   ³       ³   ³   ÀÄÄÄv4_0_22
+        ³   ³       ³   ³       ³   CLOCK_XMC4.jar
+        ³   ³       ³   ³       ³   CLOCK_XMC4.manifest
+        ³   ³       ³   ³       ³   CLOCK_XMC4_0.app
+        ³   ³       ³   ³       ³   CLOCK_XMC4_GUI.manifest
+        ³   ³       ³   ³       ³   
+        ³   ³       ³   ³       ÃÄÄÄdoc
+        ³   ³       ³   ³       ³       ClockTree.png
+        ³   ³       ³   ³       ³       ClockTree_NO_ETH.png
+        ³   ³       ³   ³       ³       ClockTree_NO_SDMMC_EBU.png
+        ³   ³       ³   ³       ³       ClockTree_NO_SDMMC_ETH_EBU.png
+        ³   ³       ³   ³       ³       ClockTree_NO_USBPLL_USB_SDMMC_ETH_EBU.png
+        ³   ³       ³   ³       ³       ClockTree_NO_USB_ETH.png
+        ³   ³       ³   ³       ³       ClockTree_xmc43.png
+        ³   ³       ³   ³       ³       ClockTree_xmc47.png
+        ³   ³       ³   ³       ³       ClockTree_xmc48.png
+        ³   ³       ³   ³       ³       index.chm
+        ³   ³       ³   ³       ³       
+        ³   ³       ³   ³       ÃÄÄÄTemplates
+        ³   ³       ³   ³       ³       clock_xmc4.c
+        ³   ³       ³   ³       ³       clock_xmc4.h
+        ³   ³       ³   ³       ³       clock_xmc4_confc.tmpl
+        ³   ³       ³   ³       ³       clock_xmc4_confh.tmpl
+        ³   ³       ³   ³       ³       clock_xmc4_externh.tmpl
+        ³   ³       ³   ³       ³       
+        ³   ³       ³   ³       ÀÄÄÄUimodel
+        ³   ³       ³   ³               CLOCK_XMC4.sd
+        ³   ³       ³   ³               CLOCK_XMC4.ui
+        ³   ³       ³   ³               CLOCK_XMC4_0.ui
+        ³   ³       ³   ³               
+        ³   ³       ³   ÃÄÄÄCPU_CTRL_XMC4
+        ³   ³       ³   ³   ÀÄÄÄv4_0_16
+        ³   ³       ³   ³       ³   CPU_CTRL_XMC4.jar
+        ³   ³       ³   ³       ³   CPU_CTRL_XMC4.manifest
+        ³   ³       ³   ³       ³   CPU_CTRL_XMC4_0.app
+        ³   ³       ³   ³       ³   CPU_CTRL_XMC4_GUI.manifest
+        ³   ³       ³   ³       ³   Gindexgroup_memregion.wg
+        ³   ³       ³   ³       ³   
+        ³   ³       ³   ³       ÃÄÄÄdoc
+        ³   ³       ³   ³       ³       index.chm
+        ³   ³       ³   ³       ³       
+        ³   ³       ³   ³       ÃÄÄÄTemplates
+        ³   ³       ³   ³       ³       cpu_ctrl_xmc4.c
+        ³   ³       ³   ³       ³       cpu_ctrl_xmc4.h
+        ³   ³       ³   ³       ³       cpu_ctrl_xmc4_confc.tmpl
+        ³   ³       ³   ³       ³       cpu_ctrl_xmc4_confh.tmpl
+        ³   ³       ³   ³       ³       cpu_ctrl_xmc4_externh.tmpl
+        ³   ³       ³   ³       ³       
+        ³   ³       ³   ³       ÀÄÄÄUimodel
+        ³   ³       ³   ³               CPU_CTRL_XMC4.sd
+        ³   ³       ³   ³               CPU_CTRL_XMC4.ui
+        ³   ³       ³   ³               CPU_CTRL_XMC4_0.ui
+        ³   ³       ³   ³               
+        ³   ³       ³   ÃÄÄÄDIGITAL_IO
+        ³   ³       ³   ³   ÀÄÄÄv4_0_16
+        ³   ³       ³   ³       ³   DIGITAL_IO.jar
+        ³   ³       ³   ³       ³   DIGITAL_IO.manifest
+        ³   ³       ³   ³       ³   DIGITAL_IO_0.app
+        ³   ³       ³   ³       ³   DIGITAL_IO_1.app
+        ³   ³       ³   ³       ³   DIGITAL_IO_GUI.manifest
+        ³   ³       ³   ³       ³   
+        ³   ³       ³   ³       ÃÄÄÄdoc
+        ³   ³       ³   ³       ³       index.chm
+        ³   ³       ³   ³       ³       
+        ³   ³       ³   ³       ÃÄÄÄTemplates
+        ³   ³       ³   ³       ³       digital_io.c
+        ³   ³       ³   ³       ³       digital_io.h
+        ³   ³       ³   ³       ³       digital_io_confc.tmpl
+        ³   ³       ³   ³       ³       digital_io_confh.tmpl
+        ³   ³       ³   ³       ³       digital_io_externh.tmpl
+        ³   ³       ³   ³       ³       
+        ³   ³       ³   ³       ÀÄÄÄUimodel
+        ³   ³       ³   ³               DIGITAL_IO.sd
+        ³   ³       ³   ³               DIGITAL_IO.ui
+        ³   ³       ³   ³               DIGITAL_IO_0.ui
+        ³   ³       ³   ³               DIGITAL_IO_1.ui
+        ³   ³       ³   ³               
+        ³   ³       ³   ÃÄÄÄGLOBAL_CCU4
+        ³   ³       ³   ³   ÀÄÄÄv4_1_12
+        ³   ³       ³   ³       ³   GLOBAL_CCU4.jar
+        ³   ³       ³   ³       ³   GLOBAL_CCU4.manifest
+        ³   ³       ³   ³       ³   GLOBAL_CCU4_0.app
+        ³   ³       ³   ³       ³   GLOBAL_CCU4_1.app
+        ³   ³       ³   ³       ³   GLOBAL_CCU4_GUI.manifest
+        ³   ³       ³   ³       ³   
+        ³   ³       ³   ³       ÃÄÄÄdoc
+        ³   ³       ³   ³       ³       index.chm
+        ³   ³       ³   ³       ³       
+        ³   ³       ³   ³       ÃÄÄÄTemplates
+        ³   ³       ³   ³       ³       global_ccu4.c
+        ³   ³       ³   ³       ³       global_ccu4.h
+        ³   ³       ³   ³       ³       global_ccu4_confc.tmpl
+        ³   ³       ³   ³       ³       global_ccu4_confh.tmpl
+        ³   ³       ³   ³       ³       global_ccu4_extern.tmpl
+        ³   ³       ³   ³       ³       
+        ³   ³       ³   ³       ÀÄÄÄUimodel
+        ³   ³       ³   ³               GLOBAL_CCU4.sd
+        ³   ³       ³   ³               GLOBAL_CCU4.ui
+        ³   ³       ³   ³               GLOBAL_CCU4_0.ui
+        ³   ³       ³   ³               GLOBAL_CCU4_1.ui
+        ³   ³       ³   ³               
+        ³   ³       ³   ÃÄÄÄI2C_MASTER
+        ³   ³       ³   ³   ÀÄÄÄv4_1_28
+        ³   ³       ³   ³       ³   I2C_MASTER.jar
+        ³   ³       ³   ³       ³   I2C_MASTER.manifest
+        ³   ³       ³   ³       ³   I2C_MASTER_0.app
+        ³   ³       ³   ³       ³   I2C_MASTER_GUI.manifest
+        ³   ³       ³   ³       ³   
+        ³   ³       ³   ³       ÃÄÄÄdoc
+        ³   ³       ³   ³       ³       index.chm
+        ³   ³       ³   ³       ³       
+        ³   ³       ³   ³       ÃÄÄÄTemplates
+        ³   ³       ³   ³       ³       i2c_master.c
+        ³   ³       ³   ³       ³       i2c_master.h
+        ³   ³       ³   ³       ³       i2c_master_confc.tmpl
+        ³   ³       ³   ³       ³       i2c_master_confh.tmpl
+        ³   ³       ³   ³       ³       i2c_master_externh.tmpl
+        ³   ³       ³   ³       ³       
+        ³   ³       ³   ³       ÀÄÄÄUimodel
+        ³   ³       ³   ³               I2C_MASTER.sd
+        ³   ³       ³   ³               I2C_MASTER.ui
+        ³   ³       ³   ³               I2C_MASTER_0.ui
+        ³   ³       ³   ³               
+        ³   ³       ³   ÃÄÄÄINTERRUPT
+        ³   ³       ³   ³   ÀÄÄÄv4_0_8
+        ³   ³       ³   ³       ³   INTERRUPT.jar
+        ³   ³       ³   ³       ³   INTERRUPT.manifest
+        ³   ³       ³   ³       ³   INTERRUPT_0.app
+        ³   ³       ³   ³       ³   INTERRUPT_1.app
+        ³   ³       ³   ³       ³   INTERRUPT_GUI.manifest
+        ³   ³       ³   ³       ³   
+        ³   ³       ³   ³       ÃÄÄÄdoc
+        ³   ³       ³   ³       ³       index.chm
+        ³   ³       ³   ³       ³       
+        ³   ³       ³   ³       ÃÄÄÄTemplates
+        ³   ³       ³   ³       ³       interrupt.c
+        ³   ³       ³   ³       ³       interrupt.h
+        ³   ³       ³   ³       ³       interrupt_confc.tmpl
+        ³   ³       ³   ³       ³       interrupt_confh.tmpl
+        ³   ³       ³   ³       ³       interrupt_externh.tmpl
+        ³   ³       ³   ³       ³       
+        ³   ³       ³   ³       ÀÄÄÄUimodel
+        ³   ³       ³   ³               INTERRUPT.sd
+        ³   ³       ³   ³               INTERRUPT.ui
+        ³   ³       ³   ³               INTERRUPT_0.ui
+        ³   ³       ³   ³               INTERRUPT_1.ui
+        ³   ³       ³   ³               
+        ³   ³       ³   ÃÄÄÄTIMER
+        ³   ³       ³   ³   ÀÄÄÄv4_1_10
+        ³   ³       ³   ³       ³   TIMER.jar
+        ³   ³       ³   ³       ³   TIMER.manifest
+        ³   ³       ³   ³       ³   TIMER_0.app
+        ³   ³       ³   ³       ³   TIMER_1.app
+        ³   ³       ³   ³       ³   TIMER_GUI.manifest
+        ³   ³       ³   ³       ³   
+        ³   ³       ³   ³       ÃÄÄÄdoc
+        ³   ³       ³   ³       ³       index.chm
+        ³   ³       ³   ³       ³       
+        ³   ³       ³   ³       ÃÄÄÄTemplates
+        ³   ³       ³   ³       ³       timer.c
+        ³   ³       ³   ³       ³       timer.h
+        ³   ³       ³   ³       ³       timer_confc.tmpl
+        ³   ³       ³   ³       ³       timer_confh.tmpl
+        ³   ³       ³   ³       ³       timer_externh.tmpl
+        ³   ³       ³   ³       ³       
+        ³   ³       ³   ³       ÀÄÄÄUimodel
+        ³   ³       ³   ³               TIMER.sd
+        ³   ³       ³   ³               TIMER.ui
+        ³   ³       ³   ³               TIMER_0.ui
+        ³   ³       ³   ³               TIMER_1.ui
+        ³   ³       ³   ³               
+        ³   ³       ³   ÃÄÄÄUART
+        ³   ³       ³   ³   ÀÄÄÄv4_1_12
+        ³   ³       ³   ³       ³   UART.jar
+        ³   ³       ³   ³       ³   UART.manifest
+        ³   ³       ³   ³       ³   UART_1.app
+        ³   ³       ³   ³       ³   UART_GUI.manifest
+        ³   ³       ³   ³       ³   
+        ³   ³       ³   ³       ÃÄÄÄdoc
+        ³   ³       ³   ³       ³       index.chm
+        ³   ³       ³   ³       ³       
+        ³   ³       ³   ³       ÃÄÄÄTemplates
+        ³   ³       ³   ³       ³       uart.c
+        ³   ³       ³   ³       ³       uart.h
+        ³   ³       ³   ³       ³       uart_confc.tmpl
+        ³   ³       ³   ³       ³       uart_confh.tmpl
+        ³   ³       ³   ³       ³       uart_externh.tmpl
+        ³   ³       ³   ³       ³       
+        ³   ³       ³   ³       ÀÄÄÄUimodel
+        ³   ³       ³   ³               UART.sd
+        ³   ³       ³   ³               UART.ui
+        ³   ³       ³   ³               UART_1.ui
+        ³   ³       ³   ³               
+        ³   ³       ³   ÃÄÄÄUSBD
+        ³   ³       ³   ³   ÀÄÄÄv4_0_14
+        ³   ³       ³   ³       ³   USBD.jar
+        ³   ³       ³   ³       ³   USBD.manifest
+        ³   ³       ³   ³       ³   USBD_0.app
+        ³   ³       ³   ³       ³   USBD_GUI.manifest
+        ³   ³       ³   ³       ³   
+        ³   ³       ³   ³       ÃÄÄÄdoc
+        ³   ³       ³   ³       ³       index.chm
+        ³   ³       ³   ³       ³       
+        ³   ³       ³   ³       ÃÄÄÄTemplates
+        ³   ³       ³   ³       ³   ³   usbd.c
+        ³   ³       ³   ³       ³   ³   usbd.h
+        ³   ³       ³   ³       ³   ³   usbd_confc.tmpl
+        ³   ³       ³   ³       ³   ³   usbd_confh.tmpl
+        ³   ³       ³   ³       ³   ³   usbd_extern.h
+        ³   ³       ³   ³       ³   ³   
+        ³   ³       ³   ³       ³   ÀÄÄÄusb
+        ³   ³       ³   ³       ³       ÃÄÄÄcommon
+        ³   ³       ³   ³       ³       ³       attributes.h
+        ³   ³       ³   ³       ³       ³       common.h
+        ³   ³       ³   ³       ³       ³       compiler_specific.h
+        ³   ³       ³   ³       ³       ³       endianness.h
+        ³   ³       ³   ³       ³       ³       
+        ³   ³       ³   ³       ³       ÀÄÄÄcore
+        ³   ³       ³   ³       ³           ³   device.h
+        ³   ³       ³   ³       ³           ³   endpoint.h
+        ³   ³       ³   ³       ³           ³   endpoint_stream.h
+        ³   ³       ³   ³       ³           ³   events.h
+        ³   ³       ³   ³       ³           ³   std_descriptors.h
+        ³   ³       ³   ³       ³           ³   std_request_type.h
+        ³   ³       ³   ³       ³           ³   usb_controller.h
+        ³   ³       ³   ³       ³           ³   usb_mode.h
+        ³   ³       ³   ³       ³           ³   usb_task.c
+        ³   ³       ³   ³       ³           ³   usb_task.h
+        ³   ³       ³   ³       ³           ³   
+        ³   ³       ³   ³       ³           ÀÄÄÄxmc4000
+        ³   ³       ³   ³       ³                   usbd_device_xmc4000.h
+        ³   ³       ³   ³       ³                   usbd_endpoint_stream_xmc4000.c
+        ³   ³       ³   ³       ³                   usbd_endpoint_stream_xmc4000.h
+        ³   ³       ³   ³       ³                   usbd_endpoint_xmc4000.c
+        ³   ³       ³   ³       ³                   usbd_endpoint_xmc4000.h
+        ³   ³       ³   ³       ³                   
+        ³   ³       ³   ³       ÀÄÄÄUimodel
+        ³   ³       ³   ³               USBD.sd
+        ³   ³       ³   ³               USBD.ui
+        ³   ³       ³   ³               USBD_0.ui
+        ³   ³       ³   ³               
+        ³   ³       ³   ÀÄÄÄUSBD_VCOM
+        ³   ³       ³       ÀÄÄÄv4_0_10
+        ³   ³       ³           ³   USBD_VCOM.jar
+        ³   ³       ³           ³   USBD_VCOM.manifest
+        ³   ³       ³           ³   USBD_VCOM_0.app
+        ³   ³       ³           ³   USBD_VCOM_GUI.manifest
+        ³   ³       ³           ³   
+        ³   ³       ³           ÃÄÄÄdoc
+        ³   ³       ³           ³       index.chm
+        ³   ³       ³           ³       
+        ³   ³       ³           ÃÄÄÄTemplates
+        ³   ³       ³           ³   ³   usbd_vcom.c
+        ³   ³       ³           ³   ³   usbd_vcom.h
+        ³   ³       ³           ³   ³   usbd_vcom_confc.tmpl
+        ³   ³       ³           ³   ³   usbd_vcom_confh.tmpl
+        ³   ³       ³           ³   ³   usbd_vcom_externh.tmpl
+        ³   ³       ³           ³   ³   
+        ³   ³       ³           ³   ÃÄÄÄclass_driver
+        ³   ³       ³           ³   ³   ³   cdc_class.h
+        ³   ³       ³           ³   ³   ³   
+        ³   ³       ³           ³   ³   ÃÄÄÄcommon
+        ³   ³       ³           ³   ³   ³       cdc_class_common.h
+        ³   ³       ³           ³   ³   ³       
+        ³   ³       ³           ³   ³   ÀÄÄÄdevice
+        ³   ³       ³           ³   ³           cdc_class_device.c
+        ³   ³       ³           ³   ³           cdc_class_device.h
+        ³   ³       ³           ³   ³           
+        ³   ³       ³           ³   ÃÄÄÄinf
+        ³   ³       ³           ³   ³       driver.inf
+        ³   ³       ³           ³   ³       vcom.cat
+        ³   ³       ³           ³   ³       
+        ³   ³       ³           ³   ÀÄÄÄvirtual_com
+        ³   ³       ³           ³           descriptors.c
+        ³   ³       ³           ³           descriptors.h
+        ³   ³       ³           ³           
+        ³   ³       ³           ÀÄÄÄUimodel
+        ³   ³       ³                   USBD_VCOM.sd
+        ³   ³       ³                   USBD_VCOM.ui
+        ³   ³       ³                   USBD_VCOM_0.ui
+        ³   ³       ³                   
+        ³   ³       ÃÄÄÄCommon
+        ³   ³       ³       DAVEc.tmpl
+        ³   ³       ³       DAVEh.tmpl
+        ³   ³       ³       DAVE_common.h
+        ³   ³       ³       MainClass.groovy
+        ³   ³       ³       
+        ³   ³       ÀÄÄÄHW_RESOURCES
+        ³   ³           ÃÄÄÄccu41
+        ³   ³           ³       ccu41_1.dd
+        ³   ³           ³       
+        ³   ³           ÃÄÄÄccu43
+        ³   ³           ³       ccu43_3.dd
+        ³   ³           ³       
+        ³   ³           ÃÄÄÄcpu
+        ³   ³           ³       cpu_0.dd
+        ³   ³           ³       
+        ³   ³           ÃÄÄÄDEBUG
+        ³   ³           ³       DEBUG_0.dd
+        ³   ³           ³       
+        ³   ³           ÃÄÄÄDEVICEPACKAGE
+        ³   ³           ³       DEVICEPACKAGE_0.dd
+        ³   ³           ³       
+        ³   ³           ÃÄÄÄport0
+        ³   ³           ³       port0_0.dd
+        ³   ³           ³       
+        ³   ³           ÃÄÄÄport1
+        ³   ³           ³       port1_1.dd
+        ³   ³           ³       
+        ³   ³           ÃÄÄÄport2
+        ³   ³           ³       port2_2.dd
+        ³   ³           ³       
+        ³   ³           ÃÄÄÄport5
+        ³   ³           ³       port5_5.dd
+        ³   ³           ³       
+        ³   ³           ÃÄÄÄSCU
+        ³   ³           ³       SCU_0.dd
+        ³   ³           ³       
+        ³   ³           ÃÄÄÄusb0
+        ³   ³           ³       usb0_0.dd
+        ³   ³           ³       
+        ³   ³           ÀÄÄÄusic0
+        ³   ³                   usic0_0.dd
+        ³   ³                   
+        ³   ÃÄÄÄLibraries
+        ³   ³   ÃÄÄÄCMSIS
+        ³   ³   ³   ÃÄÄÄInclude
+        ³   ³   ³   ³       cmsis_compiler.h
+        ³   ³   ³   ³       cmsis_gcc.h
+        ³   ³   ³   ³       cmsis_version.h
+        ³   ³   ³   ³       core_cm4.h
+        ³   ³   ³   ³       mpu_armv7.h
+        ³   ³   ³   ³       
+        ³   ³   ³   ÀÄÄÄInfineon
+        ³   ³   ³       ÀÄÄÄXMC4800_series
+        ³   ³   ³           ÀÄÄÄInclude
+        ³   ³   ³                   system_XMC4800.h
+        ³   ³   ³                   XMC4800.h
+        ³   ³   ³                   
+        ³   ³   ÃÄÄÄNewlib
+        ³   ³   ³       syscalls.c
+        ³   ³   ³       
+        ³   ³   ÀÄÄÄXMCLib
+        ³   ³       ÃÄÄÄinc
+        ³   ³       ³       xmc4_ccu4_map.h
+        ³   ³       ³       xmc4_ccu8_map.h
+        ³   ³       ³       xmc4_eru_map.h
+        ³   ³       ³       xmc4_flash.h
+        ³   ³       ³       xmc4_gpio.h
+        ³   ³       ³       xmc4_gpio_map.h
+        ³   ³       ³       xmc4_rtc.h
+        ³   ³       ³       xmc4_scu.h
+        ³   ³       ³       xmc4_usic_map.h
+        ³   ³       ³       xmc_can.h
+        ³   ³       ³       xmc_can_map.h
+        ³   ³       ³       xmc_ccu4.h
+        ³   ³       ³       xmc_ccu8.h
+        ³   ³       ³       xmc_common.h
+        ³   ³       ³       xmc_dac.h
+        ³   ³       ³       xmc_device.h
+        ³   ³       ³       xmc_dma.h
+        ³   ³       ³       xmc_dma_map.h
+        ³   ³       ³       xmc_dsd.h
+        ³   ³       ³       xmc_ebu.h
+        ³   ³       ³       xmc_ecat.h
+        ³   ³       ³       xmc_ecat_map.h
+        ³   ³       ³       xmc_eru.h
+        ³   ³       ³       xmc_eth_mac.h
+        ³   ³       ³       xmc_eth_mac_map.h
+        ³   ³       ³       xmc_eth_phy.h
+        ³   ³       ³       xmc_fce.h
+        ³   ³       ³       xmc_flash.h
+        ³   ³       ³       xmc_gpio.h
+        ³   ³       ³       xmc_hrpwm.h
+        ³   ³       ³       xmc_hrpwm_map.h
+        ³   ³       ³       xmc_i2c.h
+        ³   ³       ³       xmc_i2s.h
+        ³   ³       ³       xmc_ledts.h
+        ³   ³       ³       xmc_posif.h
+        ³   ³       ³       xmc_posif_map.h
+        ³   ³       ³       xmc_rtc.h
+        ³   ³       ³       xmc_scu.h
+        ³   ³       ³       xmc_sdmmc.h
+        ³   ³       ³       xmc_spi.h
+        ³   ³       ³       xmc_uart.h
+        ³   ³       ³       xmc_usbd.h
+        ³   ³       ³       xmc_usbd_regs.h
+        ³   ³       ³       xmc_usbh.h
+        ³   ³       ³       xmc_usic.h
+        ³   ³       ³       xmc_vadc.h
+        ³   ³       ³       xmc_vadc_map.h
+        ³   ³       ³       xmc_wdt.h
+        ³   ³       ³       
+        ³   ³       ÀÄÄÄsrc
+        ³   ³               xmc4_eru.c
+        ³   ³               xmc4_flash.c
+        ³   ³               xmc4_gpio.c
+        ³   ³               xmc4_rtc.c
+        ³   ³               xmc4_scu.c
+        ³   ³               xmc_can.c
+        ³   ³               xmc_ccu4.c
+        ³   ³               xmc_ccu8.c
+        ³   ³               xmc_common.c
+        ³   ³               xmc_dac.c
+        ³   ³               xmc_dma.c
+        ³   ³               xmc_dsd.c
+        ³   ³               xmc_ebu.c
+        ³   ³               xmc_ecat.c
+        ³   ³               xmc_eru.c
+        ³   ³               xmc_eth_mac.c
+        ³   ³               xmc_eth_phy_dp83848.c
+        ³   ³               xmc_eth_phy_ksz8031rnl.c
+        ³   ³               xmc_eth_phy_ksz8081rnb.c
+        ³   ³               xmc_fce.c
+        ³   ³               xmc_gpio.c
+        ³   ³               xmc_hrpwm.c
+        ³   ³               xmc_i2c.c
+        ³   ³               xmc_i2s.c
+        ³   ³               xmc_ledts.c
+        ³   ³               xmc_posif.c
+        ³   ³               xmc_rtc.c
+        ³   ³               xmc_sdmmc.c
+        ³   ³               xmc_spi.c
+        ³   ³               xmc_uart.c
+        ³   ³               xmc_usbd.c
+        ³   ³               xmc_usbh.c
+        ³   ³               xmc_usic.c
+        ³   ³               xmc_vadc.c
+        ³   ³               xmc_wdt.c
+        ³   ³               
+        ³   ÀÄÄÄStartup
+        ³           startup_XMC4800.S
+        ³           system_XMC4800.c
+        ³           
+        ÃÄÄÄdave4
+        ³   ³   .cproject
+        ³   ³   .project
+        ³   ³   linker_script.ld
+        ³   ³   
+        ³   ÃÄÄÄ.settings
+        ³   ³       com.dave.mbs.xc800.prefs
+        ³   ³       language.settings.xml
+        ³   ³       org.eclipse.cdt.codan.core.prefs
+        ³   ³       properties.index
+        ³   ³       
+        ³   ÃÄÄÄDebug
+        ³   ³   ³   main_xmc4800_example.d
+        ³   ³   ³   main_xmc4800_example.o
+        ³   ³   ³   main_xmc4800_example.o.lst
+        ³   ³   ³   makefile
+        ³   ³   ³   objects.mk
+        ³   ³   ³   objects.rsp
+        ³   ³   ³   SEMS.elf
+        ³   ³   ³   SEMS.hex
+        ³   ³   ³   SEMS.lst
+        ³   ³   ³   SEMS.map
+        ³   ³   ³   sources.mk
+        ³   ³   ³   subdir.mk
+        ³   ³   ³   
+        ³   ³   ÃÄÄÄexamples
+        ³   ³   ³       example_optiga_crypt_clear_auto_state.d
+        ³   ³   ³       example_optiga_crypt_clear_auto_state.o
+        ³   ³   ³       example_optiga_crypt_clear_auto_state.o.lst
+        ³   ³   ³       example_optiga_crypt_ecc_generate_keypair.d
+        ³   ³   ³       example_optiga_crypt_ecc_generate_keypair.o
+        ³   ³   ³       example_optiga_crypt_ecc_generate_keypair.o.lst
+        ³   ³   ³       example_optiga_crypt_ecdh.d
+        ³   ³   ³       example_optiga_crypt_ecdh.o
+        ³   ³   ³       example_optiga_crypt_ecdh.o.lst
+        ³   ³   ³       example_optiga_crypt_ecdsa_sign.d
+        ³   ³   ³       example_optiga_crypt_ecdsa_sign.o
+        ³   ³   ³       example_optiga_crypt_ecdsa_sign.o.lst
+        ³   ³   ³       example_optiga_crypt_ecdsa_verify.d
+        ³   ³   ³       example_optiga_crypt_ecdsa_verify.o
+        ³   ³   ³       example_optiga_crypt_ecdsa_verify.o.lst
+        ³   ³   ³       example_optiga_crypt_hash.d
+        ³   ³   ³       example_optiga_crypt_hash.o
+        ³   ³   ³       example_optiga_crypt_hash.o.lst
+        ³   ³   ³       example_optiga_crypt_hkdf.d
+        ³   ³   ³       example_optiga_crypt_hkdf.o
+        ³   ³   ³       example_optiga_crypt_hkdf.o.lst
+        ³   ³   ³       example_optiga_crypt_hmac.d
+        ³   ³   ³       example_optiga_crypt_hmac.o
+        ³   ³   ³       example_optiga_crypt_hmac.o.lst
+        ³   ³   ³       example_optiga_crypt_random.d
+        ³   ³   ³       example_optiga_crypt_random.o
+        ³   ³   ³       example_optiga_crypt_random.o.lst
+        ³   ³   ³       example_optiga_crypt_rsa_decrypt.d
+        ³   ³   ³       example_optiga_crypt_rsa_decrypt.o
+        ³   ³   ³       example_optiga_crypt_rsa_decrypt.o.lst
+        ³   ³   ³       example_optiga_crypt_rsa_encrypt_message.d
+        ³   ³   ³       example_optiga_crypt_rsa_encrypt_message.o
+        ³   ³   ³       example_optiga_crypt_rsa_encrypt_message.o.lst
+        ³   ³   ³       example_optiga_crypt_rsa_encrypt_session.d
+        ³   ³   ³       example_optiga_crypt_rsa_encrypt_session.o
+        ³   ³   ³       example_optiga_crypt_rsa_encrypt_session.o.lst
+        ³   ³   ³       example_optiga_crypt_rsa_generate_keypair.d
+        ³   ³   ³       example_optiga_crypt_rsa_generate_keypair.o
+        ³   ³   ³       example_optiga_crypt_rsa_generate_keypair.o.lst
+        ³   ³   ³       example_optiga_crypt_rsa_sign.d
+        ³   ³   ³       example_optiga_crypt_rsa_sign.o
+        ³   ³   ³       example_optiga_crypt_rsa_sign.o.lst
+        ³   ³   ³       example_optiga_crypt_rsa_verify.d
+        ³   ³   ³       example_optiga_crypt_rsa_verify.o
+        ³   ³   ³       example_optiga_crypt_rsa_verify.o.lst
+        ³   ³   ³       example_optiga_crypt_symmetric_encrypt_decrypt.d
+        ³   ³   ³       example_optiga_crypt_symmetric_encrypt_decrypt.o
+        ³   ³   ³       example_optiga_crypt_symmetric_encrypt_decrypt.o.lst
+        ³   ³   ³       example_optiga_crypt_symmetric_encrypt_decrypt_ecb.d
+        ³   ³   ³       example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o
+        ³   ³   ³       example_optiga_crypt_symmetric_encrypt_decrypt_ecb.o.lst
+        ³   ³   ³       example_optiga_crypt_symmetric_generate_key.d
+        ³   ³   ³       example_optiga_crypt_symmetric_generate_key.o
+        ³   ³   ³       example_optiga_crypt_symmetric_generate_key.o.lst
+        ³   ³   ³       example_optiga_crypt_tls_prf_sha256.d
+        ³   ³   ³       example_optiga_crypt_tls_prf_sha256.o
+        ³   ³   ³       example_optiga_crypt_tls_prf_sha256.o.lst
+        ³   ³   ³       example_optiga_hibernate_restore.d
+        ³   ³   ³       example_optiga_hibernate_restore.o
+        ³   ³   ³       example_optiga_hibernate_restore.o.lst
+        ³   ³   ³       example_optiga_hmac_verify_with_authorization_reference.d
+        ³   ³   ³       example_optiga_hmac_verify_with_authorization_reference.o
+        ³   ³   ³       example_optiga_hmac_verify_with_authorization_reference.o.lst
+        ³   ³   ³       example_optiga_init_deinit.d
+        ³   ³   ³       example_optiga_init_deinit.o
+        ³   ³   ³       example_optiga_init_deinit.o.lst
+        ³   ³   ³       example_optiga_util_protected_update.d
+        ³   ³   ³       example_optiga_util_protected_update.o
+        ³   ³   ³       example_optiga_util_protected_update.o.lst
+        ³   ³   ³       example_optiga_util_read_data.d
+        ³   ³   ³       example_optiga_util_read_data.o
+        ³   ³   ³       example_optiga_util_read_data.o.lst
+        ³   ³   ³       example_optiga_util_update_count.d
+        ³   ³   ³       example_optiga_util_update_count.o
+        ³   ³   ³       example_optiga_util_update_count.o.lst
+        ³   ³   ³       example_optiga_util_write_data.d
+        ³   ³   ³       example_optiga_util_write_data.o
+        ³   ³   ³       example_optiga_util_write_data.o.lst
+        ³   ³   ³       example_pair_host_and_optiga_using_pre_shared_secret.d
+        ³   ³   ³       example_pair_host_and_optiga_using_pre_shared_secret.o
+        ³   ³   ³       example_pair_host_and_optiga_using_pre_shared_secret.o.lst
+        ³   ³   ³       example_read_coprocessor_id.d
+        ³   ³   ³       example_read_coprocessor_id.o
+        ³   ³   ³       example_read_coprocessor_id.o.lst
+        ³   ³   ³       example_utilities.d
+        ³   ³   ³       example_utilities.o
+        ³   ³   ³       example_utilities.o.lst
+        ³   ³   ³       optiga_shell.d
+        ³   ³   ³       optiga_shell.o
+        ³   ³   ³       optiga_shell.o.lst
+        ³   ³   ³       subdir.mk
+        ³   ³   ³       
+        ³   ³   ÃÄÄÄlib
+        ³   ³   ³   ÃÄÄÄexternals
+        ³   ³   ³   ³   ÀÄÄÄmbedtls
+        ³   ³   ³   ³           aes.d
+        ³   ³   ³   ³           aes.o
+        ³   ³   ³   ³           aes.o.lst
+        ³   ³   ³   ³           ccm.d
+        ³   ³   ³   ³           ccm.o
+        ³   ³   ³   ³           ccm.o.lst
+        ³   ³   ³   ³           cipher.d
+        ³   ³   ³   ³           cipher.o
+        ³   ³   ³   ³           cipher.o.lst
+        ³   ³   ³   ³           cipher_wrap.d
+        ³   ³   ³   ³           cipher_wrap.o
+        ³   ³   ³   ³           cipher_wrap.o.lst
+        ³   ³   ³   ³           md.d
+        ³   ³   ³   ³           md.o
+        ³   ³   ³   ³           md.o.lst
+        ³   ³   ³   ³           md_wrap.d
+        ³   ³   ³   ³           md_wrap.o
+        ³   ³   ³   ³           md_wrap.o.lst
+        ³   ³   ³   ³           platform_util.d
+        ³   ³   ³   ³           platform_util.o
+        ³   ³   ³   ³           platform_util.o.lst
+        ³   ³   ³   ³           sha256.d
+        ³   ³   ³   ³           sha256.o
+        ³   ³   ³   ³           sha256.o.lst
+        ³   ³   ³   ³           ssl_ciphersuites.d
+        ³   ³   ³   ³           ssl_ciphersuites.o
+        ³   ³   ³   ³           ssl_ciphersuites.o.lst
+        ³   ³   ³   ³           subdir.mk
+        ³   ³   ³   ³           
+        ³   ³   ³   ÃÄÄÄoptiga
+        ³   ³   ³   ³   ÃÄÄÄcmd
+        ³   ³   ³   ³   ³       optiga_cmd.d
+        ³   ³   ³   ³   ³       optiga_cmd.o
+        ³   ³   ³   ³   ³       optiga_cmd.o.lst
+        ³   ³   ³   ³   ³       subdir.mk
+        ³   ³   ³   ³   ³       
+        ³   ³   ³   ³   ÃÄÄÄcommon
+        ³   ³   ³   ³   ³       optiga_lib_common.d
+        ³   ³   ³   ³   ³       optiga_lib_common.o
+        ³   ³   ³   ³   ³       optiga_lib_common.o.lst
+        ³   ³   ³   ³   ³       optiga_lib_logger.d
+        ³   ³   ³   ³   ³       optiga_lib_logger.o
+        ³   ³   ³   ³   ³       optiga_lib_logger.o.lst
+        ³   ³   ³   ³   ³       subdir.mk
+        ³   ³   ³   ³   ³       
+        ³   ³   ³   ³   ÃÄÄÄcomms
+        ³   ³   ³   ³   ³   ³   optiga_comms_ifx_i2c.d
+        ³   ³   ³   ³   ³   ³   optiga_comms_ifx_i2c.o
+        ³   ³   ³   ³   ³   ³   optiga_comms_ifx_i2c.o.lst
+        ³   ³   ³   ³   ³   ³   subdir.mk
+        ³   ³   ³   ³   ³   ³   
+        ³   ³   ³   ³   ³   ÀÄÄÄifx_i2c
+        ³   ³   ³   ³   ³           ifx_i2c.d
+        ³   ³   ³   ³   ³           ifx_i2c.o
+        ³   ³   ³   ³   ³           ifx_i2c.o.lst
+        ³   ³   ³   ³   ³           ifx_i2c_config.d
+        ³   ³   ³   ³   ³           ifx_i2c_config.o
+        ³   ³   ³   ³   ³           ifx_i2c_config.o.lst
+        ³   ³   ³   ³   ³           ifx_i2c_data_link_layer.d
+        ³   ³   ³   ³   ³           ifx_i2c_data_link_layer.o
+        ³   ³   ³   ³   ³           ifx_i2c_data_link_layer.o.lst
+        ³   ³   ³   ³   ³           ifx_i2c_physical_layer.d
+        ³   ³   ³   ³   ³           ifx_i2c_physical_layer.o
+        ³   ³   ³   ³   ³           ifx_i2c_physical_layer.o.lst
+        ³   ³   ³   ³   ³           ifx_i2c_presentation_layer.d
+        ³   ³   ³   ³   ³           ifx_i2c_presentation_layer.o
+        ³   ³   ³   ³   ³           ifx_i2c_presentation_layer.o.lst
+        ³   ³   ³   ³   ³           ifx_i2c_transport_layer.d
+        ³   ³   ³   ³   ³           ifx_i2c_transport_layer.o
+        ³   ³   ³   ³   ³           ifx_i2c_transport_layer.o.lst
+        ³   ³   ³   ³   ³           subdir.mk
+        ³   ³   ³   ³   ³           
+        ³   ³   ³   ³   ÃÄÄÄcrypt
+        ³   ³   ³   ³   ³       optiga_crypt.d
+        ³   ³   ³   ³   ³       optiga_crypt.o
+        ³   ³   ³   ³   ³       optiga_crypt.o.lst
+        ³   ³   ³   ³   ³       subdir.mk
+        ³   ³   ³   ³   ³       
+        ³   ³   ³   ³   ÀÄÄÄutil
+        ³   ³   ³   ³           optiga_util.d
+        ³   ³   ³   ³           optiga_util.o
+        ³   ³   ³   ³           optiga_util.o.lst
+        ³   ³   ³   ³           subdir.mk
+        ³   ³   ³   ³           
+        ³   ³   ³   ÃÄÄÄpal
+        ³   ³   ³   ³       pal.d
+        ³   ³   ³   ³       pal.o
+        ³   ³   ³   ³       pal.o.lst
+        ³   ³   ³   ³       pal_crypt_mbedtls.d
+        ³   ³   ³   ³       pal_crypt_mbedtls.o
+        ³   ³   ³   ³       pal_crypt_mbedtls.o.lst
+        ³   ³   ³   ³       pal_gpio.d
+        ³   ³   ³   ³       pal_gpio.o
+        ³   ³   ³   ³       pal_gpio.o.lst
+        ³   ³   ³   ³       pal_i2c.d
+        ³   ³   ³   ³       pal_i2c.o
+        ³   ³   ³   ³       pal_i2c.o.lst
+        ³   ³   ³   ³       pal_ifx_i2c_config.d
+        ³   ³   ³   ³       pal_ifx_i2c_config.o
+        ³   ³   ³   ³       pal_ifx_i2c_config.o.lst
+        ³   ³   ³   ³       pal_logger.d
+        ³   ³   ³   ³       pal_logger.o
+        ³   ³   ³   ³       pal_logger.o.lst
+        ³   ³   ³   ³       pal_os_datastore.d
+        ³   ³   ³   ³       pal_os_datastore.o
+        ³   ³   ³   ³       pal_os_datastore.o.lst
+        ³   ³   ³   ³       pal_os_event.d
+        ³   ³   ³   ³       pal_os_event.o
+        ³   ³   ³   ³       pal_os_event.o.lst
+        ³   ³   ³   ³       pal_os_lock.d
+        ³   ³   ³   ³       pal_os_lock.o
+        ³   ³   ³   ³       pal_os_lock.o.lst
+        ³   ³   ³   ³       pal_os_memory.d
+        ³   ³   ³   ³       pal_os_memory.o
+        ³   ³   ³   ³       pal_os_memory.o.lst
+        ³   ³   ³   ³       pal_os_timer.d
+        ³   ³   ³   ³       pal_os_timer.o
+        ³   ³   ³   ³       pal_os_timer.o.lst
+        ³   ³   ³   ³       subdir.mk
+        ³   ³   ³   ³       
+        ³   ³   ³   ÀÄÄÄxmc
+        ³   ³   ³       ÃÄÄÄDave
+        ³   ³   ³       ³   ÀÄÄÄGenerated
+        ³   ³   ³       ³       ³   DAVE.d
+        ³   ³   ³       ³       ³   DAVE.o
+        ³   ³   ³       ³       ³   DAVE.o.lst
+        ³   ³   ³       ³       ³   subdir.mk
+        ³   ³   ³       ³       ³   
+        ³   ³   ³       ³       ÃÄÄÄCLOCK_XMC4
+        ³   ³   ³       ³       ³       clock_xmc4.d
+        ³   ³   ³       ³       ³       clock_xmc4.o
+        ³   ³   ³       ³       ³       clock_xmc4.o.lst
+        ³   ³   ³       ³       ³       clock_xmc4_conf.d
+        ³   ³   ³       ³       ³       clock_xmc4_conf.o
+        ³   ³   ³       ³       ³       clock_xmc4_conf.o.lst
+        ³   ³   ³       ³       ³       subdir.mk
+        ³   ³   ³       ³       ³       
+        ³   ³   ³       ³       ÃÄÄÄCPU_CTRL_XMC4
+        ³   ³   ³       ³       ³       cpu_ctrl_xmc4.d
+        ³   ³   ³       ³       ³       cpu_ctrl_xmc4.o
+        ³   ³   ³       ³       ³       cpu_ctrl_xmc4.o.lst
+        ³   ³   ³       ³       ³       cpu_ctrl_xmc4_conf.d
+        ³   ³   ³       ³       ³       cpu_ctrl_xmc4_conf.o
+        ³   ³   ³       ³       ³       cpu_ctrl_xmc4_conf.o.lst
+        ³   ³   ³       ³       ³       subdir.mk
+        ³   ³   ³       ³       ³       
+        ³   ³   ³       ³       ÃÄÄÄDIGITAL_IO
+        ³   ³   ³       ³       ³       digital_io.d
+        ³   ³   ³       ³       ³       digital_io.o
+        ³   ³   ³       ³       ³       digital_io.o.lst
+        ³   ³   ³       ³       ³       digital_io_conf.d
+        ³   ³   ³       ³       ³       digital_io_conf.o
+        ³   ³   ³       ³       ³       digital_io_conf.o.lst
+        ³   ³   ³       ³       ³       subdir.mk
+        ³   ³   ³       ³       ³       
+        ³   ³   ³       ³       ÃÄÄÄGLOBAL_CCU4
+        ³   ³   ³       ³       ³       global_ccu4.d
+        ³   ³   ³       ³       ³       global_ccu4.o
+        ³   ³   ³       ³       ³       global_ccu4.o.lst
+        ³   ³   ³       ³       ³       global_ccu4_conf.d
+        ³   ³   ³       ³       ³       global_ccu4_conf.o
+        ³   ³   ³       ³       ³       global_ccu4_conf.o.lst
+        ³   ³   ³       ³       ³       subdir.mk
+        ³   ³   ³       ³       ³       
+        ³   ³   ³       ³       ÃÄÄÄGLOBAL_CCU8
+        ³   ³   ³       ³       ³       global_ccu8.d
+        ³   ³   ³       ³       ³       global_ccu8.o
+        ³   ³   ³       ³       ³       global_ccu8.o.lst
+        ³   ³   ³       ³       ³       global_ccu8_conf.d
+        ³   ³   ³       ³       ³       global_ccu8_conf.o
+        ³   ³   ³       ³       ³       global_ccu8_conf.o.lst
+        ³   ³   ³       ³       ³       subdir.mk
+        ³   ³   ³       ³       ³       
+        ³   ³   ³       ³       ÃÄÄÄI2C_MASTER
+        ³   ³   ³       ³       ³       i2c_master.d
+        ³   ³   ³       ³       ³       i2c_master.o
+        ³   ³   ³       ³       ³       i2c_master.o.lst
+        ³   ³   ³       ³       ³       i2c_master_conf.d
+        ³   ³   ³       ³       ³       i2c_master_conf.o
+        ³   ³   ³       ³       ³       i2c_master_conf.o.lst
+        ³   ³   ³       ³       ³       subdir.mk
+        ³   ³   ³       ³       ³       
+        ³   ³   ³       ³       ÃÄÄÄINTERRUPT
+        ³   ³   ³       ³       ³       interrupt.d
+        ³   ³   ³       ³       ³       interrupt.o
+        ³   ³   ³       ³       ³       interrupt.o.lst
+        ³   ³   ³       ³       ³       interrupt_conf.d
+        ³   ³   ³       ³       ³       interrupt_conf.o
+        ³   ³   ³       ³       ³       interrupt_conf.o.lst
+        ³   ³   ³       ³       ³       subdir.mk
+        ³   ³   ³       ³       ³       
+        ³   ³   ³       ³       ÃÄÄÄTIMER
+        ³   ³   ³       ³       ³       subdir.mk
+        ³   ³   ³       ³       ³       timer.d
+        ³   ³   ³       ³       ³       timer.o
+        ³   ³   ³       ³       ³       timer.o.lst
+        ³   ³   ³       ³       ³       timer_conf.d
+        ³   ³   ³       ³       ³       timer_conf.o
+        ³   ³   ³       ³       ³       timer_conf.o.lst
+        ³   ³   ³       ³       ³       
+        ³   ³   ³       ³       ÃÄÄÄUART
+        ³   ³   ³       ³       ³       subdir.mk
+        ³   ³   ³       ³       ³       uart.d
+        ³   ³   ³       ³       ³       uart.o
+        ³   ³   ³       ³       ³       uart.o.lst
+        ³   ³   ³       ³       ³       uart_conf.d
+        ³   ³   ³       ³       ³       uart_conf.o
+        ³   ³   ³       ³       ³       uart_conf.o.lst
+        ³   ³   ³       ³       ³       
+        ³   ³   ³       ³       ÃÄÄÄUSBD
+        ³   ³   ³       ³       ³   ³   subdir.mk
+        ³   ³   ³       ³       ³   ³   usbd.d
+        ³   ³   ³       ³       ³   ³   usbd.o
+        ³   ³   ³       ³       ³   ³   usbd.o.lst
+        ³   ³   ³       ³       ³   ³   usbd_conf.d
+        ³   ³   ³       ³       ³   ³   usbd_conf.o
+        ³   ³   ³       ³       ³   ³   usbd_conf.o.lst
+        ³   ³   ³       ³       ³   ³   
+        ³   ³   ³       ³       ³   ÀÄÄÄusb
+        ³   ³   ³       ³       ³       ÀÄÄÄcore
+        ³   ³   ³       ³       ³           ³   subdir.mk
+        ³   ³   ³       ³       ³           ³   usb_task.d
+        ³   ³   ³       ³       ³           ³   usb_task.o
+        ³   ³   ³       ³       ³           ³   usb_task.o.lst
+        ³   ³   ³       ³       ³           ³   
+        ³   ³   ³       ³       ³           ÀÄÄÄxmc4000
+        ³   ³   ³       ³       ³                   subdir.mk
+        ³   ³   ³       ³       ³                   usbd_endpoint_stream_xmc4000.d
+        ³   ³   ³       ³       ³                   usbd_endpoint_stream_xmc4000.o
+        ³   ³   ³       ³       ³                   usbd_endpoint_stream_xmc4000.o.lst
+        ³   ³   ³       ³       ³                   usbd_endpoint_xmc4000.d
+        ³   ³   ³       ³       ³                   usbd_endpoint_xmc4000.o
+        ³   ³   ³       ³       ³                   usbd_endpoint_xmc4000.o.lst
+        ³   ³   ³       ³       ³                   
+        ³   ³   ³       ³       ÀÄÄÄUSBD_VCOM
+        ³   ³   ³       ³           ³   subdir.mk
+        ³   ³   ³       ³           ³   usbd_vcom.d
+        ³   ³   ³       ³           ³   usbd_vcom.o
+        ³   ³   ³       ³           ³   usbd_vcom.o.lst
+        ³   ³   ³       ³           ³   usbd_vcom_conf.d
+        ³   ³   ³       ³           ³   usbd_vcom_conf.o
+        ³   ³   ³       ³           ³   usbd_vcom_conf.o.lst
+        ³   ³   ³       ³           ³   
+        ³   ³   ³       ³           ÃÄÄÄclass_driver
+        ³   ³   ³       ³           ³   ÀÄÄÄdevice
+        ³   ³   ³       ³           ³           cdc_class_device.d
+        ³   ³   ³       ³           ³           cdc_class_device.o
+        ³   ³   ³       ³           ³           cdc_class_device.o.lst
+        ³   ³   ³       ³           ³           subdir.mk
+        ³   ³   ³       ³           ³           
+        ³   ³   ³       ³           ÀÄÄÄvirtual_com
+        ³   ³   ³       ³                   descriptors.d
+        ³   ³   ³       ³                   descriptors.o
+        ³   ³   ³       ³                   descriptors.o.lst
+        ³   ³   ³       ³                   subdir.mk
+        ³   ³   ³       ³                   
+        ³   ³   ³       ÃÄÄÄNewlib
+        ³   ³   ³       ³       subdir.mk
+        ³   ³   ³       ³       syscalls.d
+        ³   ³   ³       ³       syscalls.o
+        ³   ³   ³       ³       syscalls.o.lst
+        ³   ³   ³       ³       
+        ³   ³   ³       ÃÄÄÄStartup
+        ³   ³   ³       ³       startup_XMC4800.d
+        ³   ³   ³       ³       startup_XMC4800.o
+        ³   ³   ³       ³       startup_XMC4800.o.lst
+        ³   ³   ³       ³       subdir.mk
+        ³   ³   ³       ³       system_XMC4800.d
+        ³   ³   ³       ³       system_XMC4800.o
+        ³   ³   ³       ³       system_XMC4800.o.lst
+        ³   ³   ³       ³       
+        ³   ³   ³       ÀÄÄÄXMCLib
+        ³   ³   ³           ÀÄÄÄsrc
+        ³   ³   ³                   subdir.mk
+        ³   ³   ³                   xmc4_eru.d
+        ³   ³   ³                   xmc4_eru.o
+        ³   ³   ³                   xmc4_eru.o.lst
+        ³   ³   ³                   xmc4_flash.d
+        ³   ³   ³                   xmc4_flash.o
+        ³   ³   ³                   xmc4_flash.o.lst
+        ³   ³   ³                   xmc4_gpio.d
+        ³   ³   ³                   xmc4_gpio.o
+        ³   ³   ³                   xmc4_gpio.o.lst
+        ³   ³   ³                   xmc4_rtc.d
+        ³   ³   ³                   xmc4_rtc.o
+        ³   ³   ³                   xmc4_rtc.o.lst
+        ³   ³   ³                   xmc4_scu.d
+        ³   ³   ³                   xmc4_scu.o
+        ³   ³   ³                   xmc4_scu.o.lst
+        ³   ³   ³                   xmc_can.d
+        ³   ³   ³                   xmc_can.o
+        ³   ³   ³                   xmc_can.o.lst
+        ³   ³   ³                   xmc_ccu4.d
+        ³   ³   ³                   xmc_ccu4.o
+        ³   ³   ³                   xmc_ccu4.o.lst
+        ³   ³   ³                   xmc_ccu8.d
+        ³   ³   ³                   xmc_ccu8.o
+        ³   ³   ³                   xmc_ccu8.o.lst
+        ³   ³   ³                   xmc_common.d
+        ³   ³   ³                   xmc_common.o
+        ³   ³   ³                   xmc_common.o.lst
+        ³   ³   ³                   xmc_dac.d
+        ³   ³   ³                   xmc_dac.o
+        ³   ³   ³                   xmc_dac.o.lst
+        ³   ³   ³                   xmc_dma.d
+        ³   ³   ³                   xmc_dma.o
+        ³   ³   ³                   xmc_dma.o.lst
+        ³   ³   ³                   xmc_dsd.d
+        ³   ³   ³                   xmc_dsd.o
+        ³   ³   ³                   xmc_dsd.o.lst
+        ³   ³   ³                   xmc_ebu.d
+        ³   ³   ³                   xmc_ebu.o
+        ³   ³   ³                   xmc_ebu.o.lst
+        ³   ³   ³                   xmc_ecat.d
+        ³   ³   ³                   xmc_ecat.o
+        ³   ³   ³                   xmc_ecat.o.lst
+        ³   ³   ³                   xmc_eru.d
+        ³   ³   ³                   xmc_eru.o
+        ³   ³   ³                   xmc_eru.o.lst
+        ³   ³   ³                   xmc_eth_mac.d
+        ³   ³   ³                   xmc_eth_mac.o
+        ³   ³   ³                   xmc_eth_mac.o.lst
+        ³   ³   ³                   xmc_eth_phy_dp83848.d
+        ³   ³   ³                   xmc_eth_phy_dp83848.o
+        ³   ³   ³                   xmc_eth_phy_dp83848.o.lst
+        ³   ³   ³                   xmc_eth_phy_ksz8031rnl.d
+        ³   ³   ³                   xmc_eth_phy_ksz8031rnl.o
+        ³   ³   ³                   xmc_eth_phy_ksz8031rnl.o.lst
+        ³   ³   ³                   xmc_eth_phy_ksz8081rnb.d
+        ³   ³   ³                   xmc_eth_phy_ksz8081rnb.o
+        ³   ³   ³                   xmc_eth_phy_ksz8081rnb.o.lst
+        ³   ³   ³                   xmc_fce.d
+        ³   ³   ³                   xmc_fce.o
+        ³   ³   ³                   xmc_fce.o.lst
+        ³   ³   ³                   xmc_gpio.d
+        ³   ³   ³                   xmc_gpio.o
+        ³   ³   ³                   xmc_gpio.o.lst
+        ³   ³   ³                   xmc_hrpwm.d
+        ³   ³   ³                   xmc_hrpwm.o
+        ³   ³   ³                   xmc_hrpwm.o.lst
+        ³   ³   ³                   xmc_i2c.d
+        ³   ³   ³                   xmc_i2c.o
+        ³   ³   ³                   xmc_i2c.o.lst
+        ³   ³   ³                   xmc_i2s.d
+        ³   ³   ³                   xmc_i2s.o
+        ³   ³   ³                   xmc_i2s.o.lst
+        ³   ³   ³                   xmc_ledts.d
+        ³   ³   ³                   xmc_ledts.o
+        ³   ³   ³                   xmc_ledts.o.lst
+        ³   ³   ³                   xmc_posif.d
+        ³   ³   ³                   xmc_posif.o
+        ³   ³   ³                   xmc_posif.o.lst
+        ³   ³   ³                   xmc_rtc.d
+        ³   ³   ³                   xmc_rtc.o
+        ³   ³   ³                   xmc_rtc.o.lst
+        ³   ³   ³                   xmc_sdmmc.d
+        ³   ³   ³                   xmc_sdmmc.o
+        ³   ³   ³                   xmc_sdmmc.o.lst
+        ³   ³   ³                   xmc_spi.d
+        ³   ³   ³                   xmc_spi.o
+        ³   ³   ³                   xmc_spi.o.lst
+        ³   ³   ³                   xmc_uart.d
+        ³   ³   ³                   xmc_uart.o
+        ³   ³   ³                   xmc_uart.o.lst
+        ³   ³   ³                   xmc_usbd.d
+        ³   ³   ³                   xmc_usbd.o
+        ³   ³   ³                   xmc_usbd.o.lst
+        ³   ³   ³                   xmc_usbh.d
+        ³   ³   ³                   xmc_usbh.o
+        ³   ³   ³                   xmc_usbh.o.lst
+        ³   ³   ³                   xmc_usic.d
+        ³   ³   ³                   xmc_usic.o
+        ³   ³   ³                   xmc_usic.o.lst
+        ³   ³   ³                   xmc_vadc.d
+        ³   ³   ³                   xmc_vadc.o
+        ³   ³   ³                   xmc_vadc.o.lst
+        ³   ³   ³                   xmc_wdt.d
+        ³   ³   ³                   xmc_wdt.o
+        ³   ³   ³                   xmc_wdt.o.lst
+        ³   ³   ³                   
+        ³   ³   ÀÄÄÄSEMS_Sources
+        ³   ³           Com.d
+        ³   ³           Com.o
+        ³   ³           Com.o.lst
+        ³   ³           Constructor.d
+        ³   ³           Constructor.o
+        ³   ³           Constructor.o.lst
+        ³   ³           Decoder.d
+        ³   ³           Decoder.o
+        ³   ³           Decoder.o.lst
+        ³   ³           Hash.d
+        ³   ³           Hash.o
+        ³   ³           Hash.o.lst
+        ³   ³           Init.d
+        ³   ³           Init.o
+        ³   ³           Init.o.lst
+        ³   ³           Main.d
+        ³   ³           Main.o
+        ³   ³           Main.o.lst
+        ³   ³           Nonce.d
+        ³   ³           Nonce.o
+        ³   ³           Nonce.o.lst
+        ³   ³           Patcher.d
+        ³   ³           Patcher.o
+        ³   ³           Patcher.o.lst
+        ³   ³           Random.d
+        ³   ³           Random.o
+        ³   ³           Random.o.lst
+        ³   ³           RSA.d
+        ³   ³           RSA.o
+        ³   ³           RSA.o.lst
+        ³   ³           Skey.d
+        ³   ³           Skey.o
+        ³   ³           Skey.o.lst
+        ³   ³           subdir.mk
+        ³   ³           SymEncrypt.d
+        ³   ³           SymEncrypt.o
+        ³   ³           SymEncrypt.o.lst
+        ³   ³           Test.d
+        ³   ³           Test.o
+        ³   ³           Test.o.lst
+        ³   ³           Timer.d
+        ³   ³           Timer.o
+        ³   ³           Timer.o.lst
+        ³   ³           Unlock.d
+        ³   ³           Unlock.o
+        ³   ³           Unlock.o.lst
+        ³   ³           
+        ³   ÃÄÄÄSEMS_Headers
+        ³   ³       Com.h
+        ³   ³       Config.h
+        ³   ³       Constructor.h
+        ³   ³       Decoder.h
+        ³   ³       Hash.h
+        ³   ³       Init.h
+        ³   ³       Main.h
+        ³   ³       Nonce.h
+        ³   ³       Patcher.h
+        ³   ³       Random.h
+        ³   ³       RSA.h
+        ³   ³       Skey.h
+        ³   ³       SymEncrypt.h
+        ³   ³       Test.h
+        ³   ³       Timer.h
+        ³   ³       Unlock.h
+        ³   ³       Util.h
+        ³   ³       
+        ³   ÀÄÄÄSEMS_Sources
+        ³           Com.c
+        ³           Constructor.c
+        ³           Decoder.c
+        ³           Hash.c
+        ³           Init.c
+        ³           Main.c
+        ³           Nonce.c
+        ³           Patcher.c
+        ³           Random.c
+        ³           RSA.c
+        ³           Skey.c
+        ³           SymEncrypt.c
+        ³           Test.c
+        ³           Timer.c
+        ³           Unlock.c
+        ³           
+        ÀÄÄÄkeil
+            ³   xmc4800_optiga_example.gpdsc
+            ³   xmc4800_optiga_example.uvprojx
+            ³   
+            ÀÄÄÄRTE
+                ÃÄÄÄDevice
+                ³   ÀÄÄÄXMC4800-F100x2048
+                ³           startup_XMC4800.s
+                ³           system_XMC4800.c
+                ³           
+                ÀÄÄÄ_XMC4800-F100x2048
+                        RTE_Components.h
+                        

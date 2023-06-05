@@ -5,7 +5,6 @@
 #include "optiga/pal/pal_os_event.h"
 #include "optiga/pal/pal.h"
 #include "optiga/pal/pal_os_timer.h"
-#include "optiga_example.h"
 #include "optiga/pal/pal_logger.h"
 
 #include "../SEMS_Headers/Timer.h"
