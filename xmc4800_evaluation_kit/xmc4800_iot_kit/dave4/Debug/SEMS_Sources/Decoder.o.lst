@@ -41,14 +41,14 @@
    5:../SEMS_Sources/Decoder.c **** 	// Activate secure unlock
    6:../SEMS_Sources/Decoder.c **** 	if(0 == strcmp((char *)command, "Unlock"))
   38              	 .loc 1 6 0
-  39 0002 0E49     	 ldr r1,.L10
+  39 0002 1249     	 ldr r1,.L12
    4:../SEMS_Sources/Decoder.c **** 	// Activate secure unlock
   40              	 .loc 1 4 0
   41 0004 0446     	 mov r4,r0
   42              	 .loc 1 6 0
   43 0006 FFF7FEFF 	 bl strcmp
   44              	.LVL1:
-  45 000a 50B1     	 cbz r0,.L2
+  45 000a 88B1     	 cbz r0,.L2
    7:../SEMS_Sources/Decoder.c **** 	{
    8:../SEMS_Sources/Decoder.c **** 		return SEC_UNLOCK;
    9:../SEMS_Sources/Decoder.c **** 	}
@@ -57,10 +57,10 @@
   12:../SEMS_Sources/Decoder.c **** 	if(0 == strcmp((char *)command, "SecCom"))
   46              	 .loc 1 12 0
   47 000c 2046     	 mov r0,r4
-  48 000e 0C49     	 ldr r1,.L10+4
+  48 000e 1049     	 ldr r1,.L12+4
   49 0010 FFF7FEFF 	 bl strcmp
   50              	.LVL2:
-  51 0014 30B1     	 cbz r0,.L4
+  51 0014 68B1     	 cbz r0,.L4
   13:../SEMS_Sources/Decoder.c **** 	{
   14:../SEMS_Sources/Decoder.c **** 		return SEC_COM;
   15:../SEMS_Sources/Decoder.c **** 	}
@@ -69,96 +69,119 @@
   18:../SEMS_Sources/Decoder.c **** 	if(0 == strcmp((char *)command, "Lock"))
   52              	 .loc 1 18 0
   53 0016 2046     	 mov r0,r4
-  54 0018 0A49     	 ldr r1,.L10+8
+  54 0018 0E49     	 ldr r1,.L12+8
   55 001a FFF7FEFF 	 bl strcmp
   56              	.LVL3:
-  57 001e 18B9     	 cbnz r0,.L9
+  57 001e 08B9     	 cbnz r0,.L10
   19:../SEMS_Sources/Decoder.c **** 	{
   20:../SEMS_Sources/Decoder.c **** 		return SEC_LOCK;
   58              	 .loc 1 20 0
   59 0020 0220     	 movs r0,#2
-  60              	.L2:
+  60 0022 10BD     	 pop {r4,pc}
+  61              	.LVL4:
+  62              	.L10:
   21:../SEMS_Sources/Decoder.c **** 
   22:../SEMS_Sources/Decoder.c **** 	}
   23:../SEMS_Sources/Decoder.c **** 
   24:../SEMS_Sources/Decoder.c **** 	// Usual command
   25:../SEMS_Sources/Decoder.c **** 	if(0 == strcmp((char *)command, "Command"))
+  63              	 .loc 1 25 0
+  64 0024 2046     	 mov r0,r4
+  65 0026 0C49     	 ldr r1,.L12+12
+  66 0028 FFF7FEFF 	 bl strcmp
+  67              	.LVL5:
+  68 002c 18B9     	 cbnz r0,.L11
   26:../SEMS_Sources/Decoder.c **** 	{
   27:../SEMS_Sources/Decoder.c **** 		return EXAMPLE;
+  69              	 .loc 1 27 0
+  70 002e 0320     	 movs r0,#3
+  71              	.L2:
   28:../SEMS_Sources/Decoder.c **** 	}
   29:../SEMS_Sources/Decoder.c **** 
-  30:../SEMS_Sources/Decoder.c **** 	return UNKNOWN;
-  31:../SEMS_Sources/Decoder.c **** }
-  61              	 .loc 1 31 0
-  62 0022 10BD     	 pop {r4,pc}
-  63              	.LVL4:
-  64              	.L4:
-  14:../SEMS_Sources/Decoder.c **** 	}
-  65              	 .loc 1 14 0
-  66 0024 0120     	 movs r0,#1
-  67 0026 10BD     	 pop {r4,pc}
-  68              	.LVL5:
-  69              	.L9:
-  25:../SEMS_Sources/Decoder.c **** 	{
-  70              	 .loc 1 25 0
-  71 0028 2046     	 mov r0,r4
-  72 002a 0749     	 ldr r1,.L10+12
-  73 002c FFF7FEFF 	 bl strcmp
+  30:../SEMS_Sources/Decoder.c **** 	// Usual command
+  31:../SEMS_Sources/Decoder.c **** 	if(0 == strncmp((char *)command, "Req", strlen("Req")))
+  32:../SEMS_Sources/Decoder.c **** 	{
+  33:../SEMS_Sources/Decoder.c **** 		return REQUEST;
+  34:../SEMS_Sources/Decoder.c **** 	}
+  35:../SEMS_Sources/Decoder.c **** 
+  36:../SEMS_Sources/Decoder.c **** 	return UNKNOWN;
+  37:../SEMS_Sources/Decoder.c **** }
+  72              	 .loc 1 37 0
+  73 0030 10BD     	 pop {r4,pc}
   74              	.LVL6:
-  75 0030 0028     	 cmp r0,#0
-  30:../SEMS_Sources/Decoder.c **** }
-  76              	 .loc 1 30 0
-  77 0032 0CBF     	 ite eq
-  78 0034 0320     	 moveq r0,#3
-  79 0036 0420     	 movne r0,#4
-  80 0038 10BD     	 pop {r4,pc}
-  81              	.LVL7:
-  82              	.L11:
-  83 003a 00BF     	 .align 2
-  84              	.L10:
-  85 003c 00000000 	 .word .LC0
-  86 0040 08000000 	 .word .LC1
-  87 0044 10000000 	 .word .LC2
-  88 0048 18000000 	 .word .LC3
-  89              	 .cfi_endproc
-  90              	.LFE448:
-  92              	 .section .rodata.str1.4,"aMS",%progbits,1
-  93              	 .align 2
-  94              	.LC0:
-  95 0000 556E6C6F 	 .ascii "Unlock\000"
-  95      636B00
-  96 0007 00       	 .space 1
-  97              	.LC1:
-  98 0008 53656343 	 .ascii "SecCom\000"
-  98      6F6D00
-  99 000f 00       	 .space 1
- 100              	.LC2:
- 101 0010 4C6F636B 	 .ascii "Lock\000"
- 101      00
- 102 0015 000000   	 .space 3
- 103              	.LC3:
- 104 0018 436F6D6D 	 .ascii "Command\000"
- 104      616E6400 
- 105              	 .text
- 106              	.Letext0:
- 107              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
- 108              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
- 109              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
- 110              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
- 111              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
- 112              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
- 113              	 .file 8 "../SEMS_Sources/../SEMS_Headers/Decoder.h"
- 114              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
- 115              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
- 116              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
- 117              	 .file 12 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\string.h"
+  75              	.L4:
+  14:../SEMS_Sources/Decoder.c **** 	}
+  76              	 .loc 1 14 0
+  77 0032 0120     	 movs r0,#1
+  78 0034 10BD     	 pop {r4,pc}
+  79              	.LVL7:
+  80              	.L11:
+  31:../SEMS_Sources/Decoder.c **** 	{
+  81              	 .loc 1 31 0
+  82 0036 2046     	 mov r0,r4
+  83 0038 0849     	 ldr r1,.L12+16
+  84 003a 0322     	 movs r2,#3
+  85 003c FFF7FEFF 	 bl strncmp
+  86              	.LVL8:
+  87 0040 0028     	 cmp r0,#0
+  36:../SEMS_Sources/Decoder.c **** }
+  88              	 .loc 1 36 0
+  89 0042 0CBF     	 ite eq
+  90 0044 0420     	 moveq r0,#4
+  91 0046 0520     	 movne r0,#5
+  92 0048 10BD     	 pop {r4,pc}
+  93              	.LVL9:
+  94              	.L13:
+  95 004a 00BF     	 .align 2
+  96              	.L12:
+  97 004c 00000000 	 .word .LC0
+  98 0050 08000000 	 .word .LC1
+  99 0054 10000000 	 .word .LC2
+ 100 0058 18000000 	 .word .LC3
+ 101 005c 20000000 	 .word .LC4
+ 102              	 .cfi_endproc
+ 103              	.LFE448:
+ 105              	 .section .rodata.str1.4,"aMS",%progbits,1
+ 106              	 .align 2
+ 107              	.LC0:
+ 108 0000 556E6C6F 	 .ascii "Unlock\000"
+ 108      636B00
+ 109 0007 00       	 .space 1
+ 110              	.LC1:
+ 111 0008 53656343 	 .ascii "SecCom\000"
+ 111      6F6D00
+ 112 000f 00       	 .space 1
+ 113              	.LC2:
+ 114 0010 4C6F636B 	 .ascii "Lock\000"
+ 114      00
+ 115 0015 000000   	 .space 3
+ 116              	.LC3:
+ 117 0018 436F6D6D 	 .ascii "Command\000"
+ 117      616E6400 
+ 118              	.LC4:
+ 119 0020 52657100 	 .ascii "Req\000"
+ 120              	 .text
+ 121              	.Letext0:
+ 122              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h"
+ 123              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 124              	 .file 4 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 125              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 126              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+ 127              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+ 128              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+ 129              	 .file 9 "../SEMS_Sources/../SEMS_Headers/Decoder.h"
+ 130              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+ 131              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+ 132              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+ 133              	 .file 13 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\string.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 Decoder.c
     {standard input}:20     .text.decode_req:00000000 $t
     {standard input}:25     .text.decode_req:00000000 decode_req
-    {standard input}:85     .text.decode_req:0000003c $d
-    {standard input}:93     .rodata.str1.4:00000000 $d
+    {standard input}:97     .text.decode_req:0000004c $d
+    {standard input}:106    .rodata.str1.4:00000000 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
 strcmp
+strncmp

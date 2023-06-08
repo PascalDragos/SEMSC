@@ -75,8 +75,8 @@
   45 0004 91B0     	 sub sp,sp,#68
   46              	.LCFI1:
   47              	 .cfi_def_cfa_offset 104
-  48 0006 DFF88891 	 ldr r9,.L19+12
-  49 000a DFF88881 	 ldr r8,.L19+16
+  48 0006 DFF8D491 	 ldr r9,.L20+16
+  49 000a DFF8D481 	 ldr r8,.L20+20
   32:../SEMS_Sources/Terminal.c **** 
   33:../SEMS_Sources/Terminal.c **** 	uint8_t sec_unlocked = false;
   34:../SEMS_Sources/Terminal.c **** 	uint8_t sec_comm = false;
@@ -141,26 +141,35 @@
   87:../SEMS_Sources/Terminal.c **** 					write_request(buff, sec_comm);
   88:../SEMS_Sources/Terminal.c **** 					break;
   89:../SEMS_Sources/Terminal.c **** 				}
-  90:../SEMS_Sources/Terminal.c **** 				case UNKNOWN:
-  91:../SEMS_Sources/Terminal.c **** 				default:
-  92:../SEMS_Sources/Terminal.c **** 				{
-  93:../SEMS_Sources/Terminal.c **** 					uint8_t buff[32] = "Unknown request";
-  94:../SEMS_Sources/Terminal.c **** 					write_request(buff, sec_comm);
-  95:../SEMS_Sources/Terminal.c **** 					break;
-  96:../SEMS_Sources/Terminal.c **** 				}
-  97:../SEMS_Sources/Terminal.c **** 			}  // end-switch
-  98:../SEMS_Sources/Terminal.c **** 
-  99:../SEMS_Sources/Terminal.c **** 		}
- 100:../SEMS_Sources/Terminal.c **** 		else
- 101:../SEMS_Sources/Terminal.c **** 		{
- 102:../SEMS_Sources/Terminal.c **** 			// Req before unlock || invalid Token, Nonce, Hash
- 103:../SEMS_Sources/Terminal.c **** 
- 104:../SEMS_Sources/Terminal.c **** 			failed_req++;
- 105:../SEMS_Sources/Terminal.c **** 			if(true == cooldowned)
-  55              	 .loc 1 105 0
+  90:../SEMS_Sources/Terminal.c **** 				case REQUEST:
+  91:../SEMS_Sources/Terminal.c **** 				{
+  92:../SEMS_Sources/Terminal.c **** 					uint8_t buff[32] = "Req  response";
+  93:../SEMS_Sources/Terminal.c **** 
+  94:../SEMS_Sources/Terminal.c **** 					// default behaviour, there would be some processing
+  95:../SEMS_Sources/Terminal.c **** 					buff[3] = command[3];
+  96:../SEMS_Sources/Terminal.c **** 					write_request(buff, sec_comm);
+  97:../SEMS_Sources/Terminal.c **** 					break;
+  98:../SEMS_Sources/Terminal.c **** 				}
+  99:../SEMS_Sources/Terminal.c **** 				case UNKNOWN:
+ 100:../SEMS_Sources/Terminal.c **** 				default:
+ 101:../SEMS_Sources/Terminal.c **** 				{
+ 102:../SEMS_Sources/Terminal.c **** 					uint8_t buff[32] = "Unknown request";
+ 103:../SEMS_Sources/Terminal.c **** 					write_request(buff, sec_comm);
+ 104:../SEMS_Sources/Terminal.c **** 					break;
+ 105:../SEMS_Sources/Terminal.c **** 				}
+ 106:../SEMS_Sources/Terminal.c **** 			}  // end-switch
+ 107:../SEMS_Sources/Terminal.c **** 
+ 108:../SEMS_Sources/Terminal.c **** 		}
+ 109:../SEMS_Sources/Terminal.c **** 		else
+ 110:../SEMS_Sources/Terminal.c **** 		{
+ 111:../SEMS_Sources/Terminal.c **** 			// Req before unlock || invalid Token, Nonce, Hash
+ 112:../SEMS_Sources/Terminal.c **** 
+ 113:../SEMS_Sources/Terminal.c **** 			failed_req++;
+ 114:../SEMS_Sources/Terminal.c **** 			if(true == cooldowned)
+  55              	 .loc 1 114 0
   56 0014 CB46     	 mov fp,r9
- 104:../SEMS_Sources/Terminal.c **** 			if(true == cooldowned)
-  57              	 .loc 1 104 0
+ 113:../SEMS_Sources/Terminal.c **** 			if(true == cooldowned)
+  57              	 .loc 1 113 0
   58 0016 C246     	 mov r10,r8
   33:../SEMS_Sources/Terminal.c **** 	uint8_t sec_comm = false;
   59              	 .loc 1 33 0
@@ -176,409 +185,467 @@
   68 0022 FFF7FEFF 	 bl read_request
   69              	.LVL3:
   70 0026 0546     	 mov r5,r0
-  71 0028 40BB     	 cbnz r0,.L3
-  72              	.L17:
-  73              	.LBB2:
+  71 0028 0028     	 cmp r0,#0
+  72 002a 37D1     	 bne .L3
+  73              	.L18:
+  74              	.LBB2:
   56:../SEMS_Sources/Terminal.c **** 			{
-  74              	 .loc 1 56 0
-  75 002a 99F80030 	 ldrb r3,[r9]
-  76 002e 012B     	 cmp r3,#1
-  77 0030 74D0     	 beq .L16
+  75              	 .loc 1 56 0
+  76 002c 99F80030 	 ldrb r3,[r9]
+  77 0030 012B     	 cmp r3,#1
+  78 0032 00F09880 	 beq .L17
   63:../SEMS_Sources/Terminal.c **** 
-  78              	 .loc 1 63 0
-  79 0032 6846     	 mov r0,sp
-  80 0034 FFF7FEFF 	 bl decode_req
-  81              	.LVL4:
+  79              	 .loc 1 63 0
+  80 0036 6846     	 mov r0,sp
+  81 0038 FFF7FEFF 	 bl decode_req
+  82              	.LVL4:
   65:../SEMS_Sources/Terminal.c **** 				case SEC_UNLOCK:
-  82              	 .loc 1 65 0
-  83 0038 0328     	 cmp r0,#3
-  84 003a 00F28280 	 bhi .L6
-  85 003e DFE800F0 	 tbb [pc,r0]
-  86              	.L8:
-  87 0042 5B       	 .byte (.L7-.L8)/2
-  88 0043 57       	 .byte (.L9-.L8)/2
-  89 0044 41       	 .byte (.L10-.L8)/2
-  90 0045 02       	 .byte (.L11-.L8)/2
-  91              	 .p2align 1
-  92              	.L11:
-  93              	.LBB3:
-  86:../SEMS_Sources/Terminal.c **** 					write_request(buff, sec_comm);
-  94              	 .loc 1 86 0
-  95 0046 DFF850E1 	 ldr lr,.L19+20
-  96 004a BEE80F00 	 ldmia lr!,{r0,r1,r2,r3}
-  97              	.LVL5:
-  98 004e 2546     	 mov r5,r4
-  99 0050 0FC5     	 stmia r5!,{r0,r1,r2,r3}
- 100 0052 DEF80030 	 ldr r3,[lr]
- 101 0056 2B70     	 strb r3,[r5]
- 102 0058 0F22     	 movs r2,#15
- 103 005a 0021     	 movs r1,#0
- 104 005c 0DF13100 	 add r0,sp,#49
- 105 0060 FFF7FEFF 	 bl memset
- 106              	.LVL6:
-  87:../SEMS_Sources/Terminal.c **** 					break;
- 107              	 .loc 1 87 0
- 108 0064 3146     	 mov r1,r6
- 109 0066 2046     	 mov r0,r4
- 110 0068 FFF7FEFF 	 bl write_request
- 111              	.LVL7:
- 112              	.LBE3:
- 113              	.LBE2:
+  83              	 .loc 1 65 0
+  84 003c 0428     	 cmp r0,#4
+  85 003e 00F2B780 	 bhi .L6
+  86 0042 DFE800F0 	 tbb [pc,r0]
+  87              	.L8:
+  88 0046 7E       	 .byte (.L7-.L8)/2
+  89 0047 7A       	 .byte (.L9-.L8)/2
+  90 0048 64       	 .byte (.L10-.L8)/2
+  91 0049 50       	 .byte (.L11-.L8)/2
+  92 004a 03       	 .byte (.L12-.L8)/2
+  93 004b 00       	 .p2align 1
+  94              	.L12:
+  95              	.LBB3:
+  92:../SEMS_Sources/Terminal.c **** 
+  96              	 .loc 1 92 0
+  97 004c 5F4B     	 ldr r3,.L20
+  95:../SEMS_Sources/Terminal.c **** 					write_request(buff, sec_comm);
+  98              	 .loc 1 95 0
+  99 004e 9DF803E0 	 ldrb lr,[sp,#3]
+  92:../SEMS_Sources/Terminal.c **** 
+ 100              	 .loc 1 92 0
+ 101 0052 0FCB     	 ldmia r3,{r0,r1,r2,r3}
+ 102              	.LVL5:
+ 103 0054 2546     	 mov r5,r4
+ 104 0056 07C5     	 stmia r5!,{r0,r1,r2}
+ 105 0058 0022     	 movs r2,#0
+  96:../SEMS_Sources/Terminal.c **** 					break;
+ 106              	 .loc 1 96 0
+ 107 005a 3146     	 mov r1,r6
+ 108 005c 2046     	 mov r0,r4
+  92:../SEMS_Sources/Terminal.c **** 
+ 109              	 .loc 1 92 0
+ 110 005e 2B80     	 strh r3,[r5]
+ 111 0060 ADF82E20 	 strh r2,[sp,#46]
+ 112 0064 ADF83020 	 strh r2,[sp,#48]
+ 113 0068 ADF83220 	 strh r2,[sp,#50]
+ 114 006c ADF83420 	 strh r2,[sp,#52]
+ 115 0070 ADF83620 	 strh r2,[sp,#54]
+ 116 0074 ADF83820 	 strh r2,[sp,#56]
+ 117 0078 ADF83A20 	 strh r2,[sp,#58]
+ 118 007c ADF83C20 	 strh r2,[sp,#60]
+ 119 0080 ADF83E20 	 strh r2,[sp,#62]
+  95:../SEMS_Sources/Terminal.c **** 					write_request(buff, sec_comm);
+ 120              	 .loc 1 95 0
+ 121 0084 8DF823E0 	 strb lr,[sp,#35]
+  96:../SEMS_Sources/Terminal.c **** 					break;
+ 122              	 .loc 1 96 0
+ 123 0088 FFF7FEFF 	 bl write_request
+ 124              	.LVL6:
+ 125              	.LBE3:
+ 126              	.LBE2:
   52:../SEMS_Sources/Terminal.c **** 		{
- 114              	 .loc 1 52 0
- 115 006c 6846     	 mov r0,sp
- 116 006e 3946     	 mov r1,r7
- 117 0070 3246     	 mov r2,r6
- 118 0072 FFF7FEFF 	 bl read_request
- 119              	.LVL8:
- 120 0076 0546     	 mov r5,r0
- 121 0078 0028     	 cmp r0,#0
- 122 007a D6D0     	 beq .L17
- 123              	.L3:
- 104:../SEMS_Sources/Terminal.c **** 			if(true == cooldowned)
- 124              	 .loc 1 104 0
- 125 007c 98F80030 	 ldrb r3,[r8]
- 126 0080 0133     	 adds r3,r3,#1
- 127 0082 DBB2     	 uxtb r3,r3
- 128 0084 88F80030 	 strb r3,[r8]
- 129              	 .loc 1 105 0
- 130 0088 99F80030 	 ldrb r3,[r9]
- 131 008c 012B     	 cmp r3,#1
- 132 008e 66D0     	 beq .L18
- 106:../SEMS_Sources/Terminal.c **** 			{
- 107:../SEMS_Sources/Terminal.c **** 				uint8_t buff[32] = "Denied by cooldown.";
- 108:../SEMS_Sources/Terminal.c **** 				optiga_lib_print_bytes(buff, 32);
- 109:../SEMS_Sources/Terminal.c **** 			}
- 110:../SEMS_Sources/Terminal.c **** 			else
- 111:../SEMS_Sources/Terminal.c **** 			{
- 112:../SEMS_Sources/Terminal.c **** 				if(failed_req >= MAX_FAILED_REQ)
- 133              	 .loc 1 112 0
- 134 0090 9AF80030 	 ldrb r3,[r10]
- 135 0094 03F0FF05 	 and r5,r3,#255
- 136 0098 9BB3     	 cbz r3,.L13
- 137              	.LBB7:
- 113:../SEMS_Sources/Terminal.c **** 				{
- 114:../SEMS_Sources/Terminal.c **** 					uint8_t buff[32] = "Cooldown activated.";
- 138              	 .loc 1 114 0 discriminator 7
- 139 009a DFF800E1 	 ldr lr,.L19+24
- 140 009e BEE80F00 	 ldmia lr!,{r0,r1,r2,r3}
- 141 00a2 2546     	 mov r5,r4
- 142 00a4 0FC5     	 stmia r5!,{r0,r1,r2,r3}
- 143 00a6 DEF80030 	 ldr r3,[lr]
- 144 00aa 2B60     	 str r3,[r5]
- 115:../SEMS_Sources/Terminal.c **** 					optiga_lib_print_bytes(buff, 32);
- 145              	 .loc 1 115 0 discriminator 7
- 146 00ac 2046     	 mov r0,r4
- 114:../SEMS_Sources/Terminal.c **** 					optiga_lib_print_bytes(buff, 32);
- 147              	 .loc 1 114 0 discriminator 7
- 148 00ae 0023     	 movs r3,#0
- 149              	 .loc 1 115 0 discriminator 7
- 150 00b0 2021     	 movs r1,#32
- 114:../SEMS_Sources/Terminal.c **** 					optiga_lib_print_bytes(buff, 32);
- 151              	 .loc 1 114 0 discriminator 7
- 152 00b2 0D93     	 str r3,[sp,#52]
- 153 00b4 0E93     	 str r3,[sp,#56]
- 154 00b6 0F93     	 str r3,[sp,#60]
- 155              	 .loc 1 115 0 discriminator 7
- 156 00b8 FFF7FEFF 	 bl optiga_lib_print_bytes
- 157              	.LVL9:
- 116:../SEMS_Sources/Terminal.c **** 					cooldowned = true;
- 158              	 .loc 1 116 0 discriminator 7
- 159 00bc 0123     	 movs r3,#1
- 160 00be 8BF80030 	 strb r3,[fp]
- 161              	.LBE7:
- 162 00c2 ABE7     	 b .L2
- 163              	.LVL10:
- 164              	.L10:
- 165              	.LBB8:
- 166              	.LBB4:
+ 127              	 .loc 1 52 0
+ 128 008c 6846     	 mov r0,sp
+ 129 008e 3946     	 mov r1,r7
+ 130 0090 3246     	 mov r2,r6
+ 131 0092 FFF7FEFF 	 bl read_request
+ 132              	.LVL7:
+ 133 0096 0546     	 mov r5,r0
+ 134 0098 0028     	 cmp r0,#0
+ 135 009a C7D0     	 beq .L18
+ 136              	.L3:
+ 113:../SEMS_Sources/Terminal.c **** 			if(true == cooldowned)
+ 137              	 .loc 1 113 0
+ 138 009c 98F80030 	 ldrb r3,[r8]
+ 139 00a0 0133     	 adds r3,r3,#1
+ 140 00a2 DBB2     	 uxtb r3,r3
+ 141 00a4 88F80030 	 strb r3,[r8]
+ 142              	 .loc 1 114 0
+ 143 00a8 99F80030 	 ldrb r3,[r9]
+ 144 00ac 012B     	 cmp r3,#1
+ 145 00ae 6DD0     	 beq .L19
+ 115:../SEMS_Sources/Terminal.c **** 			{
+ 116:../SEMS_Sources/Terminal.c **** 				uint8_t buff[32] = "Denied by cooldown.";
+ 117:../SEMS_Sources/Terminal.c **** 				optiga_lib_print_bytes(buff, 32);
+ 118:../SEMS_Sources/Terminal.c **** 			}
+ 119:../SEMS_Sources/Terminal.c **** 			else
+ 120:../SEMS_Sources/Terminal.c **** 			{
+ 121:../SEMS_Sources/Terminal.c **** 				if(failed_req >= MAX_FAILED_REQ)
+ 146              	 .loc 1 121 0
+ 147 00b0 9AF80030 	 ldrb r3,[r10]
+ 148 00b4 03F0FF05 	 and r5,r3,#255
+ 149 00b8 002B     	 cmp r3,#0
+ 150 00ba 47D0     	 beq .L14
+ 151              	.LBB8:
+ 122:../SEMS_Sources/Terminal.c **** 				{
+ 123:../SEMS_Sources/Terminal.c **** 					uint8_t buff[32] = "Cooldown activated.";
+ 152              	 .loc 1 123 0 discriminator 8
+ 153 00bc DFF824E1 	 ldr lr,.L20+24
+ 154 00c0 BEE80F00 	 ldmia lr!,{r0,r1,r2,r3}
+ 155 00c4 2546     	 mov r5,r4
+ 156 00c6 0FC5     	 stmia r5!,{r0,r1,r2,r3}
+ 157 00c8 DEF80030 	 ldr r3,[lr]
+ 158 00cc 2B60     	 str r3,[r5]
+ 124:../SEMS_Sources/Terminal.c **** 					optiga_lib_print_bytes(buff, 32);
+ 159              	 .loc 1 124 0 discriminator 8
+ 160 00ce 2046     	 mov r0,r4
+ 123:../SEMS_Sources/Terminal.c **** 					optiga_lib_print_bytes(buff, 32);
+ 161              	 .loc 1 123 0 discriminator 8
+ 162 00d0 0023     	 movs r3,#0
+ 163              	 .loc 1 124 0 discriminator 8
+ 164 00d2 2021     	 movs r1,#32
+ 123:../SEMS_Sources/Terminal.c **** 					optiga_lib_print_bytes(buff, 32);
+ 165              	 .loc 1 123 0 discriminator 8
+ 166 00d4 0D93     	 str r3,[sp,#52]
+ 167 00d6 0E93     	 str r3,[sp,#56]
+ 168 00d8 0F93     	 str r3,[sp,#60]
+ 169              	 .loc 1 124 0 discriminator 8
+ 170 00da FFF7FEFF 	 bl optiga_lib_print_bytes
+ 171              	.LVL8:
+ 125:../SEMS_Sources/Terminal.c **** 					cooldowned = true;
+ 172              	 .loc 1 125 0 discriminator 8
+ 173 00de 0123     	 movs r3,#1
+ 174 00e0 8BF80030 	 strb r3,[fp]
+ 175              	.LBE8:
+ 176 00e4 9AE7     	 b .L2
+ 177              	.LVL9:
+ 178              	.L11:
+ 179              	.LBB9:
+ 180              	.LBB4:
+  86:../SEMS_Sources/Terminal.c **** 					write_request(buff, sec_comm);
+ 181              	 .loc 1 86 0
+ 182 00e6 DFF800E1 	 ldr lr,.L20+28
+ 183 00ea BEE80F00 	 ldmia lr!,{r0,r1,r2,r3}
+ 184              	.LVL10:
+ 185 00ee 2546     	 mov r5,r4
+ 186 00f0 0FC5     	 stmia r5!,{r0,r1,r2,r3}
+ 187 00f2 DEF80030 	 ldr r3,[lr]
+ 188 00f6 2B70     	 strb r3,[r5]
+ 189 00f8 0DF13100 	 add r0,sp,#49
+ 190 00fc 0021     	 movs r1,#0
+ 191 00fe 0F22     	 movs r2,#15
+ 192 0100 FFF7FEFF 	 bl memset
+ 193              	.LVL11:
+  87:../SEMS_Sources/Terminal.c **** 					break;
+ 194              	 .loc 1 87 0
+ 195 0104 2046     	 mov r0,r4
+ 196 0106 3146     	 mov r1,r6
+ 197 0108 FFF7FEFF 	 bl write_request
+ 198              	.LVL12:
+ 199 010c 86E7     	 b .L2
+ 200              	.LVL13:
+ 201              	.L10:
+ 202              	.LBE4:
+ 203              	.LBB5:
   79:../SEMS_Sources/Terminal.c **** 					sec_unlocked = 0;
- 167              	 .loc 1 79 0
- 168 00c4 2F4B     	 ldr r3,.L19
- 169 00c6 93E80300 	 ldmia r3,{r0,r1}
- 170              	.LVL11:
- 171 00ca 1922     	 movs r2,#25
- 172 00cc 0B0C     	 lsrs r3,r1,#16
- 173 00ce 2060     	 str r0,[r4]
- 174 00d0 ADF82410 	 strh r1,[sp,#36]
- 175 00d4 0DF12700 	 add r0,sp,#39
- 176 00d8 0021     	 movs r1,#0
+ 204              	 .loc 1 79 0
+ 205 010e 304B     	 ldr r3,.L20+4
+ 206 0110 93E80300 	 ldmia r3,{r0,r1}
+ 207              	.LVL14:
+ 208 0114 1922     	 movs r2,#25
+ 209 0116 0B0C     	 lsrs r3,r1,#16
+ 210 0118 2060     	 str r0,[r4]
+ 211 011a ADF82410 	 strh r1,[sp,#36]
+ 212 011e 0DF12700 	 add r0,sp,#39
+ 213 0122 0021     	 movs r1,#0
   81:../SEMS_Sources/Terminal.c **** 					break;
- 177              	 .loc 1 81 0
- 178 00da 08AC     	 add r4,sp,#32
+ 214              	 .loc 1 81 0
+ 215 0124 08AC     	 add r4,sp,#32
   79:../SEMS_Sources/Terminal.c **** 					sec_unlocked = 0;
- 179              	 .loc 1 79 0
- 180 00dc 8DF82630 	 strb r3,[sp,#38]
- 181 00e0 FFF7FEFF 	 bl memset
- 182              	.LVL12:
+ 216              	 .loc 1 79 0
+ 217 0126 8DF82630 	 strb r3,[sp,#38]
+ 218 012a FFF7FEFF 	 bl memset
+ 219              	.LVL15:
   81:../SEMS_Sources/Terminal.c **** 					break;
- 183              	 .loc 1 81 0
- 184 00e4 2046     	 mov r0,r4
- 185 00e6 3146     	 mov r1,r6
- 186 00e8 FFF7FEFF 	 bl write_request
- 187              	.LVL13:
+ 220              	 .loc 1 81 0
+ 221 012e 2046     	 mov r0,r4
+ 222 0130 3146     	 mov r1,r6
+ 223 0132 FFF7FEFF 	 bl write_request
+ 224              	.LVL16:
   80:../SEMS_Sources/Terminal.c **** 					write_request(buff, sec_comm);
- 188              	 .loc 1 80 0
- 189 00ec 0027     	 movs r7,#0
- 190 00ee 95E7     	 b .L2
- 191              	.LVL14:
- 192              	.L9:
- 193              	.LBE4:
+ 225              	 .loc 1 80 0
+ 226 0136 0027     	 movs r7,#0
+ 227 0138 70E7     	 b .L2
+ 228              	.LVL17:
+ 229              	.L9:
+ 230              	.LBE5:
   74:../SEMS_Sources/Terminal.c **** 					break;
- 194              	 .loc 1 74 0
- 195 00f0 FFF7FEFF 	 bl secure_communication
- 196              	.LVL15:
- 197 00f4 0646     	 mov r6,r0
- 198              	.LVL16:
+ 231              	 .loc 1 74 0
+ 232 013a FFF7FEFF 	 bl secure_communication
+ 233              	.LVL18:
+ 234 013e 0646     	 mov r6,r0
+ 235              	.LVL19:
   75:../SEMS_Sources/Terminal.c **** 				}
- 199              	 .loc 1 75 0
- 200 00f6 91E7     	 b .L2
- 201              	.LVL17:
- 202              	.L7:
+ 236              	 .loc 1 75 0
+ 237 0140 6CE7     	 b .L2
+ 238              	.LVL20:
+ 239              	.L7:
   68:../SEMS_Sources/Terminal.c **** 					sec_comm = 0;  // reset sec_comm flag
- 203              	 .loc 1 68 0
- 204 00f8 FFF7FEFF 	 bl secure_unlock
- 205              	.LVL18:
+ 240              	 .loc 1 68 0
+ 241 0142 FFF7FEFF 	 bl secure_unlock
+ 242              	.LVL21:
   69:../SEMS_Sources/Terminal.c **** 					break;
- 206              	 .loc 1 69 0
- 207 00fc 0026     	 movs r6,#0
- 208              	.LVL19:
+ 243              	 .loc 1 69 0
+ 244 0146 0026     	 movs r6,#0
+ 245              	.LVL22:
   68:../SEMS_Sources/Terminal.c **** 					sec_comm = 0;  // reset sec_comm flag
- 209              	 .loc 1 68 0
- 210 00fe 0746     	 mov r7,r0
- 211              	.LVL20:
+ 246              	 .loc 1 68 0
+ 247 0148 0746     	 mov r7,r0
+ 248              	.LVL23:
   70:../SEMS_Sources/Terminal.c **** 				}
- 212              	 .loc 1 70 0
- 213 0100 8CE7     	 b .L2
- 214              	.LVL21:
- 215              	.L13:
- 216              	.LBE8:
- 217              	.LBB9:
- 117:../SEMS_Sources/Terminal.c **** 				}
- 118:../SEMS_Sources/Terminal.c **** 				else
- 119:../SEMS_Sources/Terminal.c **** 				{
- 120:../SEMS_Sources/Terminal.c **** 					// Just a wrong request
- 121:../SEMS_Sources/Terminal.c **** 					uint8_t buff[32] = "Request denied.";
- 218              	 .loc 1 121 0 discriminator 8
- 219 0102 214B     	 ldr r3,.L19+4
- 220 0104 0C95     	 str r5,[sp,#48]
- 221 0106 0FCB     	 ldmia r3,{r0,r1,r2,r3}
- 222 0108 84E80F00 	 stmia r4,{r0,r1,r2,r3}
- 122:../SEMS_Sources/Terminal.c **** 					optiga_lib_print_bytes(buff, 32);
- 223              	 .loc 1 122 0 discriminator 8
- 224 010c 2046     	 mov r0,r4
- 225 010e 2021     	 movs r1,#32
- 121:../SEMS_Sources/Terminal.c **** 					optiga_lib_print_bytes(buff, 32);
- 226              	 .loc 1 121 0 discriminator 8
- 227 0110 0D95     	 str r5,[sp,#52]
- 228 0112 0E95     	 str r5,[sp,#56]
- 229 0114 0F95     	 str r5,[sp,#60]
- 230              	 .loc 1 122 0 discriminator 8
- 231 0116 FFF7FEFF 	 bl optiga_lib_print_bytes
- 232              	.LVL22:
- 233 011a 7FE7     	 b .L2
- 234              	.L16:
- 235              	.LBE9:
- 236              	.LBB10:
- 237              	.LBB5:
+ 249              	 .loc 1 70 0
+ 250 014a 67E7     	 b .L2
+ 251              	.LVL24:
+ 252              	.L14:
+ 253              	.LBE9:
+ 254              	.LBB10:
+ 126:../SEMS_Sources/Terminal.c **** 				}
+ 127:../SEMS_Sources/Terminal.c **** 				else
+ 128:../SEMS_Sources/Terminal.c **** 				{
+ 129:../SEMS_Sources/Terminal.c **** 					// Just a wrong request
+ 130:../SEMS_Sources/Terminal.c **** 					uint8_t buff[32] = "Request denied.";
+ 255              	 .loc 1 130 0 discriminator 9
+ 256 014c 214B     	 ldr r3,.L20+8
+ 257 014e 0C95     	 str r5,[sp,#48]
+ 258 0150 0FCB     	 ldmia r3,{r0,r1,r2,r3}
+ 259 0152 84E80F00 	 stmia r4,{r0,r1,r2,r3}
+ 131:../SEMS_Sources/Terminal.c **** 					optiga_lib_print_bytes(buff, 32);
+ 260              	 .loc 1 131 0 discriminator 9
+ 261 0156 2046     	 mov r0,r4
+ 262 0158 2021     	 movs r1,#32
+ 130:../SEMS_Sources/Terminal.c **** 					optiga_lib_print_bytes(buff, 32);
+ 263              	 .loc 1 130 0 discriminator 9
+ 264 015a 0D95     	 str r5,[sp,#52]
+ 265 015c 0E95     	 str r5,[sp,#56]
+ 266 015e 0F95     	 str r5,[sp,#60]
+ 267              	 .loc 1 131 0 discriminator 9
+ 268 0160 FFF7FEFF 	 bl optiga_lib_print_bytes
+ 269              	.LVL25:
+ 270 0164 5AE7     	 b .L2
+ 271              	.L17:
+ 272              	.LBE10:
+ 273              	.LBB11:
+ 274              	.LBB6:
   58:../SEMS_Sources/Terminal.c **** 				optiga_lib_print_bytes(buff, 32);
- 238              	 .loc 1 58 0
- 239 011c DFF880C0 	 ldr ip,.L19+28
- 240 0120 0D90     	 str r0,[sp,#52]
- 241 0122 BCE80F00 	 ldmia ip!,{r0,r1,r2,r3}
- 242 0126 A646     	 mov lr,r4
- 243 0128 AEE80F00 	 stmia lr!,{r0,r1,r2,r3}
- 244 012c DCF80030 	 ldr r3,[ip]
- 245 0130 0E95     	 str r5,[sp,#56]
+ 275              	 .loc 1 58 0
+ 276 0166 DFF884C0 	 ldr ip,.L20+32
+ 277 016a 0D90     	 str r0,[sp,#52]
+ 278 016c BCE80F00 	 ldmia ip!,{r0,r1,r2,r3}
+ 279 0170 A646     	 mov lr,r4
+ 280 0172 AEE80F00 	 stmia lr!,{r0,r1,r2,r3}
+ 281 0176 DCF80030 	 ldr r3,[ip]
+ 282 017a 0E95     	 str r5,[sp,#56]
   59:../SEMS_Sources/Terminal.c **** 				continue;
- 246              	 .loc 1 59 0
- 247 0132 2046     	 mov r0,r4
- 248 0134 2021     	 movs r1,#32
+ 283              	 .loc 1 59 0
+ 284 017c 2046     	 mov r0,r4
+ 285 017e 2021     	 movs r1,#32
   58:../SEMS_Sources/Terminal.c **** 				optiga_lib_print_bytes(buff, 32);
- 249              	 .loc 1 58 0
- 250 0136 0F95     	 str r5,[sp,#60]
- 251 0138 CEF80030 	 str r3,[lr]
+ 286              	 .loc 1 58 0
+ 287 0180 0F95     	 str r5,[sp,#60]
+ 288 0182 CEF80030 	 str r3,[lr]
   59:../SEMS_Sources/Terminal.c **** 				continue;
- 252              	 .loc 1 59 0
- 253 013c FFF7FEFF 	 bl optiga_lib_print_bytes
- 254              	.LVL23:
- 255 0140 6CE7     	 b .L2
- 256              	.LVL24:
- 257              	.L6:
- 258              	.LBE5:
- 259              	.LBB6:
-  93:../SEMS_Sources/Terminal.c **** 					write_request(buff, sec_comm);
- 260              	 .loc 1 93 0
- 261 0142 124B     	 ldr r3,.L19+8
- 262 0144 0FCB     	 ldmia r3,{r0,r1,r2,r3}
- 263              	.LVL25:
- 264 0146 84E80F00 	 stmia r4,{r0,r1,r2,r3}
- 265 014a 0023     	 movs r3,#0
-  94:../SEMS_Sources/Terminal.c **** 					break;
- 266              	 .loc 1 94 0
- 267 014c 2046     	 mov r0,r4
- 268 014e 3146     	 mov r1,r6
-  93:../SEMS_Sources/Terminal.c **** 					write_request(buff, sec_comm);
- 269              	 .loc 1 93 0
- 270 0150 0C93     	 str r3,[sp,#48]
- 271 0152 0D93     	 str r3,[sp,#52]
- 272 0154 0E93     	 str r3,[sp,#56]
- 273 0156 0F93     	 str r3,[sp,#60]
-  94:../SEMS_Sources/Terminal.c **** 					break;
- 274              	 .loc 1 94 0
- 275 0158 FFF7FEFF 	 bl write_request
- 276              	.LVL26:
- 277 015c 5EE7     	 b .L2
- 278              	.L18:
- 279              	.LBE6:
- 280              	.LBE10:
- 281              	.LBB11:
- 107:../SEMS_Sources/Terminal.c **** 				optiga_lib_print_bytes(buff, 32);
- 282              	 .loc 1 107 0 discriminator 6
- 283 015e DFF840E0 	 ldr lr,.L19+28
- 284 0162 BEE80F00 	 ldmia lr!,{r0,r1,r2,r3}
- 285 0166 2546     	 mov r5,r4
- 286 0168 0FC5     	 stmia r5!,{r0,r1,r2,r3}
- 287 016a DEF80030 	 ldr r3,[lr]
- 288 016e 2B60     	 str r3,[r5]
- 108:../SEMS_Sources/Terminal.c **** 			}
- 289              	 .loc 1 108 0 discriminator 6
- 290 0170 2046     	 mov r0,r4
- 107:../SEMS_Sources/Terminal.c **** 				optiga_lib_print_bytes(buff, 32);
- 291              	 .loc 1 107 0 discriminator 6
- 292 0172 0023     	 movs r3,#0
- 108:../SEMS_Sources/Terminal.c **** 			}
- 293              	 .loc 1 108 0 discriminator 6
- 294 0174 2021     	 movs r1,#32
- 107:../SEMS_Sources/Terminal.c **** 				optiga_lib_print_bytes(buff, 32);
- 295              	 .loc 1 107 0 discriminator 6
- 296 0176 0D93     	 str r3,[sp,#52]
- 297 0178 0E93     	 str r3,[sp,#56]
- 298 017a 0F93     	 str r3,[sp,#60]
- 108:../SEMS_Sources/Terminal.c **** 			}
- 299              	 .loc 1 108 0 discriminator 6
- 300 017c FFF7FEFF 	 bl optiga_lib_print_bytes
- 301              	.LVL27:
- 302              	.LBE11:
- 303 0180 4CE7     	 b .L2
- 304              	.L20:
- 305 0182 00BF     	 .align 2
- 306              	.L19:
- 307 0184 20000000 	 .word .LANCHOR1+32
- 308 0188 A0000000 	 .word .LANCHOR1+160
- 309 018c 60000000 	 .word .LANCHOR1+96
- 310 0190 00000000 	 .word .LANCHOR0
- 311 0194 00000000 	 .word .LANCHOR2
- 312 0198 40000000 	 .word .LANCHOR1+64
- 313 019c 80000000 	 .word .LANCHOR1+128
- 314 01a0 00000000 	 .word .LANCHOR1
- 315              	 .cfi_endproc
- 316              	.LFE449:
- 318              	 .global cooldowned
- 319              	 .global failed_req
- 320              	 .section .rodata
- 321              	 .align 2
- 322              	 .set .LANCHOR1,.+0
- 323              	.LC0:
- 324 0000 44656E69 	 .ascii "Denied by cooldown.\000"
- 324      65642062 
- 324      7920636F 
- 324      6F6C646F 
- 324      776E2E00 
- 325 0014 00000000 	 .space 12
- 325      00000000 
- 325      00000000 
- 326              	.LC1:
- 327 0020 4C6F636B 	 .ascii "Locked\000"
- 327      656400
- 328 0027 00000000 	 .space 25
- 328      00000000 
- 328      00000000 
- 328      00000000 
- 328      00000000 
- 329              	.LC2:
- 330 0040 436F6D6D 	 .ascii "Command response\000"
- 330      616E6420 
- 330      72657370 
- 330      6F6E7365 
- 330      00
- 331 0051 00000000 	 .space 15
- 331      00000000 
- 331      00000000 
- 331      000000
- 332              	.LC3:
- 333 0060 556E6B6E 	 .ascii "Unknown request\000"
- 333      6F776E20 
- 333      72657175 
- 333      65737400 
- 334 0070 00000000 	 .space 16
- 334      00000000 
- 334      00000000 
- 334      00000000 
- 335              	.LC4:
- 336 0080 436F6F6C 	 .ascii "Cooldown activated.\000"
- 336      646F776E 
- 336      20616374 
- 336      69766174 
- 336      65642E00 
- 337 0094 00000000 	 .space 12
- 337      00000000 
- 337      00000000 
- 338              	.LC5:
- 339 00a0 52657175 	 .ascii "Request denied.\000"
- 339      65737420 
- 339      64656E69 
- 339      65642E00 
- 340 00b0 00000000 	 .space 16
- 340      00000000 
- 340      00000000 
- 340      00000000 
- 341              	 .section .bss.failed_req,"aw",%nobits
- 342              	 .set .LANCHOR2,.+0
- 345              	failed_req:
- 346 0000 00       	 .space 1
- 347              	 .section .bss.cooldowned,"aw",%nobits
- 348              	 .set .LANCHOR0,.+0
- 351              	cooldowned:
- 352 0000 00       	 .space 1
- 353              	 .text
- 354              	.Letext0:
- 355              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
- 356              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
- 357              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
- 358              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usic.h"
- 359              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
- 360              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
- 361              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
- 362              	 .file 9 "../SEMS_Sources/../SEMS_Headers/Decoder.h"
- 363              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
- 364              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
- 365              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
- 366              	 .file 13 "../SEMS_Sources/../SEMS_Headers/Patcher.h"
- 367              	 .file 14 "../SEMS_Sources/../SEMS_Headers/Com.h"
- 368              	 .file 15 "../SEMS_Sources/../SEMS_Headers/Unlock.h"
- 369              	 .file 16 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_logger.h"
- 370              	 .file 17 "../SEMS_Sources/../SEMS_Headers/Init.h"
+ 289              	 .loc 1 59 0
+ 290 0186 FFF7FEFF 	 bl optiga_lib_print_bytes
+ 291              	.LVL26:
+ 292 018a 47E7     	 b .L2
+ 293              	.L19:
+ 294              	.LBE6:
+ 295              	.LBE11:
+ 296              	.LBB12:
+ 116:../SEMS_Sources/Terminal.c **** 				optiga_lib_print_bytes(buff, 32);
+ 297              	 .loc 1 116 0 discriminator 7
+ 298 018c DFF85CE0 	 ldr lr,.L20+32
+ 299 0190 BEE80F00 	 ldmia lr!,{r0,r1,r2,r3}
+ 300 0194 2546     	 mov r5,r4
+ 301 0196 0FC5     	 stmia r5!,{r0,r1,r2,r3}
+ 302 0198 DEF80030 	 ldr r3,[lr]
+ 303 019c 2B60     	 str r3,[r5]
+ 117:../SEMS_Sources/Terminal.c **** 			}
+ 304              	 .loc 1 117 0 discriminator 7
+ 305 019e 2046     	 mov r0,r4
+ 116:../SEMS_Sources/Terminal.c **** 				optiga_lib_print_bytes(buff, 32);
+ 306              	 .loc 1 116 0 discriminator 7
+ 307 01a0 0023     	 movs r3,#0
+ 117:../SEMS_Sources/Terminal.c **** 			}
+ 308              	 .loc 1 117 0 discriminator 7
+ 309 01a2 2021     	 movs r1,#32
+ 116:../SEMS_Sources/Terminal.c **** 				optiga_lib_print_bytes(buff, 32);
+ 310              	 .loc 1 116 0 discriminator 7
+ 311 01a4 0D93     	 str r3,[sp,#52]
+ 312 01a6 0E93     	 str r3,[sp,#56]
+ 313 01a8 0F93     	 str r3,[sp,#60]
+ 117:../SEMS_Sources/Terminal.c **** 			}
+ 314              	 .loc 1 117 0 discriminator 7
+ 315 01aa FFF7FEFF 	 bl optiga_lib_print_bytes
+ 316              	.LVL27:
+ 317              	.LBE12:
+ 318 01ae 35E7     	 b .L2
+ 319              	.LVL28:
+ 320              	.L6:
+ 321              	.LBB13:
+ 322              	.LBB7:
+ 102:../SEMS_Sources/Terminal.c **** 					write_request(buff, sec_comm);
+ 323              	 .loc 1 102 0
+ 324 01b0 094B     	 ldr r3,.L20+12
+ 325 01b2 0FCB     	 ldmia r3,{r0,r1,r2,r3}
+ 326              	.LVL29:
+ 327 01b4 84E80F00 	 stmia r4,{r0,r1,r2,r3}
+ 328 01b8 0023     	 movs r3,#0
+ 103:../SEMS_Sources/Terminal.c **** 					break;
+ 329              	 .loc 1 103 0
+ 330 01ba 2046     	 mov r0,r4
+ 331 01bc 3146     	 mov r1,r6
+ 102:../SEMS_Sources/Terminal.c **** 					write_request(buff, sec_comm);
+ 332              	 .loc 1 102 0
+ 333 01be 0C93     	 str r3,[sp,#48]
+ 334 01c0 0D93     	 str r3,[sp,#52]
+ 335 01c2 0E93     	 str r3,[sp,#56]
+ 336 01c4 0F93     	 str r3,[sp,#60]
+ 103:../SEMS_Sources/Terminal.c **** 					break;
+ 337              	 .loc 1 103 0
+ 338 01c6 FFF7FEFF 	 bl write_request
+ 339              	.LVL30:
+ 340 01ca 27E7     	 b .L2
+ 341              	.L21:
+ 342              	 .align 2
+ 343              	.L20:
+ 344 01cc 60000000 	 .word .LANCHOR1+96
+ 345 01d0 20000000 	 .word .LANCHOR1+32
+ 346 01d4 C0000000 	 .word .LANCHOR1+192
+ 347 01d8 80000000 	 .word .LANCHOR1+128
+ 348 01dc 00000000 	 .word .LANCHOR0
+ 349 01e0 00000000 	 .word .LANCHOR2
+ 350 01e4 A0000000 	 .word .LANCHOR1+160
+ 351 01e8 40000000 	 .word .LANCHOR1+64
+ 352 01ec 00000000 	 .word .LANCHOR1
+ 353              	.LBE7:
+ 354              	.LBE13:
+ 355              	 .cfi_endproc
+ 356              	.LFE449:
+ 358              	 .global cooldowned
+ 359              	 .global failed_req
+ 360              	 .section .rodata
+ 361              	 .align 2
+ 362              	 .set .LANCHOR1,.+0
+ 363              	.LC0:
+ 364 0000 44656E69 	 .ascii "Denied by cooldown.\000"
+ 364      65642062 
+ 364      7920636F 
+ 364      6F6C646F 
+ 364      776E2E00 
+ 365 0014 00000000 	 .space 12
+ 365      00000000 
+ 365      00000000 
+ 366              	.LC1:
+ 367 0020 4C6F636B 	 .ascii "Locked\000"
+ 367      656400
+ 368 0027 00000000 	 .space 25
+ 368      00000000 
+ 368      00000000 
+ 368      00000000 
+ 368      00000000 
+ 369              	.LC2:
+ 370 0040 436F6D6D 	 .ascii "Command response\000"
+ 370      616E6420 
+ 370      72657370 
+ 370      6F6E7365 
+ 370      00
+ 371 0051 00000000 	 .space 15
+ 371      00000000 
+ 371      00000000 
+ 371      000000
+ 372              	.LC3:
+ 373 0060 52657120 	 .ascii "Req  response\000"
+ 373      20726573 
+ 373      706F6E73 
+ 373      6500
+ 374 006e 00000000 	 .space 18
+ 374      00000000 
+ 374      00000000 
+ 374      00000000 
+ 374      0000
+ 375              	.LC4:
+ 376 0080 556E6B6E 	 .ascii "Unknown request\000"
+ 376      6F776E20 
+ 376      72657175 
+ 376      65737400 
+ 377 0090 00000000 	 .space 16
+ 377      00000000 
+ 377      00000000 
+ 377      00000000 
+ 378              	.LC5:
+ 379 00a0 436F6F6C 	 .ascii "Cooldown activated.\000"
+ 379      646F776E 
+ 379      20616374 
+ 379      69766174 
+ 379      65642E00 
+ 380 00b4 00000000 	 .space 12
+ 380      00000000 
+ 380      00000000 
+ 381              	.LC6:
+ 382 00c0 52657175 	 .ascii "Request denied.\000"
+ 382      65737420 
+ 382      64656E69 
+ 382      65642E00 
+ 383 00d0 00000000 	 .space 16
+ 383      00000000 
+ 383      00000000 
+ 383      00000000 
+ 384              	 .section .bss.failed_req,"aw",%nobits
+ 385              	 .set .LANCHOR2,.+0
+ 388              	failed_req:
+ 389 0000 00       	 .space 1
+ 390              	 .section .bss.cooldowned,"aw",%nobits
+ 391              	 .set .LANCHOR0,.+0
+ 394              	cooldowned:
+ 395 0000 00       	 .space 1
+ 396              	 .text
+ 397              	.Letext0:
+ 398              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 399              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 400              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 401              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usic.h"
+ 402              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+ 403              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+ 404              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+ 405              	 .file 9 "../SEMS_Sources/../SEMS_Headers/Decoder.h"
+ 406              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+ 407              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+ 408              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+ 409              	 .file 13 "../SEMS_Sources/../SEMS_Headers/Patcher.h"
+ 410              	 .file 14 "../SEMS_Sources/../SEMS_Headers/Com.h"
+ 411              	 .file 15 "../SEMS_Sources/../SEMS_Headers/Unlock.h"
+ 412              	 .file 16 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_logger.h"
+ 413              	 .file 17 "../SEMS_Sources/../SEMS_Headers/Init.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 Terminal.c
     {standard input}:20     .text.my_optiga_shell_begin:00000000 $t
     {standard input}:25     .text.my_optiga_shell_begin:00000000 my_optiga_shell_begin
-    {standard input}:87     .text.my_optiga_shell_begin:00000042 $d
-    {standard input}:91     .text.my_optiga_shell_begin:00000046 $t
-    {standard input}:307    .text.my_optiga_shell_begin:00000184 $d
-    {standard input}:351    .bss.cooldowned:00000000 cooldowned
-    {standard input}:345    .bss.failed_req:00000000 failed_req
-    {standard input}:321    .rodata:00000000 $d
-    {standard input}:346    .bss.failed_req:00000000 $d
-    {standard input}:352    .bss.cooldowned:00000000 $d
+    {standard input}:88     .text.my_optiga_shell_begin:00000046 $d
+    {standard input}:344    .text.my_optiga_shell_begin:000001cc $d
+    {standard input}:394    .bss.cooldowned:00000000 cooldowned
+    {standard input}:388    .bss.failed_req:00000000 failed_req
+    {standard input}:361    .rodata:00000000 $d
+    {standard input}:389    .bss.failed_req:00000000 $d
+    {standard input}:395    .bss.cooldowned:00000000 $d
                      .debug_frame:00000010 $d
+    {standard input}:93     .text.my_optiga_shell_begin:0000004b $d
+    {standard input}:93     .text.my_optiga_shell_begin:0000004c $t
 
 UNDEFINED SYMBOLS
 init_SEMS
 read_request
 decode_req
-memset
 write_request
 optiga_lib_print_bytes
+memset
 secure_communication
 secure_unlock

@@ -87,6 +87,15 @@ void my_optiga_shell_begin(void)
 					write_request(buff, sec_comm);
 					break;
 				}
+				case REQUEST:
+				{
+					uint8_t buff[32] = "Req  response";
+
+					// default behaviour, there would be some processing
+					buff[3] = command[3];
+					write_request(buff, sec_comm);
+					break;
+				}
 				case UNKNOWN:
 				default:
 				{

@@ -10,6 +10,7 @@ typedef enum _req_type {
 	SEC_COM,
 	SEC_LOCK,
 	EXAMPLE,
+	REQUEST,
 	UNKNOWN
 } req_type;
 

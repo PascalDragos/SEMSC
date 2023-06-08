@@ -27,6 +27,12 @@ req_type decode_req(uint8_t command[32])
 		return EXAMPLE;
 	}
 
+	// Usual command
+	if(0 == strncmp((char *)command, "Req", strlen("Req")))
+	{
+		return REQUEST;
+	}
+
 	return UNKNOWN;
 }
 
