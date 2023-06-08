@@ -21,9 +21,9 @@ uint8_t write_sec_nvm(uint8_t block_id, uint8_t data_buffer[], uint32_t size)
 
 	memcpy(data, data_buffer, size);
 
-	optiga_crypt_random_wrapper(key, sizeof(key));
-	optiga_util_write_shared_key(OPTIGA_NVMKEY_OID, key, sizeof(key));
-	key[0] = 127;
+//	optiga_crypt_random_wrapper(key, sizeof(key));
+//	optiga_util_write_shared_key(OPTIGA_NVMKEY_OID, key, sizeof(key));
+//	key[0] = 127;
 	optiga_util_read_shared_key(OPTIGA_NVMKEY_OID, key, sizeof(key));
 	stream_enc(data, key, sizeof(key));
 
@@ -100,3 +100,4 @@ void read_sec_config(void)
 	flash_status = flash_status;
 
 }
+

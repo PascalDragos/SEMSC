@@ -22,8 +22,9 @@
 #include "../SEMS_Headers/Decoder.h"
 #include "../SEMS_Headers/SecNvM.h"
 
-extern pal_logger_t logger_console;
 
+extern pal_logger_t logger_console;
+extern void example_optiga_crypt_ecc_generate_keypair_wrapper(void);
 
 volatile uint8_t failed_req = 0;
 volatile uint8_t cooldowned = false;
@@ -47,8 +48,12 @@ void my_optiga_shell_begin(void)
 #endif
 
 #if LIFECYCLE==LOADING
-	write_sec_config();
-	read_sec_config();
+	while (true)
+	{
+//	write_sec_config();
+//	read_sec_config();
+		example_optiga_crypt_ecc_generate_keypair_wrapper();
+	}
 #endif
 
 

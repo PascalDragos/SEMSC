@@ -1,0 +1,402 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "ECC.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.example_optiga_crypt_ecc_generate_keypair_wrapper,"ax",%progbits
+  20              	 .align 2
+  21              	 .global example_optiga_crypt_ecc_generate_keypair_wrapper
+  22              	 .thumb
+  23              	 .thumb_func
+  25              	example_optiga_crypt_ecc_generate_keypair_wrapper:
+  26              	.LFB479:
+  27              	 .file 1 "../SEMS_Sources/ECC.c"
+   1:../SEMS_Sources/ECC.c **** #include "../SEMS_Headers/ECC.h"
+   2:../SEMS_Sources/ECC.c **** #include "../SEMS_Headers/Util.h"
+   3:../SEMS_Sources/ECC.c **** #include "../SEMS_Headers/Constructor.h"
+   4:../SEMS_Sources/ECC.c **** 
+   5:../SEMS_Sources/ECC.c **** 
+   6:../SEMS_Sources/ECC.c **** static const uint8_t digest [] =
+   7:../SEMS_Sources/ECC.c **** {
+   8:../SEMS_Sources/ECC.c ****     // Size of digest to be chosen based on Curve
+   9:../SEMS_Sources/ECC.c ****     0x61, 0xC7, 0xDE, 0xF9, 0x0F, 0xD5, 0xCD, 0x7A,0x8B, 0x7A, 0x36, 0x41, 0x04, 0xE0, 0x0D, 0x82,
+  10:../SEMS_Sources/ECC.c ****     0x38, 0x46, 0xBF, 0xB7, 0x70, 0xEE, 0xBF, 0x8F,0x40, 0x25, 0x2E, 0x0A, 0x21, 0x42, 0xAF, 0x9C,
+  11:../SEMS_Sources/ECC.c **** };
+  12:../SEMS_Sources/ECC.c **** 
+  13:../SEMS_Sources/ECC.c **** 
+  14:../SEMS_Sources/ECC.c **** volatile int res;
+  15:../SEMS_Sources/ECC.c **** void example_optiga_crypt_ecc_generate_keypair_wrapper(void)
+  16:../SEMS_Sources/ECC.c **** {
+  28              	 .loc 1 16 0
+  29              	 .cfi_startproc
+  30              	 
+  31              	 
+  32 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+  33              	.LCFI0:
+  34              	 .cfi_def_cfa_offset 20
+  35              	 .cfi_offset 4,-20
+  36              	 .cfi_offset 5,-16
+  37              	 .cfi_offset 6,-12
+  38              	 .cfi_offset 7,-8
+  39              	 .cfi_offset 14,-4
+  40 0002 B5B0     	 sub sp,sp,#212
+  41              	.LCFI1:
+  42              	 .cfi_def_cfa_offset 232
+  17:../SEMS_Sources/ECC.c ****     volatile optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
+  43              	 .loc 1 17 0
+  44 0004 0125     	 movs r5,#1
+  18:../SEMS_Sources/ECC.c ****     optiga_key_id_t optiga_key_id = OPTIGA_KEY_ID_E0F1;
+  45              	 .loc 1 18 0
+  46 0006 4EF2F101 	 movw r1,#57585
+  19:../SEMS_Sources/ECC.c ****     uint8_t public_key [100];
+  20:../SEMS_Sources/ECC.c ****     uint16_t public_key_length = sizeof(public_key);
+  47              	 .loc 1 20 0
+  48 000a 6422     	 movs r2,#100
+  21:../SEMS_Sources/ECC.c ****     uint8_t signature [80];
+  22:../SEMS_Sources/ECC.c ****     uint16_t signature_length = sizeof(signature);
+  49              	 .loc 1 22 0
+  50 000c 5023     	 movs r3,#80
+  17:../SEMS_Sources/ECC.c ****     optiga_key_id_t optiga_key_id = OPTIGA_KEY_ID_E0F1;
+  51              	 .loc 1 17 0
+  52 000e ADF81450 	 strh r5,[sp,#20]
+  18:../SEMS_Sources/ECC.c ****     uint8_t public_key [100];
+  53              	 .loc 1 18 0
+  54 0012 ADF81610 	 strh r1,[sp,#22]
+  20:../SEMS_Sources/ECC.c ****     uint8_t signature [80];
+  55              	 .loc 1 20 0
+  56 0016 ADF81820 	 strh r2,[sp,#24]
+  57              	 .loc 1 22 0
+  58 001a ADF81A30 	 strh r3,[sp,#26]
+  59              	.LVL0:
+  23:../SEMS_Sources/ECC.c **** 
+  24:../SEMS_Sources/ECC.c ****     optiga_crypt_t * crypt_me = NULL;
+  25:../SEMS_Sources/ECC.c **** 
+  26:../SEMS_Sources/ECC.c ****     do
+  27:../SEMS_Sources/ECC.c ****     {
+  28:../SEMS_Sources/ECC.c ****         crypt_me = optiga_crypt_create_wrapper();
+  60              	 .loc 1 28 0
+  61 001e FFF7FEFF 	 bl optiga_crypt_create_wrapper
+  62              	.LVL1:
+  29:../SEMS_Sources/ECC.c ****         if (NULL == crypt_me)
+  63              	 .loc 1 29 0
+  64 0022 60B3     	 cbz r0,.L2
+  30:../SEMS_Sources/ECC.c ****         {
+  31:../SEMS_Sources/ECC.c ****             break;
+  32:../SEMS_Sources/ECC.c ****         }
+  33:../SEMS_Sources/ECC.c **** 
+  34:../SEMS_Sources/ECC.c **** 
+  35:../SEMS_Sources/ECC.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+  36:../SEMS_Sources/ECC.c ****         return_status = optiga_crypt_ecc_generate_keypair(crypt_me,
+  65              	 .loc 1 36 0
+  66 0024 0DF11602 	 add r2,sp,#22
+  67 0028 06AB     	 add r3,sp,#24
+  68 002a 0092     	 str r2,[sp]
+  35:../SEMS_Sources/ECC.c ****         return_status = optiga_crypt_ecc_generate_keypair(crypt_me,
+  69              	 .loc 1 35 0
+  70 002c 384C     	 ldr r4,.L25
+  71              	 .loc 1 36 0
+  72 002e 0293     	 str r3,[sp,#8]
+  73 0030 1BAA     	 add r2,sp,#108
+  74 0032 0192     	 str r2,[sp,#4]
+  75 0034 0023     	 movs r3,#0
+  76 0036 0321     	 movs r1,#3
+  77 0038 1022     	 movs r2,#16
+  78 003a 0646     	 mov r6,r0
+  35:../SEMS_Sources/ECC.c ****         return_status = optiga_crypt_ecc_generate_keypair(crypt_me,
+  79              	 .loc 1 35 0
+  80 003c 2580     	 strh r5,[r4]
+  81              	 .loc 1 36 0
+  82 003e FFF7FEFF 	 bl optiga_crypt_ecc_generate_keypair
+  83              	.LVL2:
+  84 0042 ADF81400 	 strh r0,[sp,#20]
+  37:../SEMS_Sources/ECC.c ****                                                           OPTIGA_ECC_CURVE_NIST_P_256,
+  38:../SEMS_Sources/ECC.c ****                                                           (uint8_t)OPTIGA_KEY_USAGE_SIGN,
+  39:../SEMS_Sources/ECC.c ****                                                           FALSE,
+  40:../SEMS_Sources/ECC.c ****                                                           &optiga_key_id,
+  41:../SEMS_Sources/ECC.c ****                                                           public_key,
+  42:../SEMS_Sources/ECC.c ****                                                           &public_key_length);
+  43:../SEMS_Sources/ECC.c ****         WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+  85              	 .loc 1 43 0
+  86 0046 BDF81430 	 ldrh r3,[sp,#20]
+  87 004a 9BB2     	 uxth r3,r3
+  88 004c 53B1     	 cbz r3,.L4
+  89              	.L6:
+  44:../SEMS_Sources/ECC.c ****         return_status = OPTIGA_LIB_SUCCESS;
+  45:../SEMS_Sources/ECC.c **** 
+  46:../SEMS_Sources/ECC.c ****         optiga_lib_status = OPTIGA_LIB_BUSY;
+  47:../SEMS_Sources/ECC.c **** 		return_status = optiga_crypt_ecdsa_sign(crypt_me,
+  48:../SEMS_Sources/ECC.c **** 												  digest,
+  49:../SEMS_Sources/ECC.c **** 												  sizeof(digest),
+  50:../SEMS_Sources/ECC.c **** 												  OPTIGA_KEY_ID_E0F0,
+  51:../SEMS_Sources/ECC.c **** 												  signature,
+  52:../SEMS_Sources/ECC.c **** 												  &signature_length);
+  53:../SEMS_Sources/ECC.c **** 
+  54:../SEMS_Sources/ECC.c **** 		  WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+  55:../SEMS_Sources/ECC.c **** 
+  56:../SEMS_Sources/ECC.c **** 		  optiga_lib_status = OPTIGA_LIB_BUSY;
+  57:../SEMS_Sources/ECC.c **** 			 return_status = optiga_crypt_ecdsa_verify (crypt_me,
+  58:../SEMS_Sources/ECC.c **** 														digest,
+  59:../SEMS_Sources/ECC.c **** 														sizeof(digest),
+  60:../SEMS_Sources/ECC.c **** 														signature,
+  61:../SEMS_Sources/ECC.c **** 														signature_length,
+  62:../SEMS_Sources/ECC.c **** 														OPTIGA_CRYPT_HOST_DATA,
+  63:../SEMS_Sources/ECC.c **** 														&public_key);
+  64:../SEMS_Sources/ECC.c **** 
+  65:../SEMS_Sources/ECC.c **** 			 WAIT_AND_CHECK_STATUS(return_status, optiga_lib_status);
+  66:../SEMS_Sources/ECC.c **** 
+  67:../SEMS_Sources/ECC.c **** 
+  68:../SEMS_Sources/ECC.c ****     } while (FALSE);
+  69:../SEMS_Sources/ECC.c **** 
+  70:../SEMS_Sources/ECC.c **** 
+  71:../SEMS_Sources/ECC.c ****     example_optiga_deinit();
+  90              	 .loc 1 71 0
+  91 004e FFF7FEFF 	 bl example_optiga_deinit
+  92              	.LVL3:
+  72:../SEMS_Sources/ECC.c **** 
+  73:../SEMS_Sources/ECC.c **** 
+  74:../SEMS_Sources/ECC.c ****     if (NULL != crypt_me)
+  75:../SEMS_Sources/ECC.c ****     {
+  76:../SEMS_Sources/ECC.c ****        optiga_crypt_destroy(crypt_me);
+  93              	 .loc 1 76 0
+  94 0052 3046     	 mov r0,r6
+  95 0054 FFF7FEFF 	 bl optiga_crypt_destroy
+  96              	.LVL4:
+  97              	.L10:
+  77:../SEMS_Sources/ECC.c ****     }
+  78:../SEMS_Sources/ECC.c ****     res = public_key[0];
+  98              	 .loc 1 78 0
+  99 0058 2E4B     	 ldr r3,.L25+4
+ 100 005a 9DF86C20 	 ldrb r2,[sp,#108]
+ 101 005e 1A60     	 str r2,[r3]
+  79:../SEMS_Sources/ECC.c **** }
+ 102              	 .loc 1 79 0
+ 103 0060 35B0     	 add sp,sp,#212
+ 104              	.LCFI2:
+ 105              	 .cfi_remember_state
+ 106              	 .cfi_def_cfa_offset 20
+ 107              	 
+ 108 0062 F0BD     	 pop {r4,r5,r6,r7,pc}
+ 109              	.LVL5:
+ 110              	.L4:
+ 111              	.LCFI3:
+ 112              	 .cfi_restore_state
+  43:../SEMS_Sources/ECC.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 113              	 .loc 1 43 0 discriminator 1
+ 114 0064 2388     	 ldrh r3,[r4]
+ 115 0066 2A4D     	 ldr r5,.L25
+ 116 0068 9BB2     	 uxth r3,r3
+ 117 006a 012B     	 cmp r3,#1
+ 118 006c FAD0     	 beq .L4
+  43:../SEMS_Sources/ECC.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 119              	 .loc 1 43 0 is_stmt 0 discriminator 2
+ 120 006e 2B88     	 ldrh r3,[r5]
+ 121 0070 9BB2     	 uxth r3,r3
+ 122 0072 3BB1     	 cbz r3,.L5
+  43:../SEMS_Sources/ECC.c ****         return_status = OPTIGA_LIB_SUCCESS;
+ 123              	 .loc 1 43 0 discriminator 3
+ 124 0074 2B88     	 ldrh r3,[r5]
+ 125 0076 9BB2     	 uxth r3,r3
+ 126 0078 ADF81430 	 strh r3,[sp,#20]
+ 127 007c E7E7     	 b .L6
+ 128              	.LVL6:
+ 129              	.L2:
+  71:../SEMS_Sources/ECC.c **** 
+ 130              	 .loc 1 71 0 is_stmt 1
+ 131 007e FFF7FEFF 	 bl example_optiga_deinit
+ 132              	.LVL7:
+ 133 0082 E9E7     	 b .L10
+ 134              	.LVL8:
+ 135              	.L5:
+  47:../SEMS_Sources/ECC.c **** 												  digest,
+ 136              	 .loc 1 47 0
+ 137 0084 0DF11A02 	 add r2,sp,#26
+  46:../SEMS_Sources/ECC.c **** 		return_status = optiga_crypt_ecdsa_sign(crypt_me,
+ 138              	 .loc 1 46 0
+ 139 0088 4FF0010E 	 mov lr,#1
+  47:../SEMS_Sources/ECC.c **** 												  digest,
+ 140              	 .loc 1 47 0
+ 141 008c 07AF     	 add r7,sp,#28
+ 142 008e 0192     	 str r2,[sp,#4]
+  44:../SEMS_Sources/ECC.c **** 
+ 143              	 .loc 1 44 0
+ 144 0090 ADF81430 	 strh r3,[sp,#20]
+  47:../SEMS_Sources/ECC.c **** 												  digest,
+ 145              	 .loc 1 47 0
+ 146 0094 0097     	 str r7,[sp]
+ 147 0096 4EF2F003 	 movw r3,#57584
+ 148 009a 3046     	 mov r0,r6
+ 149 009c 1E49     	 ldr r1,.L25+8
+  46:../SEMS_Sources/ECC.c **** 		return_status = optiga_crypt_ecdsa_sign(crypt_me,
+ 150              	 .loc 1 46 0
+ 151 009e A5F800E0 	 strh lr,[r5]
+  47:../SEMS_Sources/ECC.c **** 												  digest,
+ 152              	 .loc 1 47 0
+ 153 00a2 2022     	 movs r2,#32
+ 154 00a4 FFF7FEFF 	 bl optiga_crypt_ecdsa_sign
+ 155              	.LVL9:
+ 156 00a8 ADF81400 	 strh r0,[sp,#20]
+  54:../SEMS_Sources/ECC.c **** 
+ 157              	 .loc 1 54 0
+ 158 00ac BDF81430 	 ldrh r3,[sp,#20]
+ 159 00b0 9BB2     	 uxth r3,r3
+ 160 00b2 002B     	 cmp r3,#0
+ 161 00b4 CBD1     	 bne .L6
+ 162              	.L7:
+  54:../SEMS_Sources/ECC.c **** 
+ 163              	 .loc 1 54 0 is_stmt 0 discriminator 1
+ 164 00b6 2388     	 ldrh r3,[r4]
+ 165 00b8 154A     	 ldr r2,.L25
+ 166 00ba 9BB2     	 uxth r3,r3
+ 167 00bc 012B     	 cmp r3,#1
+ 168 00be FAD0     	 beq .L7
+  54:../SEMS_Sources/ECC.c **** 
+ 169              	 .loc 1 54 0 discriminator 2
+ 170 00c0 1388     	 ldrh r3,[r2]
+ 171 00c2 9BB2     	 uxth r3,r3
+ 172 00c4 23B1     	 cbz r3,.L24
+ 173              	.L22:
+  65:../SEMS_Sources/ECC.c **** 
+ 174              	 .loc 1 65 0 is_stmt 1 discriminator 3
+ 175 00c6 1388     	 ldrh r3,[r2]
+ 176 00c8 9BB2     	 uxth r3,r3
+ 177 00ca ADF81430 	 strh r3,[sp,#20]
+ 178 00ce BEE7     	 b .L6
+ 179              	.L24:
+  57:../SEMS_Sources/ECC.c **** 														digest,
+ 180              	 .loc 1 57 0
+ 181 00d0 BDF81A10 	 ldrh r1,[sp,#26]
+  56:../SEMS_Sources/ECC.c **** 			 return_status = optiga_crypt_ecdsa_verify (crypt_me,
+ 182              	 .loc 1 56 0
+ 183 00d4 0125     	 movs r5,#1
+  57:../SEMS_Sources/ECC.c **** 														digest,
+ 184              	 .loc 1 57 0
+ 185 00d6 1BAB     	 add r3,sp,#108
+ 186 00d8 0293     	 str r3,[sp,#8]
+ 187 00da 8DE82200 	 stmia sp,{r1,r5}
+ 188 00de 3B46     	 mov r3,r7
+  56:../SEMS_Sources/ECC.c **** 			 return_status = optiga_crypt_ecdsa_verify (crypt_me,
+ 189              	 .loc 1 56 0
+ 190 00e0 1580     	 strh r5,[r2]
+  57:../SEMS_Sources/ECC.c **** 														digest,
+ 191              	 .loc 1 57 0
+ 192 00e2 3046     	 mov r0,r6
+ 193 00e4 0C49     	 ldr r1,.L25+8
+ 194 00e6 2022     	 movs r2,#32
+ 195 00e8 FFF7FEFF 	 bl optiga_crypt_ecdsa_verify
+ 196              	.LVL10:
+ 197 00ec ADF81400 	 strh r0,[sp,#20]
+  65:../SEMS_Sources/ECC.c **** 
+ 198              	 .loc 1 65 0
+ 199 00f0 BDF81430 	 ldrh r3,[sp,#20]
+ 200 00f4 9BB2     	 uxth r3,r3
+ 201 00f6 002B     	 cmp r3,#0
+ 202 00f8 A9D1     	 bne .L6
+ 203              	.L9:
+  65:../SEMS_Sources/ECC.c **** 
+ 204              	 .loc 1 65 0 is_stmt 0 discriminator 1
+ 205 00fa 2388     	 ldrh r3,[r4]
+ 206 00fc 044A     	 ldr r2,.L25
+ 207 00fe 9BB2     	 uxth r3,r3
+ 208 0100 012B     	 cmp r3,#1
+ 209 0102 FAD0     	 beq .L9
+  65:../SEMS_Sources/ECC.c **** 
+ 210              	 .loc 1 65 0 discriminator 2
+ 211 0104 1388     	 ldrh r3,[r2]
+ 212 0106 9BB2     	 uxth r3,r3
+ 213 0108 002B     	 cmp r3,#0
+ 214 010a A0D0     	 beq .L6
+ 215 010c DBE7     	 b .L22
+ 216              	.L26:
+ 217 010e 00BF     	 .align 2
+ 218              	.L25:
+ 219 0110 00000000 	 .word optiga_lib_status
+ 220 0114 00000000 	 .word res
+ 221 0118 00000000 	 .word .LANCHOR0
+ 222              	 .cfi_endproc
+ 223              	.LFE479:
+ 225              	 .comm res,4,4
+ 226              	 .section .rodata.digest,"a",%progbits
+ 227              	 .align 2
+ 228              	 .set .LANCHOR0,.+0
+ 231              	digest:
+ 232 0000 61       	 .byte 97
+ 233 0001 C7       	 .byte -57
+ 234 0002 DE       	 .byte -34
+ 235 0003 F9       	 .byte -7
+ 236 0004 0F       	 .byte 15
+ 237 0005 D5       	 .byte -43
+ 238 0006 CD       	 .byte -51
+ 239 0007 7A       	 .byte 122
+ 240 0008 8B       	 .byte -117
+ 241 0009 7A       	 .byte 122
+ 242 000a 36       	 .byte 54
+ 243 000b 41       	 .byte 65
+ 244 000c 04       	 .byte 4
+ 245 000d E0       	 .byte -32
+ 246 000e 0D       	 .byte 13
+ 247 000f 82       	 .byte -126
+ 248 0010 38       	 .byte 56
+ 249 0011 46       	 .byte 70
+ 250 0012 BF       	 .byte -65
+ 251 0013 B7       	 .byte -73
+ 252 0014 70       	 .byte 112
+ 253 0015 EE       	 .byte -18
+ 254 0016 BF       	 .byte -65
+ 255 0017 8F       	 .byte -113
+ 256 0018 40       	 .byte 64
+ 257 0019 25       	 .byte 37
+ 258 001a 2E       	 .byte 46
+ 259 001b 0A       	 .byte 10
+ 260 001c 21       	 .byte 33
+ 261 001d 42       	 .byte 66
+ 262 001e AF       	 .byte -81
+ 263 001f 9C       	 .byte -100
+ 264              	 .text
+ 265              	.Letext0:
+ 266              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 267              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 268              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 269              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usic.h"
+ 270              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+ 271              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+ 272              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+ 273              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_types.h"
+ 274              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_common.h"
+ 275              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/cmd/optiga_cmd.h"
+ 276              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_crypt.h"
+ 277              	 .file 13 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+ 278              	 .file 14 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+ 279              	 .file 15 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+ 280              	 .file 16 "../SEMS_Sources/../SEMS_Headers/Util.h"
+ 281              	 .file 17 "../SEMS_Sources/../SEMS_Headers/../SEMS_Headers/Constructor.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 ECC.c
+    {standard input}:20     .text.example_optiga_crypt_ecc_generate_keypair_wrapper:00000000 $t
+    {standard input}:25     .text.example_optiga_crypt_ecc_generate_keypair_wrapper:00000000 example_optiga_crypt_ecc_generate_keypair_wrapper
+    {standard input}:219    .text.example_optiga_crypt_ecc_generate_keypair_wrapper:00000110 $d
+                            *COM*:00000004 res
+    {standard input}:227    .rodata.digest:00000000 $d
+    {standard input}:231    .rodata.digest:00000000 digest
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+optiga_crypt_create_wrapper
+optiga_crypt_ecc_generate_keypair
+example_optiga_deinit
+optiga_crypt_destroy
+optiga_crypt_ecdsa_sign
+optiga_crypt_ecdsa_verify
+optiga_lib_status
