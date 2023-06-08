@@ -22,7 +22,7 @@
   22              	 .thumb
   23              	 .thumb_func
   25              	main:
-  26              	.LFB449:
+  26              	.LFB479:
   27              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/main_xmc4800_example.c"
    1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** /**
    2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit\main_xmc4800_example.c **** * \copyright
@@ -160,7 +160,7 @@
   70              	.L8:
   71 0024 00000000 	 .word logger_console
   72              	 .cfi_endproc
-  73              	.LFE449:
+  73              	.LFE479:
   75              	 .text
   76              	.Letext0:
   77              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"

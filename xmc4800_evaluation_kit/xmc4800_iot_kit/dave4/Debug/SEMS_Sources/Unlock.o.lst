@@ -22,7 +22,7 @@
   22              	 .thumb
   23              	 .thumb_func
   25              	secure_unlock:
-  26              	.LFB448:
+  26              	.LFB478:
   27              	 .file 1 "../SEMS_Sources/Unlock.c"
    1:../SEMS_Sources/Unlock.c **** #include "optiga/pal/pal_logger.h"
    2:../SEMS_Sources/Unlock.c **** #include "optiga/common/optiga_lib_logger.h"
@@ -219,7 +219,7 @@
  147 008c 00000000 	 .word .LANCHOR1
  148              	.LBE3:
  149              	 .cfi_endproc
- 150              	.LFE448:
+ 150              	.LFE478:
  152              	 .global user_token
  153              	 .section .rodata
  154              	 .align 2

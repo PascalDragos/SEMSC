@@ -22,7 +22,7 @@
   22              	 .thumb
   23              	 .thumb_func
   25              	pal_os_malloc:
-  26              	.LFB448:
+  26              	.LFB478:
   27              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800/pal_os_memory.c"
    1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_memory.c **** /**
    2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_memory.c **** * \copyright
@@ -77,14 +77,14 @@
   35 0000 FFF7FEBF 	 b malloc
   36              	.LVL1:
   37              	 .cfi_endproc
-  38              	.LFE448:
+  38              	.LFE478:
   40              	 .section .text.pal_os_calloc,"ax",%progbits
   41              	 .align 2
   42              	 .global pal_os_calloc
   43              	 .thumb
   44              	 .thumb_func
   46              	pal_os_calloc:
-  47              	.LFB449:
+  47              	.LFB479:
   44:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_memory.c **** }
   45:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_memory.c **** 
   46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_memory.c **** void * pal_os_calloc(uint32_t number_of_blocks , uint32_t block_size)
@@ -100,14 +100,14 @@
   55 0000 FFF7FEBF 	 b calloc
   56              	.LVL3:
   57              	 .cfi_endproc
-  58              	.LFE449:
+  58              	.LFE479:
   60              	 .section .text.pal_os_free,"ax",%progbits
   61              	 .align 2
   62              	 .global pal_os_free
   63              	 .thumb
   64              	 .thumb_func
   66              	pal_os_free:
-  67              	.LFB450:
+  67              	.LFB480:
   49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_memory.c **** }
   50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_memory.c **** 
   51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_memory.c **** void pal_os_free(void * p_block)
@@ -123,14 +123,14 @@
   75 0000 FFF7FEBF 	 b free
   76              	.LVL5:
   77              	 .cfi_endproc
-  78              	.LFE450:
+  78              	.LFE480:
   80              	 .section .text.pal_os_memcpy,"ax",%progbits
   81              	 .align 2
   82              	 .global pal_os_memcpy
   83              	 .thumb
   84              	 .thumb_func
   86              	pal_os_memcpy:
-  87              	.LFB451:
+  87              	.LFB481:
   54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_memory.c **** }
   55:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_memory.c **** 
   56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_memory.c **** void pal_os_memcpy(void * p_destination, const void * p_source, uint32_t size)
@@ -146,14 +146,14 @@
   95 0000 FFF7FEBF 	 b memcpy
   96              	.LVL7:
   97              	 .cfi_endproc
-  98              	.LFE451:
+  98              	.LFE481:
  100              	 .section .text.pal_os_memset,"ax",%progbits
  101              	 .align 2
  102              	 .global pal_os_memset
  103              	 .thumb
  104              	 .thumb_func
  106              	pal_os_memset:
- 107              	.LFB452:
+ 107              	.LFB482:
   59:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_memory.c **** }
   60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_memory.c **** 
   61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_memory.c **** void pal_os_memset(void * p_buffer, uint32_t value, uint32_t size)
@@ -169,7 +169,7 @@
  115 0000 FFF7FEBF 	 b memset
  116              	.LVL9:
  117              	 .cfi_endproc
- 118              	.LFE452:
+ 118              	.LFE482:
  120              	 .text
  121              	.Letext0:
  122              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h"

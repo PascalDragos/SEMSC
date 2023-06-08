@@ -22,7 +22,7 @@
   22              	 .thumb
   23              	 .thumb_func
   25              	pal_gpio_init:
-  26              	.LFB448:
+  26              	.LFB478:
   27              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800/pal_gpio.c"
    1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** /**
    2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** * \copyright
@@ -80,14 +80,14 @@
   36              	.LVL1:
   37 0002 7047     	 bx lr
   38              	 .cfi_endproc
-  39              	.LFE448:
+  39              	.LFE478:
   41              	 .section .text.pal_gpio_deinit,"ax",%progbits
   42              	 .align 2
   43              	 .global pal_gpio_deinit
   44              	 .thumb
   45              	 .thumb_func
   47              	pal_gpio_deinit:
-  48              	.LFB449:
+  48              	.LFB479:
   46:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** 
   47:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** //lint --e{714,715} suppress "This is implemented for overall completion of API"
   48:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** pal_status_t pal_gpio_deinit(const pal_gpio_t * p_gpio_context)
@@ -105,14 +105,14 @@
   57              	.LVL3:
   58 0002 7047     	 bx lr
   59              	 .cfi_endproc
-  60              	.LFE449:
+  60              	.LFE479:
   62              	 .section .text.pal_gpio_set_high,"ax",%progbits
   63              	 .align 2
   64              	 .global pal_gpio_set_high
   65              	 .thumb
   66              	 .thumb_func
   68              	pal_gpio_set_high:
-  69              	.LFB450:
+  69              	.LFB480:
   52:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** 
   53:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** void pal_gpio_set_high(const pal_gpio_t * p_gpio_context)
   54:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c **** {
@@ -407,14 +407,14 @@
   97              	.LBE19:
   98              	.LBE18:
   99              	 .cfi_endproc
- 100              	.LFE450:
+ 100              	.LFE480:
  102 0012 00BF     	 .section .text.pal_gpio_set_low,"ax",%progbits
  103              	 .align 2
  104              	 .global pal_gpio_set_low
  105              	 .thumb
  106              	 .thumb_func
  108              	pal_gpio_set_low:
- 109              	.LFB451:
+ 109              	.LFB481:
   56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c ****     {
   57:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c ****         DIGITAL_IO_SetOutputHigh(p_gpio_context->p_gpio_hw);
   58:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_gpio.c ****     }
@@ -478,7 +478,7 @@
  136              	.LBE22:
  137              	.LBE21:
  138              	 .cfi_endproc
- 139              	.LFE451:
+ 139              	.LFE481:
  141              	 .text
  142              	.Letext0:
  143              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"

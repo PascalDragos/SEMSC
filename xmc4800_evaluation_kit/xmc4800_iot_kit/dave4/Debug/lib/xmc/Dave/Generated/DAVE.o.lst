@@ -22,7 +22,7 @@
   22              	 .thumb
   23              	 .thumb_func
   25              	DAVE_Init:
-  26              	.LFB448:
+  26              	.LFB478:
   27              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/DAVE.c"
    1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c **** 
    2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c **** /**
@@ -104,14 +104,14 @@
   68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****      /** @Initialization of APPs Init Functions */
   69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****      init_status = (DAVE_STATUS_t)CLOCK_XMC4_Init(&CLOCK_XMC4_0);
   38              	 .loc 1 69 0
-  39 0002 1E48     	 ldr r0,.L15
+  39 0002 2048     	 ldr r0,.L16
   40 0004 FFF7FEFF 	 bl CLOCK_XMC4_Init
   41              	.LVL1:
   70:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c **** 
   71:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****   if (init_status == DAVE_STATUS_SUCCESS)
   42              	 .loc 1 71 0
-  43 0008 00B1     	 cbz r0,.L14
-  44              	.L11:
+  43 0008 00B1     	 cbz r0,.L15
+  44              	.L12:
   72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****   {
   73:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c **** 	 /**  Initialization of I2C_MASTER APP instance i2c_master_0 */
   74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c **** 	 init_status = (DAVE_STATUS_t)I2C_MASTER_Init(&i2c_master_0); 
@@ -166,183 +166,202 @@
  123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c **** 	 /**  Initialization of INTERRUPT APP instance INTERRUPT_0 */
  124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c **** 	 init_status = (DAVE_STATUS_t) TIMER_Init(&TIMER_Cooldwon);
  125:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****    }  
- 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****   return init_status;
- 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c **** } /**  End of function DAVE_Init */
-  45              	 .loc 1 127 0
+ 126:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****    
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****      if (init_status == DAVE_STATUS_SUCCESS)
+ 128:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****   {
+ 129:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c **** 	 /**  Initialization of E_EEPROM_XMC4 APP instance Sec_NvM */
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c **** 	 init_status = (DAVE_STATUS_t)E_EEPROM_XMC4_Init(&Sec_NvM); 
+ 131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****    }  
+ 132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****   return init_status;
+ 133:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c **** } /**  End of function DAVE_Init */
+  45              	 .loc 1 133 0
   46 000a 08BD     	 pop {r3,pc}
-  47              	.L14:
+  47              	.L15:
   74:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****    } 
   48              	 .loc 1 74 0
-  49 000c 1C48     	 ldr r0,.L15+4
+  49 000c 1E48     	 ldr r0,.L16+4
   50              	.LVL2:
   51 000e FFF7FEFF 	 bl I2C_MASTER_Init
   52              	.LVL3:
   76:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****   {
   53              	 .loc 1 76 0
   54 0012 0028     	 cmp r0,#0
-  55 0014 F9D1     	 bne .L11
+  55 0014 F9D1     	 bne .L12
   79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****    } 
   56              	 .loc 1 79 0
-  57 0016 1B48     	 ldr r0,.L15+8
+  57 0016 1D48     	 ldr r0,.L16+8
   58              	.LVL4:
   59 0018 FFF7FEFF 	 bl TIMER_Init
   60              	.LVL5:
   81:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****   {
   61              	 .loc 1 81 0
   62 001c 0028     	 cmp r0,#0
-  63 001e F4D1     	 bne .L11
+  63 001e F4D1     	 bne .L12
   84:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****    } 
   64              	 .loc 1 84 0
-  65 0020 1948     	 ldr r0,.L15+12
+  65 0020 1B48     	 ldr r0,.L16+12
   66              	.LVL6:
   67 0022 FFF7FEFF 	 bl INTERRUPT_Init
   68              	.LVL7:
   86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****   {
   69              	 .loc 1 86 0
   70 0026 0028     	 cmp r0,#0
-  71 0028 EFD1     	 bne .L11
+  71 0028 EFD1     	 bne .L12
   89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****    } 
   72              	 .loc 1 89 0
-  73 002a 1848     	 ldr r0,.L15+16
+  73 002a 1A48     	 ldr r0,.L16+16
   74              	.LVL8:
   75 002c FFF7FEFF 	 bl TIMER_Init
   76              	.LVL9:
   91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****   {
   77              	 .loc 1 91 0
   78 0030 0028     	 cmp r0,#0
-  79 0032 EAD1     	 bne .L11
+  79 0032 EAD1     	 bne .L12
   94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****    } 
   80              	 .loc 1 94 0
-  81 0034 1648     	 ldr r0,.L15+20
+  81 0034 1848     	 ldr r0,.L16+20
   82              	.LVL10:
   83 0036 FFF7FEFF 	 bl INTERRUPT_Init
   84              	.LVL11:
   96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****   {
   85              	 .loc 1 96 0
   86 003a 0028     	 cmp r0,#0
-  87 003c E5D1     	 bne .L11
+  87 003c E5D1     	 bne .L12
   99:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****    } 
   88              	 .loc 1 99 0
-  89 003e 1548     	 ldr r0,.L15+24
+  89 003e 1748     	 ldr r0,.L16+24
   90              	.LVL12:
   91 0040 FFF7FEFF 	 bl DIGITAL_IO_Init
   92              	.LVL13:
  101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****   {
   93              	 .loc 1 101 0
   94 0044 0028     	 cmp r0,#0
-  95 0046 E0D1     	 bne .L11
+  95 0046 E0D1     	 bne .L12
  104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****    } 
   96              	 .loc 1 104 0
-  97 0048 1348     	 ldr r0,.L15+28
+  97 0048 1548     	 ldr r0,.L16+28
   98              	.LVL14:
   99 004a FFF7FEFF 	 bl UART_Init
  100              	.LVL15:
  106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****   {
  101              	 .loc 1 106 0
  102 004e 0028     	 cmp r0,#0
- 103 0050 DBD1     	 bne .L11
+ 103 0050 DBD1     	 bne .L12
  109:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****    } 
  104              	 .loc 1 109 0
- 105 0052 1248     	 ldr r0,.L15+32
+ 105 0052 1448     	 ldr r0,.L16+32
  106              	.LVL16:
  107 0054 FFF7FEFF 	 bl USBD_VCOM_Init
  108              	.LVL17:
  111:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****   {
  109              	 .loc 1 111 0
  110 0058 0028     	 cmp r0,#0
- 111 005a D6D1     	 bne .L11
+ 111 005a D6D1     	 bne .L12
  114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****    }  
  112              	 .loc 1 114 0
- 113 005c 1048     	 ldr r0,.L15+36
+ 113 005c 1248     	 ldr r0,.L16+36
  114              	.LVL18:
  115 005e FFF7FEFF 	 bl DIGITAL_IO_Init
  116              	.LVL19:
  116:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****   {
  117              	 .loc 1 116 0
  118 0062 0028     	 cmp r0,#0
- 119 0064 D1D1     	 bne .L11
+ 119 0064 D1D1     	 bne .L12
  119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****    }
  120              	 .loc 1 119 0
- 121 0066 0F48     	 ldr r0,.L15+40
+ 121 0066 1148     	 ldr r0,.L16+40
  122              	.LVL20:
  123 0068 FFF7FEFF 	 bl INTERRUPT_Init
  124              	.LVL21:
  121:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****   {
  125              	 .loc 1 121 0
  126 006c 0028     	 cmp r0,#0
- 127 006e CCD1     	 bne .L11
+ 127 006e CCD1     	 bne .L12
  124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****    }  
  128              	 .loc 1 124 0
- 129 0070 0D48     	 ldr r0,.L15+44
+ 129 0070 0F48     	 ldr r0,.L16+44
  130              	.LVL22:
- 131              	 .loc 1 127 0
- 132 0072 BDE80840 	 pop {r3,lr}
- 133              	.LCFI1:
- 134              	 .cfi_restore 14
- 135              	 .cfi_restore 3
- 136              	 .cfi_def_cfa_offset 0
- 124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****    }  
- 137              	 .loc 1 124 0
- 138 0076 FFF7FEBF 	 b TIMER_Init
- 139              	.LVL23:
- 140              	.L16:
- 141 007a 00BF     	 .align 2
- 142              	.L15:
- 143 007c 00000000 	 .word CLOCK_XMC4_0
- 144 0080 00000000 	 .word i2c_master_0
- 145 0084 00000000 	 .word tick_timer
- 146 0088 00000000 	 .word tick_timer_intr
- 147 008c 00000000 	 .word scheduler_timer
- 148 0090 00000000 	 .word scheduler_timer_intr
- 149 0094 00000000 	 .word reset_pin
- 150 0098 00000000 	 .word cunit_logger
- 151 009c 00000000 	 .word console_logger
- 152 00a0 00000000 	 .word vdd_pin
- 153 00a4 00000000 	 .word INTERRUPT_0
- 154 00a8 00000000 	 .word TIMER_Cooldwon
- 155              	 .cfi_endproc
- 156              	.LFE448:
- 158              	 .text
- 159              	.Letext0:
- 160              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
- 161              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
- 162              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
- 163              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc4_scu.h"
- 164              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_gpio.h"
- 165              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc4_gpio.h"
- 166              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/CLOCK_XMC4/clock_xmc4.h"
- 167              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usic.h"
- 168              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_i2c.h"
- 169              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/I2C_MASTER/i2c_master.h"
- 170              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_ccu4.h"
- 171              	 .file 13 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/GLOBAL_CCU4/global_ccu4.h"
- 172              	 .file 14 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_ccu8.h"
- 173              	 .file 15 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/GLOBAL_CCU8/global_ccu8.h"
- 174              	 .file 16 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/TIMER/timer.h"
- 175              	 .file 17 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/INTERRUPT/interrupt.h"
- 176              	 .file 18 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/DIGITAL_IO/digital_io.h"
- 177              	 .file 19 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_uart.h"
- 178              	 .file 20 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/UART/uart.h"
- 179              	 .file 21 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
- 180              	 .file 22 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
- 181              	 .file 23 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
- 182              	 .file 24 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD_VCOM/usbd_vcom.h"
- 183              	 .file 25 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/DAVE.h"
- 184              	 .file 26 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
- 185              	 .file 27 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
- 186              	 .file 28 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/CLOCK_XMC4/clock_xmc4_extern.h"
- 187              	 .file 29 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/I2C_MASTER/i2c_master_extern.h"
- 188              	 .file 30 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/TIMER/timer_extern.h"
- 189              	 .file 31 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/INTERRUPT/interrupt_extern.h"
- 190              	 .file 32 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/DIGITAL_IO/digital_io_extern.h"
- 191              	 .file 33 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/UART/uart_extern.h"
- 192              	 .file 34 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
- 193              	 .file 35 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD_VCOM/usbd_vcom_extern.h"
+ 131 0072 FFF7FEFF 	 bl TIMER_Init
+ 132              	.LVL23:
+ 127:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****   {
+ 133              	 .loc 1 127 0
+ 134 0076 0028     	 cmp r0,#0
+ 135 0078 C7D1     	 bne .L12
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****    }  
+ 136              	 .loc 1 130 0
+ 137 007a 0E48     	 ldr r0,.L16+48
+ 138              	.LVL24:
+ 139              	 .loc 1 133 0
+ 140 007c BDE80840 	 pop {r3,lr}
+ 141              	.LCFI1:
+ 142              	 .cfi_restore 14
+ 143              	 .cfi_restore 3
+ 144              	 .cfi_def_cfa_offset 0
+ 130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated\DAVE.c ****    }  
+ 145              	 .loc 1 130 0
+ 146 0080 FFF7FEBF 	 b E_EEPROM_XMC4_Init
+ 147              	.LVL25:
+ 148              	.L17:
+ 149              	 .align 2
+ 150              	.L16:
+ 151 0084 00000000 	 .word CLOCK_XMC4_0
+ 152 0088 00000000 	 .word i2c_master_0
+ 153 008c 00000000 	 .word tick_timer
+ 154 0090 00000000 	 .word tick_timer_intr
+ 155 0094 00000000 	 .word scheduler_timer
+ 156 0098 00000000 	 .word scheduler_timer_intr
+ 157 009c 00000000 	 .word reset_pin
+ 158 00a0 00000000 	 .word cunit_logger
+ 159 00a4 00000000 	 .word console_logger
+ 160 00a8 00000000 	 .word vdd_pin
+ 161 00ac 00000000 	 .word INTERRUPT_0
+ 162 00b0 00000000 	 .word TIMER_Cooldwon
+ 163 00b4 00000000 	 .word Sec_NvM
+ 164              	 .cfi_endproc
+ 165              	.LFE478:
+ 167              	 .text
+ 168              	.Letext0:
+ 169              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 170              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 171              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 172              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc4_scu.h"
+ 173              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_gpio.h"
+ 174              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc4_gpio.h"
+ 175              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/CLOCK_XMC4/clock_xmc4.h"
+ 176              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usic.h"
+ 177              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_i2c.h"
+ 178              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/I2C_MASTER/i2c_master.h"
+ 179              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_ccu4.h"
+ 180              	 .file 13 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/GLOBAL_CCU4/global_ccu4.h"
+ 181              	 .file 14 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_ccu8.h"
+ 182              	 .file 15 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/GLOBAL_CCU8/global_ccu8.h"
+ 183              	 .file 16 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/TIMER/timer.h"
+ 184              	 .file 17 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/INTERRUPT/interrupt.h"
+ 185              	 .file 18 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/DIGITAL_IO/digital_io.h"
+ 186              	 .file 19 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_uart.h"
+ 187              	 .file 20 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/UART/uart.h"
+ 188              	 .file 21 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+ 189              	 .file 22 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+ 190              	 .file 23 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+ 191              	 .file 24 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD_VCOM/usbd_vcom.h"
+ 192              	 .file 25 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/E_EEPROM_XMC4/e_eeprom_xmc4.h"
+ 193              	 .file 26 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/DAVE.h"
+ 194              	 .file 27 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+ 195              	 .file 28 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+ 196              	 .file 29 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/CLOCK_XMC4/clock_xmc4_extern.h"
+ 197              	 .file 30 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/I2C_MASTER/i2c_master_extern.h"
+ 198              	 .file 31 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/TIMER/timer_extern.h"
+ 199              	 .file 32 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/INTERRUPT/interrupt_extern.h"
+ 200              	 .file 33 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/DIGITAL_IO/digital_io_extern.h"
+ 201              	 .file 34 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/UART/uart_extern.h"
+ 202              	 .file 35 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+ 203              	 .file 36 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD_VCOM/usbd_vcom_extern.h"
+ 204              	 .file 37 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/E_EEPROM_XMC4/e_eeprom_xmc4_extern.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 DAVE.c
     {standard input}:20     .text.DAVE_Init:00000000 $t
     {standard input}:25     .text.DAVE_Init:00000000 DAVE_Init
-    {standard input}:143    .text.DAVE_Init:0000007c $d
+    {standard input}:151    .text.DAVE_Init:00000084 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
@@ -353,6 +372,7 @@ INTERRUPT_Init
 DIGITAL_IO_Init
 UART_Init
 USBD_VCOM_Init
+E_EEPROM_XMC4_Init
 CLOCK_XMC4_0
 i2c_master_0
 tick_timer
@@ -365,3 +385,4 @@ console_logger
 vdd_pin
 INTERRUPT_0
 TIMER_Cooldwon
+Sec_NvM

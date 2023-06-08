@@ -94,6 +94,12 @@ examples/optiga_shell.o examples/optiga_shell.d examples/optiga_shell.o: \
  d:\school\diseratie\sems\xmc4800_evaluation_kit\xmc4800_iot_kit\common\dave\generated\usbd\usbd.h \
  d:\school\diseratie\sems\xmc4800_evaluation_kit\xmc4800_iot_kit\common\dave\generated\usbd_vcom\usbd_vcom_conf.h \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD_VCOM/usbd_vcom_extern.h \
+ D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/E_EEPROM_XMC4/e_eeprom_xmc4.h \
+ D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_flash.h \
+ D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc4_flash.h \
+ D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_fce.h \
+ D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/E_EEPROM_XMC4/e_eeprom_xmc4_conf.h \
+ D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/E_EEPROM_XMC4/e_eeprom_xmc4_extern.h \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_crypt.h \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/cmd/optiga_cmd.h \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_common.h \
@@ -297,6 +303,18 @@ d:\school\diseratie\sems\xmc4800_evaluation_kit\xmc4800_iot_kit\common\dave\gene
 d:\school\diseratie\sems\xmc4800_evaluation_kit\xmc4800_iot_kit\common\dave\generated\usbd_vcom\usbd_vcom_conf.h:
 
 D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD_VCOM/usbd_vcom_extern.h:
+
+D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/E_EEPROM_XMC4/e_eeprom_xmc4.h:
+
+D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_flash.h:
+
+D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc4_flash.h:
+
+D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_fce.h:
+
+D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/E_EEPROM_XMC4/e_eeprom_xmc4_conf.h:
+
+D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/E_EEPROM_XMC4/e_eeprom_xmc4_extern.h:
 
 D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_crypt.h:
 

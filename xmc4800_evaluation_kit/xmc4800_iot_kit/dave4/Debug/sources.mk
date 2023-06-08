@@ -33,6 +33,7 @@ lib/xmc/Dave/Generated/CLOCK_XMC4 \
 lib/xmc/Dave/Generated/CPU_CTRL_XMC4 \
 lib/xmc/Dave/Generated \
 lib/xmc/Dave/Generated/DIGITAL_IO \
+lib/xmc/Dave/Generated/E_EEPROM_XMC4 \
 lib/xmc/Dave/Generated/GLOBAL_CCU4 \
 lib/xmc/Dave/Generated/GLOBAL_CCU8 \
 lib/xmc/Dave/Generated/I2C_MASTER \

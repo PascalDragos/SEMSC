@@ -22,7 +22,7 @@
   22              	 .thumb
   23              	 .thumb_func
   25              	optiga_crypt_hash_data_wrapper:
-  26              	.LFB449:
+  26              	.LFB479:
   27              	 .file 1 "../SEMS_Sources/Hash.c"
    1:../SEMS_Sources/Hash.c **** #include "../SEMS_Headers/Hash.h"
    2:../SEMS_Sources/Hash.c **** #include "../SEMS_Headers/Constructor.h"
@@ -176,7 +176,7 @@
  124              	.L13:
  125 0058 00000000 	 .word optiga_lib_status
  126              	 .cfi_endproc
- 127              	.LFE449:
+ 127              	.LFE479:
  129              	 .text
  130              	.Letext0:
  131              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"

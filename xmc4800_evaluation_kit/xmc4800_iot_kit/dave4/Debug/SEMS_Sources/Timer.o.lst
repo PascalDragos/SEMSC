@@ -22,7 +22,7 @@
   22              	 .thumb
   23              	 .thumb_func
   25              	start_cooldown_timer:
-  26              	.LFB449:
+  26              	.LFB479:
   27              	 .file 1 "../SEMS_Sources/Timer.c"
    1:../SEMS_Sources/Timer.c **** #include "../SEMS_Headers/Timer.h"
    2:../SEMS_Sources/Timer.c **** #include "../SEMS_Headers/Config.h"
@@ -73,14 +73,14 @@
   58 0018 00000000 	 .word TIMER_Cooldwon
   59 001c 00E1F505 	 .word 100000000
   60              	 .cfi_endproc
-  61              	.LFE449:
+  61              	.LFE479:
   63              	 .section .text.CCU80_3_IRQHandler,"ax",%progbits
   64              	 .align 2
   65              	 .global CCU80_3_IRQHandler
   66              	 .thumb
   67              	 .thumb_func
   69              	CCU80_3_IRQHandler:
-  70              	.LFB450:
+  70              	.LFB480:
   16:../SEMS_Sources/Timer.c **** 
   17:../SEMS_Sources/Timer.c **** 
   18:../SEMS_Sources/Timer.c **** void TimerInterval_ISR(void)
@@ -123,7 +123,7 @@
   98 001c 00000000 	 .word failed_req
   99 0020 00000000 	 .word cooldowned
  100              	 .cfi_endproc
- 101              	.LFE450:
+ 101              	.LFE480:
  103              	 .text
  104              	.Letext0:
  105              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"

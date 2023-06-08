@@ -22,17 +22,19 @@
   22              	 .thumb
   23              	 .thumb_func
   25              	init_SEMS:
-  26              	.LFB449:
+  26              	.LFB479:
   27              	 .file 1 "../SEMS_Sources/Init.c"
    1:../SEMS_Sources/Init.c **** #include "../SEMS_Headers/Init.h"
    2:../SEMS_Sources/Init.c **** #include "../SEMS_Headers/Constructor.h"
    3:../SEMS_Sources/Init.c **** 
    4:../SEMS_Sources/Init.c **** #include "../SEMS_Headers/Util.h"
    5:../SEMS_Sources/Init.c **** #include "../SEMS_Headers/Timer.h"
-   6:../SEMS_Sources/Init.c **** 
-   7:../SEMS_Sources/Init.c **** void init_SEMS(void)
-   8:../SEMS_Sources/Init.c **** {
-  28              	 .loc 1 8 0
+   6:../SEMS_Sources/Init.c **** #include "../SEMS_Headers/SecNvM.h"
+   7:../SEMS_Sources/Init.c **** 
+   8:../SEMS_Sources/Init.c **** 
+   9:../SEMS_Sources/Init.c **** void init_SEMS(void)
+  10:../SEMS_Sources/Init.c **** {
+  28              	 .loc 1 10 0
   29              	 .cfi_startproc
   30              	 
   31              	 
@@ -41,24 +43,27 @@
   34              	 .cfi_def_cfa_offset 8
   35              	 .cfi_offset 3,-8
   36              	 .cfi_offset 14,-4
-   9:../SEMS_Sources/Init.c **** 	example_optiga_init_true();
-  37              	 .loc 1 9 0
+  11:../SEMS_Sources/Init.c **** 	example_optiga_init_true();
+  37              	 .loc 1 11 0
   38 0002 FFF7FEFF 	 bl example_optiga_init_true
   39              	.LVL0:
-  10:../SEMS_Sources/Init.c **** 	start_cooldown_timer();
-  11:../SEMS_Sources/Init.c **** }
-  40              	 .loc 1 11 0
+  12:../SEMS_Sources/Init.c **** 	start_cooldown_timer();
+  13:../SEMS_Sources/Init.c **** 
+  14:../SEMS_Sources/Init.c **** //	read_sec_config();
+  15:../SEMS_Sources/Init.c **** 
+  16:../SEMS_Sources/Init.c **** }
+  40              	 .loc 1 16 0
   41 0006 BDE80840 	 pop {r3,lr}
   42              	.LCFI1:
   43              	 .cfi_restore 14
   44              	 .cfi_restore 3
   45              	 .cfi_def_cfa_offset 0
-  10:../SEMS_Sources/Init.c **** 	start_cooldown_timer();
-  46              	 .loc 1 10 0
+  12:../SEMS_Sources/Init.c **** 	start_cooldown_timer();
+  46              	 .loc 1 12 0
   47 000a FFF7FEBF 	 b start_cooldown_timer
   48              	.LVL1:
   49              	 .cfi_endproc
-  50              	.LFE449:
+  50              	.LFE479:
   52 000e 00BF     	 .text
   53              	.Letext0:
   54              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"

@@ -22,7 +22,7 @@
   22              	 .thumb
   23              	 .thumb_func
   25              	CCU41_1_IRQHandler:
-  26              	.LFB448:
+  26              	.LFB478:
   27              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800/pal_os_timer.c"
    1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** /**
    2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** * \copyright
@@ -102,14 +102,14 @@
   55 001c 00000000 	 .word tick_timer
   56 0020 00000000 	 .word .LANCHOR0
   57              	 .cfi_endproc
-  58              	.LFE448:
+  58              	.LFE478:
   60              	 .section .text.pal_os_timer_get_time_in_microseconds,"ax",%progbits
   61              	 .align 2
   62              	 .global pal_os_timer_get_time_in_microseconds
   63              	 .thumb
   64              	 .thumb_func
   66              	pal_os_timer_get_time_in_microseconds:
-  67              	.LFB449:
+  67              	.LFB479:
   49:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** }
   50:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** 
   51:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** /// @endcond
@@ -140,14 +140,14 @@
   82              	.L6:
   83 000c 00000000 	 .word .LANCHOR1
   84              	 .cfi_endproc
-  85              	.LFE449:
+  85              	.LFE479:
   87              	 .section .text.pal_os_timer_get_time_in_milliseconds,"ax",%progbits
   88              	 .align 2
   89              	 .global pal_os_timer_get_time_in_milliseconds
   90              	 .thumb
   91              	 .thumb_func
   93              	pal_os_timer_get_time_in_milliseconds:
-  94              	.LFB450:
+  94              	.LFB480:
   62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** 
   63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** uint32_t pal_os_timer_get_time_in_milliseconds(void)
   64:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** {
@@ -168,14 +168,14 @@
  107              	.L9:
  108 0008 00000000 	 .word .LANCHOR0
  109              	 .cfi_endproc
- 110              	.LFE450:
+ 110              	.LFE480:
  112              	 .section .text.pal_os_timer_delay_in_milliseconds,"ax",%progbits
  113              	 .align 2
  114              	 .global pal_os_timer_delay_in_milliseconds
  115              	 .thumb
  116              	 .thumb_func
  118              	pal_os_timer_delay_in_milliseconds:
- 119              	.LFB451:
+ 119              	.LFB481:
   67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** 
   68:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** void pal_os_timer_delay_in_milliseconds(uint16_t milliseconds)
   69:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** {
@@ -232,14 +232,14 @@
  151              	.L15:
  152 0010 00000000 	 .word .LANCHOR0
  153              	 .cfi_endproc
- 154              	.LFE451:
+ 154              	.LFE481:
  156              	 .section .text.pal_timer_init,"ax",%progbits
  157              	 .align 2
  158              	 .global pal_timer_init
  159              	 .thumb
  160              	 .thumb_func
  162              	pal_timer_init:
- 163              	.LFB452:
+ 163              	.LFB482:
   87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** 
   88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** //lint --e{714} suppress "This is implemented for overall completion of API"
   89:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** pal_status_t pal_timer_init(void)
@@ -255,14 +255,14 @@
  170 0000 0020     	 movs r0,#0
  171 0002 7047     	 bx lr
  172              	 .cfi_endproc
- 173              	.LFE452:
+ 173              	.LFE482:
  175              	 .section .text.pal_timer_deinit,"ax",%progbits
  176              	 .align 2
  177              	 .global pal_timer_deinit
  178              	 .thumb
  179              	 .thumb_func
  181              	pal_timer_deinit:
- 182              	.LFB453:
+ 182              	.LFB483:
   93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** 
   94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** //lint --e{714} suppress "This is implemented for overall completion of API"
   95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_timer.c **** pal_status_t pal_timer_deinit(void)
@@ -278,16 +278,16 @@
  189 0000 0020     	 movs r0,#0
  190 0002 7047     	 bx lr
  191              	 .cfi_endproc
- 192              	.LFE453:
+ 192              	.LFE483:
  194              	 .section .bss.g_tick_count,"aw",%nobits
  195              	 .align 2
  196              	 .set .LANCHOR0,.+0
  199              	g_tick_count:
  200 0000 00000000 	 .space 4
- 201              	 .section .bss.count.13558,"aw",%nobits
+ 201              	 .section .bss.count.13892,"aw",%nobits
  202              	 .align 2
  203              	 .set .LANCHOR1,.+0
- 206              	count.13558:
+ 206              	count.13892:
  207 0000 00000000 	 .space 4
  208              	 .text
  209              	.Letext0:
@@ -329,8 +329,8 @@ DEFINED SYMBOLS
     {standard input}:181    .text.pal_timer_deinit:00000000 pal_timer_deinit
     {standard input}:195    .bss.g_tick_count:00000000 $d
     {standard input}:199    .bss.g_tick_count:00000000 g_tick_count
-    {standard input}:202    .bss.count.13558:00000000 $d
-    {standard input}:206    .bss.count.13558:00000000 count.13558
+    {standard input}:202    .bss.count.13892:00000000 $d
+    {standard input}:206    .bss.count.13892:00000000 count.13892
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

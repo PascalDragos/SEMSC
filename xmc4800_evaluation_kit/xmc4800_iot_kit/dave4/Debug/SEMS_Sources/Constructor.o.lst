@@ -21,7 +21,7 @@
   21              	 .thumb
   22              	 .thumb_func
   24              	optiga_crypt_callback:
-  25              	.LFB449:
+  25              	.LFB479:
   26              	 .file 1 "../SEMS_Sources/Constructor.c"
    1:../SEMS_Sources/Constructor.c **** #include "../SEMS_Headers/Constructor.h"
    2:../SEMS_Sources/Constructor.c **** #include "../SEMS_Headers/Config.h"
@@ -48,13 +48,13 @@
   39              	.L2:
   40 0008 00000000 	 .word optiga_lib_status
   41              	 .cfi_endproc
-  42              	.LFE449:
+  42              	.LFE479:
   44              	 .section .text.optiga_util_callback,"ax",%progbits
   45              	 .align 2
   46              	 .thumb
   47              	 .thumb_func
   49              	optiga_util_callback:
-  50              	.LFB450:
+  50              	.LFB480:
   11:../SEMS_Sources/Constructor.c ****     if (NULL != context)
   12:../SEMS_Sources/Constructor.c ****     {
   13:../SEMS_Sources/Constructor.c ****         // callback to upper layer here
@@ -80,14 +80,14 @@
   63              	.L5:
   64 0008 00000000 	 .word optiga_lib_status
   65              	 .cfi_endproc
-  66              	.LFE450:
+  66              	.LFE480:
   68              	 .section .text.optiga_crypt_create_wrapper,"ax",%progbits
   69              	 .align 2
   70              	 .global optiga_crypt_create_wrapper
   71              	 .thumb
   72              	 .thumb_func
   74              	optiga_crypt_create_wrapper:
-  75              	.LFB451:
+  75              	.LFB481:
   21:../SEMS_Sources/Constructor.c ****     if (NULL != context)
   22:../SEMS_Sources/Constructor.c ****     {
   23:../SEMS_Sources/Constructor.c ****         // callback to upper layer here
@@ -120,18 +120,18 @@
   92              	.LVL2:
   33:../SEMS_Sources/Constructor.c **** #if LIFECYCLE==PRODUCTION
   34:../SEMS_Sources/Constructor.c **** 	OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_FULL_PROTECTION);
-  93              	 .loc 1 34 0
+  35:../SEMS_Sources/Constructor.c **** #else
+  36:../SEMS_Sources/Constructor.c **** 	OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_NO_PROTECTION);
+  93              	 .loc 1 36 0
   94 000c 0121     	 movs r1,#1
   32:../SEMS_Sources/Constructor.c **** #if LIFECYCLE==PRODUCTION
   95              	 .loc 1 32 0
   96 000e 0446     	 mov r4,r0
   97              	.LVL3:
-  98              	 .loc 1 34 0
-  99 0010 0322     	 movs r2,#3
+  98              	 .loc 1 36 0
+  99 0010 0022     	 movs r2,#0
  100 0012 FFF7FEFF 	 bl optiga_crypt_set_comms_params
  101              	.LVL4:
-  35:../SEMS_Sources/Constructor.c **** #else
-  36:../SEMS_Sources/Constructor.c **** 	OPTIGA_CRYPT_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_NO_PROTECTION);
   37:../SEMS_Sources/Constructor.c **** #endif
   38:../SEMS_Sources/Constructor.c **** 
   39:../SEMS_Sources/Constructor.c **** 	return me;
@@ -145,14 +145,14 @@
  108              	.L9:
  109 001c 00000000 	 .word optiga_crypt_callback
  110              	 .cfi_endproc
- 111              	.LFE451:
+ 111              	.LFE481:
  113              	 .section .text.optiga_util_create_wrapper,"ax",%progbits
  114              	 .align 2
  115              	 .global optiga_util_create_wrapper
  116              	 .thumb
  117              	 .thumb_func
  119              	optiga_util_create_wrapper:
- 120              	.LFB452:
+ 120              	.LFB482:
   41:../SEMS_Sources/Constructor.c **** 
   42:../SEMS_Sources/Constructor.c **** 
   43:../SEMS_Sources/Constructor.c **** optiga_util_t * optiga_util_create_wrapper(void)
@@ -180,18 +180,18 @@
   47:../SEMS_Sources/Constructor.c **** 
   48:../SEMS_Sources/Constructor.c **** #if LIFECYCLE==PRODUCTION
   49:../SEMS_Sources/Constructor.c **** 	OPTIGA_UTIL_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_FULL_PROTECTION);
- 138              	 .loc 1 49 0
+  50:../SEMS_Sources/Constructor.c **** #else
+  51:../SEMS_Sources/Constructor.c **** 	OPTIGA_UTIL_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_NO_PROTECTION);
+ 138              	 .loc 1 51 0
  139 000c 0121     	 movs r1,#1
   46:../SEMS_Sources/Constructor.c **** 
  140              	 .loc 1 46 0
  141 000e 0446     	 mov r4,r0
  142              	.LVL7:
- 143              	 .loc 1 49 0
- 144 0010 0322     	 movs r2,#3
+ 143              	 .loc 1 51 0
+ 144 0010 0022     	 movs r2,#0
  145 0012 FFF7FEFF 	 bl optiga_util_set_comms_params
  146              	.LVL8:
-  50:../SEMS_Sources/Constructor.c **** #else
-  51:../SEMS_Sources/Constructor.c **** 	OPTIGA_UTIL_SET_COMMS_PROTECTION_LEVEL(me, OPTIGA_COMMS_NO_PROTECTION);
   52:../SEMS_Sources/Constructor.c **** #endif
   53:../SEMS_Sources/Constructor.c **** 
   54:../SEMS_Sources/Constructor.c **** 	return me;
@@ -205,7 +205,7 @@
  153              	.L13:
  154 001c 00000000 	 .word optiga_util_callback
  155              	 .cfi_endproc
- 156              	.LFE452:
+ 156              	.LFE482:
  158              	 .comm optiga_lib_status,2,2
  159              	 .text
  160              	.Letext0:

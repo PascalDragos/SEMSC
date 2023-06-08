@@ -7,6 +7,7 @@
 #include "optiga/pal/pal_os_timer.h"
 #include "optiga/pal/pal_logger.h"
 
+
 #include "../SEMS_Headers/Timer.h"
 #include "../SEMS_Headers/Random.h"
 #include "../SEMS_Headers/RSA.h"
@@ -19,6 +20,7 @@
 #include "../SEMS_Headers/Init.h"
 #include "../SEMS_Headers/Test.h"
 #include "../SEMS_Headers/Decoder.h"
+#include "../SEMS_Headers/SecNvM.h"
 
 extern pal_logger_t logger_console;
 
@@ -43,6 +45,12 @@ void my_optiga_shell_begin(void)
 		test();
 	}
 #endif
+
+#if LIFECYCLE==LOADING
+	write_sec_config();
+	read_sec_config();
+#endif
+
 
 
 	while(true)

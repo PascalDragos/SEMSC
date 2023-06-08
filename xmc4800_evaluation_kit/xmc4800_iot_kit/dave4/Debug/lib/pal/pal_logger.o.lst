@@ -22,7 +22,7 @@
   22              	 .thumb
   23              	 .thumb_func
   25              	cunit_console_uart_end_of_transmit_callback:
-  26              	.LFB448:
+  26              	.LFB478:
   27              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800/pal_logger.c"
    1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** /**
    2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** * \copyright
@@ -98,14 +98,14 @@
   40              	.L2:
   41 0008 00000000 	 .word .LANCHOR0
   42              	 .cfi_endproc
-  43              	.LFE448:
+  43              	.LFE478:
   45              	 .section .text.cunit_console_uart_end_of_receive_callback,"ax",%progbits
   46              	 .align 2
   47              	 .global cunit_console_uart_end_of_receive_callback
   48              	 .thumb
   49              	 .thumb_func
   51              	cunit_console_uart_end_of_receive_callback:
-  52              	.LFB449:
+  52              	.LFB479:
   60:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** }
   61:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
   62:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** void cunit_console_uart_end_of_receive_callback(void)
@@ -126,14 +126,14 @@
   65              	.L5:
   66 0008 00000000 	 .word .LANCHOR0
   67              	 .cfi_endproc
-  68              	.LFE449:
+  68              	.LFE479:
   70              	 .section .text.pal_logger_init,"ax",%progbits
   71              	 .align 2
   72              	 .global pal_logger_init
   73              	 .thumb
   74              	 .thumb_func
   76              	pal_logger_init:
-  77              	.LFB450:
+  77              	.LFB480:
   65:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** }
   66:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
   67:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** /// @endcond
@@ -205,14 +205,14 @@
  113              	 .loc 1 94 0
  114 001c 08BD     	 pop {r3,pc}
  115              	 .cfi_endproc
- 116              	.LFE450:
+ 116              	.LFE480:
  118 001e 00BF     	 .section .text.pal_logger_deinit,"ax",%progbits
  119              	 .align 2
  120              	 .global pal_logger_deinit
  121              	 .thumb
  122              	 .thumb_func
  124              	pal_logger_deinit:
- 125              	.LFB451:
+ 125              	.LFB481:
   95:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
   96:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
   97:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** pal_status_t pal_logger_deinit(void * p_logger_context)
@@ -264,14 +264,14 @@
  150 000e 0020     	 movs r0,#0
  151 0010 08BD     	 pop {r3,pc}
  152              	 .cfi_endproc
- 153              	.LFE451:
+ 153              	.LFE481:
  155 0012 00BF     	 .section .text.pal_logger_write,"ax",%progbits
  156              	 .align 2
  157              	 .global pal_logger_write
  158              	 .thumb
  159              	 .thumb_func
  161              	pal_logger_write:
- 162              	.LFB452:
+ 162              	.LFB482:
  118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
  119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
  120:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** pal_status_t pal_logger_write(void * p_logger_context, const uint8_t * p_log_data, uint32_t log_dat
@@ -380,14 +380,14 @@
  228              	.L33:
  229 003c 00000000 	 .word USBD_VCOM_cdc_interface
  230              	 .cfi_endproc
- 231              	.LFE452:
+ 231              	.LFE482:
  233              	 .section .text.pal_logger_read,"ax",%progbits
  234              	 .align 2
  235              	 .global pal_logger_read
  236              	 .thumb
  237              	 .thumb_func
  239              	pal_logger_read:
- 240              	.LFB453:
+ 240              	.LFB483:
  156:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** 
  157:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** pal_status_t pal_logger_read(void * p_logger_context, uint8_t * p_log_data, uint32_t log_data_lengt
  158:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_logger.c **** {
@@ -494,7 +494,7 @@
  306              	.L47:
  307 003c 00000000 	 .word USBD_VCOM_cdc_interface
  308              	 .cfi_endproc
- 309              	.LFE453:
+ 309              	.LFE483:
  311              	 .global cunit_console
  312              	 .global logger_console
  313              	 .section .data.cunit_console,"aw",%progbits

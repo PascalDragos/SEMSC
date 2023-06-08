@@ -13,6 +13,7 @@ C_SRCS += \
 ../SEMS_Sources/Patcher.c \
 ../SEMS_Sources/RSA.c \
 ../SEMS_Sources/Random.c \
+../SEMS_Sources/SecNvm.c \
 ../SEMS_Sources/Skey.c \
 ../SEMS_Sources/SymEncrypt.c \
 ../SEMS_Sources/Terminal.c \
@@ -30,6 +31,7 @@ OBJS += \
 ./SEMS_Sources/Patcher.o \
 ./SEMS_Sources/RSA.o \
 ./SEMS_Sources/Random.o \
+./SEMS_Sources/SecNvm.o \
 ./SEMS_Sources/Skey.o \
 ./SEMS_Sources/SymEncrypt.o \
 ./SEMS_Sources/Terminal.o \
@@ -47,6 +49,7 @@ C_DEPS += \
 ./SEMS_Sources/Patcher.d \
 ./SEMS_Sources/RSA.d \
 ./SEMS_Sources/Random.d \
+./SEMS_Sources/SecNvm.d \
 ./SEMS_Sources/Skey.d \
 ./SEMS_Sources/SymEncrypt.d \
 ./SEMS_Sources/Terminal.d \

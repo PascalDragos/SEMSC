@@ -22,7 +22,7 @@
   22              	 .thumb
   23              	 .thumb_func
   25              	invoke_upper_layer_callback:
-  26              	.LFB450:
+  26              	.LFB480:
   27              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800/pal_i2c.c"
    1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** /**
    2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** * \copyright
@@ -131,14 +131,14 @@
   55              	.LBE37:
   56              	.LBE36:
   57              	 .cfi_endproc
-  58              	.LFE450:
+  58              	.LFE480:
   60              	 .section .text.i2c_master_end_of_transmit_callback,"ax",%progbits
   61              	 .align 2
   62              	 .global i2c_master_end_of_transmit_callback
   63              	 .thumb
   64              	 .thumb_func
   66              	i2c_master_end_of_transmit_callback:
-  67              	.LFB451:
+  67              	.LFB481:
   77:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** 
   78:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c ****     //Release I2C Bus
   79:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c ****     pal_i2c_release(p_pal_i2c_ctx->p_upper_layer_ctx);
@@ -188,14 +188,14 @@
  103              	.LBE39:
  104              	.LBE38:
  105              	 .cfi_endproc
- 106              	.LFE451:
+ 106              	.LFE481:
  108              	 .section .text.i2c_master_end_of_receive_callback,"ax",%progbits
  109              	 .align 2
  110              	 .global i2c_master_end_of_receive_callback
  111              	 .thumb
  112              	 .thumb_func
  114              	i2c_master_end_of_receive_callback:
- 115              	.LFB452:
+ 115              	.LFB482:
   86:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** }
   87:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** 
   88:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** void i2c_master_end_of_receive_callback(void)
@@ -241,14 +241,14 @@
  151              	.LBE43:
  152              	.LBE42:
  153              	 .cfi_endproc
- 154              	.LFE452:
+ 154              	.LFE482:
  156              	 .section .text.i2c_master_error_detected_callback,"ax",%progbits
  157              	 .align 2
  158              	 .global i2c_master_error_detected_callback
  159              	 .thumb
  160              	 .thumb_func
  162              	i2c_master_error_detected_callback:
- 163              	.LFB453:
+ 163              	.LFB483:
   91:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** }
   92:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** 
   93:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** void i2c_master_error_detected_callback(void)
@@ -2399,14 +2399,14 @@
  265 004c 00000000 	 .word .LANCHOR1
  266 0050 00000000 	 .word .LANCHOR0
  267              	 .cfi_endproc
- 268              	.LFE453:
+ 268              	.LFE483:
  270              	 .section .text.i2c_master_nack_received_callback,"ax",%progbits
  271              	 .align 2
  272              	 .global i2c_master_nack_received_callback
  273              	 .thumb
  274              	 .thumb_func
  276              	i2c_master_nack_received_callback:
- 277              	.LFB454:
+ 277              	.LFB484:
  113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** }
  114:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** 
  115:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** void i2c_master_nack_received_callback(void)
@@ -2530,14 +2530,14 @@
  382              	.LBE85:
  383              	.LBE84:
  384              	 .cfi_endproc
- 385              	.LFE454:
+ 385              	.LFE484:
  387              	 .section .text.i2c_master_arbitration_lost_callback,"ax",%progbits
  388              	 .align 2
  389              	 .global i2c_master_arbitration_lost_callback
  390              	 .thumb
  391              	 .thumb_func
  393              	i2c_master_arbitration_lost_callback:
- 394              	.LFB455:
+ 394              	.LFB485:
  117:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c ****     i2c_master_error_detected_callback();
  118:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** }
  119:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** 
@@ -2662,14 +2662,14 @@
  499              	.LBE113:
  500              	.LBE112:
  501              	 .cfi_endproc
- 502              	.LFE455:
+ 502              	.LFE485:
  504              	 .section .text.pal_i2c_init,"ax",%progbits
  505              	 .align 2
  506              	 .global pal_i2c_init
  507              	 .thumb
  508              	 .thumb_func
  510              	pal_i2c_init:
- 511              	.LFB456:
+ 511              	.LFB486:
  122:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c ****     i2c_master_error_detected_callback();
  123:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** }
  124:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** /// @endcond
@@ -2689,14 +2689,14 @@
  520              	.LVL41:
  521 0002 7047     	 bx lr
  522              	 .cfi_endproc
- 523              	.LFE456:
+ 523              	.LFE486:
  525              	 .section .text.pal_i2c_deinit,"ax",%progbits
  526              	 .align 2
  527              	 .global pal_i2c_deinit
  528              	 .thumb
  529              	 .thumb_func
  531              	pal_i2c_deinit:
- 532              	.LFB457:
+ 532              	.LFB487:
  130:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** 
  131:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** pal_status_t pal_i2c_deinit(const pal_i2c_t * p_i2c_context)
  132:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** {
@@ -2713,14 +2713,14 @@
  541              	.LVL43:
  542 0002 7047     	 bx lr
  543              	 .cfi_endproc
- 544              	.LFE457:
+ 544              	.LFE487:
  546              	 .section .text.pal_i2c_write,"ax",%progbits
  547              	 .align 2
  548              	 .global pal_i2c_write
  549              	 .thumb
  550              	 .thumb_func
  552              	pal_i2c_write:
- 553              	.LFB458:
+ 553              	.LFB488:
  135:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** 
  136:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** pal_status_t pal_i2c_write(const pal_i2c_t * p_i2c_context, uint8_t * p_data, uint16_t length)
  137:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** {
@@ -2888,14 +2888,14 @@
  664 0058 00000000 	 .word .LANCHOR0
  665 005c 00000000 	 .word .LANCHOR1
  666              	 .cfi_endproc
- 667              	.LFE458:
+ 667              	.LFE488:
  669              	 .section .text.pal_i2c_read,"ax",%progbits
  670              	 .align 2
  671              	 .global pal_i2c_read
  672              	 .thumb
  673              	 .thumb_func
  675              	pal_i2c_read:
- 676              	.LFB459:
+ 676              	.LFB489:
  176:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** 
  177:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** pal_status_t pal_i2c_read(const pal_i2c_t * p_i2c_context, uint8_t * p_data, uint16_t length)
  178:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** {
@@ -3065,14 +3065,14 @@
  788 0058 00000000 	 .word .LANCHOR0
  789 005c 00000000 	 .word .LANCHOR1
  790              	 .cfi_endproc
- 791              	.LFE459:
+ 791              	.LFE489:
  793              	 .section .text.pal_i2c_set_bitrate,"ax",%progbits
  794              	 .align 2
  795              	 .global pal_i2c_set_bitrate
  796              	 .thumb
  797              	 .thumb_func
  799              	pal_i2c_set_bitrate:
- 800              	.LFB460:
+ 800              	.LFB490:
  218:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** 
  219:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** pal_status_t pal_i2c_set_bitrate(const pal_i2c_t * p_i2c_context, uint16_t bitrate)
  220:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_i2c.c **** {
@@ -3240,7 +3240,7 @@
  908              	.L100:
  909 0058 00000000 	 .word .LANCHOR0
  910              	 .cfi_endproc
- 911              	.LFE460:
+ 911              	.LFE490:
  913              	 .section .bss.gp_pal_i2c_current_ctx,"aw",%nobits
  914              	 .align 2
  915              	 .set .LANCHOR1,.+0

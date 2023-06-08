@@ -22,7 +22,7 @@
   22              	 .thumb
   23              	 .thumb_func
   25              	pal_os_event_start:
-  26              	.LFB448:
+  26              	.LFB478:
   27              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800/pal_os_event.c"
    1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_event.c **** /**
    2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_event.c **** * \copyright
@@ -197,14 +197,14 @@
   94              	.LBE20:
   95              	.LBE21:
   96              	 .cfi_endproc
-  97              	.LFE448:
+  97              	.LFE478:
   99              	 .section .text.pal_os_event_stop,"ax",%progbits
  100              	 .align 2
  101              	 .global pal_os_event_stop
  102              	 .thumb
  103              	 .thumb_func
  105              	pal_os_event_stop:
- 106              	.LFB449:
+ 106              	.LFB479:
   56:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_event.c ****     //lint --e{714} suppress "The API pal_os_event_stop is not exposed in header file but used as e
  107              	 .loc 1 56 0
  108              	 .cfi_startproc
@@ -218,14 +218,14 @@
  115 0002 0370     	 strb r3,[r0]
  116 0004 7047     	 bx lr
  117              	 .cfi_endproc
- 118              	.LFE449:
+ 118              	.LFE479:
  120 0006 00BF     	 .section .text.pal_os_event_create,"ax",%progbits
  121              	 .align 2
  122              	 .global pal_os_event_create
  123              	 .thumb
  124              	 .thumb_func
  126              	pal_os_event_create:
- 127              	.LFB450:
+ 127              	.LFB480:
   63:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_event.c ****     if (( NULL != callback )&&( NULL != callback_args ))
  128              	 .loc 1 63 0
  129              	 .cfi_startproc
@@ -332,14 +332,14 @@
  218 0038 A0860100 	 .word 100000
  219 003c 00000000 	 .word scheduler_timer
  220              	 .cfi_endproc
- 221              	.LFE450:
+ 221              	.LFE480:
  223              	 .section .text.CCU43_1_IRQHandler,"ax",%progbits
  224              	 .align 2
  225              	 .global CCU43_1_IRQHandler
  226              	 .thumb
  227              	 .thumb_func
  229              	CCU43_1_IRQHandler:
- 230              	.LFB451:
+ 230              	.LFB481:
   72:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_event.c ****     register_callback callback;
  231              	 .loc 1 72 0
  232              	 .cfi_startproc
@@ -396,14 +396,14 @@
  276 0024 00000000 	 .word scheduler_timer
  277 0028 00000000 	 .word .LANCHOR0
  278              	 .cfi_endproc
- 279              	.LFE451:
+ 279              	.LFE481:
  281              	 .section .text.pal_os_event_register_callback_oneshot,"ax",%progbits
  282              	 .align 2
  283              	 .global pal_os_event_register_callback_oneshot
  284              	 .thumb
  285              	 .thumb_func
  287              	pal_os_event_register_callback_oneshot:
- 288              	.LFB452:
+ 288              	.LFB482:
   94:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_event.c ****     p_pal_os_event->callback_registered = callback;
  289              	 .loc 1 94 0
  290              	 .cfi_startproc
@@ -453,14 +453,14 @@
  327              	.L29:
  328 0020 00000000 	 .word scheduler_timer
  329              	 .cfi_endproc
- 330              	.LFE452:
+ 330              	.LFE482:
  332              	 .section .text.pal_os_event_destroy,"ax",%progbits
  333              	 .align 2
  334              	 .global pal_os_event_destroy
  335              	 .thumb
  336              	 .thumb_func
  338              	pal_os_event_destroy:
- 339              	.LFB453:
+ 339              	.LFB483:
  104:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_event.c **** 
  105:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_event.c **** //lint --e{818,715} suppress "As there is no implementation, pal_os_event is not used"
  106:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/pal/xmc4800\pal_os_event.c **** void pal_os_event_destroy(pal_os_event_t * pal_os_event)
@@ -473,7 +473,7 @@
  345              	.LVL30:
  346 0000 7047     	 bx lr
  347              	 .cfi_endproc
- 348              	.LFE453:
+ 348              	.LFE483:
  350 0002 00BF     	 .section .bss.pal_os_event_0,"aw",%nobits
  351              	 .align 2
  352              	 .set .LANCHOR0,.+0

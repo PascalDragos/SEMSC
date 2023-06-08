@@ -123,6 +123,12 @@ DAVE_STATUS_t DAVE_Init(void)
 	 /**  Initialization of INTERRUPT APP instance INTERRUPT_0 */
 	 init_status = (DAVE_STATUS_t) TIMER_Init(&TIMER_Cooldwon);
    }  
+   
+     if (init_status == DAVE_STATUS_SUCCESS)
+  {
+	 /**  Initialization of E_EEPROM_XMC4 APP instance Sec_NvM */
+	 init_status = (DAVE_STATUS_t)E_EEPROM_XMC4_Init(&Sec_NvM); 
+   }  
   return init_status;
 } /**  End of function DAVE_Init */
 

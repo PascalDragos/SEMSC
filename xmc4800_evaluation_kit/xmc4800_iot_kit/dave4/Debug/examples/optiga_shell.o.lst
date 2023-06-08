@@ -21,7 +21,7 @@
   21              	 .thumb
   22              	 .thumb_func
   24              	optiga_util_callback:
-  25              	.LFB449:
+  25              	.LFB479:
   26              	 .file 1 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga_shell.c"
    1:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** /**
    2:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** * \copyright
@@ -138,13 +138,13 @@
   39              	.L2:
   40 0008 00000000 	 .word .LANCHOR0
   41              	 .cfi_endproc
-  42              	.LFE449:
+  42              	.LFE479:
   44              	 .section .text.optiga_shell_crypt_rsa_decrypt_and_export,"ax",%progbits
   45              	 .align 2
   46              	 .thumb
   47              	 .thumb_func
   49              	optiga_shell_crypt_rsa_decrypt_and_export:
-  50              	.LFB470:
+  50              	.LFB500:
  101:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** }
  102:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** 
  103:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** optiga_util_t * me_util = NULL;
@@ -661,13 +661,13 @@
  127 0070 2C010000 	 .word .LC7
  128 0074 78010000 	 .word .LC8
  129              	 .cfi_endproc
- 130              	.LFE470:
+ 130              	.LFE500:
  132              	 .section .text.optiga_shell_crypt_rsa_decrypt_and_store,"ax",%progbits
  133              	 .align 2
  134              	 .thumb
  135              	 .thumb_func
  137              	optiga_shell_crypt_rsa_decrypt_and_store:
- 138              	.LFB471:
+ 138              	.LFB501:
  537:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #endif
  538:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** 
  539:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #ifdef OPTIGA_CRYPT_RSA_DECRYPT_ENABLED
@@ -775,13 +775,13 @@
  222 0080 70020000 	 .word .LC12
  223 0084 C4020000 	 .word .LC13
  224              	 .cfi_endproc
- 225              	.LFE471:
+ 225              	.LFE501:
  227              	 .section .text.optiga_shell_crypt_rsa_encrypt_session,"ax",%progbits
  228              	 .align 2
  229              	 .thumb
  230              	 .thumb_func
  232              	optiga_shell_crypt_rsa_encrypt_session:
- 233              	.LFB473:
+ 233              	.LFB503:
  557:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #endif
  558:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #ifdef OPTIGA_CRYPT_RSA_DECRYPT_ENABLED
  559:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** static void optiga_shell_crypt_rsa_encrypt_message(void)
@@ -870,13 +870,13 @@
  289 0048 34030000 	 .word .LC15
  290 004c 90030000 	 .word .LC16
  291              	 .cfi_endproc
- 292              	.LFE473:
+ 292              	.LFE503:
  294              	 .section .text.optiga_shell_crypt_rsa_encrypt_message,"ax",%progbits
  295              	 .align 2
  296              	 .thumb
  297              	 .thumb_func
  299              	optiga_shell_crypt_rsa_encrypt_message:
- 300              	.LFB472:
+ 300              	.LFB502:
  560:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
  301              	 .loc 1 560 0
  302              	 .cfi_startproc
@@ -942,13 +942,13 @@
  356 0048 E4030000 	 .word .LC18
  357 004c 90030000 	 .word .LC16
  358              	 .cfi_endproc
- 359              	.LFE472:
+ 359              	.LFE502:
  361              	 .section .text.optiga_shell_crypt_rsa_verify,"ax",%progbits
  362              	 .align 2
  363              	 .thumb
  364              	 .thumb_func
  366              	optiga_shell_crypt_rsa_verify:
- 367              	.LFB468:
+ 367              	.LFB498:
  493:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
  368              	 .loc 1 493 0
  369              	 .cfi_startproc
@@ -1014,13 +1014,13 @@
  423 0048 6C040000 	 .word .LC20
  424 004c 90030000 	 .word .LC16
  425              	 .cfi_endproc
- 426              	.LFE468:
+ 426              	.LFE498:
  428              	 .section .text.optiga_shell_crypt_rsa_sign,"ax",%progbits
  429              	 .align 2
  430              	 .thumb
  431              	 .thumb_func
  433              	optiga_shell_crypt_rsa_sign:
- 434              	.LFB467:
+ 434              	.LFB497:
  478:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
  435              	 .loc 1 478 0
  436              	 .cfi_startproc
@@ -1086,13 +1086,13 @@
  490 0048 B4040000 	 .word .LC21
  491 004c 90030000 	 .word .LC16
  492              	 .cfi_endproc
- 493              	.LFE467:
+ 493              	.LFE497:
  495              	 .section .text.optiga_shell_crypt_rsa_generate_keypair,"ax",%progbits
  496              	 .align 2
  497              	 .thumb
  498              	 .thumb_func
  500              	optiga_shell_crypt_rsa_generate_keypair:
- 501              	.LFB469:
+ 501              	.LFB499:
  508:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
  502              	 .loc 1 508 0
  503              	 .cfi_startproc
@@ -1158,13 +1158,13 @@
  557 0048 88000000 	 .word .LC4
  558 004c 90030000 	 .word .LC16
  559              	 .cfi_endproc
- 560              	.LFE469:
+ 560              	.LFE499:
  562              	 .section .text.optiga_shell_crypt_ecdh,"ax",%progbits
  563              	 .align 2
  564              	 .thumb
  565              	 .thumb_func
  567              	optiga_shell_crypt_ecdh:
- 568              	.LFB464:
+ 568              	.LFB494:
  430:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
  569              	 .loc 1 430 0
  570              	 .cfi_startproc
@@ -1254,13 +1254,13 @@
  645 0070 B4050000 	 .word .LC26
  646 0074 78010000 	 .word .LC8
  647              	 .cfi_endproc
- 648              	.LFE464:
+ 648              	.LFE494:
  650              	 .section .text.optiga_shell_crypt_ecdsa_verify,"ax",%progbits
  651              	 .align 2
  652              	 .thumb
  653              	 .thumb_func
  655              	optiga_shell_crypt_ecdsa_verify:
- 656              	.LFB466:
+ 656              	.LFB496:
  463:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
  657              	 .loc 1 463 0
  658              	 .cfi_startproc
@@ -1326,13 +1326,13 @@
  712 0048 6C040000 	 .word .LC20
  713 004c 90030000 	 .word .LC16
  714              	 .cfi_endproc
- 715              	.LFE466:
+ 715              	.LFE496:
  717              	 .section .text.optiga_shell_crypt_ecdsa_sign,"ax",%progbits
  718              	 .align 2
  719              	 .thumb
  720              	 .thumb_func
  722              	optiga_shell_crypt_ecdsa_sign:
- 723              	.LFB465:
+ 723              	.LFB495:
  448:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
  724              	 .loc 1 448 0
  725              	 .cfi_startproc
@@ -1398,13 +1398,13 @@
  779 0048 B4040000 	 .word .LC21
  780 004c 90030000 	 .word .LC16
  781              	 .cfi_endproc
- 782              	.LFE465:
+ 782              	.LFE495:
  784              	 .section .text.optiga_shell_crypt_ecc_generate_keypair,"ax",%progbits
  785              	 .align 2
  786              	 .thumb
  787              	 .thumb_func
  789              	optiga_shell_crypt_ecc_generate_keypair:
- 790              	.LFB463:
+ 790              	.LFB493:
  415:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
  791              	 .loc 1 415 0
  792              	 .cfi_startproc
@@ -1470,13 +1470,13 @@
  846 0048 B0060000 	 .word .LC30
  847 004c 90030000 	 .word .LC16
  848              	 .cfi_endproc
- 849              	.LFE463:
+ 849              	.LFE493:
  851              	 .section .text.optiga_shell_crypt_random,"ax",%progbits
  852              	 .align 2
  853              	 .thumb
  854              	 .thumb_func
  856              	optiga_shell_crypt_random:
- 857              	.LFB462:
+ 857              	.LFB492:
  400:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
  858              	 .loc 1 400 0
  859              	 .cfi_startproc
@@ -1542,13 +1542,13 @@
  913 0048 18070000 	 .word .LC32
  914 004c 90030000 	 .word .LC16
  915              	 .cfi_endproc
- 916              	.LFE462:
+ 916              	.LFE492:
  918              	 .section .text.optiga_shell_crypt_tls_prf_sha256,"ax",%progbits
  919              	 .align 2
  920              	 .thumb
  921              	 .thumb_func
  923              	optiga_shell_crypt_tls_prf_sha256:
- 924              	.LFB461:
+ 924              	.LFB491:
  382:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
  925              	 .loc 1 382 0
  926              	 .cfi_startproc
@@ -1638,13 +1638,13 @@
  1001 0070 74080000 	 .word .LC37
  1002 0074 78010000 	 .word .LC8
  1003              	 .cfi_endproc
- 1004              	.LFE461:
+ 1004              	.LFE491:
  1006              	 .section .text.optiga_shell_crypt_hash_data,"ax",%progbits
  1007              	 .align 2
  1008              	 .thumb
  1009              	 .thumb_func
  1011              	optiga_shell_crypt_hash_data:
- 1012              	.LFB460:
+ 1012              	.LFB490:
  367:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
  1013              	 .loc 1 367 0
  1014              	 .cfi_startproc
@@ -1710,13 +1710,13 @@
  1068 0048 D4080000 	 .word .LC39
  1069 004c 90030000 	 .word .LC16
  1070              	 .cfi_endproc
- 1071              	.LFE460:
+ 1071              	.LFE490:
  1073              	 .section .text.optiga_shell_crypt_hash,"ax",%progbits
  1074              	 .align 2
  1075              	 .thumb
  1076              	 .thumb_func
  1078              	optiga_shell_crypt_hash:
- 1079              	.LFB459:
+ 1079              	.LFB489:
  354:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
  1080              	 .loc 1 354 0
  1081              	 .cfi_startproc
@@ -1782,13 +1782,13 @@
  1135 0048 18090000 	 .word .LC41
  1136 004c 90030000 	 .word .LC16
  1137              	 .cfi_endproc
- 1138              	.LFE459:
+ 1138              	.LFE489:
  1140              	 .section .text.optiga_shell_util_protected_update,"ax",%progbits
  1141              	 .align 2
  1142              	 .thumb
  1143              	 .thumb_func
  1145              	optiga_shell_util_protected_update:
- 1146              	.LFB458:
+ 1146              	.LFB488:
  338:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
  1147              	 .loc 1 338 0
  1148              	 .cfi_startproc
@@ -1870,13 +1870,13 @@
  1216 0064 240A0000 	 .word .LC45
  1217 0068 680A0000 	 .word .LC46
  1218              	 .cfi_endproc
- 1219              	.LFE458:
+ 1219              	.LFE488:
  1221              	 .section .text.optiga_shell_util_update_count,"ax",%progbits
  1222              	 .align 2
  1223              	 .thumb
  1224              	 .thumb_func
  1226              	optiga_shell_util_update_count:
- 1227              	.LFB457:
+ 1227              	.LFB487:
  324:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
  1228              	 .loc 1 324 0
  1229              	 .cfi_startproc
@@ -1950,13 +1950,13 @@
  1290 0054 D40A0000 	 .word .LC49
  1291 0058 F40A0000 	 .word .LC50
  1292              	 .cfi_endproc
- 1293              	.LFE457:
+ 1293              	.LFE487:
  1295              	 .section .text.optiga_shell_util_hibernate_restore,"ax",%progbits
  1296              	 .align 2
  1297              	 .thumb
  1298              	 .thumb_func
  1300              	optiga_shell_util_hibernate_restore:
- 1301              	.LFB456:
+ 1301              	.LFB486:
  306:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c ****     OPTIGA_SHELL_LOG_MESSAGE("Starting Hibernate and Restore Example");
  1302              	 .loc 1 306 0
  1303              	 .cfi_startproc
@@ -2086,13 +2086,13 @@
  1413 00b8 500D0000 	 .word .LC60
  1414 00bc 780D0000 	 .word .LC61
  1415              	 .cfi_endproc
- 1416              	.LFE456:
+ 1416              	.LFE486:
  1418              	 .section .text.optiga_shell_pair_host_optiga,"ax",%progbits
  1419              	 .align 2
  1420              	 .thumb
  1421              	 .thumb_func
  1423              	optiga_shell_pair_host_optiga:
- 1424              	.LFB455:
+ 1424              	.LFB485:
  289:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
  1425              	 .loc 1 289 0
  1426              	 .cfi_startproc
@@ -2182,13 +2182,13 @@
  1501 0070 A00E0000 	 .word .LC66
  1502 0074 78010000 	 .word .LC8
  1503              	 .cfi_endproc
- 1504              	.LFE455:
+ 1504              	.LFE485:
  1506              	 .section .text.optiga_shell_util_read_coprocessor_id,"ax",%progbits
  1507              	 .align 2
  1508              	 .thumb
  1509              	 .thumb_func
  1511              	optiga_shell_util_read_coprocessor_id:
- 1512              	.LFB454:
+ 1512              	.LFB484:
  276:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
  1513              	 .loc 1 276 0
  1514              	 .cfi_startproc
@@ -2254,13 +2254,13 @@
  1568 0048 280F0000 	 .word .LC68
  1569 004c 90030000 	 .word .LC16
  1570              	 .cfi_endproc
- 1571              	.LFE454:
+ 1571              	.LFE484:
  1573              	 .section .text.optiga_shell_util_write_data,"ax",%progbits
  1574              	 .align 2
  1575              	 .thumb
  1576              	 .thumb_func
  1578              	optiga_shell_util_write_data:
- 1579              	.LFB453:
+ 1579              	.LFB483:
  262:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
  1580              	 .loc 1 262 0
  1581              	 .cfi_startproc
@@ -2334,13 +2334,13 @@
  1642 0054 C00F0000 	 .word .LC71
  1643 0058 F40A0000 	 .word .LC50
  1644              	 .cfi_endproc
- 1645              	.LFE453:
+ 1645              	.LFE483:
  1647              	 .section .text.optiga_shell_util_read_data,"ax",%progbits
  1648              	 .align 2
  1649              	 .thumb
  1650              	 .thumb_func
  1652              	optiga_shell_util_read_data:
- 1653              	.LFB452:
+ 1653              	.LFB482:
  248:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #ifndef OPTIGA_INIT_DEINIT_DONE_EXCLUSIVELY
  1654              	 .loc 1 248 0
  1655              	 .cfi_startproc
@@ -2414,13 +2414,13 @@
  1716 0054 1C100000 	 .word .LC74
  1717 0058 F40A0000 	 .word .LC50
  1718              	 .cfi_endproc
- 1719              	.LFE452:
+ 1719              	.LFE482:
  1721              	 .section .text.optiga_shell_deinit,"ax",%progbits
  1722              	 .align 2
  1723              	 .thumb
  1724              	 .thumb_func
  1726              	optiga_shell_deinit:
- 1727              	.LFB451:
+ 1727              	.LFB481:
  202:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
  1728              	 .loc 1 202 0
  1729              	 .cfi_startproc
@@ -2549,13 +2549,13 @@
  1835 006c 40100000 	 .word .LC75
  1836 0070 00000000 	 .word performance_buffer_string
  1837              	 .cfi_endproc
- 1838              	.LFE451:
+ 1838              	.LFE481:
  1840              	 .section .text.optiga_shell_init,"ax",%progbits
  1841              	 .align 2
  1842              	 .thumb
  1843              	 .thumb_func
  1845              	optiga_shell_init:
- 1846              	.LFB450:
+ 1846              	.LFB480:
  113:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c ****     optiga_lib_status_t return_status = !OPTIGA_LIB_SUCCESS;
  1847              	 .loc 1 113 0
  1848              	 .cfi_startproc
@@ -2801,13 +2801,13 @@
  2048 00f8 A4100000 	 .word .LC78
  2049 00fc D0100000 	 .word .LC79
  2050              	 .cfi_endproc
- 2051              	.LFE450:
+ 2051              	.LFE480:
  2053              	 .section .text.optiga_shell_show_usage,"ax",%progbits
  2054              	 .align 2
  2055              	 .thumb
  2056              	 .thumb_func
  2058              	optiga_shell_show_usage:
- 2059              	.LFB476:
+ 2059              	.LFB506:
  586:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #endif
  587:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** 
  588:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** #if defined (OPTIGA_CRYPT_SYM_ENCRYPT_ENABLED) && defined (OPTIGA_CRYPT_SYM_DECRYPT_ENABLED)
@@ -3190,13 +3190,13 @@
  2117 0048 00110000 	 .word .LC81
  2118 004c 2C110000 	 .word .LC82
  2119              	 .cfi_endproc
- 2120              	.LFE476:
+ 2120              	.LFE506:
  2122              	 .section .text.optiga_shell_selftest,"ax",%progbits
  2123              	 .align 2
  2124              	 .thumb
  2125              	 .thumb_func
  2127              	optiga_shell_selftest:
- 2128              	.LFB475:
+ 2128              	.LFB505:
  729:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c ****     run_example(optiga_shell_init);
  2129              	 .loc 1 729 0
  2130              	 .cfi_startproc
@@ -4692,14 +4692,14 @@
  3427              	.LBE118:
  3428              	.LBE209:
  3429              	 .cfi_endproc
- 3430              	.LFE475:
+ 3430              	.LFE505:
  3432              	 .section .text.run_example,"ax",%progbits
  3433              	 .align 2
  3434              	 .global run_example
  3435              	 .thumb
  3436              	 .thumb_func
  3438              	run_example:
- 3439              	.LFB474:
+ 3439              	.LFB504:
  722:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c ****     test_case();  
  3440              	 .loc 1 722 0
  3441              	 .cfi_startproc
@@ -4739,14 +4739,14 @@
  3470              	.L159:
  3471 0018 FC100000 	 .word .LC80
  3472              	 .cfi_endproc
- 3473              	.LFE474:
+ 3473              	.LFE504:
  3475              	 .section .text.optiga_shell_begin,"ax",%progbits
  3476              	 .align 2
  3477              	 .global optiga_shell_begin
  3478              	 .thumb
  3479              	 .thumb_func
  3481              	optiga_shell_begin:
- 3482              	.LFB480:
+ 3482              	.LFB510:
  907:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** 
  908:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** static void optiga_shell_trim_cmd(char_t * user_cmd)
  909:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c **** {
@@ -5168,14 +5168,14 @@
  3766              	.LBE235:
  3767              	.LBE241:
  3768              	 .cfi_endproc
- 3769              	.LFE480:
+ 3769              	.LFE510:
  3771              	 .section .text.optiga_shell_wait_for_user,"ax",%progbits
  3772              	 .align 2
  3773              	 .global optiga_shell_wait_for_user
  3774              	 .thumb
  3775              	 .thumb_func
  3777              	optiga_shell_wait_for_user:
- 3778              	.LFB481:
+ 3778              	.LFB511:
 1005:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c ****             }
 1006:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c ****         }
 1007:D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples\optiga_shell.c ****     }
@@ -5265,7 +5265,7 @@
  3834 0040 00000000 	 .word USBD_VCOM_cdc_interface
  3835 0044 00000000 	 .word logger_console
  3836              	 .cfi_endproc
- 3837              	.LFE481:
+ 3837              	.LFE511:
  3839              	 .global optiga_cmds
  3840              	 .global me_util
  3841              	 .section .data.optiga_cmds,"aw",%progbits
