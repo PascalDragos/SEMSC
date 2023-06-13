@@ -176,7 +176,7 @@
   96              	.LVL4:
   97              	.L10:
   77:../SEMS_Sources/ECC.c ****     }
-  78:../SEMS_Sources/ECC.c ****     res = public_key[0];
+  78:../SEMS_Sources/ECC.c ****     res = public_key[0]; // for breakpoint
   98              	 .loc 1 78 0
   99 0058 2E4B     	 ldr r3,.L25+4
  100 005a 9DF86C20 	 ldrb r2,[sp,#108]

@@ -47,9 +47,6 @@
 
 #include "SEMS_Headers/Terminal.h"
 
-extern void optiga_shell_wait_for_user(void);
-extern void optiga_shell_begin(void);
-
 extern pal_logger_t logger_console;
 
 
@@ -80,7 +77,7 @@ int main(void)
         }
 
         pal_os_timer_delay_in_milliseconds(100);
-        my_optiga_shell_begin();
+        terminal_main();
 
     }while (FALSE);
 

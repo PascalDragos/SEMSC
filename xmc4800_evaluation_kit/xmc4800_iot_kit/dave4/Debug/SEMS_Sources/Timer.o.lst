@@ -45,7 +45,7 @@
   35              	 .cfi_def_cfa_offset 8
   36              	 .cfi_offset 4,-8
   37              	 .cfi_offset 14,-4
-  12:../SEMS_Sources/Timer.c **** 	uint32_t timeout = TIMEOUT_IN_SECONDS * 100u * 1000u * 1000u ; // us
+  12:../SEMS_Sources/Timer.c **** 	uint32_t timeout = TIMEOUT_IN_SECONDS * 100u * 1000u * 1000u ;
   13:../SEMS_Sources/Timer.c **** 	TIMER_SetTimeInterval(&TIMER_Cooldwon, timeout);
   38              	 .loc 1 13 0
   39 0002 054C     	 ldr r4,.L3
@@ -92,9 +92,9 @@
   75              	 
   20:../SEMS_Sources/Timer.c **** 	if(failed_req > 0u)
   76              	 .loc 1 20 0
-  77 0000 064B     	 ldr r3,.L12
+  77 0000 064B     	 ldr r3,.L10
   78 0002 1A78     	 ldrb r2,[r3]
-  79 0004 1AB1     	 cbz r2,.L6
+  79 0004 4AB1     	 cbz r2,.L5
   21:../SEMS_Sources/Timer.c **** 	{
   22:../SEMS_Sources/Timer.c **** 		failed_req--;
   80              	 .loc 1 22 0
@@ -102,46 +102,44 @@
   82 0008 013A     	 subs r2,r2,#1
   83 000a D2B2     	 uxtb r2,r2
   84 000c 1A70     	 strb r2,[r3]
-  85              	.L6:
-  23:../SEMS_Sources/Timer.c **** 	}
-  24:../SEMS_Sources/Timer.c **** 
-  25:../SEMS_Sources/Timer.c **** 	if(failed_req == 0u)
-  86              	 .loc 1 25 0
-  87 000e 1B78     	 ldrb r3,[r3]
-  88 0010 03F0FF02 	 and r2,r3,#255
-  89 0014 0BB9     	 cbnz r3,.L5
-  26:../SEMS_Sources/Timer.c **** 	{
-  27:../SEMS_Sources/Timer.c **** 		cooldowned = false;
-  90              	 .loc 1 27 0
-  91 0016 024B     	 ldr r3,.L12+4
-  92 0018 1A70     	 strb r2,[r3]
-  93              	.L5:
-  94 001a 7047     	 bx lr
-  95              	.L13:
-  96              	 .align 2
-  97              	.L12:
-  98 001c 00000000 	 .word failed_req
-  99 0020 00000000 	 .word cooldowned
- 100              	 .cfi_endproc
- 101              	.LFE480:
- 103              	 .text
- 104              	.Letext0:
- 105              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
- 106              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
- 107              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
- 108              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc4_scu.h"
- 109              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_ccu4.h"
- 110              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/GLOBAL_CCU4/global_ccu4.h"
- 111              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_ccu8.h"
- 112              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/GLOBAL_CCU8/global_ccu8.h"
- 113              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/TIMER/timer.h"
- 114              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
- 115              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
- 116              	 .file 13 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
- 117              	 .file 14 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
- 118              	 .file 15 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
- 119              	 .file 16 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/TIMER/timer_extern.h"
- 120              	 .file 17 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+  23:../SEMS_Sources/Timer.c **** 
+  24:../SEMS_Sources/Timer.c **** 		if(failed_req == 0)
+  85              	 .loc 1 24 0
+  86 000e 1B78     	 ldrb r3,[r3]
+  87 0010 03F0FF02 	 and r2,r3,#255
+  88 0014 0BB9     	 cbnz r3,.L5
+  25:../SEMS_Sources/Timer.c **** 		{
+  26:../SEMS_Sources/Timer.c **** 			cooldowned = false;
+  89              	 .loc 1 26 0
+  90 0016 024B     	 ldr r3,.L10+4
+  91 0018 1A70     	 strb r2,[r3]
+  92              	.L5:
+  93 001a 7047     	 bx lr
+  94              	.L11:
+  95              	 .align 2
+  96              	.L10:
+  97 001c 00000000 	 .word failed_req
+  98 0020 00000000 	 .word cooldowned
+  99              	 .cfi_endproc
+ 100              	.LFE480:
+ 102              	 .text
+ 103              	.Letext0:
+ 104              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 105              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 106              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 107              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc4_scu.h"
+ 108              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_ccu4.h"
+ 109              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/GLOBAL_CCU4/global_ccu4.h"
+ 110              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_ccu8.h"
+ 111              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/GLOBAL_CCU8/global_ccu8.h"
+ 112              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/TIMER/timer.h"
+ 113              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+ 114              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+ 115              	 .file 13 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+ 116              	 .file 14 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+ 117              	 .file 15 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+ 118              	 .file 16 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/TIMER/timer_extern.h"
+ 119              	 .file 17 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 Timer.c
     {standard input}:20     .text.start_cooldown_timer:00000000 $t
@@ -149,7 +147,7 @@ DEFINED SYMBOLS
     {standard input}:58     .text.start_cooldown_timer:00000018 $d
     {standard input}:64     .text.CCU80_3_IRQHandler:00000000 $t
     {standard input}:69     .text.CCU80_3_IRQHandler:00000000 CCU80_3_IRQHandler
-    {standard input}:98     .text.CCU80_3_IRQHandler:0000001c $d
+    {standard input}:97     .text.CCU80_3_IRQHandler:0000001c $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

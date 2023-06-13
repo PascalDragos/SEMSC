@@ -4,7 +4,7 @@
 
 #include "Dave.h"
 
-void my_optiga_shell_begin(void);
+void terminal_main(void);
 
 
 #endif

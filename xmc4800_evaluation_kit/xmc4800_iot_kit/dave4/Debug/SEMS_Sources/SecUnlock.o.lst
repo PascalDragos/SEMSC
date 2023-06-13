@@ -1,0 +1,270 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "SecUnlock.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.secure_unlock,"ax",%progbits
+  20              	 .align 2
+  21              	 .global secure_unlock
+  22              	 .thumb
+  23              	 .thumb_func
+  25              	secure_unlock:
+  26              	.LFB478:
+  27              	 .file 1 "../SEMS_Sources/SecUnlock.c"
+   1:../SEMS_Sources/SecUnlock.c **** #include <SEMS_Headers/SecUnlock.h>
+   2:../SEMS_Sources/SecUnlock.c **** #include "optiga/pal/pal_logger.h"
+   3:../SEMS_Sources/SecUnlock.c **** #include "optiga/common/optiga_lib_logger.h"
+   4:../SEMS_Sources/SecUnlock.c **** 
+   5:../SEMS_Sources/SecUnlock.c **** #include "../SEMS_Headers/SymEncrypt.h"
+   6:../SEMS_Sources/SecUnlock.c **** #include "../SEMS_Headers/RSA.h"
+   7:../SEMS_Sources/SecUnlock.c **** #include "../SEMS_Headers/Random.h"
+   8:../SEMS_Sources/SecUnlock.c **** #include "../SEMS_Headers/Skey.h"
+   9:../SEMS_Sources/SecUnlock.c **** 
+  10:../SEMS_Sources/SecUnlock.c **** extern pal_logger_t logger_console;
+  11:../SEMS_Sources/SecUnlock.c **** 
+  12:../SEMS_Sources/SecUnlock.c **** uint32_t user_token = 0;
+  13:../SEMS_Sources/SecUnlock.c **** 
+  14:../SEMS_Sources/SecUnlock.c **** 
+  15:../SEMS_Sources/SecUnlock.c **** uint8_t secure_unlock(void)
+  16:../SEMS_Sources/SecUnlock.c **** {
+  28              	 .loc 1 16 0
+  29              	 .cfi_startproc
+  30              	 
+  31              	 
+  32              	.LVL0:
+  33 0000 30B5     	 push {r4,r5,lr}
+  34              	.LCFI0:
+  35              	 .cfi_def_cfa_offset 12
+  36              	 .cfi_offset 4,-12
+  37              	 .cfi_offset 5,-8
+  38              	 .cfi_offset 14,-4
+  39 0002 ABB0     	 sub sp,sp,#172
+  40              	.LCFI1:
+  41              	 .cfi_def_cfa_offset 184
+  17:../SEMS_Sources/SecUnlock.c ****     uint8_t random_buf[32];
+  18:../SEMS_Sources/SecUnlock.c ****     uint8_t signature[128];
+  19:../SEMS_Sources/SecUnlock.c **** 
+  20:../SEMS_Sources/SecUnlock.c ****     uint8_t success = false;
+  21:../SEMS_Sources/SecUnlock.c **** 
+  22:../SEMS_Sources/SecUnlock.c **** 	// Generate random number using Optiga
+  23:../SEMS_Sources/SecUnlock.c **** 	optiga_crypt_random_wrapper(random_buf, 32u);
+  42              	 .loc 1 23 0
+  43 0004 02A8     	 add r0,sp,#8
+  44 0006 2021     	 movs r1,#32
+  45 0008 FFF7FEFF 	 bl optiga_crypt_random_wrapper
+  46              	.LVL1:
+  24:../SEMS_Sources/SecUnlock.c **** 
+  25:../SEMS_Sources/SecUnlock.c **** 	// Send seed to App
+  26:../SEMS_Sources/SecUnlock.c **** 	optiga_lib_print_bytes(random_buf, 32u);
+  47              	 .loc 1 26 0
+  48 000c 02A8     	 add r0,sp,#8
+  49 000e 2021     	 movs r1,#32
+  50 0010 FFF7FEFF 	 bl optiga_lib_print_bytes
+  51              	.LVL2:
+  27:../SEMS_Sources/SecUnlock.c **** 
+  28:../SEMS_Sources/SecUnlock.c **** 
+  29:../SEMS_Sources/SecUnlock.c **** 	// Receive signature
+  30:../SEMS_Sources/SecUnlock.c **** 	if (0u == pal_logger_read(&logger_console, (uint8_t *)signature, 128u))
+  52              	 .loc 1 30 0
+  53 0014 0AA9     	 add r1,sp,#40
+  54 0016 1B48     	 ldr r0,.L12
+  55 0018 8022     	 movs r2,#128
+  56 001a FFF7FEFF 	 bl pal_logger_read
+  57              	.LVL3:
+  58 001e 18B1     	 cbz r0,.L10
+  20:../SEMS_Sources/SecUnlock.c **** 
+  59              	 .loc 1 20 0
+  60 0020 0024     	 movs r4,#0
+  61              	.LVL4:
+  31:../SEMS_Sources/SecUnlock.c **** 	{
+  32:../SEMS_Sources/SecUnlock.c **** 	    uint8_t response[1 + 4] = {0x00, 0x01, 0x02, 0x03, 0x04};
+  33:../SEMS_Sources/SecUnlock.c **** 		// Compare enc and enc'
+  34:../SEMS_Sources/SecUnlock.c **** 		success = optiga_crypt_rsa_verify_wrapper(random_buf, sizeof(random_buf), signature, sizeof(signa
+  35:../SEMS_Sources/SecUnlock.c **** 		if(success)
+  36:../SEMS_Sources/SecUnlock.c **** 		{
+  37:../SEMS_Sources/SecUnlock.c **** 
+  38:../SEMS_Sources/SecUnlock.c **** 			// Assign response
+  39:../SEMS_Sources/SecUnlock.c **** 			response[0] = success;
+  40:../SEMS_Sources/SecUnlock.c **** 			// Generate random number using Optiga
+  41:../SEMS_Sources/SecUnlock.c **** 			optiga_crypt_random_wrapper(response + 1, 8u);  // nu pot genera doar 6
+  42:../SEMS_Sources/SecUnlock.c **** 
+  43:../SEMS_Sources/SecUnlock.c **** 			// Adauga intr-o structura
+  44:../SEMS_Sources/SecUnlock.c **** 			user_token = (response[1] << 24u)+
+  45:../SEMS_Sources/SecUnlock.c **** 						 (response[2] << 16u)+
+  46:../SEMS_Sources/SecUnlock.c **** 						 (response[3] <<  8u)+
+  47:../SEMS_Sources/SecUnlock.c **** 						 (response[4] <<  0u);
+  48:../SEMS_Sources/SecUnlock.c **** 
+  49:../SEMS_Sources/SecUnlock.c **** 		}
+  50:../SEMS_Sources/SecUnlock.c **** 		// Send response
+  51:../SEMS_Sources/SecUnlock.c **** 		optiga_lib_print_bytes(response, 5u);
+  52:../SEMS_Sources/SecUnlock.c **** 	}
+  53:../SEMS_Sources/SecUnlock.c **** 
+  54:../SEMS_Sources/SecUnlock.c **** 	return success;
+  55:../SEMS_Sources/SecUnlock.c **** }
+  62              	 .loc 1 55 0
+  63 0022 2046     	 mov r0,r4
+  64 0024 2BB0     	 add sp,sp,#172
+  65              	.LCFI2:
+  66              	 .cfi_remember_state
+  67              	 .cfi_def_cfa_offset 12
+  68              	 
+  69 0026 30BD     	 pop {r4,r5,pc}
+  70              	.LVL5:
+  71              	.L10:
+  72              	.LCFI3:
+  73              	 .cfi_restore_state
+  74              	.LBB2:
+  32:../SEMS_Sources/SecUnlock.c **** 		// Compare enc and enc'
+  75              	 .loc 1 32 0
+  76 0028 174B     	 ldr r3,.L12+4
+  77 002a 1868     	 ldr r0,[r3]
+  78 002c 1B79     	 ldrb r3,[r3,#4]
+  79 002e 0090     	 str r0,[sp]
+  80 0030 8DF80430 	 strb r3,[sp,#4]
+  34:../SEMS_Sources/SecUnlock.c **** 		if(success)
+  81              	 .loc 1 34 0
+  82 0034 0AAA     	 add r2,sp,#40
+  83 0036 02A8     	 add r0,sp,#8
+  84 0038 2021     	 movs r1,#32
+  85 003a 8023     	 movs r3,#128
+  86 003c FFF7FEFF 	 bl optiga_crypt_rsa_verify_wrapper
+  87              	.LVL6:
+  35:../SEMS_Sources/SecUnlock.c **** 		{
+  88              	 .loc 1 35 0
+  89 0040 0446     	 mov r4,r0
+  90 0042 30B9     	 cbnz r0,.L11
+  91              	.LVL7:
+  92              	.L3:
+  51:../SEMS_Sources/SecUnlock.c **** 	}
+  93              	 .loc 1 51 0
+  94 0044 6846     	 mov r0,sp
+  95 0046 0521     	 movs r1,#5
+  96 0048 FFF7FEFF 	 bl optiga_lib_print_bytes
+  97              	.LVL8:
+  98              	.LBE2:
+  99              	 .loc 1 55 0
+ 100 004c 2046     	 mov r0,r4
+ 101 004e 2BB0     	 add sp,sp,#172
+ 102              	.LCFI4:
+ 103              	 .cfi_remember_state
+ 104              	 .cfi_def_cfa_offset 12
+ 105              	 
+ 106 0050 30BD     	 pop {r4,r5,pc}
+ 107              	.LVL9:
+ 108              	.L11:
+ 109              	.LCFI5:
+ 110              	 .cfi_restore_state
+ 111              	.LBB3:
+  41:../SEMS_Sources/SecUnlock.c **** 
+ 112              	 .loc 1 41 0
+ 113 0052 0DF10100 	 add r0,sp,#1
+ 114              	.LVL10:
+ 115 0056 0821     	 movs r1,#8
+  39:../SEMS_Sources/SecUnlock.c **** 			// Generate random number using Optiga
+ 116              	 .loc 1 39 0
+ 117 0058 8DF80040 	 strb r4,[sp]
+  41:../SEMS_Sources/SecUnlock.c **** 
+ 118              	 .loc 1 41 0
+ 119 005c FFF7FEFF 	 bl optiga_crypt_random_wrapper
+ 120              	.LVL11:
+  45:../SEMS_Sources/SecUnlock.c **** 						 (response[3] <<  8u)+
+ 121              	 .loc 1 45 0
+ 122 0060 9DF80220 	 ldrb r2,[sp,#2]
+  44:../SEMS_Sources/SecUnlock.c **** 						 (response[2] << 16u)+
+ 123              	 .loc 1 44 0
+ 124 0064 9DF80130 	 ldrb r3,[sp,#1]
+  46:../SEMS_Sources/SecUnlock.c **** 						 (response[4] <<  0u);
+ 125              	 .loc 1 46 0
+ 126 0068 9DF80350 	 ldrb r5,[sp,#3]
+  47:../SEMS_Sources/SecUnlock.c **** 
+ 127              	 .loc 1 47 0
+ 128 006c 9DF80410 	 ldrb r1,[sp,#4]
+  44:../SEMS_Sources/SecUnlock.c **** 						 (response[2] << 16u)+
+ 129              	 .loc 1 44 0
+ 130 0070 0648     	 ldr r0,.L12+8
+  45:../SEMS_Sources/SecUnlock.c **** 						 (response[3] <<  8u)+
+ 131              	 .loc 1 45 0
+ 132 0072 1204     	 lsls r2,r2,#16
+  44:../SEMS_Sources/SecUnlock.c **** 						 (response[2] << 16u)+
+ 133              	 .loc 1 44 0
+ 134 0074 02EB0362 	 add r2,r2,r3,lsl#24
+  45:../SEMS_Sources/SecUnlock.c **** 						 (response[3] <<  8u)+
+ 135              	 .loc 1 45 0
+ 136 0078 02EB0523 	 add r3,r2,r5,lsl#8
+  46:../SEMS_Sources/SecUnlock.c **** 						 (response[4] <<  0u);
+ 137              	 .loc 1 46 0
+ 138 007c 0B44     	 add r3,r3,r1
+  44:../SEMS_Sources/SecUnlock.c **** 						 (response[2] << 16u)+
+ 139              	 .loc 1 44 0
+ 140 007e 0360     	 str r3,[r0]
+ 141 0080 E0E7     	 b .L3
+ 142              	.L13:
+ 143 0082 00BF     	 .align 2
+ 144              	.L12:
+ 145 0084 00000000 	 .word logger_console
+ 146 0088 00000000 	 .word .LANCHOR0
+ 147 008c 00000000 	 .word .LANCHOR1
+ 148              	.LBE3:
+ 149              	 .cfi_endproc
+ 150              	.LFE478:
+ 152              	 .global user_token
+ 153              	 .section .rodata
+ 154              	 .align 2
+ 155              	 .set .LANCHOR0,.+0
+ 156              	.LC0:
+ 157 0000 00       	 .byte 0
+ 158 0001 01       	 .byte 1
+ 159 0002 02       	 .byte 2
+ 160 0003 03       	 .byte 3
+ 161 0004 04       	 .byte 4
+ 162 0005 000000   	 .section .bss.user_token,"aw",%nobits
+ 163              	 .align 2
+ 164              	 .set .LANCHOR1,.+0
+ 167              	user_token:
+ 168 0000 00000000 	 .space 4
+ 169              	 .text
+ 170              	.Letext0:
+ 171              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 172              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 173              	 .file 4 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 174              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usic.h"
+ 175              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+ 176              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+ 177              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+ 178              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal.h"
+ 179              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal_logger.h"
+ 180              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+ 181              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+ 182              	 .file 13 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+ 183              	 .file 14 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_logger.h"
+ 184              	 .file 15 "../SEMS_Sources/../SEMS_Headers/Random.h"
+ 185              	 .file 16 "../SEMS_Sources/../SEMS_Headers/RSA.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 SecUnlock.c
+    {standard input}:20     .text.secure_unlock:00000000 $t
+    {standard input}:25     .text.secure_unlock:00000000 secure_unlock
+    {standard input}:145    .text.secure_unlock:00000084 $d
+    {standard input}:167    .bss.user_token:00000000 user_token
+    {standard input}:154    .rodata:00000000 $d
+    {standard input}:163    .bss.user_token:00000000 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+optiga_crypt_random_wrapper
+optiga_lib_print_bytes
+pal_logger_read
+optiga_crypt_rsa_verify_wrapper
+logger_console

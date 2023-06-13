@@ -42,586 +42,580 @@
   30              	 
   31              	 
   32              	.LVL0:
-  33 0000 2DE9F047 	 push {r4,r5,r6,r7,r8,r9,r10,lr}
+  33 0000 F0B5     	 push {r4,r5,r6,r7,lr}
   34              	.LCFI0:
-  35              	 .cfi_def_cfa_offset 32
-  36              	 .cfi_offset 4,-32
-  37              	 .cfi_offset 5,-28
-  38              	 .cfi_offset 6,-24
-  39              	 .cfi_offset 7,-20
-  40              	 .cfi_offset 8,-16
-  41              	 .cfi_offset 9,-12
-  42              	 .cfi_offset 10,-8
-  43              	 .cfi_offset 14,-4
+  35              	 .cfi_def_cfa_offset 20
+  36              	 .cfi_offset 4,-20
+  37              	 .cfi_offset 5,-16
+  38              	 .cfi_offset 6,-12
+  39              	 .cfi_offset 7,-8
+  40              	 .cfi_offset 14,-4
   14:../SEMS_Sources/SecNvm.c **** 	E_EEPROM_XMC4_STATUS_t flash_status;
   15:../SEMS_Sources/SecNvm.c **** 	uint8_t data[128] = {0};
-  44              	 .loc 1 15 0
-  45 0004 8026     	 movs r6,#128
+  41              	 .loc 1 15 0
+  42 0002 8026     	 movs r6,#128
   13:../SEMS_Sources/SecNvm.c **** 	E_EEPROM_XMC4_STATUS_t flash_status;
-  46              	 .loc 1 13 0
-  47 0006 C8B0     	 sub sp,sp,#288
-  48              	.LCFI1:
-  49              	 .cfi_def_cfa_offset 320
+  43              	 .loc 1 13 0
+  44 0004 C9B0     	 sub sp,sp,#292
+  45              	.LCFI1:
+  46              	 .cfi_def_cfa_offset 312
   13:../SEMS_Sources/SecNvm.c **** 	E_EEPROM_XMC4_STATUS_t flash_status;
-  50              	 .loc 1 13 0
-  51 0008 1746     	 mov r7,r2
-  52 000a 8846     	 mov r8,r1
-  53              	 .loc 1 15 0
-  54 000c 3246     	 mov r2,r6
-  55              	.LVL1:
-  13:../SEMS_Sources/SecNvm.c **** 	E_EEPROM_XMC4_STATUS_t flash_status;
-  56              	 .loc 1 13 0
-  57 000e 0446     	 mov r4,r0
-  58              	 .loc 1 15 0
-  59 0010 0021     	 movs r1,#0
-  60              	.LVL2:
-  61 0012 08A8     	 add r0,sp,#32
-  62              	.LVL3:
-  63 0014 FFF7FEFF 	 bl memset
-  64              	.LVL4:
-  16:../SEMS_Sources/SecNvm.c **** 	uint8_t key[128] = {10, 20, 30, 40, 50};
-  65              	 .loc 1 16 0
-  66 0018 3246     	 mov r2,r6
-  67 001a 28A8     	 add r0,sp,#160
-  68 001c 0021     	 movs r1,#0
-  69 001e FFF7FEFF 	 bl memset
-  70              	.LVL5:
-  17:../SEMS_Sources/SecNvm.c **** 	uint8_t digest[32] = {5, 6, 7};
-  71              	 .loc 1 17 0
-  72 0022 0025     	 movs r5,#0
-  73 0024 4FF0050E 	 mov lr,#5
+  47              	 .loc 1 13 0
+  48 0006 0F46     	 mov r7,r1
+  49 0008 1546     	 mov r5,r2
+  50 000a 0446     	 mov r4,r0
+  51              	 .loc 1 15 0
+  52 000c 3246     	 mov r2,r6
+  53              	.LVL1:
+  54 000e 08A8     	 add r0,sp,#32
+  55              	.LVL2:
+  56 0010 0021     	 movs r1,#0
+  57              	.LVL3:
+  58 0012 FFF7FEFF 	 bl memset
+  59              	.LVL4:
+  16:../SEMS_Sources/SecNvm.c **** 	uint8_t key[128];
+  17:../SEMS_Sources/SecNvm.c **** 	uint8_t digest[32];
   18:../SEMS_Sources/SecNvm.c **** 	uint32_t start_addr;
   19:../SEMS_Sources/SecNvm.c **** 
-  20:../SEMS_Sources/SecNvm.c **** 	start_addr = block_id * 160;
-  74              	 .loc 1 20 0
-  75 0028 04EB8404 	 add r4,r4,r4,lsl#2
-  16:../SEMS_Sources/SecNvm.c **** 	uint8_t digest[32] = {5, 6, 7};
-  76              	 .loc 1 16 0
-  77 002c 4FF0140C 	 mov ip,#20
-  78 0030 3223     	 movs r3,#50
-  17:../SEMS_Sources/SecNvm.c **** 	uint8_t digest[32] = {5, 6, 7};
-  79              	 .loc 1 17 0
-  80 0032 0095     	 str r5,[sp]
-  81 0034 0195     	 str r5,[sp,#4]
-  82 0036 0295     	 str r5,[sp,#8]
-  83 0038 0395     	 str r5,[sp,#12]
+  20:../SEMS_Sources/SecNvm.c **** 	start_addr = block_id * 160u;
   21:../SEMS_Sources/SecNvm.c **** 
   22:../SEMS_Sources/SecNvm.c **** 	memcpy(data, data_buffer, size);
-  84              	 .loc 1 22 0
-  85 003a 4146     	 mov r1,r8
-  17:../SEMS_Sources/SecNvm.c **** 	uint32_t start_addr;
-  86              	 .loc 1 17 0
-  87 003c 0495     	 str r5,[sp,#16]
-  88 003e 0595     	 str r5,[sp,#20]
-  89 0040 0695     	 str r5,[sp,#24]
-  90              	 .loc 1 22 0
-  91 0042 3A46     	 mov r2,r7
-  17:../SEMS_Sources/SecNvm.c **** 	uint32_t start_addr;
-  92              	 .loc 1 17 0
-  93 0044 0795     	 str r5,[sp,#28]
-  94 0046 8DF800E0 	 strb lr,[sp]
-  95 004a 4FF0060A 	 mov r10,#6
-  96 004e 4FF00709 	 mov r9,#7
-  97              	 .loc 1 22 0
-  98 0052 08A8     	 add r0,sp,#32
+  60              	 .loc 1 22 0
+  61 0016 3946     	 mov r1,r7
+  62 0018 2A46     	 mov r2,r5
+  63 001a 08A8     	 add r0,sp,#32
+  64 001c FFF7FEFF 	 bl memcpy
+  65              	.LVL5:
   20:../SEMS_Sources/SecNvm.c **** 
-  99              	 .loc 1 20 0
- 100 0054 04FA0EF4 	 lsl r4,r4,lr
- 101              	.LVL6:
-  16:../SEMS_Sources/SecNvm.c **** 	uint8_t digest[32] = {5, 6, 7};
- 102              	 .loc 1 16 0
- 103 0058 4FF00A08 	 mov r8,#10
- 104              	.LVL7:
- 105 005c 4FF01E0E 	 mov lr,#30
- 106 0060 2825     	 movs r5,#40
- 107 0062 8DF8A1C0 	 strb ip,[sp,#161]
- 108 0066 8DF8A2E0 	 strb lr,[sp,#162]
- 109 006a 8DF8A430 	 strb r3,[sp,#164]
- 110 006e 8DF8A350 	 strb r5,[sp,#163]
-  17:../SEMS_Sources/SecNvm.c **** 	uint32_t start_addr;
- 111              	 .loc 1 17 0
- 112 0072 8DF801A0 	 strb r10,[sp,#1]
- 113 0076 8DF80290 	 strb r9,[sp,#2]
-  16:../SEMS_Sources/SecNvm.c **** 	uint8_t digest[32] = {5, 6, 7};
- 114              	 .loc 1 16 0
- 115 007a 8DF8A080 	 strb r8,[sp,#160]
- 116              	 .loc 1 22 0
- 117 007e FFF7FEFF 	 bl memcpy
- 118              	.LVL8:
+  66              	 .loc 1 20 0
+  67 0020 04EB8404 	 add r4,r4,r4,lsl#2
   23:../SEMS_Sources/SecNvm.c **** 
-  24:../SEMS_Sources/SecNvm.c **** //	optiga_crypt_random_wrapper(key, sizeof(key));
-  25:../SEMS_Sources/SecNvm.c **** //	optiga_util_write_shared_key(OPTIGA_NVMKEY_OID, key, sizeof(key));
-  26:../SEMS_Sources/SecNvm.c **** //	key[0] = 127;
-  27:../SEMS_Sources/SecNvm.c **** 	optiga_util_read_shared_key(OPTIGA_NVMKEY_OID, key, sizeof(key));
- 119              	 .loc 1 27 0
- 120 0082 28A9     	 add r1,sp,#160
- 121 0084 3246     	 mov r2,r6
- 122 0086 4FF2D810 	 movw r0,#61912
- 123 008a FFF7FEFF 	 bl optiga_util_read_shared_key
- 124              	.LVL9:
-  28:../SEMS_Sources/SecNvm.c **** 	stream_enc(data, key, sizeof(key));
- 125              	 .loc 1 28 0
- 126 008e 08A8     	 add r0,sp,#32
- 127 0090 28A9     	 add r1,sp,#160
- 128 0092 3246     	 mov r2,r6
- 129 0094 FFF7FEFF 	 bl stream_enc
- 130              	.LVL10:
-  29:../SEMS_Sources/SecNvm.c **** 
+  24:../SEMS_Sources/SecNvm.c **** 
+  25:../SEMS_Sources/SecNvm.c **** 	/* For testing */
+  26:../SEMS_Sources/SecNvm.c **** //	key[0] = 0x01;
+  27:../SEMS_Sources/SecNvm.c **** //	optiga_crypt_random_wrapper(key, sizeof(key));
+  28:../SEMS_Sources/SecNvm.c **** //	optiga_util_write_shared_key(OPTIGA_NVMKEY_OID, key, sizeof(key));
+  29:../SEMS_Sources/SecNvm.c **** //	key[0] = 127;
   30:../SEMS_Sources/SecNvm.c **** 
-  31:../SEMS_Sources/SecNvm.c **** 	optiga_crypt_hash_data_wrapper(data, sizeof(data), digest);
-  32:../SEMS_Sources/SecNvm.c **** 
+  31:../SEMS_Sources/SecNvm.c **** 	optiga_util_read_shared_key(OPTIGA_NVMKEY_OID, key, sizeof(key));
+  68              	 .loc 1 31 0
+  69 0024 3246     	 mov r2,r6
+  70 0026 28A9     	 add r1,sp,#160
+  71 0028 4FF2D810 	 movw r0,#61912
+  72 002c FFF7FEFF 	 bl optiga_util_read_shared_key
+  73              	.LVL6:
+  20:../SEMS_Sources/SecNvm.c **** 
+  74              	 .loc 1 20 0
+  75 0030 6401     	 lsls r4,r4,#5
+  76              	.LVL7:
+  32:../SEMS_Sources/SecNvm.c **** 	stream_enc(data, key, sizeof(key));
+  77              	 .loc 1 32 0
+  78 0032 08A8     	 add r0,sp,#32
+  79 0034 28A9     	 add r1,sp,#160
+  80 0036 3246     	 mov r2,r6
+  81 0038 FFF7FEFF 	 bl stream_enc
+  82              	.LVL8:
   33:../SEMS_Sources/SecNvm.c **** 
-  34:../SEMS_Sources/SecNvm.c **** 	// Fill the RAM buffer with the data elements
-  35:../SEMS_Sources/SecNvm.c **** 	E_EEPROM_XMC4_WriteArray(start_addr + 0U, data, size);
- 131              	 .loc 1 35 0
- 132 0098 A4B2     	 uxth r4,r4
- 133              	.LVL11:
- 134 009a BDB2     	 uxth r5,r7
-  31:../SEMS_Sources/SecNvm.c **** 
- 135              	 .loc 1 31 0
- 136 009c 08A8     	 add r0,sp,#32
- 137 009e 3146     	 mov r1,r6
- 138 00a0 6A46     	 mov r2,sp
- 139 00a2 FFF7FEFF 	 bl optiga_crypt_hash_data_wrapper
- 140              	.LVL12:
- 141              	 .loc 1 35 0
- 142 00a6 08A9     	 add r1,sp,#32
- 143 00a8 2A46     	 mov r2,r5
- 144 00aa 2046     	 mov r0,r4
- 145 00ac FFF7FEFF 	 bl E_EEPROM_XMC4_WriteArray
- 146              	.LVL13:
-  36:../SEMS_Sources/SecNvm.c **** 	E_EEPROM_XMC4_WriteArray(start_addr + 128U, digest, size);
- 147              	 .loc 1 36 0
- 148 00b0 A019     	 adds r0,r4,r6
- 149 00b2 2A46     	 mov r2,r5
- 150 00b4 6946     	 mov r1,sp
- 151 00b6 80B2     	 uxth r0,r0
- 152 00b8 FFF7FEFF 	 bl E_EEPROM_XMC4_WriteArray
- 153              	.LVL14:
-  37:../SEMS_Sources/SecNvm.c **** 
-  38:../SEMS_Sources/SecNvm.c **** 	// Write the RAM buffer to flash
-  39:../SEMS_Sources/SecNvm.c **** 	flash_status = E_EEPROM_XMC4_UpdateFlashContents();
- 154              	 .loc 1 39 0
- 155 00bc FFF7FEFF 	 bl E_EEPROM_XMC4_UpdateFlashContents
- 156              	.LVL15:
-  40:../SEMS_Sources/SecNvm.c **** 
-  41:../SEMS_Sources/SecNvm.c **** 	return flash_status;
-  42:../SEMS_Sources/SecNvm.c **** }
- 157              	 .loc 1 42 0
- 158 00c0 48B0     	 add sp,sp,#288
- 159              	.LCFI2:
- 160              	 .cfi_def_cfa_offset 32
- 161              	 
- 162 00c2 BDE8F087 	 pop {r4,r5,r6,r7,r8,r9,r10,pc}
- 163              	 .cfi_endproc
- 164              	.LFE479:
- 166 00c6 00BF     	 .section .text.read_sec_nvm,"ax",%progbits
- 167              	 .align 2
- 168              	 .global read_sec_nvm
- 169              	 .thumb
- 170              	 .thumb_func
- 172              	read_sec_nvm:
- 173              	.LFB480:
-  43:../SEMS_Sources/SecNvm.c **** 
-  44:../SEMS_Sources/SecNvm.c **** volatile uint8_t bb;
-  45:../SEMS_Sources/SecNvm.c **** uint8_t read_sec_nvm(uint8_t block_id, uint8_t data_buffer[], uint32_t size)
-  46:../SEMS_Sources/SecNvm.c **** {
- 174              	 .loc 1 46 0
- 175              	 .cfi_startproc
- 176              	 
- 177              	 
- 178              	.LVL16:
- 179 0000 30B5     	 push {r4,r5,lr}
- 180              	.LCFI3:
- 181              	 .cfi_def_cfa_offset 12
- 182              	 .cfi_offset 4,-12
- 183              	 .cfi_offset 5,-8
- 184              	 .cfi_offset 14,-4
- 185 0002 D3B0     	 sub sp,sp,#332
- 186              	.LCFI4:
- 187              	 .cfi_def_cfa_offset 344
-  47:../SEMS_Sources/SecNvm.c **** 	volatile uint8_t success;
-  48:../SEMS_Sources/SecNvm.c **** 	uint8_t block_buffer[160] = {0};
-  49:../SEMS_Sources/SecNvm.c **** 	uint8_t digest_calc[32] = {0};
- 188              	 .loc 1 49 0
- 189 0004 0024     	 movs r4,#0
-  48:../SEMS_Sources/SecNvm.c **** 	uint8_t digest_calc[32] = {0};
- 190              	 .loc 1 48 0
- 191 0006 0021     	 movs r1,#0
- 192              	.LVL17:
- 193 0008 A022     	 movs r2,#160
- 194              	.LVL18:
- 195 000a 2AA8     	 add r0,sp,#168
- 196              	.LVL19:
- 197 000c FFF7FEFF 	 bl memset
- 198              	.LVL20:
-  50:../SEMS_Sources/SecNvm.c **** 	uint8_t key[128] = {0};
- 199              	 .loc 1 50 0
- 200 0010 2146     	 mov r1,r4
- 201 0012 8022     	 movs r2,#128
- 202 0014 0AA8     	 add r0,sp,#40
-  49:../SEMS_Sources/SecNvm.c **** 	uint8_t key[128] = {0};
- 203              	 .loc 1 49 0
- 204 0016 0394     	 str r4,[sp,#12]
- 205 0018 0494     	 str r4,[sp,#16]
- 206 001a 0594     	 str r4,[sp,#20]
- 207 001c 0694     	 str r4,[sp,#24]
- 208 001e 0794     	 str r4,[sp,#28]
- 209 0020 0894     	 str r4,[sp,#32]
- 210 0022 0294     	 str r4,[sp,#8]
- 211 0024 0994     	 str r4,[sp,#36]
- 212              	 .loc 1 50 0
- 213 0026 FFF7FEFF 	 bl memset
- 214              	.LVL21:
-  51:../SEMS_Sources/SecNvm.c **** 
-  52:../SEMS_Sources/SecNvm.c **** 	E_EEPROM_XMC4_ReadArray(0, block_buffer, sizeof(block_buffer));
- 215              	 .loc 1 52 0
- 216 002a 2046     	 mov r0,r4
- 217 002c 2AA9     	 add r1,sp,#168
- 218 002e A022     	 movs r2,#160
- 219 0030 FFF7FEFF 	 bl E_EEPROM_XMC4_ReadArray
- 220              	.LVL22:
+  34:../SEMS_Sources/SecNvm.c **** 	optiga_crypt_hash_data_wrapper(data, sizeof(data), digest);
+  35:../SEMS_Sources/SecNvm.c **** 
+  36:../SEMS_Sources/SecNvm.c **** 	// Fill the RAM buffer with the data elements
+  37:../SEMS_Sources/SecNvm.c **** 	E_EEPROM_XMC4_WriteArray(start_addr + 0U, data, size);
+  83              	 .loc 1 37 0
+  84 003c A4B2     	 uxth r4,r4
+  85              	.LVL9:
+  86 003e ADB2     	 uxth r5,r5
+  87              	.LVL10:
+  34:../SEMS_Sources/SecNvm.c **** 
+  88              	 .loc 1 34 0
+  89 0040 3146     	 mov r1,r6
+  90 0042 08A8     	 add r0,sp,#32
+  91 0044 6A46     	 mov r2,sp
+  92 0046 FFF7FEFF 	 bl optiga_crypt_hash_data_wrapper
+  93              	.LVL11:
+  94              	 .loc 1 37 0
+  95 004a 08A9     	 add r1,sp,#32
+  96 004c 2A46     	 mov r2,r5
+  97 004e 2046     	 mov r0,r4
+  98 0050 FFF7FEFF 	 bl E_EEPROM_XMC4_WriteArray
+  99              	.LVL12:
+  38:../SEMS_Sources/SecNvm.c **** 	E_EEPROM_XMC4_WriteArray(start_addr + 128U, digest, size);
+ 100              	 .loc 1 38 0
+ 101 0054 A019     	 adds r0,r4,r6
+ 102 0056 2A46     	 mov r2,r5
+ 103 0058 6946     	 mov r1,sp
+ 104 005a 80B2     	 uxth r0,r0
+ 105 005c FFF7FEFF 	 bl E_EEPROM_XMC4_WriteArray
+ 106              	.LVL13:
+  39:../SEMS_Sources/SecNvm.c **** 
+  40:../SEMS_Sources/SecNvm.c **** 	// Write the RAM buffer to flash
+  41:../SEMS_Sources/SecNvm.c **** 	flash_status = E_EEPROM_XMC4_UpdateFlashContents();
+ 107              	 .loc 1 41 0
+ 108 0060 FFF7FEFF 	 bl E_EEPROM_XMC4_UpdateFlashContents
+ 109              	.LVL14:
+  42:../SEMS_Sources/SecNvm.c **** 
+  43:../SEMS_Sources/SecNvm.c **** 	return flash_status;
+  44:../SEMS_Sources/SecNvm.c **** }
+ 110              	 .loc 1 44 0
+ 111 0064 49B0     	 add sp,sp,#292
+ 112              	.LCFI2:
+ 113              	 .cfi_def_cfa_offset 20
+ 114              	 
+ 115 0066 F0BD     	 pop {r4,r5,r6,r7,pc}
+ 116              	 .cfi_endproc
+ 117              	.LFE479:
+ 119              	 .section .text.read_sec_nvm,"ax",%progbits
+ 120              	 .align 2
+ 121              	 .global read_sec_nvm
+ 122              	 .thumb
+ 123              	 .thumb_func
+ 125              	read_sec_nvm:
+ 126              	.LFB480:
+  45:../SEMS_Sources/SecNvm.c **** 
+  46:../SEMS_Sources/SecNvm.c **** volatile uint8_t bb;
+  47:../SEMS_Sources/SecNvm.c **** uint8_t read_sec_nvm(uint8_t block_id, uint8_t data_buffer[], uint32_t size)
+  48:../SEMS_Sources/SecNvm.c **** {
+ 127              	 .loc 1 48 0
+ 128              	 .cfi_startproc
+ 129              	 
+ 130              	 
+ 131              	.LVL15:
+ 132 0000 30B5     	 push {r4,r5,lr}
+ 133              	.LCFI3:
+ 134              	 .cfi_def_cfa_offset 12
+ 135              	 .cfi_offset 4,-12
+ 136              	 .cfi_offset 5,-8
+ 137              	 .cfi_offset 14,-4
+ 138 0002 D3B0     	 sub sp,sp,#332
+ 139              	.LCFI4:
+ 140              	 .cfi_def_cfa_offset 344
+  49:../SEMS_Sources/SecNvm.c **** 	volatile uint8_t success;
+  50:../SEMS_Sources/SecNvm.c **** 	uint8_t block_buffer[160] = {0};
+  51:../SEMS_Sources/SecNvm.c **** 	uint8_t digest_calc[32] = {0};
+ 141              	 .loc 1 51 0
+ 142 0004 0024     	 movs r4,#0
+  50:../SEMS_Sources/SecNvm.c **** 	uint8_t digest_calc[32] = {0};
+ 143              	 .loc 1 50 0
+ 144 0006 0021     	 movs r1,#0
+ 145              	.LVL16:
+ 146 0008 A022     	 movs r2,#160
+ 147              	.LVL17:
+ 148 000a 2AA8     	 add r0,sp,#168
+ 149              	.LVL18:
+ 150 000c FFF7FEFF 	 bl memset
+ 151              	.LVL19:
+  52:../SEMS_Sources/SecNvm.c **** 	uint8_t key[128] = {0};
+ 152              	 .loc 1 52 0
+ 153 0010 2146     	 mov r1,r4
+ 154 0012 8022     	 movs r2,#128
+ 155 0014 0AA8     	 add r0,sp,#40
+  51:../SEMS_Sources/SecNvm.c **** 	uint8_t key[128] = {0};
+ 156              	 .loc 1 51 0
+ 157 0016 0394     	 str r4,[sp,#12]
+ 158 0018 0494     	 str r4,[sp,#16]
+ 159 001a 0594     	 str r4,[sp,#20]
+ 160 001c 0694     	 str r4,[sp,#24]
+ 161 001e 0794     	 str r4,[sp,#28]
+ 162 0020 0894     	 str r4,[sp,#32]
+ 163 0022 0294     	 str r4,[sp,#8]
+ 164 0024 0994     	 str r4,[sp,#36]
+ 165              	 .loc 1 52 0
+ 166 0026 FFF7FEFF 	 bl memset
+ 167              	.LVL20:
   53:../SEMS_Sources/SecNvm.c **** 
-  54:../SEMS_Sources/SecNvm.c **** 
-  55:../SEMS_Sources/SecNvm.c **** 	optiga_crypt_hash_data_wrapper(block_buffer, sizeof(key), digest_calc);
- 221              	 .loc 1 55 0
- 222 0034 2AA8     	 add r0,sp,#168
- 223 0036 02AA     	 add r2,sp,#8
- 224 0038 8021     	 movs r1,#128
- 225 003a FFF7FEFF 	 bl optiga_crypt_hash_data_wrapper
- 226              	.LVL23:
-  56:../SEMS_Sources/SecNvm.c **** 
-  57:../SEMS_Sources/SecNvm.c **** 	if(0 == memcmp(digest_calc, block_buffer + 128, sizeof(digest_calc)))
- 227              	 .loc 1 57 0
- 228 003e 02A8     	 add r0,sp,#8
- 229 0040 4AA9     	 add r1,sp,#296
- 230 0042 2022     	 movs r2,#32
- 231 0044 FFF7FEFF 	 bl memcmp
- 232              	.LVL24:
-  58:../SEMS_Sources/SecNvm.c **** 	{
-  59:../SEMS_Sources/SecNvm.c **** 		success = true;
- 233              	 .loc 1 59 0
- 234 0048 0DF10705 	 add r5,sp,#7
-  57:../SEMS_Sources/SecNvm.c **** 	{
- 235              	 .loc 1 57 0
- 236 004c 40B1     	 cbz r0,.L8
-  60:../SEMS_Sources/SecNvm.c **** 
-  61:../SEMS_Sources/SecNvm.c **** 		optiga_util_read_shared_key(OPTIGA_NVMKEY_OID, key, sizeof(key));
-  62:../SEMS_Sources/SecNvm.c **** 		stream_enc(block_buffer, key, sizeof(key));
-  63:../SEMS_Sources/SecNvm.c **** 
-  64:../SEMS_Sources/SecNvm.c **** 	}
-  65:../SEMS_Sources/SecNvm.c **** 	else
-  66:../SEMS_Sources/SecNvm.c **** 	{
-  67:../SEMS_Sources/SecNvm.c **** 		success = false;
- 237              	 .loc 1 67 0
- 238 004e 8DF80740 	 strb r4,[sp,#7]
- 239              	.L5:
-  68:../SEMS_Sources/SecNvm.c **** 	}
-  69:../SEMS_Sources/SecNvm.c **** 
-  70:../SEMS_Sources/SecNvm.c **** 	bb = block_buffer[4];
- 240              	 .loc 1 70 0
- 241 0052 0A4B     	 ldr r3,.L9
- 242 0054 9DF8AC20 	 ldrb r2,[sp,#172]
- 243 0058 1A70     	 strb r2,[r3]
-  71:../SEMS_Sources/SecNvm.c **** 
-  72:../SEMS_Sources/SecNvm.c **** 	return success;
- 244              	 .loc 1 72 0
- 245 005a 2878     	 ldrb r0,[r5]
-  73:../SEMS_Sources/SecNvm.c **** }
- 246              	 .loc 1 73 0
- 247 005c 53B0     	 add sp,sp,#332
- 248              	.LCFI5:
- 249              	 .cfi_remember_state
- 250              	 .cfi_def_cfa_offset 12
- 251              	 
- 252 005e 30BD     	 pop {r4,r5,pc}
- 253              	.L8:
- 254              	.LCFI6:
- 255              	 .cfi_restore_state
-  59:../SEMS_Sources/SecNvm.c **** 
- 256              	 .loc 1 59 0
- 257 0060 0123     	 movs r3,#1
-  61:../SEMS_Sources/SecNvm.c **** 		stream_enc(block_buffer, key, sizeof(key));
- 258              	 .loc 1 61 0
- 259 0062 0AA9     	 add r1,sp,#40
- 260 0064 4FF2D810 	 movw r0,#61912
- 261 0068 8022     	 movs r2,#128
-  59:../SEMS_Sources/SecNvm.c **** 
- 262              	 .loc 1 59 0
- 263 006a 2B70     	 strb r3,[r5]
-  61:../SEMS_Sources/SecNvm.c **** 		stream_enc(block_buffer, key, sizeof(key));
- 264              	 .loc 1 61 0
- 265 006c FFF7FEFF 	 bl optiga_util_read_shared_key
- 266              	.LVL25:
-  62:../SEMS_Sources/SecNvm.c **** 
- 267              	 .loc 1 62 0
- 268 0070 2AA8     	 add r0,sp,#168
- 269 0072 0AA9     	 add r1,sp,#40
- 270 0074 8022     	 movs r2,#128
- 271 0076 FFF7FEFF 	 bl stream_enc
- 272              	.LVL26:
- 273 007a EAE7     	 b .L5
- 274              	.L10:
- 275              	 .align 2
- 276              	.L9:
- 277 007c 00000000 	 .word bb
- 278              	 .cfi_endproc
- 279              	.LFE480:
- 281              	 .section .text.write_sec_config,"ax",%progbits
- 282              	 .align 2
- 283              	 .global write_sec_config
- 284              	 .thumb
- 285              	 .thumb_func
- 287              	write_sec_config:
- 288              	.LFB481:
-  74:../SEMS_Sources/SecNvm.c **** 
-  75:../SEMS_Sources/SecNvm.c **** 
-  76:../SEMS_Sources/SecNvm.c **** void write_sec_config(void)
-  77:../SEMS_Sources/SecNvm.c **** {
- 289              	 .loc 1 77 0
- 290              	 .cfi_startproc
- 291              	 
- 292              	 
- 293              	.LVL27:
- 294 0000 00B5     	 push {lr}
- 295              	.LCFI7:
- 296              	 .cfi_def_cfa_offset 4
- 297              	 .cfi_offset 14,-4
- 298 0002 A3B0     	 sub sp,sp,#140
- 299              	.LCFI8:
- 300              	 .cfi_def_cfa_offset 144
- 301 0004 02A9     	 add r1,sp,#8
- 302              	 .loc 1 77 0
- 303 0006 0B46     	 mov r3,r1
- 304 0008 22A8     	 add r0,sp,#136
- 305              	.LVL28:
- 306              	.L12:
- 307 000a 5A1A     	 subs r2,r3,r1
-  78:../SEMS_Sources/SecNvm.c **** 
-  79:../SEMS_Sources/SecNvm.c **** 	volatile E_EEPROM_XMC4_STATUS_t flash_status;
-  80:../SEMS_Sources/SecNvm.c **** 
-  81:../SEMS_Sources/SecNvm.c **** 	uint8_t data_config[128];
-  82:../SEMS_Sources/SecNvm.c **** 
-  83:../SEMS_Sources/SecNvm.c **** 	uint16_t i;
-  84:../SEMS_Sources/SecNvm.c **** 	for(i = 0; i < sizeof(data_config); ++i)
-  85:../SEMS_Sources/SecNvm.c **** 	{
-  86:../SEMS_Sources/SecNvm.c **** 		data_config[i] = i;
- 308              	 .loc 1 86 0 discriminator 3
- 309 000c 03F8012B 	 strb r2,[r3],#1
- 310              	.LVL29:
-  84:../SEMS_Sources/SecNvm.c **** 	{
- 311              	 .loc 1 84 0 discriminator 3
- 312 0010 8342     	 cmp r3,r0
- 313 0012 FAD1     	 bne .L12
-  87:../SEMS_Sources/SecNvm.c **** 	}
-  88:../SEMS_Sources/SecNvm.c **** 
-  89:../SEMS_Sources/SecNvm.c **** 	flash_status = write_sec_nvm(0, data_config, sizeof(data_config));
- 314              	 .loc 1 89 0
- 315 0014 8022     	 movs r2,#128
- 316 0016 0020     	 movs r0,#0
- 317 0018 FFF7FEFF 	 bl write_sec_nvm
- 318              	.LVL30:
- 319 001c 8DF80700 	 strb r0,[sp,#7]
-  90:../SEMS_Sources/SecNvm.c **** 	flash_status = flash_status;
- 320              	 .loc 1 90 0
- 321 0020 9DF80730 	 ldrb r3,[sp,#7]
- 322 0024 DBB2     	 uxtb r3,r3
- 323 0026 8DF80730 	 strb r3,[sp,#7]
-  91:../SEMS_Sources/SecNvm.c **** }
- 324              	 .loc 1 91 0
- 325 002a 23B0     	 add sp,sp,#140
- 326              	.LCFI9:
- 327              	 .cfi_def_cfa_offset 4
- 328              	 
- 329 002c 5DF804FB 	 ldr pc,[sp],#4
- 330              	 .cfi_endproc
- 331              	.LFE481:
- 333              	 .section .text.read_sec_config,"ax",%progbits
- 334              	 .align 2
- 335              	 .global read_sec_config
- 336              	 .thumb
- 337              	 .thumb_func
- 339              	read_sec_config:
- 340              	.LFB482:
-  92:../SEMS_Sources/SecNvm.c **** 
-  93:../SEMS_Sources/SecNvm.c **** 
-  94:../SEMS_Sources/SecNvm.c **** void read_sec_config(void)
-  95:../SEMS_Sources/SecNvm.c **** {
- 341              	 .loc 1 95 0
- 342              	 .cfi_startproc
- 343              	 
- 344              	 
- 345              	.LVL31:
- 346 0000 30B5     	 push {r4,r5,lr}
- 347              	.LCFI10:
- 348              	 .cfi_def_cfa_offset 12
- 349              	 .cfi_offset 4,-12
- 350              	 .cfi_offset 5,-8
- 351              	 .cfi_offset 14,-4
- 352 0002 D3B0     	 sub sp,sp,#332
- 353              	.LCFI11:
- 354              	 .cfi_def_cfa_offset 344
- 355              	.LBB4:
- 356              	.LBB5:
-  49:../SEMS_Sources/SecNvm.c **** 	uint8_t key[128] = {0};
- 357              	 .loc 1 49 0
- 358 0004 0024     	 movs r4,#0
-  48:../SEMS_Sources/SecNvm.c **** 	uint8_t digest_calc[32] = {0};
- 359              	 .loc 1 48 0
- 360 0006 0021     	 movs r1,#0
- 361 0008 A022     	 movs r2,#160
- 362 000a 2AA8     	 add r0,sp,#168
- 363 000c FFF7FEFF 	 bl memset
- 364              	.LVL32:
-  50:../SEMS_Sources/SecNvm.c **** 
- 365              	 .loc 1 50 0
- 366 0010 2146     	 mov r1,r4
- 367 0012 8022     	 movs r2,#128
- 368 0014 0AA8     	 add r0,sp,#40
-  49:../SEMS_Sources/SecNvm.c **** 	uint8_t key[128] = {0};
- 369              	 .loc 1 49 0
- 370 0016 0394     	 str r4,[sp,#12]
- 371 0018 0494     	 str r4,[sp,#16]
- 372 001a 0594     	 str r4,[sp,#20]
- 373 001c 0694     	 str r4,[sp,#24]
- 374 001e 0794     	 str r4,[sp,#28]
- 375 0020 0894     	 str r4,[sp,#32]
- 376 0022 0294     	 str r4,[sp,#8]
- 377 0024 0994     	 str r4,[sp,#36]
-  50:../SEMS_Sources/SecNvm.c **** 
- 378              	 .loc 1 50 0
- 379 0026 FFF7FEFF 	 bl memset
- 380              	.LVL33:
-  52:../SEMS_Sources/SecNvm.c **** 
- 381              	 .loc 1 52 0
- 382 002a 2046     	 mov r0,r4
- 383 002c 2AA9     	 add r1,sp,#168
- 384 002e A022     	 movs r2,#160
- 385 0030 FFF7FEFF 	 bl E_EEPROM_XMC4_ReadArray
- 386              	.LVL34:
+  54:../SEMS_Sources/SecNvm.c **** 	E_EEPROM_XMC4_ReadArray(0, block_buffer, sizeof(block_buffer));
+ 168              	 .loc 1 54 0
+ 169 002a 2046     	 mov r0,r4
+ 170 002c 2AA9     	 add r1,sp,#168
+ 171 002e A022     	 movs r2,#160
+ 172 0030 FFF7FEFF 	 bl E_EEPROM_XMC4_ReadArray
+ 173              	.LVL21:
   55:../SEMS_Sources/SecNvm.c **** 
- 387              	 .loc 1 55 0
- 388 0034 2AA8     	 add r0,sp,#168
- 389 0036 02AA     	 add r2,sp,#8
- 390 0038 8021     	 movs r1,#128
- 391 003a FFF7FEFF 	 bl optiga_crypt_hash_data_wrapper
- 392              	.LVL35:
-  57:../SEMS_Sources/SecNvm.c **** 	{
- 393              	 .loc 1 57 0
- 394 003e 02A8     	 add r0,sp,#8
- 395 0040 4AA9     	 add r1,sp,#296
- 396 0042 2022     	 movs r2,#32
- 397 0044 FFF7FEFF 	 bl memcmp
- 398              	.LVL36:
-  59:../SEMS_Sources/SecNvm.c **** 
- 399              	 .loc 1 59 0
- 400 0048 0DF10705 	 add r5,sp,#7
-  57:../SEMS_Sources/SecNvm.c **** 	{
- 401              	 .loc 1 57 0
- 402 004c 80B1     	 cbz r0,.L19
-  67:../SEMS_Sources/SecNvm.c **** 	}
- 403              	 .loc 1 67 0
- 404 004e 8DF80740 	 strb r4,[sp,#7]
- 405              	.L17:
+  56:../SEMS_Sources/SecNvm.c **** 	optiga_crypt_hash_data_wrapper(block_buffer, sizeof(key), digest_calc);
+ 174              	 .loc 1 56 0
+ 175 0034 2AA8     	 add r0,sp,#168
+ 176 0036 02AA     	 add r2,sp,#8
+ 177 0038 8021     	 movs r1,#128
+ 178 003a FFF7FEFF 	 bl optiga_crypt_hash_data_wrapper
+ 179              	.LVL22:
+  57:../SEMS_Sources/SecNvm.c **** 
+  58:../SEMS_Sources/SecNvm.c **** 	if(0 == memcmp(digest_calc, block_buffer + 128, sizeof(digest_calc)))
+ 180              	 .loc 1 58 0
+ 181 003e 02A8     	 add r0,sp,#8
+ 182 0040 4AA9     	 add r1,sp,#296
+ 183 0042 2022     	 movs r2,#32
+ 184 0044 FFF7FEFF 	 bl memcmp
+ 185              	.LVL23:
+  59:../SEMS_Sources/SecNvm.c **** 	{
+  60:../SEMS_Sources/SecNvm.c **** 		success = true;
+ 186              	 .loc 1 60 0
+ 187 0048 0DF10705 	 add r5,sp,#7
+  58:../SEMS_Sources/SecNvm.c **** 	{
+ 188              	 .loc 1 58 0
+ 189 004c 40B1     	 cbz r0,.L8
+  61:../SEMS_Sources/SecNvm.c **** 
+  62:../SEMS_Sources/SecNvm.c **** 		optiga_util_read_shared_key(OPTIGA_NVMKEY_OID, key, sizeof(key));
+  63:../SEMS_Sources/SecNvm.c **** 		stream_enc(block_buffer, key, sizeof(key));
+  64:../SEMS_Sources/SecNvm.c **** 
+  65:../SEMS_Sources/SecNvm.c **** 	}
+  66:../SEMS_Sources/SecNvm.c **** 	else
+  67:../SEMS_Sources/SecNvm.c **** 	{
+  68:../SEMS_Sources/SecNvm.c **** 		success = false;
+ 190              	 .loc 1 68 0
+ 191 004e 8DF80740 	 strb r4,[sp,#7]
+ 192              	.L5:
+  69:../SEMS_Sources/SecNvm.c **** 	}
   70:../SEMS_Sources/SecNvm.c **** 
- 406              	 .loc 1 70 0
- 407 0052 0E4B     	 ldr r3,.L20
- 408 0054 9DF8AC20 	 ldrb r2,[sp,#172]
- 409 0058 1A70     	 strb r2,[r3]
-  72:../SEMS_Sources/SecNvm.c **** }
- 410              	 .loc 1 72 0
- 411 005a 2B78     	 ldrb r3,[r5]
- 412 005c DBB2     	 uxtb r3,r3
- 413              	.LBE5:
- 414              	.LBE4:
-  96:../SEMS_Sources/SecNvm.c **** 	volatile E_EEPROM_XMC4_STATUS_t flash_status;
-  97:../SEMS_Sources/SecNvm.c **** 	uint8_t data_buffer[128];
-  98:../SEMS_Sources/SecNvm.c **** 
-  99:../SEMS_Sources/SecNvm.c **** 	flash_status = read_sec_nvm(0, data_buffer, sizeof(data_buffer));
- 415              	 .loc 1 99 0
- 416 005e 8DF8A830 	 strb r3,[sp,#168]
- 100:../SEMS_Sources/SecNvm.c **** 	flash_status = flash_status;
- 417              	 .loc 1 100 0
- 418 0062 9DF8A830 	 ldrb r3,[sp,#168]
- 419 0066 DBB2     	 uxtb r3,r3
- 420 0068 8DF8A830 	 strb r3,[sp,#168]
- 101:../SEMS_Sources/SecNvm.c **** 
- 102:../SEMS_Sources/SecNvm.c **** }
- 421              	 .loc 1 102 0
- 422 006c 53B0     	 add sp,sp,#332
- 423              	.LCFI12:
- 424              	 .cfi_remember_state
- 425              	 .cfi_def_cfa_offset 12
- 426              	 
- 427 006e 30BD     	 pop {r4,r5,pc}
- 428              	.L19:
- 429              	.LCFI13:
- 430              	 .cfi_restore_state
- 431              	.LBB7:
- 432              	.LBB6:
-  59:../SEMS_Sources/SecNvm.c **** 
- 433              	 .loc 1 59 0
- 434 0070 0123     	 movs r3,#1
-  61:../SEMS_Sources/SecNvm.c **** 		stream_enc(block_buffer, key, sizeof(key));
- 435              	 .loc 1 61 0
- 436 0072 0AA9     	 add r1,sp,#40
- 437 0074 4FF2D810 	 movw r0,#61912
- 438 0078 8022     	 movs r2,#128
-  59:../SEMS_Sources/SecNvm.c **** 
- 439              	 .loc 1 59 0
- 440 007a 2B70     	 strb r3,[r5]
-  61:../SEMS_Sources/SecNvm.c **** 		stream_enc(block_buffer, key, sizeof(key));
- 441              	 .loc 1 61 0
- 442 007c FFF7FEFF 	 bl optiga_util_read_shared_key
- 443              	.LVL37:
-  62:../SEMS_Sources/SecNvm.c **** 
- 444              	 .loc 1 62 0
- 445 0080 2AA8     	 add r0,sp,#168
- 446 0082 0AA9     	 add r1,sp,#40
- 447 0084 8022     	 movs r2,#128
- 448 0086 FFF7FEFF 	 bl stream_enc
- 449              	.LVL38:
- 450 008a E2E7     	 b .L17
- 451              	.L21:
- 452              	 .align 2
- 453              	.L20:
- 454 008c 00000000 	 .word bb
- 455              	.LBE6:
- 456              	.LBE7:
- 457              	 .cfi_endproc
- 458              	.LFE482:
- 460              	 .comm bb,1,1
- 461              	 .text
- 462              	.Letext0:
- 463              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h"
- 464              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
- 465              	 .file 4 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
- 466              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
- 467              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usic.h"
- 468              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
- 469              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
- 470              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
- 471              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/E_EEPROM_XMC4/e_eeprom_xmc4.h"
- 472              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
- 473              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
- 474              	 .file 13 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
- 475              	 .file 14 "../SEMS_Sources/../SEMS_Headers/Skey.h"
- 476              	 .file 15 "../SEMS_Sources/../SEMS_Headers/SymEncrypt.h"
- 477              	 .file 16 "../SEMS_Sources/../SEMS_Headers/Hash.h"
- 478              	 .file 17 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\string.h"
+  71:../SEMS_Sources/SecNvm.c **** 	bb = block_buffer[4];
+ 193              	 .loc 1 71 0
+ 194 0052 0A4B     	 ldr r3,.L9
+ 195 0054 9DF8AC20 	 ldrb r2,[sp,#172]
+ 196 0058 1A70     	 strb r2,[r3]
+  72:../SEMS_Sources/SecNvm.c **** 
+  73:../SEMS_Sources/SecNvm.c **** 	return success;
+ 197              	 .loc 1 73 0
+ 198 005a 2878     	 ldrb r0,[r5]
+  74:../SEMS_Sources/SecNvm.c **** }
+ 199              	 .loc 1 74 0
+ 200 005c 53B0     	 add sp,sp,#332
+ 201              	.LCFI5:
+ 202              	 .cfi_remember_state
+ 203              	 .cfi_def_cfa_offset 12
+ 204              	 
+ 205 005e 30BD     	 pop {r4,r5,pc}
+ 206              	.L8:
+ 207              	.LCFI6:
+ 208              	 .cfi_restore_state
+  60:../SEMS_Sources/SecNvm.c **** 
+ 209              	 .loc 1 60 0
+ 210 0060 0123     	 movs r3,#1
+  62:../SEMS_Sources/SecNvm.c **** 		stream_enc(block_buffer, key, sizeof(key));
+ 211              	 .loc 1 62 0
+ 212 0062 0AA9     	 add r1,sp,#40
+ 213 0064 4FF2D810 	 movw r0,#61912
+ 214 0068 8022     	 movs r2,#128
+  60:../SEMS_Sources/SecNvm.c **** 
+ 215              	 .loc 1 60 0
+ 216 006a 2B70     	 strb r3,[r5]
+  62:../SEMS_Sources/SecNvm.c **** 		stream_enc(block_buffer, key, sizeof(key));
+ 217              	 .loc 1 62 0
+ 218 006c FFF7FEFF 	 bl optiga_util_read_shared_key
+ 219              	.LVL24:
+  63:../SEMS_Sources/SecNvm.c **** 
+ 220              	 .loc 1 63 0
+ 221 0070 2AA8     	 add r0,sp,#168
+ 222 0072 0AA9     	 add r1,sp,#40
+ 223 0074 8022     	 movs r2,#128
+ 224 0076 FFF7FEFF 	 bl stream_enc
+ 225              	.LVL25:
+ 226 007a EAE7     	 b .L5
+ 227              	.L10:
+ 228              	 .align 2
+ 229              	.L9:
+ 230 007c 00000000 	 .word bb
+ 231              	 .cfi_endproc
+ 232              	.LFE480:
+ 234              	 .section .text.write_sec_config,"ax",%progbits
+ 235              	 .align 2
+ 236              	 .global write_sec_config
+ 237              	 .thumb
+ 238              	 .thumb_func
+ 240              	write_sec_config:
+ 241              	.LFB481:
+  75:../SEMS_Sources/SecNvm.c **** 
+  76:../SEMS_Sources/SecNvm.c **** 
+  77:../SEMS_Sources/SecNvm.c **** void write_sec_config(void)
+  78:../SEMS_Sources/SecNvm.c **** {
+ 242              	 .loc 1 78 0
+ 243              	 .cfi_startproc
+ 244              	 
+ 245              	 
+ 246              	.LVL26:
+ 247 0000 10B5     	 push {r4,lr}
+ 248              	.LCFI7:
+ 249              	 .cfi_def_cfa_offset 8
+ 250              	 .cfi_offset 4,-8
+ 251              	 .cfi_offset 14,-4
+ 252 0002 E8B0     	 sub sp,sp,#416
+ 253              	.LCFI8:
+ 254              	 .cfi_def_cfa_offset 424
+ 255 0004 08A9     	 add r1,sp,#32
+ 256              	 .loc 1 78 0
+ 257 0006 0C46     	 mov r4,r1
+ 258 0008 28AA     	 add r2,sp,#160
+ 259              	.LVL27:
+ 260              	.L12:
+ 261 000a 631A     	 subs r3,r4,r1
+  79:../SEMS_Sources/SecNvm.c **** 
+  80:../SEMS_Sources/SecNvm.c **** 	volatile E_EEPROM_XMC4_STATUS_t flash_status;
+  81:../SEMS_Sources/SecNvm.c **** 
+  82:../SEMS_Sources/SecNvm.c **** 	uint8_t data_config[128];
+  83:../SEMS_Sources/SecNvm.c **** 
+  84:../SEMS_Sources/SecNvm.c **** 	uint16_t i;
+  85:../SEMS_Sources/SecNvm.c **** 	for(i = 0; i < sizeof(data_config); ++i)
+  86:../SEMS_Sources/SecNvm.c **** 	{
+  87:../SEMS_Sources/SecNvm.c **** 		data_config[i] = i;
+ 262              	 .loc 1 87 0 discriminator 3
+ 263 000c 04F8013B 	 strb r3,[r4],#1
+ 264              	.LVL28:
+  85:../SEMS_Sources/SecNvm.c **** 	{
+ 265              	 .loc 1 85 0 discriminator 3
+ 266 0010 9442     	 cmp r4,r2
+ 267 0012 FAD1     	 bne .L12
+ 268              	.LVL29:
+ 269              	.LBB4:
+ 270              	.LBB5:
+  22:../SEMS_Sources/SecNvm.c **** 
+ 271              	 .loc 1 22 0
+ 272 0014 2046     	 mov r0,r4
+ 273 0016 8022     	 movs r2,#128
+ 274 0018 FFF7FEFF 	 bl memcpy
+ 275              	.LVL30:
+  31:../SEMS_Sources/SecNvm.c **** 	stream_enc(data, key, sizeof(key));
+ 276              	 .loc 1 31 0
+ 277 001c 48A9     	 add r1,sp,#288
+ 278 001e 4FF2D810 	 movw r0,#61912
+ 279 0022 8022     	 movs r2,#128
+ 280 0024 FFF7FEFF 	 bl optiga_util_read_shared_key
+ 281              	.LVL31:
+  32:../SEMS_Sources/SecNvm.c **** 
+ 282              	 .loc 1 32 0
+ 283 0028 2046     	 mov r0,r4
+ 284 002a 48A9     	 add r1,sp,#288
+ 285 002c 8022     	 movs r2,#128
+ 286 002e FFF7FEFF 	 bl stream_enc
+ 287              	.LVL32:
+  34:../SEMS_Sources/SecNvm.c **** 
+ 288              	 .loc 1 34 0
+ 289 0032 6A46     	 mov r2,sp
+ 290 0034 2046     	 mov r0,r4
+ 291 0036 8021     	 movs r1,#128
+ 292 0038 FFF7FEFF 	 bl optiga_crypt_hash_data_wrapper
+ 293              	.LVL33:
+  37:../SEMS_Sources/SecNvm.c **** 	E_EEPROM_XMC4_WriteArray(start_addr + 128U, digest, size);
+ 294              	 .loc 1 37 0
+ 295 003c 2146     	 mov r1,r4
+ 296 003e 8022     	 movs r2,#128
+ 297 0040 0020     	 movs r0,#0
+ 298 0042 FFF7FEFF 	 bl E_EEPROM_XMC4_WriteArray
+ 299              	.LVL34:
+  38:../SEMS_Sources/SecNvm.c **** 
+ 300              	 .loc 1 38 0
+ 301 0046 8020     	 movs r0,#128
+ 302 0048 6946     	 mov r1,sp
+ 303 004a 0246     	 mov r2,r0
+ 304 004c FFF7FEFF 	 bl E_EEPROM_XMC4_WriteArray
+ 305              	.LVL35:
+  41:../SEMS_Sources/SecNvm.c **** 
+ 306              	 .loc 1 41 0
+ 307 0050 FFF7FEFF 	 bl E_EEPROM_XMC4_UpdateFlashContents
+ 308              	.LVL36:
+ 309              	.LBE5:
+ 310              	.LBE4:
+  88:../SEMS_Sources/SecNvm.c **** 	}
+  89:../SEMS_Sources/SecNvm.c **** 
+  90:../SEMS_Sources/SecNvm.c **** 	flash_status = write_sec_nvm(0, data_config, sizeof(data_config));
+ 311              	 .loc 1 90 0
+ 312 0054 8DF82001 	 strb r0,[sp,#288]
+  91:../SEMS_Sources/SecNvm.c **** 	flash_status = flash_status;
+ 313              	 .loc 1 91 0
+ 314 0058 9DF82031 	 ldrb r3,[sp,#288]
+ 315 005c DBB2     	 uxtb r3,r3
+ 316 005e 8DF82031 	 strb r3,[sp,#288]
+  92:../SEMS_Sources/SecNvm.c **** }
+ 317              	 .loc 1 92 0
+ 318 0062 68B0     	 add sp,sp,#416
+ 319              	.LCFI9:
+ 320              	 .cfi_def_cfa_offset 8
+ 321              	 
+ 322 0064 10BD     	 pop {r4,pc}
+ 323              	 .cfi_endproc
+ 324              	.LFE481:
+ 326 0066 00BF     	 .section .text.read_sec_config,"ax",%progbits
+ 327              	 .align 2
+ 328              	 .global read_sec_config
+ 329              	 .thumb
+ 330              	 .thumb_func
+ 332              	read_sec_config:
+ 333              	.LFB482:
+  93:../SEMS_Sources/SecNvm.c **** 
+  94:../SEMS_Sources/SecNvm.c **** 
+  95:../SEMS_Sources/SecNvm.c **** void read_sec_config(void)
+  96:../SEMS_Sources/SecNvm.c **** {
+ 334              	 .loc 1 96 0
+ 335              	 .cfi_startproc
+ 336              	 
+ 337              	 
+ 338              	.LVL37:
+ 339 0000 30B5     	 push {r4,r5,lr}
+ 340              	.LCFI10:
+ 341              	 .cfi_def_cfa_offset 12
+ 342              	 .cfi_offset 4,-12
+ 343              	 .cfi_offset 5,-8
+ 344              	 .cfi_offset 14,-4
+ 345 0002 D3B0     	 sub sp,sp,#332
+ 346              	.LCFI11:
+ 347              	 .cfi_def_cfa_offset 344
+ 348              	.LBB8:
+ 349              	.LBB9:
+  51:../SEMS_Sources/SecNvm.c **** 	uint8_t key[128] = {0};
+ 350              	 .loc 1 51 0
+ 351 0004 0024     	 movs r4,#0
+  50:../SEMS_Sources/SecNvm.c **** 	uint8_t digest_calc[32] = {0};
+ 352              	 .loc 1 50 0
+ 353 0006 0021     	 movs r1,#0
+ 354 0008 A022     	 movs r2,#160
+ 355 000a 2AA8     	 add r0,sp,#168
+ 356 000c FFF7FEFF 	 bl memset
+ 357              	.LVL38:
+  52:../SEMS_Sources/SecNvm.c **** 
+ 358              	 .loc 1 52 0
+ 359 0010 2146     	 mov r1,r4
+ 360 0012 8022     	 movs r2,#128
+ 361 0014 0AA8     	 add r0,sp,#40
+  51:../SEMS_Sources/SecNvm.c **** 	uint8_t key[128] = {0};
+ 362              	 .loc 1 51 0
+ 363 0016 0394     	 str r4,[sp,#12]
+ 364 0018 0494     	 str r4,[sp,#16]
+ 365 001a 0594     	 str r4,[sp,#20]
+ 366 001c 0694     	 str r4,[sp,#24]
+ 367 001e 0794     	 str r4,[sp,#28]
+ 368 0020 0894     	 str r4,[sp,#32]
+ 369 0022 0294     	 str r4,[sp,#8]
+ 370 0024 0994     	 str r4,[sp,#36]
+  52:../SEMS_Sources/SecNvm.c **** 
+ 371              	 .loc 1 52 0
+ 372 0026 FFF7FEFF 	 bl memset
+ 373              	.LVL39:
+  54:../SEMS_Sources/SecNvm.c **** 
+ 374              	 .loc 1 54 0
+ 375 002a 2046     	 mov r0,r4
+ 376 002c 2AA9     	 add r1,sp,#168
+ 377 002e A022     	 movs r2,#160
+ 378 0030 FFF7FEFF 	 bl E_EEPROM_XMC4_ReadArray
+ 379              	.LVL40:
+  56:../SEMS_Sources/SecNvm.c **** 
+ 380              	 .loc 1 56 0
+ 381 0034 2AA8     	 add r0,sp,#168
+ 382 0036 02AA     	 add r2,sp,#8
+ 383 0038 8021     	 movs r1,#128
+ 384 003a FFF7FEFF 	 bl optiga_crypt_hash_data_wrapper
+ 385              	.LVL41:
+  58:../SEMS_Sources/SecNvm.c **** 	{
+ 386              	 .loc 1 58 0
+ 387 003e 02A8     	 add r0,sp,#8
+ 388 0040 4AA9     	 add r1,sp,#296
+ 389 0042 2022     	 movs r2,#32
+ 390 0044 FFF7FEFF 	 bl memcmp
+ 391              	.LVL42:
+  60:../SEMS_Sources/SecNvm.c **** 
+ 392              	 .loc 1 60 0
+ 393 0048 0DF10705 	 add r5,sp,#7
+  58:../SEMS_Sources/SecNvm.c **** 	{
+ 394              	 .loc 1 58 0
+ 395 004c 80B1     	 cbz r0,.L19
+  68:../SEMS_Sources/SecNvm.c **** 	}
+ 396              	 .loc 1 68 0
+ 397 004e 8DF80740 	 strb r4,[sp,#7]
+ 398              	.L17:
+  71:../SEMS_Sources/SecNvm.c **** 
+ 399              	 .loc 1 71 0
+ 400 0052 0E4B     	 ldr r3,.L20
+ 401 0054 9DF8AC20 	 ldrb r2,[sp,#172]
+ 402 0058 1A70     	 strb r2,[r3]
+  73:../SEMS_Sources/SecNvm.c **** }
+ 403              	 .loc 1 73 0
+ 404 005a 2B78     	 ldrb r3,[r5]
+ 405 005c DBB2     	 uxtb r3,r3
+ 406              	.LBE9:
+ 407              	.LBE8:
+  97:../SEMS_Sources/SecNvm.c **** 	volatile E_EEPROM_XMC4_STATUS_t flash_status;
+  98:../SEMS_Sources/SecNvm.c **** 	uint8_t data_buffer[128];
+  99:../SEMS_Sources/SecNvm.c **** 
+ 100:../SEMS_Sources/SecNvm.c **** 	flash_status = read_sec_nvm(0, data_buffer, sizeof(data_buffer));
+ 408              	 .loc 1 100 0
+ 409 005e 8DF8A830 	 strb r3,[sp,#168]
+ 101:../SEMS_Sources/SecNvm.c **** 	flash_status = flash_status;
+ 410              	 .loc 1 101 0
+ 411 0062 9DF8A830 	 ldrb r3,[sp,#168]
+ 412 0066 DBB2     	 uxtb r3,r3
+ 413 0068 8DF8A830 	 strb r3,[sp,#168]
+ 102:../SEMS_Sources/SecNvm.c **** 
+ 103:../SEMS_Sources/SecNvm.c **** }
+ 414              	 .loc 1 103 0
+ 415 006c 53B0     	 add sp,sp,#332
+ 416              	.LCFI12:
+ 417              	 .cfi_remember_state
+ 418              	 .cfi_def_cfa_offset 12
+ 419              	 
+ 420 006e 30BD     	 pop {r4,r5,pc}
+ 421              	.L19:
+ 422              	.LCFI13:
+ 423              	 .cfi_restore_state
+ 424              	.LBB11:
+ 425              	.LBB10:
+  60:../SEMS_Sources/SecNvm.c **** 
+ 426              	 .loc 1 60 0
+ 427 0070 0123     	 movs r3,#1
+  62:../SEMS_Sources/SecNvm.c **** 		stream_enc(block_buffer, key, sizeof(key));
+ 428              	 .loc 1 62 0
+ 429 0072 0AA9     	 add r1,sp,#40
+ 430 0074 4FF2D810 	 movw r0,#61912
+ 431 0078 8022     	 movs r2,#128
+  60:../SEMS_Sources/SecNvm.c **** 
+ 432              	 .loc 1 60 0
+ 433 007a 2B70     	 strb r3,[r5]
+  62:../SEMS_Sources/SecNvm.c **** 		stream_enc(block_buffer, key, sizeof(key));
+ 434              	 .loc 1 62 0
+ 435 007c FFF7FEFF 	 bl optiga_util_read_shared_key
+ 436              	.LVL43:
+  63:../SEMS_Sources/SecNvm.c **** 
+ 437              	 .loc 1 63 0
+ 438 0080 2AA8     	 add r0,sp,#168
+ 439 0082 0AA9     	 add r1,sp,#40
+ 440 0084 8022     	 movs r2,#128
+ 441 0086 FFF7FEFF 	 bl stream_enc
+ 442              	.LVL44:
+ 443 008a E2E7     	 b .L17
+ 444              	.L21:
+ 445              	 .align 2
+ 446              	.L20:
+ 447 008c 00000000 	 .word bb
+ 448              	.LBE10:
+ 449              	.LBE11:
+ 450              	 .cfi_endproc
+ 451              	.LFE482:
+ 453              	 .comm bb,1,1
+ 454              	 .text
+ 455              	.Letext0:
+ 456              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h"
+ 457              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 458              	 .file 4 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 459              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 460              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usic.h"
+ 461              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+ 462              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+ 463              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+ 464              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/E_EEPROM_XMC4/e_eeprom_xmc4.h"
+ 465              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+ 466              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+ 467              	 .file 13 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+ 468              	 .file 14 "../SEMS_Sources/../SEMS_Headers/Skey.h"
+ 469              	 .file 15 "../SEMS_Sources/../SEMS_Headers/SymEncrypt.h"
+ 470              	 .file 16 "../SEMS_Sources/../SEMS_Headers/Hash.h"
+ 471              	 .file 17 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\string.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 SecNvm.c
     {standard input}:20     .text.write_sec_nvm:00000000 $t
     {standard input}:25     .text.write_sec_nvm:00000000 write_sec_nvm
-    {standard input}:167    .text.read_sec_nvm:00000000 $t
-    {standard input}:172    .text.read_sec_nvm:00000000 read_sec_nvm
-    {standard input}:277    .text.read_sec_nvm:0000007c $d
+    {standard input}:120    .text.read_sec_nvm:00000000 $t
+    {standard input}:125    .text.read_sec_nvm:00000000 read_sec_nvm
+    {standard input}:230    .text.read_sec_nvm:0000007c $d
                             *COM*:00000001 bb
-    {standard input}:282    .text.write_sec_config:00000000 $t
-    {standard input}:287    .text.write_sec_config:00000000 write_sec_config
-    {standard input}:334    .text.read_sec_config:00000000 $t
-    {standard input}:339    .text.read_sec_config:00000000 read_sec_config
-    {standard input}:454    .text.read_sec_config:0000008c $d
+    {standard input}:235    .text.write_sec_config:00000000 $t
+    {standard input}:240    .text.write_sec_config:00000000 write_sec_config
+    {standard input}:327    .text.read_sec_config:00000000 $t
+    {standard input}:332    .text.read_sec_config:00000000 read_sec_config
+    {standard input}:447    .text.read_sec_config:0000008c $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

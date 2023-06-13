@@ -1,7 +1,7 @@
+#include <SEMS_Headers/SecUnlock.h>
 #include "optiga/pal/pal_logger.h"
 #include "optiga/common/optiga_lib_logger.h"
 
-#include "../SEMS_Headers/Unlock.h"
 #include "../SEMS_Headers/SymEncrypt.h"
 #include "../SEMS_Headers/RSA.h"
 #include "../SEMS_Headers/Random.h"

@@ -12,7 +12,7 @@ extern pal_logger_t logger_console;
 extern uint32_t user_token;
 
 
-uint8_t read_request(uint8_t command[], uint8_t is_secure_unlock, uint8_t is_secure_com)
+uint8_t read_and_verify_req(uint8_t command[], uint8_t is_secure_unlock, uint8_t is_secure_com)
 {
 	uint8_t is_invalid_req = false;
 
@@ -21,12 +21,13 @@ uint8_t read_request(uint8_t command[], uint8_t is_secure_unlock, uint8_t is_sec
 	{
 		if('U' == command[0])
 		{
-			// nothing to do, sec unlock will be called
+			// not verification needed
+			// sec unlock function will be called
 
 		}
 		else
 		{
-			if (0u == is_secure_com)
+			if (0u == is_secure_com) // we have only secure unlock
 			{
 				uint8_t *received_user_token_start;
 				uint32_t received_user_token;
@@ -40,10 +41,10 @@ uint8_t read_request(uint8_t command[], uint8_t is_secure_unlock, uint8_t is_sec
 				{
 					is_invalid_req = true;
 				}
-
 			}
 			else
 			{
+				// we have secure communication
 				uint8_t key[32];
 				uint8_t *received_digest_start;
 				uint8_t calculated_digest[32]; //  SHA 256
@@ -58,7 +59,7 @@ uint8_t read_request(uint8_t command[], uint8_t is_secure_unlock, uint8_t is_sec
 				received_digest_start = command + 24u;  // last 8 bytes of the SHA256(Ciphertext)
 
 				// Calculate Hash
-				optiga_crypt_hash_data_wrapper(command, 24u, calculated_digest); // SHA256(Ciphertext)
+				optiga_crypt_hash_data_wrapper(command, 24u, calculated_digest); // SHA-2 256(Ciphertext)
 
 				// Compare digests
 				if(0 != memcmp(received_digest_start, calculated_digest + 24u, 8u))  // compare 8 bytes
@@ -67,13 +68,12 @@ uint8_t read_request(uint8_t command[], uint8_t is_secure_unlock, uint8_t is_sec
 				}
 
 				// Retrive Session Key
-				optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));  // sesion key from Secure Comm activation
+				optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));  // session key from Secure Comm activation
 
 				// Decrypt ciphertext
 				stream_enc(command, key, 24u);
 
 				// Extract Token
-
 				received_user_token_start = command + 16u;
 				received_user_token = (received_user_token_start[0] << 24u)+
 							 (received_user_token_start[1] << 16u)+
@@ -92,7 +92,7 @@ uint8_t read_request(uint8_t command[], uint8_t is_secure_unlock, uint8_t is_sec
 				// Read Nonce from Optiga
 				optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
 
-				// Compare Nonces
+				// Compare Nonces, bot BE
 				// recv_nonced trebuie sa fie mai mare decat nonce
 				// daca e mai mare sau egal, invalid
 				if(0 >= memcmp(received_user_nonce_start, nonce, sizeof(nonce)))
@@ -119,7 +119,7 @@ uint8_t read_request(uint8_t command[], uint8_t is_secure_unlock, uint8_t is_sec
 
 
 
-uint8_t write_request(uint8_t msg[], uint8_t is_secure_com)
+uint8_t write_and_pack_request(uint8_t msg[], uint8_t is_secure_com)
 {
 	if(0u == is_secure_com)
 	{
@@ -148,7 +148,6 @@ uint8_t write_request(uint8_t msg[], uint8_t is_secure_com)
 		uint16_t optiga_counter_oid = OPTIGA_NONCE_OID;
 
 
-
 		// Read nonce
 		optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
 
@@ -160,7 +159,7 @@ uint8_t write_request(uint8_t msg[], uint8_t is_secure_com)
 
 		// First Pack
 		memcpy(response, msg, 16u);
-		memcpy(response + 16u, send_user_token, 4u);  // global
+		memcpy(response + 16u, send_user_token, 4u);
 		memcpy(response + 20u, nonce, 4u);
 
 		// Retrive Session Key

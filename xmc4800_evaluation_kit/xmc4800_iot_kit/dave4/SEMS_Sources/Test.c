@@ -1,4 +1,6 @@
 #include <DAVE.h>
+#include <SEMS_Headers/SecCom.h>
+#include <SEMS_Headers/SecUnlock.h>
 #include "optiga/optiga_crypt.h"
 #include "optiga/optiga_util.h"
 #include "optiga/common/optiga_lib_logger.h"
@@ -17,8 +19,6 @@
 #include "../SEMS_Headers/Timer.h"
 #include "../SEMS_Headers/Random.h"
 #include "../SEMS_Headers/SymEncrypt.h"
-#include "../SEMS_Headers/Unlock.h"
-#include "../SEMS_Headers/Com.h"
 #include "../SEMS_Headers/Hash.h"
 #include "../SEMS_Headers/Patcher.h"
 #include "../SEMS_Headers/Config.h"

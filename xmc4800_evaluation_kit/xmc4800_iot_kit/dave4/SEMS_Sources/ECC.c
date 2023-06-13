@@ -75,6 +75,6 @@ void example_optiga_crypt_ecc_generate_keypair_wrapper(void)
     {
        optiga_crypt_destroy(crypt_me);
     }
-    res = public_key[0];
+    res = public_key[0]; // for breakpoint
 }
 

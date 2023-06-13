@@ -2,6 +2,7 @@
 #include "../SEMS_Headers/Config.h"
 
 // in Util.h: extern volatile optiga_lib_status_t optiga_lib_status;
+// folosita de functiia de callback
 volatile optiga_lib_status_t optiga_lib_status;
 
 

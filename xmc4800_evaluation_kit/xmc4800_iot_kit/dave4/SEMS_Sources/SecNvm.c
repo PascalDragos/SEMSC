@@ -13,23 +13,25 @@ uint8_t write_sec_nvm(uint8_t block_id, uint8_t data_buffer[], uint32_t size)
 {
 	E_EEPROM_XMC4_STATUS_t flash_status;
 	uint8_t data[128] = {0};
-	uint8_t key[128] = {10, 20, 30, 40, 50};
-	uint8_t digest[32] = {5, 6, 7};
+	uint8_t key[128];
+	uint8_t digest[32];
 	uint32_t start_addr;
 
-	start_addr = block_id * 160;
+	start_addr = block_id * 160u;
 
 	memcpy(data, data_buffer, size);
 
+
+	/* For testing */
+//	key[0] = 0x01;
 //	optiga_crypt_random_wrapper(key, sizeof(key));
 //	optiga_util_write_shared_key(OPTIGA_NVMKEY_OID, key, sizeof(key));
 //	key[0] = 127;
+
 	optiga_util_read_shared_key(OPTIGA_NVMKEY_OID, key, sizeof(key));
 	stream_enc(data, key, sizeof(key));
 
-
 	optiga_crypt_hash_data_wrapper(data, sizeof(data), digest);
-
 
 	// Fill the RAM buffer with the data elements
 	E_EEPROM_XMC4_WriteArray(start_addr + 0U, data, size);
@@ -50,7 +52,6 @@ uint8_t read_sec_nvm(uint8_t block_id, uint8_t data_buffer[], uint32_t size)
 	uint8_t key[128] = {0};
 
 	E_EEPROM_XMC4_ReadArray(0, block_buffer, sizeof(block_buffer));
-
 
 	optiga_crypt_hash_data_wrapper(block_buffer, sizeof(key), digest_calc);
 

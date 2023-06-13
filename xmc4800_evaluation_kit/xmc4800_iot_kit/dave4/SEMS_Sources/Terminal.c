@@ -1,4 +1,6 @@
 #include <DAVE.h>
+#include <SEMS_Headers/SecCom.h>
+#include <SEMS_Headers/SecUnlock.h>
 #include "optiga/optiga_crypt.h"
 #include "optiga/optiga_util.h"
 #include "optiga/common/optiga_lib_logger.h"
@@ -12,8 +14,6 @@
 #include "../SEMS_Headers/Random.h"
 #include "../SEMS_Headers/RSA.h"
 #include "../SEMS_Headers/SymEncrypt.h"
-#include "../SEMS_Headers/Unlock.h"
-#include "../SEMS_Headers/Com.h"
 #include "../SEMS_Headers/Hash.h"
 #include "../SEMS_Headers/Patcher.h"
 #include "../SEMS_Headers/Config.h"
@@ -30,14 +30,15 @@ volatile uint8_t failed_req = 0;
 volatile uint8_t cooldowned = false;
 
 
-void my_optiga_shell_begin(void)
+void terminal_main(void)
 {
 
-	uint8_t sec_unlocked = false;
-	uint8_t sec_comm = false;
-	uint8_t command[32];  // Toate comenzile au 32 de bytes
+	uint8_t is_sec_unlocked = false;
+	uint8_t is_sec_comm = false;
+	uint8_t received_request[32];  // Toate comenzile au 32 de bytes
 
 	init_SEMS();
+
 
 #if LIFECYCLE==TESTING
 	uint8_t is_testing = true;
@@ -47,25 +48,23 @@ void my_optiga_shell_begin(void)
 	}
 #endif
 
-#if LIFECYCLE==LOADING
+#if LIFECYCLE==FACTORY
 	while (true)
 	{
-//	write_sec_config();
-//	read_sec_config();
-		example_optiga_crypt_ecc_generate_keypair_wrapper();
+		write_sec_config();
+		optiga_util_reset_count(OPTIGA_NONCE_OID);
 	}
 #endif
-
 
 
 	while(true)
 	{
 
-		// Wrapper for serial read
-		if(0u == read_request(command, sec_unlocked, sec_comm))
+		// Wrapper for serial read, verifies token, nonce, hash
+		if(0u == read_and_verify_req(received_request, is_sec_unlocked, is_sec_comm))
 		{
 			// Valid request
-			req_type req_rcv;
+			req_type request_type;
 			if(true == cooldowned)
 			{
 				uint8_t buff[32] = "Denied by cooldown.";
@@ -73,31 +72,33 @@ void my_optiga_shell_begin(void)
 				continue;
 			}
 
-			req_rcv = decode_req(command);
+			request_type = decode_req(received_request);
 
-			switch(req_rcv){
+			switch(request_type){
 				case SEC_UNLOCK:
 				{
-					sec_unlocked = secure_unlock();
-					sec_comm = 0;  // reset sec_comm flag
+					is_sec_unlocked = secure_unlock();
+					is_sec_comm = 0;  // reset sec_comm flag
 					break;
 				}
 				case SEC_COM: // momentan nu pot da 2 cereri de sec com
 				{
-					sec_comm = secure_communication();
+					is_sec_comm = secure_communication();
 					break;
 				}
 				case SEC_LOCK:
 				{
 					uint8_t buff[32] = "Locked";
-					sec_unlocked = 0;
-					write_request(buff, sec_comm);
+					is_sec_unlocked = 0;
+					write_and_pack_request(buff, is_sec_comm);
 					break;
 				}
 				case EXAMPLE:
 				{
 					uint8_t buff[32] = "Command response";
-					write_request(buff, sec_comm);
+
+					// default behaviour, there would be some processing
+					write_and_pack_request(buff, is_sec_comm);
 					break;
 				}
 				case REQUEST:
@@ -105,15 +106,15 @@ void my_optiga_shell_begin(void)
 					uint8_t buff[32] = "Req  response";
 
 					// default behaviour, there would be some processing
-					buff[3] = command[3];
-					write_request(buff, sec_comm);
+					buff[3] = received_request[3];
+					write_and_pack_request(buff, is_sec_comm);
 					break;
 				}
 				case UNKNOWN:
 				default:
 				{
 					uint8_t buff[32] = "Unknown request";
-					write_request(buff, sec_comm);
+					write_and_pack_request(buff, is_sec_comm);
 					break;
 				}
 			}  // end-switch
@@ -121,7 +122,7 @@ void my_optiga_shell_begin(void)
 		}
 		else
 		{
-			// Req before unlock || invalid Token, Nonce, Hash
+			// Request before unlock or invalid Token, Nonce, Hash
 
 			failed_req++;
 			if(true == cooldowned)

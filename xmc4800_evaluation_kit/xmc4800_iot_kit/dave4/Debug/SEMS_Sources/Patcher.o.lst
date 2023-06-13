@@ -16,12 +16,12 @@
   16              	 .text
   17              	.Ltext0:
   18              	 .cfi_sections .debug_frame
-  19              	 .section .text.read_request,"ax",%progbits
+  19              	 .section .text.read_and_verify_req,"ax",%progbits
   20              	 .align 2
-  21              	 .global read_request
+  21              	 .global read_and_verify_req
   22              	 .thumb
   23              	 .thumb_func
-  25              	read_request:
+  25              	read_and_verify_req:
   26              	.LFB479:
   27              	 .file 1 "../SEMS_Sources/Patcher.c"
    1:../SEMS_Sources/Patcher.c **** #include <SEMS_Headers/Skey.h>
@@ -38,7 +38,7 @@
   12:../SEMS_Sources/Patcher.c **** extern uint32_t user_token;
   13:../SEMS_Sources/Patcher.c **** 
   14:../SEMS_Sources/Patcher.c **** 
-  15:../SEMS_Sources/Patcher.c **** uint8_t read_request(uint8_t command[], uint8_t is_secure_unlock, uint8_t is_secure_com)
+  15:../SEMS_Sources/Patcher.c **** uint8_t read_and_verify_req(uint8_t command[], uint8_t is_secure_unlock, uint8_t is_secure_com)
   16:../SEMS_Sources/Patcher.c **** {
   28              	 .loc 1 16 0
   29              	 .cfi_startproc
@@ -84,99 +84,99 @@
   61 0018 552B     	 cmp r3,#85
   62 001a 0FD0     	 beq .L11
   23:../SEMS_Sources/Patcher.c **** 		{
-  24:../SEMS_Sources/Patcher.c **** 			// nothing to do, sec unlock will be called
-  25:../SEMS_Sources/Patcher.c **** 
-  26:../SEMS_Sources/Patcher.c **** 		}
-  27:../SEMS_Sources/Patcher.c **** 		else
-  28:../SEMS_Sources/Patcher.c **** 		{
-  29:../SEMS_Sources/Patcher.c **** 			if (0u == is_secure_com)
-  63              	 .loc 1 29 0
+  24:../SEMS_Sources/Patcher.c **** 			// not verification needed
+  25:../SEMS_Sources/Patcher.c **** 			// sec unlock function will be called
+  26:../SEMS_Sources/Patcher.c **** 
+  27:../SEMS_Sources/Patcher.c **** 		}
+  28:../SEMS_Sources/Patcher.c **** 		else
+  29:../SEMS_Sources/Patcher.c **** 		{
+  30:../SEMS_Sources/Patcher.c **** 			if (0u == is_secure_com) // we have only secure unlock
+  63              	 .loc 1 30 0
   64 001c 84B9     	 cbnz r4,.L3
   65              	.LVL5:
   66              	.LBB2:
-  30:../SEMS_Sources/Patcher.c **** 			{
-  31:../SEMS_Sources/Patcher.c **** 				uint8_t *received_user_token_start;
-  32:../SEMS_Sources/Patcher.c **** 				uint32_t received_user_token;
-  33:../SEMS_Sources/Patcher.c **** 				received_user_token_start = command + 16u;
-  34:../SEMS_Sources/Patcher.c **** 				received_user_token = (received_user_token_start[0] << 24u)+
-  35:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[1] << 16u)+
-  67              	 .loc 1 35 0
+  31:../SEMS_Sources/Patcher.c **** 			{
+  32:../SEMS_Sources/Patcher.c **** 				uint8_t *received_user_token_start;
+  33:../SEMS_Sources/Patcher.c **** 				uint32_t received_user_token;
+  34:../SEMS_Sources/Patcher.c **** 				received_user_token_start = command + 16u;
+  35:../SEMS_Sources/Patcher.c **** 				received_user_token = (received_user_token_start[0] << 24u)+
+  36:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[1] << 16u)+
+  67              	 .loc 1 36 0
   68 001e 697C     	 ldrb r1,[r5,#17]
-  34:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[1] << 16u)+
-  69              	 .loc 1 34 0
+  35:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[1] << 16u)+
+  69              	 .loc 1 35 0
   70 0020 2B7C     	 ldrb r3,[r5,#16]
   71              	.LVL6:
-  36:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[2] <<  8u)+
-  72              	 .loc 1 36 0
+  37:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[2] <<  8u)+
+  72              	 .loc 1 37 0
   73 0022 AC7C     	 ldrb r4,[r5,#18]
   74              	.LVL7:
-  37:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[3] <<  0u);
-  38:../SEMS_Sources/Patcher.c **** 
-  39:../SEMS_Sources/Patcher.c **** 				if(received_user_token != user_token)
-  75              	 .loc 1 39 0
+  38:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[3] <<  0u);
+  39:../SEMS_Sources/Patcher.c **** 
+  40:../SEMS_Sources/Patcher.c **** 				if(received_user_token != user_token)
+  75              	 .loc 1 40 0
   76 0024 2B48     	 ldr r0,.L16+4
-  37:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[3] <<  0u);
-  77              	 .loc 1 37 0
+  38:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[3] <<  0u);
+  77              	 .loc 1 38 0
   78 0026 EA7C     	 ldrb r2,[r5,#19]
-  79              	 .loc 1 39 0
+  79              	 .loc 1 40 0
   80 0028 0068     	 ldr r0,[r0]
-  35:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[2] <<  8u)+
-  81              	 .loc 1 35 0
+  36:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[2] <<  8u)+
+  81              	 .loc 1 36 0
   82 002a 0904     	 lsls r1,r1,#16
-  34:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[1] << 16u)+
-  83              	 .loc 1 34 0
+  35:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[1] << 16u)+
+  83              	 .loc 1 35 0
   84 002c 01EB0363 	 add r3,r1,r3,lsl#24
   85              	.LVL8:
-  35:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[2] <<  8u)+
-  86              	 .loc 1 35 0
+  36:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[2] <<  8u)+
+  86              	 .loc 1 36 0
   87 0030 03EB0423 	 add r3,r3,r4,lsl#8
-  36:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[3] <<  0u);
-  88              	 .loc 1 36 0
+  37:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[3] <<  0u);
+  88              	 .loc 1 37 0
   89 0034 1344     	 add r3,r3,r2
-  40:../SEMS_Sources/Patcher.c **** 				{
-  41:../SEMS_Sources/Patcher.c **** 					is_invalid_req = true;
-  90              	 .loc 1 41 0
+  41:../SEMS_Sources/Patcher.c **** 				{
+  42:../SEMS_Sources/Patcher.c **** 					is_invalid_req = true;
+  90              	 .loc 1 42 0
   91 0036 181A     	 subs r0,r3,r0
   92 0038 18BF     	 it ne
   93 003a 0120     	 movne r0,#1
   94              	.LVL9:
   95              	.L11:
   96              	.LBE2:
-  42:../SEMS_Sources/Patcher.c **** 				}
-  43:../SEMS_Sources/Patcher.c **** 
+  43:../SEMS_Sources/Patcher.c **** 				}
   44:../SEMS_Sources/Patcher.c **** 			}
   45:../SEMS_Sources/Patcher.c **** 			else
   46:../SEMS_Sources/Patcher.c **** 			{
-  47:../SEMS_Sources/Patcher.c **** 				uint8_t key[32];
-  48:../SEMS_Sources/Patcher.c **** 				uint8_t *received_digest_start;
-  49:../SEMS_Sources/Patcher.c **** 				uint8_t calculated_digest[32]; //  SHA 256
-  50:../SEMS_Sources/Patcher.c **** 				uint8_t *received_user_token_start;
-  51:../SEMS_Sources/Patcher.c **** 				uint32_t received_user_token;
-  52:../SEMS_Sources/Patcher.c **** 				uint8_t *received_user_nonce_start;
-  53:../SEMS_Sources/Patcher.c **** 				uint8_t nonce[4];
-  54:../SEMS_Sources/Patcher.c **** 				uint16_t optiga_key_oid = OPTIGA_SESKEY_OID;
-  55:../SEMS_Sources/Patcher.c **** 				uint16_t optiga_counter_oid = OPTIGA_NONCE_OID;
-  56:../SEMS_Sources/Patcher.c **** 
-  57:../SEMS_Sources/Patcher.c **** 				// Extract Hash
-  58:../SEMS_Sources/Patcher.c **** 				received_digest_start = command + 24u;  // last 8 bytes of the SHA256(Ciphertext)
-  59:../SEMS_Sources/Patcher.c **** 
-  60:../SEMS_Sources/Patcher.c **** 				// Calculate Hash
-  61:../SEMS_Sources/Patcher.c **** 				optiga_crypt_hash_data_wrapper(command, 24u, calculated_digest); // SHA256(Ciphertext)
-  62:../SEMS_Sources/Patcher.c **** 
-  63:../SEMS_Sources/Patcher.c **** 				// Compare digests
-  64:../SEMS_Sources/Patcher.c **** 				if(0 != memcmp(received_digest_start, calculated_digest + 24u, 8u))  // compare 8 bytes
-  65:../SEMS_Sources/Patcher.c **** 				{
-  66:../SEMS_Sources/Patcher.c **** 					is_invalid_req = true;
-  67:../SEMS_Sources/Patcher.c **** 				}
-  68:../SEMS_Sources/Patcher.c **** 
-  69:../SEMS_Sources/Patcher.c **** 				// Retrive Session Key
-  70:../SEMS_Sources/Patcher.c **** 				optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));  // sesion key from Secure Comm 
-  71:../SEMS_Sources/Patcher.c **** 
-  72:../SEMS_Sources/Patcher.c **** 				// Decrypt ciphertext
-  73:../SEMS_Sources/Patcher.c **** 				stream_enc(command, key, 24u);
-  74:../SEMS_Sources/Patcher.c **** 
-  75:../SEMS_Sources/Patcher.c **** 				// Extract Token
-  76:../SEMS_Sources/Patcher.c **** 
+  47:../SEMS_Sources/Patcher.c **** 				// we have secure communication
+  48:../SEMS_Sources/Patcher.c **** 				uint8_t key[32];
+  49:../SEMS_Sources/Patcher.c **** 				uint8_t *received_digest_start;
+  50:../SEMS_Sources/Patcher.c **** 				uint8_t calculated_digest[32]; //  SHA 256
+  51:../SEMS_Sources/Patcher.c **** 				uint8_t *received_user_token_start;
+  52:../SEMS_Sources/Patcher.c **** 				uint32_t received_user_token;
+  53:../SEMS_Sources/Patcher.c **** 				uint8_t *received_user_nonce_start;
+  54:../SEMS_Sources/Patcher.c **** 				uint8_t nonce[4];
+  55:../SEMS_Sources/Patcher.c **** 				uint16_t optiga_key_oid = OPTIGA_SESKEY_OID;
+  56:../SEMS_Sources/Patcher.c **** 				uint16_t optiga_counter_oid = OPTIGA_NONCE_OID;
+  57:../SEMS_Sources/Patcher.c **** 
+  58:../SEMS_Sources/Patcher.c **** 				// Extract Hash
+  59:../SEMS_Sources/Patcher.c **** 				received_digest_start = command + 24u;  // last 8 bytes of the SHA256(Ciphertext)
+  60:../SEMS_Sources/Patcher.c **** 
+  61:../SEMS_Sources/Patcher.c **** 				// Calculate Hash
+  62:../SEMS_Sources/Patcher.c **** 				optiga_crypt_hash_data_wrapper(command, 24u, calculated_digest); // SHA-2 256(Ciphertext)
+  63:../SEMS_Sources/Patcher.c **** 
+  64:../SEMS_Sources/Patcher.c **** 				// Compare digests
+  65:../SEMS_Sources/Patcher.c **** 				if(0 != memcmp(received_digest_start, calculated_digest + 24u, 8u))  // compare 8 bytes
+  66:../SEMS_Sources/Patcher.c **** 				{
+  67:../SEMS_Sources/Patcher.c **** 					is_invalid_req = true;
+  68:../SEMS_Sources/Patcher.c **** 				}
+  69:../SEMS_Sources/Patcher.c **** 
+  70:../SEMS_Sources/Patcher.c **** 				// Retrive Session Key
+  71:../SEMS_Sources/Patcher.c **** 				optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));  // session key from Secure Comm
+  72:../SEMS_Sources/Patcher.c **** 
+  73:../SEMS_Sources/Patcher.c **** 				// Decrypt ciphertext
+  74:../SEMS_Sources/Patcher.c **** 				stream_enc(command, key, 24u);
+  75:../SEMS_Sources/Patcher.c **** 
+  76:../SEMS_Sources/Patcher.c **** 				// Extract Token
   77:../SEMS_Sources/Patcher.c **** 				received_user_token_start = command + 16u;
   78:../SEMS_Sources/Patcher.c **** 				received_user_token = (received_user_token_start[0] << 24u)+
   79:../SEMS_Sources/Patcher.c **** 							 (received_user_token_start[1] << 16u)+
@@ -195,7 +195,7 @@
   92:../SEMS_Sources/Patcher.c **** 				// Read Nonce from Optiga
   93:../SEMS_Sources/Patcher.c **** 				optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
   94:../SEMS_Sources/Patcher.c **** 
-  95:../SEMS_Sources/Patcher.c **** 				// Compare Nonces
+  95:../SEMS_Sources/Patcher.c **** 				// Compare Nonces, bot BE
   96:../SEMS_Sources/Patcher.c **** 				// recv_nonced trebuie sa fie mai mare decat nonce
   97:../SEMS_Sources/Patcher.c **** 				// daca e mai mare sau egal, invalid
   98:../SEMS_Sources/Patcher.c **** 				if(0 >= memcmp(received_user_nonce_start, nonce, sizeof(nonce)))
@@ -230,37 +230,37 @@
  106              	.LCFI3:
  107              	 .cfi_restore_state
  108              	.LBB3:
-  61:../SEMS_Sources/Patcher.c **** 
- 109              	 .loc 1 61 0
+  62:../SEMS_Sources/Patcher.c **** 
+ 109              	 .loc 1 62 0
  110 0040 2846     	 mov r0,r5
  111 0042 1821     	 movs r1,#24
  112 0044 0AAA     	 add r2,sp,#40
  113 0046 FFF7FEFF 	 bl optiga_crypt_hash_data_wrapper
  114              	.LVL11:
-  64:../SEMS_Sources/Patcher.c **** 				{
- 115              	 .loc 1 64 0
+  65:../SEMS_Sources/Patcher.c **** 				{
+ 115              	 .loc 1 65 0
  116 004a 10A9     	 add r1,sp,#64
  117 004c 0822     	 movs r2,#8
  118 004e 05F11800 	 add r0,r5,#24
  119              	.LVL12:
  120 0052 FFF7FEFF 	 bl memcmp
  121              	.LVL13:
-  70:../SEMS_Sources/Patcher.c **** 
- 122              	 .loc 1 70 0
+  71:../SEMS_Sources/Patcher.c **** 
+ 122              	 .loc 1 71 0
  123 0056 02A9     	 add r1,sp,#8
  124 0058 2022     	 movs r2,#32
-  64:../SEMS_Sources/Patcher.c **** 				{
- 125              	 .loc 1 64 0
+  65:../SEMS_Sources/Patcher.c **** 				{
+ 125              	 .loc 1 65 0
  126 005a 0446     	 mov r4,r0
  127              	.LVL14:
-  70:../SEMS_Sources/Patcher.c **** 
- 128              	 .loc 1 70 0
+  71:../SEMS_Sources/Patcher.c **** 
+ 128              	 .loc 1 71 0
  129 005c 4FF2D610 	 movw r0,#61910
  130              	.LVL15:
  131 0060 FFF7FEFF 	 bl optiga_util_read_shared_key
  132              	.LVL16:
-  73:../SEMS_Sources/Patcher.c **** 
- 133              	 .loc 1 73 0
+  74:../SEMS_Sources/Patcher.c **** 
+ 133              	 .loc 1 74 0
  134 0064 2846     	 mov r0,r5
  135 0066 02A9     	 add r1,sp,#8
  136 0068 1822     	 movs r2,#24
@@ -652,9 +652,9 @@
  416              	 .file 19 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_logger.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 Patcher.c
-    {standard input}:20     .text.read_request:00000000 $t
-    {standard input}:25     .text.read_request:00000000 read_request
-    {standard input}:223    .text.read_request:000000d0 $d
+    {standard input}:20     .text.read_and_verify_req:00000000 $t
+    {standard input}:25     .text.read_and_verify_req:00000000 read_and_verify_req
+    {standard input}:223    .text.read_and_verify_req:000000d0 $d
     {standard input}:230    .text.write_request:00000000 $t
     {standard input}:235    .text.write_request:00000000 write_request
     {standard input}:393    .text.write_request:000000b0 $d

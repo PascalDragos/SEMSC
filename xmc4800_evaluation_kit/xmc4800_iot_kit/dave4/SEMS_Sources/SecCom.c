@@ -1,5 +1,4 @@
-#include "../SEMS_Headers/Com.h"
-
+#include <SEMS_Headers/SecCom.h>
 #include "../SEMS_Headers/Util.h"
 
 #include "../SEMS_Headers/SymEncrypt.h"
@@ -29,7 +28,6 @@ uint8_t secure_communication(void)
 	optiga_crypt_random_wrapper(random_buf, 32);
 
 	// Get Nonce
-//	optiga_util_reset_count(optiga_counter_oid);
 	optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
 
 
@@ -47,7 +45,7 @@ uint8_t secure_communication(void)
 	}
 	else
 	{
-		// Sens 128 0s, encrypt nu a functionat
+		// Send 128 0s, encrypt nu a functionat
 		optiga_lib_print_bytes(ciphertext, 129);
 	}
 
@@ -55,7 +53,7 @@ uint8_t secure_communication(void)
 	optiga_util_write_shared_key(optiga_key_oid, random_buf, sizeof(random_buf));
 
 
-	// Read session key, Testing
+	/* For testing */
 //	uint8_t key[32] = {0x01, 0x01, 0x01, 0x01};
 //	optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));
 //	ciphertext_len = ciphertext_len; // BR

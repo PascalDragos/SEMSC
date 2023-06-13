@@ -1,0 +1,672 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,2
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "Packer.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.read_and_verify_req,"ax",%progbits
+  20              	 .align 2
+  21              	 .global read_and_verify_req
+  22              	 .thumb
+  23              	 .thumb_func
+  25              	read_and_verify_req:
+  26              	.LFB479:
+  27              	 .file 1 "../SEMS_Sources/Packer.c"
+   1:../SEMS_Sources/Packer.c **** #include <SEMS_Headers/Skey.h>
+   2:../SEMS_Sources/Packer.c **** #include "../SEMS_Headers/Patcher.h"
+   3:../SEMS_Sources/Packer.c **** #include "../SEMS_Headers/Util.h"
+   4:../SEMS_Sources/Packer.c **** 
+   5:../SEMS_Sources/Packer.c **** #include "../SEMS_Headers/SymEncrypt.h"
+   6:../SEMS_Sources/Packer.c **** #include "../SEMS_Headers/Hash.h"
+   7:../SEMS_Sources/Packer.c **** #include "../SEMS_Headers/Nonce.h"
+   8:../SEMS_Sources/Packer.c **** #include "../SEMS_Headers/Config.h"
+   9:../SEMS_Sources/Packer.c **** 
+  10:../SEMS_Sources/Packer.c **** 
+  11:../SEMS_Sources/Packer.c **** extern pal_logger_t logger_console;
+  12:../SEMS_Sources/Packer.c **** extern uint32_t user_token;
+  13:../SEMS_Sources/Packer.c **** 
+  14:../SEMS_Sources/Packer.c **** 
+  15:../SEMS_Sources/Packer.c **** uint8_t read_and_verify_req(uint8_t command[], uint8_t is_secure_unlock, uint8_t is_secure_com)
+  16:../SEMS_Sources/Packer.c **** {
+  28              	 .loc 1 16 0
+  29              	 .cfi_startproc
+  30              	 
+  31              	 
+  32              	.LVL0:
+  33 0000 70B5     	 push {r4,r5,r6,lr}
+  34              	.LCFI0:
+  35              	 .cfi_def_cfa_offset 16
+  36              	 .cfi_offset 4,-16
+  37              	 .cfi_offset 5,-12
+  38              	 .cfi_offset 6,-8
+  39              	 .cfi_offset 14,-4
+  17:../SEMS_Sources/Packer.c **** 	uint8_t is_invalid_req = false;
+  18:../SEMS_Sources/Packer.c **** 
+  19:../SEMS_Sources/Packer.c **** 
+  20:../SEMS_Sources/Packer.c **** 	if (0u == pal_logger_read(&logger_console, command, 32))
+  40              	 .loc 1 20 0
+  41 0002 0146     	 mov r1,r0
+  42              	.LVL1:
+  16:../SEMS_Sources/Packer.c **** 	uint8_t is_invalid_req = false;
+  43              	 .loc 1 16 0
+  44 0004 92B0     	 sub sp,sp,#72
+  45              	.LCFI1:
+  46              	 .cfi_def_cfa_offset 88
+  16:../SEMS_Sources/Packer.c **** 	uint8_t is_invalid_req = false;
+  47              	 .loc 1 16 0
+  48 0006 0546     	 mov r5,r0
+  49 0008 1446     	 mov r4,r2
+  50              	 .loc 1 20 0
+  51 000a 3148     	 ldr r0,.L16
+  52              	.LVL2:
+  53 000c 2022     	 movs r2,#32
+  54              	.LVL3:
+  55 000e FFF7FEFF 	 bl pal_logger_read
+  56              	.LVL4:
+  57 0012 0028     	 cmp r0,#0
+  58 0014 46D1     	 bne .L13
+  21:../SEMS_Sources/Packer.c **** 	{
+  22:../SEMS_Sources/Packer.c **** 		if('U' == command[0])
+  59              	 .loc 1 22 0
+  60 0016 2B78     	 ldrb r3,[r5]
+  61 0018 552B     	 cmp r3,#85
+  62 001a 0FD0     	 beq .L11
+  23:../SEMS_Sources/Packer.c **** 		{
+  24:../SEMS_Sources/Packer.c **** 			// not verification needed
+  25:../SEMS_Sources/Packer.c **** 			// sec unlock function will be called
+  26:../SEMS_Sources/Packer.c **** 
+  27:../SEMS_Sources/Packer.c **** 		}
+  28:../SEMS_Sources/Packer.c **** 		else
+  29:../SEMS_Sources/Packer.c **** 		{
+  30:../SEMS_Sources/Packer.c **** 			if (0u == is_secure_com) // we have only secure unlock
+  63              	 .loc 1 30 0
+  64 001c 84B9     	 cbnz r4,.L3
+  65              	.LVL5:
+  66              	.LBB2:
+  31:../SEMS_Sources/Packer.c **** 			{
+  32:../SEMS_Sources/Packer.c **** 				uint8_t *received_user_token_start;
+  33:../SEMS_Sources/Packer.c **** 				uint32_t received_user_token;
+  34:../SEMS_Sources/Packer.c **** 				received_user_token_start = command + 16u;
+  35:../SEMS_Sources/Packer.c **** 				received_user_token = (received_user_token_start[0] << 24u)+
+  36:../SEMS_Sources/Packer.c **** 							 (received_user_token_start[1] << 16u)+
+  67              	 .loc 1 36 0
+  68 001e 697C     	 ldrb r1,[r5,#17]
+  35:../SEMS_Sources/Packer.c **** 							 (received_user_token_start[1] << 16u)+
+  69              	 .loc 1 35 0
+  70 0020 2B7C     	 ldrb r3,[r5,#16]
+  71              	.LVL6:
+  37:../SEMS_Sources/Packer.c **** 							 (received_user_token_start[2] <<  8u)+
+  72              	 .loc 1 37 0
+  73 0022 AC7C     	 ldrb r4,[r5,#18]
+  74              	.LVL7:
+  38:../SEMS_Sources/Packer.c **** 							 (received_user_token_start[3] <<  0u);
+  39:../SEMS_Sources/Packer.c **** 
+  40:../SEMS_Sources/Packer.c **** 				if(received_user_token != user_token)
+  75              	 .loc 1 40 0
+  76 0024 2B48     	 ldr r0,.L16+4
+  38:../SEMS_Sources/Packer.c **** 							 (received_user_token_start[3] <<  0u);
+  77              	 .loc 1 38 0
+  78 0026 EA7C     	 ldrb r2,[r5,#19]
+  79              	 .loc 1 40 0
+  80 0028 0068     	 ldr r0,[r0]
+  36:../SEMS_Sources/Packer.c **** 							 (received_user_token_start[2] <<  8u)+
+  81              	 .loc 1 36 0
+  82 002a 0904     	 lsls r1,r1,#16
+  35:../SEMS_Sources/Packer.c **** 							 (received_user_token_start[1] << 16u)+
+  83              	 .loc 1 35 0
+  84 002c 01EB0363 	 add r3,r1,r3,lsl#24
+  85              	.LVL8:
+  36:../SEMS_Sources/Packer.c **** 							 (received_user_token_start[2] <<  8u)+
+  86              	 .loc 1 36 0
+  87 0030 03EB0423 	 add r3,r3,r4,lsl#8
+  37:../SEMS_Sources/Packer.c **** 							 (received_user_token_start[3] <<  0u);
+  88              	 .loc 1 37 0
+  89 0034 1344     	 add r3,r3,r2
+  41:../SEMS_Sources/Packer.c **** 				{
+  42:../SEMS_Sources/Packer.c **** 					is_invalid_req = true;
+  90              	 .loc 1 42 0
+  91 0036 181A     	 subs r0,r3,r0
+  92 0038 18BF     	 it ne
+  93 003a 0120     	 movne r0,#1
+  94              	.LVL9:
+  95              	.L11:
+  96              	.LBE2:
+  43:../SEMS_Sources/Packer.c **** 				}
+  44:../SEMS_Sources/Packer.c **** 			}
+  45:../SEMS_Sources/Packer.c **** 			else
+  46:../SEMS_Sources/Packer.c **** 			{
+  47:../SEMS_Sources/Packer.c **** 				// we have secure communication
+  48:../SEMS_Sources/Packer.c **** 				uint8_t key[32];
+  49:../SEMS_Sources/Packer.c **** 				uint8_t *received_digest_start;
+  50:../SEMS_Sources/Packer.c **** 				uint8_t calculated_digest[32]; //  SHA 256
+  51:../SEMS_Sources/Packer.c **** 				uint8_t *received_user_token_start;
+  52:../SEMS_Sources/Packer.c **** 				uint32_t received_user_token;
+  53:../SEMS_Sources/Packer.c **** 				uint8_t *received_user_nonce_start;
+  54:../SEMS_Sources/Packer.c **** 				uint8_t nonce[4];
+  55:../SEMS_Sources/Packer.c **** 				uint16_t optiga_key_oid = OPTIGA_SESKEY_OID;
+  56:../SEMS_Sources/Packer.c **** 				uint16_t optiga_counter_oid = OPTIGA_NONCE_OID;
+  57:../SEMS_Sources/Packer.c **** 
+  58:../SEMS_Sources/Packer.c **** 				// Extract Hash
+  59:../SEMS_Sources/Packer.c **** 				received_digest_start = command + 24u;  // last 8 bytes of the SHA256(Ciphertext)
+  60:../SEMS_Sources/Packer.c **** 
+  61:../SEMS_Sources/Packer.c **** 				// Calculate Hash
+  62:../SEMS_Sources/Packer.c **** 				optiga_crypt_hash_data_wrapper(command, 24u, calculated_digest); // SHA-2 256(Ciphertext)
+  63:../SEMS_Sources/Packer.c **** 
+  64:../SEMS_Sources/Packer.c **** 				// Compare digests
+  65:../SEMS_Sources/Packer.c **** 				if(0 != memcmp(received_digest_start, calculated_digest + 24u, 8u))  // compare 8 bytes
+  66:../SEMS_Sources/Packer.c **** 				{
+  67:../SEMS_Sources/Packer.c **** 					is_invalid_req = true;
+  68:../SEMS_Sources/Packer.c **** 				}
+  69:../SEMS_Sources/Packer.c **** 
+  70:../SEMS_Sources/Packer.c **** 				// Retrive Session Key
+  71:../SEMS_Sources/Packer.c **** 				optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));  // session key from Secure Comm
+  72:../SEMS_Sources/Packer.c **** 
+  73:../SEMS_Sources/Packer.c **** 				// Decrypt ciphertext
+  74:../SEMS_Sources/Packer.c **** 				stream_enc(command, key, 24u);
+  75:../SEMS_Sources/Packer.c **** 
+  76:../SEMS_Sources/Packer.c **** 				// Extract Token
+  77:../SEMS_Sources/Packer.c **** 				received_user_token_start = command + 16u;
+  78:../SEMS_Sources/Packer.c **** 				received_user_token = (received_user_token_start[0] << 24u)+
+  79:../SEMS_Sources/Packer.c **** 							 (received_user_token_start[1] << 16u)+
+  80:../SEMS_Sources/Packer.c **** 							 (received_user_token_start[2] <<  8u)+
+  81:../SEMS_Sources/Packer.c **** 							 (received_user_token_start[3] <<  0u);
+  82:../SEMS_Sources/Packer.c **** 
+  83:../SEMS_Sources/Packer.c **** 				if(received_user_token != user_token)
+  84:../SEMS_Sources/Packer.c **** 				{
+  85:../SEMS_Sources/Packer.c **** 					is_invalid_req = true;
+  86:../SEMS_Sources/Packer.c **** 				}
+  87:../SEMS_Sources/Packer.c **** 
+  88:../SEMS_Sources/Packer.c **** 				// Extract Nonce
+  89:../SEMS_Sources/Packer.c **** 				received_user_nonce_start = command + 20u;
+  90:../SEMS_Sources/Packer.c **** 
+  91:../SEMS_Sources/Packer.c **** 
+  92:../SEMS_Sources/Packer.c **** 				// Read Nonce from Optiga
+  93:../SEMS_Sources/Packer.c **** 				optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
+  94:../SEMS_Sources/Packer.c **** 
+  95:../SEMS_Sources/Packer.c **** 				// Compare Nonces, bot BE
+  96:../SEMS_Sources/Packer.c **** 				// recv_nonced trebuie sa fie mai mare decat nonce
+  97:../SEMS_Sources/Packer.c **** 				// daca e mai mare sau egal, invalid
+  98:../SEMS_Sources/Packer.c **** 				if(0 >= memcmp(received_user_nonce_start, nonce, sizeof(nonce)))
+  99:../SEMS_Sources/Packer.c **** 				{
+ 100:../SEMS_Sources/Packer.c **** 					is_invalid_req = true;
+ 101:../SEMS_Sources/Packer.c **** 				}
+ 102:../SEMS_Sources/Packer.c **** 
+ 103:../SEMS_Sources/Packer.c **** 				if(false == is_invalid_req)
+ 104:../SEMS_Sources/Packer.c **** 				{
+ 105:../SEMS_Sources/Packer.c **** 					optiga_util_update_count_wrapper(optiga_counter_oid, 1u);
+ 106:../SEMS_Sources/Packer.c **** 				}
+ 107:../SEMS_Sources/Packer.c **** 				// Command will be OUT variable also
+ 108:../SEMS_Sources/Packer.c **** 			}
+ 109:../SEMS_Sources/Packer.c **** 		}
+ 110:../SEMS_Sources/Packer.c **** 
+ 111:../SEMS_Sources/Packer.c **** 	}
+ 112:../SEMS_Sources/Packer.c **** 	else
+ 113:../SEMS_Sources/Packer.c **** 	{
+ 114:../SEMS_Sources/Packer.c **** 		is_invalid_req = true;
+ 115:../SEMS_Sources/Packer.c **** 	}
+ 116:../SEMS_Sources/Packer.c **** 	return is_invalid_req;
+ 117:../SEMS_Sources/Packer.c **** }
+  97              	 .loc 1 117 0
+  98 003c 12B0     	 add sp,sp,#72
+  99              	.LCFI2:
+ 100              	 .cfi_remember_state
+ 101              	 .cfi_def_cfa_offset 16
+ 102              	 
+ 103 003e 70BD     	 pop {r4,r5,r6,pc}
+ 104              	.LVL10:
+ 105              	.L3:
+ 106              	.LCFI3:
+ 107              	 .cfi_restore_state
+ 108              	.LBB3:
+  62:../SEMS_Sources/Packer.c **** 
+ 109              	 .loc 1 62 0
+ 110 0040 2846     	 mov r0,r5
+ 111 0042 1821     	 movs r1,#24
+ 112 0044 0AAA     	 add r2,sp,#40
+ 113 0046 FFF7FEFF 	 bl optiga_crypt_hash_data_wrapper
+ 114              	.LVL11:
+  65:../SEMS_Sources/Packer.c **** 				{
+ 115              	 .loc 1 65 0
+ 116 004a 10A9     	 add r1,sp,#64
+ 117 004c 0822     	 movs r2,#8
+ 118 004e 05F11800 	 add r0,r5,#24
+ 119              	.LVL12:
+ 120 0052 FFF7FEFF 	 bl memcmp
+ 121              	.LVL13:
+  71:../SEMS_Sources/Packer.c **** 
+ 122              	 .loc 1 71 0
+ 123 0056 02A9     	 add r1,sp,#8
+ 124 0058 2022     	 movs r2,#32
+  65:../SEMS_Sources/Packer.c **** 				{
+ 125              	 .loc 1 65 0
+ 126 005a 0446     	 mov r4,r0
+ 127              	.LVL14:
+  71:../SEMS_Sources/Packer.c **** 
+ 128              	 .loc 1 71 0
+ 129 005c 4FF2D610 	 movw r0,#61910
+ 130              	.LVL15:
+ 131 0060 FFF7FEFF 	 bl optiga_util_read_shared_key
+ 132              	.LVL16:
+  74:../SEMS_Sources/Packer.c **** 
+ 133              	 .loc 1 74 0
+ 134 0064 2846     	 mov r0,r5
+ 135 0066 02A9     	 add r1,sp,#8
+ 136 0068 1822     	 movs r2,#24
+ 137 006a FFF7FEFF 	 bl stream_enc
+ 138              	.LVL17:
+  79:../SEMS_Sources/Packer.c **** 							 (received_user_token_start[2] <<  8u)+
+ 139              	 .loc 1 79 0
+ 140 006e 6A7C     	 ldrb r2,[r5,#17]
+  78:../SEMS_Sources/Packer.c **** 							 (received_user_token_start[1] << 16u)+
+ 141              	 .loc 1 78 0
+ 142 0070 2B7C     	 ldrb r3,[r5,#16]
+ 143              	.LVL18:
+  80:../SEMS_Sources/Packer.c **** 							 (received_user_token_start[3] <<  0u);
+ 144              	 .loc 1 80 0
+ 145 0072 AE7C     	 ldrb r6,[r5,#18]
+ 146              	.LVL19:
+  83:../SEMS_Sources/Packer.c **** 				{
+ 147              	 .loc 1 83 0
+ 148 0074 1748     	 ldr r0,.L16+4
+  81:../SEMS_Sources/Packer.c **** 
+ 149              	 .loc 1 81 0
+ 150 0076 E97C     	 ldrb r1,[r5,#19]
+  83:../SEMS_Sources/Packer.c **** 				{
+ 151              	 .loc 1 83 0
+ 152 0078 0068     	 ldr r0,[r0]
+  79:../SEMS_Sources/Packer.c **** 							 (received_user_token_start[2] <<  8u)+
+ 153              	 .loc 1 79 0
+ 154 007a 1204     	 lsls r2,r2,#16
+  78:../SEMS_Sources/Packer.c **** 							 (received_user_token_start[1] << 16u)+
+ 155              	 .loc 1 78 0
+ 156 007c 02EB0362 	 add r2,r2,r3,lsl#24
+  79:../SEMS_Sources/Packer.c **** 							 (received_user_token_start[2] <<  8u)+
+ 157              	 .loc 1 79 0
+ 158 0080 02EB0623 	 add r3,r2,r6,lsl#8
+ 159              	.LVL20:
+  80:../SEMS_Sources/Packer.c **** 							 (received_user_token_start[3] <<  0u);
+ 160              	 .loc 1 80 0
+ 161 0084 0B44     	 add r3,r3,r1
+  83:../SEMS_Sources/Packer.c **** 				{
+ 162              	 .loc 1 83 0
+ 163 0086 8342     	 cmp r3,r0
+  93:../SEMS_Sources/Packer.c **** 
+ 164              	 .loc 1 93 0
+ 165 0088 01A9     	 add r1,sp,#4
+ 166 008a 4EF22010 	 movw r0,#57632
+ 167 008e 4FF00402 	 mov r2,#4
+  83:../SEMS_Sources/Packer.c **** 				{
+ 168              	 .loc 1 83 0
+ 169 0092 0AD0     	 beq .L15
+ 170              	.LVL21:
+  93:../SEMS_Sources/Packer.c **** 
+ 171              	 .loc 1 93 0
+ 172 0094 FFF7FEFF 	 bl optiga_util_read_nonce
+ 173              	.LVL22:
+  98:../SEMS_Sources/Packer.c **** 				{
+ 174              	 .loc 1 98 0
+ 175 0098 01A9     	 add r1,sp,#4
+ 176 009a 05F11400 	 add r0,r5,#20
+ 177              	.LVL23:
+ 178 009e 0422     	 movs r2,#4
+ 179 00a0 FFF7FEFF 	 bl memcmp
+ 180              	.LVL24:
+ 181              	.L13:
+  85:../SEMS_Sources/Packer.c **** 				}
+ 182              	 .loc 1 85 0
+ 183 00a4 0120     	 movs r0,#1
+ 184              	.LVL25:
+ 185              	.LBE3:
+ 186              	 .loc 1 117 0
+ 187 00a6 12B0     	 add sp,sp,#72
+ 188              	.LCFI4:
+ 189              	 .cfi_remember_state
+ 190              	 .cfi_def_cfa_offset 16
+ 191              	 
+ 192 00a8 70BD     	 pop {r4,r5,r6,pc}
+ 193              	.LVL26:
+ 194              	.L15:
+ 195              	.LCFI5:
+ 196              	 .cfi_restore_state
+ 197              	.LBB4:
+  93:../SEMS_Sources/Packer.c **** 
+ 198              	 .loc 1 93 0
+ 199 00aa FFF7FEFF 	 bl optiga_util_read_nonce
+ 200              	.LVL27:
+  98:../SEMS_Sources/Packer.c **** 				{
+ 201              	 .loc 1 98 0
+ 202 00ae 01A9     	 add r1,sp,#4
+ 203 00b0 05F11400 	 add r0,r5,#20
+ 204              	.LVL28:
+ 205 00b4 0422     	 movs r2,#4
+ 206 00b6 FFF7FEFF 	 bl memcmp
+ 207              	.LVL29:
+ 208 00ba 0028     	 cmp r0,#0
+ 209 00bc F2DD     	 ble .L13
+ 103:../SEMS_Sources/Packer.c **** 				{
+ 210              	 .loc 1 103 0
+ 211 00be 002C     	 cmp r4,#0
+ 212 00c0 F0D1     	 bne .L13
+ 105:../SEMS_Sources/Packer.c **** 				}
+ 213              	 .loc 1 105 0
+ 214 00c2 4EF22010 	 movw r0,#57632
+ 215 00c6 0121     	 movs r1,#1
+ 216 00c8 FFF7FEFF 	 bl optiga_util_update_count_wrapper
+ 217              	.LVL30:
+ 218 00cc 2046     	 mov r0,r4
+ 219 00ce B5E7     	 b .L11
+ 220              	.L17:
+ 221              	 .align 2
+ 222              	.L16:
+ 223 00d0 00000000 	 .word logger_console
+ 224 00d4 00000000 	 .word user_token
+ 225              	.LBE4:
+ 226              	 .cfi_endproc
+ 227              	.LFE479:
+ 229              	 .section .text.write_and_pack_request,"ax",%progbits
+ 230              	 .align 2
+ 231              	 .global write_and_pack_request
+ 232              	 .thumb
+ 233              	 .thumb_func
+ 235              	write_and_pack_request:
+ 236              	.LFB480:
+ 118:../SEMS_Sources/Packer.c **** 
+ 119:../SEMS_Sources/Packer.c **** 
+ 120:../SEMS_Sources/Packer.c **** 
+ 121:../SEMS_Sources/Packer.c **** 
+ 122:../SEMS_Sources/Packer.c **** uint8_t write_and_pack_request(uint8_t msg[], uint8_t is_secure_com)
+ 123:../SEMS_Sources/Packer.c **** {
+ 237              	 .loc 1 123 0
+ 238              	 .cfi_startproc
+ 239              	 
+ 240              	 
+ 241              	.LVL31:
+ 242 0000 F0B5     	 push {r4,r5,r6,r7,lr}
+ 243              	.LCFI6:
+ 244              	 .cfi_def_cfa_offset 20
+ 245              	 .cfi_offset 4,-20
+ 246              	 .cfi_offset 5,-16
+ 247              	 .cfi_offset 6,-12
+ 248              	 .cfi_offset 7,-8
+ 249              	 .cfi_offset 14,-4
+ 250 0002 0446     	 mov r4,r0
+ 251 0004 9BB0     	 sub sp,sp,#108
+ 252              	.LCFI7:
+ 253              	 .cfi_def_cfa_offset 128
+ 124:../SEMS_Sources/Packer.c **** 	if(0u == is_secure_com)
+ 254              	 .loc 1 124 0
+ 255 0006 0029     	 cmp r1,#0
+ 256 0008 37D0     	 beq .L22
+ 257              	.LVL32:
+ 258              	.LBB5:
+ 125:../SEMS_Sources/Packer.c **** 	{
+ 126:../SEMS_Sources/Packer.c **** 		uint8_t response[32];
+ 127:../SEMS_Sources/Packer.c **** 		uint8_t send_user_token[4];
+ 128:../SEMS_Sources/Packer.c **** 
+ 129:../SEMS_Sources/Packer.c **** 
+ 130:../SEMS_Sources/Packer.c **** 		send_user_token[0] = (user_token >> 24u) & 0xFFu;
+ 131:../SEMS_Sources/Packer.c **** 				send_user_token[1] = (user_token >> 16u) & 0xFFu;
+ 132:../SEMS_Sources/Packer.c **** 				send_user_token[2] = (user_token >>  8u) & 0xFFu;
+ 133:../SEMS_Sources/Packer.c **** 				send_user_token[3] = (user_token >>  0u) & 0xFFu;
+ 134:../SEMS_Sources/Packer.c **** 
+ 135:../SEMS_Sources/Packer.c **** 		memcpy(response, msg, 16u);
+ 136:../SEMS_Sources/Packer.c **** 		memcpy(response + 16u, send_user_token, 4u);
+ 137:../SEMS_Sources/Packer.c **** 
+ 138:../SEMS_Sources/Packer.c **** 		optiga_lib_print_bytes(response, 32u);
+ 139:../SEMS_Sources/Packer.c **** 	}
+ 140:../SEMS_Sources/Packer.c **** 	else
+ 141:../SEMS_Sources/Packer.c **** 	{
+ 142:../SEMS_Sources/Packer.c **** 		uint8_t response[32];
+ 143:../SEMS_Sources/Packer.c **** 		uint8_t nonce[4];
+ 144:../SEMS_Sources/Packer.c **** 		uint8_t send_user_token[4];
+ 145:../SEMS_Sources/Packer.c **** 		uint8_t calculated_digest[32];
+ 146:../SEMS_Sources/Packer.c **** 		uint8_t key[32];
+ 147:../SEMS_Sources/Packer.c **** 		uint16_t optiga_key_oid = OPTIGA_SESKEY_OID;
+ 148:../SEMS_Sources/Packer.c **** 		uint16_t optiga_counter_oid = OPTIGA_NONCE_OID;
+ 149:../SEMS_Sources/Packer.c **** 
+ 150:../SEMS_Sources/Packer.c **** 
+ 151:../SEMS_Sources/Packer.c **** 		// Read nonce
+ 152:../SEMS_Sources/Packer.c **** 		optiga_util_read_nonce(optiga_counter_oid, nonce, sizeof(nonce));
+ 259              	 .loc 1 152 0
+ 260 000a 01A9     	 add r1,sp,#4
+ 261              	.LVL33:
+ 262 000c 4EF22010 	 movw r0,#57632
+ 263              	.LVL34:
+ 264 0010 0422     	 movs r2,#4
+ 265 0012 FFF7FEFF 	 bl optiga_util_read_nonce
+ 266              	.LVL35:
+ 153:../SEMS_Sources/Packer.c **** 
+ 154:../SEMS_Sources/Packer.c **** 		send_user_token[0] = (user_token >> 24u) & 0xFFu;
+ 267              	 .loc 1 154 0
+ 268 0016 264B     	 ldr r3,.L23
+ 155:../SEMS_Sources/Packer.c **** 		send_user_token[1] = (user_token >> 16u) & 0xFFu;
+ 156:../SEMS_Sources/Packer.c **** 		send_user_token[2] = (user_token >>  8u) & 0xFFu;
+ 157:../SEMS_Sources/Packer.c **** 		send_user_token[3] = (user_token >>  0u) & 0xFFu;
+ 158:../SEMS_Sources/Packer.c **** 
+ 159:../SEMS_Sources/Packer.c **** 
+ 160:../SEMS_Sources/Packer.c **** 		// First Pack
+ 161:../SEMS_Sources/Packer.c **** 		memcpy(response, msg, 16u);
+ 269              	 .loc 1 161 0
+ 270 0018 2068     	 ldr r0,[r4]
+ 154:../SEMS_Sources/Packer.c **** 		send_user_token[1] = (user_token >> 16u) & 0xFFu;
+ 271              	 .loc 1 154 0
+ 272 001a 1D68     	 ldr r5,[r3]
+ 273              	.LVL36:
+ 274              	 .loc 1 161 0
+ 275 001c 6168     	 ldr r1,[r4,#4]
+ 276 001e A268     	 ldr r2,[r4,#8]
+ 277 0020 E368     	 ldr r3,[r4,#12]
+ 162:../SEMS_Sources/Packer.c **** 		memcpy(response + 16u, send_user_token, 4u);
+ 163:../SEMS_Sources/Packer.c **** 		memcpy(response + 20u, nonce, 4u);
+ 278              	 .loc 1 163 0
+ 279 0022 019E     	 ldr r6,[sp,#4]
+ 161:../SEMS_Sources/Packer.c **** 		memcpy(response + 16u, send_user_token, 4u);
+ 280              	 .loc 1 161 0
+ 281 0024 02AC     	 add r4,sp,#8
+ 282              	.LVL37:
+ 283 0026 0FC4     	 stmia r4!,{r0,r1,r2,r3}
+ 154:../SEMS_Sources/Packer.c **** 		send_user_token[1] = (user_token >> 16u) & 0xFFu;
+ 284              	 .loc 1 154 0
+ 285 0028 2F0E     	 lsrs r7,r5,#24
+ 156:../SEMS_Sources/Packer.c **** 		send_user_token[3] = (user_token >>  0u) & 0xFFu;
+ 286              	 .loc 1 156 0
+ 287 002a 2B0A     	 lsrs r3,r5,#8
+ 164:../SEMS_Sources/Packer.c **** 
+ 165:../SEMS_Sources/Packer.c **** 		// Retrive Session Key
+ 166:../SEMS_Sources/Packer.c **** 		optiga_util_read_shared_key(optiga_key_oid, key, sizeof(key));  // sesion key from Secure Comm ac
+ 288              	 .loc 1 166 0
+ 289 002c 12A9     	 add r1,sp,#72
+ 155:../SEMS_Sources/Packer.c **** 		send_user_token[2] = (user_token >>  8u) & 0xFFu;
+ 290              	 .loc 1 155 0
+ 291 002e 2C0C     	 lsrs r4,r5,#16
+ 292              	 .loc 1 166 0
+ 293 0030 4FF2D610 	 movw r0,#61910
+ 294 0034 2022     	 movs r2,#32
+ 156:../SEMS_Sources/Packer.c **** 		send_user_token[3] = (user_token >>  0u) & 0xFFu;
+ 295              	 .loc 1 156 0
+ 296 0036 8DF81A30 	 strb r3,[sp,#26]
+ 154:../SEMS_Sources/Packer.c **** 		send_user_token[1] = (user_token >> 16u) & 0xFFu;
+ 297              	 .loc 1 154 0
+ 298 003a 8DF81870 	 strb r7,[sp,#24]
+ 157:../SEMS_Sources/Packer.c **** 
+ 299              	 .loc 1 157 0
+ 300 003e 8DF81B50 	 strb r5,[sp,#27]
+ 155:../SEMS_Sources/Packer.c **** 		send_user_token[2] = (user_token >>  8u) & 0xFFu;
+ 301              	 .loc 1 155 0
+ 302 0042 8DF81940 	 strb r4,[sp,#25]
+ 163:../SEMS_Sources/Packer.c **** 
+ 303              	 .loc 1 163 0
+ 304 0046 0796     	 str r6,[sp,#28]
+ 305              	 .loc 1 166 0
+ 306 0048 FFF7FEFF 	 bl optiga_util_read_shared_key
+ 307              	.LVL38:
+ 167:../SEMS_Sources/Packer.c **** 
+ 168:../SEMS_Sources/Packer.c **** 		// Encrypt ciphertext
+ 169:../SEMS_Sources/Packer.c **** 		stream_enc(response, key, 24u);
+ 308              	 .loc 1 169 0
+ 309 004c 02A8     	 add r0,sp,#8
+ 310 004e 12A9     	 add r1,sp,#72
+ 311 0050 1822     	 movs r2,#24
+ 312 0052 FFF7FEFF 	 bl stream_enc
+ 313              	.LVL39:
+ 170:../SEMS_Sources/Packer.c **** 
+ 171:../SEMS_Sources/Packer.c **** 		// Calculate Hash
+ 172:../SEMS_Sources/Packer.c **** 		optiga_crypt_hash_data_wrapper(response, 24u, calculated_digest); // SHA256(Ciphertext)
+ 314              	 .loc 1 172 0
+ 315 0056 02A8     	 add r0,sp,#8
+ 316 0058 0AAA     	 add r2,sp,#40
+ 317 005a 1821     	 movs r1,#24
+ 318 005c FFF7FEFF 	 bl optiga_crypt_hash_data_wrapper
+ 319              	.LVL40:
+ 173:../SEMS_Sources/Packer.c **** 
+ 174:../SEMS_Sources/Packer.c **** 		// Pack the message
+ 175:../SEMS_Sources/Packer.c **** 		memcpy(response + 24u, calculated_digest + 24u, 8u);
+ 320              	 .loc 1 175 0
+ 321 0060 10AB     	 add r3,sp,#64
+ 322 0062 93E80300 	 ldmia r3,{r0,r1}
+ 323 0066 08AB     	 add r3,sp,#32
+ 324 0068 83E80300 	 stmia r3,{r0,r1}
+ 176:../SEMS_Sources/Packer.c **** 
+ 177:../SEMS_Sources/Packer.c **** 		optiga_lib_print_bytes(response, 32u);
+ 325              	 .loc 1 177 0
+ 326 006c 02A8     	 add r0,sp,#8
+ 327 006e 2021     	 movs r1,#32
+ 328 0070 FFF7FEFF 	 bl optiga_lib_print_bytes
+ 329              	.LVL41:
+ 330              	.LBE5:
+ 178:../SEMS_Sources/Packer.c **** 	}
+ 179:../SEMS_Sources/Packer.c **** 
+ 180:../SEMS_Sources/Packer.c **** 	return true;
+ 181:../SEMS_Sources/Packer.c **** }
+ 331              	 .loc 1 181 0
+ 332 0074 0120     	 movs r0,#1
+ 333 0076 1BB0     	 add sp,sp,#108
+ 334              	.LCFI8:
+ 335              	 .cfi_remember_state
+ 336              	 .cfi_def_cfa_offset 20
+ 337              	 
+ 338 0078 F0BD     	 pop {r4,r5,r6,r7,pc}
+ 339              	.LVL42:
+ 340              	.L22:
+ 341              	.LCFI9:
+ 342              	 .cfi_restore_state
+ 343              	.LBB6:
+ 130:../SEMS_Sources/Packer.c **** 				send_user_token[1] = (user_token >> 16u) & 0xFFu;
+ 344              	 .loc 1 130 0
+ 345 007a 0D4B     	 ldr r3,.L23
+ 135:../SEMS_Sources/Packer.c **** 		memcpy(response + 16u, send_user_token, 4u);
+ 346              	 .loc 1 135 0
+ 347 007c 6168     	 ldr r1,[r4,#4]
+ 348              	.LVL43:
+ 130:../SEMS_Sources/Packer.c **** 				send_user_token[1] = (user_token >> 16u) & 0xFFu;
+ 349              	 .loc 1 130 0
+ 350 007e 1D68     	 ldr r5,[r3]
+ 351              	.LVL44:
+ 135:../SEMS_Sources/Packer.c **** 		memcpy(response + 16u, send_user_token, 4u);
+ 352              	 .loc 1 135 0
+ 353 0080 A268     	 ldr r2,[r4,#8]
+ 354 0082 E368     	 ldr r3,[r4,#12]
+ 355 0084 0068     	 ldr r0,[r0]
+ 356              	.LVL45:
+ 357 0086 12AC     	 add r4,sp,#72
+ 358              	.LVL46:
+ 359 0088 0FC4     	 stmia r4!,{r0,r1,r2,r3}
+ 130:../SEMS_Sources/Packer.c **** 				send_user_token[1] = (user_token >> 16u) & 0xFFu;
+ 360              	 .loc 1 130 0
+ 361 008a 2E0E     	 lsrs r6,r5,#24
+ 131:../SEMS_Sources/Packer.c **** 				send_user_token[2] = (user_token >>  8u) & 0xFFu;
+ 362              	 .loc 1 131 0
+ 363 008c 2A0C     	 lsrs r2,r5,#16
+ 138:../SEMS_Sources/Packer.c **** 	}
+ 364              	 .loc 1 138 0
+ 365 008e 12A8     	 add r0,sp,#72
+ 132:../SEMS_Sources/Packer.c **** 				send_user_token[3] = (user_token >>  0u) & 0xFFu;
+ 366              	 .loc 1 132 0
+ 367 0090 2B0A     	 lsrs r3,r5,#8
+ 138:../SEMS_Sources/Packer.c **** 	}
+ 368              	 .loc 1 138 0
+ 369 0092 2021     	 movs r1,#32
+ 130:../SEMS_Sources/Packer.c **** 				send_user_token[1] = (user_token >> 16u) & 0xFFu;
+ 370              	 .loc 1 130 0
+ 371 0094 8DF85860 	 strb r6,[sp,#88]
+ 133:../SEMS_Sources/Packer.c **** 
+ 372              	 .loc 1 133 0
+ 373 0098 8DF85B50 	 strb r5,[sp,#91]
+ 131:../SEMS_Sources/Packer.c **** 				send_user_token[2] = (user_token >>  8u) & 0xFFu;
+ 374              	 .loc 1 131 0
+ 375 009c 8DF85920 	 strb r2,[sp,#89]
+ 132:../SEMS_Sources/Packer.c **** 				send_user_token[3] = (user_token >>  0u) & 0xFFu;
+ 376              	 .loc 1 132 0
+ 377 00a0 8DF85A30 	 strb r3,[sp,#90]
+ 138:../SEMS_Sources/Packer.c **** 	}
+ 378              	 .loc 1 138 0
+ 379 00a4 FFF7FEFF 	 bl optiga_lib_print_bytes
+ 380              	.LVL47:
+ 381              	.LBE6:
+ 382              	 .loc 1 181 0
+ 383 00a8 0120     	 movs r0,#1
+ 384 00aa 1BB0     	 add sp,sp,#108
+ 385              	.LCFI10:
+ 386              	 .cfi_def_cfa_offset 20
+ 387              	 
+ 388 00ac F0BD     	 pop {r4,r5,r6,r7,pc}
+ 389              	.LVL48:
+ 390              	.L24:
+ 391 00ae 00BF     	 .align 2
+ 392              	.L23:
+ 393 00b0 00000000 	 .word user_token
+ 394              	 .cfi_endproc
+ 395              	.LFE480:
+ 397              	 .text
+ 398              	.Letext0:
+ 399              	 .file 2 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h"
+ 400              	 .file 3 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 401              	 .file 4 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 402              	 .file 5 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/XMC4800.h"
+ 403              	 .file 6 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd_regs.h"
+ 404              	 .file 7 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_usbd.h"
+ 405              	 .file 8 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd.h"
+ 406              	 .file 9 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal.h"
+ 407              	 .file 10 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal_logger.h"
+ 408              	 .file 11 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Include/core_cm4.h"
+ 409              	 .file 12 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/CMSIS/Infineon/XMC4800_series/Include/system_XMC4800.h"
+ 410              	 .file 13 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/USBD/usbd_extern.h"
+ 411              	 .file 14 "../SEMS_Sources/../SEMS_Headers/Hash.h"
+ 412              	 .file 15 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/dave4/SEMS_Headers/Skey.h"
+ 413              	 .file 16 "../SEMS_Sources/../SEMS_Headers/SymEncrypt.h"
+ 414              	 .file 17 "../SEMS_Sources/../SEMS_Headers/Nonce.h"
+ 415              	 .file 18 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\string.h"
+ 416              	 .file 19 "D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_logger.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 Packer.c
+    {standard input}:20     .text.read_and_verify_req:00000000 $t
+    {standard input}:25     .text.read_and_verify_req:00000000 read_and_verify_req
+    {standard input}:223    .text.read_and_verify_req:000000d0 $d
+    {standard input}:230    .text.write_and_pack_request:00000000 $t
+    {standard input}:235    .text.write_and_pack_request:00000000 write_and_pack_request
+    {standard input}:393    .text.write_and_pack_request:000000b0 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+pal_logger_read
+optiga_crypt_hash_data_wrapper
+memcmp
+optiga_util_read_shared_key
+stream_enc
+optiga_util_read_nonce
+optiga_util_update_count_wrapper
+logger_console
+user_token
+optiga_lib_print_bytes

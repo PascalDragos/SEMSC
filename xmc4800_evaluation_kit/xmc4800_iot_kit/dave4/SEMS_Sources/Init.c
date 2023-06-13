@@ -8,9 +8,13 @@
 
 void init_SEMS(void)
 {
+	// Init communication with Optiga
 	example_optiga_init_true();
+
+	// Start timer for cooldown
 	start_cooldown_timer();
 
-//	read_sec_config();
+	// Read from SecNvM
+	read_sec_config();
 
 }

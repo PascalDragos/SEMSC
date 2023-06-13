@@ -100,6 +100,9 @@ SEMS_Sources/Test.o SEMS_Sources/Test.d SEMS_Sources/Test.o: \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Libraries/XMCLib/inc/xmc_fce.h \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/E_EEPROM_XMC4/e_eeprom_xmc4_conf.h \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/E_EEPROM_XMC4/e_eeprom_xmc4_extern.h \
+ D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/dave4/SEMS_Headers/SecCom.h \
+ D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/Dave.h \
+ D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/dave4/SEMS_Headers/SecUnlock.h \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_crypt.h \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/cmd/optiga_cmd.h \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/common/optiga_lib_common.h \
@@ -116,13 +119,10 @@ SEMS_Sources/Test.o SEMS_Sources/Test.d SEMS_Sources/Test.o: \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/examples/optiga/include/optiga_example.h \
  D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/pal/pal_logger.h \
  ../SEMS_Sources/../SEMS_Headers/Nonce.h \
- D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/Dave.h \
  ../SEMS_Sources/../SEMS_Headers/SymEncrypt.h \
  ../SEMS_Sources/../SEMS_Headers/RSA.h \
  ../SEMS_Sources/../SEMS_Headers/Timer.h \
  ../SEMS_Sources/../SEMS_Headers/Random.h \
- ../SEMS_Sources/../SEMS_Headers/Unlock.h \
- ../SEMS_Sources/../SEMS_Headers/Com.h \
  ../SEMS_Sources/../SEMS_Headers/Hash.h \
  ../SEMS_Sources/../SEMS_Headers/Patcher.h \
  ../SEMS_Sources/../SEMS_Headers/Config.h \
@@ -333,6 +333,12 @@ D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Gene
 
 D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/E_EEPROM_XMC4/e_eeprom_xmc4_extern.h:
 
+D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/dave4/SEMS_Headers/SecCom.h:
+
+D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/Dave.h:
+
+D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/dave4/SEMS_Headers/SecUnlock.h:
+
 D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/optiga_crypt.h:
 
 D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/optiga/cmd/optiga_cmd.h:
@@ -365,8 +371,6 @@ D:/School/diseratie/SEMS/xmc4800_evaluation_kit/optiga-trust-m/optiga/include/op
 
 ../SEMS_Sources/../SEMS_Headers/Nonce.h:
 
-D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Generated/Dave.h:
-
 ../SEMS_Sources/../SEMS_Headers/SymEncrypt.h:
 
 ../SEMS_Sources/../SEMS_Headers/RSA.h:
@@ -374,10 +378,6 @@ D:/School/diseratie/SEMS/xmc4800_evaluation_kit/xmc4800_iot_kit/common/Dave/Gene
 ../SEMS_Sources/../SEMS_Headers/Timer.h:
 
 ../SEMS_Sources/../SEMS_Headers/Random.h:
-
-../SEMS_Sources/../SEMS_Headers/Unlock.h:
-
-../SEMS_Sources/../SEMS_Headers/Com.h:
 
 ../SEMS_Sources/../SEMS_Headers/Hash.h:
 
